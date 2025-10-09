@@ -147,6 +147,12 @@ export function InteractiveMap() {
       ]
     };
 
+    // Wine zone descriptions
+    const wineDescriptions: Record<string, string> = {
+      'Langhe & Roero': 'Home to Barolo and Barbaresco, the "King and Queen" of Italian wines. Rolling hills covered in Nebbiolo vines produce some of the world\'s most prestigious and age-worthy wines.',
+      'Monferrato': 'Famous for Barbera and Moscato d\'Asti. This UNESCO World Heritage site is a patchwork of vineyards, medieval castles, and hilltop villages stretching across gentle hills.'
+    };
+
     // Create wine zones layer
     wineLayerRef.current = L.geoJSON(wineZonesGeoJSON, {
       style: {
@@ -163,9 +169,29 @@ export function InteractiveMap() {
             direction: 'center',
             className: 'wine-zone-label'
           });
+          
+          // Add popup with description
+          const description = wineDescriptions[feature.properties.name] || '';
+          const popupContent = `
+            <div class="zone-popup">
+              <h3 class="font-bold text-base mb-2 text-foreground">${feature.properties.name}</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">${description}</p>
+            </div>
+          `;
+          layer.bindPopup(popupContent, {
+            className: 'custom-popup',
+            maxWidth: 300,
+            closeButton: true
+          });
         }
       }
     });
+
+    // Natural park descriptions
+    const parkDescriptions: Record<string, string> = {
+      'Gran Paradiso Area': 'Italy\'s oldest national park, established in 1922. Alpine ibex, golden eagles, and chamois roam through dramatic peaks, glaciers, and pristine valleys at the French border.',
+      'Alpi Marittime Area': 'Where the Alps meet the Mediterranean. Ancient salt routes, wolves, and rare alpine flowers thrive in this protected wilderness connecting Piemonte to the French Riviera.'
+    };
 
     // Create natural parks layer
     parksLayerRef.current = L.geoJSON(naturalParksGeoJSON, {
@@ -182,6 +208,20 @@ export function InteractiveMap() {
             permanent: true,
             direction: 'center',
             className: 'natural-park-label'
+          });
+          
+          // Add popup with description
+          const description = parkDescriptions[feature.properties.name] || '';
+          const popupContent = `
+            <div class="zone-popup">
+              <h3 class="font-bold text-base mb-2 text-foreground">${feature.properties.name}</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">${description}</p>
+            </div>
+          `;
+          layer.bindPopup(popupContent, {
+            className: 'custom-popup',
+            maxWidth: 300,
+            closeButton: true
           });
         }
       }
@@ -317,11 +357,20 @@ export function InteractiveMap() {
             }
             .custom-popup .leaflet-popup-close-button {
               color: hsl(var(--muted-foreground)) !important;
-              font-size: 20px !important;
-              padding: 8px 12px !important;
+              font-size: 18px !important;
+              padding: 4px 8px !important;
+              width: 24px !important;
+              height: 24px !important;
+              top: 8px !important;
+              right: 8px !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
             }
             .custom-popup .leaflet-popup-close-button:hover {
               color: hsl(var(--foreground)) !important;
+              background: hsl(var(--accent)) !important;
+              border-radius: 4px !important;
             }
             .city-popup {
               min-width: 200px;
