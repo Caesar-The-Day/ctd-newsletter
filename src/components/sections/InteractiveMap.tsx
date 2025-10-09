@@ -1,23 +1,55 @@
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { useEffect, useRef } from 'react';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
-
-// Component to fit bounds on mount
-function FitBounds() {
-  const map = useMap();
-  
-  useEffect(() => {
-    // Piemonte bounding box - SW and NE corners
-    map.fitBounds([
-      [44.0625, 6.6267],
-      [46.5520, 9.0981]
-    ]);
-  }, [map]);
-  
-  return null;
-}
 
 export function InteractiveMap() {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<L.Map | null>(null);
+
+  useEffect(() => {
+    if (!mapRef.current || mapInstance.current) return;
+
+    const apiKey = import.meta.env.VITE_MAPTILER_KEY;
+    
+    if (!apiKey) {
+      console.error('MapTiler API key not found');
+      return;
+    }
+
+    // Initialize map with Piemonte configuration
+    const map = L.map(mapRef.current, {
+      center: [45.07, 7.88],
+      zoom: 7.2,
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+
+    // Add MapTiler tile layer
+    L.tileLayer(
+      `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${apiKey}`,
+      {
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 1,
+        attribution: '© MapTiler © OpenStreetMap contributors',
+        crossOrigin: true,
+      }
+    ).addTo(map);
+
+    // Fit to Piemonte bounds
+    const bounds: L.LatLngBoundsExpression = [
+      [44.0625, 6.6267], // Southwest
+      [46.5520, 9.0981]  // Northeast
+    ];
+    map.fitBounds(bounds);
+
+    mapInstance.current = map;
+
+    return () => {
+      map.remove();
+    };
+  }, []);
+
   const apiKey = import.meta.env.VITE_MAPTILER_KEY;
 
   if (!apiKey) {
@@ -40,8 +72,6 @@ export function InteractiveMap() {
     );
   }
 
-  const tileUrl = `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${apiKey}`;
-
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -53,18 +83,10 @@ export function InteractiveMap() {
             Tucked against the Alps in northwestern Italy, Piemonte is where mountain peaks meet rolling vineyards.
           </p>
           
-          <div className="w-full h-[500px] md:h-[600px] rounded-lg shadow-soft overflow-hidden">
-            <MapContainer
-              center={[45.07, 7.88]}
-              zoom={7.2}
-              scrollWheelZoom={false}
-              style={{ height: '100%', width: '100%' }}
-              className="z-0"
-            >
-              <TileLayer url={tileUrl} />
-              <FitBounds />
-            </MapContainer>
-          </div>
+          <div 
+            ref={mapRef}
+            className="w-full h-[500px] md:h-[600px] rounded-lg shadow-soft overflow-hidden"
+          />
         </div>
       </div>
     </section>
