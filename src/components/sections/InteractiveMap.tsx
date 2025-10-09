@@ -164,12 +164,6 @@ export function InteractiveMap() {
       },
       onEachFeature: (feature, layer) => {
         if (feature.properties?.name) {
-          layer.bindTooltip(feature.properties.name, {
-            permanent: true,
-            direction: 'center',
-            className: 'wine-zone-label'
-          });
-          
           // Add popup with description
           const description = wineDescriptions[feature.properties.name] || '';
           const popupContent = `
@@ -182,6 +176,21 @@ export function InteractiveMap() {
             className: 'custom-popup',
             maxWidth: 300,
             closeButton: true
+          });
+          
+          // Add hover effects
+          layer.on('mouseover', function() {
+            this.setStyle({
+              fillOpacity: 0.5,
+              weight: 3
+            });
+          });
+          
+          layer.on('mouseout', function() {
+            this.setStyle({
+              fillOpacity: 0.3,
+              weight: 2
+            });
           });
         }
       }
@@ -204,12 +213,6 @@ export function InteractiveMap() {
       },
       onEachFeature: (feature, layer) => {
         if (feature.properties?.name) {
-          layer.bindTooltip(feature.properties.name, {
-            permanent: true,
-            direction: 'center',
-            className: 'natural-park-label'
-          });
-          
           // Add popup with description
           const description = parkDescriptions[feature.properties.name] || '';
           const popupContent = `
@@ -222,6 +225,21 @@ export function InteractiveMap() {
             className: 'custom-popup',
             maxWidth: 300,
             closeButton: true
+          });
+          
+          // Add hover effects
+          layer.on('mouseover', function() {
+            this.setStyle({
+              fillOpacity: 0.4,
+              weight: 3
+            });
+          });
+          
+          layer.on('mouseout', function() {
+            this.setStyle({
+              fillOpacity: 0.25,
+              weight: 2
+            });
           });
         }
       }
@@ -375,6 +393,9 @@ export function InteractiveMap() {
             .city-popup {
               min-width: 200px;
             }
+            .zone-popup {
+              min-width: 250px;
+            }
             
             /* Popup animation */
             .leaflet-popup {
@@ -391,36 +412,10 @@ export function InteractiveMap() {
               }
             }
             
-            /* Wine Zone Labels */
-            .wine-zone-label {
-              background: rgba(255, 255, 255, 0.95) !important;
-              border: 2px solid #a63d40 !important;
-              color: #7a2d2f !important;
-              font-weight: 600 !important;
-              font-size: 13px !important;
-              padding: 6px 12px !important;
-              border-radius: 6px !important;
-              box-shadow: 0 2px 8px rgba(166, 61, 64, 0.3) !important;
-              white-space: nowrap !important;
-            }
-            .wine-zone-label::before {
-              display: none !important;
-            }
-            
-            /* Natural Park Labels */
-            .natural-park-label {
-              background: rgba(255, 255, 255, 0.95) !important;
-              border: 2px solid #2e8b57 !important;
-              color: #1e5a3a !important;
-              font-weight: 600 !important;
-              font-size: 13px !important;
-              padding: 6px 12px !important;
-              border-radius: 6px !important;
-              box-shadow: 0 2px 8px rgba(46, 139, 87, 0.3) !important;
-              white-space: nowrap !important;
-            }
-            .natural-park-label::before {
-              display: none !important;
+            /* Smooth transitions for zone layers */
+            .leaflet-interactive {
+              cursor: pointer;
+              transition: all 0.3s ease;
             }
           `}</style>
         </div>
