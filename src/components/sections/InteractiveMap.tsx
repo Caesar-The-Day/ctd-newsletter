@@ -1,6 +1,20 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { MapPin } from 'lucide-react';
+import { renderToString } from 'react-dom/server';
+
+const cities = [
+  { name: 'Turin (Torino)', coords: [45.0703, 7.6869] as [number, number], description: 'Elegant capital of the north — arcades, chocolate, and quiet grandeur.' },
+  { name: 'Alba', coords: [44.7006, 8.0340] as [number, number], description: 'White truffle capital of Italy — Barolo in the glass, magic underground.' },
+  { name: 'Asti', coords: [44.9000, 8.2050] as [number, number], description: 'Birthplace of spumante; think bubbles, palio horses, and perfect pace.' },
+  { name: 'Cuneo', coords: [44.3833, 7.5500] as [number, number], description: 'Gateway to the Alps — crisp air, Barolo nearby, and real mountain calm.' },
+  { name: 'Alessandria', coords: [44.9130, 8.6170] as [number, number], description: 'Junction city between Milan, Genoa, and Turin — practical and connected.' },
+  { name: 'Novara', coords: [45.4455, 8.6179] as [number, number], description: 'Rice fields, risotto, and Renaissance towers — the quiet northern edge.' },
+  { name: 'Verbania', coords: [45.9216, 8.5560] as [number, number], description: 'Overlooking Lake Maggiore — Alpine views meet Riviera charm.' },
+  { name: 'Orta San Giulio', coords: [45.8003, 8.4108] as [number, number], description: 'Romantic island village on Lake Orta — serenity in postcard form.' },
+  { name: 'Barolo', coords: [44.6103, 7.9467] as [number, number], description: 'Wine royalty — a village that smells like oak barrels and ambition.' },
+];
 
 export function InteractiveMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -42,6 +56,34 @@ export function InteractiveMap() {
       [46.5520, 9.0981]  // Northeast
     ];
     map.fitBounds(bounds);
+
+    // Add city markers
+    cities.forEach((city) => {
+      const iconHtml = renderToString(
+        <MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />
+      );
+
+      const customIcon = L.divIcon({
+        html: `
+          <div class="city-marker group cursor-pointer">
+            <div class="marker-icon transition-all duration-200 group-hover:scale-125 group-hover:drop-shadow-lg">
+              ${iconHtml}
+            </div>
+            <div class="marker-label text-xs font-semibold text-foreground bg-background/90 px-2 py-1 rounded shadow-sm whitespace-nowrap mt-1 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+              ${city.name}
+            </div>
+          </div>
+        `,
+        className: 'custom-marker',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+      });
+
+      const marker = L.marker(city.coords, { icon: customIcon }).addTo(map);
+      
+      // Store description for later use in Step 3
+      (marker as any).cityDescription = city.description;
+    });
 
     mapInstance.current = map;
 
@@ -87,6 +129,28 @@ export function InteractiveMap() {
             ref={mapRef}
             className="w-full h-[500px] md:h-[600px] rounded-lg shadow-soft overflow-hidden"
           />
+          
+          <style>{`
+            .city-marker {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              position: relative;
+            }
+            .marker-icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: white;
+              border-radius: 50%;
+              padding: 4px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+            .custom-marker {
+              background: transparent !important;
+              border: none !important;
+            }
+          `}</style>
         </div>
       </div>
     </section>
