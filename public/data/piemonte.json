@@ -24,30 +24,114 @@
     }
   },
   "where": {
+    "intro": {
+      "headline": "Where is Piemonte?",
+      "copy": "Piemonte sits in Italy's northwest corner, cradled by the Alps and bordered by France and Switzerland. The name means 'at the foot of the mountains'—and that's exactly where you'll find yourself. From Alpine peaks to vineyard-covered hills, from royal Turin to medieval market towns, this region offers diverse landscapes within an hour's drive. The Po Valley spreads across the plains, while legendary wine zones like Barolo and Barbaresco roll through the Langhe hills."
+    },
     "map": {
       "center": [7.68, 45.07],
-      "zoom": 7,
+      "zoom": 7.5,
+      "pitch": 45,
+      "bearing": 0,
+      "animationPath": [
+        { "center": [7.6869, 45.0703], "zoom": 10, "duration": 3000, "label": "Torino - Regional Capital" },
+        { "center": [8.0357, 44.7006], "zoom": 11, "duration": 3000, "label": "Alba - Truffle Country" },
+        { "center": [8.2064, 44.9007], "zoom": 11, "duration": 3000, "label": "Asti - Historic Wine Town" },
+        { "center": [7.68, 45.07], "zoom": 7.5, "duration": 2000, "label": "Piemonte Region" }
+      ],
       "markers": [
         {
           "id": "torino",
           "name": "Torino",
           "coords": [7.6869, 45.0703],
           "photo": "/images/piemonte/torino.jpg",
-          "blurb": "Capital city with world-class services, culture, and healthcare. Elegant without the chaos of Rome or Milan."
+          "blurb": "Capital city with world-class services, culture, and healthcare. Elegant without the chaos of Rome or Milan.",
+          "population": "870,000",
+          "elevation": "239m"
         },
         {
           "id": "alba",
           "name": "Alba",
           "coords": [8.0357, 44.7006],
           "photo": "/images/piemonte/alba.jpg",
-          "blurb": "Heart of truffle country and Barolo wine. The epicenter of Piemontese gastronomy."
+          "blurb": "Heart of truffle country and Barolo wine. The epicenter of Piemontese gastronomy.",
+          "population": "31,000",
+          "elevation": "172m"
         },
         {
           "id": "asti",
           "name": "Asti",
           "coords": [8.2064, 44.9007],
           "photo": "/images/piemonte/asti.jpg",
-          "blurb": "Historic center with practical services. More affordable than Alba, equally charming."
+          "blurb": "Historic center with practical services. More affordable than Alba, equally charming.",
+          "population": "76,000",
+          "elevation": "123m"
+        },
+        {
+          "id": "cuneo",
+          "name": "Cuneo",
+          "coords": [7.5514, 44.3841],
+          "photo": "/images/piemonte/cuneo.jpg",
+          "blurb": "Gateway to southern Alps. Skiing nearby. More affordable than vineyard zones.",
+          "population": "56,000",
+          "elevation": "534m"
+        },
+        {
+          "id": "verbania",
+          "name": "Verbania",
+          "coords": [8.5514, 45.9214],
+          "photo": "/images/piemonte/verbania.jpg",
+          "blurb": "Lakeside living on Lago Maggiore. Mild climate with Alpine backdrop.",
+          "population": "30,000",
+          "elevation": "197m"
+        },
+        {
+          "id": "novara",
+          "name": "Novara",
+          "coords": [8.6211, 45.4469],
+          "photo": "/images/piemonte/novara.jpg",
+          "blurb": "Strategic location between Milan and Torino. Rice paddies and good transit.",
+          "population": "104,000",
+          "elevation": "162m"
+        },
+        {
+          "id": "alessandria",
+          "name": "Alessandria",
+          "coords": [8.6155, 44.9139],
+          "photo": "/images/piemonte/alessandria.jpg",
+          "blurb": "Budget-friendly city on main rail line. Authentic Italian life without frills.",
+          "population": "93,000",
+          "elevation": "95m"
+        },
+        {
+          "id": "biella",
+          "name": "Biella",
+          "coords": [8.0553, 45.5631],
+          "photo": "/images/piemonte/biella.jpg",
+          "blurb": "Historic wool industry town in Alpine foothills. Quieter, nature-focused.",
+          "population": "45,000",
+          "elevation": "420m"
+        },
+        {
+          "id": "bra",
+          "name": "Bra",
+          "coords": [7.8514, 44.6958],
+          "photo": "/images/piemonte/bra.jpg",
+          "blurb": "Birthplace of Slow Food movement. Small but culturally rich.",
+          "population": "30,000",
+          "elevation": "290m"
+        }
+      ],
+      "layers": [
+        {
+          "id": "vineyards",
+          "label": "Wine Regions",
+          "enabled": true
+        },
+        {
+          "id": "terrain",
+          "label": "Terrain",
+          "enabled": true
         }
       ],
       "externalMapUrl": "https://maps.google.com/?q=Piemonte+Italy"

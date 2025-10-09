@@ -54,15 +54,34 @@ export interface RegionData {
     };
   };
   where: {
+    intro: {
+      headline: string;
+      copy: string;
+    };
     map: {
       center: [number, number];
       zoom: number;
+      pitch?: number;
+      bearing?: number;
+      animationPath?: Array<{
+        center: [number, number];
+        zoom: number;
+        duration: number;
+        label: string;
+      }>;
       markers: Array<{
         id: string;
         name: string;
         coords: [number, number];
         photo: string;
         blurb: string;
+        population?: string;
+        elevation?: string;
+      }>;
+      layers?: Array<{
+        id: string;
+        label: string;
+        enabled: boolean;
       }>;
       externalMapUrl: string;
     };
