@@ -14,9 +14,11 @@
       "headline": "Bentornati.",
       "byline": "— Cesare",
       "paragraphs": [
-        "Some Americans dream of Tuscany's rolling hills. Others picture the Amalfi Coast's dramatic cliffs. But the Italians who truly understand Italy? They keep quiet about Piemonte.",
-        "This is the region where food becomes religion, where wine cellars hold more history than museums, and where the Alps meet ancient vineyards in a symphony of seasons. Torino—once the capital of Italy—offers world-class healthcare and culture without Rome's chaos. The Langhe hills cradle Barolo and Barbaresco. And in autumn, when the truffles emerge, you'll understand why locals guard this secret so fiercely.",
-        "Is Piemonte right for your retirement conquest? Let's find out. Veni, vidi, vici—come, see, conquer."
+        "If Abruzzo was my birthday toast, Piemonte is the hangover cure — strong coffee, mountain air, and a reminder that Italy isn’t all sunshine and sea. This is the region that keeps the country grounded while everyone else chases dolce vita clichés.",
+        "October here smells like truffles and wood smoke. The hills around Alba are laced with vines heavy from the Barolo harvest, while mist rolls through the Langhe like it has somewhere important to be. Turin’s cafés hum with quiet confidence — the kind that built an empire of chocolate, cinema, and Fiat engines. In the Alps, villages tuck in for winter, their roofs already catching the first snow dusting.",
+        "Piemonte doesn’t flirt. It seduces slowly, with competence and class. This is Italy with its shirt buttoned, the region that taught the rest of the country how to do business and still have time for lunch. The food is serious, the wines are legends, and the people — polite, precise, slightly suspicious of hype — are living proof that modesty and mastery can share the same table.",
+        "What makes Piemonte fascinating for retirees isn’t just its refinement; it’s its stability. The healthcare system is excellent, the trains run (mostly) on time, and the cost of living, while higher than Abruzzo’s, is still a bargain compared to Milan or Florence. You get proximity to the Alps, France, and the Riviera — without the chaos that often comes with beauty.",
+        "So pour a glass of Barbera, light a fire if you’re lucky enough to have one, and settle in. This month we’re heading north — to a region where Italy trades its drama for depth, and where la dolce vita wears a cashmere coat."
       ],
       "portrait": "/images/cesare-portrait.jpg"
     }
@@ -121,11 +123,7 @@
         "photo": "/images/piemonte/torino-hero.jpg",
         "summary": "Italy's fourth-largest city, but it feels manageable. Former capital with regal architecture, excellent museums, and a café culture that rivals Vienna. World-class hospitals. University energy. Efficient public transit. Not touristy—this is a real working city where Italians actually live. Perfect if you want urban amenities without Rome's chaos.",
         "mapUrl": "https://maps.google.com/?q=Torino+Italy",
-        "gallery": [
-          "/images/piemonte/torino1.jpg",
-          "/images/piemonte/torino2.jpg",
-          "/images/piemonte/torino3.jpg"
-        ],
+        "gallery": ["/images/piemonte/torino1.jpg", "/images/piemonte/torino2.jpg", "/images/piemonte/torino3.jpg"],
         "links": [
           {
             "label": "City Website",
@@ -144,10 +142,7 @@
         "photo": "/images/piemonte/alba-hero.jpg",
         "summary": "The white truffle capital of the world. Barolo and Barbaresco vineyards surround you. October's truffle fair draws global crowds—exciting but intense. Small-town feel with big-time gastronomy. Expect higher costs in exchange for being at the epicenter of Italian food culture. Not a place for hermits; this is social, culinary, communal living.",
         "mapUrl": "https://maps.google.com/?q=Alba+Italy",
-        "gallery": [
-          "/images/piemonte/alba1.jpg",
-          "/images/piemonte/alba2.jpg"
-        ],
+        "gallery": ["/images/piemonte/alba1.jpg", "/images/piemonte/alba2.jpg"],
         "links": [
           {
             "label": "Truffle Fair",
@@ -166,10 +161,7 @@
         "photo": "/images/piemonte/asti-hero.jpg",
         "summary": "Alba's more practical neighbor. Historic center with medieval towers. Good rail connections. Hospital. Supermarkets. Banks. Everything you need without the tourist premium. The Asti wine zone surrounds it. Less glamorous than Alba but equally authentic—and more affordable. Ideal for those who want substance over style.",
         "mapUrl": "https://maps.google.com/?q=Asti+Italy",
-        "gallery": [
-          "/images/piemonte/asti1.jpg",
-          "/images/piemonte/asti2.jpg"
-        ],
+        "gallery": ["/images/piemonte/asti1.jpg", "/images/piemonte/asti2.jpg"],
         "links": [
           {
             "label": "City Website",
