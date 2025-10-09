@@ -155,6 +155,15 @@ export function InteractiveMap() {
         color: '#a63d40',
         weight: 2,
         opacity: 0.6
+      },
+      onEachFeature: (feature, layer) => {
+        if (feature.properties?.name) {
+          layer.bindTooltip(feature.properties.name, {
+            permanent: true,
+            direction: 'center',
+            className: 'wine-zone-label'
+          });
+        }
       }
     });
 
@@ -166,6 +175,15 @@ export function InteractiveMap() {
         color: '#2e8b57',
         weight: 2,
         opacity: 0.5
+      },
+      onEachFeature: (feature, layer) => {
+        if (feature.properties?.name) {
+          layer.bindTooltip(feature.properties.name, {
+            permanent: true,
+            direction: 'center',
+            className: 'natural-park-label'
+          });
+        }
       }
     });
 
@@ -322,6 +340,38 @@ export function InteractiveMap() {
                 opacity: 1;
                 transform: translateY(0);
               }
+            }
+            
+            /* Wine Zone Labels */
+            .wine-zone-label {
+              background: rgba(255, 255, 255, 0.95) !important;
+              border: 2px solid #a63d40 !important;
+              color: #7a2d2f !important;
+              font-weight: 600 !important;
+              font-size: 13px !important;
+              padding: 6px 12px !important;
+              border-radius: 6px !important;
+              box-shadow: 0 2px 8px rgba(166, 61, 64, 0.3) !important;
+              white-space: nowrap !important;
+            }
+            .wine-zone-label::before {
+              display: none !important;
+            }
+            
+            /* Natural Park Labels */
+            .natural-park-label {
+              background: rgba(255, 255, 255, 0.95) !important;
+              border: 2px solid #2e8b57 !important;
+              color: #1e5a3a !important;
+              font-weight: 600 !important;
+              font-size: 13px !important;
+              padding: 6px 12px !important;
+              border-radius: 6px !important;
+              box-shadow: 0 2px 8px rgba(46, 139, 87, 0.3) !important;
+              white-space: nowrap !important;
+            }
+            .natural-park-label::before {
+              display: none !important;
             }
           `}</style>
         </div>
