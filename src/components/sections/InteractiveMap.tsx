@@ -287,61 +287,75 @@ export function InteractiveMap() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground text-center">
               Where is Piemonte?
             </h2>
-            <p>
-    Piemonte sits quietly in Italy’s northwest corner, hemmed in by France and Switzerland and
-    shadowed by the Alps like a bodyguard that never sleeps. This is where the Po River begins — a
-    trickle under glaciers that becomes Italy’s lifeline. Turin, the capital, is both industrial heart and
-    cultural brain: elegant boulevards, arcades that go on forever, and a café culture that could
-    out-French the French.
-  </p>
+            <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
+              <p>
+                Piemonte sits quietly in Italy's northwest corner, hemmed in by France and Switzerland and
+                shadowed by the Alps like a bodyguard that never sleeps. This is where the Po River begins — a
+                trickle under glaciers that becomes Italy's lifeline. Turin, the capital, is both industrial heart and
+                cultural brain: elegant boulevards, arcades that go on forever, and a café culture that could
+                out-French the French.
+              </p>
 
-  <p>
-    To the north lie Lago Maggiore and Lago d’Orta, glittering retreats with Alpine backdrops. South and
-    east, the Langhe and Monferrato roll out their vineyards in cinematic slow motion — truffles beneath
-    the soil, Barolo and Barbaresco in the glass. To the west, the Alps rise in jagged waves, separating
-    Piemonte from France but linking it spiritually to Savoy and the Riviera beyond.
-  </p>
-<h3 className="mt-8 font-semibold text-xl">Borders &amp; Access</h3>
-  <ul className="list-disc list-inside space-y-1">
-    <li>
-      <strong>West:</strong> France — cross via the Fréjus or Col de Montgenèvre tunnels, or even scenic
-      mountain passes in summer.
-    </li>
-    <li>
-      <strong>North:</strong> Switzerland — day-trip distance from Lake Maggiore to Locarno or Lugano.
-    </li>
-    <li>
-      <strong>East:</strong> Lombardy — Milan is less than 90 minutes from Turin by train.
-    </li>
-    <li>
-      <strong>South:</strong> Liguria — the sea’s only two hours away; locals ski in the morning and eat
-      focaccia in the afternoon.
-    </li>
-  </ul>
+              <p>
+                To the north lie Lago Maggiore and Lago d'Orta, glittering retreats with Alpine backdrops. South and
+                east, the Langhe and Monferrato roll out their vineyards in cinematic slow motion — truffles beneath
+                the soil, Barolo and Barbaresco in the glass. To the west, the Alps rise in jagged waves, separating
+                Piemonte from France but linking it spiritually to Savoy and the Riviera beyond.
+              </p>
 
-  <h3 className="mt-8 font-semibold text-xl">How to Get There</h3>
-  <ul className="list-disc list-inside space-y-1">
-    <li>
-      <strong>By Car:</strong> The A4 and A21 motorways connect Turin to Milan, Genoa, and the French
-      border.
-    </li>
-    <li>
-      <strong>By Rail:</strong> High-speed trains link Turin directly with Milan, Florence, Rome, and Paris.
-    </li>
-    <li>
-      <strong>By Air:</strong> Turin Caselle Airport handles both budget and legacy carriers; Milan Malpensa
-      is the backup plan for transatlantic flights.
-    </li>
-    <li>
-      <strong>By Mindset:</strong> You’re officially in the Italy that works — a rare, comforting sentence.
-    </li>
-  </ul>
+              <h3 className="mt-8 font-semibold text-xl">Borders &amp; Access</h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>
+                  <strong>West:</strong> France — cross via the Fréjus or Col de Montgenèvre tunnels, or even scenic
+                  mountain passes in summer.
+                </li>
+                <li>
+                  <strong>North:</strong> Switzerland — day-trip distance from Lake Maggiore to Locarno or Lugano.
+                </li>
+                <li>
+                  <strong>East:</strong> Lombardy — Milan is less than 90 minutes from Turin by train.
+                </li>
+                <li>
+                  <strong>South:</strong> Liguria — the sea's only two hours away; locals ski in the morning and eat
+                  focaccia in the afternoon.
+                </li>
+              </ul>
 
-  <h3 className="mt-8 font-semibold text-xl">Bottom Line</h3>
-  <p>
-    Piemonte is Italy’s hinge between north and south — French finesse meets Italian heart. For retirees,
-    it means easy access to Alps, Riviera, and Milan’s airports, all without the chaos of the big cities.
-  </p>
+              <h3 className="mt-8 font-semibold text-xl">How to Get There</h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>
+                  <strong>By Car:</strong> The A4 and A21 motorways connect Turin to Milan, Genoa, and the French
+                  border.
+                </li>
+                <li>
+                  <strong>By Rail:</strong> High-speed trains link Turin directly with Milan, Florence, Rome, and Paris.
+                </li>
+                <li>
+                  <strong>By Air:</strong> Turin Caselle Airport handles both budget and legacy carriers; Milan Malpensa
+                  is the backup plan for transatlantic flights.
+                </li>
+                <li>
+                  <strong>By Mindset:</strong> You're officially in the Italy that works — a rare, comforting sentence.
+                </li>
+              </ul>
+
+              <h3 className="mt-8 font-semibold text-xl">Bottom Line</h3>
+              <p>
+                Piemonte is Italy's hinge between north and south — French finesse meets Italian heart. For retirees,
+                it means easy access to Alps, Riviera, and Milan's airports, all without the chaos of the big cities.
+              </p>
+
+              <div className="mt-6">
+                <a
+                  href="https://news.caesartheday.com/piemonte-map"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Open the Interactive Map of Piemonte
+                </a>
+              </div>
+            </div>
             
             <div className="w-full h-[500px] md:h-[600px] rounded-lg bg-muted flex items-center justify-center">
               <p className="text-muted-foreground">Map unavailable - API key missing</p>
@@ -359,61 +373,75 @@ export function InteractiveMap() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground text-center">
             Where is Piemonte?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-    Piemonte sits quietly in Italy’s northwest corner, hemmed in by France and Switzerland and
-    shadowed by the Alps like a bodyguard that never sleeps. This is where the Po River begins — a
-    trickle under glaciers that becomes Italy’s lifeline. Turin, the capital, is both industrial heart and
-    cultural brain: elegant boulevards, arcades that go on forever, and a café culture that could
-    out-French the French.
-  </p>
+          <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
+            <p>
+              Piemonte sits quietly in Italy's northwest corner, hemmed in by France and Switzerland and
+              shadowed by the Alps like a bodyguard that never sleeps. This is where the Po River begins — a
+              trickle under glaciers that becomes Italy's lifeline. Turin, the capital, is both industrial heart and
+              cultural brain: elegant boulevards, arcades that go on forever, and a café culture that could
+              out-French the French.
+            </p>
 
-  <p>
-    To the north lie Lago Maggiore and Lago d’Orta, glittering retreats with Alpine backdrops. South and
-    east, the Langhe and Monferrato roll out their vineyards in cinematic slow motion — truffles beneath
-    the soil, Barolo and Barbaresco in the glass. To the west, the Alps rise in jagged waves, separating
-    Piemonte from France but linking it spiritually to Savoy and the Riviera beyond.
-  </p>
-<h3 className="mt-8 font-semibold text-xl">Borders &amp; Access</h3>
-  <ul className="list-disc list-inside space-y-1">
-    <li>
-      <strong>West:</strong> France — cross via the Fréjus or Col de Montgenèvre tunnels, or even scenic
-      mountain passes in summer.
-    </li>
-    <li>
-      <strong>North:</strong> Switzerland — day-trip distance from Lake Maggiore to Locarno or Lugano.
-    </li>
-    <li>
-      <strong>East:</strong> Lombardy — Milan is less than 90 minutes from Turin by train.
-    </li>
-    <li>
-      <strong>South:</strong> Liguria — the sea’s only two hours away; locals ski in the morning and eat
-      focaccia in the afternoon.
-    </li>
-  </ul>
+            <p>
+              To the north lie Lago Maggiore and Lago d'Orta, glittering retreats with Alpine backdrops. South and
+              east, the Langhe and Monferrato roll out their vineyards in cinematic slow motion — truffles beneath
+              the soil, Barolo and Barbaresco in the glass. To the west, the Alps rise in jagged waves, separating
+              Piemonte from France but linking it spiritually to Savoy and the Riviera beyond.
+            </p>
 
-  <h3 className="mt-8 font-semibold text-xl">How to Get There</h3>
-  <ul className="list-disc list-inside space-y-1">
-    <li>
-      <strong>By Car:</strong> The A4 and A21 motorways connect Turin to Milan, Genoa, and the French
-      border.
-    </li>
-    <li>
-      <strong>By Rail:</strong> High-speed trains link Turin directly with Milan, Florence, Rome, and Paris.
-    </li>
-    <li>
-      <strong>By Air:</strong> Turin Caselle Airport handles both budget and legacy carriers; Milan Malpensa
-      is the backup plan for transatlantic flights.
-    </li>
-    <li>
-      <strong>By Mindset:</strong> You’re officially in the Italy that works — a rare, comforting sentence.
-    </li>
-  </ul>
+            <h3 className="mt-8 font-semibold text-xl">Borders &amp; Access</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                <strong>West:</strong> France — cross via the Fréjus or Col de Montgenèvre tunnels, or even scenic
+                mountain passes in summer.
+              </li>
+              <li>
+                <strong>North:</strong> Switzerland — day-trip distance from Lake Maggiore to Locarno or Lugano.
+              </li>
+              <li>
+                <strong>East:</strong> Lombardy — Milan is less than 90 minutes from Turin by train.
+              </li>
+              <li>
+                <strong>South:</strong> Liguria — the sea's only two hours away; locals ski in the morning and eat
+                focaccia in the afternoon.
+              </li>
+            </ul>
 
-  <h3 className="mt-8 font-semibold text-xl">Bottom Line</h3>
-  <p>
-    Piemonte is Italy’s hinge between north and south — French finesse meets Italian heart. For retirees,
-    it means easy access to Alps, Riviera, and Milan’s airports, all without the chaos of the big cities.
-  </p>
+            <h3 className="mt-8 font-semibold text-xl">How to Get There</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                <strong>By Car:</strong> The A4 and A21 motorways connect Turin to Milan, Genoa, and the French
+                border.
+              </li>
+              <li>
+                <strong>By Rail:</strong> High-speed trains link Turin directly with Milan, Florence, Rome, and Paris.
+              </li>
+              <li>
+                <strong>By Air:</strong> Turin Caselle Airport handles both budget and legacy carriers; Milan Malpensa
+                is the backup plan for transatlantic flights.
+              </li>
+              <li>
+                <strong>By Mindset:</strong> You're officially in the Italy that works — a rare, comforting sentence.
+              </li>
+            </ul>
+
+            <h3 className="mt-8 font-semibold text-xl">Bottom Line</h3>
+            <p>
+              Piemonte is Italy's hinge between north and south — French finesse meets Italian heart. For retirees,
+              it means easy access to Alps, Riviera, and Milan's airports, all without the chaos of the big cities.
+            </p>
+
+            <div className="mt-6">
+              <a
+                href="https://news.caesartheday.com/piemonte-map"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-4 rounded-md transition"
+              >
+                Open the Interactive Map of Piemonte
+              </a>
+            </div>
+          </div>
 
           {/* Layer Toggle Controls */}
           <div className="flex flex-wrap gap-2 justify-center mb-4">
@@ -450,92 +478,46 @@ export function InteractiveMap() {
               position: relative;
             }
             .marker-icon {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              background: white;
-              border-radius: 50%;
-              padding: 4px;
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+              filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            }
+            .marker-label {
+              position: absolute;
+              top: 100%;
+              z-index: 1000;
+              pointer-events: none;
             }
             .custom-marker {
               background: transparent !important;
               border: none !important;
             }
-            
-            /* Custom popup styling */
-            .custom-popup .leaflet-popup-content-wrapper {
-              background: hsl(var(--background));
-              border: 1px solid hsl(var(--border));
-              border-radius: 0.5rem;
-              box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-              padding: 0;
-            }
-            .custom-popup .leaflet-popup-content {
-              margin: 0;
-              font-family: inherit;
-            }
-            .custom-popup .leaflet-popup-tip {
-              background: hsl(var(--background));
-              border: 1px solid hsl(var(--border));
-              border-top: none;
-              border-right: none;
-            }
-            .custom-popup .leaflet-popup-close-button {
-              color: hsl(var(--muted-foreground)) !important;
-              font-size: 18px !important;
-              padding: 4px 8px !important;
-              width: 24px !important;
-              height: 24px !important;
-              top: 8px !important;
-              right: 8px !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-            }
-            .custom-popup .leaflet-popup-close-button:hover {
-              color: hsl(var(--foreground)) !important;
-              background: hsl(var(--accent)) !important;
-              border-radius: 4px !important;
+            .leaflet-popup-content-wrapper {
+              border-radius: 8px;
+              overflow: hidden;
             }
             .city-popup {
-              min-width: 200px;
-              padding: 0;
+              width: 260px;
             }
             .popup-image {
               width: 100%;
-              height: 120px;
+              height: 140px;
               object-fit: cover;
-              border-radius: 0.5rem 0.5rem 0 0;
-              margin: 0;
-              display: block;
+              margin: -16px -20px 12px -20px;
             }
             .popup-content {
-              padding: 1rem;
+              padding: 0 4px;
             }
             .zone-popup {
-              min-width: 250px;
+              padding: 8px;
             }
-            
-            /* Popup animation */
-            .leaflet-popup {
-              animation: popupFadeIn 0.3s ease-out;
-            }
-            @keyframes popupFadeIn {
-              from {
-                opacity: 0;
-                transform: translateY(-10px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-            
-            /* Smooth transitions for zone layers */
-            .leaflet-interactive {
-              cursor: pointer;
-              transition: all 0.3s ease;
+            .leaflet-popup-close-button {
+              top: 8px !important;
+              right: 8px !important;
+              font-size: 24px !important;
+              padding: 0 !important;
+              width: 24px !important;
+              height: 24px !important;
+              line-height: 24px !important;
+              text-align: center !important;
             }
           `}</style>
         </div>
