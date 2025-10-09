@@ -1,0 +1,150 @@
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { ExternalLink, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface FeaturedTown {
+  id: string;
+  name: string;
+  bestFor: string;
+  photo: string;
+  summary: string;
+  mapUrl: string;
+  gallery: string[];
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
+}
+
+interface TownsFeaturedProps {
+  towns: FeaturedTown[];
+}
+
+export function TownsFeatured({ towns }: TownsFeaturedProps) {
+  const [galleryIndices, setGalleryIndices] = useState<Record<string, number>>({});
+
+  const nextImage = (townId: string, maxIndex: number) => {
+    setGalleryIndices((prev) => ({
+      ...prev,
+      [townId]: ((prev[townId] || 0) + 1) % (maxIndex + 1),
+    }));
+  };
+
+  const prevImage = (townId: string, maxIndex: number) => {
+    setGalleryIndices((prev) => ({
+      ...prev,
+      [townId]: ((prev[townId] || 0) - 1 + (maxIndex + 1)) % (maxIndex + 1),
+    }));
+  };
+
+  return (
+    <section className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Towns</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            The best of Piemonte—where you'll actually want to live
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {towns.map((town) => {
+            const currentIndex = galleryIndices[town.id] || 0;
+            const currentImage = town.gallery[currentIndex] || town.photo;
+            const hasGallery = town.gallery.length > 1;
+
+            return (
+              <Card key={town.id} className="overflow-hidden shadow-medium hover-lift">
+                {/* Image Gallery */}
+                <div className="relative h-64 group">
+                  <img
+                    src={currentImage}
+                    alt={`${town.name} ${currentIndex + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Gallery Controls */}
+                  {hasGallery && (
+                    <>
+                      <button
+                        onClick={() => prevImage(town.id, town.gallery.length - 1)}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => nextImage(town.id, town.gallery.length - 1)}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                        {town.gallery.map((_, idx) => (
+                          <div
+                            key={idx}
+                            className={`w-2 h-2 rounded-full ${
+                              idx === currentIndex ? 'bg-white' : 'bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
+                      {town.bestFor}
+                    </span>
+                  </div>
+                </div>
+
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold mb-3">{town.name}</h3>
+                  <p className="text-foreground/80 mb-4 leading-relaxed">
+                    {town.summary}
+                  </p>
+
+                  {/* Links */}
+                  <div className="space-y-2">
+                    <Button variant="outline" size="sm" asChild className="w-full">
+                      <a
+                        href={town.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MapPin className="h-4 w-4 mr-2" />
+                        View on Map
+                      </a>
+                    </Button>
+
+                    {town.links?.map((link) => (
+                      <Button
+                        key={link.label}
+                        variant="ghost"
+                        size="sm"
+                        asChild
+                        className="w-full"
+                      >
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          {link.label}
+                        </a>
+                      </Button>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
