@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin } from 'lucide-react';
+import { MapPin, Wine, Mountain } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
+import { Button } from '@/components/ui/button';
 
 const cities = [
   { name: 'Turin (Torino)', coords: [45.0703, 7.6869] as [number, number], description: 'Elegant capital of the north — arcades, chocolate, and quiet grandeur.' },
@@ -19,6 +20,10 @@ const cities = [
 export function InteractiveMap() {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
+  const wineLayerRef = useRef<L.GeoJSON | null>(null);
+  const parksLayerRef = useRef<L.GeoJSON | null>(null);
+  const [showWineZones, setShowWineZones] = useState(false);
+  const [showNaturalParks, setShowNaturalParks] = useState(false);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
@@ -96,12 +101,102 @@ export function InteractiveMap() {
       });
     });
 
+    // Wine Zones GeoJSON
+    const wineZonesGeoJSON = {
+      type: 'FeatureCollection' as const,
+      features: [
+        {
+          type: 'Feature' as const,
+          properties: { name: 'Langhe & Roero' },
+          geometry: {
+            type: 'Polygon' as const,
+            coordinates: [[[7.8,44.5],[8.3,44.5],[8.3,44.8],[7.8,44.8],[7.8,44.5]]]
+          }
+        },
+        {
+          type: 'Feature' as const,
+          properties: { name: 'Monferrato' },
+          geometry: {
+            type: 'Polygon' as const,
+            coordinates: [[[8.1,44.8],[8.5,44.8],[8.5,45.0],[8.1,45.0],[8.1,44.8]]]
+          }
+        }
+      ]
+    };
+
+    // Natural Parks GeoJSON (approximated areas)
+    const naturalParksGeoJSON = {
+      type: 'FeatureCollection' as const,
+      features: [
+        {
+          type: 'Feature' as const,
+          properties: { name: 'Gran Paradiso Area' },
+          geometry: {
+            type: 'Polygon' as const,
+            coordinates: [[[7.0,45.3],[7.4,45.3],[7.4,45.7],[7.0,45.7],[7.0,45.3]]]
+          }
+        },
+        {
+          type: 'Feature' as const,
+          properties: { name: 'Alpi Marittime Area' },
+          geometry: {
+            type: 'Polygon' as const,
+            coordinates: [[[7.2,44.0],[7.6,44.0],[7.6,44.3],[7.2,44.3],[7.2,44.0]]]
+          }
+        }
+      ]
+    };
+
+    // Create wine zones layer
+    wineLayerRef.current = L.geoJSON(wineZonesGeoJSON, {
+      style: {
+        fillColor: '#a63d40',
+        fillOpacity: 0.3,
+        color: '#a63d40',
+        weight: 2,
+        opacity: 0.6
+      }
+    });
+
+    // Create natural parks layer
+    parksLayerRef.current = L.geoJSON(naturalParksGeoJSON, {
+      style: {
+        fillColor: '#2e8b57',
+        fillOpacity: 0.25,
+        color: '#2e8b57',
+        weight: 2,
+        opacity: 0.5
+      }
+    });
+
     mapInstance.current = map;
 
     return () => {
       map.remove();
     };
   }, []);
+
+  // Toggle wine zones layer
+  useEffect(() => {
+    if (!mapInstance.current || !wineLayerRef.current) return;
+    
+    if (showWineZones) {
+      wineLayerRef.current.addTo(mapInstance.current);
+    } else {
+      wineLayerRef.current.remove();
+    }
+  }, [showWineZones]);
+
+  // Toggle natural parks layer
+  useEffect(() => {
+    if (!mapInstance.current || !parksLayerRef.current) return;
+    
+    if (showNaturalParks) {
+      parksLayerRef.current.addTo(mapInstance.current);
+    } else {
+      parksLayerRef.current.remove();
+    }
+  }, [showNaturalParks]);
 
   const apiKey = import.meta.env.VITE_MAPTILER_KEY;
 
@@ -135,6 +230,28 @@ export function InteractiveMap() {
           <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
             Tucked against the Alps in northwestern Italy, Piemonte is where mountain peaks meet rolling vineyards.
           </p>
+
+          {/* Layer Toggle Controls */}
+          <div className="flex flex-wrap gap-2 justify-center mb-4">
+            <Button
+              variant={showWineZones ? "default" : "outline"}
+              size="sm"
+              onClick={() => setShowWineZones(!showWineZones)}
+              className="gap-2"
+            >
+              <Wine className="w-4 h-4" />
+              Wine Zones
+            </Button>
+            <Button
+              variant={showNaturalParks ? "default" : "outline"}
+              size="sm"
+              onClick={() => setShowNaturalParks(!showNaturalParks)}
+              className="gap-2"
+            >
+              <Mountain className="w-4 h-4" />
+              Natural Parks
+            </Button>
+          </div>
           
           <div 
             ref={mapRef}
