@@ -81,8 +81,19 @@ export function InteractiveMap() {
 
       const marker = L.marker(city.coords, { icon: customIcon }).addTo(map);
       
-      // Store description for later use in Step 3
-      (marker as any).cityDescription = city.description;
+      // Add popup with city description
+      const popupContent = `
+        <div class="city-popup">
+          <h3 class="font-bold text-base mb-2 text-foreground">${city.name}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">${city.description}</p>
+        </div>
+      `;
+      
+      marker.bindPopup(popupContent, {
+        className: 'custom-popup',
+        maxWidth: 280,
+        closeButton: true,
+      });
     });
 
     mapInstance.current = map;
@@ -149,6 +160,51 @@ export function InteractiveMap() {
             .custom-marker {
               background: transparent !important;
               border: none !important;
+            }
+            
+            /* Custom popup styling */
+            .custom-popup .leaflet-popup-content-wrapper {
+              background: hsl(var(--background));
+              border: 1px solid hsl(var(--border));
+              border-radius: 0.5rem;
+              box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+              padding: 0;
+            }
+            .custom-popup .leaflet-popup-content {
+              margin: 1rem;
+              font-family: inherit;
+            }
+            .custom-popup .leaflet-popup-tip {
+              background: hsl(var(--background));
+              border: 1px solid hsl(var(--border));
+              border-top: none;
+              border-right: none;
+            }
+            .custom-popup .leaflet-popup-close-button {
+              color: hsl(var(--muted-foreground)) !important;
+              font-size: 20px !important;
+              padding: 8px 12px !important;
+            }
+            .custom-popup .leaflet-popup-close-button:hover {
+              color: hsl(var(--foreground)) !important;
+            }
+            .city-popup {
+              min-width: 200px;
+            }
+            
+            /* Popup animation */
+            .leaflet-popup {
+              animation: popupFadeIn 0.3s ease-out;
+            }
+            @keyframes popupFadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(-10px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
             }
           `}</style>
         </div>
