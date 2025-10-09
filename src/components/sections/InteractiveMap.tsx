@@ -6,15 +6,15 @@ import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
 
 const cities = [
-  { name: 'Turin (Torino)', coords: [45.0703, 7.6869] as [number, number], description: 'Elegant capital of the north — arcades, chocolate, and quiet grandeur.' },
-  { name: 'Alba', coords: [44.7006, 8.0340] as [number, number], description: 'White truffle capital of Italy — Barolo in the glass, magic underground.' },
-  { name: 'Asti', coords: [44.9000, 8.2050] as [number, number], description: 'Birthplace of spumante; think bubbles, palio horses, and perfect pace.' },
-  { name: 'Cuneo', coords: [44.3833, 7.5500] as [number, number], description: 'Gateway to the Alps — crisp air, Barolo nearby, and real mountain calm.' },
-  { name: 'Alessandria', coords: [44.9130, 8.6170] as [number, number], description: 'Junction city between Milan, Genoa, and Turin — practical and connected.' },
-  { name: 'Novara', coords: [45.4455, 8.6179] as [number, number], description: 'Rice fields, risotto, and Renaissance towers — the quiet northern edge.' },
-  { name: 'Verbania', coords: [45.9216, 8.5560] as [number, number], description: 'Overlooking Lake Maggiore — Alpine views meet Riviera charm.' },
-  { name: 'Orta San Giulio', coords: [45.8003, 8.4108] as [number, number], description: 'Romantic island village on Lake Orta — serenity in postcard form.' },
-  { name: 'Barolo', coords: [44.6103, 7.9467] as [number, number], description: 'Wine royalty — a village that smells like oak barrels and ambition.' },
+  { name: 'Turin (Torino)', coords: [45.0703, 7.6869] as [number, number], description: 'Elegant capital of the north — arcades, chocolate, and quiet grandeur.', image: '/images/piemonte/torino.jpg' },
+  { name: 'Alba', coords: [44.7006, 8.0340] as [number, number], description: 'White truffle capital of Italy — Barolo in the glass, magic underground.', image: '/images/piemonte/alba.jpg' },
+  { name: 'Asti', coords: [44.9000, 8.2050] as [number, number], description: 'Birthplace of spumante; think bubbles, palio horses, and perfect pace.', image: '/images/piemonte/asti.jpg' },
+  { name: 'Cuneo', coords: [44.3833, 7.5500] as [number, number], description: 'Gateway to the Alps — crisp air, Barolo nearby, and real mountain calm.', image: '/images/piemonte/cuneo.jpg' },
+  { name: 'Alessandria', coords: [44.9130, 8.6170] as [number, number], description: 'Junction city between Milan, Genoa, and Turin — practical and connected.', image: '/images/piemonte/alessandria.jpg' },
+  { name: 'Novara', coords: [45.4455, 8.6179] as [number, number], description: 'Rice fields, risotto, and Renaissance towers — the quiet northern edge.', image: '/images/piemonte/novara.jpg' },
+  { name: 'Verbania', coords: [45.9216, 8.5560] as [number, number], description: 'Overlooking Lake Maggiore — Alpine views meet Riviera charm.', image: '/images/piemonte/verbania.jpg' },
+  { name: 'Orta San Giulio', coords: [45.8003, 8.4108] as [number, number], description: 'Romantic island village on Lake Orta — serenity in postcard form.', image: '/images/piemonte/market.jpg' },
+  { name: 'Barolo', coords: [44.6103, 7.9467] as [number, number], description: 'Wine royalty — a village that smells like oak barrels and ambition.', image: '/images/piemonte/barolo.jpg' },
 ];
 
 export function InteractiveMap() {
@@ -89,8 +89,11 @@ export function InteractiveMap() {
       // Add popup with city description
       const popupContent = `
         <div class="city-popup">
-          <h3 class="font-bold text-base mb-2 text-foreground">${city.name}</h3>
-          <p class="text-sm text-muted-foreground leading-relaxed">${city.description}</p>
+          <img src="${city.image}" alt="${city.name}" class="popup-image" />
+          <div class="popup-content">
+            <h3 class="font-bold text-base mb-2 text-foreground">${city.name}</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">${city.description}</p>
+          </div>
         </div>
       `;
       
@@ -364,7 +367,7 @@ export function InteractiveMap() {
               padding: 0;
             }
             .custom-popup .leaflet-popup-content {
-              margin: 1rem;
+              margin: 0;
               font-family: inherit;
             }
             .custom-popup .leaflet-popup-tip {
@@ -392,6 +395,18 @@ export function InteractiveMap() {
             }
             .city-popup {
               min-width: 200px;
+              padding: 0;
+            }
+            .popup-image {
+              width: 100%;
+              height: 120px;
+              object-fit: cover;
+              border-radius: 0.5rem 0.5rem 0 0;
+              margin: 0;
+              display: block;
+            }
+            .popup-content {
+              padding: 1rem;
             }
             .zone-popup {
               min-width: 250px;
