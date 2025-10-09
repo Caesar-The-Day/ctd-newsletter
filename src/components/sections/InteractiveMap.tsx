@@ -287,9 +287,62 @@ export function InteractiveMap() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground text-center">
               Where is Piemonte?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-              Tucked against the Alps in northwestern Italy, Piemonte is where mountain peaks meet rolling vineyards.
-            </p>
+            <p>
+    Piemonte sits quietly in Italy’s northwest corner, hemmed in by France and Switzerland and
+    shadowed by the Alps like a bodyguard that never sleeps. This is where the Po River begins — a
+    trickle under glaciers that becomes Italy’s lifeline. Turin, the capital, is both industrial heart and
+    cultural brain: elegant boulevards, arcades that go on forever, and a café culture that could
+    out-French the French.
+  </p>
+
+  <p>
+    To the north lie Lago Maggiore and Lago d’Orta, glittering retreats with Alpine backdrops. South and
+    east, the Langhe and Monferrato roll out their vineyards in cinematic slow motion — truffles beneath
+    the soil, Barolo and Barbaresco in the glass. To the west, the Alps rise in jagged waves, separating
+    Piemonte from France but linking it spiritually to Savoy and the Riviera beyond.
+  </p>
+<h3 className="mt-8 font-semibold text-xl">Borders &amp; Access</h3>
+  <ul className="list-disc list-inside space-y-1">
+    <li>
+      <strong>West:</strong> France — cross via the Fréjus or Col de Montgenèvre tunnels, or even scenic
+      mountain passes in summer.
+    </li>
+    <li>
+      <strong>North:</strong> Switzerland — day-trip distance from Lake Maggiore to Locarno or Lugano.
+    </li>
+    <li>
+      <strong>East:</strong> Lombardy — Milan is less than 90 minutes from Turin by train.
+    </li>
+    <li>
+      <strong>South:</strong> Liguria — the sea’s only two hours away; locals ski in the morning and eat
+      focaccia in the afternoon.
+    </li>
+  </ul>
+
+  <h3 className="mt-8 font-semibold text-xl">How to Get There</h3>
+  <ul className="list-disc list-inside space-y-1">
+    <li>
+      <strong>By Car:</strong> The A4 and A21 motorways connect Turin to Milan, Genoa, and the French
+      border.
+    </li>
+    <li>
+      <strong>By Rail:</strong> High-speed trains link Turin directly with Milan, Florence, Rome, and Paris.
+    </li>
+    <li>
+      <strong>By Air:</strong> Turin Caselle Airport handles both budget and legacy carriers; Milan Malpensa
+      is the backup plan for transatlantic flights.
+    </li>
+    <li>
+      <strong>By Mindset:</strong> You’re officially in the Italy that works — a rare, comforting sentence.
+    </li>
+  </ul>
+
+  <h3 className="mt-8 font-semibold text-xl">Bottom Line</h3>
+  <p>
+    Piemonte is Italy’s hinge between north and south — French finesse meets Italian heart. For retirees,
+    it means easy access to Alps, Riviera, and Milan’s airports, all without the chaos of the big cities.
+  </p>
+            
             <div className="w-full h-[500px] md:h-[600px] rounded-lg bg-muted flex items-center justify-center">
               <p className="text-muted-foreground">Map unavailable - API key missing</p>
             </div>
