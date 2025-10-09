@@ -5,6 +5,7 @@ import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { HeroParallax } from '@/components/sections/HeroParallax';
 import { EditorialIntro } from '@/components/sections/EditorialIntro';
+import { InteractiveMap } from '@/components/sections/InteractiveMap';
 import { WineQuiz } from '@/components/sections/WineQuiz';
 import { CostCalculator } from '@/components/sections/CostCalculator';
 import { TownsFeatured } from '@/components/sections/TownsFeatured';
@@ -61,6 +62,8 @@ export default function RegionPage() {
         paragraphs={regionData.region.intro.paragraphs}
         portrait={regionData.region.intro.portrait}
       />
+
+      <InteractiveMap />
 
       <TownsFeatured towns={regionData.towns.featured} />
       
