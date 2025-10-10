@@ -15,6 +15,9 @@ export interface GlobalsData {
   brand: {
     siteTitle: string;
     motto: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    heroByline: string;
     logoPath: string;
     palette: {
       primary: string;

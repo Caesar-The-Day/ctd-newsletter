@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { getGlobals, getRegionData, GlobalsData, RegionData } from '@/utils/getRegionData';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
+import { Separator } from '@/components/ui/separator';
 import { HeroParallax } from '@/components/sections/HeroParallax';
 import { EditorialIntro } from '@/components/sections/EditorialIntro';
 import { InteractiveMap } from '@/components/sections/InteractiveMap';
@@ -56,6 +57,9 @@ export default function RegionPage() {
         date={regionData.region.date}
         credit={regionData.region.hero.credit}
         ambientAudio={regionData.region.hero.ambientAudio}
+        brandTitle={globals.brand.heroTitle}
+        brandSubtitle={globals.brand.heroSubtitle}
+        brandByline={globals.brand.heroByline}
       />
 
       <EditorialIntro
@@ -65,6 +69,8 @@ export default function RegionPage() {
         portrait={regionData.region.intro.portrait}
       />
 
+      <Separator className="my-16" />
+
       <InteractiveMap />
 
       <TownsFeatured towns={regionData.towns.featured} />
@@ -73,6 +79,8 @@ export default function RegionPage() {
 
       <TownsGrid towns={regionData.towns.grid} />
 
+      <Separator className="my-16" />
+
       <HighlightsShowcase highlights={regionData.highlights} />
 
       <WineQuiz profiles={regionData.wine.quiz.profiles} />
@@ -80,6 +88,8 @@ export default function RegionPage() {
       <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />
 
       <InlineCTA globals={globals} ctaIds={['vf']} />
+
+      <Separator className="my-16" />
 
       <HealthcareInfrastructure healthcare={regionData.healthcare} />
 
@@ -91,6 +101,8 @@ export default function RegionPage() {
       />
 
       <ProsConsInteractive prosCons={regionData.prosCons} />
+
+      <Separator className="my-16" />
 
       <InlineCTA globals={globals} ctaIds={['map7']} />
 

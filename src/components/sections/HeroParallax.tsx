@@ -10,6 +10,9 @@ interface HeroParallaxProps {
   date: string;
   credit: string;
   ambientAudio?: string;
+  brandTitle: string;
+  brandSubtitle: string;
+  brandByline: string;
 }
 
 export function HeroParallax({
@@ -20,10 +23,10 @@ export function HeroParallax({
   date,
   credit,
   ambientAudio,
+  brandTitle,
+  brandSubtitle,
+  brandByline,
 }: HeroParallaxProps) {
-  const brandTitle = "Veni | Vidi | Vici";
-  const brandSubtitle = "Your guide to conquering retirement in Italy";
-  const brandByline = "by CaesarTheDay";
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
