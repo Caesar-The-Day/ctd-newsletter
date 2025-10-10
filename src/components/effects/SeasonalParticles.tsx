@@ -59,17 +59,18 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
       size: currentSeasonType === "winter" ? 6 + Math.random() * 10 : 4 + Math.random() * 8,
       symbol: getSymbolForSeason(currentSeasonType),
     }));
+    console.log(`[SeasonalParticles] Generated ${particleCount} ${currentSeasonType} particles for month ${monthIndex}`);
     setParticles(newParticles);
   }, [monthIndex]);
 
   const getParticleStyle = (type: SeasonType) => {
     switch (type) {
       case "winter":
-        return "text-blue-100/70";
+        return "text-blue-100";
       case "spring":
-        return "text-pink-200/60";
+        return "text-pink-300/80";
       case "autumn":
-        return "text-orange-300/60";
+        return "text-orange-400/80";
       default:
         return "text-white/50";
     }
@@ -92,7 +93,7 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   // Summer heat distortion effect
   if (seasonType === "summer") {
     return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
         {/* Heat distortion waves */}
         <div className="absolute inset-0 animate-heat-wave opacity-20" 
           style={{
@@ -111,7 +112,7 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
       {particles.map((particle) => (
         <div
           key={particle.id}
@@ -122,7 +123,7 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
             fontSize: `${particle.size}px`,
             animationDelay: `${particle.delay}s`,
             animationDuration: `${particle.duration}s`,
-            opacity: 0.7,
+            opacity: 0.9,
           }}
         >
           {particle.symbol}
