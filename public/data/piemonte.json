@@ -276,232 +276,211 @@
       }
     ]
   },
-  "highlights": {
-    "wine": {
-      "title": "Wine — The Architecture of Flavor",
-      "intro": "Piemonte's vineyards don't just make wine — they define the landscape. Hills that look painted were actually engineered for Nebbiolo, the grape behind Barolo and Barbaresco. Every slope, every fog bank, every century-old cellar tells a story about precision and patience. This is wine not for drinking, but for studying — preferably with a corkscrew in hand.",
-      "backgroundImage": "/images/piemonte/vineyard-fall.jpg",
-      "cards": [
-        {
-          "id": "barolo-barbaresco",
-          "title": "Barolo & Barbaresco",
-          "subtitle": "Nebbiolo at its finest",
-          "image": "/images/piemonte/barolo.jpg",
-          "description": "Visit the UNESCO-listed Langhe vineyards and explore tastings through the Strada del Barolo e Grandi Vini di Langa.",
-          "links": [
-            {
-              "label": "Strada del Barolo",
-              "href": "https://www.stradadelbarolo.it/"
-            }
-          ]
-        },
-        {
-          "id": "barbera-dolcetto",
-          "title": "Barbera d'Asti & Dolcetto d'Alba",
-          "subtitle": "Approachable, everyday wines",
-          "image": "/images/piemonte/dolcetto.jpg",
-          "description": "Balance and bite. Learn more at Consorzio Piemonte Land of Wine.",
-          "links": [
-            {
-              "label": "Piemonte Wine Consortium",
-              "href": "https://www.piemontewine.com/"
-            }
-          ]
-        },
-        {
-          "id": "whites",
-          "title": "Whites of Roero and Gavi",
-          "subtitle": "Crisp, mineral, quietly powerful",
-          "image": "/images/piemonte/arneis.jpg",
-          "description": "Discover the region's exceptional white wines, from Arneis to Gavi di Gavi.",
-          "links": [
-            {
-              "label": "Roero Wine Region",
-              "href": "https://www.langheroero.it/"
-            }
-          ]
-        },
-        {
-          "id": "vineyard-tours",
-          "title": "Vineyard Experience",
-          "subtitle": "Book tastings and local tours",
-          "image": "/images/piemonte/hero-vineyards.jpg",
-          "description": "Immerse yourself in wine culture with guided tastings and vineyard tours.",
-          "links": [
-            {
-              "label": "Langhe.net Tours",
-              "href": "https://www.langhe.net/"
-            }
-          ]
-        }
-      ]
+    "highlights": {
+      "wine": {
+        "title": "WINE — Precision in Every Hillside",
+        "intro": "In Piemonte, wine isn't agriculture — it's architecture. Hills rise and curve with mathematical purpose, each slope engineered to catch just the right light. The region's UNESCO-listed vineyard landscapes of Langhe, Roero, and Monferrato are a monument to human discipline in pursuit of flavor. This is where the Nebbiolo grape becomes Barolo and Barbaresco, wines of patience and structure; where Barbera, Dolcetto, and Arneis define everyday elegance. The story of Piemonte's wines isn't about excess; it's about restraint. These are wines made for slow meals, foggy evenings, and quiet company — bottles that reward conversation as much as aging. The geography does most of the work, the people simply listen to it.",
+        "backgroundImage": "/images/piemonte/vineyard-fall.jpg",
+        "cards": [
+          {
+            "id": "unesco-vineyards",
+            "title": "UNESCO Vineyard Landscapes",
+            "subtitle": "Langhe, Roero, and Monferrato",
+            "image": "/images/piemonte/hero-vineyards.jpg",
+            "description": "Hills that rise with mathematical purpose. Each slope engineered to catch the right light. A monument to human discipline in pursuit of flavor.",
+            "links": [
+              {
+                "label": "UNESCO Vineyard Landscapes",
+                "href": "https://whc.unesco.org/en/list/1390/"
+              }
+            ]
+          },
+          {
+            "id": "signature-grapes",
+            "title": "Nebbiolo, Barbera, Arneis",
+            "subtitle": "Patience, structure, everyday elegance",
+            "image": "/images/piemonte/barolo.jpg",
+            "description": "Nebbiolo becomes Barolo and Barbaresco — wines of patience and structure. Barbera and Dolcetto offer balance and bite. Arneis and Gavi bring crisp, mineral power.",
+            "links": [
+              {
+                "label": "Piemonte Wine Consortium",
+                "href": "https://www.piemontewine.com/"
+              }
+            ]
+          },
+          {
+            "id": "vineyard-stewardship",
+            "title": "Multigenerational Producers",
+            "subtitle": "Culture of vineyard stewardship",
+            "image": "/images/piemonte/vineyard-fall.jpg",
+            "description": "Family producers who listen to the geography. Harvest, fog season, truffle season — a rhythm measured in generations, not quarters.",
+            "links": [
+              {
+                "label": "Langhe.net Tours",
+                "href": "https://www.langhe.net/"
+              }
+            ]
+          }
+        ]
+      },
+      "food": {
+        "title": "FOOD — When Simplicity Learns Restraint",
+        "intro": "Piemonte's food culture reads like a manifesto: take fewer ingredients, make them matter more. This is the region that invented Slow Food, not as a trend but as a protest — against speed, uniformity, and the loss of local taste. From Bra to Asti, markets overflow not with novelty but with precision: hazelnuts that taste like memory, butter that silences a room, and pasta so thin it flutters when you breathe. Meals here don't start until they mean something. Bagna càuda turns a bowl of anchovies and garlic into a social ritual. Tajarin pasta and agnolotti del plin are acts of regional loyalty. And in autumn, white truffles emerge like folklore — sudden, expensive, and irresistible.",
+        "backgroundImage": "/images/piemonte/market.jpg",
+        "cards": [
+          {
+            "id": "white-truffle",
+            "title": "White Truffle of Alba",
+            "subtitle": "Sudden, expensive, irresistible",
+            "image": "/images/piemonte/tajarin.jpg",
+            "description": "Emerge like folklore each autumn. Visit the International Alba White Truffle Fair for the full sensory experience — a heritage-level culinary event.",
+            "links": [
+              {
+                "label": "Alba Truffle Fair",
+                "href": "https://www.fieradeltartufo.org/"
+              }
+            ]
+          },
+          {
+            "id": "cultural-dishes",
+            "title": "Tajarin, Agnolotti, Bagna Càuda",
+            "subtitle": "Acts of regional loyalty",
+            "image": "/images/piemonte/bagna.jpg",
+            "description": "Pasta so thin it flutters when you breathe. Bagna càuda: anchovies, garlic, olive oil — a communal ritual that turns restraint into warmth.",
+            "links": [
+              {
+                "label": "Visit Piemonte – Recipes",
+                "href": "https://www.visitpiemonte.com/"
+              }
+            ]
+          },
+          {
+            "id": "slow-food",
+            "title": "Slow Food International",
+            "subtitle": "Born in Bra as protest, not trend",
+            "image": "/images/piemonte/bra.jpg",
+            "description": "Against speed, uniformity, and the loss of local taste. The manifesto started here: take fewer ingredients, make them matter more.",
+            "links": [
+              {
+                "label": "Slow Food International",
+                "href": "https://www.slowfood.com/"
+              }
+            ]
+          },
+          {
+            "id": "markets",
+            "title": "Markets of Precision",
+            "subtitle": "Hazelnuts, butter, and memory",
+            "image": "/images/piemonte/market.jpg",
+            "description": "From Bra to Asti, markets overflow with precision rather than novelty. Hazelnuts that taste like memory, butter that silences a room.",
+            "links": [
+              {
+                "label": "Visit Piemonte – Gastronomy",
+                "href": "https://www.visitpiemonte.com/"
+              }
+            ]
+          }
+        ]
+      },
+      "culture": {
+        "title": "CULTURE — Where Grandeur Whispers, Not Shouts",
+        "intro": "Piemonte's cultural personality is subtle — stately façades, arcaded streets, and a calm intellect that reveals itself slowly. Turin, once the capital of a kingdom and now one of Europe's most underappreciated cultural cities, leads the region's aesthetic dialogue. Its museums — from the Museo Egizio to the Museum of Cinema — rival global icons, while its concert halls and galleries carry an understated confidence. Beyond the city, royal palaces, baroque towns, and contemporary art fairs create a patchwork of heritage that feels lived-in rather than staged. This is culture you stumble into, not queue for: frescoes in village churches, festivals that fill medieval squares, and jazz spilling from Turin's colonnades. Piemonte rewards curiosity over spectacle.",
+        "backgroundImage": "/images/piemonte/torino-hero.jpg",
+        "cards": [
+          {
+            "id": "museo-egizio",
+            "title": "Museo Egizio",
+            "subtitle": "World's greatest Egyptian collection outside Cairo",
+            "image": "/images/piemonte/torino1.jpg",
+            "description": "Rivals global icons with understated confidence. Ancient Egyptian archaeology in a city that knows subtlety.",
+            "links": [
+              {
+                "label": "Visit Museo Egizio",
+                "href": "https://museoegizio.it/"
+              }
+            ]
+          },
+          {
+            "id": "cinema-museum",
+            "title": "Museo Nazionale del Cinema",
+            "subtitle": "A cinematic cathedral inside the Mole",
+            "image": "/images/piemonte/torino2.jpg",
+            "description": "Film history and art housed in Turin's iconic tower — a monument to serious cinema in a subtle city.",
+            "links": [
+              {
+                "label": "Cinema Museum",
+                "href": "https://www.museocinema.it/"
+              }
+            ]
+          },
+          {
+            "id": "venaria-reale",
+            "title": "Reggia di Venaria Reale",
+            "subtitle": "Savoy opulence, better lighting than Versailles",
+            "image": "/images/piemonte/torino3.jpg",
+            "description": "A UNESCO World Heritage site. Royal grandeur that feels lived-in rather than staged.",
+            "links": [
+              {
+                "label": "Plan Your Visit",
+                "href": "https://www.lavenaria.it/"
+              }
+            ]
+          },
+          {
+            "id": "collisioni-festival",
+            "title": "Collisioni Festival",
+            "subtitle": "Literature, music, wine in Barolo",
+            "image": "/images/piemonte/alba.jpg",
+            "description": "Perfect harmony of art and terroir. Festivals that fill medieval squares with contemporary culture.",
+            "links": [
+              {
+                "label": "Festival Info",
+                "href": "https://www.collisioni.it/"
+              }
+            ]
+          },
+          {
+            "id": "torino-film",
+            "title": "Torino Film Festival",
+            "subtitle": "Serious cinema, subtle city",
+            "image": "/images/piemonte/torino.jpg",
+            "description": "One of Italy's most prestigious film festivals. Culture you stumble into, not queue for.",
+            "links": [
+              {
+                "label": "Film Festival",
+                "href": "https://www.torinofilmfest.org/"
+              }
+            ]
+          },
+          {
+            "id": "artissima",
+            "title": "Artissima Contemporary Art Fair",
+            "subtitle": "Italy's most forward-thinking exhibition",
+            "image": "/images/piemonte/market.jpg",
+            "description": "Leading international contemporary art fair. A patchwork of heritage meeting innovation.",
+            "links": [
+              {
+                "label": "Artissima",
+                "href": "https://www.artissima.art/"
+              }
+            ]
+          },
+          {
+            "id": "olivetti",
+            "title": "Olivetti's Modernist Utopia",
+            "subtitle": "Design legacy in Ivrea",
+            "image": "/images/piemonte/ivrea.jpg",
+            "description": "UNESCO site proving industry can be beautiful. Craftsmanship and calm intellect in architectural form.",
+            "links": [
+              {
+                "label": "Industrial City of Ivrea",
+                "href": "https://www.comune.ivrea.to.it/"
+              }
+            ]
+          }
+        ]
+      }
     },
-    "food": {
-      "title": "Food — Where Restraint Becomes Luxury",
-      "intro": "In Piemonte, flavor isn't loud — it's composed. Recipes rely on contrast: richness and clarity, warmth and restraint. Meals feel choreographed, not improvised. Even the street food has manners.",
-      "backgroundImage": "/images/piemonte/market.jpg",
-      "cards": [
-        {
-          "id": "white-truffle",
-          "title": "White Truffle of Alba",
-          "subtitle": "The crown jewel of autumn",
-          "image": "/images/piemonte/tajarin.jpg",
-          "description": "Visit the Fiera Internazionale del Tartufo Bianco d'Alba for the full sensory experience.",
-          "links": [
-            {
-              "label": "Alba Truffle Fair",
-              "href": "https://www.fieradeltartufo.org/"
-            }
-          ]
-        },
-        {
-          "id": "pasta",
-          "title": "Tajarin & Agnolotti del Plin",
-          "subtitle": "Pastas so delicate they're almost ceremonial",
-          "image": "/images/piemonte/tajarin.jpg",
-          "description": "Recipes and traditions at VisitPiemonte.com.",
-          "links": [
-            {
-              "label": "Traditional Recipes",
-              "href": "https://www.visitpiemonte.com/"
-            }
-          ]
-        },
-        {
-          "id": "bagna-cauda",
-          "title": "Bagna Càuda",
-          "subtitle": "A communal ritual",
-          "image": "/images/piemonte/bagna.jpg",
-          "description": "Anchovy, garlic, and olive oil; best enjoyed with friends and courage.",
-          "links": []
-        },
-        {
-          "id": "slow-food",
-          "title": "Slow Food Movement",
-          "subtitle": "Born here, headquartered in Bra",
-          "image": "/images/piemonte/bra.jpg",
-          "description": "Learn more about the global movement that started in Piemonte.",
-          "links": [
-            {
-              "label": "Slow Food International",
-              "href": "https://www.slowfood.com/"
-            }
-          ]
-        },
-        {
-          "id": "terra-madre",
-          "title": "Terra Madre Salone del Gusto",
-          "subtitle": "Turin's civilized food event",
-          "image": "/images/piemonte/torino.jpg",
-          "description": "Celebrating ethical cuisine and food biodiversity.",
-          "links": [
-            {
-              "label": "Salone del Gusto",
-              "href": "https://www.salonedelgusto.com/"
-            }
-          ]
-        }
-      ]
-    },
-    "culture": {
-      "title": "Culture — Where Grandeur Whispers",
-      "intro": "Piemonte doesn't shout its culture from rooftops; it hides it in colonnades, galleries, and mountain castles. The arts here are serious, intimate, and deeply tied to craftsmanship — from Olivetti design to royal architecture.",
-      "backgroundImage": "/images/piemonte/torino-hero.jpg",
-      "cards": [
-        {
-          "id": "museo-egizio",
-          "title": "Museo Egizio",
-          "subtitle": "World's greatest Egyptian collection outside Cairo",
-          "image": "/images/piemonte/torino1.jpg",
-          "description": "Explore one of the most important museums dedicated to ancient Egyptian archaeology.",
-          "links": [
-            {
-              "label": "Visit Museo Egizio",
-              "href": "https://museoegizio.it/"
-            }
-          ]
-        },
-        {
-          "id": "cinema-museum",
-          "title": "Museo Nazionale del Cinema",
-          "subtitle": "A cinematic cathedral",
-          "image": "/images/piemonte/torino2.jpg",
-          "description": "Inside the iconic Mole Antonelliana, celebrating film history and art.",
-          "links": [
-            {
-              "label": "Cinema Museum",
-              "href": "https://www.museocinema.it/"
-            }
-          ]
-        },
-        {
-          "id": "venaria-reale",
-          "title": "Reggia di Venaria Reale",
-          "subtitle": "Savoy opulence with better lighting than Versailles",
-          "image": "/images/piemonte/torino3.jpg",
-          "description": "A UNESCO World Heritage site showcasing royal grandeur.",
-          "links": [
-            {
-              "label": "Plan Your Visit",
-              "href": "https://www.lavenaria.it/"
-            }
-          ]
-        },
-        {
-          "id": "collisioni-festival",
-          "title": "Collisioni Festival",
-          "subtitle": "Literature, music, and wine in Barolo",
-          "image": "/images/piemonte/alba.jpg",
-          "description": "Perfect harmony of art and terroir.",
-          "links": [
-            {
-              "label": "Festival Info",
-              "href": "https://www.collisioni.it/"
-            }
-          ]
-        },
-        {
-          "id": "torino-film",
-          "title": "Torino Film Festival",
-          "subtitle": "Serious cinema in a subtle city",
-          "image": "/images/piemonte/torino.jpg",
-          "description": "One of Italy's most prestigious film festivals.",
-          "links": [
-            {
-              "label": "Film Festival",
-              "href": "https://www.torinofilmfest.org/"
-            }
-          ]
-        },
-        {
-          "id": "artissima",
-          "title": "Artissima Contemporary Art Fair",
-          "subtitle": "Italy's most forward-thinking exhibition",
-          "image": "/images/piemonte/market.jpg",
-          "description": "Leading international contemporary art fair.",
-          "links": [
-            {
-              "label": "Artissima",
-              "href": "https://www.artissima.art/"
-            }
-          ]
-        },
-        {
-          "id": "olivetti",
-          "title": "Olivetti's Modernist Utopia",
-          "subtitle": "UNESCO site in Ivrea",
-          "image": "/images/piemonte/ivrea.jpg",
-          "description": "Proof that industry can be beautiful.",
-          "links": [
-            {
-              "label": "Industrial City of Ivrea",
-              "href": "https://www.comune.ivrea.to.it/"
-            }
-          ]
-        }
-      ]
-    }
-  },
   "wine": {
     "quiz": {
       "profiles": [
