@@ -14,7 +14,7 @@ export function EditorialIntro({
   signature,
 }: EditorialIntroProps) {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="pt-16 md:pt-24 pb-8 md:pb-12 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12">
           {/* Portrait */}
