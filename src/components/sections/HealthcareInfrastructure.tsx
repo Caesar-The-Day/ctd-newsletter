@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Slider } from '@/components/ui/slider';
 import { ExternalLink, MapPin, Heart, Plane, Train, Trees } from 'lucide-react';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-
-// Fix for default marker icons
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-});
 
 interface HealthcareInfrastructureProps {
   healthcare: {
@@ -132,82 +121,73 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
             </p>
           </div>
 
-          {/* Interactive Map */}
-          <Card className="mb-12 overflow-hidden shadow-soft">
-            <CardContent className="p-6">
-              <div className="flex flex-wrap gap-2 mb-4 justify-center">
-                <Button
-                  variant={mapLayer === 'hospitals' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setMapLayer('hospitals')}
-                >
-                  <Heart className="h-4 w-4 mr-2" />
-                  Hospitals
-                </Button>
-                <Button
-                  variant={mapLayer === 'airports' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setMapLayer('airports')}
-                >
-                  <Plane className="h-4 w-4 mr-2" />
-                  Airports
-                </Button>
-                <Button
-                  variant={mapLayer === 'parks' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setMapLayer('parks')}
-                >
-                  <Trees className="h-4 w-4 mr-2" />
-                  National Parks
-                </Button>
-              </div>
+          {/* Location Cards */}
+          <div className="mb-12">
+            <div className="flex flex-wrap gap-2 mb-6 justify-center">
+              <Button
+                variant={mapLayer === 'hospitals' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMapLayer('hospitals')}
+              >
+                <Heart className="h-4 w-4 mr-2" />
+                Hospitals
+              </Button>
+              <Button
+                variant={mapLayer === 'airports' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMapLayer('airports')}
+              >
+                <Plane className="h-4 w-4 mr-2" />
+                Airports
+              </Button>
+              <Button
+                variant={mapLayer === 'parks' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMapLayer('parks')}
+              >
+                <Trees className="h-4 w-4 mr-2" />
+                National Parks
+              </Button>
+            </div>
 
-              <div className="h-[400px] rounded-lg overflow-hidden border border-border">
-                <MapContainer
-                  center={[45.0703, 7.6869]}
-                  zoom={8}
-                  style={{ height: '100%', width: '100%' }}
-                  scrollWheelZoom={false}
-                  key={mapLayer}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  {mapData && mapData.map((marker, idx) => (
-                    <Marker key={`${mapLayer}-${idx}`} position={marker.coords as [number, number]}>
-                      <Popup>
-                        <div className="p-2 min-w-[200px]">
-                          <h4 className="font-bold mb-2 text-sm">{marker.name}</h4>
-                          <p className="text-xs text-muted-foreground mb-3">{marker.description}</p>
-                          <div className="flex flex-col gap-2">
-                            <a
-                              href={marker.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-primary hover:underline flex items-center gap-1"
-                            >
-                              <ExternalLink className="h-3 w-3" />
-                              Visit Website
-                            </a>
-                            <a
-                              href={marker.mapUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-primary hover:underline flex items-center gap-1"
-                            >
-                              <MapPin className="h-3 w-3" />
-                              Get Directions
-                            </a>
-                          </div>
-                        </div>
-                      </Popup>
-                    </Marker>
-                  ))}
-                </MapContainer>
-              </div>
-            </CardContent>
-          </Card>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {mapData && mapData.map((location, idx) => (
+                <Card key={`${mapLayer}-${idx}`} className="shadow-soft hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <h4 className="font-bold mb-2 flex items-center gap-2">
+                      {mapLayer === 'hospitals' && <Heart className="h-5 w-5 text-red-500" />}
+                      {mapLayer === 'airports' && <Plane className="h-5 w-5 text-blue-500" />}
+                      {mapLayer === 'parks' && <Trees className="h-5 w-5 text-green-500" />}
+                      {location.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-4">{location.description}</p>
+                    <div className="flex flex-col gap-2">
+                      <Button variant="outline" size="sm" asChild className="w-full">
+                        <a
+                          href={location.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-3 w-3 mr-2" />
+                          Visit Website
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild className="w-full">
+                        <a
+                          href={location.mapUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MapPin className="h-3 w-3 mr-2" />
+                          Get Directions
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
 
           {/* Travel Time Slider */}
           <Card className="mb-12 shadow-soft">
