@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
 import { Cloud, Droplets, Sun, Thermometer } from "lucide-react";
+import { SeasonalParticles } from "@/components/effects/SeasonalParticles";
 
 interface ClimateData {
   intro: {
@@ -73,6 +74,9 @@ export function ClimateSnapshot() {
       <div 
         className={`absolute inset-0 bg-gradient-to-br ${seasonalBackgrounds[currentSeason]} transition-all duration-1000 ease-in-out`}
       />
+      
+      {/* Seasonal particles */}
+      <SeasonalParticles season={currentSeason} />
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}

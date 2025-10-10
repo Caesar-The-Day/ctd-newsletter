@@ -173,4 +173,26 @@ All colors MUST be HSL.
   .animate-stagger-4 {
     animation-delay: 0.4s;
   }
+
+  /* Seasonal particle effects */
+  @keyframes particle-fall {
+    0% {
+      transform: translateY(-20px) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(100vh) translateX(50px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-particle-fall {
+    animation: particle-fall linear infinite;
+  }
 }
