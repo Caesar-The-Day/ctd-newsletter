@@ -48,7 +48,7 @@ export function EditorialIntro({
                   <img 
                     src={signature} 
                     alt="Cesare signature" 
-                    className="h-16 w-auto"
+                    className="h-48 w-auto"
                   />
                 </div>
               )}
