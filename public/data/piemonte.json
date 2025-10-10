@@ -788,45 +788,104 @@
     "closing": "Piemonte offers a paradox rare in southern Europe: mountain air, Renaissance cities, and a bureaucracy that actually works. The wine may bring you here — the infrastructure is what makes you stay."
   },
   "costOfLiving": {
+    "intro": {
+      "headline": "Cost of Living — What It Really Looks Like",
+      "lead": "Let's cut through the dream and talk real numbers. Piemonte offers a much lower entry cost than Milan or the Riviera—but \"low\" is relative. In this section, we show what life might cost in Torino, Asti, and Alba at three tiers: modest, normal, and high-end. Think of it as a slider from \"make-it-work\" to \"comfort living.\" Then you decide your middle ground.",
+      "realityCheck": "Retirement doesn't mean austerity—but you will live closer to the margin of comfort than excess. Utilities fluctuate by season. Dining out adds up more than you'd think when wine and culture are your hobbies. And yes, property taxes, heating, and local levies bite. Use these projections as a reality check, not a guarantee.",
+      "whyItWorks": "Compared to Italy's coastal hotspots or capitals, Piemonte wins on everyday stability: energy grids that are reliable, property taxes that are moderate (relative by region), and public services that punch above their weight. If your budget is well formed, you'll find breathing room."
+    },
     "townPresets": [
       {
         "id": "torino",
         "label": "Torino (City)",
-        "rent": [900, 1200],
-        "utilities": [160, 220],
-        "groceries": [320, 420],
-        "dining": [45, 75],
-        "transport": [40, 90]
-      },
-      {
-        "id": "alba",
-        "label": "Alba (Wine Country)",
-        "rent": [800, 1100],
-        "utilities": [150, 210],
-        "groceries": [320, 420],
-        "dining": [50, 85],
-        "transport": [40, 90]
+        "modest": {
+          "rent": 700,
+          "utilities": 125,
+          "groceries": 350,
+          "dining": 225,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1350,
+          "utilities": 175,
+          "groceries": 525,
+          "dining": 350,
+          "transport": 100
+        },
+        "highEnd": {
+          "rent": 2000,
+          "utilities": 250,
+          "groceries": 700,
+          "dining": 500,
+          "transport": 160
+        }
       },
       {
         "id": "asti",
         "label": "Asti (Town)",
-        "rent": [700, 950],
-        "utilities": [150, 210],
-        "groceries": [300, 400],
-        "dining": [40, 70],
-        "transport": [40, 90]
+        "modest": {
+          "rent": 500,
+          "utilities": 100,
+          "groceries": 300,
+          "dining": 175,
+          "transport": 55
+        },
+        "normal": {
+          "rent": 800,
+          "utilities": 125,
+          "groceries": 425,
+          "dining": 300,
+          "transport": 80
+        },
+        "highEnd": {
+          "rent": 1200,
+          "utilities": 175,
+          "groceries": 600,
+          "dining": 400,
+          "transport": 125
+        }
       },
       {
-        "id": "cuneo",
-        "label": "Cuneo (Budget-Friendly)",
-        "rent": [650, 900],
-        "utilities": [140, 200],
-        "groceries": [300, 380],
-        "dining": [40, 70],
-        "transport": [50, 100]
+        "id": "alba",
+        "label": "Alba (Wine Country)",
+        "modest": {
+          "rent": 600,
+          "utilities": 110,
+          "groceries": 330,
+          "dining": 205,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1050,
+          "utilities": 145,
+          "groceries": 475,
+          "dining": 315,
+          "transport": 90
+        },
+        "highEnd": {
+          "rent": 1700,
+          "utilities": 200,
+          "groceries": 600,
+          "dining": 450,
+          "transport": 135
+        }
       }
     ],
-    "lifestyles": ["Modest", "Comfortable", "Indulgent"]
+    "lifestyles": ["Modest", "Normal", "High-End"],
+    "notes": {
+      "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
+      "sources": [
+        "Numbeo.com",
+        "LivingCost.org",
+        "Expatexchange.com",
+        "Politecnico di Torino Student Guide",
+        "Regional data extrapolations (2024)"
+      ],
+      "links": {
+        "torino": "https://www.numbeo.com/cost-of-living/in/Turin",
+        "asti": "https://www.livingcost.org/cost/italy/asti"
+      }
+    }
   },
   "prosCons": {
     "pros": [

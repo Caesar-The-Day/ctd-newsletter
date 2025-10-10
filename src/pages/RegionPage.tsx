@@ -83,7 +83,12 @@ export default function RegionPage() {
 
       <HealthcareInfrastructure healthcare={regionData.healthcare} />
 
-      <CostCalculator townPresets={regionData.costOfLiving.townPresets} lifestyles={regionData.costOfLiving.lifestyles} />
+      <CostCalculator 
+        townPresets={regionData.costOfLiving.townPresets} 
+        lifestyles={regionData.costOfLiving.lifestyles}
+        intro={regionData.costOfLiving.intro}
+        notes={regionData.costOfLiving.notes}
+      />
 
       <ProsConsInteractive pros={regionData.prosCons.pros} cons={regionData.prosCons.cons} />
 

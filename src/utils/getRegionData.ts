@@ -230,16 +230,43 @@ export interface RegionData {
     closing: string;
   };
   costOfLiving: {
+    intro?: {
+      headline: string;
+      lead: string;
+      realityCheck: string;
+      whyItWorks: string;
+    };
     townPresets: Array<{
       id: string;
       label: string;
-      rent: [number, number];
-      utilities: [number, number];
-      groceries: [number, number];
-      dining: [number, number];
-      transport: [number, number];
+      modest: {
+        rent: number;
+        utilities: number;
+        groceries: number;
+        dining: number;
+        transport: number;
+      };
+      normal: {
+        rent: number;
+        utilities: number;
+        groceries: number;
+        dining: number;
+        transport: number;
+      };
+      highEnd: {
+        rent: number;
+        utilities: number;
+        groceries: number;
+        dining: number;
+        transport: number;
+      };
     }>;
     lifestyles: string[];
+    notes?: {
+      reference: string;
+      sources: string[];
+      links: Record<string, string>;
+    };
   };
   highlights: Highlights;
   prosCons: {

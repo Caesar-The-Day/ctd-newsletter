@@ -13,42 +13,72 @@ import { Euro } from 'lucide-react';
 interface TownPreset {
   id: string;
   label: string;
-  rent: [number, number];
-  utilities: [number, number];
-  groceries: [number, number];
-  dining: [number, number];
-  transport: [number, number];
+  modest: {
+    rent: number;
+    utilities: number;
+    groceries: number;
+    dining: number;
+    transport: number;
+  };
+  normal: {
+    rent: number;
+    utilities: number;
+    groceries: number;
+    dining: number;
+    transport: number;
+  };
+  highEnd: {
+    rent: number;
+    utilities: number;
+    groceries: number;
+    dining: number;
+    transport: number;
+  };
 }
 
 interface CostCalculatorProps {
   townPresets: TownPreset[];
   lifestyles: string[];
+  intro?: {
+    headline: string;
+    lead: string;
+    realityCheck: string;
+    whyItWorks: string;
+  };
+  notes?: {
+    reference: string;
+    sources: string[];
+    links: Record<string, string>;
+  };
 }
 
-export function CostCalculator({ townPresets, lifestyles }: CostCalculatorProps) {
+export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCalculatorProps) {
   const [selectedTown, setSelectedTown] = useState<string>(townPresets[0]?.id || '');
-  const [lifestyleIndex, setLifestyleIndex] = useState(1); // 0=Modest, 1=Comfortable, 2=Indulgent
+  const [lifestyleIndex, setLifestyleIndex] = useState(1); // 0=Modest, 1=Normal, 2=High-End
 
   const town = townPresets.find((t) => t.id === selectedTown) || townPresets[0];
 
   const costs = useMemo(() => {
     if (!town) return null;
 
-    // Interpolate based on lifestyle (0 = min, 2 = max)
-    const factor = lifestyleIndex / 2;
-    
-    const calculate = (range: [number, number]) => {
-      return Math.round(range[0] + (range[1] - range[0]) * factor);
-    };
+    // Get costs based on lifestyle tier
+    let tierCosts;
+    if (lifestyleIndex === 0) {
+      tierCosts = town.modest;
+    } else if (lifestyleIndex === 1) {
+      tierCosts = town.normal;
+    } else {
+      tierCosts = town.highEnd;
+    }
 
-    const rent = calculate(town.rent);
-    const utilities = calculate(town.utilities);
-    const groceries = calculate(town.groceries);
-    const dining = calculate(town.dining);
-    const transport = calculate(town.transport);
-    const total = rent + utilities + groceries + dining + transport;
+    const total = 
+      tierCosts.rent + 
+      tierCosts.utilities + 
+      tierCosts.groceries + 
+      tierCosts.dining + 
+      tierCosts.transport;
 
-    return { rent, utilities, groceries, dining, transport, total };
+    return { ...tierCosts, total };
   }, [town, lifestyleIndex]);
 
   if (!costs) return null;
@@ -56,20 +86,55 @@ export function CostCalculator({ townPresets, lifestyles }: CostCalculatorProps)
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+          {/* Header with Intro */}
           <div className="text-center mb-12">
             <Euro className="h-12 w-12 mx-auto mb-4 text-primary" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Cost of Living Calculator
+              {intro?.headline || "Cost of Living Calculator"}
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Estimate your monthly expenses in Piemonte
-            </p>
+            {intro?.lead && (
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6 max-w-4xl mx-auto">
+                {intro.lead}
+              </p>
+            )}
           </div>
 
+          {/* Context Cards */}
+          {intro && (
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <Card className="shadow-soft">
+                <CardHeader>
+                  <CardTitle className="text-lg">Retiree Reality Check</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
+                    {intro.realityCheck}
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-soft">
+                <CardHeader>
+                  <CardTitle className="text-lg">Why It Works in Piemonte</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
+                    {intro.whyItWorks}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
+          {/* Calculator */}
           <Card className="shadow-medium">
             <CardHeader>
-              <CardTitle>Customize Your Budget</CardTitle>
+              <CardTitle>Monthly Cost Estimator (2 People)</CardTitle>
+              {notes && (
+                <p className="text-sm text-muted-foreground mt-2">
+                  {notes.reference}
+                </p>
+              )}
             </CardHeader>
             <CardContent className="space-y-8">
               {/* Town Selector */}
@@ -128,6 +193,28 @@ export function CostCalculator({ townPresets, lifestyles }: CostCalculatorProps)
               </div>
             </CardContent>
           </Card>
+
+          {/* Data Sources */}
+          {notes && (
+            <div className="mt-8 text-center">
+              <p className="text-xs text-muted-foreground mb-2">
+                Data sources: {notes.sources.join(', ')}
+              </p>
+              <div className="flex justify-center gap-4 text-xs">
+                {Object.entries(notes.links).map(([key, url]) => (
+                  <a
+                    key={key}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    See latest {key} data →
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
