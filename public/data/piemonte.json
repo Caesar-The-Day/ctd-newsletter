@@ -528,6 +528,7 @@
       {
         "id": "tajarin-tartufo",
         "title": "Tajarin al Tartufo",
+        "mode": "Rustic",
         "image": "/images/piemonte/tajarin.jpg",
         "ingredients": [
           "400g fresh tajarin (thin egg pasta)",
@@ -545,6 +546,7 @@
           "Finish with a light grating of Parmigiano"
         ],
         "pairWithWineProfile": "silky",
+        "winePairing": "Barolo DOCG — ideally 8–10 years old; its forest-floor complexity mirrors truffle's depth.",
         "links": [
           {
             "label": "Alba Truffle Fair (Oct-Nov)",
@@ -555,6 +557,7 @@
       {
         "id": "bagna-cauda",
         "title": "Bagna Cauda",
+        "mode": "Rustic",
         "image": "/images/piemonte/bagna.jpg",
         "ingredients": [
           "200g anchovy fillets in oil",
@@ -570,11 +573,13 @@
           "Serve with raw and cooked vegetables for dipping",
           "Traditionally eaten communally—have bread ready to soak up drips"
         ],
-        "pairWithWineProfile": "crisp"
+        "pairWithWineProfile": "crisp",
+        "winePairing": "Barbera d'Asti DOCG — Piemonte's most forgiving red; bright acidity, no heavy tannins, refreshes beautifully."
       },
       {
         "id": "vitello-tonnato",
         "title": "Vitello Tonnato",
+        "mode": "Refined",
         "image": "/images/piemonte/vitello.jpg",
         "ingredients": [
           "800g veal roast",
@@ -593,7 +598,35 @@
           "Cover completely with tuna sauce",
           "Refrigerate 2+ hours, garnish with capers before serving"
         ],
-        "pairWithWineProfile": "crisp"
+        "pairWithWineProfile": "crisp",
+        "winePairing": "Roero Arneis DOCG — floral, almond-scented, medium-bodied white that cuts through the richness of the sauce."
+      },
+      {
+        "id": "bonet-cacao",
+        "title": "Bonèt al Cacao e Amaretti",
+        "mode": "Refined",
+        "image": "/images/piemonte/tajarin.jpg",
+        "story": "Bonèt (pronounced bo-nay) is Piemonte's answer to crème caramel — but darker, moodier, and grown up. It was the final flourish at 18th-century banquets in the Savoy court, meant to \"clean the palate\" after truffle and game. Made with cocoa, amaretto liqueur, and crushed amaretti cookies, it tastes like the moment between coffee and confession. Every family has a version — some silkier, some boozier — but all whisper of elegance and restraint.",
+        "whyRefined": "It looks simple but takes precision: low heat, perfect timing, just enough bitterness to keep the sweetness interesting. It's the kind of dessert you serve in small portions and remember for days.",
+        "ingredients": [
+          "500 ml whole milk",
+          "4 whole eggs + 2 egg yolks",
+          "120 g sugar (plus more for caramel)",
+          "30 g unsweetened cocoa powder",
+          "100 g crushed amaretti cookies",
+          "50 ml amaretto liqueur (optional but traditional)",
+          "Pinch of salt",
+          "Butter (for greasing molds)"
+        ],
+        "steps": [
+          "Make the caramel: In a saucepan, melt 100g sugar over medium heat until golden. Quickly pour into a loaf pan or ramekins, swirling to coat the base. Let set.",
+          "Prepare the custard: Warm milk in a saucepan (do not boil). In a bowl, whisk eggs, yolks, sugar, cocoa, salt, and amaretto. Add crushed amaretti cookies, then gradually pour in the warm milk, whisking constantly until smooth.",
+          "Bake gently: Pour mixture over the caramel base. Place the pan in a larger baking dish and fill with hot water halfway up the sides (bain-marie). Bake at 160°C / 320°F for about 45–50 minutes, until just set but still trembling in the center.",
+          "Cool and serve: Let cool completely, then refrigerate for at least 4 hours (preferably overnight). Invert onto plates before serving — the caramel will run like amber sauce."
+        ],
+        "servingSuggestion": "Serve chilled with a glass of Barolo Chinato or Moscato d'Asti — something aromatic but restrained. Top with a shard of amaretti crumble or a drizzle of espresso reduction if you want a modern accent.",
+        "pairWithWineProfile": "elegant",
+        "winePairing": "Barolo Chinato or Moscato d'Asti — aromatic, restrained, perfectly balanced with chocolate and amaretto."
       }
     ],
     "modes": ["Rustic", "Refined"]

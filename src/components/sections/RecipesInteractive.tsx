@@ -11,10 +11,15 @@ import {
 interface Recipe {
   id: string;
   title: string;
+  mode: string;
   image: string;
+  story?: string;
+  whyRefined?: string;
   ingredients: string[];
   steps: string[];
+  servingSuggestion?: string;
   pairWithWineProfile: string;
+  winePairing?: string;
   links?: Array<{
     label: string;
     href: string;
@@ -35,6 +40,11 @@ export function RecipesInteractive({ recipes, modes }: RecipesInteractiveProps) 
       prev.includes(id) ? prev.filter((r) => r !== id) : [...prev, id]
     );
   };
+
+  // Filter recipes based on selected mode
+  const filteredRecipes = recipes.filter(
+    (recipe) => recipe.mode === modes[mode]
+  );
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -65,7 +75,7 @@ export function RecipesInteractive({ recipes, modes }: RecipesInteractiveProps) 
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {recipes.map((recipe) => (
+            {filteredRecipes.map((recipe) => (
               <Card key={recipe.id} className="overflow-hidden shadow-soft">
                 <div className="relative h-48">
                   <img
@@ -77,6 +87,20 @@ export function RecipesInteractive({ recipes, modes }: RecipesInteractiveProps) 
 
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3">{recipe.title}</h3>
+
+                  {/* Story (for refined recipes) */}
+                  {recipe.story && (
+                    <div className="mb-4 text-sm text-foreground/80 italic border-l-2 border-primary/30 pl-3">
+                      {recipe.story}
+                    </div>
+                  )}
+
+                  {/* Why Refined */}
+                  {recipe.whyRefined && (
+                    <div className="mb-4 bg-accent/10 p-3 rounded-lg text-sm">
+                      <strong>Why it's Refined:</strong> {recipe.whyRefined}
+                    </div>
+                  )}
 
                   <Collapsible
                     open={expandedRecipes.includes(recipe.id)}
@@ -111,10 +135,10 @@ export function RecipesInteractive({ recipes, modes }: RecipesInteractiveProps) 
                         </ol>
                       </div>
 
-                      {/* Mode-specific tip */}
-                      {mode === 1 && (
-                        <div className="bg-accent/10 p-3 rounded-lg text-sm">
-                          <strong>Refined tip:</strong> Use the finest ingredients and take your time with presentation.
+                      {/* Serving Suggestion */}
+                      {recipe.servingSuggestion && (
+                        <div className="bg-muted/50 p-3 rounded-lg text-sm">
+                          <strong>Serving Suggestion:</strong> {recipe.servingSuggestion}
                         </div>
                       )}
 
@@ -144,9 +168,15 @@ export function RecipesInteractive({ recipes, modes }: RecipesInteractiveProps) 
                     </CollapsibleContent>
                   </Collapsible>
 
-                  <div className="text-xs text-muted-foreground mt-2">
-                    Pair with: <span className="font-medium">{recipe.pairWithWineProfile}</span>
-                  </div>
+                  {/* Wine Pairing */}
+                  {recipe.winePairing && (
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <div className="text-sm">
+                        <span className="font-semibold text-primary">Wine Pairing:</span>
+                        <p className="text-muted-foreground mt-1">{recipe.winePairing}</p>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}

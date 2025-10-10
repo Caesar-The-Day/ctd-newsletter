@@ -153,10 +153,15 @@ export interface RegionData {
     cards: Array<{
       id: string;
       title: string;
+      mode: string;
       image: string;
+      story?: string;
+      whyRefined?: string;
       ingredients: string[];
       steps: string[];
+      servingSuggestion?: string;
       pairWithWineProfile: string;
+      winePairing?: string;
       links?: Array<{
         label: string;
         href: string;
