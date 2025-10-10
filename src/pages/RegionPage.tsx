@@ -15,6 +15,7 @@ import { ProsConsInteractive } from '@/components/sections/ProsConsInteractive';
 import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
+import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
 
 export default function RegionPage() {
   const { region } = useParams<{ region: string }>();
@@ -79,6 +80,8 @@ export default function RegionPage() {
       <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />
 
       <InlineCTA globals={globals} ctaIds={['vf']} />
+
+      <HealthcareInfrastructure healthcare={regionData.healthcare} />
 
       <CostCalculator townPresets={regionData.costOfLiving.townPresets} lifestyles={regionData.costOfLiving.lifestyles} />
 

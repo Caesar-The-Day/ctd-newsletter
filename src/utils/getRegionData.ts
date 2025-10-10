@@ -170,13 +170,64 @@ export interface RegionData {
     modes: string[];
   };
   healthcare: {
-    anchors: Array<{
+    intro: {
+      headline: string;
+      lead: string;
+    };
+    hospitals: Array<{
       name: string;
-      type: string;
+      location: string;
+      coords: [number, number];
+      description: string;
+      link: string;
       mapUrl: string;
     }>;
-    transport: string[];
-    connectivity: string[];
+    airports: Array<{
+      name: string;
+      coords: [number, number];
+      description: string;
+      link: string;
+      mapUrl: string;
+    }>;
+    railways: Array<{
+      name: string;
+      description: string;
+      link: string;
+    }>;
+    highways: Array<{
+      name: string;
+      description: string;
+      link: string;
+    }>;
+    parks: Array<{
+      name: string;
+      coords: [number, number];
+      description: string;
+      link: string;
+      mapUrl: string;
+    }>;
+    travelTimes: Array<{
+      from: string;
+      to: Array<{
+        destination: string;
+        time: string;
+      }>;
+      nearestAirport: string;
+    }>;
+    quickInfo: {
+      emergencyNumbers: string[];
+      healthcare: {
+        title: string;
+        description: string;
+        link: string;
+      };
+      transport: {
+        title: string;
+        description: string;
+        link: string;
+      };
+    };
+    closing: string;
   };
   costOfLiving: {
     townPresets: Array<{

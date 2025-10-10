@@ -632,35 +632,160 @@
     "modes": ["Rustic", "Refined"]
   },
   "healthcare": {
-    "anchors": [
+    "intro": {
+      "headline": "Healthcare & Infrastructure: The Practical North",
+      "lead": "Piemonte doesn't brag about efficiency — it just runs on it. From its hospitals to its railways, everything here works with the same quiet precision as a Swiss watch that somehow learned to love truffles. The region's infrastructure isn't flashy, but it's reliable — a rare comfort for anyone considering a long-term move or retirement abroad."
+    },
+    "hospitals": [
       {
         "name": "Città della Salute e della Scienza di Torino",
-        "type": "University Hospital",
+        "location": "Turin",
+        "coords": [45.0677, 7.6664],
+        "description": "Italy's largest teaching hospital, known for oncology and transplant programs.",
+        "link": "https://www.cittadellasalute.to.it/",
         "mapUrl": "https://maps.google.com/?q=Citta+della+Salute+Torino"
       },
       {
-        "name": "Ospedale di Alba-Bra (Michele e Pietro Ferrero)",
-        "type": "General Hospital",
-        "mapUrl": "https://maps.google.com/?q=Ospedale+Alba+Bra"
+        "name": "Ospedale Maggiore di Novara",
+        "location": "Novara",
+        "coords": [45.4386, 8.6225],
+        "description": "Historic university hospital serving the eastern plains; strong cardiology unit.",
+        "link": "https://www.maggioreosp.novara.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Novara"
       },
       {
-        "name": "Ospedale Cardinal Massaia (Asti)",
-        "type": "General Hospital",
+        "name": "Ospedale Santa Croce e Carle",
+        "location": "Cuneo",
+        "coords": [44.3960, 7.5442],
+        "description": "Regional reference for trauma and orthopedics; gateway to Alpine emergency services.",
+        "link": "https://www.ospedale.cuneo.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Cuneo"
+      },
+      {
+        "name": "Ospedale Cardinal Massaia",
+        "location": "Asti",
+        "coords": [44.9009, 8.2064],
+        "description": "Modern mid-size facility, efficient emergency ward, excellent maternity care.",
+        "link": "https://www.asl.at.it/",
         "mapUrl": "https://maps.google.com/?q=Ospedale+Asti"
       }
     ],
-    "transport": [
-      "TRN - Torino Caselle Airport (domestic & European flights)",
-      "MXP - Milan Malpensa (90 min, major international hub)",
-      "High-speed rail via Porta Susa & Porta Nuova stations",
-      "Autostrade network: A4 (Turin-Milan), A6 (Turin-Savona), A21 (Turin-Piacenza)"
+    "airports": [
+      {
+        "name": "Torino-Caselle Airport (TRN)",
+        "coords": [45.2008, 7.6496],
+        "description": "Compact, efficient hub 20 min from Turin; daily flights to Europe's major capitals.",
+        "link": "https://www.aeroportoditorino.it/en",
+        "mapUrl": "https://maps.google.com/?q=Torino+Caselle+Airport"
+      },
+      {
+        "name": "Cuneo-Levaldigi Airport (CUF)",
+        "coords": [44.5471, 7.6232],
+        "description": "Small regional airport with seasonal routes to the UK and Northern Europe.",
+        "link": "https://www.aeroportocuneo.it/en",
+        "mapUrl": "https://maps.google.com/?q=Cuneo+Airport"
+      }
     ],
-    "connectivity": [
-      "Fiber optic available in Torino and major towns",
-      "ADSL standard in smaller towns",
-      "4G/5G coverage strong in populated areas, patchy in mountain valleys",
-      "Remote work viable in cities and larger towns"
-    ]
+    "railways": [
+      {
+        "name": "Trenitalia National Network",
+        "description": "National trains connecting Turin, Milan, Florence, and Rome — punctual and affordable.",
+        "link": "https://www.trenitalia.com/en.html"
+      },
+      {
+        "name": "SFM Torino Lines",
+        "description": "Suburban network reaching Avigliana, Pinerolo, and Chieri — great for commuters.",
+        "link": "https://www.sfmtorino.it/"
+      }
+    ],
+    "highways": [
+      {
+        "name": "A4 & A21 Autostrade",
+        "description": "Main arteries linking Turin with Milan, Genoa, and the Po Valley.",
+        "link": "https://www.autostrade.it/"
+      }
+    ],
+    "parks": [
+      {
+        "name": "Gran Paradiso National Park",
+        "coords": [45.5167, 7.2667],
+        "description": "Italy's first national park; alpine ibex, glaciers, and perfect signage.",
+        "link": "https://www.pngp.it/en",
+        "mapUrl": "https://maps.google.com/?q=Gran+Paradiso+National+Park"
+      },
+      {
+        "name": "Parco delle Alpi Marittime",
+        "coords": [44.2333, 7.4000],
+        "description": "Wild valleys south of Cuneo; UNESCO biosphere reserve.",
+        "link": "https://www.parcoalpimarittime.it/",
+        "mapUrl": "https://maps.google.com/?q=Parco+Alpi+Marittime"
+      },
+      {
+        "name": "Parco Naturale del Po Piemonte",
+        "coords": [45.1000, 8.0500],
+        "description": "Wetlands and bird sanctuaries north of Turin; ideal day trip from the city.",
+        "link": "https://www.parcodelpo-vcal.it/",
+        "mapUrl": "https://maps.google.com/?q=Parco+Po+Piemonte"
+      }
+    ],
+    "travelTimes": [
+      {
+        "from": "Turin",
+        "to": [
+          { "destination": "Milan", "time": "55 min by train" },
+          { "destination": "Genoa", "time": "2h by train" },
+          { "destination": "Nice", "time": "3h 30 by train" },
+          { "destination": "Gran Paradiso Park", "time": "90 min by car" }
+        ],
+        "nearestAirport": "Caselle Airport – 20 min"
+      },
+      {
+        "from": "Alba",
+        "to": [
+          { "destination": "Turin", "time": "1h 15 by train" },
+          { "destination": "Genoa", "time": "2h 10 by car" },
+          { "destination": "Milan", "time": "1h 45 by train" },
+          { "destination": "Alpi Marittime Park", "time": "90 min by car" }
+        ],
+        "nearestAirport": "Caselle Airport – 1h"
+      },
+      {
+        "from": "Cuneo",
+        "to": [
+          { "destination": "Turin", "time": "1h 30 by train" },
+          { "destination": "Nice", "time": "2h 30 by car" },
+          { "destination": "Alpi Marittime Park", "time": "45 min by car" }
+        ],
+        "nearestAirport": "Cuneo-Levaldigi – 15 min"
+      },
+      {
+        "from": "Verbania",
+        "to": [
+          { "destination": "Milan", "time": "1h 20 by train" },
+          { "destination": "Turin", "time": "2h by train" },
+          { "destination": "Gran Paradiso Park", "time": "2h by car" }
+        ],
+        "nearestAirport": "Milan Malpensa – 45 min"
+      }
+    ],
+    "quickInfo": {
+      "emergencyNumbers": [
+        "118 – Medical Emergency",
+        "112 – Police (Carabinieri)",
+        "115 – Fire Department"
+      ],
+      "healthcare": {
+        "title": "Register for Healthcare",
+        "description": "Via local ASL offices",
+        "link": "https://www.salute.gov.it/"
+      },
+      "transport": {
+        "title": "Transport Info",
+        "description": "Regional transport passes and schedules",
+        "link": "https://www.regione.piemonte.it/web/temi/trasporti"
+      }
+    },
+    "closing": "Piemonte offers a paradox rare in southern Europe: mountain air, Renaissance cities, and a bureaucracy that actually works. The wine may bring you here — the infrastructure is what makes you stay."
   },
   "costOfLiving": {
     "townPresets": [
