@@ -10,6 +10,7 @@ interface Particle {
   delay: number;
   duration: number;
   size: number;
+  symbol: string;
 }
 
 type SeasonType = "winter" | "spring" | "summer" | "autumn";
@@ -28,22 +29,38 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   const seasonType = getSeasonType(monthIndex);
 
   useEffect(() => {
+    const currentSeasonType = getSeasonType(monthIndex);
+    
     // Generate particles based on season (no particles for summer heat distortion)
-    if (seasonType === "summer") {
+    if (currentSeasonType === "summer") {
       setParticles([]);
       return;
     }
 
-    const particleCount = seasonType === "winter" ? 35 : 25;
+    const getSymbolForSeason = (type: SeasonType): string => {
+      switch (type) {
+        case "winter":
+          return "❄";
+        case "spring":
+          return ["🌸", "🌼", "✿", "❀"][Math.floor(Math.random() * 4)];
+        case "autumn":
+          return "🍂";
+        default:
+          return "•";
+      }
+    };
+
+    const particleCount = currentSeasonType === "winter" ? 35 : 25;
     const newParticles = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 10,
-      duration: seasonType === "spring" ? 12 + Math.random() * 8 : 8 + Math.random() * 6,
-      size: seasonType === "winter" ? 6 + Math.random() * 10 : 4 + Math.random() * 8,
+      duration: currentSeasonType === "spring" ? 12 + Math.random() * 8 : 8 + Math.random() * 6,
+      size: currentSeasonType === "winter" ? 6 + Math.random() * 10 : 4 + Math.random() * 8,
+      symbol: getSymbolForSeason(currentSeasonType),
     }));
     setParticles(newParticles);
-  }, [monthIndex, seasonType]);
+  }, [monthIndex]);
 
   const getParticleStyle = (type: SeasonType) => {
     switch (type) {
@@ -58,19 +75,6 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
     }
   };
 
-  const getParticleSymbol = (type: SeasonType) => {
-    switch (type) {
-      case "winter":
-        return "❄";
-      case "spring":
-        // Mix of pollen, petals, and dandelions
-        return ["🌸", "🌼", "✿", "❀"][Math.floor(Math.random() * 4)];
-      case "autumn":
-        return "🍂";
-      default:
-        return "•";
-    }
-  };
 
   const getAnimationClass = (type: SeasonType) => {
     switch (type) {
@@ -121,7 +125,7 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
             opacity: 0.7,
           }}
         >
-          {getParticleSymbol(seasonType)}
+          {particle.symbol}
         </div>
       ))}
     </div>
