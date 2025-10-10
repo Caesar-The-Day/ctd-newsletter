@@ -76,7 +76,7 @@ export function ClimateSnapshot() {
       />
       
       {/* Seasonal particles */}
-      <SeasonalParticles season={currentSeason} />
+      <SeasonalParticles monthIndex={currentMonth} />
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}
