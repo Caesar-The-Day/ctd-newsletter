@@ -102,9 +102,6 @@ export function HeroParallax({
           <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto mb-6 opacity-0 animate-fade-in-up animate-stagger-3 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {tagline}
           </p>
-          <div className="text-xs text-white/80 opacity-0 animate-fade-in-up animate-stagger-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            {credit}
-          </div>
         </div>
       </div>
 
