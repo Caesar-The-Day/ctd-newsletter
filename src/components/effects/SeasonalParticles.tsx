@@ -11,6 +11,7 @@ interface Particle {
   duration: number;
   size: number;
   symbol: string;
+  color?: string;
 }
 
 type SeasonType = "winter" | "spring" | "summer" | "autumn";
@@ -44,21 +45,49 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
         case "spring":
           return ["🌸", "🌼", "✿", "❀"][Math.floor(Math.random() * 4)];
         case "autumn":
-          return "🍂";
+          return ["🍂", "🍁", "🍃"][Math.floor(Math.random() * 3)];
         default:
           return "•";
       }
     };
 
+    const getAutumnColor = (): string => {
+      const autumnColors = [
+        "text-orange-400/70",
+        "text-amber-500/70",
+        "text-red-400/70",
+        "text-yellow-600/70",
+        "text-orange-600/80"
+      ];
+      return autumnColors[Math.floor(Math.random() * autumnColors.length)];
+    };
+
     const particleCount = currentSeasonType === "winter" ? 45 : 35;
-    const newParticles = Array.from({ length: particleCount }, (_, i) => ({
-      id: i,
-      left: Math.random() * 100,
-      delay: Math.random() * 10,
-      duration: currentSeasonType === "spring" ? 12 + Math.random() * 8 : 8 + Math.random() * 6,
-      size: currentSeasonType === "winter" ? 12 + Math.random() * 12 : 10 + Math.random() * 10,
-      symbol: getSymbolForSeason(currentSeasonType),
-    }));
+    const newParticles = Array.from({ length: particleCount }, (_, i) => {
+      let size: number;
+      let duration: number;
+      
+      if (currentSeasonType === "winter") {
+        size = 12 + Math.random() * 12;
+        duration = 8 + Math.random() * 6;
+      } else if (currentSeasonType === "spring") {
+        size = 6 + Math.random() * 6;
+        duration = 12 + Math.random() * 8;
+      } else {
+        size = 8 + Math.random() * 14;
+        duration = 10 + Math.random() * 10;
+      }
+
+      return {
+        id: i,
+        left: Math.random() * 100,
+        delay: Math.random() * 10,
+        duration,
+        size,
+        symbol: getSymbolForSeason(currentSeasonType),
+        color: currentSeasonType === "autumn" ? getAutumnColor() : undefined,
+      };
+    });
     console.log(`[SeasonalParticles] Generated ${particleCount} ${currentSeasonType} particles for month ${monthIndex}`);
     setParticles(newParticles);
   }, [monthIndex]);
@@ -66,11 +95,11 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   const getParticleStyle = (type: SeasonType) => {
     switch (type) {
       case "winter":
-        return "text-white";
+        return "text-blue-100/90";
       case "spring":
-        return "text-pink-200";
+        return "text-pink-100/60";
       case "autumn":
-        return "text-orange-300";
+        return "text-orange-300"; // Fallback if no individual color
       default:
         return "text-white/50";
     }
@@ -79,9 +108,9 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   const getTextShadow = (type: SeasonType) => {
     switch (type) {
       case "winter":
-        return "0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(147, 197, 253, 0.6)";
+        return "0 0 10px rgba(147, 197, 253, 0.9), 0 0 20px rgba(191, 219, 254, 0.7), 0 0 30px rgba(219, 234, 254, 0.4)";
       case "spring":
-        return "0 0 8px rgba(251, 207, 232, 0.8), 0 0 12px rgba(244, 114, 182, 0.6)";
+        return "0 0 4px rgba(251, 207, 232, 0.5), 0 0 8px rgba(244, 114, 182, 0.3)";
       case "autumn":
         return "0 0 8px rgba(253, 186, 116, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)";
       default:
@@ -106,7 +135,7 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   // Summer heat distortion effect
   if (seasonType === "summer") {
     return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Heat distortion waves */}
         <div className="absolute inset-0 animate-heat-wave opacity-20" 
           style={{
@@ -125,11 +154,11 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className={`absolute ${getParticleStyle(seasonType)} ${getAnimationClass(seasonType)}`}
+          className={`absolute ${particle.color || getParticleStyle(seasonType)} ${getAnimationClass(seasonType)}`}
           style={{
             left: `${particle.left}%`,
             top: "-20px",
