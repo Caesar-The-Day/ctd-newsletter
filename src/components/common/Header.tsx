@@ -28,7 +28,7 @@ export function Header({
           </div>
 
           {/* Share Icons */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mr-40 md:mr-52 lg:mr-60">
             <Button variant="ghost" size="sm" asChild className="hover-lift">
               <a href={globals.brand.share.facebook} target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook">
                 <Facebook className="h-4 w-4" />
