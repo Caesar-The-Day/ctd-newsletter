@@ -12,7 +12,7 @@ export function InlineCTA({ globals, ctaIds }: InlineCTAProps) {
   if (ctas.length === 0) return null;
 
   return (
-    <section className="py-12 bg-muted/30">
+    <section className="py-6 md:py-8 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card rounded-xl shadow-soft p-8 md:p-12 text-center">

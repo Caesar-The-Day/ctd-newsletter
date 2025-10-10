@@ -26,7 +26,7 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
   const { intro, pros, cons, finalTake } = prosCons;
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-8 md:py-12 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Header */}

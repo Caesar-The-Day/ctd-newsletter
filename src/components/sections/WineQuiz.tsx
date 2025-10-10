@@ -22,7 +22,7 @@ export function WineQuiz({ profiles }: WineQuizProps) {
   const selectedProfile = profiles.find((p) => p.id === selected);
 
   return (
-    <section className="py-16 md:py-24 bg-muted/20">
+    <section className="py-8 md:py-12 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">

@@ -68,7 +68,7 @@ export function ClimateSnapshot() {
   const currentSeason = currentMonthData.season;
 
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+    <section className="py-8 md:py-12 bg-background relative overflow-hidden">
       {/* Animated seasonal background */}
       <div 
         className={`absolute inset-0 bg-gradient-to-br ${seasonalBackgrounds[currentSeason]} transition-all duration-1000 ease-in-out`}
