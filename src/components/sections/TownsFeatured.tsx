@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 interface FeaturedTown {
   id: string;
@@ -9,6 +17,7 @@ interface FeaturedTown {
   bestFor: string;
   photo: string;
   summary: string;
+  fullDescription?: string;
   mapUrl: string;
   gallery: string[];
   links?: Array<{
@@ -106,6 +115,32 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
                   <p className="text-foreground/80 mb-4 leading-relaxed">
                     {town.summary}
                   </p>
+
+                  {/* Read More Button */}
+                  {town.fullDescription && (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="secondary" size="sm" className="w-full mb-2">
+                          Read More
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle className="text-3xl">{town.name}</DialogTitle>
+                          <DialogDescription className="text-base text-muted-foreground">
+                            {town.bestFor}
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="mt-4 space-y-4">
+                          {town.fullDescription.split('\n\n').map((paragraph, idx) => (
+                            <p key={idx} className="text-foreground/90 leading-relaxed">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  )}
 
                   {/* Links */}
                   <div className="space-y-2">

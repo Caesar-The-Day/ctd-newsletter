@@ -26,10 +26,9 @@ export function EditorialIntro({
 
           {/* Content */}
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-2 text-foreground italic">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-foreground italic">
               {headline}
             </h2>
-            <p className="text-sm text-muted-foreground mb-8 italic">{byline}</p>
 
             <div className="space-y-6">
               {paragraphs.map((para, idx) => (

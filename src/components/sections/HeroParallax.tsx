@@ -21,6 +21,9 @@ export function HeroParallax({
   credit,
   ambientAudio,
 }: HeroParallaxProps) {
+  const brandTitle = "Veni | Vidi | Vici";
+  const brandSubtitle = "Your guide to conquering retirement in Italy";
+  const brandByline = "by CaesarTheDay";
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -48,6 +51,15 @@ export function HeroParallax({
 
   return (
     <section className="relative h-screen min-h-[600px] overflow-hidden">
+      {/* Logo - Top Right */}
+      <div className="absolute top-6 right-6 z-20">
+        <img 
+          src="/images/caesartheday-logo.png" 
+          alt="CaesarTheDay" 
+          className="h-16 md:h-20 w-auto opacity-0 animate-fade-in-up"
+        />
+      </div>
+
       {/* Parallax Image */}
       <div
         className="absolute inset-0 w-full h-[120%]"
@@ -61,22 +73,36 @@ export function HeroParallax({
           alt={title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-background/95" />
       </div>
 
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-end pb-16 md:pb-24 px-4">
         <div className="text-center max-w-4xl animate-fade-in-up">
-          <div className="text-sm md:text-base text-accent font-medium mb-4 opacity-0 animate-fade-in-up animate-stagger-1">
+          {/* Brand Title */}
+          <div className="mb-8 opacity-0 animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              {brandTitle}
+            </h1>
+            <p className="text-xl md:text-2xl text-white/95 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              {brandSubtitle}
+            </p>
+            <p className="text-base md:text-lg text-white/90 mt-2 italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              {brandByline}
+            </p>
+          </div>
+
+          {/* Issue Info */}
+          <div className="text-sm md:text-base text-white font-semibold mb-4 opacity-0 animate-fade-in-up animate-stagger-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Issue #{issueNumber} • {date}
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground opacity-0 animate-fade-in-up animate-stagger-2">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-white opacity-0 animate-fade-in-up animate-stagger-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {title}
-          </h1>
-          <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in-up animate-stagger-3">
+          </h2>
+          <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto mb-6 opacity-0 animate-fade-in-up animate-stagger-3 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {tagline}
           </p>
-          <div className="text-xs text-muted-foreground opacity-0 animate-fade-in-up animate-stagger-4">
+          <div className="text-xs text-white/80 opacity-0 animate-fade-in-up animate-stagger-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {credit}
           </div>
         </div>
