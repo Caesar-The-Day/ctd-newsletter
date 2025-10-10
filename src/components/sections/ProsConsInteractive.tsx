@@ -86,7 +86,7 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
                   className="h-20 w-20 object-contain"
                 />
                 <h3 className="text-2xl md:text-3xl font-bold text-orange-600 dark:text-orange-400">
-                  ⚠️ The Cons
+                  The Cons
                 </h3>
               </div>
 
