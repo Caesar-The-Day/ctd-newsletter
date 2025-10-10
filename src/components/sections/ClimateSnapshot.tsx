@@ -189,17 +189,10 @@ export function ClimateSnapshot() {
             </div>
           </div>
 
-          {/* Visual Cue & Cultural Event */}
-          <div className="space-y-4">
-            <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
-              <p className="text-sm text-muted-foreground mb-1">Vibe:</p>
-              <p className="text-foreground italic">{currentMonthData.visualCue}</p>
-            </div>
-
-            <div className="p-4 bg-secondary/50 rounded-lg">
-              <p className="text-sm text-muted-foreground mb-1">What's Happening:</p>
-              <p className="text-foreground font-medium">{currentMonthData.culturalEvent}</p>
-            </div>
+          {/* Cultural Event */}
+          <div className="p-4 bg-secondary/50 rounded-lg">
+            <p className="text-sm text-muted-foreground mb-1">What's Happening:</p>
+            <p className="text-foreground font-medium">{currentMonthData.culturalEvent}</p>
           </div>
         </Card>
 
