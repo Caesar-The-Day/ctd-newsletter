@@ -17,6 +17,7 @@ import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
+import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
 
 export default function RegionPage() {
   const { region } = useParams<{ region: string }>();
@@ -73,6 +74,10 @@ export default function RegionPage() {
       <Separator className="my-16" />
 
       <InteractiveMap />
+
+      <ClimateSnapshot />
+
+      <Separator className="my-16" />
 
       <TownsFeatured towns={regionData.towns.featured} />
       
