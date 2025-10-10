@@ -304,8 +304,8 @@
             "description": "Nebbiolo becomes Barolo and Barbaresco — wines of patience and structure. Barbera and Dolcetto offer balance and bite. Arneis and Gavi bring crisp, mineral power.",
             "links": [
               {
-                "label": "Piemonte Wine Consortium",
-                "href": "https://www.piemontewine.com/"
+                "label": "Wines of Piemonte",
+                "href": "https://www.ivinidelpiemonte.com/vini-e-territorio/"
               }
             ]
           },
@@ -350,8 +350,8 @@
             "description": "Pasta so thin it flutters when you breathe. Bagna càuda: anchovies, garlic, olive oil — a communal ritual that turns restraint into warmth.",
             "links": [
               {
-                "label": "Visit Piemonte – Recipes",
-                "href": "https://www.visitpiemonte.com/"
+                "label": "Piemontese Recipes",
+                "href": "https://www.piemonteitalia.eu/it/enogastronomia/ricette"
               }
             ]
           },
@@ -376,8 +376,8 @@
             "description": "From Bra to Asti, markets overflow with precision rather than novelty. Hazelnuts that taste like memory, butter that silences a room.",
             "links": [
               {
-                "label": "Visit Piemonte – Gastronomy",
-                "href": "https://www.visitpiemonte.com/"
+                "label": "Earth Markets - Italy/Piemonte",
+                "href": "https://www.fondazioneslowfood.com/it/nazioni-mercati/italia-it/?fwp_mercati_della_terra_nazioni=italia-it"
               }
             ]
           }
@@ -683,7 +683,7 @@
         "name": "Cuneo-Levaldigi Airport (CUF)",
         "coords": [44.5471, 7.6232],
         "description": "Small regional airport with seasonal routes to the UK and Northern Europe.",
-        "link": "https://www.aeroportocuneo.it/en",
+        "link": "https://www.aeroportocuneo.it/",
         "mapUrl": "https://maps.google.com/?q=Cuneo+Airport"
       }
     ],
@@ -725,7 +725,7 @@
         "name": "Parco Naturale del Po Piemonte",
         "coords": [45.1000, 8.0500],
         "description": "Wetlands and bird sanctuaries north of Turin; ideal day trip from the city.",
-        "link": "https://www.parcodelpo-vcal.it/",
+        "link": "https://www.parcopopiemontese.it/parco-po-piemontese.php",
         "mapUrl": "https://maps.google.com/?q=Parco+Po+Piemonte"
       }
     ],
