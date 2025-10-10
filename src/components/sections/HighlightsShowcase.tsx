@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Wine, Utensils, Landmark } from 'lucide-react';
+import { ExternalLink, Wine, Utensils, Landmark, ChevronDown } from 'lucide-react';
 import { Highlights } from '@/utils/getRegionData';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible';
@@ -95,9 +95,9 @@ function HighlightCard({ card }: HighlightCardProps) {
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <Card className="overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10">
+      <Card className="overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
         <CollapsibleTrigger asChild>
-          <button className="w-full text-left">
+          <button className="w-full text-left cursor-pointer">
             <div className="relative aspect-video overflow-hidden">
               <img
                 src={card.image}
@@ -105,13 +105,23 @@ function HighlightCard({ card }: HighlightCardProps) {
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-bold text-lg md:text-xl mb-1">
-                  {card.title}
-                </h3>
-                <p className="text-white/90 text-sm">
-                  {card.subtitle}
-                </p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+                <div className="flex-1">
+                  <h3 className="text-white font-bold text-lg md:text-xl mb-1">
+                    {card.title}
+                  </h3>
+                  <p className="text-white/90 text-sm mb-1">
+                    {card.subtitle}
+                  </p>
+                  <p className="text-white/70 text-xs flex items-center gap-1">
+                    <span>Click to expand</span>
+                  </p>
+                </div>
+                <ChevronDown 
+                  className={`h-6 w-6 text-white/90 transition-transform duration-300 flex-shrink-0 ml-2 ${
+                    isOpen ? 'rotate-180' : ''
+                  }`}
+                />
               </div>
             </div>
           </button>
