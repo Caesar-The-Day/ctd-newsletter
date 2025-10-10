@@ -74,12 +74,13 @@ export interface RegionData {
       ambientAudio?: string;
       credit: string;
     };
-    intro: {
-      headline: string;
-      byline: string;
-      paragraphs: string[];
-      portrait: string;
-    };
+  intro: {
+    headline: string;
+    byline: string;
+    paragraphs: string[];
+    portrait: string;
+    signature?: string;
+  };
   };
   where: {
     map: {

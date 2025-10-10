@@ -3,6 +3,7 @@ interface EditorialIntroProps {
   byline: string;
   paragraphs: string[];
   portrait: string;
+  signature?: string;
 }
 
 export function EditorialIntro({
@@ -10,6 +11,7 @@ export function EditorialIntro({
   byline,
   paragraphs,
   portrait,
+  signature,
 }: EditorialIntroProps) {
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -40,6 +42,16 @@ export function EditorialIntro({
                   {para}
                 </p>
               ))}
+              
+              {signature && (
+                <div className="mt-8 opacity-0 animate-fade-in-up" style={{ animationDelay: `${paragraphs.length * 0.15}s`, animationFillMode: 'forwards' }}>
+                  <img 
+                    src={signature} 
+                    alt="Cesare signature" 
+                    className="h-16 w-auto"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

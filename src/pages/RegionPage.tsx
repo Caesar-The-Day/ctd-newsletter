@@ -67,6 +67,7 @@ export default function RegionPage() {
         byline={regionData.region.intro.byline}
         paragraphs={regionData.region.intro.paragraphs}
         portrait={regionData.region.intro.portrait}
+        signature={regionData.region.intro.signature}
       />
 
       <Separator className="my-16" />
