@@ -34,6 +34,31 @@ export interface GlobalsData {
   };
 }
 
+export interface HighlightCard {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  description: string;
+  links: Array<{
+    label: string;
+    href: string;
+  }>;
+}
+
+export interface HighlightCategory {
+  title: string;
+  intro: string;
+  backgroundImage: string;
+  cards: HighlightCard[];
+}
+
+export interface Highlights {
+  wine: HighlightCategory;
+  food: HighlightCategory;
+  culture: HighlightCategory;
+}
+
 export interface RegionData {
   region: {
     slug: string;
@@ -160,6 +185,7 @@ export interface RegionData {
     }>;
     lifestyles: string[];
   };
+  highlights: Highlights;
   prosCons: {
     pros: string[];
     cons: string[];

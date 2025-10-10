@@ -14,6 +14,7 @@ import { RecipesInteractive } from '@/components/sections/RecipesInteractive';
 import { ProsConsInteractive } from '@/components/sections/ProsConsInteractive';
 import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
+import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 
 export default function RegionPage() {
   const { region } = useParams<{ region: string }>();
@@ -70,6 +71,8 @@ export default function RegionPage() {
       <InlineCTA globals={globals} ctaIds={['blueprint']} />
 
       <TownsGrid towns={regionData.towns.grid} />
+
+      <HighlightsShowcase highlights={regionData.highlights} />
 
       <WineQuiz profiles={regionData.wine.quiz.profiles} />
 
