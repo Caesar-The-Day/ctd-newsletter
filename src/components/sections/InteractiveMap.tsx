@@ -447,11 +447,11 @@ export function InteractiveMap() {
 
           {/* Layer Toggle Controls */}
           <div className="flex flex-wrap gap-2 justify-center mb-4">
-            <Button variant={showWineZones ? "default" : "outline"} size="sm" onClick={() => setShowWineZones(!showWineZones)} className="gap-2">
+            <Button variant={showWineZones ? "default" : "secondary"} size="sm" onClick={() => setShowWineZones(!showWineZones)} className="gap-2">
               <Wine className="w-4 h-4" />
               Wine Zones
             </Button>
-            <Button variant={showNaturalParks ? "default" : "outline"} size="sm" onClick={() => setShowNaturalParks(!showNaturalParks)} className="gap-2">
+            <Button variant={showNaturalParks ? "default" : "secondary"} size="sm" onClick={() => setShowNaturalParks(!showNaturalParks)} className="gap-2">
               <Mountain className="w-4 h-4" />
               Natural Parks
             </Button>
