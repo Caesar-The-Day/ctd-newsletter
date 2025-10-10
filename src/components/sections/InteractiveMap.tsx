@@ -399,7 +399,7 @@ export function InteractiveMap() {
             </p>
 
             <h3 className="mt-8 font-semibold text-xl">Borders &amp; Access</h3>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className="list-disc list-outside ml-5 space-y-1">
               <li>
                 <strong>West:</strong> France — cross via the Fréjus or Col de Montgenèvre tunnels, or even scenic
                 mountain passes in summer.
@@ -417,7 +417,7 @@ export function InteractiveMap() {
             </ul>
 
             <h3 className="mt-8 font-semibold text-xl">How to Get There</h3>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className="list-disc list-outside ml-5 space-y-1">
               <li>
                 <strong>By Car:</strong> The A4 and A21 motorways connect Turin to Milan, Genoa, and the French
                 border.
