@@ -35,10 +35,10 @@ export function TownsGrid({ towns }: TownsGridProps) {
                   alt={town.name}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-3 left-3">
-                  <h3 className="text-xl font-bold text-white">{town.name}</h3>
-                  <p className="text-sm text-white/90">{town.bestFor}</p>
+                  <h3 className="text-xl font-bold text-white drop-shadow-lg">{town.name}</h3>
+                  <p className="text-sm text-white drop-shadow-md">{town.bestFor}</p>
                 </div>
               </div>
 
