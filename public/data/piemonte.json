@@ -181,18 +181,18 @@
       {
         "id": "bra",
         "name": "Bra",
-        "bestFor": "Slow Food enthusiasts",
+        "bestFor": "Slow Food culture, walkable center",
         "photo": "/images/piemonte/bra.jpg",
         "mapUrl": "https://maps.google.com/?q=Bra+Italy",
-        "blurb": "Birthplace of Slow Food movement. University of Gastronomic Sciences nearby. Small but culturally rich."
+        "blurb": "Birthplace of the global Slow Food movement, Bra wears its philosophy proudly. Markets here are measured, not rushed; meals unfold like conversations. The town balances Baroque beauty with genuine community warmth. You can stroll from butcher to baker to bookshop without crossing a major street. Excellent rail links connect Bra to Turin and Alba, but the pace is its own — a kind of elegant efficiency that doesn't rely on hurry. Ideal for anyone who wants culture and cuisine without crowding."
       },
       {
         "id": "verbania",
         "name": "Verbania",
-        "bestFor": "Lakeside living (Lago Maggiore)",
+        "bestFor": "Lake Maggiore living, mild climate",
         "photo": "/images/piemonte/verbania.jpg",
         "mapUrl": "https://maps.google.com/?q=Verbania+Italy",
-        "blurb": "Mild lakeside climate. Ferry connections. Alpine backdrop. Touristy in summer but peaceful off-season."
+        "blurb": "Set on the shores of Lake Maggiore, Verbania feels half Alpine, half Mediterranean. Palms and pines coexist, and ferries glide past snow-capped horizons. The climate is mild, the air clean, and property prices surprisingly sane for a lakeside address. Healthcare and services are solid — Verbania has the infrastructure of a small city wrapped in resort scenery. It's for those who love the idea of the lake life but not the tourist throngs of Como."
       },
       {
         "id": "cuneo",
@@ -200,7 +200,7 @@
         "bestFor": "Alpine access, lower costs",
         "photo": "/images/piemonte/cuneo.jpg",
         "mapUrl": "https://maps.google.com/?q=Cuneo+Italy",
-        "blurb": "Gateway to southern Alps. Skiing nearby. More affordable than vineyard zones. Practical base town."
+        "blurb": "At the foot of the Maritime Alps, Cuneo has the crisp air and practical temperament of a mountain capital. Wide squares, grand arcades, and Alpine views define its center. This is Italy without pretense: clean, organized, unhurried. Winters bring skiers; summers, hikers. The local cuisine blends Piedmontese rigor with French finesse. For retirees, Cuneo's appeal is its scale — big enough for amenities, small enough to know your baker by name."
       },
       {
         "id": "novara",
@@ -208,7 +208,7 @@
         "bestFor": "Strategic location, urban services",
         "photo": "/images/piemonte/novara.jpg",
         "mapUrl": "https://maps.google.com/?q=Novara+Italy",
-        "blurb": "Between Milan and Torino. Rice paddies surround it. Good transit hub. Underappreciated city."
+        "blurb": "Novara is rice country — fields, canals, and the hum of agricultural precision. It sits between Milan and Turin, serving both without bowing to either. Architecturally, it's a handsome provincial city with a monumental dome and plenty of green space. Trains to Milan take under an hour, making Novara a realistic commuter or semi-urban retirement base. The vibe is industrious but balanced: locals work hard, eat better, and avoid drama."
       },
       {
         "id": "alessandria",
@@ -216,7 +216,7 @@
         "bestFor": "Affordability, rail access",
         "photo": "/images/piemonte/alessandria.jpg",
         "mapUrl": "https://maps.google.com/?q=Alessandria+Italy",
-        "blurb": "Budget-friendly city. On main rail line. Not touristy. Real Italian life without frills."
+        "blurb": "Strategically located at the crossroads of Turin, Milan, and Genoa, Alessandria has always been a connector city. It's pragmatic, well-serviced, and refreshingly affordable for northern Italy. The center mixes understated 19th-century elegance with functional modern blocks. You don't move here for spectacle — you move here because it works. Healthcare is excellent, transportation effortless, and life feels comfortably middle-class. A solid base for those who want access to everything but ownership of nothing chaotic."
       },
       {
         "id": "biella",
@@ -224,7 +224,55 @@
         "bestFor": "Textile heritage, proximity to mountains",
         "photo": "/images/piemonte/biella.jpg",
         "mapUrl": "https://maps.google.com/?q=Biella+Italy",
-        "blurb": "Historic wool industry. Alpine foothills. Smaller, quieter. Good for nature lovers."
+        "blurb": "Textile heartland and gateway to the mountains, Biella is where fabric mills meet fresh air. Once one of Italy's richest industrial districts, it now feels quietly prosperous, with art foundations and outdoor festivals replacing factory noise. It's surrounded by nature yet has the bones of a real city: hospitals, schools, and an opera season. The cost of living is lower than Turin or Alba, but the views — forests, lakes, and snowy peaks — are first-class. For creatives or nature-minded retirees, Biella delivers serenity with substance."
+      },
+      {
+        "id": "saluzzo",
+        "name": "Saluzzo",
+        "bestFor": "Medieval charm, artistic community",
+        "photo": "/images/piemonte/saluzzo.jpg",
+        "mapUrl": "https://maps.google.com/?q=Saluzzo+Italy",
+        "blurb": "A medieval jewel perched between plains and peaks, Saluzzo offers that elusive small-town charm without isolation. Cobbled lanes, frescoed courtyards, and a hilltop old quarter give it cinematic character. It's also practical: excellent food markets, modern clinics, and a strong sense of community. Artists love it, retirees appreciate its calm — Saluzzo is Piedmont distilled into stone and light."
+      },
+      {
+        "id": "acqui-terme",
+        "name": "Acqui Terme",
+        "bestFor": "Thermal spas, wine country",
+        "photo": "/images/piemonte/acqui-terme.jpg",
+        "mapUrl": "https://maps.google.com/?q=Acqui+Terme+Italy",
+        "blurb": "Roman ruins, thermal baths, and Barbera vineyards — Acqui Terme has been unwinding travelers for two thousand years. The town's spa culture remains alive but understated, with mineral springs, elegant hotels, and a well-preserved center. It's a haven for those who want health, heritage, and hedonism in balance. Affordable homes, good train links, and the aroma of mineral water in the air make it a quiet favorite for long stays."
+      },
+      {
+        "id": "orta-san-giulio",
+        "name": "Orta San Giulio",
+        "bestFor": "Lake life, romantic setting",
+        "photo": "/images/piemonte/orta.jpg",
+        "mapUrl": "https://maps.google.com/?q=Orta+San+Giulio+Italy",
+        "blurb": "Tiny, romantic, and absurdly picturesque, Orta San Giulio sits on Lake Orta — often called 'Maggiore's little sister.' The view from the island monastery feels almost timeless. It's small enough to walk end-to-end in ten minutes, yet filled with quality restaurants and art galleries. Limited parking and limited stress go hand in hand. Perfect for writers, dreamers, or anyone who wants the lake life in miniature."
+      },
+      {
+        "id": "cherasco",
+        "name": "Cherasco",
+        "bestFor": "Baroque elegance, antique markets",
+        "photo": "/images/piemonte/cherasco.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cherasco+Italy",
+        "blurb": "Half fortress, half pastry shop, Cherasco is a town of surprising refinement. Known for its baroque arcades, antique fairs, and chocolate production, it has the atmosphere of a place that never rushes but always delivers. Within twenty minutes of Alba or Bra, it's a logical choice for those who want to live near the action but not in it. Elegant, friendly, and just quirky enough to feel personal."
+      },
+      {
+        "id": "ivrea",
+        "name": "Ivrea",
+        "bestFor": "Industrial heritage, mountain access",
+        "photo": "/images/piemonte/ivrea.jpg",
+        "mapUrl": "https://maps.google.com/?q=Ivrea+Italy",
+        "blurb": "Once the headquarters of Olivetti — the company that made typewriters cool — Ivrea carries the DNA of innovation and design. Its modernist industrial heritage earned it UNESCO status, and its annual orange-throwing carnival proves the locals have a sense of humor. Nestled by the Dora Baltea River, Ivrea is scenic and smart, a perfect midpoint between Turin and the Alps. Ideal for remote workers or semi-urban expats who crave balance."
+      },
+      {
+        "id": "mondovi",
+        "name": "Mondovì",
+        "bestFor": "Terraced hillside views, ceramic tradition",
+        "photo": "/images/piemonte/mondovi.jpg",
+        "mapUrl": "https://maps.google.com/?q=Mondovi+Italy",
+        "blurb": "Set on terraced hills overlooking the Tanaro Valley, Mondovì feels like two towns stacked — the medieval Piazza above and the modern Breo below. A funicular links them, because of course it does; this is Piedmont, where even old towns are engineered. Known for ceramics, wine, and its baroque cathedral, Mondovì is accessible yet atmospheric. Housing is modestly priced, and the mountain views come free."
       }
     ]
   },
