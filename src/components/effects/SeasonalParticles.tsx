@@ -50,13 +50,13 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
       }
     };
 
-    const particleCount = currentSeasonType === "winter" ? 35 : 25;
+    const particleCount = currentSeasonType === "winter" ? 45 : 35;
     const newParticles = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 10,
       duration: currentSeasonType === "spring" ? 12 + Math.random() * 8 : 8 + Math.random() * 6,
-      size: currentSeasonType === "winter" ? 6 + Math.random() * 10 : 4 + Math.random() * 8,
+      size: currentSeasonType === "winter" ? 12 + Math.random() * 12 : 10 + Math.random() * 10,
       symbol: getSymbolForSeason(currentSeasonType),
     }));
     console.log(`[SeasonalParticles] Generated ${particleCount} ${currentSeasonType} particles for month ${monthIndex}`);
@@ -66,13 +66,26 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   const getParticleStyle = (type: SeasonType) => {
     switch (type) {
       case "winter":
-        return "text-blue-100";
+        return "text-white";
       case "spring":
-        return "text-pink-300/80";
+        return "text-pink-200";
       case "autumn":
-        return "text-orange-400/80";
+        return "text-orange-300";
       default:
         return "text-white/50";
+    }
+  };
+
+  const getTextShadow = (type: SeasonType) => {
+    switch (type) {
+      case "winter":
+        return "0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(147, 197, 253, 0.6)";
+      case "spring":
+        return "0 0 8px rgba(251, 207, 232, 0.8), 0 0 12px rgba(244, 114, 182, 0.6)";
+      case "autumn":
+        return "0 0 8px rgba(253, 186, 116, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)";
+      default:
+        return "0 0 4px rgba(255, 255, 255, 0.5)";
     }
   };
 
@@ -123,7 +136,7 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
             fontSize: `${particle.size}px`,
             animationDelay: `${particle.delay}s`,
             animationDuration: `${particle.duration}s`,
-            opacity: 0.9,
+            textShadow: getTextShadow(seasonType),
           }}
         >
           {particle.symbol}
