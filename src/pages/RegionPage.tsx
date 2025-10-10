@@ -90,7 +90,7 @@ export default function RegionPage() {
         notes={regionData.costOfLiving.notes}
       />
 
-      <ProsConsInteractive pros={regionData.prosCons.pros} cons={regionData.prosCons.cons} />
+      <ProsConsInteractive prosCons={regionData.prosCons} />
 
       <InlineCTA globals={globals} ctaIds={['map7']} />
 

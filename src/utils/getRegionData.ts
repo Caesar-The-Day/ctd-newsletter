@@ -270,8 +270,24 @@ export interface RegionData {
   };
   highlights: Highlights;
   prosCons: {
-    pros: string[];
-    cons: string[];
+    intro: {
+      headline: string;
+      lead: string;
+      tradeoff: string;
+    };
+    pros: Array<{
+      title: string;
+      points: string[];
+    }>;
+    cons: Array<{
+      title: string;
+      points: string[];
+    }>;
+    finalTake: {
+      headline: string;
+      text: string;
+      conclusion: string;
+    };
   };
   ctas: string[];
   closing: {

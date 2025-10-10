@@ -888,22 +888,95 @@
     }
   },
   "prosCons": {
+    "intro": {
+      "headline": "Pros & Cons: Piemonte Without the Postcard Filter",
+      "lead": "Piemonte is what happens when Italy trades spectacle for substance. It's beautiful, yes — but quietly so. You don't come here for beaches or chaos; you come for rhythm, precision, and a certain civility that makes everyday life manageable. Think of it as Italy with its shirt tucked in: elegant, functional, and a little reserved until it decides you're worth knowing.",
+      "tradeoff": "The best part? It's still affordable by Western European standards and almost scandalously underhyped. The tradeoff? You'll need patience — not with the people, but with the pace of change. Piemonte rewards those who appreciate small victories: trains that arrive on time, a cappuccino that costs €1.50, a bureaucracy that only occasionally loses your paperwork."
+    },
     "pros": [
-      "World-class food and wine culture—Barolo, Barbaresco, truffles",
-      "Excellent healthcare anchored by Torino's university hospitals",
-      "Strong transportation: airports, high-speed rail, autostrade",
-      "Four distinct seasons with true Alpine access",
-      "Less touristy than Tuscany—authentic Italian life",
-      "Sophisticated culture without big-city chaos"
+      {
+        "title": "Quality of Life",
+        "points": [
+          "Clean, organized, safe — especially compared to major southern cities.",
+          "Excellent healthcare network and efficient public infrastructure.",
+          "Four true seasons, with real autumns and Alpine winters."
+        ]
+      },
+      {
+        "title": "Affordability",
+        "points": [
+          "Rents and cost of living remain below Tuscany, Liguria, and Lombardy.",
+          "Strong value for quality housing, healthcare, and dining.",
+          "Plenty of small towns where €2,000/month buys comfort, not survival."
+        ]
+      },
+      {
+        "title": "Culture with Depth",
+        "points": [
+          "Turin's museums, film festivals, and design heritage rival Europe's best.",
+          "Culinary culture anchored in substance — Slow Food, Barolo, and truffles.",
+          "Locals value courtesy, craftsmanship, and understatement."
+        ]
+      },
+      {
+        "title": "Connectivity",
+        "points": [
+          "Milan, Genoa, and the French border all within 2 hours.",
+          "High-speed rail, excellent highways, and two regional airports.",
+          "Reliable regional transport even in smaller towns."
+        ]
+      },
+      {
+        "title": "Nature and Balance",
+        "points": [
+          "Mountains, lakes, vineyards — all within reach of urban life.",
+          "Over 60 protected parks and reserves.",
+          "Fresh air, low pollution, and a slower rhythm of daily living."
+        ]
+      }
     ],
     "cons": [
-      "Winter fog and cold in Po Valley—heating costs matter",
-      "Festival crowds in Alba during truffle season (Oct-Nov)",
-      "Higher costs in prime wine zones (Langhe, Barolo area)",
-      "Car helpful in rural areas—not as walkable as central Italy",
-      "Reserved culture—takes time to integrate",
-      "Summers can be hot and humid in cities"
-    ]
+      {
+        "title": "Reserved Social Culture",
+        "points": [
+          "Locals can seem distant until you earn their trust.",
+          "Making friends takes time — especially if you don't speak Italian well."
+        ]
+      },
+      {
+        "title": "Weather Swings",
+        "points": [
+          "Winter fogs in the Po Valley can last for weeks.",
+          "Summers are humid in the plains, cold in the mountains — pick your poison."
+        ]
+      },
+      {
+        "title": "Bureaucratic Italy Still Exists",
+        "points": [
+          "Residency, tax, and healthcare paperwork still require persistence.",
+          "English isn't widely spoken outside Turin and tourist areas."
+        ]
+      },
+      {
+        "title": "Modest Nightlife",
+        "points": [
+          "Outside Turin, nightlife is quiet — charming for some, dull for others.",
+          "Many towns still shut down midday and on Sundays."
+        ]
+      },
+      {
+        "title": "Rising Property Interest",
+        "points": [
+          "Expats and Milanese investors are catching on, especially in the Langhe.",
+          "Alba and Barolo-area properties are rising in price faster than expected."
+        ]
+      }
+    ],
+    "finalTake": {
+      "headline": "Final Take: Is Piemonte Right for You?",
+      "text": "If you want Italy with order — the food without the frenzy, the art without the ego — Piemonte might feel like destiny. It's a region for people who appreciate craftsmanship, culture, and consistency. Not for those chasing a postcard fantasy, but for those who want to live well quietly.",
+      "conclusion": "It's less \"la dolce vita\" and more \"la vita giusta\" — the right life. If that phrase makes you nod instead of roll your eyes, Piemonte is your kind of north."
+    }
   },
   "ctas": ["blueprint", "vf", "map7"],
   "closing": {
