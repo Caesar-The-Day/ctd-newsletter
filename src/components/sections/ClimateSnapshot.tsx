@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
 import { Cloud, Droplets, Sun, Thermometer } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface ClimateData {
   intro: {
@@ -43,22 +44,86 @@ interface WeatherData {
 
 type RegionKey = "torino" | "alba" | "verbania" | "cuneo";
 
-const seasonalBackgrounds = {
-  winter: "from-slate-200/30 via-blue-100/20 to-slate-100/30 dark:from-slate-900/30 dark:via-blue-950/20 dark:to-slate-800/30",
-  spring: "from-green-100/30 via-emerald-50/20 to-lime-100/30 dark:from-green-950/30 dark:via-emerald-900/20 dark:to-lime-950/30",
-  summer: "from-yellow-100/30 via-amber-50/20 to-orange-100/30 dark:from-yellow-950/30 dark:via-amber-900/20 dark:to-orange-950/30",
-  autumn: "from-orange-100/30 via-red-50/20 to-amber-100/30 dark:from-orange-950/30 dark:via-red-900/20 dark:to-amber-950/30",
+// Seasonal background images mapped by region and season
+const seasonalImages: Record<RegionKey, Record<string, string>> = {
+  torino: {
+    winter: "/images/piemonte/alps.jpg",
+    spring: "/images/piemonte/torino-hero.jpg",
+    summer: "/images/piemonte/torino1.jpg",
+    autumn: "/images/piemonte/torino2.jpg",
+  },
+  alba: {
+    winter: "/images/piemonte/alps.jpg",
+    spring: "/images/piemonte/hero-vineyards.jpg",
+    summer: "/images/piemonte/alba-hero.jpg",
+    autumn: "/images/piemonte/vineyard-fall.jpg",
+  },
+  verbania: {
+    winter: "/images/piemonte/alps.jpg",
+    spring: "/images/piemonte/orta.jpg",
+    summer: "/images/piemonte/verbania.jpg",
+    autumn: "/images/piemonte/orta-san-giulio.jpg",
+  },
+  cuneo: {
+    winter: "/images/piemonte/alps.jpg",
+    spring: "/images/piemonte/hero-vineyards.jpg",
+    summer: "/images/piemonte/cuneo.jpg",
+    autumn: "/images/piemonte/vineyard-fall.jpg",
+  },
 };
 
 export function ClimateSnapshot() {
   const [climateData, setClimateData] = useState<ClimateData | null>(null);
   const [currentMonth, setCurrentMonth] = useState(0);
   const [selectedRegion, setSelectedRegion] = useState<RegionKey>("alba");
+  const [currentImageKey, setCurrentImageKey] = useState("");
+  const [previousImageKey, setPreviousImageKey] = useState("");
+  const [scrollY, setScrollY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     fetch("/data/piemonte-climate.json")
       .then((res) => res.json())
       .then((data) => setClimateData(data));
+  }, []);
+
+  // Preload images and handle transitions
+  useEffect(() => {
+    if (!climateData) return;
+    
+    const currentSeason = climateData.months[currentMonth].season;
+    const newImageKey = seasonalImages[selectedRegion][currentSeason];
+    
+    if (newImageKey !== currentImageKey) {
+      // Preload the new image
+      const img = new Image();
+      img.src = newImageKey;
+      img.onload = () => {
+        setPreviousImageKey(currentImageKey);
+        setCurrentImageKey(newImageKey);
+      };
+      
+      // If it's the first load
+      if (!currentImageKey) {
+        setCurrentImageKey(newImageKey);
+      }
+    }
+  }, [currentMonth, selectedRegion, climateData, currentImageKey]);
+
+  // Handle parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible) {
+          setScrollY(window.scrollY);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (!climateData) return null;
@@ -68,11 +133,40 @@ export function ClimateSnapshot() {
   const currentSeason = currentMonthData.season;
 
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-      {/* Animated seasonal background */}
+    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative overflow-hidden">
+      {/* Background Image Layer 1 (Previous/Outgoing) */}
+      {previousImageKey && (
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1200 ease-in-out"
+          style={{ 
+            backgroundImage: `url(${previousImageKey})`,
+            opacity: previousImageKey === currentImageKey ? 1 : 0,
+            transform: `translateY(${scrollY * 0.015}px)`,
+            willChange: 'opacity, transform'
+          }}
+        />
+      )}
+      
+      {/* Background Image Layer 2 (Current/Incoming) */}
       <div 
-        className={`absolute inset-0 bg-gradient-to-br ${seasonalBackgrounds[currentSeason]} transition-all duration-1000 ease-in-out`}
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1200 ease-in-out"
+        style={{ 
+          backgroundImage: `url(${currentImageKey})`,
+          opacity: 1,
+          transform: `translateY(${scrollY * 0.015}px)`,
+          willChange: 'opacity, transform'
+        }}
       />
+      
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/40 z-[1]" />
+      
+      {/* Season Label Badge */}
+      <div className="absolute top-8 right-8 z-20">
+        <Badge variant="secondary" className="px-4 py-2 text-sm font-medium bg-black/30 backdrop-blur-md border-white/20 text-white">
+          {currentSeason.charAt(0).toUpperCase() + currentSeason.slice(1)} in {climateData.regions[selectedRegion].name}
+        </Badge>
+      </div>
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}
