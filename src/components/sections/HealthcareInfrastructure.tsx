@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -85,7 +85,8 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
 
   const currentTravel = healthcare.travelTimes[travelIndex];
 
-  const getMapData = () => {
+  // Memoize map data to prevent unnecessary recalculations
+  const mapData = React.useMemo(() => {
     switch (mapLayer) {
       case 'hospitals':
         return healthcare.hospitals.map(h => ({
@@ -115,7 +116,7 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
           icon: '🏔️'
         }));
     }
-  };
+  }, [mapLayer, healthcare]);
 
   return (
     <section className="py-16 md:py-24 bg-muted/30">
@@ -167,13 +168,14 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
                   zoom={8}
                   style={{ height: '100%', width: '100%' }}
                   scrollWheelZoom={false}
+                  key={mapLayer}
                 >
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
-                  {getMapData().map((marker, idx) => (
-                    <Marker key={idx} position={marker.coords as [number, number]}>
+                  {mapData && mapData.map((marker, idx) => (
+                    <Marker key={`${mapLayer}-${idx}`} position={marker.coords as [number, number]}>
                       <Popup>
                         <div className="p-2 min-w-[200px]">
                           <h4 className="font-bold mb-2 text-sm">{marker.name}</h4>
