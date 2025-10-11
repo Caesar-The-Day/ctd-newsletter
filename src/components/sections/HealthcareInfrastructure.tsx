@@ -49,7 +49,14 @@ interface HealthcareInfrastructureProps {
         destination: string;
         time: string;
       }>;
-      nearestAirport: string;
+      nearestAirport: string | {
+        name: string;
+        code: string;
+        time: string;
+        distance: string;
+        connectivity: string;
+        link: string;
+      };
     }>;
     quickInfo: {
       emergencyNumbers: string[];
@@ -151,7 +158,7 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
               </Button>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
               {mapData && mapData.map((location, idx) => (
                 <Card key={`${mapLayer}-${idx}`} className="shadow-soft hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
@@ -228,13 +235,51 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-center bg-accent/10 rounded-lg p-6">
-                  <div className="text-center">
-                    <Plane className="h-8 w-8 mx-auto mb-3 text-primary" />
-                    <p className="text-sm font-semibold mb-1">Nearest Airport</p>
-                    <p className="text-muted-foreground">{currentTravel.nearestAirport}</p>
-                  </div>
-                </div>
+                <Card className="border-2 border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="text-center space-y-4">
+                      <div className="relative inline-block">
+                        <Plane className="h-12 w-12 mx-auto text-primary animate-pulse" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                          Nearest Airport
+                        </p>
+                        <h4 className="text-xl font-bold mb-1">
+                          {typeof currentTravel.nearestAirport === 'string' 
+                            ? currentTravel.nearestAirport 
+                            : currentTravel.nearestAirport.name}
+                        </h4>
+                        {typeof currentTravel.nearestAirport !== 'string' && (
+                          <>
+                            <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground mb-2">
+                              <span className="font-mono font-semibold text-primary">
+                                {currentTravel.nearestAirport.code}
+                              </span>
+                              <span>•</span>
+                              <span>{currentTravel.nearestAirport.time}</span>
+                              <span>•</span>
+                              <span>{currentTravel.nearestAirport.distance}</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground mb-4">
+                              {currentTravel.nearestAirport.connectivity}
+                            </p>
+                            <Button variant="outline" size="sm" asChild className="w-full">
+                              <a
+                                href={currentTravel.nearestAirport.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Plane className="h-3 w-3 mr-2" />
+                                View Flights
+                              </a>
+                            </Button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </CardContent>
           </Card>

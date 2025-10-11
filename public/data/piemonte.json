@@ -738,7 +738,14 @@
           { "destination": "Nice", "time": "3h 30 by train" },
           { "destination": "Gran Paradiso Park", "time": "90 min by car" }
         ],
-        "nearestAirport": "Caselle Airport – 20 min"
+        "nearestAirport": {
+          "name": "Caselle Airport",
+          "code": "TRN",
+          "time": "20 min",
+          "distance": "16 km",
+          "connectivity": "Direct flights to 50+ European cities",
+          "link": "https://www.aeroportoditorino.it/en"
+        }
       },
       {
         "from": "Alba",
@@ -748,7 +755,14 @@
           { "destination": "Milan", "time": "1h 45 by train" },
           { "destination": "Alpi Marittime Park", "time": "90 min by car" }
         ],
-        "nearestAirport": "Caselle Airport – 1h"
+        "nearestAirport": {
+          "name": "Caselle Airport",
+          "code": "TRN",
+          "time": "1h",
+          "distance": "65 km",
+          "connectivity": "Direct flights to 50+ European cities",
+          "link": "https://www.aeroportoditorino.it/en"
+        }
       },
       {
         "from": "Cuneo",
@@ -757,7 +771,14 @@
           { "destination": "Nice", "time": "2h 30 by car" },
           { "destination": "Alpi Marittime Park", "time": "45 min by car" }
         ],
-        "nearestAirport": "Cuneo-Levaldigi – 15 min"
+        "nearestAirport": {
+          "name": "Cuneo-Levaldigi Airport",
+          "code": "CUF",
+          "time": "15 min",
+          "distance": "18 km",
+          "connectivity": "Seasonal routes to UK & Northern Europe",
+          "link": "https://www.aeroportocuneo.it/"
+        }
       },
       {
         "from": "Verbania",
@@ -766,7 +787,14 @@
           { "destination": "Turin", "time": "2h by train" },
           { "destination": "Gran Paradiso Park", "time": "2h by car" }
         ],
-        "nearestAirport": "Milan Malpensa – 45 min"
+        "nearestAirport": {
+          "name": "Milan Malpensa Airport",
+          "code": "MXP",
+          "time": "45 min",
+          "distance": "55 km",
+          "connectivity": "Major international hub with global connections",
+          "link": "https://www.milanomalpensa-airport.com/en/"
+        }
       }
     ],
     "quickInfo": {

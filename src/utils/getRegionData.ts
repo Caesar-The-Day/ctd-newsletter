@@ -229,7 +229,14 @@ export interface RegionData {
         destination: string;
         time: string;
       }>;
-      nearestAirport: string;
+      nearestAirport: string | {
+        name: string;
+        code: string;
+        time: string;
+        distance: string;
+        connectivity: string;
+        link: string;
+      };
     }>;
     quickInfo: {
       emergencyNumbers: string[];
