@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin } from 'lucide-react';
+import { MapPin, Map } from 'lucide-react';
 
 interface GridTown {
   id: string;
@@ -20,6 +20,7 @@ export function TownsGrid({ towns }: TownsGridProps) {
     <section className="py-8 md:py-12 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <Map className="h-12 w-12 mx-auto mb-4 text-primary" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">More Towns to Consider</h2>
           <p className="text-lg text-muted-foreground">
             Beyond the highlights—solid options worth exploring

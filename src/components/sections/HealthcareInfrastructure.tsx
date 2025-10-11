@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Slider } from '@/components/ui/slider';
-import { ExternalLink, MapPin, Heart, Plane, Train, Trees } from 'lucide-react';
+import { ExternalLink, MapPin, Heart, Plane, Train, Trees, Stethoscope } from 'lucide-react';
 
 interface HealthcareInfrastructureProps {
   healthcare: {
@@ -113,7 +113,8 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <Stethoscope className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {healthcare.intro.headline}
             </h2>
             <p className="text-lg md:text-xl text-foreground/90 leading-relaxed max-w-4xl mx-auto">

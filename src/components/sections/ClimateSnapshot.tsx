@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
-import { Cloud, Droplets, Sun, Thermometer } from "lucide-react";
+import { Cloud, Droplets, Sun, Thermometer, CloudSun } from "lucide-react";
 import { SeasonalParticles } from "@/components/effects/SeasonalParticles";
 
 interface ClimateData {
@@ -81,7 +81,8 @@ export function ClimateSnapshot() {
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <CloudSun className="h-12 w-12 mx-auto mb-4 text-primary" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             {climateData.intro.headline}
           </h2>
           <p className="text-xl italic text-muted-foreground mb-6">
