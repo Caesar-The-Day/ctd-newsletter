@@ -21,6 +21,8 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+baseurl: "/ctd-newsletter"
+
 jobs:
   # Build job
   build:
