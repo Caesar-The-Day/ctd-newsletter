@@ -32,6 +32,7 @@ interface MonthData {
   cuneo: WeatherData;
   tooltip: string;
   culturalEvent: string;
+  culturalEventUrl?: string;
   visualCue: string;
 }
 
@@ -193,7 +194,18 @@ export function ClimateSnapshot() {
           {/* Cultural Event */}
           <div className="p-4 bg-secondary/50 rounded-lg">
             <p className="text-sm text-muted-foreground mb-1">What's Happening:</p>
-            <p className="text-foreground font-medium">{currentMonthData.culturalEvent}</p>
+            {currentMonthData.culturalEventUrl ? (
+              <a 
+                href={currentMonthData.culturalEventUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground font-medium hover:text-primary underline decoration-primary/30 hover:decoration-primary transition-colors"
+              >
+                {currentMonthData.culturalEvent}
+              </a>
+            ) : (
+              <p className="text-foreground font-medium">{currentMonthData.culturalEvent}</p>
+            )}
           </div>
         </Card>
 

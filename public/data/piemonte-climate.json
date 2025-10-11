@@ -43,6 +43,7 @@
       "cuneo": { "tempLow": -2, "tempHigh": 6, "rainfall": 40, "sunHours": 4 },
       "tooltip": "Fog, frost, Barolo season",
       "culturalEvent": "Ski season peaks in Sestriere",
+      "culturalEventUrl": "https://sestriere-online.com/",
       "visualCue": "Fog over vineyards; faint snowline on the Alps"
     },
     {
@@ -55,6 +56,7 @@
       "cuneo": { "tempLow": -1, "tempHigh": 8, "rainfall": 35, "sunHours": 5 },
       "tooltip": "Mist over vineyards, early snowdrops",
       "culturalEvent": "Carnival season begins",
+      "culturalEventUrl": "https://www.visitpiemonte.com/en/carnival-in-piemonte",
       "visualCue": "Soft drifting mist"
     },
     {
@@ -66,7 +68,8 @@
       "verbania": { "tempLow": 6, "tempHigh": 15, "rainfall": 80, "sunHours": 6 },
       "cuneo": { "tempLow": 2, "tempHigh": 12, "rainfall": 55, "sunHours": 6 },
       "tooltip": "Almond blossoms, rivers thawing",
-      "culturalEvent": "Truffle markets reopen",
+      "culturalEvent": "Messer Tulipano Festival",
+      "culturalEventUrl": "https://castellodipralormo.com/en/mister-tulip/",
       "visualCue": "Budding vines, warming colors"
     },
     {
@@ -78,7 +81,8 @@
       "verbania": { "tempLow": 10, "tempHigh": 18, "rainfall": 95, "sunHours": 7 },
       "cuneo": { "tempLow": 6, "tempHigh": 15, "rainfall": 70, "sunHours": 7 },
       "tooltip": "Vine sprouts growing, wildflowers",
-      "culturalEvent": "Easter processions in the hills",
+      "culturalEvent": "Vinum Food and Wine Festival in Alba",
+      "culturalEventUrl": "https://www.vinumalba.com/en/",
       "visualCue": "Time-lapse of vine sprouts"
     },
     {
@@ -90,7 +94,8 @@
       "verbania": { "tempLow": 14, "tempHigh": 23, "rainfall": 110, "sunHours": 8 },
       "cuneo": { "tempLow": 10, "tempHigh": 20, "rainfall": 80, "sunHours": 8 },
       "tooltip": "Full green, hay cutting begins",
-      "culturalEvent": "Langhe flowers bloom",
+      "culturalEvent": "Cantine Aperte - Open Cellars",
+      "culturalEventUrl": "https://www.avinturo.com/italian-wine-festivals",
       "visualCue": "Vibrant green vineyards"
     },
     {
@@ -102,7 +107,8 @@
       "verbania": { "tempLow": 18, "tempHigh": 27, "rainfall": 95, "sunHours": 9 },
       "cuneo": { "tempLow": 14, "tempHigh": 24, "rainfall": 65, "sunHours": 9 },
       "tooltip": "Sharp scent of cut hay",
-      "culturalEvent": "Festival season begins",
+      "culturalEvent": "Alba Jazz Festival",
+      "culturalEventUrl": "https://www.albajazz.com/",
       "visualCue": "Lake shimmer, bright light"
     },
     {
@@ -114,7 +120,8 @@
       "verbania": { "tempLow": 20, "tempHigh": 30, "rainfall": 80, "sunHours": 10 },
       "cuneo": { "tempLow": 16, "tempHigh": 27, "rainfall": 50, "sunHours": 10 },
       "tooltip": "Hazy skies, mountain escapes",
-      "culturalEvent": "Mountain festivals in the Alps",
+      "culturalEvent": "Collisioni Festival Barolo",
+      "culturalEventUrl": "https://www.collisioni.it/",
       "visualCue": "Water ripple animation, bright gradient"
     },
     {
@@ -126,7 +133,7 @@
       "verbania": { "tempLow": 20, "tempHigh": 29, "rainfall": 85, "sunHours": 9 },
       "cuneo": { "tempLow": 16, "tempHigh": 26, "rainfall": 55, "sunHours": 9 },
       "tooltip": "Peak summer, vineyard work",
-      "culturalEvent": "Ferragosto celebrations",
+      "culturalEvent": "Ferragosto - Take a Break. Touch Some Grass.",
       "visualCue": "Cicadas humming, passing cloud shadows"
     },
     {
@@ -138,7 +145,8 @@
       "verbania": { "tempLow": 16, "tempHigh": 24, "rainfall": 95, "sunHours": 7 },
       "cuneo": { "tempLow": 12, "tempHigh": 21, "rainfall": 65, "sunHours": 7 },
       "tooltip": "Harvest begins, grapes ripening",
-      "culturalEvent": "Vendemmia (grape harvest)",
+      "culturalEvent": "Palio di Asti",
+      "culturalEventUrl": "https://visit.asti.it/en/september-in-asti/the-palio-of-asti/",
       "visualCue": "Vineyard rows turning gold"
     },
     {
@@ -150,7 +158,8 @@
       "verbania": { "tempLow": 11, "tempHigh": 18, "rainfall": 105, "sunHours": 5 },
       "cuneo": { "tempLow": 7, "tempHigh": 15, "rainfall": 75, "sunHours": 5 },
       "tooltip": "Gold rush of October leaves",
-      "culturalEvent": "Alba Truffle Fair",
+      "culturalEvent": "International Alba White Truffle Fair",
+      "culturalEventUrl": "https://www.fieradeltartufo.org/en/",
       "visualCue": "Leaves turning rust and gold"
     },
     {
@@ -162,7 +171,8 @@
       "verbania": { "tempLow": 6, "tempHigh": 12, "rainfall": 95, "sunHours": 3 },
       "cuneo": { "tempLow": 2, "tempHigh": 9, "rainfall": 65, "sunHours": 3 },
       "tooltip": "First frosts, wine cellars busy",
-      "culturalEvent": "New wine season begins",
+      "culturalEvent": "Cioccolatò Festival Torino",
+      "culturalEventUrl": "https://www.cioccola.to.it/",
       "visualCue": "Bare vines, foggy mornings"
     },
     {
@@ -174,7 +184,8 @@
       "verbania": { "tempLow": 3, "tempHigh": 9, "rainfall": 70, "sunHours": 3 },
       "cuneo": { "tempLow": -1, "tempHigh": 6, "rainfall": 45, "sunHours": 3 },
       "tooltip": "Winter settles in, Alpine snow",
-      "culturalEvent": "Turin lights up with Luci d'Artista",
+      "culturalEvent": "Artist's Lights - Luci d'Artista - Torino",
+      "culturalEventUrl": "https://www.lucidartistatorino.org/LdA-26/en/homepage-en/index.html",
       "visualCue": "Snow on mountains, festive lights"
     }
   ]
