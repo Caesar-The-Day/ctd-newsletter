@@ -61,7 +61,9 @@ export function Header({
       </Button>
       <Button variant="ghost" size="sm" asChild className="hover-lift">
         <a href={globals.brand.share.substack} target="_blank" rel="noopener noreferrer" aria-label="Subscribe on Substack">
-          <Share2 className="h-4 w-4" />
+          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+          </svg>
         </a>
       </Button>
     </>
