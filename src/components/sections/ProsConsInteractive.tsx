@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { Scale } from 'lucide-react';
 
 interface ProConItem {
   title: string;
@@ -31,7 +32,8 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <Scale className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {intro.headline}
             </h2>
             <p className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 max-w-4xl mx-auto">

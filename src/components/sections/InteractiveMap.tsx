@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Wine, Mountain } from 'lucide-react';
+import { MapPin, Wine, Mountain, Globe } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
 const cities = [{
@@ -301,9 +301,12 @@ export function InteractiveMap() {
     return <section className="py-8 md:py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground text-center">
-              Where is Piemonte?
-            </h2>
+            <div className="text-center mb-4">
+              <Globe className="h-12 w-12 mx-auto mb-4 text-primary" />
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Where is Piemonte?
+              </h2>
+            </div>
             <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
               <p>
                 Piemonte sits quietly in Italy's northwest corner, hemmed in by France and Switzerland and
@@ -379,9 +382,12 @@ export function InteractiveMap() {
   return <section className="pt-4 pb-16 md:pb-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground text-center">
-            Where is Piemonte?
-          </h2>
+          <div className="text-center mb-4">
+            <Globe className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Where is Piemonte?
+            </h2>
+          </div>
           <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
             <p>
               Piemonte sits quietly in Italy's northwest corner, hemmed in by France and Switzerland and
