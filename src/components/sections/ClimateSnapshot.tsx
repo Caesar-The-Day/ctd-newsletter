@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
-import { Cloud, Droplets, Sun, Thermometer, CloudSun } from "lucide-react";
+import { Cloud, Droplets, Sun, Thermometer, CloudSun, ExternalLink } from "lucide-react";
 import { SeasonalParticles } from "@/components/effects/SeasonalParticles";
 
 interface ClimateData {
@@ -199,9 +199,10 @@ export function ClimateSnapshot() {
                 href={currentMonthData.culturalEventUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground font-medium hover:text-primary underline decoration-primary/30 hover:decoration-primary transition-colors"
+                className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary underline decoration-2 decoration-primary/50 hover:decoration-primary transition-colors group"
               >
                 {currentMonthData.culturalEvent}
+                <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             ) : (
               <p className="text-foreground font-medium">{currentMonthData.culturalEvent}</p>
