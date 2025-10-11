@@ -981,8 +981,19 @@
   },
   "ctas": ["blueprint", "vf", "map7"],
   "closing": {
-    "message": "Grazie for reading Issue #7. If you enjoyed this glimpse of Piemonte, share it with someone dreaming of their own Italian chapter—and subscribe to join me for the next regional deep dive.",
-    "shareText": "I just read CaesarTheDay's guide to retiring in Piemonte, Italy. Wine, truffles, Alps—this region has it all.",
-    "shareUrl": "https://news.caesartheday.com/piemonte"
+    "message": "Grazie for reading Issue #7.",
+    "header": "If you enjoyed this glimpse of Piemonte, share it with someone dreaming of their own Italian chapter—and subscribe to join me for the next regional deep dive.",
+    "subtitle": "If you liked this interactive newsletter experience, share it with others who'd appreciate a more immersive way to explore Italy.",
+    "shareUrl": "https://news.caesartheday.com/piemonte",
+    "socialMessages": {
+      "facebook": "Just finished this interactive deep-dive into Piemonte from CaesarTheDay — part travel, part retirement roadmap. Beautiful design, smart insights, and a few laughs along the way.\nWorth a read if you've ever dreamed of living in Italy.\n👉",
+      "threads": "Imagine your retirement smelling like espresso and Barolo.\nCaesarTheDay's new Piemonte guide shows what life there really looks like — interactive, immersive, and dangerously persuasive.",
+      "bluesky": "Interactive guide to retiring in Piemonte — equal parts data and daydream. Smart, beautiful work from CaesarTheDay for anyone plotting a softer landing in Italy.",
+      "whatsapp": "I just read this interactive guide to retiring in Piemonte — it's actually useful and gorgeous.\nThought you'd enjoy it too.\n👉",
+      "pinterest": {
+        "title": "Retire in Piemonte: Wine, Wellness & Real Numbers",
+        "description": "CaesarTheDay's interactive guide to living beautifully in Italy's Piemonte region — where truffles meet tax breaks."
+      }
+    }
   }
 }

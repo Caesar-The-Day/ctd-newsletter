@@ -64,6 +64,17 @@ export interface Highlights {
   culture: HighlightCategory;
 }
 
+interface SocialMessages {
+  facebook: string;
+  threads: string;
+  bluesky: string;
+  whatsapp: string;
+  pinterest: {
+    title: string;
+    description: string;
+  };
+}
+
 export interface RegionData {
   region: {
     slug: string;
@@ -298,7 +309,9 @@ export interface RegionData {
   ctas: string[];
   closing: {
     message: string;
-    shareText: string;
+    header: string;
+    subtitle: string;
     shareUrl: string;
+    socialMessages: SocialMessages;
   };
 }

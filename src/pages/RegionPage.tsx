@@ -114,8 +114,10 @@ export default function RegionPage() {
 
       <ClosingShare
         message={regionData.closing.message}
-        shareText={regionData.closing.shareText}
+        header={regionData.closing.header}
+        subtitle={regionData.closing.subtitle}
         shareUrl={regionData.closing.shareUrl}
+        socialMessages={regionData.closing.socialMessages}
       />
 
       <Footer globals={globals} />
