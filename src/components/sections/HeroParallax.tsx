@@ -1,6 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
 
 interface HeroParallaxProps {
   bannerImage: string;
@@ -28,8 +26,6 @@ export function HeroParallax({
   brandByline,
 }: HeroParallaxProps) {
   const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [audioPlaying, setAudioPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,17 +36,6 @@ export function HeroParallax({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleAudio = () => {
-    if (audioRef.current) {
-      if (audioPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setAudioPlaying(!audioPlaying);
-    }
-  };
 
   return (
     <section className="relative h-screen min-h-[600px] overflow-hidden">
@@ -107,27 +92,6 @@ export function HeroParallax({
           </p>
         </div>
       </div>
-
-      {/* Audio Toggle (if provided) */}
-      {ambientAudio && (
-        <>
-          <audio ref={audioRef} loop>
-            <source src={ambientAudio} type="audio/mpeg" />
-          </audio>
-          <Button
-            variant="secondary"
-            size="sm"
-            className="fixed bottom-4 right-4 z-10"
-            onClick={toggleAudio}
-          >
-            {audioPlaying ? (
-              <Volume2 className="h-4 w-4" />
-            ) : (
-              <VolumeX className="h-4 w-4" />
-            )}
-          </Button>
-        </>
-      )}
     </section>
   );
 }
