@@ -17,7 +17,7 @@ export function InlineCTA({ globals, ctaIds }: InlineCTAProps) {
         <div className="max-w-4xl mx-auto">
           <div className="bg-card rounded-xl shadow-soft p-8 md:p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Plan Your Italian Retirement?
+              Turn the daydream into a plan. Explore your personalized roadmap for retiring in Italy.
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {ctas.map((cta) => (
