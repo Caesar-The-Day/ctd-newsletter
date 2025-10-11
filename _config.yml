@@ -1,0 +1,5 @@
+# The base URL for your project pages site
+baseurl: "/ctd-newsletter" 
+
+# Optional: Jekyll theme or other minimal settings 
+# theme: minima
