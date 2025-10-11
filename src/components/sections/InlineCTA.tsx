@@ -8,21 +8,22 @@ export function InlineCTA({
   globals,
   ctaIds
 }: InlineCTAProps) {
-  const ctas = globals.brand.ctas.filter(cta => ctaIds.includes(cta.id));
-  if (ctas.length === 0) return null;
+  const cta = globals.brand.ctas.find(c => ctaIds.includes(c.id));
+  if (!cta) return null;
+  
   return <section className="py-6 md:py-8 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card rounded-xl shadow-soft p-8 md:p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">Turn the daydream into a plan.
-Explore your personalized roadmap for retiring in Italy.</h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {ctas.map(cta => <Button key={cta.id} size="lg" asChild className="hover-lift">
-                  <a href={cta.href} target="_blank" rel="noopener noreferrer">
-                    {cta.label}
-                  </a>
-                </Button>)}
-            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">{cta.headline}</h3>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              {cta.body}
+            </p>
+            <Button size="lg" asChild className="hover-lift">
+              <a href={cta.href} target="_blank" rel="noopener noreferrer">
+                {cta.label}
+              </a>
+            </Button>
           </div>
         </div>
       </div>

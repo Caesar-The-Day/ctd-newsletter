@@ -31,6 +31,8 @@ export interface GlobalsData {
     };
     ctas: Array<{
       id: string;
+      headline: string;
+      body: string;
       label: string;
       href: string;
     }>;

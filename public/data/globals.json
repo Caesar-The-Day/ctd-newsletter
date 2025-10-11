@@ -19,18 +19,31 @@
     "ctas": [
       {
         "id": "blueprint",
-        "label": "Book a Retirement Blueprint",
+        "headline": "Turn your daydream into a plan",
+        "body": "If Piemonte already feels like home in your mind, let's make it real. My Retirement Blueprint walks you through the exact steps to plan your move—costs, visas, timelines, and all the practical magic in between.",
+        "label": "Open the Retirement Blueprint",
         "href": "https://www.caesartheday.com/services"
       },
       {
         "id": "vf",
-        "label": "Try Visto Facile (ERV Tracker)",
-        "href": "https://www.caesartheday.com/visto-facile-beta"
+        "headline": "Be the first to experience Visto Facile",
+        "body": "Italy's Elective Residency Visa can feel like a maze. Visto Facile turns it into a clear, step-by-step tracker built for real applicants, not guesswork. Sign up now and I'll let you know the moment it goes live—plus early-access perks for founding users.",
+        "label": "Notify me when it's live",
+        "href": "https://www.caesartheday.com/visto-facile-erv-navigator"
       },
       {
         "id": "map7",
-        "label": "Escape Map: 7% Edition",
-        "href": "https://www.caesartheday.com/italy-s-7-towns"
+        "headline": "Find your 7% town",
+        "body": "Some corners of Italy reward newcomers with breathtaking views and a 7% flat tax. The Escape Map helps you uncover those hidden gems—filter by lifestyle, cost, and proximity to the coast or mountains. Your perfect town might already be waiting.",
+        "label": "Launch the Escape Map",
+        "href": "https://www.caesartheday.com/italy-s-7-towns-list"
+      },
+      {
+        "id": "newsletter",
+        "headline": "Stay on the road with me",
+        "body": "Each month we explore a new region, meet its people, and peel back the layers of what life in Italy is really like. Join the newsletter and travel along—recipes, tips, and honest insights delivered straight from the source.",
+        "label": "Join the Newsletter",
+        "href": "https://www.caesartheday.com/#subscribe"
       }
     ]
   }
