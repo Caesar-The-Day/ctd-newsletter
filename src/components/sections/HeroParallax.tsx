@@ -59,7 +59,7 @@ export function HeroParallax({
         <img 
           src="/images/caesartheday-logo.png" 
           alt="CaesarTheDay" 
-          className="h-36 md:h-48 lg:h-54 w-auto opacity-0 animate-fade-in-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+          className="h-36 md:h-48 lg:h-54 w-auto opacity-0 animate-fade-in-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] mt-6 md:mt-8"
         />
       </div>
 
