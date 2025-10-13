@@ -77,7 +77,7 @@ export function SevenPercentCTA() {
               }}
             >
               <MapPin 
-                className="w-6 h-6 text-primary/40 hover:text-primary hover:scale-125 transition-all duration-300 cursor-pointer drop-shadow-lg" 
+                className="w-6 h-6 text-primary/55 hover:text-primary hover:scale-125 transition-all duration-300 cursor-pointer drop-shadow-lg" 
                 fill="currentColor"
               />
             </div>
