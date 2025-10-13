@@ -71,7 +71,7 @@ export function BookCTA() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" asChild className="hover-lift">
                     <a href="https://www.caesartheday.com/the-book" target="_blank" rel="noopener noreferrer">
-                      Read the Book
+                      Get the Book
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
