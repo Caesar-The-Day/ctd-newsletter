@@ -91,13 +91,15 @@ export default function RegionPage() {
 
       <HighlightsShowcase highlights={regionData.highlights} />
 
-      <CollaboratorFeature
-        heading={regionData.collaborator.heading}
-        paragraphs={regionData.collaborator.paragraphs}
-        ctaText={regionData.collaborator.ctaText}
-        ctaLink={regionData.collaborator.ctaLink}
-        backgroundImage={cafeLanguageImage}
-      />
+      {regionData.collaborator && (
+        <CollaboratorFeature
+          heading={regionData.collaborator.heading}
+          paragraphs={regionData.collaborator.paragraphs}
+          ctaText={regionData.collaborator.ctaText}
+          ctaLink={regionData.collaborator.ctaLink}
+          backgroundImage={cafeLanguageImage}
+        />
+      )}
 
       <WineQuiz profiles={regionData.wine.quiz.profiles} />
 
