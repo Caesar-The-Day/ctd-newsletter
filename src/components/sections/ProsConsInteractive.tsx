@@ -118,7 +118,7 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
           <Card className="shadow-medium bg-primary/5 border-primary/20">
             <CardContent className="p-8 md:p-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center">
-                💬 {finalTake.headline}
+                {finalTake.headline}
               </h3>
               <p className="text-lg text-foreground/90 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
                 {finalTake.text}
