@@ -482,6 +482,18 @@
         ]
       }
     },
+  "collaborator": {
+    "heading": "Living the Language: Join the Conversation",
+    "paragraphs": [
+      "Piemonte doesn't shout its secrets; it murmurs them in dialect. To belong here, you have to listen—and answer back.",
+      "You can master the paperwork and plan your move, but the real victory in Italy is connection. In Turin's old cafés, people don't just speak Italian; they speak a rhythm of courtesy, humor, and warmth that no phrasebook can teach.",
+      "My friend Lucca, founder of the Italian Conversation Club, helps you cross that bridge. His lessons feel more like conversations with a clever friend than grammar drills—built for confidence, laughter, and the good kind of mistakes. Whether you're preparing for residency or just want to chat with your future barista, Lucca helps you live the language from your first espresso.",
+      "Understanding Italian is one thing; understanding Piemontese nuance is another. Lucca will help you master both."
+    ],
+    "ctaText": "Discover Lucca's Conversation-First Lessons",
+    "ctaLink": "https://italianconversationclub.com",
+    "backgroundImage": "/images/piemonte/cafe-language.jpg"
+  },
   "wine": {
     "quiz": {
       "profiles": [

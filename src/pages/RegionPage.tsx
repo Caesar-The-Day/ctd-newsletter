@@ -18,6 +18,8 @@ import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
+import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
+import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
   const { region } = useParams<{ region: string }>();
@@ -88,6 +90,14 @@ export default function RegionPage() {
       <Separator className="my-16" />
 
       <HighlightsShowcase highlights={regionData.highlights} />
+
+      <CollaboratorFeature
+        heading={regionData.collaborator.heading}
+        paragraphs={regionData.collaborator.paragraphs}
+        ctaText={regionData.collaborator.ctaText}
+        ctaLink={regionData.collaborator.ctaLink}
+        backgroundImage={cafeLanguageImage}
+      />
 
       <WineQuiz profiles={regionData.wine.quiz.profiles} />
 

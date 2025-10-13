@@ -95,6 +95,13 @@ export interface RegionData {
     signature?: string;
   };
   };
+  collaborator: {
+    heading: string;
+    paragraphs: string[];
+    ctaText: string;
+    ctaLink: string;
+    backgroundImage: string;
+  };
   where: {
     map: {
       center: [number, number];
