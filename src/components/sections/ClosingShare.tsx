@@ -39,7 +39,7 @@ export function ClosingShare({ message, header, subtitle, shareUrl, socialMessag
     <section className="py-8 md:py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xl md:text-2xl mb-6">{message}</p>
+          <p className="text-2xl md:text-4xl font-semibold mb-6">{message}</p>
           <h2 className="text-2xl md:text-3xl font-bold mb-4">{header}</h2>
           <p className="text-base md:text-lg text-muted-foreground mb-8">{subtitle}</p>
           
