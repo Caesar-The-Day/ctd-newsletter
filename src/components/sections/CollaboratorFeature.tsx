@@ -120,11 +120,11 @@ export function CollaboratorFeature({
           </div>
 
           {/* Right Column - Portrait */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 flex justify-center md:justify-end">
             <div
-              className={`relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-neutral-200 ${
+              className={`relative aspect-[4/5] w-4/5 rounded-2xl overflow-hidden shadow-xl bg-neutral-200 transition-all duration-500 ${
                 !prefersReducedMotion && isVisible ? 'animate-fade-in-portrait' : ''
-              } ${!prefersReducedMotion ? 'hover-tilt' : ''}`}
+              } ${!prefersReducedMotion ? 'hover:scale-110 hover:rotate-2 hover:shadow-2xl' : ''}`}
               style={{
                 opacity: prefersReducedMotion ? 1 : (isVisible ? 1 : 0),
                 transform: prefersReducedMotion ? 'none' : (isVisible ? 'scale(1)' : 'scale(0.97)')
