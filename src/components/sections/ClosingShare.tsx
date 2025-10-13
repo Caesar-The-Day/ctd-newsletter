@@ -39,7 +39,7 @@ export function ClosingShare({
   return <section className="py-8 md:py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xl md:text-2xl mb-6">{message}</p>
+          <p className="text-3xl md:text-4xl font-bold mb-6">{message}</p>
           <h2 className="text-lg md:text-xl font-semibold text-muted-foreground mb-4">{header}</h2>
           
           
