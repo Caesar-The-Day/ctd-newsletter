@@ -19,6 +19,9 @@ import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
 import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
+import { BookCTA } from '@/components/sections/BookCTA';
+import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprintCTA';
+import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
@@ -83,7 +86,7 @@ export default function RegionPage() {
 
       <TownsFeatured towns={regionData.towns.featured} />
       
-      <InlineCTA globals={globals} ctaIds={['blueprint']} />
+      <BookCTA />
 
       <TownsGrid towns={regionData.towns.grid} />
 
@@ -105,7 +108,7 @@ export default function RegionPage() {
 
       <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />
 
-      <InlineCTA globals={globals} ctaIds={['vf']} />
+      <RetirementBlueprintCTA />
 
       <Separator className="my-16" />
 
@@ -118,11 +121,11 @@ export default function RegionPage() {
         notes={regionData.costOfLiving.notes}
       />
 
+      <SevenPercentCTA />
+
       <ProsConsInteractive prosCons={regionData.prosCons} />
 
       <Separator className="my-16" />
-
-      <InlineCTA globals={globals} ctaIds={['map7']} />
 
       <ClosingShare
         message={regionData.closing.message}
