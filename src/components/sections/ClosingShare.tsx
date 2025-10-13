@@ -40,7 +40,7 @@ export function ClosingShare({
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xl md:text-2xl mb-6">{message}</p>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">{header}</h2>
+          <h2 className="text-lg md:text-xl font-semibold text-muted-foreground mb-4">{header}</h2>
           
           
           <div className="flex flex-wrap justify-center gap-3 mt-8">
