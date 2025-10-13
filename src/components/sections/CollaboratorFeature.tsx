@@ -63,7 +63,7 @@ export function CollaboratorFeature({
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/60 mix-blend-normal" />
+      <div className="absolute inset-0 bg-white/80 mix-blend-normal" />
 
       {/* Content Container */}
       <div className="relative mx-auto max-w-5xl px-6 py-16 md:py-20">
