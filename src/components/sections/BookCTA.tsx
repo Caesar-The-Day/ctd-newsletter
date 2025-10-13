@@ -33,13 +33,13 @@ export function BookCTA() {
           <div className={`bg-[#FDFBF7] rounded-2xl shadow-xl overflow-hidden transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+            <div className="grid md:grid-cols-2 gap-6 p-6 md:p-10 items-center">
               {/* Left Column - Book Cover */}
               <div className={`flex justify-center md:justify-start transition-all duration-1000 delay-200 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}>
                 <div 
-                  className="relative w-full max-w-[280px] transform hover:scale-105 transition-transform duration-300"
+                  className="relative w-full max-w-[238px] transform hover:scale-105 transition-transform duration-300"
                   style={{
                     transform: isVisible ? 'rotate(-2deg)' : 'rotate(-5deg)',
                     filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2))'
