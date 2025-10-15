@@ -91,9 +91,23 @@ export function SevenPercentCTA() {
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
-              Find Your 7% Town
-            </h2>
+            <div className="flex items-center justify-center gap-4 md:gap-6 mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+                Find Your 7% Town
+              </h2>
+              {/* 7% Icon with slide-in animation */}
+              <div 
+                className={`transition-all duration-1000 delay-300 ${
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                }`}
+              >
+                <img 
+                  src="/images/7-percent-icon.png" 
+                  alt="7% Tax Icon" 
+                  className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
+                />
+              </div>
+            </div>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
               Some corners of Italy reward newcomers with a 7% flat tax—and views worth far more. The Escape Map helps you find those towns that match your lifestyle, cost, and climate preferences.
             </p>
