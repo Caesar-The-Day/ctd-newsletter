@@ -1,0 +1,557 @@
+{
+  "_comment": "CAESAR THE DAY - Regional Newsletter Template",
+  "_version": "1.0",
+  "_instructions": "This template defines all possible content sections for a regional newsletter. See _CONTENT-GUIDE.md for detailed instructions on populating this template.",
+  
+  "region": {
+    "_comment": "Core region metadata and introductory content",
+    "slug": "region-slug",
+    "_slug_note": "REQUIRED. Lowercase, hyphenated identifier (e.g., 'piemonte', 'calabria', 'provence'). Must match filename.",
+    
+    "issueNumber": 1,
+    "_issueNumber_note": "REQUIRED. Sequential number for this newsletter issue.",
+    
+    "date": "Month YYYY",
+    "_date_note": "REQUIRED. Publication date in format 'Month YYYY' (e.g., 'October 2025').",
+    
+    "title": "Region Name: The Tagline",
+    "_title_note": "REQUIRED. Main headline combining region name and characterization (40-60 characters).",
+    
+    "tagline": "Short, punchy description.",
+    "_tagline_note": "REQUIRED. Supporting tagline that captures region's essence (40-80 characters).",
+    
+    "hero": {
+      "_comment": "Hero section visual and audio assets",
+      "bannerImage": "/images/{country}-{region}/hero-main.jpg",
+      "_bannerImage_note": "REQUIRED. Path to hero image. Recommended: 1920x1080px, landscape orientation, striking composition.",
+      
+      "ambientAudio": "/images/{country}-{region}/ambient.mp3",
+      "_ambientAudio_note": "OPTIONAL. Path to ambient audio file (30-90 seconds loop). Can be omitted if feature flag is disabled.",
+      
+      "credit": "Photo: Location Name © CaesarTheDay",
+      "_credit_note": "REQUIRED. Photo credit line displayed in hero section."
+    },
+    
+    "intro": {
+      "_comment": "Editorial introduction section with personal voice",
+      "headline": "Greeting or opening phrase",
+      "_headline_note": "REQUIRED. Opening greeting (e.g., 'Bentornati', 'Welcome back', 'Ciao'). 10-30 characters.",
+      
+      "byline": "— Cesare",
+      "_byline_note": "REQUIRED. Author byline. Keep consistent across newsletters.",
+      
+      "paragraphs": [
+        "First paragraph: Opening hook that connects to previous region or establishes tone.",
+        "Second paragraph: Sensory description of the region — sights, smells, seasonal context.",
+        "Third paragraph: Character and culture — what makes this region distinct.",
+        "Fourth paragraph: Why retirees should care — practical benefits, lifestyle fit.",
+        "Fifth paragraph: Closing invitation to explore — transition to content."
+      ],
+      "_paragraphs_note": "REQUIRED. 4-6 paragraphs, 80-150 words each. Use first-person voice, blend poetry with practicality.",
+      
+      "portrait": "/images/shared/cesare-boat.jpg",
+      "_portrait_note": "REQUIRED. Path to author portrait. Usually from /images/shared/ directory.",
+      
+      "signature": "/images/shared/cesare-signature.png",
+      "_signature_note": "OPTIONAL. Path to signature image. Can be omitted."
+    }
+  },
+  
+  "where": {
+    "_comment": "Geographic context, map data, and accessibility information",
+    "map": {
+      "center": [longitude, latitude],
+      "_center_note": "REQUIRED. Map center coordinates as [longitude, latitude] (e.g., [7.68, 45.07]).",
+      
+      "zoom": 7,
+      "_zoom_note": "REQUIRED. Initial map zoom level (5-10, where 7 shows whole region).",
+      
+      "markers": [
+        {
+          "id": "town-slug",
+          "_id_note": "REQUIRED. Unique identifier for this marker (lowercase, hyphenated).",
+          
+          "name": "Town Name",
+          "_name_note": "REQUIRED. Display name of the town.",
+          
+          "coords": [longitude, latitude],
+          "_coords_note": "REQUIRED. Exact coordinates of town center.",
+          
+          "photo": "/images/{country}-{region}/town-name.jpg",
+          "_photo_note": "REQUIRED. Square thumbnail image (400x400px recommended).",
+          
+          "blurb": "Brief description of why this town matters (1-2 sentences, 100-150 characters)."
+        }
+      ],
+      "_markers_note": "REQUIRED. Include 3-6 key towns/cities. More markers = busier map.",
+      
+      "externalMapUrl": "https://maps.google.com/?q=Region+Name",
+      "_externalMapUrl_note": "REQUIRED. Google Maps URL for full region view."
+    },
+    
+    "tabs": [
+      {
+        "id": "geography",
+        "title": "Geography",
+        "content": "Describe the region's physical geography: mountains, valleys, coastline, lakes, terrain. Include borders, climate zones, and notable natural features. (150-250 words)"
+      },
+      {
+        "id": "access",
+        "title": "Getting There",
+        "content": "Detail airports, train stations, highway access, ferry ports. Include travel times from major hubs, international connections, and ease of entry. (150-250 words)"
+      },
+      {
+        "id": "transport",
+        "title": "Local Transport",
+        "content": "Explain regional trains, buses, metro systems, car necessity, bike infrastructure, and typical commute patterns. (150-250 words)"
+      }
+    ],
+    "_tabs_note": "REQUIRED. These three tabs are standard. Maintain consistent structure across regions."
+  },
+  
+  "character": {
+    "_comment": "OPTIONAL. Visual slideshow conveying regional atmosphere and culture.",
+    "slides": [
+      {
+        "image": "/images/{country}-{region}/character-1.jpg",
+        "_image_note": "Landscape image, 1600x900px recommended.",
+        
+        "caption": "Brief image caption (3-7 words)",
+        "_caption_note": "Describes what the image shows.",
+        
+        "copy": "Atmospheric paragraph about culture, pace of life, or seasonal character (80-120 words)."
+      }
+    ],
+    "_slides_note": "OPTIONAL. Include 2-4 slides to build atmospheric narrative."
+  },
+  
+  "climate": {
+    "_comment": "OPTIONAL. Quick climate comparison across regional microclimates.",
+    "modes": [
+      {
+        "id": "microclimate-slug",
+        "label": "Climate Zone Name (Town Examples)",
+        "avgWinterTempC": 0,
+        "avgSummerTempC": 25,
+        "notes": "Brief description of this microclimate's characteristics (one sentence, 60-100 characters)."
+      }
+    ],
+    "_modes_note": "OPTIONAL. Include 2-4 microclimates if region has significant variation (mountains vs coast, etc.)."
+  },
+  
+  "towns": {
+    "_comment": "Comprehensive town listings: featured deep-dives + grid of quick mentions",
+    "featured": [
+      {
+        "id": "town-slug",
+        "name": "Town Name",
+        "bestFor": "Key appeal (e.g., 'Services, culture, healthcare access')",
+        "_bestFor_note": "3-6 words summarizing town's main appeal.",
+        
+        "photo": "/images/{country}-{region}/town-hero.jpg",
+        "_photo_note": "Hero image for town (1200x800px recommended).",
+        
+        "summary": "2-3 sentence overview of the town's character and practical benefits (150-200 words).",
+        "_summary_note": "Appears as preview text before full description.",
+        
+        "fullDescription": "Extended narrative about town's history, culture, infrastructure, and lifestyle. Use storytelling voice, blend practical details with atmosphere. (400-600 words)",
+        "_fullDescription_note": "OPTIONAL but recommended for featured towns. Rich, immersive description.",
+        
+        "mapUrl": "https://maps.google.com/?q=Town+Name+Country",
+        "_mapUrl_note": "REQUIRED. Google Maps URL for this specific town.",
+        
+        "gallery": [
+          "/images/{country}-{region}/town-name-1.jpg",
+          "/images/{country}-{region}/town-name-2.jpg",
+          "/images/{country}-{region}/town-name-3.jpg"
+        ],
+        "_gallery_note": "OPTIONAL. 2-5 additional images showcasing the town.",
+        
+        "links": [
+          {
+            "label": "City Website",
+            "href": "https://example.com"
+          }
+        ],
+        "_links_note": "OPTIONAL. 1-3 external links to official sites, tourism info, etc."
+      }
+    ],
+    "_featured_note": "REQUIRED. Include 3-5 featured towns with deep content.",
+    
+    "grid": [
+      {
+        "id": "town-slug",
+        "name": "Town Name",
+        "bestFor": "Key appeal (3-6 words)",
+        "photo": "/images/{country}-{region}/town-thumb.jpg",
+        "_photo_note": "Square or landscape thumbnail (600x400px recommended).",
+        
+        "mapUrl": "https://maps.google.com/?q=Town+Name+Country",
+        "blurb": "Single paragraph describing town's character, practical benefits, and appeal (120-180 words)."
+      }
+    ],
+    "_grid_note": "REQUIRED. Include 8-15 additional towns as quick references."
+  },
+  
+  "highlights": {
+    "_comment": "Thematic showcase sections: Wine, Food, Culture (customizable categories)",
+    "wine": {
+      "title": "WINE — Section Headline",
+      "_title_note": "REQUIRED if section included. All-caps category + em-dash + descriptive phrase.",
+      
+      "intro": "Opening paragraph setting context for this region's wine culture. Blend history, geography, and cultural significance. (200-300 words)",
+      "_intro_note": "REQUIRED. Establishes tone and importance of this category.",
+      
+      "backgroundImage": "/images/{country}-{region}/wine-background.jpg",
+      "_backgroundImage_note": "OPTIONAL. Parallax background image for section (1920x1080px).",
+      
+      "cards": [
+        {
+          "id": "wine-topic-slug",
+          "title": "Card Title",
+          "subtitle": "Supporting subtitle",
+          "image": "/images/{country}-{region}/wine-topic.jpg",
+          "_image_note": "Square card image (800x800px recommended).",
+          
+          "description": "Paragraph describing this specific wine, grape, or tradition (100-150 words).",
+          "links": [
+            {
+              "label": "Link Label",
+              "href": "https://example.com"
+            }
+          ],
+          "_links_note": "1-2 external links to wineries, wine regions, tourism info."
+        }
+      ],
+      "_cards_note": "REQUIRED. Include 3-6 cards per category."
+    },
+    "food": {
+      "_comment": "Same structure as 'wine' section",
+      "title": "FOOD — Section Headline",
+      "intro": "Opening paragraph about regional food culture...",
+      "backgroundImage": "/images/{country}-{region}/food-background.jpg",
+      "cards": []
+    },
+    "culture": {
+      "_comment": "Same structure as 'wine' section",
+      "title": "CULTURE — Section Headline",
+      "intro": "Opening paragraph about cultural attractions...",
+      "backgroundImage": "/images/{country}-{region}/culture-background.jpg",
+      "cards": []
+    },
+    "_highlights_note": "REQUIRED. These three categories are standard, but you can add custom categories (e.g., 'beer', 'beaches', 'hiking')."
+  },
+  
+  "collaborator": {
+    "_comment": "OPTIONAL. Partner/service feature section (controlled by feature flag)",
+    "heading": "Section Headline",
+    "paragraphs": [
+      "First paragraph introducing the service/partner.",
+      "Second paragraph explaining benefits.",
+      "Third paragraph with social proof or details.",
+      "Fourth paragraph reinforcing value.",
+      "Fifth paragraph with call to action."
+    ],
+    "_paragraphs_note": "3-5 paragraphs, 60-100 words each.",
+    
+    "ctaText": "Button Text",
+    "ctaLink": "https://example.com",
+    "backgroundImage": "/images/shared/cafe-language.jpg",
+    "_backgroundImage_note": "Use shared asset or region-specific background."
+  },
+  
+  "wine": {
+    "_comment": "OPTIONAL. Interactive wine personality quiz (controlled by feature flag)",
+    "quiz": {
+      "profiles": [
+        {
+          "id": "profile-slug",
+          "label": "Profile Label (e.g., 'Bold & Age-worthy')",
+          "_label_note": "User-facing choice label (4-6 words).",
+          
+          "result": {
+            "name": "Wine Name",
+            "note": "Description of wine style, characteristics, pairing notes (80-120 characters).",
+            "image": "/images/{country}-{region}/wine-result.jpg",
+            "_image_note": "Square wine bottle/glass image (600x600px)."
+          }
+        }
+      ],
+      "_profiles_note": "Include 4-6 wine personality types matching regional offerings."
+    }
+  },
+  
+  "recipes": {
+    "_comment": "OPTIONAL. Regional recipe cards with cooking modes",
+    "cards": [
+      {
+        "id": "recipe-slug",
+        "title": "Recipe Name",
+        "mode": "Rustic",
+        "_mode_note": "Either 'Rustic' or 'Refined' (matches 'modes' array below).",
+        
+        "image": "/images/{country}-{region}/recipe-dish.jpg",
+        "_image_note": "Appetizing food photo (1200x800px).",
+        
+        "story": "OPTIONAL. Opening narrative about dish's history or cultural significance (100-150 words).",
+        "whyRefined": "OPTIONAL. For 'Refined' dishes only — why this dish requires precision (60-100 words).",
+        
+        "ingredients": [
+          "Ingredient 1 with quantity",
+          "Ingredient 2 with quantity"
+        ],
+        "_ingredients_note": "List all ingredients with measurements. Be specific.",
+        
+        "steps": [
+          "Step 1 with clear instructions",
+          "Step 2 with clear instructions"
+        ],
+        "_steps_note": "Numbered cooking steps. Be precise but not overly technical.",
+        
+        "servingSuggestion": "OPTIONAL. How to serve, garnish, or present (1-2 sentences).",
+        
+        "pairWithWineProfile": "profile-slug",
+        "_pairWithWineProfile_note": "OPTIONAL. Must match a wine quiz profile ID if quiz is enabled.",
+        
+        "winePairing": "Specific wine recommendation with tasting notes (60-100 characters).",
+        "_winePairing_note": "OPTIONAL. Specific wine pairing suggestion.",
+        
+        "links": [
+          {
+            "label": "External Recipe Link",
+            "href": "https://example.com"
+          }
+        ],
+        "_links_note": "OPTIONAL. 0-2 external links to markets, festivals, or detailed recipes."
+      }
+    ],
+    "_cards_note": "Include 4-6 regional recipes.",
+    
+    "modes": ["Rustic", "Refined"],
+    "_modes_note": "REQUIRED. These two modes allow filtering. Keep consistent."
+  },
+  
+  "healthcare": {
+    "_comment": "Infrastructure overview: hospitals, transport, parks, travel times",
+    "intro": {
+      "headline": "Healthcare & Infrastructure: Headline",
+      "lead": "Opening paragraph about region's infrastructure quality and reliability (150-200 words)."
+    },
+    
+    "hospitals": [
+      {
+        "name": "Hospital Name",
+        "location": "City Name",
+        "coords": [longitude, latitude],
+        "description": "Brief description of hospital's specialties and services (60-100 words).",
+        "link": "https://hospital-website.com",
+        "mapUrl": "https://maps.google.com/?q=Hospital+Name"
+      }
+    ],
+    "_hospitals_note": "Include 3-6 major hospitals across the region.",
+    
+    "airports": [
+      {
+        "name": "Airport Name (CODE)",
+        "coords": [longitude, latitude],
+        "description": "Size, connectivity, distance from key towns (60-100 words).",
+        "link": "https://airport-website.com",
+        "mapUrl": "https://maps.google.com/?q=Airport+Name"
+      }
+    ],
+    "_airports_note": "Include 1-3 airports serving the region.",
+    
+    "railways": [
+      {
+        "name": "Railway Network Name",
+        "description": "Coverage, frequency, connections (60-100 words).",
+        "link": "https://railway-website.com"
+      }
+    ],
+    "_railways_note": "Include 1-3 key railway networks.",
+    
+    "highways": [
+      {
+        "name": "Highway Code/Name",
+        "description": "Routes covered, condition, tolls (40-80 words).",
+        "link": "https://highway-info.com"
+      }
+    ],
+    "_highways_note": "Include 1-3 major highways.",
+    
+    "parks": [
+      {
+        "name": "Park Name",
+        "coords": [longitude, latitude],
+        "description": "Park features, accessibility, activities (60-100 words).",
+        "link": "https://park-website.com",
+        "mapUrl": "https://maps.google.com/?q=Park+Name"
+      }
+    ],
+    "_parks_note": "Include 2-5 major parks or natural areas.",
+    
+    "travelTimes": [
+      {
+        "from": "City Name",
+        "to": [
+          { "destination": "Destination Name", "time": "X hours by train/car" }
+        ],
+        "_to_note": "Include 3-5 key destinations from each starting point.",
+        
+        "nearestAirport": {
+          "name": "Airport Name",
+          "code": "CODE",
+          "time": "X min/hours",
+          "distance": "X km",
+          "connectivity": "Description of connections",
+          "link": "https://airport-website.com"
+        },
+        "_nearestAirport_note": "Can be string or object. Object format preferred for featured towns."
+      }
+    ],
+    "_travelTimes_note": "Include travel time data for 3-5 major towns.",
+    
+    "quickInfo": {
+      "emergencyNumbers": [
+        "118 – Medical Emergency",
+        "112 – Police",
+        "115 – Fire Department"
+      ],
+      "healthcare": {
+        "title": "Register for Healthcare",
+        "description": "Brief note on registration process",
+        "link": "https://health-registration-info.com"
+      },
+      "transport": {
+        "title": "Transport Info",
+        "description": "Brief note on transport passes/schedules",
+        "link": "https://transport-info.com"
+      }
+    },
+    "_quickInfo_note": "Standard reference info for quick access.",
+    
+    "closing": "Closing paragraph summarizing infrastructure appeal (60-100 words)."
+  },
+  
+  "costOfLiving": {
+    "_comment": "Interactive cost calculator with town presets and lifestyle sliders",
+    "intro": {
+      "headline": "Cost of Living — What It Really Looks Like",
+      "lead": "Opening paragraph setting expectations about costs (100-150 words).",
+      "realityCheck": "Paragraph about hidden costs and seasonal variations (80-120 words).",
+      "whyItWorks": "Paragraph about regional value proposition (80-120 words)."
+    },
+    "_intro_note": "OPTIONAL but recommended. Provides context before calculator.",
+    
+    "townPresets": [
+      {
+        "id": "town-slug",
+        "label": "Town Name (Type)",
+        "_label_note": "Town name with context (e.g., 'Torino (City)', 'Alba (Wine Country)').",
+        
+        "modest": {
+          "rent": 700,
+          "utilities": 125,
+          "groceries": 350,
+          "dining": 225,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1350,
+          "utilities": 175,
+          "groceries": 525,
+          "dining": 350,
+          "transport": 100
+        },
+        "highEnd": {
+          "rent": 2000,
+          "utilities": 250,
+          "groceries": 700,
+          "dining": 500,
+          "transport": 160
+        },
+        "_costs_note": "All values in EUR per month for two people. Research carefully using Numbeo, Expatistan, local sources."
+      }
+    ],
+    "_townPresets_note": "REQUIRED. Include 3-5 towns representing different cost tiers.",
+    
+    "lifestyles": ["Modest", "Average", "High-End"],
+    "_lifestyles_note": "REQUIRED. Keep these three labels consistent.",
+    
+    "notes": {
+      "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
+      "sources": [
+        "Numbeo.com",
+        "LivingCost.org",
+        "Expatexchange.com",
+        "Local expat forums (2024-2025)"
+      ],
+      "links": {
+        "town-slug": "https://numbeo.com/cost-of-living/in/TownName"
+      }
+    },
+    "_notes_note": "OPTIONAL. Transparency about data sources builds trust."
+  },
+  
+  "prosCons": {
+    "_comment": "Balanced pros/cons analysis with nuanced intro and conclusion",
+    "intro": {
+      "headline": "Pros & Cons: [Region] Without the Postcard Filter",
+      "lead": "Opening paragraph establishing region's character honestly (120-150 words).",
+      "tradeoff": "Paragraph about the fundamental tradeoff of living here (80-120 words)."
+    },
+    
+    "pros": [
+      {
+        "title": "Category Title (e.g., 'Quality of Life')",
+        "points": [
+          "Specific pro point (one sentence, specific and honest).",
+          "Another specific pro point.",
+          "Third pro point."
+        ]
+      }
+    ],
+    "_pros_note": "REQUIRED. Include 4-6 pro categories, 2-4 points each.",
+    
+    "cons": [
+      {
+        "title": "Category Title (e.g., 'Reserved Social Culture')",
+        "points": [
+          "Specific con point (one sentence, honest but not harsh).",
+          "Another con point."
+        ]
+      }
+    ],
+    "_cons_note": "REQUIRED. Include 4-6 con categories, 2-3 points each. Be honest but balanced.",
+    
+    "finalTake": {
+      "headline": "Final Take: Is [Region] Right for You?",
+      "text": "Paragraph summarizing who this region is for (100-150 words).",
+      "conclusion": "Closing sentence with memorable characterization (20-40 words)."
+    }
+  },
+  
+  "ctas": ["blueprint", "vf", "map7"],
+  "_ctas_note": "OPTIONAL. Array of CTA IDs from globals.json. Currently not actively used but may be in future.",
+  
+  "closing": {
+    "_comment": "Final section with social sharing and farewell message",
+    "message": "Grazie for reading Issue #X.",
+    "header": "Personalized closing message with subscribe CTA (2-3 sentences).",
+    "subtitle": "Supporting message about sharing (1-2 sentences).",
+    "shareUrl": "https://news.caesartheday.com/{region-slug}",
+    "_shareUrl_note": "REQUIRED. Canonical URL for this newsletter issue.",
+    
+    "socialMessages": {
+      "facebook": "Pre-written Facebook share message (2-3 sentences with context and link placeholder).",
+      "threads": "Pre-written Threads share message (2-3 sentences, more casual).",
+      "bluesky": "Pre-written Bluesky share message (2-3 sentences, thoughtful tone).",
+      "whatsapp": "Pre-written WhatsApp share message (1-2 sentences, personal tone).",
+      "pinterest": {
+        "title": "Pinterest Pin Title (60 characters max)",
+        "description": "Pinterest Pin Description (160 characters max)"
+      }
+    },
+    "_socialMessages_note": "REQUIRED. Customize for each region to maximize shareability."
+  }
+}

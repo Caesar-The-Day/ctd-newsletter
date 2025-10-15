@@ -6,9 +6,43 @@ export async function getGlobals() {
 }
 
 export async function getRegionData(slug: string) {
-  const response = await fetch(`/data/${slug}.json`);
+  // Try nested path first (regions/italy/piemonte), fall back to flat structure
+  let response = await fetch(`/data/regions/${slug}.json`);
+  if (!response.ok) {
+    response = await fetch(`/data/${slug}.json`);
+  }
   if (!response.ok) throw new Error(`Failed to load region: ${slug}`);
   return response.json();
+}
+
+export interface FeatureFlags {
+  showWineQuiz: boolean;
+  showBeerFeature: boolean;
+  show7PercentCTA: boolean;
+  showCollaborator: boolean;
+  showBookCTA: boolean;
+  showRetirementBlueprintCTA: boolean;
+  enableAmbientAudio: boolean;
+  enableSeasonalParticles: boolean;
+}
+
+export async function getRegionConfig(slug: string): Promise<FeatureFlags> {
+  const response = await fetch('/data/config/feature-flags.json');
+  if (!response.ok) throw new Error('Failed to load feature flags');
+  const allConfigs = await response.json();
+  const config = allConfigs[slug] === "default" 
+    ? allConfigs.default 
+    : { ...allConfigs.default, ...(allConfigs[slug] || {}) };
+  return config;
+}
+
+export async function getSectionOrder(slug: string): Promise<string[]> {
+  const response = await fetch('/data/config/section-order.json');
+  if (!response.ok) throw new Error('Failed to load section order');
+  const allOrders = await response.json();
+  return allOrders[slug] === "default" 
+    ? allOrders.default 
+    : allOrders[slug] || allOrders.default;
 }
 
 export interface GlobalsData {

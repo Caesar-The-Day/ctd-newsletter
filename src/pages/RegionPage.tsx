@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { getGlobals, getRegionData, GlobalsData, RegionData } from '@/utils/getRegionData';
+import { getGlobals, getRegionData, getRegionConfig, GlobalsData, RegionData, FeatureFlags } from '@/utils/getRegionData';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { Separator } from '@/components/ui/separator';
@@ -28,19 +28,25 @@ export default function RegionPage() {
   const { region } = useParams<{ region: string }>();
   const [globals, setGlobals] = useState<GlobalsData | null>(null);
   const [regionData, setRegionData] = useState<RegionData | null>(null);
+  const [config, setConfig] = useState<FeatureFlags | null>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    Promise.all([getGlobals(), getRegionData(region || 'piemonte')])
-      .then(([g, r]) => {
+    Promise.all([
+      getGlobals(), 
+      getRegionData(region || 'piemonte'),
+      getRegionConfig(region || 'piemonte')
+    ])
+      .then(([g, r, c]) => {
         setGlobals(g);
         setRegionData(r);
+        setConfig(c);
       })
       .catch(() => setError(true));
   }, [region]);
 
   if (error) return <Navigate to="/404" />;
-  if (!globals || !regionData) {
+  if (!globals || !regionData || !config) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -86,7 +92,7 @@ export default function RegionPage() {
 
       <TownsFeatured towns={regionData.towns.featured} />
       
-      <BookCTA />
+      {config.showBookCTA && <BookCTA />}
 
       <TownsGrid towns={regionData.towns.grid} />
 
@@ -94,7 +100,7 @@ export default function RegionPage() {
 
       <HighlightsShowcase highlights={regionData.highlights} />
 
-      {regionData.collaborator && (
+      {config.showCollaborator && regionData.collaborator && (
         <CollaboratorFeature
           heading={regionData.collaborator.heading}
           paragraphs={regionData.collaborator.paragraphs}
@@ -104,11 +110,11 @@ export default function RegionPage() {
         />
       )}
 
-      <WineQuiz profiles={regionData.wine.quiz.profiles} />
+      {config.showWineQuiz && regionData.wine && <WineQuiz profiles={regionData.wine.quiz.profiles} />}
 
-      <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />
+      {regionData.recipes && <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />}
 
-      <RetirementBlueprintCTA />
+      {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA />}
 
       <Separator className="my-16" />
 
@@ -121,7 +127,7 @@ export default function RegionPage() {
         notes={regionData.costOfLiving.notes}
       />
 
-      <SevenPercentCTA />
+      {config.show7PercentCTA && <SevenPercentCTA />}
 
       <ProsConsInteractive prosCons={regionData.prosCons} />
 

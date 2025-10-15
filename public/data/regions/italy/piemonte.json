@@ -1,0 +1,1040 @@
+{
+  "region": {
+    "slug": "piemonte",
+    "issueNumber": 7,
+    "date": "October 2025",
+    "title": "Piemonte: The Refined North",
+    "tagline": "Precision, passion, and a splash of Barolo.",
+    "hero": {
+      "bannerImage": "/images/piemonte/hero-vineyards.jpg",
+      "ambientAudio": "/images/piemonte/ambient.mp3",
+      "credit": "Photo: Langhe Vineyards © CaesarTheDay"
+    },
+    "intro": {
+      "headline": "Bentornati.",
+      "byline": "— Cesare",
+      "paragraphs": [
+        "If Abruzzo was my birthday toast, Piemonte is the hangover cure — strong coffee, mountain air, and a reminder that Italy isn't all sunshine and sea. This is the region that keeps the country grounded while everyone else chases dolce vita clichés.",
+        "October here smells like truffles and wood smoke. The hills around Alba are laced with vines heavy from the Barolo harvest, while mist rolls through the Langhe like it has somewhere important to be. Turin's cafés hum with quiet confidence — the kind that built an empire of chocolate, cinema, and Fiat engines. In the Alps, villages tuck in for winter, their roofs already catching the first snow dusting.",
+        "Piemonte doesn't flirt. It seduces slowly, with competence and class. This is Italy with its shirt buttoned, the region that taught the rest of the country how to do business and still have time for lunch. The food is serious, the wines are legends, and the people — polite, precise, slightly suspicious of hype — are living proof that modesty and mastery can share the same table.",
+        "What makes Piemonte fascinating for retirees isn't just its refinement; it's its stability. The healthcare system is excellent, the trains run (mostly) on time, and the cost of living, while higher than Abruzzo's, is still a bargain compared to Milan or Florence. You get proximity to the Alps, France, and the Riviera — without the chaos that often comes with beauty.",
+        "So pour a glass of Barbera, light a fire if you're lucky enough to have one, and settle in. This month we're heading north — to a region where Italy trades its drama for depth, and where la dolce vita wears a cashmere coat."
+      ],
+      "portrait": "/images/cesare-boat.jpg",
+      "signature": "/images/cesare-signature.png"
+    }
+  },
+  "where": {
+    "map": {
+      "center": [7.68, 45.07],
+      "zoom": 7,
+      "markers": [
+        {
+          "id": "torino",
+          "name": "Torino",
+          "coords": [7.6869, 45.0703],
+          "photo": "/images/piemonte/torino.jpg",
+          "blurb": "Capital city with world-class services, culture, and healthcare. Elegant without the chaos of Rome or Milan."
+        },
+        {
+          "id": "alba",
+          "name": "Alba",
+          "coords": [8.0357, 44.7006],
+          "photo": "/images/piemonte/alba.jpg",
+          "blurb": "Heart of truffle country and Barolo wine. The epicenter of Piemontese gastronomy."
+        },
+        {
+          "id": "asti",
+          "name": "Asti",
+          "coords": [8.2064, 44.9007],
+          "photo": "/images/piemonte/asti.jpg",
+          "blurb": "Historic center with practical services. More affordable than Alba, equally charming."
+        }
+      ],
+      "externalMapUrl": "https://maps.google.com/?q=Piemonte+Italy"
+    },
+    "tabs": [
+      {
+        "id": "geography",
+        "title": "Geography",
+        "content": "Piemonte sits in Italy's northwest corner, bordered by France and Switzerland. The name literally means 'at the foot of the mountains'—the Alps form a dramatic northern boundary. The Langhe and Monferrato hills roll through the southeast, covered in UNESCO-protected vineyards. The Po Valley stretches across the plains, while lakes like Maggiore and Orta dot the landscape. This diversity means you can choose Alpine villages, vineyard hamlets, or urban sophistication—all within an hour's drive."
+      },
+      {
+        "id": "access",
+        "title": "Getting There",
+        "content": "Torino Caselle Airport (TRN) connects to major European cities. Milan Malpensa (MXP) is 90 minutes away with more international options. High-speed trains link Torino to Milan (1 hour), Rome (4 hours), and France. The autostrade network (A4, A6, A21) makes driving straightforward. Regional trains connect smaller towns reliably—no car required in many areas."
+      },
+      {
+        "id": "transport",
+        "title": "Local Transport",
+        "content": "Torino has metro, trams, and buses—efficient urban mobility. Regional trains connect major towns daily. Smaller hill towns may need a car for flexibility. The terrain is gentle compared to mountainous regions, making driving easier. Bike culture exists in cities. In rural areas, expect 10-30 minute drives to services."
+      }
+    ]
+  },
+  "character": {
+    "slides": [
+      {
+        "image": "/images/piemonte/vineyard-fall.jpg",
+        "caption": "Langhe vineyards in autumn fog",
+        "copy": "Piemonte doesn't shout. It whispers. The culture here is sober, elegant, food-first. People take their coffee seriously, their wine more so. Conversations unfold slowly over long meals. The pace is steady, not rushed—but don't mistake reserve for coldness."
+      },
+      {
+        "image": "/images/piemonte/alps.jpg",
+        "caption": "Alpine backdrop to Torino",
+        "copy": "Four real seasons define life here. Hot summers in the plains, crisp autumns in the hills, snowy winters in the mountains, and blooming springs everywhere. Fog blankets the Langhe in fall—mystical and beautiful. Heating costs matter. But you get variety that Southern Italy can't match."
+      },
+      {
+        "image": "/images/piemonte/market.jpg",
+        "caption": "Weekly market culture",
+        "copy": "Weekly markets are ritual, not errand. Farmers sell seasonal produce. Artisans offer cheese, salumi, textiles. You'll learn the rhythm: porcini in autumn, asparagus in spring, tomatoes in summer. This is slow living at its finest—connected to land and season."
+      }
+    ]
+  },
+  "climate": {
+    "modes": [
+      {
+        "id": "alps",
+        "label": "Alps (Verbania, Cuneo)",
+        "avgWinterTempC": 0,
+        "avgSummerTempC": 18,
+        "notes": "Snow guaranteed. Heating essential. Stunning mountain access. Cooler summers."
+      },
+      {
+        "id": "hills",
+        "label": "Hills & Vineyards (Alba, Asti, Langhe)",
+        "avgWinterTempC": 3,
+        "avgSummerTempC": 26,
+        "notes": "Foggy autumns. Mild winters. Warm but not scorching summers. Four-season wardrobe needed."
+      },
+      {
+        "id": "cities",
+        "label": "Cities (Torino)",
+        "avgWinterTempC": 4,
+        "avgSummerTempC": 28,
+        "notes": "Urban heat island effect. Hotter summers. Cold but manageable winters. Best infrastructure."
+      }
+    ]
+  },
+  "towns": {
+    "featured": [
+      {
+        "id": "torino",
+        "name": "Torino",
+        "bestFor": "Services, culture, healthcare access",
+        "photo": "/images/piemonte/torino-hero.jpg",
+        "summary": "Italy's fourth-largest city, but it feels manageable. Former capital with regal architecture, excellent museums, and a café culture that rivals Vienna. World-class hospitals. University energy. Efficient public transit. Not touristy—this is a real working city where Italians actually live. Perfect if you want urban amenities without Rome's chaos.",
+        "fullDescription": "Turin doesn't need to show off. It just gets everything right. While other Italian cities perform their beauty, Turin lives it in silence — colonnaded boulevards, uniform façades, and a rhythm that feels engineered rather than improvised. Once the capital of the Kingdom of Savoy, then the beating heart of Fiat, it has always built rather than posed.\n\nWalk beneath eighteen kilometers of arcades and you'll understand the design philosophy: keep people comfortable, rain or shine. Cafés are an institution here — not the standing bars of the south but grand parlors of marble and mirrors where waiters still wear jackets and the coffee arrives on a silver tray beside a glass of water. Order a bicerin, Turin's layered mix of espresso, chocolate, and cream, and you'll feel the city's character in a cup — precise, balanced, quietly indulgent.\n\nCulturally, Turin punches above its weight. The Egyptian Museum rivals Cairo's, the National Museum of Cinema sits inside the iconic Mole Antonelliana, and film, design, and architecture schools feed the city's creative edge. It's Italy's most organized metropolis: clean, efficient, and almost Swiss in punctuality. Locals joke that the trains leave on time here because the drivers are from Piedmont.\n\nFor retirees or long-stayers, it's one of Italy's most liveable large cities. Healthcare infrastructure is excellent, public transport reliable, and rents still reasonable for a European hub of this caliber. Turin gives you four honest seasons: foggy winters with the Alps glimmering in the distance, crisp autumns that smell of roasted chestnuts, and summers you escape with an hour's train to the Riviera or the mountain valleys.\n\nTurin's vibe is confidence without noise. The people are polite, sometimes reserved, and take pride in understatement. Don't expect effusive warmth on day one — but once you're accepted, you're treated as kin. It's a city that respects effort, structure, and a good pair of shoes. In short: if you want Italy's culture with Germany's order, Turin is where espresso meets engineering.",
+        "mapUrl": "https://maps.google.com/?q=Torino+Italy",
+        "gallery": ["/images/piemonte/torino-pink-moment.jpg", "/images/piemonte/torino-river-autumn.jpg", "/images/piemonte/torino-piazza.jpg"],
+        "links": [
+          {
+            "label": "City Website",
+            "href": "https://www.comune.torino.it/"
+          },
+          {
+            "label": "Healthcare Info",
+            "href": "https://www.cittadellasalute.to.it/"
+          }
+        ]
+      },
+      {
+        "id": "alba",
+        "name": "Alba",
+        "bestFor": "Food/wine lovers; truffle season devotees",
+        "photo": "/images/piemonte/alba-hero.jpg",
+        "summary": "The white truffle capital of the world. Barolo and Barbaresco vineyards surround you. October's truffle fair draws global crowds—exciting but intense. Small-town feel with big-time gastronomy. Expect higher costs in exchange for being at the epicenter of Italian food culture. Not a place for hermits; this is social, culinary, communal living.",
+        "fullDescription": "If Turin is Italy's mind, Alba is its appetite. This tidy town at the center of the Langhe hills smells of earth, oak, and ambition — the scent of white truffles drifting through wine cellars and kitchen windows. Every autumn the streets fill with chefs, traders, and tourists chasing the season's first truffle, but most of the year Alba exudes quiet prosperity.\n\nThe medieval towers remind you this was once a fortress town; today it's a culinary one. Market mornings hum with produce vendors selling hazelnuts, cheeses, and armfuls of wild mushrooms. Afternoons belong to the vineyards: Barolo, Barbaresco, Dolcetto — names that define the region's liquid identity. Locals drink well and eat even better, but they do it without spectacle. There's wealth here, yet it's the kind that prefers an unmarked cellar door to a neon sign.\n\nInfrastructure is solid: hospitals in town, regional clinics nearby, and frequent trains to Turin for anything specialized. The roads wind but are well maintained, and broadband coverage — surprisingly — is excellent, even among the vines. Retirees who want a small-town rhythm with global sophistication find a sweet spot here: morning cappuccino, afternoon vineyard drive, dinner that could make Michelin jealous, and a sense that time hasn't been wasted on pretension.\n\nAlba's vibe is refined practicality. Locals work hard, eat slowly, and don't confuse friendliness with over-familiarity. Property prices reflect the demand but remain far below anything in Tuscany or the Riviera. It's not cheap, but it's worth every euro for the quality of life — and the view at sunset when the Langhe hills roll away in dusty gold. Alba isn't the Italy of chaos; it's the Italy of control — delicious, deliberate, and deeply satisfying.",
+        "mapUrl": "https://maps.google.com/?q=Alba+Italy",
+        "gallery": ["/images/piemonte/alba-vineyards.jpg", "/images/piemonte/alba-town.jpg", "/images/piemonte/alba-centro.jpg"],
+        "links": [
+          {
+            "label": "Truffle Fair",
+            "href": "https://www.fieradeltartufo.org/"
+          },
+          {
+            "label": "Wine Tourism",
+            "href": "https://www.langheroero.it/"
+          }
+        ]
+      },
+      {
+        "id": "asti",
+        "name": "Asti",
+        "bestFor": "Balanced costs, services, historic charm",
+        "photo": "/images/piemonte/asti-hero.jpg",
+        "summary": "Alba's more practical neighbor. Historic center with medieval towers. Good rail connections. Hospital. Supermarkets. Banks. Everything you need without the tourist premium. The Asti wine zone surrounds it. Less glamorous than Alba but equally authentic—and more affordable. Ideal for those who want substance over style.",
+        "fullDescription": "Asti lives in Turin's shadow and seems perfectly happy about it. While Alba attracts the gourmets, Asti is where ordinary life carries on with elegance and purpose. The town's skyline bristles with medieval towers; its streets radiate from broad piazzas lined with porticoes and shops that still close for lunch because the owners believe in eating properly.\n\nAsti's global claim is its sparkling wine — Asti Spumante and Moscato d'Asti — yet the locals rarely drink them. They prefer a quiet Barbera or a Vermouth before dinner. The annual Palio di Asti, one of Italy's oldest horse races, transforms the town into a medieval carnival each September. The rest of the year it's unhurried and affordable, a place that functions on human scale.\n\nInfrastructure here is dependable: hospitals, a clean train station, and quick rail connections to Turin, Alessandria, and even Genoa. Roads are flat and forgiving, ideal for cycling or small-city driving. Services cluster around the walkable center, meaning you can live comfortably without a car — a rarity outside Italy's major hubs.\n\nThe vibe is small-town civic pride: flower boxes on balconies, shopkeepers who remember your face, and neighbors who nod instead of gush. There's culture, but it's local rather than global — evening concerts in churches, food fairs that celebrate sausages instead of status. For retirees, Asti offers value and community: rents are lower than Alba, bureaucracy moves at a tolerable pace, and life runs on espresso and predictability.\n\nIf Alba is truffles and Barolo, Asti is espresso and biscotti — simpler, lighter, but no less satisfying. It's the Piedmontese version of comfort food: unflashy, nourishing, and quietly proud of being overlooked.",
+        "mapUrl": "https://maps.google.com/?q=Asti+Italy",
+        "gallery": ["/images/piemonte/asti-vineyards.jpg", "/images/piemonte/asti-bridge.jpg", "/images/piemonte/asti-town.jpg"],
+        "links": [
+          {
+            "label": "City Website",
+            "href": "https://www.comune.asti.it/"
+          },
+          {
+            "label": "Visit Asti",
+            "href": "https://visit.asti.it/en/"
+          }
+        ]
+      }
+    ],
+    "grid": [
+      {
+        "id": "bra",
+        "name": "Bra",
+        "bestFor": "Slow Food culture, walkable center",
+        "photo": "/images/piemonte/bra.jpg",
+        "mapUrl": "https://maps.google.com/?q=Bra+Italy",
+        "blurb": "Birthplace of the global Slow Food movement, Bra wears its philosophy proudly. Markets here are measured, not rushed; meals unfold like conversations. The town balances Baroque beauty with genuine community warmth. You can stroll from butcher to baker to bookshop without crossing a major street. Excellent rail links connect Bra to Turin and Alba, but the pace is its own — a kind of elegant efficiency that doesn't rely on hurry. Ideal for anyone who wants culture and cuisine without crowding."
+      },
+      {
+        "id": "verbania",
+        "name": "Verbania",
+        "bestFor": "Lake Maggiore living, mild climate",
+        "photo": "/images/piemonte/verbania.jpg",
+        "mapUrl": "https://maps.google.com/?q=Verbania+Italy",
+        "blurb": "Set on the shores of Lake Maggiore, Verbania feels half Alpine, half Mediterranean. Palms and pines coexist, and ferries glide past snow-capped horizons. The climate is mild, the air clean, and property prices surprisingly sane for a lakeside address. Healthcare and services are solid — Verbania has the infrastructure of a small city wrapped in resort scenery. It's for those who love the idea of the lake life but not the tourist throngs of Como."
+      },
+      {
+        "id": "cuneo",
+        "name": "Cuneo",
+        "bestFor": "Alpine access, lower costs",
+        "photo": "/images/piemonte/cuneo.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cuneo+Italy",
+        "blurb": "At the foot of the Maritime Alps, Cuneo has the crisp air and practical temperament of a mountain capital. Wide squares, grand arcades, and Alpine views define its center. This is Italy without pretense: clean, organized, unhurried. Winters bring skiers; summers, hikers. The local cuisine blends Piedmontese rigor with French finesse. For retirees, Cuneo's appeal is its scale — big enough for amenities, small enough to know your baker by name."
+      },
+      {
+        "id": "novara",
+        "name": "Novara",
+        "bestFor": "Strategic location, urban services",
+        "photo": "/images/piemonte/novara.jpg",
+        "mapUrl": "https://maps.google.com/?q=Novara+Italy",
+        "blurb": "Novara is rice country — fields, canals, and the hum of agricultural precision. It sits between Milan and Turin, serving both without bowing to either. Architecturally, it's a handsome provincial city with a monumental dome and plenty of green space. Trains to Milan take under an hour, making Novara a realistic commuter or semi-urban retirement base. The vibe is industrious but balanced: locals work hard, eat better, and avoid drama."
+      },
+      {
+        "id": "alessandria",
+        "name": "Alessandria",
+        "bestFor": "Affordability, rail access",
+        "photo": "/images/piemonte/alessandria.jpg",
+        "mapUrl": "https://maps.google.com/?q=Alessandria+Italy",
+        "blurb": "Strategically located at the crossroads of Turin, Milan, and Genoa, Alessandria has always been a connector city. It's pragmatic, well-serviced, and refreshingly affordable for northern Italy. The center mixes understated 19th-century elegance with functional modern blocks. You don't move here for spectacle — you move here because it works. Healthcare is excellent, transportation effortless, and life feels comfortably middle-class. A solid base for those who want access to everything but ownership of nothing chaotic."
+      },
+      {
+        "id": "biella",
+        "name": "Biella",
+        "bestFor": "Textile heritage, proximity to mountains",
+        "photo": "/images/piemonte/biella.jpg",
+        "mapUrl": "https://maps.google.com/?q=Biella+Italy",
+        "blurb": "Textile heartland and gateway to the mountains, Biella is where fabric mills meet fresh air. Once one of Italy's richest industrial districts, it now feels quietly prosperous, with art foundations and outdoor festivals replacing factory noise. It's surrounded by nature yet has the bones of a real city: hospitals, schools, and an opera season. The cost of living is lower than Turin or Alba, but the views — forests, lakes, and snowy peaks — are first-class. For creatives or nature-minded retirees, Biella delivers serenity with substance."
+      },
+      {
+        "id": "saluzzo",
+        "name": "Saluzzo",
+        "bestFor": "Medieval charm, artistic community",
+        "photo": "/images/piemonte/saluzzo.jpg",
+        "mapUrl": "https://maps.google.com/?q=Saluzzo+Italy",
+        "blurb": "A medieval jewel perched between plains and peaks, Saluzzo offers that elusive small-town charm without isolation. Cobbled lanes, frescoed courtyards, and a hilltop old quarter give it cinematic character. It's also practical: excellent food markets, modern clinics, and a strong sense of community. Artists love it, retirees appreciate its calm — Saluzzo is Piedmont distilled into stone and light."
+      },
+      {
+        "id": "acqui-terme",
+        "name": "Acqui Terme",
+        "bestFor": "Thermal spas, wine country",
+        "photo": "/images/piemonte/acqui-terme.jpg",
+        "mapUrl": "https://maps.google.com/?q=Acqui+Terme+Italy",
+        "blurb": "Roman ruins, thermal baths, and Barbera vineyards — Acqui Terme has been unwinding travelers for two thousand years. The town's spa culture remains alive but understated, with mineral springs, elegant hotels, and a well-preserved center. It's a haven for those who want health, heritage, and hedonism in balance. Affordable homes, good train links, and the aroma of mineral water in the air make it a quiet favorite for long stays."
+      },
+      {
+        "id": "orta-san-giulio",
+        "name": "Orta San Giulio",
+        "bestFor": "Lake life, romantic setting",
+        "photo": "/images/piemonte/orta-san-giulio.jpg",
+        "mapUrl": "https://maps.google.com/?q=Orta+San+Giulio+Italy",
+        "blurb": "Tiny, romantic, and absurdly picturesque, Orta San Giulio sits on Lake Orta — often called 'Maggiore's little sister.' The view from the island monastery feels almost timeless. It's small enough to walk end-to-end in ten minutes, yet filled with quality restaurants and art galleries. Limited parking and limited stress go hand in hand. Perfect for writers, dreamers, or anyone who wants the lake life in miniature."
+      },
+      {
+        "id": "cherasco",
+        "name": "Cherasco",
+        "bestFor": "Baroque elegance, antique markets",
+        "photo": "/images/piemonte/cherasco.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cherasco+Italy",
+        "blurb": "Half fortress, half pastry shop, Cherasco is a town of surprising refinement. Known for its baroque arcades, antique fairs, and chocolate production, it has the atmosphere of a place that never rushes but always delivers. Within twenty minutes of Alba or Bra, it's a logical choice for those who want to live near the action but not in it. Elegant, friendly, and just quirky enough to feel personal."
+      },
+      {
+        "id": "ivrea",
+        "name": "Ivrea",
+        "bestFor": "Industrial heritage, mountain access",
+        "photo": "/images/piemonte/ivrea.jpg",
+        "mapUrl": "https://maps.google.com/?q=Ivrea+Italy",
+        "blurb": "Once the headquarters of Olivetti — the company that made typewriters cool — Ivrea carries the DNA of innovation and design. Its modernist industrial heritage earned it UNESCO status, and its annual orange-throwing carnival proves the locals have a sense of humor. Nestled by the Dora Baltea River, Ivrea is scenic and smart, a perfect midpoint between Turin and the Alps. Ideal for remote workers or semi-urban expats who crave balance."
+      },
+      {
+        "id": "mondovi",
+        "name": "Mondovì",
+        "bestFor": "Terraced hillside views, ceramic tradition",
+        "photo": "/images/piemonte/mondovi.jpg",
+        "mapUrl": "https://maps.google.com/?q=Mondovi+Italy",
+        "blurb": "Set on terraced hills overlooking the Tanaro Valley, Mondovì feels like two towns stacked — the medieval Piazza above and the modern Breo below. A funicular links them, because of course it does; this is Piedmont, where even old towns are engineered. Known for ceramics, wine, and its baroque cathedral, Mondovì is accessible yet atmospheric. Housing is modestly priced, and the mountain views come free."
+      }
+    ]
+  },
+  "highlights": {
+    "wine": {
+        "title": "WINE — Precision in Every Hillside",
+        "intro": "In Piemonte, wine isn't agriculture — it's architecture. Hills rise and curve with mathematical purpose, each slope engineered to catch just the right light. The region's UNESCO-listed vineyard landscapes of Langhe, Roero, and Monferrato are a monument to human discipline in pursuit of flavor. This is where the Nebbiolo grape becomes Barolo and Barbaresco, wines of patience and structure; where Barbera, Dolcetto, and Arneis define everyday elegance. The story of Piemonte's wines isn't about excess; it's about restraint. These are wines made for slow meals, foggy evenings, and quiet company — bottles that reward conversation as much as aging. The geography does most of the work, the people simply listen to it.",
+        "backgroundImage": "/images/piemonte/vineyard-fall.jpg",
+        "cards": [
+          {
+            "id": "unesco-vineyards",
+            "title": "UNESCO Vineyard Landscapes",
+            "subtitle": "Langhe, Roero, and Monferrato",
+            "image": "/images/piemonte/hero-vineyards.jpg",
+            "description": "Hills that rise with mathematical purpose. Each slope engineered to catch the right light. A monument to human discipline in pursuit of flavor.",
+            "links": [
+              {
+                "label": "UNESCO Vineyard Landscapes",
+                "href": "https://whc.unesco.org/en/list/1390/"
+              }
+            ]
+          },
+          {
+            "id": "signature-grapes",
+            "title": "Nebbiolo, Barbera, Arneis",
+            "subtitle": "Patience, structure, everyday elegance",
+            "image": "/images/piemonte/barolo.jpg",
+            "description": "Nebbiolo becomes Barolo and Barbaresco — wines of patience and structure. Barbera and Dolcetto offer balance and bite. Arneis and Gavi bring crisp, mineral power.",
+            "links": [
+              {
+                "label": "Wines of Piemonte",
+                "href": "https://www.ivinidelpiemonte.com/vini-e-territorio/"
+              }
+            ]
+          },
+          {
+            "id": "vineyard-stewardship",
+            "title": "Multigenerational Producers",
+            "subtitle": "Culture of vineyard stewardship",
+            "image": "/images/piemonte/vineyard-fall.jpg",
+            "description": "Family producers who listen to the geography. Harvest, fog season, truffle season — a rhythm measured in generations, not quarters.",
+            "links": [
+              {
+                "label": "Langhe.net Tours",
+                "href": "https://www.langhe.net/"
+              }
+            ]
+          }
+        ]
+      },
+      "food": {
+        "title": "FOOD — When Simplicity Learns Restraint",
+        "intro": "Piemonte's food culture reads like a manifesto: take fewer ingredients, make them matter more. This is the region that invented Slow Food, not as a trend but as a protest — against speed, uniformity, and the loss of local taste. From Bra to Asti, markets overflow not with novelty but with precision: hazelnuts that taste like memory, butter that silences a room, and pasta so thin it flutters when you breathe. Meals here don't start until they mean something. Bagna càuda turns a bowl of anchovies and garlic into a social ritual. Tajarin pasta and agnolotti del plin are acts of regional loyalty. And in autumn, white truffles emerge like folklore — sudden, expensive, and irresistible.",
+        "backgroundImage": "/images/piemonte/market.jpg",
+        "cards": [
+          {
+            "id": "white-truffle",
+            "title": "White Truffle of Alba",
+            "subtitle": "Sudden, expensive, irresistible",
+            "image": "/images/piemonte/white-truffle.jpg",
+            "description": "Emerge like folklore each autumn. Visit the International Alba White Truffle Fair for the full sensory experience — a heritage-level culinary event.",
+            "links": [
+              {
+                "label": "Alba Truffle Fair",
+                "href": "https://www.fieradeltartufo.org/"
+              }
+            ]
+          },
+          {
+            "id": "cultural-dishes",
+            "title": "Tajarin, Agnolotti, Bagna Càuda",
+            "subtitle": "Acts of regional loyalty",
+            "image": "/images/piemonte/agnolotti.jpg",
+            "description": "Pasta so thin it flutters when you breathe. Bagna càuda: anchovies, garlic, olive oil — a communal ritual that turns restraint into warmth.",
+            "links": [
+              {
+                "label": "Piemontese Recipes",
+                "href": "https://www.piemonteitalia.eu/it/enogastronomia/ricette"
+              }
+            ]
+          },
+          {
+            "id": "slow-food",
+            "title": "Slow Food International",
+            "subtitle": "Born in Bra as protest, not trend",
+            "image": "/images/piemonte/slow-food.jpg",
+            "description": "Against speed, uniformity, and the loss of local taste. The manifesto started here: take fewer ingredients, make them matter more.",
+            "links": [
+              {
+                "label": "Slow Food International",
+                "href": "https://www.slowfood.com/"
+              }
+            ]
+          },
+          {
+            "id": "markets",
+            "title": "Markets of Precision",
+            "subtitle": "Hazelnuts, butter, and memory",
+            "image": "/images/piemonte/market.jpg",
+            "description": "From Bra to Asti, markets overflow with precision rather than novelty. Hazelnuts that taste like memory, butter that silences a room.",
+            "links": [
+              {
+                "label": "Earth Markets - Italy/Piemonte",
+                "href": "https://www.fondazioneslowfood.com/it/nazioni-mercati/italia-it/?fwp_mercati_della_terra_nazioni=italia-it"
+              }
+            ]
+          }
+        ]
+      },
+      "culture": {
+        "title": "CULTURE — Where Grandeur Whispers, Not Shouts",
+        "intro": "Piemonte's cultural personality is subtle — stately façades, arcaded streets, and a calm intellect that reveals itself slowly. Turin, once the capital of a kingdom and now one of Europe's most underappreciated cultural cities, leads the region's aesthetic dialogue. Its museums — from the Museo Egizio to the Museum of Cinema — rival global icons, while its concert halls and galleries carry an understated confidence. Beyond the city, royal palaces, baroque towns, and contemporary art fairs create a patchwork of heritage that feels lived-in rather than staged. This is culture you stumble into, not queue for: frescoes in village churches, festivals that fill medieval squares, and jazz spilling from Turin's colonnades. Piemonte rewards curiosity over spectacle.",
+        "backgroundImage": "/images/piemonte/torino-hero.jpg",
+        "cards": [
+          {
+            "id": "museo-egizio",
+            "title": "Museo Egizio",
+            "subtitle": "World's greatest Egyptian collection outside Cairo",
+            "image": "/images/piemonte/torino1.jpg",
+            "description": "Rivals global icons with understated confidence. Ancient Egyptian archaeology in a city that knows subtlety.",
+            "links": [
+              {
+                "label": "Visit Museo Egizio",
+                "href": "https://museoegizio.it/"
+              }
+            ]
+          },
+          {
+            "id": "cinema-museum",
+            "title": "Museo Nazionale del Cinema",
+            "subtitle": "A cinematic cathedral inside the Mole",
+            "image": "/images/piemonte/torino2.jpg",
+            "description": "Film history and art housed in Turin's iconic tower — a monument to serious cinema in a subtle city.",
+            "links": [
+              {
+                "label": "Cinema Museum",
+                "href": "https://www.museocinema.it/"
+              }
+            ]
+          },
+          {
+            "id": "venaria-reale",
+            "title": "Reggia di Venaria Reale",
+            "subtitle": "Savoy opulence, better lighting than Versailles",
+            "image": "/images/piemonte/torino3.jpg",
+            "description": "A UNESCO World Heritage site. Royal grandeur that feels lived-in rather than staged.",
+            "links": [
+              {
+                "label": "Plan Your Visit",
+                "href": "https://www.lavenaria.it/"
+              }
+            ]
+          },
+          {
+            "id": "collisioni-festival",
+            "title": "Collisioni Festival",
+            "subtitle": "Literature, music, wine in Barolo",
+            "image": "/images/piemonte/alba.jpg",
+            "description": "Perfect harmony of art and terroir. Festivals that fill medieval squares with contemporary culture.",
+            "links": [
+              {
+                "label": "Festival Info",
+                "href": "https://www.collisioni.it/"
+              }
+            ]
+          },
+          {
+            "id": "torino-film",
+            "title": "Torino Film Festival",
+            "subtitle": "Serious cinema, subtle city",
+            "image": "/images/piemonte/torino.jpg",
+            "description": "One of Italy's most prestigious film festivals. Culture you stumble into, not queue for.",
+            "links": [
+              {
+                "label": "Film Festival",
+                "href": "https://www.torinofilmfest.org/"
+              }
+            ]
+          },
+          {
+            "id": "artissima",
+            "title": "Artissima Contemporary Art Fair",
+            "subtitle": "Italy's most forward-thinking exhibition",
+            "image": "/images/piemonte/market.jpg",
+            "description": "Leading international contemporary art fair. A patchwork of heritage meeting innovation.",
+            "links": [
+              {
+                "label": "Artissima",
+                "href": "https://www.artissima.art/"
+              }
+            ]
+          },
+          {
+            "id": "olivetti",
+            "title": "Olivetti's Modernist Utopia",
+            "subtitle": "Design legacy in Ivrea",
+            "image": "/images/piemonte/ivrea.jpg",
+            "description": "UNESCO site proving industry can be beautiful. Craftsmanship and calm intellect in architectural form.",
+            "links": [
+              {
+                "label": "Industrial City of Ivrea",
+                "href": "https://www.comune.ivrea.to.it/"
+              }
+            ]
+          }
+        ]
+      }
+    },
+  "collaborator": {
+    "heading": "Speak Italian Like You Belong",
+    "paragraphs": [
+      "You can learn Italian from a book, but it won't teach you how to order coffee in Turin without sounding like a tourist. That's where my friend Luca comes in.",
+      "Luca is a native Italian teacher and founder of the Italian Conversation Club, where lessons feel more like catching up with a friend than sitting through class. His approach is simple: real conversations, cultural insight, and the confidence to connect with locals from day one.",
+      "Each one-to-one session is completely tailored to you — your level, your goals, your life. Whether you're preparing for a move to Italy, want to feel comfortable chatting with your barista, or just wish you could express yourself naturally, Luca helps you do exactly that.",
+      "His students say the same thing: they stopped translating in their heads and started thinking in Italian. It happens faster than you expect when you learn the language the Italian way — with laughter, mistakes, and heart.",
+      "The first session is free. Try it and see how quickly Italian starts to feel like yours."
+    ],
+    "ctaText": "Try a Free Lesson with Luca",
+    "ctaLink": "https://italiando.aqulas.me/?fbclid=PAb21jcANYu8xleHRuA2FlbQIxMQABp-AAQrUNhnXXhrBTY_8w8RMtjDouyRS2egmduL1HHvyjvdskKaEOICPWdDrW_aem_Xi-i2ozen-XC30YQMhECJw",
+    "backgroundImage": "/images/piemonte/cafe-language.jpg"
+  },
+  "wine": {
+    "quiz": {
+      "profiles": [
+        {
+          "id": "bold",
+          "label": "Bold & Age-worthy",
+          "result": {
+            "name": "Barolo",
+            "note": "The King of Wines. Nebbiolo grape. Tar, roses, leather. Needs years to open. Cellar-worthy investment.",
+            "image": "/images/piemonte/barolo-wine.jpg"
+          }
+        },
+        {
+          "id": "silky",
+          "label": "Silky & Perfumed",
+          "result": {
+            "name": "Barbaresco",
+            "note": "Nebbiolo's elegant sibling. Aromatic, refined, less tannic. Shorter aging. The Queen to Barolo's King.",
+            "image": "/images/piemonte/barbaresco.jpg"
+          }
+        },
+        {
+          "id": "everyday",
+          "label": "Everyday Red",
+          "result": {
+            "name": "Dolcetto d'Alba",
+            "note": "Juicy, dark fruit. Low tannins. Drink young. Perfect weeknight wine. Affordable and delicious.",
+            "image": "/images/piemonte/dolcetto.jpg"
+          }
+        },
+        {
+          "id": "crisp",
+          "label": "Crisp & Aromatic White",
+          "result": {
+            "name": "Arneis",
+            "note": "Pear, almond, white flowers. Fresh acidity. Pairs with seafood, vegetables. Underrated gem.",
+            "image": "/images/piemonte/arneis.jpg"
+          }
+        }
+      ]
+    }
+  },
+  "recipes": {
+    "cards": [
+      {
+        "id": "tajarin-tartufo",
+        "title": "Tajarin al Tartufo",
+        "mode": "Rustic",
+        "image": "/images/piemonte/tajarin.jpg",
+        "ingredients": [
+          "400g fresh tajarin (thin egg pasta)",
+          "100g butter",
+          "50g white truffle (or 20g if being reasonable)",
+          "Parmigiano-Reggiano",
+          "Salt"
+        ],
+        "steps": [
+          "Cook tajarin in salted boiling water for 2-3 minutes until al dente",
+          "Meanwhile, melt butter gently in a large pan—don't brown it",
+          "Drain pasta, reserving 1/2 cup pasta water",
+          "Toss pasta in butter, adding pasta water to create silky sauce",
+          "Plate immediately and shave truffle generously over top",
+          "Finish with a light grating of Parmigiano"
+        ],
+        "pairWithWineProfile": "silky",
+        "winePairing": "Barolo DOCG — ideally 8–10 years old; its forest-floor complexity mirrors truffle's depth.",
+        "links": [
+          {
+            "label": "Alba Truffle Fair (Oct-Nov)",
+            "href": "https://www.fieradeltartufo.org/"
+          }
+        ]
+      },
+      {
+        "id": "bagna-cauda",
+        "title": "Bagna Cauda",
+        "mode": "Rustic",
+        "image": "/images/piemonte/bagna.jpg",
+        "ingredients": [
+          "200g anchovy fillets in oil",
+          "8 cloves garlic, sliced thin",
+          "200ml extra virgin olive oil",
+          "50g butter",
+          "Seasonal vegetables (peppers, cardoons, cabbage, carrots)"
+        ],
+        "steps": [
+          "Gently heat olive oil and butter in earthenware pot",
+          "Add garlic and anchovies, stirring until anchovies dissolve (15-20 min)",
+          "Keep warm over low flame or candle",
+          "Serve with raw and cooked vegetables for dipping",
+          "Traditionally eaten communally—have bread ready to soak up drips"
+        ],
+        "pairWithWineProfile": "crisp",
+        "winePairing": "Barbera d'Asti DOCG — Piemonte's most forgiving red; bright acidity, no heavy tannins, refreshes beautifully."
+      },
+      {
+        "id": "vitello-tonnato",
+        "title": "Vitello Tonnato",
+        "mode": "Refined",
+        "image": "/images/piemonte/vitello.jpg",
+        "ingredients": [
+          "800g veal roast",
+          "200g canned tuna in oil",
+          "4 anchovy fillets",
+          "2 egg yolks",
+          "Capers",
+          "Lemon juice",
+          "Olive oil"
+        ],
+        "steps": [
+          "Roast veal until just cooked, let cool completely",
+          "Blend tuna, anchovies, egg yolks, lemon juice until smooth",
+          "Slowly add olive oil to create mayonnaise-like sauce",
+          "Slice veal paper-thin, arrange on platter",
+          "Cover completely with tuna sauce",
+          "Refrigerate 2+ hours, garnish with capers before serving"
+        ],
+        "pairWithWineProfile": "crisp",
+        "winePairing": "Roero Arneis DOCG — floral, almond-scented, medium-bodied white that cuts through the richness of the sauce."
+      },
+      {
+        "id": "bonet-cacao",
+        "title": "Bonèt al Cacao e Amaretti",
+        "mode": "Refined",
+        "image": "/images/piemonte/bonet-al-cacao.jpg",
+        "story": "Bonèt (pronounced bo-nay) is Piemonte's answer to crème caramel — but darker, moodier, and grown up. It was the final flourish at 18th-century banquets in the Savoy court, meant to \"clean the palate\" after truffle and game. Made with cocoa, amaretto liqueur, and crushed amaretti cookies, it tastes like the moment between coffee and confession. Every family has a version — some silkier, some boozier — but all whisper of elegance and restraint.",
+        "whyRefined": "It looks simple but takes precision: low heat, perfect timing, just enough bitterness to keep the sweetness interesting. It's the kind of dessert you serve in small portions and remember for days.",
+        "ingredients": [
+          "500 ml whole milk",
+          "4 whole eggs + 2 egg yolks",
+          "120 g sugar (plus more for caramel)",
+          "30 g unsweetened cocoa powder",
+          "100 g crushed amaretti cookies",
+          "50 ml amaretto liqueur (optional but traditional)",
+          "Pinch of salt",
+          "Butter (for greasing molds)"
+        ],
+        "steps": [
+          "Make the caramel: In a saucepan, melt 100g sugar over medium heat until golden. Quickly pour into a loaf pan or ramekins, swirling to coat the base. Let set.",
+          "Prepare the custard: Warm milk in a saucepan (do not boil). In a bowl, whisk eggs, yolks, sugar, cocoa, salt, and amaretto. Add crushed amaretti cookies, then gradually pour in the warm milk, whisking constantly until smooth.",
+          "Bake gently: Pour mixture over the caramel base. Place the pan in a larger baking dish and fill with hot water halfway up the sides (bain-marie). Bake at 160°C / 320°F for about 45–50 minutes, until just set but still trembling in the center.",
+          "Cool and serve: Let cool completely, then refrigerate for at least 4 hours (preferably overnight). Invert onto plates before serving — the caramel will run like amber sauce."
+        ],
+        "servingSuggestion": "Serve chilled with a glass of Barolo Chinato or Moscato d'Asti — something aromatic but restrained. Top with a shard of amaretti crumble or a drizzle of espresso reduction if you want a modern accent.",
+        "pairWithWineProfile": "elegant",
+        "winePairing": "Barolo Chinato or Moscato d'Asti — aromatic, restrained, perfectly balanced with chocolate and amaretto."
+      }
+    ],
+    "modes": ["Rustic", "Refined"]
+  },
+  "healthcare": {
+    "intro": {
+      "headline": "Healthcare & Infrastructure: The Practical North",
+      "lead": "Piemonte doesn't brag about efficiency — it just runs on it. From its hospitals to its railways, everything here works with the same quiet precision as a Swiss watch that somehow learned to love truffles. The region's infrastructure isn't flashy, but it's reliable — a rare comfort for anyone considering a long-term move or retirement abroad."
+    },
+    "hospitals": [
+      {
+        "name": "Città della Salute e della Scienza di Torino",
+        "location": "Turin",
+        "coords": [45.0677, 7.6664],
+        "description": "Italy's largest teaching hospital, known for oncology and transplant programs.",
+        "link": "https://www.cittadellasalute.to.it/",
+        "mapUrl": "https://maps.google.com/?q=Citta+della+Salute+Torino"
+      },
+      {
+        "name": "Ospedale Maggiore di Novara",
+        "location": "Novara",
+        "coords": [45.4386, 8.6225],
+        "description": "Historic university hospital serving the eastern plains; strong cardiology unit.",
+        "link": "https://www.maggioreosp.novara.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Novara"
+      },
+      {
+        "name": "Ospedale Santa Croce e Carle",
+        "location": "Cuneo",
+        "coords": [44.3960, 7.5442],
+        "description": "Regional reference for trauma and orthopedics; gateway to Alpine emergency services.",
+        "link": "https://www.ospedale.cuneo.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Cuneo"
+      },
+      {
+        "name": "Ospedale Cardinal Massaia",
+        "location": "Asti",
+        "coords": [44.9009, 8.2064],
+        "description": "Modern mid-size facility, efficient emergency ward, excellent maternity care.",
+        "link": "https://www.asl.at.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Asti"
+      }
+    ],
+    "airports": [
+      {
+        "name": "Torino-Caselle Airport (TRN)",
+        "coords": [45.2008, 7.6496],
+        "description": "Compact, efficient hub 20 min from Turin; daily flights to Europe's major capitals.",
+        "link": "https://www.aeroportoditorino.it/en",
+        "mapUrl": "https://maps.google.com/?q=Torino+Caselle+Airport"
+      },
+      {
+        "name": "Cuneo-Levaldigi Airport (CUF)",
+        "coords": [44.5471, 7.6232],
+        "description": "Small regional airport with seasonal routes to the UK and Northern Europe.",
+        "link": "https://www.aeroportocuneo.it/",
+        "mapUrl": "https://maps.google.com/?q=Cuneo+Airport"
+      }
+    ],
+    "railways": [
+      {
+        "name": "Trenitalia National Network",
+        "description": "National trains connecting Turin, Milan, Florence, and Rome — punctual and affordable.",
+        "link": "https://www.trenitalia.com/en.html"
+      },
+      {
+        "name": "SFM Torino Lines",
+        "description": "Suburban network reaching Avigliana, Pinerolo, and Chieri — great for commuters.",
+        "link": "https://www.sfmtorino.it/"
+      }
+    ],
+    "highways": [
+      {
+        "name": "A4 & A21 Autostrade",
+        "description": "Main arteries linking Turin with Milan, Genoa, and the Po Valley.",
+        "link": "https://www.autostrade.it/"
+      }
+    ],
+    "parks": [
+      {
+        "name": "Gran Paradiso National Park",
+        "coords": [45.5167, 7.2667],
+        "description": "Italy's first national park; alpine ibex, glaciers, and perfect signage.",
+        "link": "https://www.pngp.it/en",
+        "mapUrl": "https://maps.google.com/?q=Gran+Paradiso+National+Park"
+      },
+      {
+        "name": "Parco delle Alpi Marittime",
+        "coords": [44.2333, 7.4000],
+        "description": "Wild valleys south of Cuneo; UNESCO biosphere reserve.",
+        "link": "https://www.parcoalpimarittime.it/",
+        "mapUrl": "https://maps.google.com/?q=Parco+Alpi+Marittime"
+      },
+      {
+        "name": "Parco Naturale del Po Piemonte",
+        "coords": [45.1000, 8.0500],
+        "description": "Wetlands and bird sanctuaries north of Turin; ideal day trip from the city.",
+        "link": "https://www.parcopopiemontese.it/parco-po-piemontese.php",
+        "mapUrl": "https://maps.google.com/?q=Parco+Po+Piemonte"
+      }
+    ],
+    "travelTimes": [
+      {
+        "from": "Turin",
+        "to": [
+          { "destination": "Milan", "time": "55 min by train" },
+          { "destination": "Genoa", "time": "2h by train" },
+          { "destination": "Nice", "time": "3h 30 by train" },
+          { "destination": "Gran Paradiso Park", "time": "90 min by car" }
+        ],
+        "nearestAirport": {
+          "name": "Caselle Airport",
+          "code": "TRN",
+          "time": "20 min",
+          "distance": "16 km",
+          "connectivity": "Direct flights to 50+ European cities",
+          "link": "https://www.aeroportoditorino.it/en"
+        }
+      },
+      {
+        "from": "Alba",
+        "to": [
+          { "destination": "Turin", "time": "1h 15 by train" },
+          { "destination": "Genoa", "time": "2h 10 by car" },
+          { "destination": "Milan", "time": "1h 45 by train" },
+          { "destination": "Alpi Marittime Park", "time": "90 min by car" }
+        ],
+        "nearestAirport": {
+          "name": "Caselle Airport",
+          "code": "TRN",
+          "time": "1h",
+          "distance": "65 km",
+          "connectivity": "Direct flights to 50+ European cities",
+          "link": "https://www.aeroportoditorino.it/en"
+        }
+      },
+      {
+        "from": "Cuneo",
+        "to": [
+          { "destination": "Turin", "time": "1h 30 by train" },
+          { "destination": "Nice", "time": "2h 30 by car" },
+          { "destination": "Alpi Marittime Park", "time": "45 min by car" }
+        ],
+        "nearestAirport": {
+          "name": "Cuneo-Levaldigi Airport",
+          "code": "CUF",
+          "time": "15 min",
+          "distance": "18 km",
+          "connectivity": "Seasonal routes to UK & Northern Europe",
+          "link": "https://www.aeroportocuneo.it/"
+        }
+      },
+      {
+        "from": "Verbania",
+        "to": [
+          { "destination": "Milan", "time": "1h 20 by train" },
+          { "destination": "Turin", "time": "2h by train" },
+          { "destination": "Gran Paradiso Park", "time": "2h by car" }
+        ],
+        "nearestAirport": {
+          "name": "Milan Malpensa Airport",
+          "code": "MXP",
+          "time": "45 min",
+          "distance": "55 km",
+          "connectivity": "Major international hub with global connections",
+          "link": "https://www.milanomalpensa-airport.com/en/"
+        }
+      }
+    ],
+    "quickInfo": {
+      "emergencyNumbers": [
+        "118 – Medical Emergency",
+        "112 – Police (Carabinieri)",
+        "115 – Fire Department"
+      ],
+      "healthcare": {
+        "title": "Register for Healthcare",
+        "description": "Via local ASL offices",
+        "link": "https://www.salute.gov.it/"
+      },
+      "transport": {
+        "title": "Transport Info",
+        "description": "Regional transport passes and schedules",
+        "link": "https://www.regione.piemonte.it/web/temi/trasporti"
+      }
+    },
+    "closing": "Piemonte offers a paradox rare in southern Europe: mountain air, Renaissance cities, and a bureaucracy that actually works. The wine may bring you here — the infrastructure is what makes you stay."
+  },
+  "costOfLiving": {
+    "intro": {
+      "headline": "Cost of Living — What It Really Looks Like",
+      "lead": "Let's cut through the dream and talk real numbers. Piemonte offers a much lower entry cost than Milan or the Riviera—but \"low\" is relative. In this section, we show what life might cost in Torino, Asti, and Alba at three tiers: modest, normal, and high-end. Think of it as a slider from \"make-it-work\" to \"comfort living.\" Then you decide your middle ground.",
+      "realityCheck": "Retirement doesn't mean austerity—but you will live closer to the margin of comfort than excess. Utilities fluctuate by season. Dining out adds up more than you'd think when wine and culture are your hobbies. And yes, property taxes, heating, and local levies bite. Use these projections as a reality check, not a guarantee.",
+      "whyItWorks": "Compared to Italy's coastal hotspots or capitals, Piemonte wins on everyday stability: energy grids that are reliable, property taxes that are moderate (relative by region), and public services that punch above their weight. If your budget is well formed, you'll find breathing room."
+    },
+    "townPresets": [
+      {
+        "id": "torino",
+        "label": "Torino (City)",
+        "modest": {
+          "rent": 700,
+          "utilities": 125,
+          "groceries": 350,
+          "dining": 225,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1350,
+          "utilities": 175,
+          "groceries": 525,
+          "dining": 350,
+          "transport": 100
+        },
+        "highEnd": {
+          "rent": 2000,
+          "utilities": 250,
+          "groceries": 700,
+          "dining": 500,
+          "transport": 160
+        }
+      },
+      {
+        "id": "asti",
+        "label": "Asti (Town)",
+        "modest": {
+          "rent": 500,
+          "utilities": 100,
+          "groceries": 300,
+          "dining": 175,
+          "transport": 55
+        },
+        "normal": {
+          "rent": 800,
+          "utilities": 125,
+          "groceries": 425,
+          "dining": 300,
+          "transport": 80
+        },
+        "highEnd": {
+          "rent": 1200,
+          "utilities": 175,
+          "groceries": 600,
+          "dining": 400,
+          "transport": 125
+        }
+      },
+      {
+        "id": "alba",
+        "label": "Alba (Wine Country)",
+        "modest": {
+          "rent": 600,
+          "utilities": 110,
+          "groceries": 330,
+          "dining": 205,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1050,
+          "utilities": 145,
+          "groceries": 475,
+          "dining": 315,
+          "transport": 90
+        },
+        "highEnd": {
+          "rent": 1700,
+          "utilities": 200,
+          "groceries": 600,
+          "dining": 450,
+          "transport": 135
+        }
+      }
+    ],
+    "lifestyles": ["Modest", "Average", "High-End"],
+    "notes": {
+      "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
+      "sources": [
+        "Numbeo.com",
+        "LivingCost.org",
+        "Expatexchange.com",
+        "Politecnico di Torino Student Guide",
+        "Regional data extrapolations (2024)"
+      ],
+      "links": {
+        "torino": "https://www.numbeo.com/cost-of-living/in/Turin",
+        "asti": "https://www.livingcost.org/cost/italy/asti"
+      }
+    }
+  },
+  "prosCons": {
+    "intro": {
+      "headline": "Pros & Cons: Piemonte Without the Postcard Filter",
+      "lead": "Piemonte is what happens when Italy trades spectacle for substance. It's beautiful, yes — but quietly so. You don't come here for beaches or chaos; you come for rhythm, precision, and a certain civility that makes everyday life manageable. Think of it as Italy with its shirt tucked in: elegant, functional, and a little reserved until it decides you're worth knowing.",
+      "tradeoff": "The best part? It's still affordable by Western European standards and almost scandalously underhyped. The tradeoff? You'll need patience — not with the people, but with the pace of change. Piemonte rewards those who appreciate small victories: trains that arrive on time, a cappuccino that costs €1.50, a bureaucracy that only occasionally loses your paperwork."
+    },
+    "pros": [
+      {
+        "title": "Quality of Life",
+        "points": [
+          "Clean, organized, safe — especially compared to major southern cities.",
+          "Excellent healthcare network and efficient public infrastructure.",
+          "Four true seasons, with real autumns and Alpine winters."
+        ]
+      },
+      {
+        "title": "Affordability",
+        "points": [
+          "Rents and cost of living remain below Tuscany, Liguria, and Lombardy.",
+          "Strong value for quality housing, healthcare, and dining.",
+          "Plenty of small towns where €2,000/month buys comfort, not survival."
+        ]
+      },
+      {
+        "title": "Culture with Depth",
+        "points": [
+          "Turin's museums, film festivals, and design heritage rival Europe's best.",
+          "Culinary culture anchored in substance — Slow Food, Barolo, and truffles.",
+          "Locals value courtesy, craftsmanship, and understatement."
+        ]
+      },
+      {
+        "title": "Connectivity",
+        "points": [
+          "Milan, Genoa, and the French border all within 2 hours.",
+          "High-speed rail, excellent highways, and two regional airports.",
+          "Reliable regional transport even in smaller towns."
+        ]
+      },
+      {
+        "title": "Nature and Balance",
+        "points": [
+          "Mountains, lakes, vineyards — all within reach of urban life.",
+          "Over 60 protected parks and reserves.",
+          "Fresh air, low pollution, and a slower rhythm of daily living."
+        ]
+      }
+    ],
+    "cons": [
+      {
+        "title": "Reserved Social Culture",
+        "points": [
+          "Locals can seem distant until you earn their trust.",
+          "Making friends takes time — especially if you don't speak Italian well."
+        ]
+      },
+      {
+        "title": "Weather Swings",
+        "points": [
+          "Winter fogs in the Po Valley can last for weeks.",
+          "Summers are humid in the plains, cold in the mountains — pick your poison."
+        ]
+      },
+      {
+        "title": "Bureaucratic Italy Still Exists",
+        "points": [
+          "Residency, tax, and healthcare paperwork still require persistence.",
+          "English isn't widely spoken outside Turin and tourist areas."
+        ]
+      },
+      {
+        "title": "Modest Nightlife",
+        "points": [
+          "Outside Turin, nightlife is quiet — charming for some, dull for others.",
+          "Many towns still shut down midday and on Sundays."
+        ]
+      },
+      {
+        "title": "Rising Property Interest",
+        "points": [
+          "Expats and Milanese investors are catching on, especially in the Langhe.",
+          "Alba and Barolo-area properties are rising in price faster than expected."
+        ]
+      }
+    ],
+    "finalTake": {
+      "headline": "Final Take: Is Piemonte Right for You?",
+      "text": "If you want Italy with order — the food without the frenzy, the art without the ego — Piemonte might feel like destiny. It's a region for people who appreciate craftsmanship, culture, and consistency. Not for those chasing a postcard fantasy, but for those who want to live well quietly.",
+      "conclusion": "It's less \"la dolce vita\" and more \"la vita giusta\" — the right life. If that phrase makes you nod instead of roll your eyes, Piemonte is your kind of north."
+    }
+  },
+  "ctas": ["blueprint", "vf", "map7"],
+  "closing": {
+    "message": "Grazie for reading Issue #7.",
+    "header": "If this tour of Piemonte sparked your wanderlust, pass it along to someone planning their own Italian chapter. Subscribe to keep traveling with me—one region, one story at a time.",
+    "subtitle": "If you liked this interactive newsletter experience, share it with others who'd appreciate a more immersive way to explore Italy.",
+    "shareUrl": "https://news.caesartheday.com/piemonte",
+    "socialMessages": {
+      "facebook": "Just finished this interactive deep-dive into Piemonte from CaesarTheDay — part travel, part retirement roadmap. Beautiful design, smart insights, and a few laughs along the way.\nWorth a read if you've ever dreamed of living in Italy.\n👉",
+      "threads": "Imagine your retirement smelling like espresso and Barolo.\nCaesarTheDay's new Piemonte guide shows what life there really looks like — interactive, immersive, and dangerously persuasive.",
+      "bluesky": "Interactive guide to retiring in Piemonte — equal parts data and daydream. Smart, beautiful work from CaesarTheDay for anyone plotting a softer landing in Italy.",
+      "whatsapp": "I just read this interactive guide to retiring in Piemonte — it's actually useful and gorgeous.\nThought you'd enjoy it too.\n👉",
+      "pinterest": {
+        "title": "Retire in Piemonte: Wine, Wellness & Real Numbers",
+        "description": "CaesarTheDay's interactive guide to living beautifully in Italy's Piemonte region — where truffles meet tax breaks."
+      }
+    }
+  }
+}

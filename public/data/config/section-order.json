@@ -1,0 +1,22 @@
+{
+  "default": [
+    "hero",
+    "editorialIntro",
+    "map",
+    "climate",
+    "townsFeatured",
+    "bookCTA",
+    "townsGrid",
+    "highlights",
+    "collaborator",
+    "quiz",
+    "recipes",
+    "retirementBlueprintCTA",
+    "healthcare",
+    "costCalculator",
+    "sevenPercentCTA",
+    "prosCons",
+    "closing"
+  ],
+  "piemonte": "default"
+}
