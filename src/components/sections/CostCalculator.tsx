@@ -54,7 +54,7 @@ interface CostCalculatorProps {
 
 export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCalculatorProps) {
   const [selectedTown, setSelectedTown] = useState<string>(townPresets[0]?.id || '');
-  const [lifestyleIndex, setLifestyleIndex] = useState(1); // 0=Modest, 1=Normal, 2=High-End
+  const [lifestyleIndex, setLifestyleIndex] = useState(1); // 0=Modest, 1=Average, 2=High-End
 
   const town = townPresets.find((t) => t.id === selectedTown) || townPresets[0];
 
