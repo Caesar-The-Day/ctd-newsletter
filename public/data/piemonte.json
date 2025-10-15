@@ -913,7 +913,7 @@
         }
       }
     ],
-    "lifestyles": ["Modest", "Average", "High-End"],
+    "lifestyles": ["Modest", "Normal", "High-End"],
     "notes": {
       "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
       "sources": [
