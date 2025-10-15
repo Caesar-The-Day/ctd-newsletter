@@ -35,7 +35,7 @@ export function BookCTA() {
           }`}>
             <div className="grid md:grid-cols-2 gap-6 p-6 md:p-10 items-center">
               {/* Left Column - Book Cover */}
-              <div className={`flex justify-center md:justify-start transition-all duration-1000 delay-200 ${
+              <div className={`flex justify-center transition-all duration-1000 delay-200 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}>
                 <div 
