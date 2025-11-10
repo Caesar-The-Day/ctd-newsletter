@@ -86,15 +86,6 @@ const NewsletterIndex = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         </div>
 
-        {/* Logo - Top Right */}
-        <div className="absolute top-8 right-8 z-10">
-          <img 
-            src="/images/shared/caesartheday-badge.png" 
-            alt="CaesarTheDay - Retire Smart, Live Better"
-            className="h-44 md:h-56 lg:h-64 w-auto drop-shadow-2xl animate-fade-in"
-          />
-        </div>
-
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 py-20 mt-20 md:mt-0">
           <div className="max-w-5xl mx-auto text-center mb-12">
