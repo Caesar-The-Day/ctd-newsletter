@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "headline": "CaesarTheDay Regional Newsletters",
+    "tagline": "In-depth guides to retiring in Italy's most captivating regions",
+    "backgroundImage": "/images/shared/cafe-table-sepia.jpg"
+  },
+  "featured": {
+    "slug": "piemonte",
+    "title": "Piemonte",
+    "subtitle": "Italy's wine country awaits",
+    "issueNumber": 7,
+    "date": "October 2024",
+    "description": "Discover Italy's wine country through the eyes of someone who's actually walked its cobblestone streets, tasted its truffles, and mapped out the real costs of living here. From Barolo vineyards to Turin's elegant piazzas, this is your comprehensive guide to retiring in Piemonte.",
+    "heroImage": "/images/piemonte/hero-vineyards.jpg",
+    "ctaText": "Explore Piemonte",
+    "ctaLink": "/piemonte"
+  },
+  "newsletters": [
+    {
+      "slug": "piemonte",
+      "title": "Piemonte",
+      "issueNumber": 7,
+      "date": "October 2024",
+      "status": "live",
+      "thumbnail": "/images/piemonte/alba-vineyards.jpg",
+      "description": "Wine country elegance meets Alpine beauty. Explore Barolo villages, truffle markets, and the cost of la dolce vita in Piemonte.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/piemonte"
+    },
+    {
+      "slug": "puglia",
+      "title": "Puglia",
+      "issueNumber": 8,
+      "date": "November 2024",
+      "status": "coming-soon",
+      "thumbnail": "/images/shared/cafe-table-sepia.jpg",
+      "description": "Sun-drenched coastlines, trulli houses, and olive groves as far as the eye can see. Puglia's affordable elegance awaits.",
+      "ctaText": "Coming Soon",
+      "expectedDate": "November 2024"
+    }
+  ],
+  "archive": []
+}

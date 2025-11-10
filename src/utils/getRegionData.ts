@@ -15,6 +15,12 @@ export async function getRegionData(slug: string) {
   return response.json();
 }
 
+export async function getNewsletterIndexData() {
+  const response = await fetch('/data/newsletter-index.json');
+  if (!response.ok) throw new Error('Failed to load newsletter index');
+  return response.json();
+}
+
 export interface FeatureFlags {
   showWineQuiz: boolean;
   showBeerFeature: boolean;
