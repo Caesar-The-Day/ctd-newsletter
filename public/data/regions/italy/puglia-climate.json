@@ -1,0 +1,60 @@
+{
+  "title": "The Rhythm of Light",
+  "subtitle": "Puglia's climate is less about seasons and more about rhythm—the pulse of light, heat, and the sea.",
+  "modes": [
+    {
+      "id": "salento",
+      "label": "Salento (Lecce, Gallipoli)",
+      "description": "The southernmost tip—warmest, driest, longest swimming season.",
+      "averageTemp": {
+        "winter": "12°C",
+        "spring": "18°C",
+        "summer": "28°C",
+        "autumn": "21°C"
+      },
+      "notes": "Summer heat is intense but dry. Sea swimmable April-October. Minimal rain. Sirocco winds from Africa bring occasional heat spikes."
+    },
+    {
+      "id": "bari-coast",
+      "label": "Bari Coast (Polignano, Monopoli)",
+      "description": "Adriatic breeze moderates heat; slightly cooler than Salento.",
+      "averageTemp": {
+        "winter": "11°C",
+        "spring": "17°C",
+        "summer": "27°C",
+        "autumn": "20°C"
+      },
+      "notes": "Coastal breezes make summer more bearable. Rain slightly more frequent in fall/winter. Sea swimmable May-October."
+    },
+    {
+      "id": "gargano",
+      "label": "Gargano (Vieste, Mattinata)",
+      "description": "Northern peninsula—greener, slightly cooler, more variable weather.",
+      "averageTemp": {
+        "winter": "10°C",
+        "spring": "16°C",
+        "summer": "26°C",
+        "autumn": "19°C"
+      },
+      "notes": "More rainfall than southern Puglia, especially in winter. Forested interior creates microclimates. Cooler nights even in summer."
+    },
+    {
+      "id": "valle-itria",
+      "label": "Valle d'Itria (Ostuni, Locorotondo)",
+      "description": "Inland hill country—trulli towns with slightly cooler temps and fresh air.",
+      "averageTemp": {
+        "winter": "10°C",
+        "spring": "16°C",
+        "summer": "27°C",
+        "autumn": "19°C"
+      },
+      "notes": "Elevated position (200-400m) provides relief from coastal heat. Cooler nights year-round. More rain than coast but still dry by northern Italy standards."
+    }
+  ],
+  "seasonalNotes": {
+    "winter": "Quiet coastlines, pruning olive trees, empty beaches. Mild temps but occasional rain. Fireplace season. Perfect for exploring without crowds.",
+    "spring": "Wildflowers explode across Valle d'Itria. Festival season begins. Swimming starts by late April. Light, golden mornings. The best time to arrive.",
+    "summer": "Heat. Festas. Sea life. Siestas mandatory. Beaches at full capacity. Temperatures regularly hit 35-40°C. Air conditioning essential. Social life moves outdoors entirely—dinner at 10pm, aperitivo at sunset, swimming at dawn.",
+    "autumn": "Grape harvest in Manduria, olive picking across the region. Seas still warm through October. Crowds thin, prices drop. Second spring—arguably the best season."
+  }
+}
