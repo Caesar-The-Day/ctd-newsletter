@@ -87,11 +87,12 @@ const NewsletterIndex = () => {
         </div>
 
         {/* Logo */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute top-12 md:top-16 left-1/2 -translate-x-1/2 z-10">
           <img 
             src="/images/shared/caesartheday-badge.png" 
             alt="CaesarTheDay - Retire Smart, Live Better"
-            className="h-32 md:h-40 w-auto drop-shadow-lg"
+            className="h-40 md:h-48 lg:h-56 w-auto drop-shadow-2xl"
+            style={{ mixBlendMode: 'normal', background: 'transparent' }}
           />
         </div>
 
