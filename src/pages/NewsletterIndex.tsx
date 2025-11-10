@@ -87,11 +87,11 @@ const NewsletterIndex = () => {
         </div>
 
         {/* Logo */}
-        <div className="absolute top-8 right-8 z-10">
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
           <img 
-            src={globals.brand.logoPath} 
-            alt={globals.brand.siteTitle}
-            className="h-12 md:h-16 w-auto"
+            src="/images/shared/caesartheday-badge.png" 
+            alt="CaesarTheDay - Retire Smart, Live Better"
+            className="h-24 md:h-32 w-auto drop-shadow-lg"
           />
         </div>
 
@@ -206,7 +206,7 @@ const NewsletterIndex = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Newsletter Archive</h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">Veni Vidi Vici Newsletter Archive</h2>
                 <p className="text-xl text-muted-foreground">
                   Past editions available as PDFs
                 </p>
