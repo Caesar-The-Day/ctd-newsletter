@@ -42,61 +42,61 @@
   "archive": [
     {
       "title": "Abruzzo",
-      "issueNumber": 3,
-      "date": "June 2024",
+      "issueNumber": 6,
+      "date": "September 2025",
       "format": "PDF",
       "thumbnail": "/images/archive/abruzzo-thumbnail.jpg",
-      "downloadUrl": "/newsletters/abruzzo-june-2024.pdf",
+      "downloadUrl": "/newsletters/abruzzo-september-2025.pdf",
       "fileSize": "2.8 MB",
       "description": "Mountain villages meet Adriatic coast. Retirement in Italy's hidden gem with medieval hilltop towns and affordable mountain living."
     },
     {
       "title": "Sardegna",
-      "issueNumber": 2,
-      "date": "May 2024",
+      "issueNumber": 5,
+      "date": "August 2025",
       "format": "PDF",
       "thumbnail": "/images/archive/sardegna-thumbnail.jpg",
-      "downloadUrl": "/newsletters/sardegna-may-2024.pdf",
+      "downloadUrl": "/newsletters/sardegna-august-2025.pdf",
       "fileSize": "3.2 MB",
       "description": "Island retirement paradise: turquoise waters, ancient culture, and the secrets of Sardinia's Blue Zone longevity."
     },
     {
       "title": "Sicilia",
       "issueNumber": 4,
-      "date": "July 2024",
+      "date": "July 2025",
       "format": "PDF",
-      "thumbnail": "/images/archive/sicilia-thumbnail.jpg",
-      "downloadUrl": "/newsletters/sicilia-july-2024.pdf",
+      "thumbnail": "/images/archive/sicilia-july-2025.pdf",
+      "downloadUrl": "/newsletters/sicilia-july-2025.pdf",
       "fileSize": "3.5 MB",
       "description": "Sicily's retirement allure: year-round sunshine, Greek temples, Mount Etna views, and Italy's most affordable Mediterranean lifestyle."
     },
     {
       "title": "Basilicata",
-      "issueNumber": 5,
-      "date": "August 2024",
+      "issueNumber": 3,
+      "date": "June 2025",
       "format": "PDF",
       "thumbnail": "/images/archive/basilicata-thumbnail.jpg",
-      "downloadUrl": "/newsletters/basilicata-august-2024.pdf",
+      "downloadUrl": "/newsletters/basilicata-june-2025.pdf",
       "fileSize": "2.6 MB",
       "description": "Matera's ancient sassi and beyond: retiring in Italy's most undiscovered region with medieval cave dwellings and dramatic landscapes."
     },
     {
       "title": "Liguria",
       "issueNumber": 1,
-      "date": "April 2024",
+      "date": "April 2025",
       "format": "PDF",
       "thumbnail": "/images/archive/liguria-thumbnail.jpg",
-      "downloadUrl": "/newsletters/liguria-april-2024.pdf",
+      "downloadUrl": "/newsletters/liguria-april-2025.pdf",
       "fileSize": "3.0 MB",
       "description": "Italian Riviera retirement: Cinque Terre's colorful villages, mild climate, and navigating property prices on the Ligurian coast."
     },
     {
       "title": "Le Marche",
-      "issueNumber": 6,
-      "date": "September 2024",
+      "issueNumber": 2,
+      "date": "May 2025",
       "format": "PDF",
       "thumbnail": "/images/archive/le-marche-thumbnail.jpg",
-      "downloadUrl": "/newsletters/le-marche-september-2024.pdf",
+      "downloadUrl": "/newsletters/le-marche-may-2025.pdf",
       "fileSize": "2.9 MB",
       "description": "Rolling hills between mountains and sea: retiring in Le Marche's affordable hilltop towns with authentic Italian village life."
     }

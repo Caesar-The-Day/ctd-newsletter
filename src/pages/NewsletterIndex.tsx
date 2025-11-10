@@ -91,7 +91,7 @@ const NewsletterIndex = () => {
           <img 
             src="/images/shared/caesartheday-badge.png" 
             alt="CaesarTheDay - Retire Smart, Live Better"
-            className="h-24 md:h-32 w-auto drop-shadow-lg"
+            className="h-32 md:h-40 w-auto drop-shadow-lg"
           />
         </div>
 
