@@ -1,9 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { getGlobals, getRegionData, getRegionConfig, GlobalsData, RegionData, FeatureFlags } from '@/utils/getRegionData';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { Separator } from '@/components/ui/separator';
+import { 
+  Breadcrumb, 
+  BreadcrumbItem, 
+  BreadcrumbLink, 
+  BreadcrumbList, 
+  BreadcrumbPage, 
+  BreadcrumbSeparator 
+} from '@/components/ui/breadcrumb';
+import { Home } from 'lucide-react';
 import { HeroParallax } from '@/components/sections/HeroParallax';
 import { EditorialIntro } from '@/components/sections/EditorialIntro';
 import { InteractiveMap } from '@/components/sections/InteractiveMap';
@@ -32,17 +41,22 @@ export default function RegionPage() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    console.log('[RegionPage] Loading region:', region);
     Promise.all([
       getGlobals(), 
       getRegionData(region || 'piemonte'),
       getRegionConfig(region || 'piemonte')
     ])
       .then(([g, r, c]) => {
+        console.log('[RegionPage] Data loaded successfully');
         setGlobals(g);
         setRegionData(r);
         setConfig(c);
       })
-      .catch(() => setError(true));
+      .catch((err) => {
+        console.error('[RegionPage] Failed to load data:', err);
+        setError(true);
+      });
   }, [region]);
 
   if (error) return <Navigate to="/404" />;
@@ -60,6 +74,30 @@ export default function RegionPage() {
   return (
     <div className="min-h-screen">
       <Header globals={globals} />
+      
+      {/* Breadcrumb Navigation */}
+      <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border/40">
+        <div className="container mx-auto px-4 py-3">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                    <Home className="h-4 w-4" />
+                    <span>Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-foreground font-medium">
+                  {regionData.region.title}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
       
       <HeroParallax
         bannerImage={regionData.region.hero.bannerImage}

@@ -7,11 +7,17 @@ export async function getGlobals() {
 
 export async function getRegionData(slug: string) {
   // Try nested path first (regions/italy/piemonte), fall back to flat structure
-  let response = await fetch(`/data/regions/${slug}.json`);
+  console.log('[getRegionData] Loading region:', slug);
+  let response = await fetch(`/data/regions/italy/${slug}.json`);
   if (!response.ok) {
+    console.log('[getRegionData] Nested path failed, trying flat structure');
     response = await fetch(`/data/${slug}.json`);
   }
-  if (!response.ok) throw new Error(`Failed to load region: ${slug}`);
+  if (!response.ok) {
+    console.error('[getRegionData] Failed to load region:', slug);
+    throw new Error(`Failed to load region: ${slug}`);
+  }
+  console.log('[getRegionData] Successfully loaded region:', slug);
   return response.json();
 }
 
