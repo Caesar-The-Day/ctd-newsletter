@@ -299,27 +299,43 @@
       "title": "Sun in a Glass",
       "intro": "Puglia makes more wine than any other Italian region—over 8 million hectoliters annually—but until recently, most of it went into bulk blends or anonymous bottles. Now, the secret is out: the grapes that thrive in this sun-baked heel produce wines of power, character, and surprising elegance. These aren't delicate, cerebral wines—they're bold, full-bodied, and unapologetic. They taste like the land: mineral, earthy, kissed by salt air.",
       "backgroundImage": "/images/puglia/vineyard-sunset.jpg",
-      "categories": [
+      "cards": [
         {
-          "title": "Signature Grapes",
-          "cards": [
+          "id": "primitivo",
+          "title": "Primitivo di Manduria",
+          "subtitle": "Puglia's bold calling card",
+          "description": "Puglia's calling card—and secretly, California's Zinfandel. Genetic testing proved they're the same grape, separated by centuries and an ocean. Here, in its ancestral home, Primitivo is jammy, bold, sun-baked power. Dark fruit, spice, high alcohol. Manduria DOC is the epicenter. Pair with grilled meats, aged cheeses, anything that can stand up to its intensity.",
+          "image": "/images/puglia/primitivo-wine.jpg",
+          "links": [
             {
-              "title": "Primitivo di Manduria",
-              "description": "Puglia's calling card—and secretly, California's Zinfandel. Genetic testing proved they're the same grape, separated by centuries and an ocean. Here, in its ancestral home, Primitivo is jammy, bold, sun-baked power. Dark fruit, spice, high alcohol. Manduria DOC is the epicenter. Pair with grilled meats, aged cheeses, anything that can stand up to its intensity.",
-              "image": "/images/puglia/primitivo-wine.jpg",
-              "link": "https://www.winefolly.com/deep-dive/primitivo-wine-guide/"
-            },
+              "label": "Learn More",
+              "href": "https://www.winefolly.com/deep-dive/primitivo-wine-guide/"
+            }
+          ]
+        },
+        {
+          "id": "negroamaro",
+          "title": "Negroamaro",
+          "subtitle": "Salento's soul grape",
+          "description": "The name means 'black bitter,' which undersells its complexity. This is Salento's soul grape—smoky, earthy, surprisingly elegant for such a powerful variety. Black cherry, tobacco, leather, a hint of almond bitterness on the finish. It's the foundation of Salice Salentino DOC and a favorite of winemakers experimenting with single-vineyard expressions.",
+          "image": "/images/puglia/negroamaro-wine.jpg",
+          "links": [
             {
-              "title": "Negroamaro",
-              "description": "The name means 'black bitter,' which undersells its complexity. This is Salento's soul grape—smoky, earthy, surprisingly elegant for such a powerful variety. Black cherry, tobacco, leather, a hint of almond bitterness on the finish. It's the foundation of Salice Salentino DOC and a favorite of winemakers experimenting with single-vineyard expressions.",
-              "image": "/images/puglia/negroamaro-wine.jpg",
-              "link": "https://www.vinitaly.com/en/negroamaro/"
-            },
+              "label": "Discover Negroamaro",
+              "href": "https://www.vinitaly.com/en/negroamaro/"
+            }
+          ]
+        },
+        {
+          "id": "nero-di-troia",
+          "title": "Nero di Troia",
+          "subtitle": "Northern Puglia's secret weapon",
+          "description": "Northern Puglia's secret weapon, named after the town of Troia (not the ancient city). Deep color, firm tannins, notes of red fruit, spice, and herbs. Food-friendly structure that ages well. Lesser-known than Primitivo but gaining recognition. Pair with lamb, game, or Puglia's famous burrata.",
+          "image": "/images/puglia/nero-di-troia.jpg",
+          "links": [
             {
-              "title": "Nero di Troia",
-              "description": "Northern Puglia's secret weapon, named after the town of Troia (not the ancient city). Deep color, firm tannins, notes of red fruit, spice, and herbs. Food-friendly structure that ages well. Lesser-known than Primitivo but gaining recognition. Pair with lamb, game, or Puglia's famous burrata.",
-              "image": "/images/puglia/nero-di-troia.jpg",
-              "link": "https://www.italianwinecentral.com/nero-di-troia/"
+              "label": "Nero di Troia Guide",
+              "href": "https://www.italianwinecentral.com/nero-di-troia/"
             }
           ]
         }
@@ -329,33 +345,56 @@
       "title": "Cucina Povera Reimagined",
       "intro": "Puglia's food isn't fancy. It's the opposite of fancy. It's what happens when you have sunshine, olive oil, wheat fields, a coastline full of fish, and grandmothers who refuse to waste anything. Cucina povera—peasant cooking—elevated not through technique but through respect. Respect for the ingredient, for the season, for the hands that made it. Every dish tells a story of scarcity turned into abundance.",
       "backgroundImage": "/images/puglia/olive-oil-pour.jpg",
-      "categories": [
+      "cards": [
         {
-          "title": "Essential Dishes",
-          "cards": [
+          "id": "orecchiette",
+          "title": "Orecchiette con Cime di Rapa",
+          "subtitle": "The taste of home",
+          "description": "Little ear-shaped pasta (rolled by hand, of course) tossed with bitter turnip greens, garlic, anchovy, and chili. The bitterness of the greens, the salt of the anchovy, the heat of the pepper—it's a perfect triangle of flavor. Every nonna has her own ratio. This is the taste of home.",
+          "image": "/images/puglia/orecchiette.jpg",
+          "links": [
             {
-              "title": "Orecchiette con Cime di Rapa",
-              "description": "Little ear-shaped pasta (rolled by hand, of course) tossed with bitter turnip greens, garlic, anchovy, and chili. The bitterness of the greens, the salt of the anchovy, the heat of the pepper—it's a perfect triangle of flavor. Every nonna has her own ratio. This is the taste of home.",
-              "image": "/images/puglia/orecchiette.jpg",
-              "link": "https://www.greatitalianchefs.com/recipes/orecchiette-cime-di-rapa-recipe"
-            },
+              "label": "Recipe",
+              "href": "https://www.greatitalianchefs.com/recipes/orecchiette-cime-di-rapa-recipe"
+            }
+          ]
+        },
+        {
+          "id": "fave-cicoria",
+          "title": "Fave e Cicoria",
+          "subtitle": "Peasant food perfection",
+          "description": "Fava bean puree meets wild chicory. Peasant food in its purest form—two ingredients, transformed through slow cooking and good olive oil into something sublime. The beans are cooked down to cream, the chicory is bitter and earthy. You eat them together with bread, and you understand why simple doesn't mean boring.",
+          "image": "/images/puglia/fave-cicoria.jpg",
+          "links": [
             {
-              "title": "Fave e Cicoria",
-              "description": "Fava bean puree meets wild chicory. Peasant food in its purest form—two ingredients, transformed through slow cooking and good olive oil into something sublime. The beans are cooked down to cream, the chicory is bitter and earthy. You eat them together with bread, and you understand why simple doesn't mean boring.",
-              "image": "/images/puglia/fave-cicoria.jpg",
-              "link": "https://www.thelocal.it/20210315/recipe-fave-e-cicoria-puglia/"
-            },
+              "label": "Traditional Recipe",
+              "href": "https://www.thelocal.it/20210315/recipe-fave-e-cicoria-puglia/"
+            }
+          ]
+        },
+        {
+          "id": "tiella",
+          "title": "Tiella Barese",
+          "subtitle": "Bari's signature comfort",
+          "description": "Bari's signature dish: layers of rice, mussels, potatoes, and tomatoes baked in a terracotta dish until the top forms a golden crust. It's comfort food and celebration food at once. Every family argues about the correct rice-to-mussel ratio. There is no correct ratio. There is only your family's ratio.",
+          "image": "/images/puglia/tiella.jpg",
+          "links": [
             {
-              "title": "Tiella Barese",
-              "description": "Bari's signature dish: layers of rice, mussels, potatoes, and tomatoes baked in a terracotta dish until the top forms a golden crust. It's comfort food and celebration food at once. Every family argues about the correct rice-to-mussel ratio. There is no correct ratio. There is only your family's ratio.",
-              "image": "/images/puglia/tiella.jpg",
-              "link": "https://www.pugliautentica.com/recipe-tiella-barese/"
-            },
+              "label": "How to Make It",
+              "href": "https://www.pugliautentica.com/recipe-tiella-barese/"
+            }
+          ]
+        },
+        {
+          "id": "olive-oil",
+          "title": "The Real Gold of Puglia",
+          "subtitle": "Liquid treasure",
+          "description": "Forget the wine—olive oil is Puglia's liquid treasure. Over 60 million olive trees, some over 1,000 years old. DOP zones like Terra di Bari, Salento, and Dauno produce oils that range from delicate and fruity to peppery and bold. Fresh oil (November-December) is an event. It's green, grassy, so peppery it makes you cough. You drizzle it on everything. You drink it from the bottle when no one's looking.",
+          "image": "/images/puglia/olive-oil.jpg",
+          "links": [
             {
-              "title": "The Real Gold of Puglia",
-              "description": "Forget the wine—olive oil is Puglia's liquid treasure. Over 60 million olive trees, some over 1,000 years old. DOP zones like Terra di Bari, Salento, and Dauno produce oils that range from delicate and fruity to peppery and bold. Fresh oil (November-December) is an event. It's green, grassy, so peppery it makes you cough. You drizzle it on everything. You drink it from the bottle when no one's looking.",
-              "image": "/images/puglia/olive-oil.jpg",
-              "link": "https://www.oliveoiltimes.com/world/europe/puglia-olive-oil-guide"
+              "label": "Olive Oil Guide",
+              "href": "https://www.oliveoiltimes.com/world/europe/puglia-olive-oil-guide"
             }
           ]
         }
@@ -365,33 +404,56 @@
       "title": "Faith, Festivals, and Facades",
       "intro": "Puglia's culture is layered—literally. Every civilization that passed through left its mark: Greek temples, Roman roads, Byzantine mosaics, Norman castles, Baroque churches. But this isn't a museum. It's a living, breathing tradition that shows up in festivals, in music, in the way stone is carved, in the rhythm of the week. Culture here isn't something you visit; it's something you inhabit.",
       "backgroundImage": "/images/puglia/lecce-baroque-detail.jpg",
-      "categories": [
+      "cards": [
         {
-          "title": "Living Traditions",
-          "cards": [
+          "id": "lecce-baroque",
+          "title": "Lecce Stone & Baroque Magic",
+          "subtitle": "The Florence of the South",
+          "description": "Lecce's golden limestone is soft as butter when quarried, hard as rock once exposed to air. This allowed Baroque carvers to create facades of absurd detail—angels, fruits, flowers, saints, all interwoven in stone lace. The result is a city that glows at sunset, where every doorway is a work of art. This is why they call it 'The Florence of the South.'",
+          "image": "/images/puglia/lecce-baroque.jpg",
+          "links": [
             {
-              "title": "Lecce Stone & Baroque Magic",
-              "description": "Lecce's golden limestone is soft as butter when quarried, hard as rock once exposed to air. This allowed Baroque carvers to create facades of absurd detail—angels, fruits, flowers, saints, all interwoven in stone lace. The result is a city that glows at sunset, where every doorway is a work of art. This is why they call it 'The Florence of the South.'",
-              "image": "/images/puglia/lecce-baroque.jpg",
-              "link": "https://www.italia.it/en/puglia/lecce.html"
-            },
+              "label": "Visit Lecce",
+              "href": "https://www.italia.it/en/puglia/lecce.html"
+            }
+          ]
+        },
+        {
+          "id": "trulli",
+          "title": "Alberobello's Trulli",
+          "subtitle": "A fairytale you can live in",
+          "description": "Conical stone houses with whitewashed walls and gray stone roofs, built without mortar using a prehistoric dry-stone technique. UNESCO heritage, yes, but also still inhabited. Walk through Alberobello and you'll see laundry hanging from trullo windows, locals tending gardens. It's a fairytale that people actually live in.",
+          "image": "/images/puglia/alberobello-trulli.jpg",
+          "links": [
             {
-              "title": "Alberobello's Trulli",
-              "description": "Conical stone houses with whitewashed walls and gray stone roofs, built without mortar using a prehistoric dry-stone technique. UNESCO heritage, yes, but also still inhabited. Walk through Alberobello and you'll see laundry hanging from trullo windows, locals tending gardens. It's a fairytale that people actually live in.",
-              "image": "/images/puglia/alberobello-trulli.jpg",
-              "link": "https://whc.unesco.org/en/list/787/"
-            },
+              "label": "UNESCO Site",
+              "href": "https://whc.unesco.org/en/list/787/"
+            }
+          ]
+        },
+        {
+          "id": "pizzica",
+          "title": "Pizzica: The Sound of Salento",
+          "subtitle": "Music that cures the soul",
+          "description": "Puglia's heartbeat has a tempo: the pizzica, a hypnotic folk dance rooted in tarantella tradition. Tambourines, violins, frantic rhythms—originally believed to cure the bite of the tarantula spider through dance. Now it's the soundtrack of summer festivals. La Notte della Taranta in August draws hundreds of thousands. You don't watch pizzica. You surrender to it.",
+          "image": "/images/puglia/pizzica-dance.jpg",
+          "links": [
             {
-              "title": "Pizzica: The Sound of Salento",
-              "description": "Puglia's heartbeat has a tempo: the pizzica, a hypnotic folk dance rooted in tarantella tradition. Tambourines, violins, frantic rhythms—originally believed to cure the bite of the tarantula spider through dance. Now it's the soundtrack of summer festivals. La Notte della Taranta in August draws hundreds of thousands. You don't watch pizzica. You surrender to it.",
-              "image": "/images/puglia/pizzica-dance.jpg",
-              "link": "https://www.lanottedellataranta.it/en/"
-            },
+              "label": "Festival Info",
+              "href": "https://www.lanottedellataranta.it/en/"
+            }
+          ]
+        },
+        {
+          "id": "festa-patronale",
+          "title": "Festa Patronale",
+          "subtitle": "Community rituals through the ages",
+          "description": "Every town has its patron saint, and every saint gets a festival. Processions with statues, brass bands, fireworks, street food, all-night dancing. Bari's Festa di San Nicola (May) features a boat parade reenacting the saint's arrival. These aren't tourist events—they're community rituals. You're invited, but you're also witnessing something that predates you by centuries.",
+          "image": "/images/puglia/festa-patronale.jpg",
+          "links": [
             {
-              "title": "Festa Patronale",
-              "description": "Every town has its patron saint, and every saint gets a festival. Processions with statues, brass bands, fireworks, street food, all-night dancing. Bari's Festa di San Nicola (May) features a boat parade reenacting the saint's arrival. These aren't tourist events—they're community rituals. You're invited, but you're also witnessing something that predates you by centuries.",
-              "image": "/images/puglia/festa-patronale.jpg",
-              "link": "https://www.italia.it/en/travel-ideas/unesco-world-heritage-sites/festa-di-san-nicola-bari.html"
+              "label": "Learn More",
+              "href": "https://www.italia.it/en/travel-ideas/unesco-world-heritage-sites/festa-di-san-nicola-bari.html"
             }
           ]
         }
