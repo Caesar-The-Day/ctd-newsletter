@@ -511,6 +511,7 @@
     "intro": "Three recipes that define the region—and why they matter.",
     "cards": [
       {
+        "id": "orecchiette",
         "title": "Orecchiette con Cime di Rapa",
         "image": "/images/puglia/orecchiette.jpg",
         "description": "Hand-rolled pasta with bitter greens, anchovy, and chili. The taste of home.",
@@ -535,6 +536,7 @@
         "mode": "Rustic"
       },
       {
+        "id": "tiella",
         "title": "Tiella Barese",
         "image": "/images/puglia/tiella.jpg",
         "description": "Bari's layered rice, mussel, and potato casserole. Comfort food meets celebration.",
@@ -563,6 +565,7 @@
         "mode": "Refined"
       },
       {
+        "id": "focaccia",
         "title": "Focaccia Barese",
         "image": "/images/puglia/focaccia-barese.jpg",
         "description": "Tomato-topped flatbread. Crispy bottom, soft interior, vegetables on top. Breakfast, snack, or meal.",
@@ -591,18 +594,7 @@
         "mode": "Rustic"
       }
     ],
-    "modes": [
-      {
-        "id": "rustic",
-        "label": "Rustic Mode",
-        "description": "Traditional methods, no shortcuts, the way nonnas do it."
-      },
-      {
-        "id": "refined",
-        "label": "Refined Mode",
-        "description": "Modern twists and plating for when you want to impress."
-      }
-    ]
+    "modes": ["Rustic", "Refined"]
   },
   "healthcare": {
     "intro": "Puglia's healthcare system is solid, with major hospitals in Bari, Lecce, and Brindisi offering comprehensive services. Smaller towns have local clinics and pharmacies. Emergency care is free for all residents; routine care requires registration with SSN (Servizio Sanitario Nazionale).",
