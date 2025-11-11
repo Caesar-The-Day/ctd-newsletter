@@ -478,24 +478,30 @@
       "profiles": [
         {
           "id": "primitivo",
-          "name": "Primitivo di Manduria",
-          "description": "Bold, unapologetic, full of life. You don't do subtle—you do memorable. Sun-soaked intensity in a glass.",
-          "image": "/images/puglia/primitivo-wine.jpg",
-          "pairing": "Grilled lamb, aged pecorino, anything charred over an open flame."
+          "label": "Bold & Unapologetic",
+          "result": {
+            "name": "Primitivo di Manduria",
+            "note": "Bold, unapologetic, full of life. You don't do subtle—you do memorable. Sun-soaked intensity in a glass. Pair with grilled lamb, aged pecorino, anything charred over an open flame.",
+            "image": "/images/puglia/primitivo-wine.jpg"
+          }
         },
         {
           "id": "negroamaro",
-          "name": "Negroamaro",
-          "description": "Complex, earthy, surprisingly elegant. You've got depth and a hint of mystery. Not flashy, but unforgettable once someone takes the time to know you.",
-          "image": "/images/puglia/negroamaro-wine.jpg",
-          "pairing": "Roasted vegetables, burrata, wood-fired pizza with bitter greens."
+          "label": "Complex & Elegant",
+          "result": {
+            "name": "Negroamaro",
+            "note": "Complex, earthy, surprisingly elegant. You've got depth and a hint of mystery. Not flashy, but unforgettable once someone takes the time to know you. Pair with roasted vegetables, burrata, wood-fired pizza with bitter greens.",
+            "image": "/images/puglia/negroamaro-wine.jpg"
+          }
         },
         {
           "id": "nero-di-troia",
-          "name": "Nero di Troia",
-          "description": "Structured, food-friendly, underrated. You're the one people overlook until they taste you—then they can't stop talking about you.",
-          "image": "/images/puglia/nero-di-troia.jpg",
-          "pairing": "Lamb ragu, grilled sausages, Sunday lunch with the in-laws."
+          "label": "Structured & Underrated",
+          "result": {
+            "name": "Nero di Troia",
+            "note": "Structured, food-friendly, underrated. You're the one people overlook until they taste you—then they can't stop talking about you. Pair with lamb ragu, grilled sausages, Sunday lunch with the in-laws.",
+            "image": "/images/puglia/nero-di-troia.jpg"
+          }
         }
       ]
     }
