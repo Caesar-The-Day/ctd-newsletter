@@ -33,56 +33,65 @@
         {
           "id": "lecce",
           "name": "Lecce",
-          "coordinates": [40.3515, 18.1750],
-          "type": "featured"
+          "coords": [40.3515, 18.1750],
+          "photo": "/images/puglia/lecce-baroque.jpg",
+          "blurb": "Baroque capital of Salento with golden limestone architecture and vibrant university culture."
         },
         {
           "id": "ostuni",
           "name": "Ostuni",
-          "coordinates": [40.7315, 17.5781],
-          "type": "featured"
+          "coords": [40.7315, 17.5781],
+          "photo": "/images/puglia/ostuni-white-city.jpg",
+          "blurb": "The iconic White City perched on a hilltop with panoramic views to the Adriatic."
         },
         {
           "id": "polignano",
           "name": "Polignano a Mare",
-          "coordinates": [40.9943, 17.2209],
-          "type": "featured"
+          "coords": [40.9943, 17.2209],
+          "photo": "/images/puglia/polignano-cliffs.jpg",
+          "blurb": "Dramatic coastal town built on cliffs above turquoise sea caves."
         },
         {
           "id": "bari",
           "name": "Bari",
-          "coordinates": [41.1171, 16.8719],
-          "type": "city"
+          "coords": [41.1171, 16.8719],
+          "photo": "/images/puglia/bari-seafront.jpg",
+          "blurb": "Regional capital with major port, university, and excellent infrastructure."
         },
         {
           "id": "brindisi",
           "name": "Brindisi",
-          "coordinates": [40.6327, 17.9417],
-          "type": "port"
+          "coords": [40.6327, 17.9417],
+          "photo": "/images/puglia/brindisi-port.jpg",
+          "blurb": "Historic port city connecting Italy to Greece and the Balkans."
         },
         {
           "id": "monopoli",
           "name": "Monopoli",
-          "coordinates": [40.9516, 17.3024],
-          "type": "town"
+          "coords": [40.9516, 17.3024],
+          "photo": "/images/puglia/monopoli.jpg",
+          "blurb": "Authentic fishing port with fortified old town and genuine local life."
         },
         {
           "id": "gallipoli",
           "name": "Gallipoli",
-          "coordinates": [40.0557, 17.9929],
-          "type": "town"
+          "coords": [40.0557, 17.9929],
+          "photo": "/images/puglia/gallipoli.jpg",
+          "blurb": "Ionian coast sunset capital with lively summer beach culture."
         },
         {
           "id": "otranto",
           "name": "Otranto",
-          "coordinates": [40.1435, 18.4913],
-          "type": "town"
+          "coords": [40.1435, 18.4913],
+          "photo": "/images/puglia/otranto-castle.jpg",
+          "blurb": "Italy's easternmost town with Byzantine heritage and stunning coastline."
         },
         {
           "id": "alberobello",
           "name": "Alberobello",
-          "coordinates": [40.7815, 17.2373],
-          "type": "unesco"
+          "coords": [40.7815, 17.2373],
+          "photo": "/images/puglia/alberobello-trulli.jpg",
+          "blurb": "UNESCO World Heritage site famous for its unique trulli cone houses."
         }
       ]
     },
@@ -755,74 +764,102 @@
     ]
   },
   "prosCons": {
-    "intro": "Puglia isn't for everyone. It's hot. It's far from the Alps. It's not Tuscany (which, depending on your perspective, is either a pro or a con). But if you're looking for affordability, authenticity, sunshine, and a coast that never ends, this might be your place. Here's the honest breakdown.",
+    "intro": {
+      "headline": "Pros & Cons: Puglia Without the Filter",
+      "lead": "Puglia isn't for everyone. It's hot. It's far from the Alps. It's not Tuscany (which, depending on your perspective, is either a pro or a con). But if you're looking for affordability, authenticity, sunshine, and a coast that never ends, this might be your place.",
+      "tradeoff": "The best part? You get Italy's soul without the tourist markup—real towns, real food, real people who'll feed you until you burst. The tradeoff? Summer heat that'll test your resolve, bureaucracy that moves at siesta speed, and small-town rhythms that reward patience over speed."
+    },
     "pros": [
       {
-        "category": "Quality of Life",
-        "title": "Sun, Sea, and Space",
-        "description": "Over 300 days of sunshine annually. 800km of coastline split between two distinct seas. Flat, walkable towns. Outdoor life is the default—aperitivo on a terrace, morning swim, evening passeggiata. The rhythm is slower, but not sleepy. You're living, not rushing."
+        "title": "Quality of Life",
+        "points": [
+          "Over 300 days of sunshine annually with 800km of coastline.",
+          "Flat, walkable towns where outdoor life is the default year-round.",
+          "Slower rhythm focused on living well, not rushing through life."
+        ]
       },
       {
-        "category": "Affordability",
-        "title": "Italy Without the Tourist Tax",
-        "description": "Puglia offers 30-50% lower costs than Tuscany, Lombardy, or coastal Liguria. Real estate is accessible (€1,500-2,500/sqm in many towns). Dining out is affordable. Markets overflow with produce. You can live well here without a hedge fund."
+        "title": "Affordability",
+        "points": [
+          "30-50% lower costs than Tuscany, Lombardy, or coastal Liguria.",
+          "Accessible real estate (€1,500-2,500/sqm in many towns).",
+          "Abundant local markets and affordable dining keep costs manageable."
+        ]
       },
       {
-        "category": "Culture",
-        "title": "Layers of History You Can Touch",
-        "description": "Greek temples, Roman roads, Byzantine mosaics, Norman castles, Baroque churches. Puglia has been everyone's crossroads for 3,000 years. The history isn't roped off—it's your neighborhood, your Sunday walk, your local piazza."
+        "title": "Culture & History",
+        "points": [
+          "3,000 years of layered history from Greeks, Romans, Byzantines, and Normans.",
+          "Architecture isn't roped off—it's your neighborhood piazza and Sunday walk.",
+          "Trulli, Baroque churches, and ancient olive groves you can actually touch."
+        ]
       },
       {
-        "category": "Food & Wine",
-        "title": "Cucina Povera at Its Peak",
-        "description": "Simple food done with reverence. Olive oil that tastes like the earth. Wine that tastes like sunshine. Bread so good it's DOP-protected. Seafood pulled from the water that morning. Every meal is an argument for staying."
+        "title": "Food & Wine",
+        "points": [
+          "Cucina povera elevated through respect for ingredients and seasons.",
+          "DOP-protected olive oil and bread, plus wine that tastes like sunshine.",
+          "Fresh seafood pulled that morning, simple dishes done with reverence."
+        ]
       },
       {
-        "category": "Connectivity",
-        "title": "Closer Than You Think",
-        "description": "Bari and Brindisi airports connect to most European cities (budget carriers included). Ferries to Greece, Albania, Croatia. Trains to Rome, Naples, Milan. You're not isolated—you're strategically positioned."
+        "title": "Connectivity",
+        "points": [
+          "Bari and Brindisi airports connect to most European cities year-round.",
+          "Ferry connections to Greece, Albania, and Croatia from multiple ports.",
+          "Trains to Rome (4h), Naples (3h), Milan (7h) make travel accessible."
+        ]
       }
     ],
     "cons": [
       {
-        "category": "Social Culture",
-        "title": "Integration Takes Time",
-        "description": "Pugliese culture is warm but not immediately open. Small towns operate on decades-old relationships. You'll be welcomed, but earning trust and inclusion takes patience. Expat communities exist (especially Ostuni, Lecce) but are smaller than in Tuscany or Umbria."
+        "title": "Social Integration",
+        "points": [
+          "Pugliese culture is warm but not immediately open to outsiders.",
+          "Small towns operate on decades-old relationships—earning trust takes patience.",
+          "Expat communities exist but are smaller than in Tuscany or Umbria."
+        ]
       },
       {
-        "category": "Climate",
-        "title": "Summer Heat Is Serious",
-        "description": "July and August regularly hit 35-40°C (95-104°F). Humidity adds weight to the heat, especially near the coast. Air conditioning is essential. Siesta isn't quaint—it's survival. If you can't handle heat, Puglia will break you."
+        "title": "Summer Heat",
+        "points": [
+          "July-August regularly hit 35-40°C (95-104°F) with humidity.",
+          "Air conditioning is essential, not optional—siesta is survival.",
+          "If you can't handle serious heat, Puglia will break you."
+        ]
       },
       {
-        "category": "Infrastructure",
-        "title": "Bureaucracy Moves at Southern Speed",
-        "description": "Italian bureaucracy is slow everywhere; in the south, it's slower. Residency paperwork, healthcare registration, utility setup—expect delays, unclear instructions, and the need to visit offices multiple times. Bring patience and a translator."
+        "title": "Bureaucracy",
+        "points": [
+          "Italian bureaucracy is slow everywhere; in the south, it's slower.",
+          "Residency, healthcare registration, utilities—expect delays and multiple office visits.",
+          "English isn't widely spoken; patience and a translator are essential."
+        ]
       },
       {
-        "category": "Limited Services",
-        "title": "Not Every Town Has Everything",
-        "description": "Smaller towns lack certain amenities—specialized medical care, international schools, direct flights, English-speaking services. Larger towns (Bari, Lecce, Brindisi) have infrastructure, but if you choose a village, expect to travel for certain needs."
+        "title": "Limited Services",
+        "points": [
+          "Smaller towns lack specialized medical care, international schools, direct flights.",
+          "Larger towns (Bari, Lecce, Brindisi) have infrastructure; villages require travel.",
+          "English-speaking services are rare outside expat-heavy areas."
+        ]
       },
       {
-        "category": "Tourism Pressure",
-        "title": "Summer Crowds in Key Towns",
-        "description": "Polignano, Alberobello, Ostuni, and Lecce see significant tourist influx June-September. Prices spike, restaurants fill, beaches crowd. Shoulder seasons (April-May, September-October) are ideal. Or choose lesser-known towns and avoid the circus."
+        "title": "Tourism Pressure",
+        "points": [
+          "Polignano, Alberobello, Ostuni, Lecce see heavy tourism June-September.",
+          "Prices spike, restaurants fill, beaches crowd during peak season.",
+          "Shoulder seasons (April-May, Sept-Oct) ideal; lesser-known towns avoid crowds."
+        ]
       }
     ],
-    "finalTake": "Puglia is for people who want real Italy—not the postcard version, not the sanitized expat bubble, but the messy, hot, delicious, sun-drenched reality. You'll eat better, spend less, and live outdoors most of the year. You'll also sweat, wait in line at the comune, and occasionally feel like an outsider. If that trade-off sounds fair, start looking at flights."
-  },
-  "ctas": {
-    "blueprint": {
-      "visible": true
-    },
-    "vf": {
-      "visible": true
-    },
-    "map7": {
-      "visible": true
+    "finalTake": {
+      "headline": "Final Take: Is Puglia Right for You?",
+      "text": "Puglia is for people who want real Italy—not the postcard version, not the sanitized expat bubble, but the messy, hot, delicious, sun-drenched reality. You'll eat better, spend less, and live outdoors most of the year. You'll also sweat, wait in line at the comune, and occasionally feel like an outsider.",
+      "conclusion": "If that trade-off sounds fair—if you value authenticity over convenience and sunshine over air conditioning—start looking at flights. Puglia rewards those brave enough to embrace it on its own terms."
     }
   },
+  "ctas": ["blueprint", "vf", "map7"],
   "closing": {
     "message": "That's Puglia—sun, stone, and sea. Not perfect, but honest. Not trendy, but real. If you're curious, come visit. If you're serious, start planning. And if you're already sold, *benvenuto*—the table is set.",
     "header": "Found Your Region?",
