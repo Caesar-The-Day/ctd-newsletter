@@ -1,24 +1,24 @@
 {
   "region": {
     "slug": "puglia",
-    "issueNumber": 7,
-    "date": "October 2025",
+    "issueNumber": 8,
+    "date": "November 2025",
     "title": "Puglia: The Southern Light",
     "tagline": "Where the heel of Italy meets the sea",
     "hero": {
-      "bannerImage": "/images/piemonte/hero-vineyards.jpg",
+      "bannerImage": "/images/puglia/puglia-hero.jpg",
       "ambientAudio": "/images/piemonte/ambient.mp3",
       "credit": "Photo: Langhe Vineyards © CaesarTheDay"
     },
     "intro": {
-      "headline": "Bentornati to Puglia",
+      "headline": "Puglia: Where the Sun Stays Late and the Sea Never Apologizes",
       "byline": "— Cesare",
       "paragraphs": [
-        "If Abruzzo was my birthday toast, Piemonte is the hangover cure — strong coffee, mountain air, and a reminder that Italy isn't all sunshine and sea. This is the region that keeps the country grounded while everyone else chases dolce vita clichés.",
-        "October here smells like truffles and wood smoke. The hills around Alba are laced with vines heavy from the Barolo harvest, while mist rolls through the Langhe like it has somewhere important to be. Turin's cafés hum with quiet confidence — the kind that built an empire of chocolate, cinema, and Fiat engines. In the Alps, villages tuck in for winter, their roofs already catching the first snow dusting.",
-        "Piemonte doesn't flirt. It seduces slowly, with competence and class. This is Italy with its shirt buttoned, the region that taught the rest of the country how to do business and still have time for lunch. The food is serious, the wines are legends, and the people — polite, precise, slightly suspicious of hype — are living proof that modesty and mastery can share the same table.",
-        "What makes Piemonte fascinating for retirees isn't just its refinement; it's its stability. The healthcare system is excellent, the trains run (mostly) on time, and the cost of living, while higher than Abruzzo's, is still a bargain compared to Milan or Florence. You get proximity to the Alps, France, and the Riviera — without the chaos that often comes with beauty.",
-        "So pour a glass of Barbera, light a fire if you're lucky enough to have one, and settle in. This month we're heading north — to a region where Italy trades its drama for depth, and where la dolce vita wears a cashmere coat."
+        "If Piemonte is Italy in a tailored jacket, Puglia is barefoot and golden, sipping wine on a whitewashed terrace while the olives whisper gossip to the sea. This is the long, sun-baked heel of the country—the part that doesn't bother pretending to be anything but itself.",
+        "November here smells of salt, sage, and warm bread pulled from a stone oven. The Adriatic sparkles like it's showing off, fishermen argue about octopus on the docks of Monopoli, and the limestone towns of the Valle d'Itria glow under light so pure it feels sacred. Lecce's sandstone facades blush pink at dusk, while old men in linen shirts play cards beneath olive trees older than memory.",
+        "Puglia doesn't seduce you with drama; it wins you over with rhythm. Morning swims. Market tomatoes that actually smell like the sun. Long lunches that run until the cicadas fade. Here, time stretches until you forget what day it is—and you stop caring.",
+        "For retirees, this is the Italy of abundance without excess. Homes are affordable, healthcare strong, life generous. The trains may not be Swiss-precise, but nobody's in a hurry when paradise is two coasts wide.",
+        "So kick off your shoes, pour a glass of Primitivo, and settle in. This month we're heading south—where la dolce vita comes with sand between your toes and olive oil on your hands."
       ],
       "portrait": "/images/cesare-boat.jpg",
       "signature": "/images/cesare-signature.png"
