@@ -597,62 +597,190 @@
     "modes": ["Rustic", "Refined"]
   },
   "healthcare": {
-    "intro": "Puglia's healthcare system is solid, with major hospitals in Bari, Lecce, and Brindisi offering comprehensive services. Smaller towns have local clinics and pharmacies. Emergency care is free for all residents; routine care requires registration with SSN (Servizio Sanitario Nazionale).",
+    "intro": {
+      "headline": "Healthcare & Infrastructure",
+      "lead": "Puglia's healthcare system is solid, with major hospitals in Bari, Lecce, and Brindisi offering comprehensive services. Smaller towns have local clinics and pharmacies. Emergency care is free for all residents; routine care requires registration with SSN (Servizio Sanitario Nazionale). Getting around is straightforward—airports in Bari and Brindisi connect to Europe, trains link major towns, and highways make driving easy."
+    },
     "hospitals": [
       {
         "name": "Policlinico di Bari",
+        "location": "Bari",
+        "coords": [41.1171, 16.8719],
         "description": "Major university hospital with specialties in cardiology, oncology, and emergency medicine. Bari's primary medical center.",
-        "link": "https://www.policlinico.ba.it"
+        "link": "https://www.policlinico.ba.it",
+        "mapUrl": "https://maps.google.com/?q=41.1171,16.8719"
       },
       {
-        "name": "Ospedale Vito Fazzi (Lecce)",
+        "name": "Ospedale Vito Fazzi",
+        "location": "Lecce",
+        "coords": [40.3515, 18.1750],
         "description": "Salento's largest hospital, offering comprehensive services including emergency care, surgery, and maternity.",
-        "link": "https://www.sanita.puglia.it"
+        "link": "https://www.sanita.puglia.it",
+        "mapUrl": "https://maps.google.com/?q=40.3515,18.1750"
       },
       {
-        "name": "Ospedale Perrino (Brindisi)",
+        "name": "Ospedale Perrino",
+        "location": "Brindisi",
+        "coords": [40.6323, 17.9417],
         "description": "Regional hospital serving southern Puglia with strong emergency and surgical departments.",
-        "link": "https://www.sanita.puglia.it"
+        "link": "https://www.sanita.puglia.it",
+        "mapUrl": "https://maps.google.com/?q=40.6323,17.9417"
       }
     ],
     "airports": [
-      "Bari Karol Wojtyła Airport (BRI) - 30 min from Bari, 1h from Polignano",
-      "Brindisi Airport (BDS) - 40 min from Lecce, 45 min from Ostuni"
+      {
+        "name": "Bari Karol Wojtyła Airport",
+        "coords": [41.1389, 16.7606],
+        "description": "Puglia's main airport with flights throughout Europe. 30 minutes from Bari centro, 40 minutes from Polignano a Mare.",
+        "link": "https://www.aeroportidipuglia.it/bari",
+        "mapUrl": "https://maps.google.com/?q=41.1389,16.7606"
+      },
+      {
+        "name": "Brindisi Airport (Salento)",
+        "coords": [40.6576, 17.9470],
+        "description": "Southern Puglia's gateway. 40 minutes from Lecce, 35 minutes from Ostuni. Direct flights to major European cities.",
+        "link": "https://www.aeroportidipuglia.it/brindisi",
+        "mapUrl": "https://maps.google.com/?q=40.6576,17.9470"
+      }
     ],
     "railways": [
-      "Bari Centrale - Main hub with connections to Rome, Naples, Milan",
-      "Lecce Station - Southern terminus with regional connections",
-      "FSE (Ferrovie del Sud Est) - Narrow-gauge network connecting Valle d'Itria towns"
+      {
+        "name": "Bari Centrale",
+        "description": "Main regional hub with high-speed Freccia connections to Rome (4h), Naples (3h), and Milan (7h). Serves as gateway to Puglia's rail network.",
+        "link": "https://www.trenitalia.com"
+      },
+      {
+        "name": "Lecce Station",
+        "description": "Southern terminus with regional connections throughout Salento. Direct trains to Bari, Brindisi, and Gallipoli.",
+        "link": "https://www.trenitalia.com"
+      },
+      {
+        "name": "FSE (Ferrovie del Sud Est)",
+        "description": "Narrow-gauge heritage network connecting Valle d'Itria towns like Alberobello, Martina Franca, and Ostuni. Slower but scenic.",
+        "link": "https://www.fseonline.it"
+      }
     ],
     "highways": [
-      "A14 - Adriatic autostrada connecting Bari north to Bologna",
-      "SS16 - Coastal road from Bari to Lecce",
-      "SS7 - Via Appia from Brindisi inland"
+      {
+        "name": "A14 (Adriatica)",
+        "description": "Main north-south autostrada connecting Bari to Bologna and beyond. Well-maintained toll road with rest stops every 30km.",
+        "link": "https://www.autostrade.it"
+      },
+      {
+        "name": "SS16 (Statale Adriatica)",
+        "description": "Coastal route from Bari south to Lecce. Free alternative to A14, passing through Polignano, Monopoli, and Brindisi.",
+        "link": "https://www.stradeanas.it"
+      },
+      {
+        "name": "SS7 (Via Appia)",
+        "description": "Historic inland route from Brindisi through Mesagne and Francavilla Fontana. Connects to Taranto and Matera.",
+        "link": "https://www.stradeanas.it"
+      }
     ],
-    "nationalParks": [
-      "Gargano National Park - Northern peninsula with forests, cliffs, and coastal trails",
-      "Murgia National Park - Inland plateau near Matera with cave dwellings and archaeological sites"
+    "parks": [
+      {
+        "name": "Gargano National Park",
+        "coords": [41.7064, 15.9636],
+        "description": "Northern peninsula with ancient forests, dramatic cliffs, and coastal trails. Home to Vieste and the Tremiti Islands.",
+        "link": "https://www.parcogargano.it",
+        "mapUrl": "https://maps.google.com/?q=41.7064,15.9636"
+      },
+      {
+        "name": "Murgia National Park",
+        "coords": [40.8197, 16.5753],
+        "description": "Inland limestone plateau near Matera featuring cave dwellings (sassi), rock churches, and archaeological sites dating to Paleolithic times.",
+        "link": "https://www.parcomurgia.it",
+        "mapUrl": "https://maps.google.com/?q=40.8197,16.5753"
+      }
     ],
-    "travelTimes": {
-      "intro": "Approximate travel times between major cities and airports:",
-      "times": [
-        "Bari ↔ Polignano: 30 min by train",
-        "Bari ↔ Ostuni: 1h by train",
-        "Bari ↔ Lecce: 1h 30min by train",
-        "Lecce ↔ Gallipoli: 40 min by car",
-        "Ostuni ↔ Alberobello: 30 min by car",
-        "Polignano ↔ Monopoli: 15 min by train"
-      ]
+    "travelTimes": [
+      {
+        "from": "Bari",
+        "to": [
+          { "destination": "Polignano a Mare", "time": "30 min (train)" },
+          { "destination": "Ostuni", "time": "1h (train)" },
+          { "destination": "Lecce", "time": "1h 30min (train)" },
+          { "destination": "Alberobello", "time": "1h 15min (car)" }
+        ],
+        "nearestAirport": {
+          "name": "Bari Karol Wojtyła Airport",
+          "code": "BRI",
+          "time": "20 min",
+          "distance": "12 km",
+          "connectivity": "Direct flights to Rome, Milan, London, Paris, Brussels, and 50+ European cities",
+          "link": "https://www.aeroportidipuglia.it/bari"
+        }
+      },
+      {
+        "from": "Lecce",
+        "to": [
+          { "destination": "Gallipoli", "time": "40 min (car)" },
+          { "destination": "Otranto", "time": "45 min (car)" },
+          { "destination": "Ostuni", "time": "1h 10min (train)" },
+          { "destination": "Bari", "time": "1h 30min (train)" }
+        ],
+        "nearestAirport": {
+          "name": "Brindisi Airport (Salento)",
+          "code": "BDS",
+          "time": "40 min",
+          "distance": "45 km",
+          "connectivity": "Connections to Rome, Milan, Northern Europe. Smaller than Bari but well-connected.",
+          "link": "https://www.aeroportidipuglia.it/brindisi"
+        }
+      },
+      {
+        "from": "Ostuni",
+        "to": [
+          { "destination": "Alberobello", "time": "30 min (car)" },
+          { "destination": "Polignano a Mare", "time": "45 min (car)" },
+          { "destination": "Bari", "time": "1h (train)" },
+          { "destination": "Lecce", "time": "1h 10min (train)" }
+        ],
+        "nearestAirport": {
+          "name": "Brindisi Airport (Salento)",
+          "code": "BDS",
+          "time": "25 min",
+          "distance": "30 km",
+          "connectivity": "Ideal for Valle d'Itria and coastal Salento. Direct flights to major Italian and European cities.",
+          "link": "https://www.aeroportidipuglia.it/brindisi"
+        }
+      },
+      {
+        "from": "Polignano a Mare",
+        "to": [
+          { "destination": "Bari", "time": "30 min (train)" },
+          { "destination": "Monopoli", "time": "15 min (train)" },
+          { "destination": "Alberobello", "time": "45 min (car)" },
+          { "destination": "Ostuni", "time": "45 min (car)" }
+        ],
+        "nearestAirport": {
+          "name": "Bari Karol Wojtyła Airport",
+          "code": "BRI",
+          "time": "40 min",
+          "distance": "50 km",
+          "connectivity": "Easy access via SS16 coastal road or train to Bari. Excellent for international arrivals.",
+          "link": "https://www.aeroportidipuglia.it/bari"
+        }
+      }
+    ],
+    "quickInfo": {
+      "emergencyNumbers": [
+        "112 - Unified Emergency (ambulance, police, fire)",
+        "118 - Direct Medical Emergency",
+        "1530 - Coast Guard (marine emergencies)"
+      ],
+      "healthcare": {
+        "title": "SSN Registration",
+        "description": "Register with Italy's national health service (SSN) at your local ASL office. Bring residency permit, tax code, and passport. Emergency care is free for all.",
+        "link": "https://www.sanita.puglia.it"
+      },
+      "transport": {
+        "title": "Trenitalia & FSE",
+        "description": "Book trains online or at stations. Trenitalia runs main lines; FSE covers smaller towns. Consider a car for Valle d'Itria and inland areas.",
+        "link": "https://www.trenitalia.com"
+      }
     },
-    "emergency": {
-      "number": "112 (unified emergency number for ambulance, police, fire)",
-      "healthcare": "118 (direct medical emergency line)"
-    },
-    "links": {
-      "transport": "https://www.trenitalia.com",
-      "healthcare": "https://www.sanita.puglia.it",
-      "registration": "https://www.regione.puglia.it"
-    }
+    "closing": "Puglia's infrastructure won't blow you away—it's not Switzerland—but it works. Hospitals are good, trains are reliable, and airports connect you to Europe. For day-to-day life, you'll be fine. For adventure, you'll have plenty of options."
   },
   "costOfLiving": {
     "intro": "Puglia is one of Italy's most affordable regions, especially compared to Tuscany, Lombardy, or the Amalfi Coast. Coastal towns command higher prices, but even Polignano or Ostuni are reasonable by northern European or North American standards. Inland towns offer remarkable value. Here's what life costs across three lifestyle tiers, with real numbers from three representative towns.",
