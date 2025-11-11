@@ -1,60 +1,192 @@
 {
-  "title": "The Rhythm of Light",
-  "subtitle": "Puglia's climate is less about seasons and more about rhythm—the pulse of light, heat, and the sea.",
-  "modes": [
-    {
-      "id": "salento",
-      "label": "Salento (Lecce, Gallipoli)",
-      "description": "The southernmost tip—warmest, driest, longest swimming season.",
-      "averageTemp": {
-        "winter": "12°C",
-        "spring": "18°C",
-        "summer": "28°C",
-        "autumn": "21°C"
-      },
-      "notes": "Summer heat is intense but dry. Sea swimmable April-October. Minimal rain. Sirocco winds from Africa bring occasional heat spikes."
+  "intro": {
+    "headline": "Climate Snapshot: A Year in Piemonte",
+    "tagline": "A land that changes clothes four times a year — and always looks good in each.",
+    "paragraphs": [
+      "Piemonte lives in four full seasons — not the fake, two-season variety that flattens most of southern Europe. Here, winter actually bites, spring explodes, summer simmers, and autumn… steals the show.",
+      "It's not the Italy of perpetual sunshine — it's the Italy of shifting light. Mist over vineyards in February. The sharp scent of cut hay in June. The gold rush of October leaves in the Langhe. Each month feels distinct, and that's part of its magic.",
+      "Whether you crave Alpine winters or gentle vineyard warmth, this region gives you both — sometimes in the same weekend."
+    ],
+    "hoverQuote": "In Piemonte, you don't check the weather — you feel the air shift.",
+    "ctaText": "Slide through the seasons →"
+  },
+  "regions": {
+    "torino": {
+      "name": "Turin",
+      "type": "city",
+      "palette": "urban"
     },
-    {
-      "id": "bari-coast",
-      "label": "Bari Coast (Polignano, Monopoli)",
-      "description": "Adriatic breeze moderates heat; slightly cooler than Salento.",
-      "averageTemp": {
-        "winter": "11°C",
-        "spring": "17°C",
-        "summer": "27°C",
-        "autumn": "20°C"
-      },
-      "notes": "Coastal breezes make summer more bearable. Rain slightly more frequent in fall/winter. Sea swimmable May-October."
+    "alba": {
+      "name": "Alba",
+      "type": "vineyard",
+      "palette": "vineyard"
     },
-    {
-      "id": "gargano",
-      "label": "Gargano (Vieste, Mattinata)",
-      "description": "Northern peninsula—greener, slightly cooler, more variable weather.",
-      "averageTemp": {
-        "winter": "10°C",
-        "spring": "16°C",
-        "summer": "26°C",
-        "autumn": "19°C"
-      },
-      "notes": "More rainfall than southern Puglia, especially in winter. Forested interior creates microclimates. Cooler nights even in summer."
+    "verbania": {
+      "name": "Verbania",
+      "type": "lakeside",
+      "palette": "lakeside"
     },
-    {
-      "id": "valle-itria",
-      "label": "Valle d'Itria (Ostuni, Locorotondo)",
-      "description": "Inland hill country—trulli towns with slightly cooler temps and fresh air.",
-      "averageTemp": {
-        "winter": "10°C",
-        "spring": "16°C",
-        "summer": "27°C",
-        "autumn": "19°C"
-      },
-      "notes": "Elevated position (200-400m) provides relief from coastal heat. Cooler nights year-round. More rain than coast but still dry by northern Italy standards."
+    "cuneo": {
+      "name": "Cuneo",
+      "type": "alpine",
+      "palette": "alpine"
     }
-  ],
-  "seasonalNotes": {
-    "winter": "Quiet coastlines, pruning olive trees, empty beaches. Mild temps but occasional rain. Fireplace season. Perfect for exploring without crowds.",
-    "spring": "Wildflowers explode across Valle d'Itria. Festival season begins. Swimming starts by late April. Light, golden mornings. The best time to arrive.",
-    "summer": "Heat. Festas. Sea life. Siestas mandatory. Beaches at full capacity. Temperatures regularly hit 35-40°C. Air conditioning essential. Social life moves outdoors entirely—dinner at 10pm, aperitivo at sunset, swimming at dawn.",
-    "autumn": "Grape harvest in Manduria, olive picking across the region. Seas still warm through October. Crowds thin, prices drop. Second spring—arguably the best season."
-  }
+  },
+  "months": [
+    {
+      "month": "January",
+      "index": 0,
+      "season": "winter",
+      "torino": { "tempLow": 0, "tempHigh": 8, "rainfall": 45, "sunHours": 3 },
+      "alba": { "tempLow": -1, "tempHigh": 7, "rainfall": 50, "sunHours": 3 },
+      "verbania": { "tempLow": 2, "tempHigh": 9, "rainfall": 65, "sunHours": 4 },
+      "cuneo": { "tempLow": -2, "tempHigh": 6, "rainfall": 40, "sunHours": 4 },
+      "tooltip": "Fog, frost, Barolo season",
+      "culturalEvent": "Ski season peaks in Sestriere",
+      "culturalEventUrl": "https://sestriere-online.com/",
+      "visualCue": "Fog over vineyards; faint snowline on the Alps"
+    },
+    {
+      "month": "February",
+      "index": 1,
+      "season": "winter",
+      "torino": { "tempLow": 1, "tempHigh": 10, "rainfall": 40, "sunHours": 4 },
+      "alba": { "tempLow": 0, "tempHigh": 9, "rainfall": 45, "sunHours": 4 },
+      "verbania": { "tempLow": 3, "tempHigh": 11, "rainfall": 60, "sunHours": 5 },
+      "cuneo": { "tempLow": -1, "tempHigh": 8, "rainfall": 35, "sunHours": 5 },
+      "tooltip": "Mist over vineyards, early snowdrops",
+      "culturalEvent": "Carnival season begins",
+      "culturalEventUrl": "https://www.visitpiemonte.com/en/carnival-in-piemonte",
+      "visualCue": "Soft drifting mist"
+    },
+    {
+      "month": "March",
+      "index": 2,
+      "season": "spring",
+      "torino": { "tempLow": 4, "tempHigh": 14, "rainfall": 60, "sunHours": 5 },
+      "alba": { "tempLow": 3, "tempHigh": 13, "rainfall": 65, "sunHours": 5 },
+      "verbania": { "tempLow": 6, "tempHigh": 15, "rainfall": 80, "sunHours": 6 },
+      "cuneo": { "tempLow": 2, "tempHigh": 12, "rainfall": 55, "sunHours": 6 },
+      "tooltip": "Almond blossoms, rivers thawing",
+      "culturalEvent": "Messer Tulipano Festival",
+      "culturalEventUrl": "https://castellodipralormo.com/en/mister-tulip/",
+      "visualCue": "Budding vines, warming colors"
+    },
+    {
+      "month": "April",
+      "index": 3,
+      "season": "spring",
+      "torino": { "tempLow": 8, "tempHigh": 17, "rainfall": 75, "sunHours": 6 },
+      "alba": { "tempLow": 7, "tempHigh": 16, "rainfall": 80, "sunHours": 6 },
+      "verbania": { "tempLow": 10, "tempHigh": 18, "rainfall": 95, "sunHours": 7 },
+      "cuneo": { "tempLow": 6, "tempHigh": 15, "rainfall": 70, "sunHours": 7 },
+      "tooltip": "Vine sprouts growing, wildflowers",
+      "culturalEvent": "Vinum Food and Wine Festival in Alba",
+      "culturalEventUrl": "https://www.vinumalba.com/en/",
+      "visualCue": "Time-lapse of vine sprouts"
+    },
+    {
+      "month": "May",
+      "index": 4,
+      "season": "spring",
+      "torino": { "tempLow": 12, "tempHigh": 22, "rainfall": 85, "sunHours": 7 },
+      "alba": { "tempLow": 11, "tempHigh": 21, "rainfall": 90, "sunHours": 7 },
+      "verbania": { "tempLow": 14, "tempHigh": 23, "rainfall": 110, "sunHours": 8 },
+      "cuneo": { "tempLow": 10, "tempHigh": 20, "rainfall": 80, "sunHours": 8 },
+      "tooltip": "Full green, hay cutting begins",
+      "culturalEvent": "Cantine Aperte - Open Cellars",
+      "culturalEventUrl": "https://www.avinturo.com/italian-wine-festivals",
+      "visualCue": "Vibrant green vineyards"
+    },
+    {
+      "month": "June",
+      "index": 5,
+      "season": "summer",
+      "torino": { "tempLow": 16, "tempHigh": 26, "rainfall": 70, "sunHours": 9 },
+      "alba": { "tempLow": 15, "tempHigh": 25, "rainfall": 75, "sunHours": 9 },
+      "verbania": { "tempLow": 18, "tempHigh": 27, "rainfall": 95, "sunHours": 9 },
+      "cuneo": { "tempLow": 14, "tempHigh": 24, "rainfall": 65, "sunHours": 9 },
+      "tooltip": "Sharp scent of cut hay",
+      "culturalEvent": "Alba Jazz Festival",
+      "culturalEventUrl": "https://www.albajazz.com/",
+      "visualCue": "Lake shimmer, bright light"
+    },
+    {
+      "month": "July",
+      "index": 6,
+      "season": "summer",
+      "torino": { "tempLow": 18, "tempHigh": 29, "rainfall": 55, "sunHours": 10 },
+      "alba": { "tempLow": 17, "tempHigh": 28, "rainfall": 60, "sunHours": 10 },
+      "verbania": { "tempLow": 20, "tempHigh": 30, "rainfall": 80, "sunHours": 10 },
+      "cuneo": { "tempLow": 16, "tempHigh": 27, "rainfall": 50, "sunHours": 10 },
+      "tooltip": "Hazy skies, mountain escapes",
+      "culturalEvent": "Collisioni Festival Barolo",
+      "culturalEventUrl": "https://www.collisioni.it/",
+      "visualCue": "Water ripple animation, bright gradient"
+    },
+    {
+      "month": "August",
+      "index": 7,
+      "season": "summer",
+      "torino": { "tempLow": 18, "tempHigh": 28, "rainfall": 60, "sunHours": 9 },
+      "alba": { "tempLow": 17, "tempHigh": 27, "rainfall": 65, "sunHours": 9 },
+      "verbania": { "tempLow": 20, "tempHigh": 29, "rainfall": 85, "sunHours": 9 },
+      "cuneo": { "tempLow": 16, "tempHigh": 26, "rainfall": 55, "sunHours": 9 },
+      "tooltip": "Peak summer, vineyard work",
+      "culturalEvent": "Ferragosto - Take a Break. Touch Some Grass.",
+      "visualCue": "Cicadas humming, passing cloud shadows"
+    },
+    {
+      "month": "September",
+      "index": 8,
+      "season": "autumn",
+      "torino": { "tempLow": 14, "tempHigh": 23, "rainfall": 70, "sunHours": 7 },
+      "alba": { "tempLow": 13, "tempHigh": 22, "rainfall": 75, "sunHours": 7 },
+      "verbania": { "tempLow": 16, "tempHigh": 24, "rainfall": 95, "sunHours": 7 },
+      "cuneo": { "tempLow": 12, "tempHigh": 21, "rainfall": 65, "sunHours": 7 },
+      "tooltip": "Harvest begins, grapes ripening",
+      "culturalEvent": "Palio di Asti",
+      "culturalEventUrl": "https://visit.asti.it/en/september-in-asti/the-palio-of-asti/",
+      "visualCue": "Vineyard rows turning gold"
+    },
+    {
+      "month": "October",
+      "index": 9,
+      "season": "autumn",
+      "torino": { "tempLow": 9, "tempHigh": 17, "rainfall": 80, "sunHours": 5 },
+      "alba": { "tempLow": 8, "tempHigh": 16, "rainfall": 85, "sunHours": 5 },
+      "verbania": { "tempLow": 11, "tempHigh": 18, "rainfall": 105, "sunHours": 5 },
+      "cuneo": { "tempLow": 7, "tempHigh": 15, "rainfall": 75, "sunHours": 5 },
+      "tooltip": "Gold rush of October leaves",
+      "culturalEvent": "International Alba White Truffle Fair",
+      "culturalEventUrl": "https://www.fieradeltartufo.org/en/",
+      "visualCue": "Leaves turning rust and gold"
+    },
+    {
+      "month": "November",
+      "index": 10,
+      "season": "autumn",
+      "torino": { "tempLow": 4, "tempHigh": 11, "rainfall": 70, "sunHours": 3 },
+      "alba": { "tempLow": 3, "tempHigh": 10, "rainfall": 75, "sunHours": 3 },
+      "verbania": { "tempLow": 6, "tempHigh": 12, "rainfall": 95, "sunHours": 3 },
+      "cuneo": { "tempLow": 2, "tempHigh": 9, "rainfall": 65, "sunHours": 3 },
+      "tooltip": "First frosts, wine cellars busy",
+      "culturalEvent": "Cioccolatò Festival Torino",
+      "culturalEventUrl": "https://www.cioccola.to.it/",
+      "visualCue": "Bare vines, foggy mornings"
+    },
+    {
+      "month": "December",
+      "index": 11,
+      "season": "winter",
+      "torino": { "tempLow": 1, "tempHigh": 8, "rainfall": 50, "sunHours": 2 },
+      "alba": { "tempLow": 0, "tempHigh": 7, "rainfall": 55, "sunHours": 2 },
+      "verbania": { "tempLow": 3, "tempHigh": 9, "rainfall": 70, "sunHours": 3 },
+      "cuneo": { "tempLow": -1, "tempHigh": 6, "rainfall": 45, "sunHours": 3 },
+      "tooltip": "Winter settles in, Alpine snow",
+      "culturalEvent": "Artist's Lights - Luci d'Artista - Torino",
+      "culturalEventUrl": "https://www.lucidartistatorino.org/LdA-26/en/homepage-en/index.html",
+      "visualCue": "Snow on mountains, festive lights"
+    }
+  ]
 }

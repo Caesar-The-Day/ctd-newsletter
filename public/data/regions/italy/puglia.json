@@ -1,1043 +1,1040 @@
 {
   "region": {
     "slug": "puglia",
-    "issueNumber": 8,
-    "date": "November 2025",
-    "title": "Puglia",
-    "tagline": "Where the Table Begins",
+    "issueNumber": 7,
+    "date": "October 2025",
+    "title": "Puglia: The Southern Light",
+    "tagline": "Where the heel of Italy meets the sea",
     "hero": {
-      "bannerImage": "/images/puglia/hero-coastline.jpg",
-      "credit": "Polignano a Mare, Adriatic Coast",
-      "ambientAudio": "/audio/puglia-waves.mp3"
+      "bannerImage": "/images/piemonte/hero-vineyards.jpg",
+      "ambientAudio": "/images/piemonte/ambient.mp3",
+      "credit": "Photo: Langhe Vineyards © CaesarTheDay"
     },
     "intro": {
-      "headline": "Sun, Stone, and Sea: The Art of Living Simply",
-      "byline": "By Cesare Casiello",
+      "headline": "Bentornati to Puglia",
+      "byline": "— Cesare",
       "paragraphs": [
-        "Puglia doesn't whisper—it announces itself in light. The kind of light that makes tomatoes taste like something holy, that turns limestone walls into glowing lanterns at dusk, that convinces you summer might never end. This is Italy's heel, the bottom of the boot, where the Adriatic and Ionian seas meet in a kiss of turquoise and gold.",
-        "While Tuscany sells postcards and the Amalfi Coast sells dreams, Puglia simply *is*. Real towns with real rhythms. Fishermen who still pull nets at dawn. Nonnas who still roll orecchiette by hand. Olive trees so ancient they've seen empires rise and fall, still bearing fruit that tastes like the earth itself.",
-        "The architecture here is a riddle written in stone: conical trulli that look like something out of a fairy tale, Baroque churches so ornate they make you dizzy, white hilltop towns that glow like scattered sugar cubes across green valleys. Every surface tells a story—Greek temples, Roman roads, Byzantine frescoes, Norman castles. Layers upon layers of civilizations that came, stayed, and left their mark.",
-        "This is not a place for those who need mountains or perfect weather year-round. Puglia is flat and hot in summer, breezy and mild the rest of the year. But what it lacks in Alpine drama, it delivers in abundance. Abundance of sunshine. Abundance of flavor. Abundance of coastline—over 800 kilometers of it, split between two distinct personalities: the dramatic cliffs and social energy of the Adriatic, the serene golden beaches and sunset culture of the Ionian.",
-        "And the food? Cucina povera reimagined. Peasant food elevated not through refinement but through respect—for the ingredient, for the season, for the hands that made it. Fava beans and wild chicory. Hand-rolled pasta with bitter greens. Rice baked with mussels and potatoes until it forms a golden crust. Olive oil so peppery it makes you cough, so green it stains your shirt, so good you'll want to drink it.",
-        "Puglia is where Italy drops its guard. Where the table is always set, the door is always open, and the invitation is always implicit: *Sit. Eat. Stay awhile. We're in no rush.*"
+        "If Abruzzo was my birthday toast, Piemonte is the hangover cure — strong coffee, mountain air, and a reminder that Italy isn't all sunshine and sea. This is the region that keeps the country grounded while everyone else chases dolce vita clichés.",
+        "October here smells like truffles and wood smoke. The hills around Alba are laced with vines heavy from the Barolo harvest, while mist rolls through the Langhe like it has somewhere important to be. Turin's cafés hum with quiet confidence — the kind that built an empire of chocolate, cinema, and Fiat engines. In the Alps, villages tuck in for winter, their roofs already catching the first snow dusting.",
+        "Piemonte doesn't flirt. It seduces slowly, with competence and class. This is Italy with its shirt buttoned, the region that taught the rest of the country how to do business and still have time for lunch. The food is serious, the wines are legends, and the people — polite, precise, slightly suspicious of hype — are living proof that modesty and mastery can share the same table.",
+        "What makes Piemonte fascinating for retirees isn't just its refinement; it's its stability. The healthcare system is excellent, the trains run (mostly) on time, and the cost of living, while higher than Abruzzo's, is still a bargain compared to Milan or Florence. You get proximity to the Alps, France, and the Riviera — without the chaos that often comes with beauty.",
+        "So pour a glass of Barbera, light a fire if you're lucky enough to have one, and settle in. This month we're heading north — to a region where Italy trades its drama for depth, and where la dolce vita wears a cashmere coat."
       ],
-      "portrait": "/images/shared/cesare-portrait.jpg",
-      "signature": "/images/shared/cesare-signature.png"
+      "portrait": "/images/cesare-boat.jpg",
+      "signature": "/images/cesare-signature.png"
     }
   },
   "where": {
     "map": {
-      "center": [40.35, 17.5],
-      "zoom": 7.5,
+      "center": [7.68, 45.07],
+      "zoom": 7,
       "markers": [
         {
-          "id": "lecce",
-          "name": "Lecce",
-          "coords": [40.3515, 18.1750],
-          "photo": "/images/puglia/lecce-baroque.jpg",
-          "blurb": "Baroque capital of Salento with golden limestone architecture and vibrant university culture."
+          "id": "torino",
+          "name": "Torino",
+          "coords": [7.6869, 45.0703],
+          "photo": "/images/piemonte/torino.jpg",
+          "blurb": "Capital city with world-class services, culture, and healthcare. Elegant without the chaos of Rome or Milan."
         },
         {
-          "id": "ostuni",
-          "name": "Ostuni",
-          "coords": [40.7315, 17.5781],
-          "photo": "/images/puglia/ostuni-white-city.jpg",
-          "blurb": "The iconic White City perched on a hilltop with panoramic views to the Adriatic."
+          "id": "alba",
+          "name": "Alba",
+          "coords": [8.0357, 44.7006],
+          "photo": "/images/piemonte/alba.jpg",
+          "blurb": "Heart of truffle country and Barolo wine. The epicenter of Piemontese gastronomy."
         },
         {
-          "id": "polignano",
-          "name": "Polignano a Mare",
-          "coords": [40.9943, 17.2209],
-          "photo": "/images/puglia/polignano-cliffs.jpg",
-          "blurb": "Dramatic coastal town built on cliffs above turquoise sea caves."
-        },
-        {
-          "id": "bari",
-          "name": "Bari",
-          "coords": [41.1171, 16.8719],
-          "photo": "/images/puglia/bari-seafront.jpg",
-          "blurb": "Regional capital with major port, university, and excellent infrastructure."
-        },
-        {
-          "id": "brindisi",
-          "name": "Brindisi",
-          "coords": [40.6327, 17.9417],
-          "photo": "/images/puglia/brindisi-port.jpg",
-          "blurb": "Historic port city connecting Italy to Greece and the Balkans."
-        },
-        {
-          "id": "monopoli",
-          "name": "Monopoli",
-          "coords": [40.9516, 17.3024],
-          "photo": "/images/puglia/monopoli.jpg",
-          "blurb": "Authentic fishing port with fortified old town and genuine local life."
-        },
-        {
-          "id": "gallipoli",
-          "name": "Gallipoli",
-          "coords": [40.0557, 17.9929],
-          "photo": "/images/puglia/gallipoli.jpg",
-          "blurb": "Ionian coast sunset capital with lively summer beach culture."
-        },
-        {
-          "id": "otranto",
-          "name": "Otranto",
-          "coords": [40.1435, 18.4913],
-          "photo": "/images/puglia/otranto-castle.jpg",
-          "blurb": "Italy's easternmost town with Byzantine heritage and stunning coastline."
-        },
-        {
-          "id": "alberobello",
-          "name": "Alberobello",
-          "coords": [40.7815, 17.2373],
-          "photo": "/images/puglia/alberobello-trulli.jpg",
-          "blurb": "UNESCO World Heritage site famous for its unique trulli cone houses."
+          "id": "asti",
+          "name": "Asti",
+          "coords": [8.2064, 44.9007],
+          "photo": "/images/piemonte/asti.jpg",
+          "blurb": "Historic center with practical services. More affordable than Alba, equally charming."
         }
-      ]
+      ],
+      "externalMapUrl": "https://maps.google.com/?q=Piemonte+Italy"
     },
     "tabs": [
       {
         "id": "geography",
-        "label": "Geography",
-        "content": "Puglia is Italy's heel—800km of coastline split between the Adriatic (east) and Ionian (west) seas. The landscape is predominantly flat with rolling hills in Valle d'Itria, the Gargano peninsula jutting north like a spur, and the Salento peninsula stretching south. Olive groves dominate the interior—over 60 million trees, some dating back 3,000 years. The region is defined by limestone geology, which gives the land its characteristic white stone, underground cave systems, and mineral-rich soil."
+        "title": "Geography",
+        "content": "Piemonte sits in Italy's northwest corner, bordered by France and Switzerland. The name literally means 'at the foot of the mountains'—the Alps form a dramatic northern boundary. The Langhe and Monferrato hills roll through the southeast, covered in UNESCO-protected vineyards. The Po Valley stretches across the plains, while lakes like Maggiore and Orta dot the landscape. This diversity means you can choose Alpine villages, vineyard hamlets, or urban sophistication—all within an hour's drive."
       },
       {
         "id": "access",
-        "label": "Getting There",
-        "content": "**By Air**: Bari Karol Wojtyła Airport (BRI) is the main hub, with direct flights from across Europe. Brindisi Airport (BDS) serves the south. Budget carriers and seasonal routes abundant. **By Train**: Trenitalia connects Bari to Rome (4h), Naples (3h), and Milan (7h). Regional trains link coastal towns efficiently. **By Ferry**: Bari and Brindisi ports connect to Greece, Albania, and Croatia—you're a boat ride from the Balkans. **By Car**: A14 autostrada runs along the Adriatic coast; SS16 coastal road is slower but scenic."
+        "title": "Getting There",
+        "content": "Torino Caselle Airport (TRN) connects to major European cities. Milan Malpensa (MXP) is 90 minutes away with more international options. High-speed trains link Torino to Milan (1 hour), Rome (4 hours), and France. The autostrade network (A4, A6, A21) makes driving straightforward. Regional trains connect smaller towns reliably—no car required in many areas."
       },
       {
         "id": "transport",
-        "label": "Local Transport",
-        "content": "**Trains**: Ferrovie del Sud Est (FSE) narrow-gauge trains connect Valle d'Itria towns (trulli country). Trenitalia regional trains serve coastal routes. **Buses**: Local bus networks (STP, Ferrovie del Sud Est) connect smaller towns but schedules can be sparse. **Car**: Essential for exploring inland. Roads are good, traffic is light outside Bari. Parking is straightforward except in historic centers. **Cycling**: Flat terrain and coastal cyclovia routes make this a bike-friendly region. E-bike rentals increasingly common."
+        "title": "Local Transport",
+        "content": "Torino has metro, trams, and buses—efficient urban mobility. Regional trains connect major towns daily. Smaller hill towns may need a car for flexibility. The terrain is gentle compared to mountainous regions, making driving easier. Bike culture exists in cities. In rural areas, expect 10-30 minute drives to services."
       }
     ]
   },
   "character": {
     "slides": [
       {
-        "image": "/images/puglia/alberobello-trulli.jpg",
-        "caption": "Trulli houses of Alberobello",
-        "copy": "These conical limestone dwellings are unique to Puglia—UNESCO-protected fairy-tale architecture that's still lived in today."
+        "image": "/images/piemonte/vineyard-fall.jpg",
+        "caption": "Langhe vineyards in autumn fog",
+        "copy": "Piemonte doesn't shout. It whispers. The culture here is sober, elegant, food-first. People take their coffee seriously, their wine more so. Conversations unfold slowly over long meals. The pace is steady, not rushed—but don't mistake reserve for coldness."
       },
       {
-        "image": "/images/puglia/olive-grove-ancient.jpg",
-        "caption": "Ancient olive trees",
-        "copy": "Some of Puglia's olive trees are over 3,000 years old, gnarled giants that witnessed the rise and fall of empires."
+        "image": "/images/piemonte/alps.jpg",
+        "caption": "Alpine backdrop to Torino",
+        "copy": "Four real seasons define life here. Hot summers in the plains, crisp autumns in the hills, snowy winters in the mountains, and blooming springs everywhere. Fog blankets the Langhe in fall—mystical and beautiful. Heating costs matter. But you get variety that Southern Italy can't match."
       },
       {
-        "image": "/images/puglia/baroque-lecce.jpg",
-        "caption": "Lecce's golden Baroque",
-        "copy": "The soft local limestone allowed master carvers to create Baroque facades so ornate they seem impossible."
+        "image": "/images/piemonte/market.jpg",
+        "caption": "Weekly market culture",
+        "copy": "Weekly markets are ritual, not errand. Farmers sell seasonal produce. Artisans offer cheese, salumi, textiles. You'll learn the rhythm: porcini in autumn, asparagus in spring, tomatoes in summer. This is slow living at its finest—connected to land and season."
+      }
+    ]
+  },
+  "climate": {
+    "modes": [
+      {
+        "id": "alps",
+        "label": "Alps (Verbania, Cuneo)",
+        "avgWinterTempC": 0,
+        "avgSummerTempC": 18,
+        "notes": "Snow guaranteed. Heating essential. Stunning mountain access. Cooler summers."
+      },
+      {
+        "id": "hills",
+        "label": "Hills & Vineyards (Alba, Asti, Langhe)",
+        "avgWinterTempC": 3,
+        "avgSummerTempC": 26,
+        "notes": "Foggy autumns. Mild winters. Warm but not scorching summers. Four-season wardrobe needed."
+      },
+      {
+        "id": "cities",
+        "label": "Cities (Torino)",
+        "avgWinterTempC": 4,
+        "avgSummerTempC": 28,
+        "notes": "Urban heat island effect. Hotter summers. Cold but manageable winters. Best infrastructure."
       }
     ]
   },
   "towns": {
     "featured": [
       {
-        "id": "lecce",
-        "name": "Lecce",
-        "bestFor": "The Florence of the South",
-        "photo": "/images/puglia/lecce-baroque.jpg",
-        "summary": "Baroque architecture, university energy, and solid infrastructure make Lecce the cultural capital of Salento.",
-        "fullDescription": "Lecce is what happens when Baroque architecture meets soft golden limestone and generations of master carvers. Every church facade, every palazzo balcony, every doorway is a riot of angels, fruits, and flourishes carved with such delicacy you'd think the stone was butter. They call it 'Lecce stone,' and it's the city's secret weapon—soft enough to carve with precision, hard enough to last centuries.\n\nBut Lecce isn't a museum. It's a living city of 100,000, anchored by a major university that keeps the energy young and the café culture vibrant. The centro storico is compact and walkable—Roman amphitheater, duomo, piazzas lined with bookshops and wine bars. Summer evenings, the entire town spills into the streets for passeggiata, gelato in hand, conversations overlapping in the warm air.\n\nLiving here means: University town intellect meets southern warmth. Excellent healthcare (Vito Fazzi Hospital is one of Puglia's best). Train connections to Bari, Brindisi, and the coast. Affordable real estate compared to northern cities. Summers are hot and lively; winters are mild and quiet. You're 20 minutes from both Adriatic and Ionian beaches. The social fabric is welcoming but not intrusive—you'll be the foreigner who becomes a regular, not a spectacle.",
-        "mapUrl": "https://maps.app.goo.gl/lecce",
-        "gallery": [
-          "/images/puglia/lecce-baroque.jpg",
-          "/images/puglia/lecce-piazza.jpg",
-          "/images/puglia/lecce-duomo.jpg"
-        ],
+        "id": "torino",
+        "name": "Torino",
+        "bestFor": "Services, culture, healthcare access",
+        "photo": "/images/piemonte/torino-hero.jpg",
+        "summary": "Italy's fourth-largest city, but it feels manageable. Former capital with regal architecture, excellent museums, and a café culture that rivals Vienna. World-class hospitals. University energy. Efficient public transit. Not touristy—this is a real working city where Italians actually live. Perfect if you want urban amenities without Rome's chaos.",
+        "fullDescription": "Turin doesn't need to show off. It just gets everything right. While other Italian cities perform their beauty, Turin lives it in silence — colonnaded boulevards, uniform façades, and a rhythm that feels engineered rather than improvised. Once the capital of the Kingdom of Savoy, then the beating heart of Fiat, it has always built rather than posed.\n\nWalk beneath eighteen kilometers of arcades and you'll understand the design philosophy: keep people comfortable, rain or shine. Cafés are an institution here — not the standing bars of the south but grand parlors of marble and mirrors where waiters still wear jackets and the coffee arrives on a silver tray beside a glass of water. Order a bicerin, Turin's layered mix of espresso, chocolate, and cream, and you'll feel the city's character in a cup — precise, balanced, quietly indulgent.\n\nCulturally, Turin punches above its weight. The Egyptian Museum rivals Cairo's, the National Museum of Cinema sits inside the iconic Mole Antonelliana, and film, design, and architecture schools feed the city's creative edge. It's Italy's most organized metropolis: clean, efficient, and almost Swiss in punctuality. Locals joke that the trains leave on time here because the drivers are from Piedmont.\n\nFor retirees or long-stayers, it's one of Italy's most liveable large cities. Healthcare infrastructure is excellent, public transport reliable, and rents still reasonable for a European hub of this caliber. Turin gives you four honest seasons: foggy winters with the Alps glimmering in the distance, crisp autumns that smell of roasted chestnuts, and summers you escape with an hour's train to the Riviera or the mountain valleys.\n\nTurin's vibe is confidence without noise. The people are polite, sometimes reserved, and take pride in understatement. Don't expect effusive warmth on day one — but once you're accepted, you're treated as kin. It's a city that respects effort, structure, and a good pair of shoes. In short: if you want Italy's culture with Germany's order, Turin is where espresso meets engineering.",
+        "mapUrl": "https://maps.google.com/?q=Torino+Italy",
+        "gallery": ["/images/piemonte/torino-pink-moment.jpg", "/images/piemonte/torino-river-autumn.jpg", "/images/piemonte/torino-piazza.jpg"],
         "links": [
           {
             "label": "City Website",
-            "href": "https://www.comune.lecce.it"
+            "href": "https://www.comune.torino.it/"
+          },
+          {
+            "label": "Healthcare Info",
+            "href": "https://www.cittadellasalute.to.it/"
           }
         ]
       },
       {
-        "id": "ostuni",
-        "name": "Ostuni",
-        "bestFor": "La Città Bianca – The White City",
-        "photo": "/images/puglia/ostuni-white-city.jpg",
-        "summary": "Elevated whitewashed hilltop town with international expat presence, panoramic views, and exceptional dining.",
-        "fullDescription": "Ostuni announces itself from miles away—a white crown rising from olive groves, visible from both the Adriatic coast and the inland Valle d'Itria. The whitewash isn't just aesthetic; it's tradition, refreshed annually, giving the town its nickname and its luminous quality. Climb the narrow staircases of the centro storico and you're rewarded with terrace views that stretch to the sea.\n\nThis is one of Puglia's most international towns, with a well-established expat community (British, Dutch, German) that's woven into the social fabric without overwhelming it. The result is a town that's bilingual in menus, sophisticated in its restaurant scene, and comfortable with outsiders. You'll find yoga studios, art galleries, English-language book clubs, and wine bars that wouldn't feel out of place in Tuscany—but with better prices and less pretension.\n\nLiving here means: Hilltop elevation keeps summer temps slightly cooler. Strong expat network makes integration easier. Excellent restaurants (both traditional and contemporary). Train station connects to Bari and Brindisi. Real estate is mid-to-high range but holds value. The town has a slower, more refined pace than Lecce—less university chaos, more settled families and retirees. You're 8km from the coast, close enough for daily beach trips but far enough to maintain a different rhythm.",
-        "mapUrl": "https://maps.app.goo.gl/ostuni",
-        "gallery": [
-          "/images/puglia/ostuni-white-city.jpg",
-          "/images/puglia/ostuni-view.jpg",
-          "/images/puglia/ostuni-centro.jpg"
-        ],
+        "id": "alba",
+        "name": "Alba",
+        "bestFor": "Food/wine lovers; truffle season devotees",
+        "photo": "/images/piemonte/alba-hero.jpg",
+        "summary": "The white truffle capital of the world. Barolo and Barbaresco vineyards surround you. October's truffle fair draws global crowds—exciting but intense. Small-town feel with big-time gastronomy. Expect higher costs in exchange for being at the epicenter of Italian food culture. Not a place for hermits; this is social, culinary, communal living.",
+        "fullDescription": "If Turin is Italy's mind, Alba is its appetite. This tidy town at the center of the Langhe hills smells of earth, oak, and ambition — the scent of white truffles drifting through wine cellars and kitchen windows. Every autumn the streets fill with chefs, traders, and tourists chasing the season's first truffle, but most of the year Alba exudes quiet prosperity.\n\nThe medieval towers remind you this was once a fortress town; today it's a culinary one. Market mornings hum with produce vendors selling hazelnuts, cheeses, and armfuls of wild mushrooms. Afternoons belong to the vineyards: Barolo, Barbaresco, Dolcetto — names that define the region's liquid identity. Locals drink well and eat even better, but they do it without spectacle. There's wealth here, yet it's the kind that prefers an unmarked cellar door to a neon sign.\n\nInfrastructure is solid: hospitals in town, regional clinics nearby, and frequent trains to Turin for anything specialized. The roads wind but are well maintained, and broadband coverage — surprisingly — is excellent, even among the vines. Retirees who want a small-town rhythm with global sophistication find a sweet spot here: morning cappuccino, afternoon vineyard drive, dinner that could make Michelin jealous, and a sense that time hasn't been wasted on pretension.\n\nAlba's vibe is refined practicality. Locals work hard, eat slowly, and don't confuse friendliness with over-familiarity. Property prices reflect the demand but remain far below anything in Tuscany or the Riviera. It's not cheap, but it's worth every euro for the quality of life — and the view at sunset when the Langhe hills roll away in dusty gold. Alba isn't the Italy of chaos; it's the Italy of control — delicious, deliberate, and deeply satisfying.",
+        "mapUrl": "https://maps.google.com/?q=Alba+Italy",
+        "gallery": ["/images/piemonte/alba-vineyards.jpg", "/images/piemonte/alba-town.jpg", "/images/piemonte/alba-centro.jpg"],
         "links": [
           {
-            "label": "City Website",
-            "href": "https://www.comune.ostuni.br.it"
+            "label": "Truffle Fair",
+            "href": "https://www.fieradeltartufo.org/"
+          },
+          {
+            "label": "Wine Tourism",
+            "href": "https://www.langheroero.it/"
           }
         ]
       },
       {
-        "id": "polignano",
-        "name": "Polignano a Mare",
-        "bestFor": "Cliffs, Caves, and Cosmopolitan Energy",
-        "photo": "/images/puglia/polignano-cliffs.jpg",
-        "summary": "Iconic coastal cliff town with dramatic sea caves, vibrant social scene, and excellent train access.",
-        "fullDescription": "Polignano is Puglia's postcard—the town built on cliffs above the Adriatic, with houses that seem to defy gravity, perched over turquoise water and sea caves carved by millennia of waves. The Lama Monachile beach (locals call it Cala Porto) is tucked between rock walls, a sliver of sand and pebbles that fills up in summer with locals and tourists alike. In July, Red Bull hosts a cliff diving competition here. The drama is real.\n\nBut Polignano is more than a pretty face. It's a working town with a lively centro storico, excellent seafood restaurants (including Grotta Palazzese, built into a cave with Michelin-level ambitions), and a train station that makes Bari a 30-minute commute. The town has grown in popularity—Instagram hasn't done it any favors—but it maintains a balance. Mornings are still quiet; locals still fish from the rocks; the pasticceria still sells pasticciotto to regulars.\n\nLiving here means: You're in a tourist town, so summer brings crowds. But shoulder seasons (April-May, September-October) offer the best of both worlds—warm weather, accessible beaches, fewer people. Real estate is pricier than inland towns but reasonable for coastal Italy. Train access makes Bari's airport, hospitals, and services easily reachable. The social scene is younger and more cosmopolitan than nearby towns. You trade some tranquility for convenience and beauty—many find it worth it.",
-        "mapUrl": "https://maps.app.goo.gl/polignano",
-        "gallery": [
-          "/images/puglia/polignano-cliffs.jpg",
-          "/images/puglia/polignano-beach.jpg",
-          "/images/puglia/polignano-night.jpg"
-        ],
+        "id": "asti",
+        "name": "Asti",
+        "bestFor": "Balanced costs, services, historic charm",
+        "photo": "/images/piemonte/asti-hero.jpg",
+        "summary": "Alba's more practical neighbor. Historic center with medieval towers. Good rail connections. Hospital. Supermarkets. Banks. Everything you need without the tourist premium. The Asti wine zone surrounds it. Less glamorous than Alba but equally authentic—and more affordable. Ideal for those who want substance over style.",
+        "fullDescription": "Asti lives in Turin's shadow and seems perfectly happy about it. While Alba attracts the gourmets, Asti is where ordinary life carries on with elegance and purpose. The town's skyline bristles with medieval towers; its streets radiate from broad piazzas lined with porticoes and shops that still close for lunch because the owners believe in eating properly.\n\nAsti's global claim is its sparkling wine — Asti Spumante and Moscato d'Asti — yet the locals rarely drink them. They prefer a quiet Barbera or a Vermouth before dinner. The annual Palio di Asti, one of Italy's oldest horse races, transforms the town into a medieval carnival each September. The rest of the year it's unhurried and affordable, a place that functions on human scale.\n\nInfrastructure here is dependable: hospitals, a clean train station, and quick rail connections to Turin, Alessandria, and even Genoa. Roads are flat and forgiving, ideal for cycling or small-city driving. Services cluster around the walkable center, meaning you can live comfortably without a car — a rarity outside Italy's major hubs.\n\nThe vibe is small-town civic pride: flower boxes on balconies, shopkeepers who remember your face, and neighbors who nod instead of gush. There's culture, but it's local rather than global — evening concerts in churches, food fairs that celebrate sausages instead of status. For retirees, Asti offers value and community: rents are lower than Alba, bureaucracy moves at a tolerable pace, and life runs on espresso and predictability.\n\nIf Alba is truffles and Barolo, Asti is espresso and biscotti — simpler, lighter, but no less satisfying. It's the Piedmontese version of comfort food: unflashy, nourishing, and quietly proud of being overlooked.",
+        "mapUrl": "https://maps.google.com/?q=Asti+Italy",
+        "gallery": ["/images/piemonte/asti-vineyards.jpg", "/images/piemonte/asti-bridge.jpg", "/images/piemonte/asti-town.jpg"],
         "links": [
           {
             "label": "City Website",
-            "href": "https://www.comune.polignano-a-mare.ba.it"
+            "href": "https://www.comune.asti.it/"
+          },
+          {
+            "label": "Visit Asti",
+            "href": "https://visit.asti.it/en/"
           }
         ]
       }
     ],
     "grid": [
       {
-        "id": "martina-franca",
-        "name": "Martina Franca",
-        "bestFor": "Baroque elegance, music festivals",
-        "photo": "/images/puglia/martina-franca.jpg",
-        "mapUrl": "https://maps.app.goo.gl/martinafranca",
-        "blurb": "Elegant Baroque hill town in Valle d'Itria, known for its summer opera festival and refined architecture. Less touristy than nearby trulli towns."
+        "id": "bra",
+        "name": "Bra",
+        "bestFor": "Slow Food culture, walkable center",
+        "photo": "/images/piemonte/bra.jpg",
+        "mapUrl": "https://maps.google.com/?q=Bra+Italy",
+        "blurb": "Birthplace of the global Slow Food movement, Bra wears its philosophy proudly. Markets here are measured, not rushed; meals unfold like conversations. The town balances Baroque beauty with genuine community warmth. You can stroll from butcher to baker to bookshop without crossing a major street. Excellent rail links connect Bra to Turin and Alba, but the pace is its own — a kind of elegant efficiency that doesn't rely on hurry. Ideal for anyone who wants culture and cuisine without crowding."
       },
       {
-        "id": "locorotondo",
-        "name": "Locorotondo",
-        "bestFor": "Circular old town, trulli, white wine",
-        "photo": "/images/puglia/locorotondo.jpg",
-        "mapUrl": "https://maps.app.goo.gl/locorotondo",
-        "blurb": "One of Italy's most beautiful villages (Borghi più belli). Circular centro storico with whitewashed buildings and trulli. Serene, walkable, charming."
+        "id": "verbania",
+        "name": "Verbania",
+        "bestFor": "Lake Maggiore living, mild climate",
+        "photo": "/images/piemonte/verbania.jpg",
+        "mapUrl": "https://maps.google.com/?q=Verbania+Italy",
+        "blurb": "Set on the shores of Lake Maggiore, Verbania feels half Alpine, half Mediterranean. Palms and pines coexist, and ferries glide past snow-capped horizons. The climate is mild, the air clean, and property prices surprisingly sane for a lakeside address. Healthcare and services are solid — Verbania has the infrastructure of a small city wrapped in resort scenery. It's for those who love the idea of the lake life but not the tourist throngs of Como."
       },
       {
-        "id": "cisternino",
-        "name": "Cisternino",
-        "bestFor": "Tight-knit community, butcher shops",
-        "photo": "/images/puglia/cisternino.jpg",
-        "mapUrl": "https://maps.app.goo.gl/cisternino",
-        "blurb": "Another Valle d'Itria gem with a strong food scene. Famous for 'fornelli pronti'—butcher shops where you pick meat and they grill it for you on the spot."
+        "id": "cuneo",
+        "name": "Cuneo",
+        "bestFor": "Alpine access, lower costs",
+        "photo": "/images/piemonte/cuneo.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cuneo+Italy",
+        "blurb": "At the foot of the Maritime Alps, Cuneo has the crisp air and practical temperament of a mountain capital. Wide squares, grand arcades, and Alpine views define its center. This is Italy without pretense: clean, organized, unhurried. Winters bring skiers; summers, hikers. The local cuisine blends Piedmontese rigor with French finesse. For retirees, Cuneo's appeal is its scale — big enough for amenities, small enough to know your baker by name."
       },
       {
-        "id": "monopoli",
-        "name": "Monopoli",
-        "bestFor": "Real fishing town, less touristy coast",
-        "photo": "/images/puglia/monopoli.jpg",
-        "mapUrl": "https://maps.app.goo.gl/monopoli",
-        "blurb": "Working fishing port with a beautiful old town, fortified walls, and genuine local life. Close to Polignano but without the Instagram crowds."
+        "id": "novara",
+        "name": "Novara",
+        "bestFor": "Strategic location, urban services",
+        "photo": "/images/piemonte/novara.jpg",
+        "mapUrl": "https://maps.google.com/?q=Novara+Italy",
+        "blurb": "Novara is rice country — fields, canals, and the hum of agricultural precision. It sits between Milan and Turin, serving both without bowing to either. Architecturally, it's a handsome provincial city with a monumental dome and plenty of green space. Trains to Milan take under an hour, making Novara a realistic commuter or semi-urban retirement base. The vibe is industrious but balanced: locals work hard, eat better, and avoid drama."
       },
       {
-        "id": "gallipoli",
-        "name": "Gallipoli",
-        "bestFor": "Ionian sunsets, lively nightlife",
-        "photo": "/images/puglia/gallipoli.jpg",
-        "mapUrl": "https://maps.app.goo.gl/gallipoli",
-        "blurb": "Divided between modern mainland and historic island centro storico. Sunset capital of Salento. Summer beach clubs and nightlife draw younger crowds."
+        "id": "alessandria",
+        "name": "Alessandria",
+        "bestFor": "Affordability, rail access",
+        "photo": "/images/piemonte/alessandria.jpg",
+        "mapUrl": "https://maps.google.com/?q=Alessandria+Italy",
+        "blurb": "Strategically located at the crossroads of Turin, Milan, and Genoa, Alessandria has always been a connector city. It's pragmatic, well-serviced, and refreshingly affordable for northern Italy. The center mixes understated 19th-century elegance with functional modern blocks. You don't move here for spectacle — you move here because it works. Healthcare is excellent, transportation effortless, and life feels comfortably middle-class. A solid base for those who want access to everything but ownership of nothing chaotic."
       },
       {
-        "id": "nardo",
-        "name": "Nardò",
-        "bestFor": "Understated elegance, affordability",
-        "photo": "/images/puglia/nardo.jpg",
-        "mapUrl": "https://maps.app.goo.gl/nardo",
-        "blurb": "Near the Ionian coast but inland enough to stay affordable. Elegant Baroque center, quieter pace, excellent base for exploring Salento without tourist crowds."
+        "id": "biella",
+        "name": "Biella",
+        "bestFor": "Textile heritage, proximity to mountains",
+        "photo": "/images/piemonte/biella.jpg",
+        "mapUrl": "https://maps.google.com/?q=Biella+Italy",
+        "blurb": "Textile heartland and gateway to the mountains, Biella is where fabric mills meet fresh air. Once one of Italy's richest industrial districts, it now feels quietly prosperous, with art foundations and outdoor festivals replacing factory noise. It's surrounded by nature yet has the bones of a real city: hospitals, schools, and an opera season. The cost of living is lower than Turin or Alba, but the views — forests, lakes, and snowy peaks — are first-class. For creatives or nature-minded retirees, Biella delivers serenity with substance."
       },
       {
-        "id": "manduria",
-        "name": "Manduria",
-        "bestFor": "Primitivo wine country, underrated",
-        "photo": "/images/puglia/manduria.jpg",
-        "mapUrl": "https://maps.app.goo.gl/manduria",
-        "blurb": "Heart of Primitivo wine production. Ancient history (Messapian walls) meets modern agriculture. Affordable, authentic, underappreciated by tourists—ideal for wine lovers."
+        "id": "saluzzo",
+        "name": "Saluzzo",
+        "bestFor": "Medieval charm, artistic community",
+        "photo": "/images/piemonte/saluzzo.jpg",
+        "mapUrl": "https://maps.google.com/?q=Saluzzo+Italy",
+        "blurb": "A medieval jewel perched between plains and peaks, Saluzzo offers that elusive small-town charm without isolation. Cobbled lanes, frescoed courtyards, and a hilltop old quarter give it cinematic character. It's also practical: excellent food markets, modern clinics, and a strong sense of community. Artists love it, retirees appreciate its calm — Saluzzo is Piedmont distilled into stone and light."
       },
       {
-        "id": "trani",
-        "name": "Trani",
-        "bestFor": "Northern Puglia port, cathedral on sea",
-        "photo": "/images/puglia/trani.jpg",
-        "mapUrl": "https://maps.app.goo.gl/trani",
-        "blurb": "Sophisticated port town with a stunning Romanesque cathedral that literally sits on the waterfront. Less crowded than southern Puglia but equally beautiful."
+        "id": "acqui-terme",
+        "name": "Acqui Terme",
+        "bestFor": "Thermal spas, wine country",
+        "photo": "/images/piemonte/acqui-terme.jpg",
+        "mapUrl": "https://maps.google.com/?q=Acqui+Terme+Italy",
+        "blurb": "Roman ruins, thermal baths, and Barbera vineyards — Acqui Terme has been unwinding travelers for two thousand years. The town's spa culture remains alive but understated, with mineral springs, elegant hotels, and a well-preserved center. It's a haven for those who want health, heritage, and hedonism in balance. Affordable homes, good train links, and the aroma of mineral water in the air make it a quiet favorite for long stays."
       },
       {
-        "id": "vieste",
-        "name": "Vieste",
-        "bestFor": "Gargano cliffs, natural beauty",
-        "photo": "/images/puglia/vieste.jpg",
-        "mapUrl": "https://maps.app.goo.gl/vieste",
-        "blurb": "Gateway to Gargano National Park. Dramatic white cliffs, sea caves, pristine beaches. More remote but stunning natural setting for those seeking tranquility."
+        "id": "orta-san-giulio",
+        "name": "Orta San Giulio",
+        "bestFor": "Lake life, romantic setting",
+        "photo": "/images/piemonte/orta-san-giulio.jpg",
+        "mapUrl": "https://maps.google.com/?q=Orta+San+Giulio+Italy",
+        "blurb": "Tiny, romantic, and absurdly picturesque, Orta San Giulio sits on Lake Orta — often called 'Maggiore's little sister.' The view from the island monastery feels almost timeless. It's small enough to walk end-to-end in ten minutes, yet filled with quality restaurants and art galleries. Limited parking and limited stress go hand in hand. Perfect for writers, dreamers, or anyone who wants the lake life in miniature."
       },
       {
-        "id": "mattinata",
-        "name": "Mattinata",
-        "bestFor": "Nature lovers, hiking, quiet",
-        "photo": "/images/puglia/mattinata.jpg",
-        "mapUrl": "https://maps.app.goo.gl/mattinata",
-        "blurb": "Small town where Gargano mountains meet the sea. Olive groves, hiking trails, quiet beaches. Ideal for those who want nature over nightlife."
+        "id": "cherasco",
+        "name": "Cherasco",
+        "bestFor": "Baroque elegance, antique markets",
+        "photo": "/images/piemonte/cherasco.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cherasco+Italy",
+        "blurb": "Half fortress, half pastry shop, Cherasco is a town of surprising refinement. Known for its baroque arcades, antique fairs, and chocolate production, it has the atmosphere of a place that never rushes but always delivers. Within twenty minutes of Alba or Bra, it's a logical choice for those who want to live near the action but not in it. Elegant, friendly, and just quirky enough to feel personal."
       },
       {
-        "id": "altamura",
-        "name": "Altamura",
-        "bestFor": "Famous bread, inland culture",
-        "photo": "/images/puglia/altamura.jpg",
-        "mapUrl": "https://maps.app.goo.gl/altamura",
-        "blurb": "Inland city famous for Pane di Altamura (DOP bread). Strong cultural identity, Romanesque cathedral, accessible prices. A real working town, not a tourist stop."
+        "id": "ivrea",
+        "name": "Ivrea",
+        "bestFor": "Industrial heritage, mountain access",
+        "photo": "/images/piemonte/ivrea.jpg",
+        "mapUrl": "https://maps.google.com/?q=Ivrea+Italy",
+        "blurb": "Once the headquarters of Olivetti — the company that made typewriters cool — Ivrea carries the DNA of innovation and design. Its modernist industrial heritage earned it UNESCO status, and its annual orange-throwing carnival proves the locals have a sense of humor. Nestled by the Dora Baltea River, Ivrea is scenic and smart, a perfect midpoint between Turin and the Alps. Ideal for remote workers or semi-urban expats who crave balance."
       },
       {
-        "id": "conversano",
-        "name": "Conversano",
-        "bestFor": "Artistic community, accessible beauty",
-        "photo": "/images/puglia/conversano.jpg",
-        "mapUrl": "https://maps.app.goo.gl/conversano",
-        "blurb": "Hilltop town near Polignano with similar aesthetic but lower prices and quieter streets. Art galleries, Norman castle, genuine community feel."
+        "id": "mondovi",
+        "name": "Mondovì",
+        "bestFor": "Terraced hillside views, ceramic tradition",
+        "photo": "/images/piemonte/mondovi.jpg",
+        "mapUrl": "https://maps.google.com/?q=Mondovi+Italy",
+        "blurb": "Set on terraced hills overlooking the Tanaro Valley, Mondovì feels like two towns stacked — the medieval Piazza above and the modern Breo below. A funicular links them, because of course it does; this is Piedmont, where even old towns are engineered. Known for ceramics, wine, and its baroque cathedral, Mondovì is accessible yet atmospheric. Housing is modestly priced, and the mountain views come free."
       }
     ]
   },
   "highlights": {
     "wine": {
-      "title": "Sun in a Glass",
-      "intro": "Puglia makes more wine than any other Italian region—over 8 million hectoliters annually—but until recently, most of it went into bulk blends or anonymous bottles. Now, the secret is out: the grapes that thrive in this sun-baked heel produce wines of power, character, and surprising elegance. These aren't delicate, cerebral wines—they're bold, full-bodied, and unapologetic. They taste like the land: mineral, earthy, kissed by salt air.",
-      "backgroundImage": "/images/puglia/vineyard-sunset.jpg",
-      "cards": [
-        {
-          "id": "primitivo",
-          "title": "Primitivo di Manduria",
-          "subtitle": "Puglia's bold calling card",
-          "description": "Puglia's calling card—and secretly, California's Zinfandel. Genetic testing proved they're the same grape, separated by centuries and an ocean. Here, in its ancestral home, Primitivo is jammy, bold, sun-baked power. Dark fruit, spice, high alcohol. Manduria DOC is the epicenter. Pair with grilled meats, aged cheeses, anything that can stand up to its intensity.",
-          "image": "/images/puglia/primitivo-wine.jpg",
-          "links": [
-            {
-              "label": "Learn More",
-              "href": "https://www.winefolly.com/deep-dive/primitivo-wine-guide/"
-            }
-          ]
-        },
-        {
-          "id": "negroamaro",
-          "title": "Negroamaro",
-          "subtitle": "Salento's soul grape",
-          "description": "The name means 'black bitter,' which undersells its complexity. This is Salento's soul grape—smoky, earthy, surprisingly elegant for such a powerful variety. Black cherry, tobacco, leather, a hint of almond bitterness on the finish. It's the foundation of Salice Salentino DOC and a favorite of winemakers experimenting with single-vineyard expressions.",
-          "image": "/images/puglia/negroamaro-wine.jpg",
-          "links": [
-            {
-              "label": "Discover Negroamaro",
-              "href": "https://www.vinitaly.com/en/negroamaro/"
-            }
-          ]
-        },
-        {
-          "id": "nero-di-troia",
-          "title": "Nero di Troia",
-          "subtitle": "Northern Puglia's secret weapon",
-          "description": "Northern Puglia's secret weapon, named after the town of Troia (not the ancient city). Deep color, firm tannins, notes of red fruit, spice, and herbs. Food-friendly structure that ages well. Lesser-known than Primitivo but gaining recognition. Pair with lamb, game, or Puglia's famous burrata.",
-          "image": "/images/puglia/nero-di-troia.jpg",
-          "links": [
-            {
-              "label": "Nero di Troia Guide",
-              "href": "https://www.italianwinecentral.com/nero-di-troia/"
-            }
-          ]
-        }
-      ]
+        "title": "WINE — Precision in Every Hillside",
+        "intro": "In Piemonte, wine isn't agriculture — it's architecture. Hills rise and curve with mathematical purpose, each slope engineered to catch just the right light. The region's UNESCO-listed vineyard landscapes of Langhe, Roero, and Monferrato are a monument to human discipline in pursuit of flavor. This is where the Nebbiolo grape becomes Barolo and Barbaresco, wines of patience and structure; where Barbera, Dolcetto, and Arneis define everyday elegance. The story of Piemonte's wines isn't about excess; it's about restraint. These are wines made for slow meals, foggy evenings, and quiet company — bottles that reward conversation as much as aging. The geography does most of the work, the people simply listen to it.",
+        "backgroundImage": "/images/piemonte/vineyard-fall.jpg",
+        "cards": [
+          {
+            "id": "unesco-vineyards",
+            "title": "UNESCO Vineyard Landscapes",
+            "subtitle": "Langhe, Roero, and Monferrato",
+            "image": "/images/piemonte/hero-vineyards.jpg",
+            "description": "Hills that rise with mathematical purpose. Each slope engineered to catch the right light. A monument to human discipline in pursuit of flavor.",
+            "links": [
+              {
+                "label": "UNESCO Vineyard Landscapes",
+                "href": "https://whc.unesco.org/en/list/1390/"
+              }
+            ]
+          },
+          {
+            "id": "signature-grapes",
+            "title": "Nebbiolo, Barbera, Arneis",
+            "subtitle": "Patience, structure, everyday elegance",
+            "image": "/images/piemonte/barolo.jpg",
+            "description": "Nebbiolo becomes Barolo and Barbaresco — wines of patience and structure. Barbera and Dolcetto offer balance and bite. Arneis and Gavi bring crisp, mineral power.",
+            "links": [
+              {
+                "label": "Wines of Piemonte",
+                "href": "https://www.ivinidelpiemonte.com/vini-e-territorio/"
+              }
+            ]
+          },
+          {
+            "id": "vineyard-stewardship",
+            "title": "Multigenerational Producers",
+            "subtitle": "Culture of vineyard stewardship",
+            "image": "/images/piemonte/vineyard-fall.jpg",
+            "description": "Family producers who listen to the geography. Harvest, fog season, truffle season — a rhythm measured in generations, not quarters.",
+            "links": [
+              {
+                "label": "Langhe.net Tours",
+                "href": "https://www.langhe.net/"
+              }
+            ]
+          }
+        ]
+      },
+      "food": {
+        "title": "FOOD — When Simplicity Learns Restraint",
+        "intro": "Piemonte's food culture reads like a manifesto: take fewer ingredients, make them matter more. This is the region that invented Slow Food, not as a trend but as a protest — against speed, uniformity, and the loss of local taste. From Bra to Asti, markets overflow not with novelty but with precision: hazelnuts that taste like memory, butter that silences a room, and pasta so thin it flutters when you breathe. Meals here don't start until they mean something. Bagna càuda turns a bowl of anchovies and garlic into a social ritual. Tajarin pasta and agnolotti del plin are acts of regional loyalty. And in autumn, white truffles emerge like folklore — sudden, expensive, and irresistible.",
+        "backgroundImage": "/images/piemonte/market.jpg",
+        "cards": [
+          {
+            "id": "white-truffle",
+            "title": "White Truffle of Alba",
+            "subtitle": "Sudden, expensive, irresistible",
+            "image": "/images/piemonte/white-truffle.jpg",
+            "description": "Emerge like folklore each autumn. Visit the International Alba White Truffle Fair for the full sensory experience — a heritage-level culinary event.",
+            "links": [
+              {
+                "label": "Alba Truffle Fair",
+                "href": "https://www.fieradeltartufo.org/"
+              }
+            ]
+          },
+          {
+            "id": "cultural-dishes",
+            "title": "Tajarin, Agnolotti, Bagna Càuda",
+            "subtitle": "Acts of regional loyalty",
+            "image": "/images/piemonte/agnolotti.jpg",
+            "description": "Pasta so thin it flutters when you breathe. Bagna càuda: anchovies, garlic, olive oil — a communal ritual that turns restraint into warmth.",
+            "links": [
+              {
+                "label": "Piemontese Recipes",
+                "href": "https://www.piemonteitalia.eu/it/enogastronomia/ricette"
+              }
+            ]
+          },
+          {
+            "id": "slow-food",
+            "title": "Slow Food International",
+            "subtitle": "Born in Bra as protest, not trend",
+            "image": "/images/piemonte/slow-food.jpg",
+            "description": "Against speed, uniformity, and the loss of local taste. The manifesto started here: take fewer ingredients, make them matter more.",
+            "links": [
+              {
+                "label": "Slow Food International",
+                "href": "https://www.slowfood.com/"
+              }
+            ]
+          },
+          {
+            "id": "markets",
+            "title": "Markets of Precision",
+            "subtitle": "Hazelnuts, butter, and memory",
+            "image": "/images/piemonte/market.jpg",
+            "description": "From Bra to Asti, markets overflow with precision rather than novelty. Hazelnuts that taste like memory, butter that silences a room.",
+            "links": [
+              {
+                "label": "Earth Markets - Italy/Piemonte",
+                "href": "https://www.fondazioneslowfood.com/it/nazioni-mercati/italia-it/?fwp_mercati_della_terra_nazioni=italia-it"
+              }
+            ]
+          }
+        ]
+      },
+      "culture": {
+        "title": "CULTURE — Where Grandeur Whispers, Not Shouts",
+        "intro": "Piemonte's cultural personality is subtle — stately façades, arcaded streets, and a calm intellect that reveals itself slowly. Turin, once the capital of a kingdom and now one of Europe's most underappreciated cultural cities, leads the region's aesthetic dialogue. Its museums — from the Museo Egizio to the Museum of Cinema — rival global icons, while its concert halls and galleries carry an understated confidence. Beyond the city, royal palaces, baroque towns, and contemporary art fairs create a patchwork of heritage that feels lived-in rather than staged. This is culture you stumble into, not queue for: frescoes in village churches, festivals that fill medieval squares, and jazz spilling from Turin's colonnades. Piemonte rewards curiosity over spectacle.",
+        "backgroundImage": "/images/piemonte/torino-hero.jpg",
+        "cards": [
+          {
+            "id": "museo-egizio",
+            "title": "Museo Egizio",
+            "subtitle": "World's greatest Egyptian collection outside Cairo",
+            "image": "/images/piemonte/torino1.jpg",
+            "description": "Rivals global icons with understated confidence. Ancient Egyptian archaeology in a city that knows subtlety.",
+            "links": [
+              {
+                "label": "Visit Museo Egizio",
+                "href": "https://museoegizio.it/"
+              }
+            ]
+          },
+          {
+            "id": "cinema-museum",
+            "title": "Museo Nazionale del Cinema",
+            "subtitle": "A cinematic cathedral inside the Mole",
+            "image": "/images/piemonte/torino2.jpg",
+            "description": "Film history and art housed in Turin's iconic tower — a monument to serious cinema in a subtle city.",
+            "links": [
+              {
+                "label": "Cinema Museum",
+                "href": "https://www.museocinema.it/"
+              }
+            ]
+          },
+          {
+            "id": "venaria-reale",
+            "title": "Reggia di Venaria Reale",
+            "subtitle": "Savoy opulence, better lighting than Versailles",
+            "image": "/images/piemonte/torino3.jpg",
+            "description": "A UNESCO World Heritage site. Royal grandeur that feels lived-in rather than staged.",
+            "links": [
+              {
+                "label": "Plan Your Visit",
+                "href": "https://www.lavenaria.it/"
+              }
+            ]
+          },
+          {
+            "id": "collisioni-festival",
+            "title": "Collisioni Festival",
+            "subtitle": "Literature, music, wine in Barolo",
+            "image": "/images/piemonte/alba.jpg",
+            "description": "Perfect harmony of art and terroir. Festivals that fill medieval squares with contemporary culture.",
+            "links": [
+              {
+                "label": "Festival Info",
+                "href": "https://www.collisioni.it/"
+              }
+            ]
+          },
+          {
+            "id": "torino-film",
+            "title": "Torino Film Festival",
+            "subtitle": "Serious cinema, subtle city",
+            "image": "/images/piemonte/torino.jpg",
+            "description": "One of Italy's most prestigious film festivals. Culture you stumble into, not queue for.",
+            "links": [
+              {
+                "label": "Film Festival",
+                "href": "https://www.torinofilmfest.org/"
+              }
+            ]
+          },
+          {
+            "id": "artissima",
+            "title": "Artissima Contemporary Art Fair",
+            "subtitle": "Italy's most forward-thinking exhibition",
+            "image": "/images/piemonte/market.jpg",
+            "description": "Leading international contemporary art fair. A patchwork of heritage meeting innovation.",
+            "links": [
+              {
+                "label": "Artissima",
+                "href": "https://www.artissima.art/"
+              }
+            ]
+          },
+          {
+            "id": "olivetti",
+            "title": "Olivetti's Modernist Utopia",
+            "subtitle": "Design legacy in Ivrea",
+            "image": "/images/piemonte/ivrea.jpg",
+            "description": "UNESCO site proving industry can be beautiful. Craftsmanship and calm intellect in architectural form.",
+            "links": [
+              {
+                "label": "Industrial City of Ivrea",
+                "href": "https://www.comune.ivrea.to.it/"
+              }
+            ]
+          }
+        ]
+      }
     },
-    "food": {
-      "title": "Cucina Povera Reimagined",
-      "intro": "Puglia's food isn't fancy. It's the opposite of fancy. It's what happens when you have sunshine, olive oil, wheat fields, a coastline full of fish, and grandmothers who refuse to waste anything. Cucina povera—peasant cooking—elevated not through technique but through respect. Respect for the ingredient, for the season, for the hands that made it. Every dish tells a story of scarcity turned into abundance.",
-      "backgroundImage": "/images/puglia/olive-oil-pour.jpg",
-      "cards": [
-        {
-          "id": "orecchiette",
-          "title": "Orecchiette con Cime di Rapa",
-          "subtitle": "The taste of home",
-          "description": "Little ear-shaped pasta (rolled by hand, of course) tossed with bitter turnip greens, garlic, anchovy, and chili. The bitterness of the greens, the salt of the anchovy, the heat of the pepper—it's a perfect triangle of flavor. Every nonna has her own ratio. This is the taste of home.",
-          "image": "/images/puglia/orecchiette.jpg",
-          "links": [
-            {
-              "label": "Recipe",
-              "href": "https://www.greatitalianchefs.com/recipes/orecchiette-cime-di-rapa-recipe"
-            }
-          ]
-        },
-        {
-          "id": "fave-cicoria",
-          "title": "Fave e Cicoria",
-          "subtitle": "Peasant food perfection",
-          "description": "Fava bean puree meets wild chicory. Peasant food in its purest form—two ingredients, transformed through slow cooking and good olive oil into something sublime. The beans are cooked down to cream, the chicory is bitter and earthy. You eat them together with bread, and you understand why simple doesn't mean boring.",
-          "image": "/images/puglia/fave-cicoria.jpg",
-          "links": [
-            {
-              "label": "Traditional Recipe",
-              "href": "https://www.thelocal.it/20210315/recipe-fave-e-cicoria-puglia/"
-            }
-          ]
-        },
-        {
-          "id": "tiella",
-          "title": "Tiella Barese",
-          "subtitle": "Bari's signature comfort",
-          "description": "Bari's signature dish: layers of rice, mussels, potatoes, and tomatoes baked in a terracotta dish until the top forms a golden crust. It's comfort food and celebration food at once. Every family argues about the correct rice-to-mussel ratio. There is no correct ratio. There is only your family's ratio.",
-          "image": "/images/puglia/tiella.jpg",
-          "links": [
-            {
-              "label": "How to Make It",
-              "href": "https://www.pugliautentica.com/recipe-tiella-barese/"
-            }
-          ]
-        },
-        {
-          "id": "olive-oil",
-          "title": "The Real Gold of Puglia",
-          "subtitle": "Liquid treasure",
-          "description": "Forget the wine—olive oil is Puglia's liquid treasure. Over 60 million olive trees, some over 1,000 years old. DOP zones like Terra di Bari, Salento, and Dauno produce oils that range from delicate and fruity to peppery and bold. Fresh oil (November-December) is an event. It's green, grassy, so peppery it makes you cough. You drizzle it on everything. You drink it from the bottle when no one's looking.",
-          "image": "/images/puglia/olive-oil.jpg",
-          "links": [
-            {
-              "label": "Olive Oil Guide",
-              "href": "https://www.oliveoiltimes.com/world/europe/puglia-olive-oil-guide"
-            }
-          ]
-        }
-      ]
-    },
-    "culture": {
-      "title": "Faith, Festivals, and Facades",
-      "intro": "Puglia's culture is layered—literally. Every civilization that passed through left its mark: Greek temples, Roman roads, Byzantine mosaics, Norman castles, Baroque churches. But this isn't a museum. It's a living, breathing tradition that shows up in festivals, in music, in the way stone is carved, in the rhythm of the week. Culture here isn't something you visit; it's something you inhabit.",
-      "backgroundImage": "/images/puglia/lecce-baroque-detail.jpg",
-      "cards": [
-        {
-          "id": "lecce-baroque",
-          "title": "Lecce Stone & Baroque Magic",
-          "subtitle": "The Florence of the South",
-          "description": "Lecce's golden limestone is soft as butter when quarried, hard as rock once exposed to air. This allowed Baroque carvers to create facades of absurd detail—angels, fruits, flowers, saints, all interwoven in stone lace. The result is a city that glows at sunset, where every doorway is a work of art. This is why they call it 'The Florence of the South.'",
-          "image": "/images/puglia/lecce-baroque.jpg",
-          "links": [
-            {
-              "label": "Visit Lecce",
-              "href": "https://www.italia.it/en/puglia/lecce.html"
-            }
-          ]
-        },
-        {
-          "id": "trulli",
-          "title": "Alberobello's Trulli",
-          "subtitle": "A fairytale you can live in",
-          "description": "Conical stone houses with whitewashed walls and gray stone roofs, built without mortar using a prehistoric dry-stone technique. UNESCO heritage, yes, but also still inhabited. Walk through Alberobello and you'll see laundry hanging from trullo windows, locals tending gardens. It's a fairytale that people actually live in.",
-          "image": "/images/puglia/alberobello-trulli.jpg",
-          "links": [
-            {
-              "label": "UNESCO Site",
-              "href": "https://whc.unesco.org/en/list/787/"
-            }
-          ]
-        },
-        {
-          "id": "pizzica",
-          "title": "Pizzica: The Sound of Salento",
-          "subtitle": "Music that cures the soul",
-          "description": "Puglia's heartbeat has a tempo: the pizzica, a hypnotic folk dance rooted in tarantella tradition. Tambourines, violins, frantic rhythms—originally believed to cure the bite of the tarantula spider through dance. Now it's the soundtrack of summer festivals. La Notte della Taranta in August draws hundreds of thousands. You don't watch pizzica. You surrender to it.",
-          "image": "/images/puglia/pizzica-dance.jpg",
-          "links": [
-            {
-              "label": "Festival Info",
-              "href": "https://www.lanottedellataranta.it/en/"
-            }
-          ]
-        },
-        {
-          "id": "festa-patronale",
-          "title": "Festa Patronale",
-          "subtitle": "Community rituals through the ages",
-          "description": "Every town has its patron saint, and every saint gets a festival. Processions with statues, brass bands, fireworks, street food, all-night dancing. Bari's Festa di San Nicola (May) features a boat parade reenacting the saint's arrival. These aren't tourist events—they're community rituals. You're invited, but you're also witnessing something that predates you by centuries.",
-          "image": "/images/puglia/festa-patronale.jpg",
-          "links": [
-            {
-              "label": "Learn More",
-              "href": "https://www.italia.it/en/travel-ideas/unesco-world-heritage-sites/festa-di-san-nicola-bari.html"
-            }
-          ]
-        }
-      ]
-    }
-  },
   "collaborator": {
-    "heading": "Learn Italian the Way Italians Actually Speak",
+    "heading": "Speak Italian Like You Belong",
     "paragraphs": [
-      "Most Italian courses teach you how to order coffee and ask for directions. Then you arrive, and nobody sounds like your textbook. That's because real Italian is regional, rapid, and full of idioms your app never mentioned.",
-      "That's where **[Language Partner Name]** comes in. They teach conversational Italian rooted in real-life context—how to banter at the market, navigate bureaucracy, understand your neighbors' jokes. Lessons are tailored to your region (Puglia has its own dialect flavors), your goals (retirement vs. work vs. integration), and your pace.",
-      "Whether you're starting from zero or just need to break through the intermediate plateau, they'll get you speaking like someone who actually lives here—not someone reading from a phrasebook."
+      "You can learn Italian from a book, but it won't teach you how to order coffee in Turin without sounding like a tourist. That's where my friend Luca comes in.",
+      "Luca is a native Italian teacher and founder of the Italian Conversation Club, where lessons feel more like catching up with a friend than sitting through class. His approach is simple: real conversations, cultural insight, and the confidence to connect with locals from day one.",
+      "Each one-to-one session is completely tailored to you — your level, your goals, your life. Whether you're preparing for a move to Italy, want to feel comfortable chatting with your barista, or just wish you could express yourself naturally, Luca helps you do exactly that.",
+      "His students say the same thing: they stopped translating in their heads and started thinking in Italian. It happens faster than you expect when you learn the language the Italian way — with laughter, mistakes, and heart.",
+      "The first session is free. Try it and see how quickly Italian starts to feel like yours."
     ],
-    "ctaText": "Start Speaking Italian",
-    "ctaLink": "https://example.com/language-partner",
-    "backgroundImage": "/images/shared/cafe-table-sepia.jpg"
+    "ctaText": "Try a Free Lesson with Luca",
+    "ctaLink": "https://italiando.aqulas.me/?fbclid=PAb21jcANYu8xleHRuA2FlbQIxMQABp-AAQrUNhnXXhrBTY_8w8RMtjDouyRS2egmduL1HHvyjvdskKaEOICPWdDrW_aem_Xi-i2ozen-XC30YQMhECJw",
+    "backgroundImage": "/images/piemonte/cafe-language.jpg"
   },
   "wine": {
     "quiz": {
-      "title": "Which Pugliese Wine Are You?",
-      "intro": "Answer a few questions and discover your Puglia wine personality—plus where to drink it.",
       "profiles": [
         {
-          "id": "primitivo",
-          "label": "Bold & Unapologetic",
+          "id": "bold",
+          "label": "Bold & Age-worthy",
           "result": {
-            "name": "Primitivo di Manduria",
-            "note": "Bold, unapologetic, full of life. You don't do subtle—you do memorable. Sun-soaked intensity in a glass. Pair with grilled lamb, aged pecorino, anything charred over an open flame.",
-            "image": "/images/puglia/primitivo-wine.jpg"
+            "name": "Barolo",
+            "note": "The King of Wines. Nebbiolo grape. Tar, roses, leather. Needs years to open. Cellar-worthy investment.",
+            "image": "/images/piemonte/barolo-wine.jpg"
           }
         },
         {
-          "id": "negroamaro",
-          "label": "Complex & Elegant",
+          "id": "silky",
+          "label": "Silky & Perfumed",
           "result": {
-            "name": "Negroamaro",
-            "note": "Complex, earthy, surprisingly elegant. You've got depth and a hint of mystery. Not flashy, but unforgettable once someone takes the time to know you. Pair with roasted vegetables, burrata, wood-fired pizza with bitter greens.",
-            "image": "/images/puglia/negroamaro-wine.jpg"
+            "name": "Barbaresco",
+            "note": "Nebbiolo's elegant sibling. Aromatic, refined, less tannic. Shorter aging. The Queen to Barolo's King.",
+            "image": "/images/piemonte/barbaresco.jpg"
           }
         },
         {
-          "id": "nero-di-troia",
-          "label": "Structured & Underrated",
+          "id": "everyday",
+          "label": "Everyday Red",
           "result": {
-            "name": "Nero di Troia",
-            "note": "Structured, food-friendly, underrated. You're the one people overlook until they taste you—then they can't stop talking about you. Pair with lamb ragu, grilled sausages, Sunday lunch with the in-laws.",
-            "image": "/images/puglia/nero-di-troia.jpg"
+            "name": "Dolcetto d'Alba",
+            "note": "Juicy, dark fruit. Low tannins. Drink young. Perfect weeknight wine. Affordable and delicious.",
+            "image": "/images/piemonte/dolcetto.jpg"
+          }
+        },
+        {
+          "id": "crisp",
+          "label": "Crisp & Aromatic White",
+          "result": {
+            "name": "Arneis",
+            "note": "Pear, almond, white flowers. Fresh acidity. Pairs with seafood, vegetables. Underrated gem.",
+            "image": "/images/piemonte/arneis.jpg"
           }
         }
       ]
     }
   },
   "recipes": {
-    "title": "Cook Like a Pugliese Nonna",
-    "intro": "Three recipes that define the region—and why they matter.",
     "cards": [
       {
-        "id": "orecchiette",
-        "title": "Orecchiette con Cime di Rapa",
-        "image": "/images/puglia/orecchiette.jpg",
-        "description": "Hand-rolled pasta with bitter greens, anchovy, and chili. The taste of home.",
+        "id": "tajarin-tartufo",
+        "title": "Tajarin al Tartufo",
+        "mode": "Rustic",
+        "image": "/images/piemonte/tajarin.jpg",
         "ingredients": [
-          "400g orecchiette (or make your own)",
-          "500g cime di rapa (turnip greens)",
-          "4 anchovy fillets",
-          "3 cloves garlic, sliced",
-          "1 red chili, chopped",
-          "Extra virgin olive oil",
+          "400g fresh tajarin (thin egg pasta)",
+          "100g butter",
+          "50g white truffle (or 20g if being reasonable)",
+          "Parmigiano-Reggiano",
           "Salt"
         ],
         "steps": [
-          "Boil cime di rapa in salted water until tender (8-10 min). Reserve cooking water. Drain greens.",
-          "In a large pan, heat olive oil and sauté garlic, anchovy, and chili until anchovy melts.",
-          "Add greens to pan, toss to coat.",
-          "Cook orecchiette in the reserved greens water. Drain 1 minute early, reserving 1 cup pasta water.",
-          "Toss pasta with greens, adding pasta water as needed to create a silky sauce.",
-          "Finish with a generous drizzle of your best olive oil."
+          "Cook tajarin in salted boiling water for 2-3 minutes until al dente",
+          "Meanwhile, melt butter gently in a large pan—don't brown it",
+          "Drain pasta, reserving 1/2 cup pasta water",
+          "Toss pasta in butter, adding pasta water to create silky sauce",
+          "Plate immediately and shave truffle generously over top",
+          "Finish with a light grating of Parmigiano"
         ],
-        "winePairing": "Negroamaro",
-        "mode": "Rustic"
+        "pairWithWineProfile": "silky",
+        "winePairing": "Barolo DOCG — ideally 8–10 years old; its forest-floor complexity mirrors truffle's depth.",
+        "links": [
+          {
+            "label": "Alba Truffle Fair (Oct-Nov)",
+            "href": "https://www.fieradeltartufo.org/"
+          }
+        ]
       },
       {
-        "id": "tiella",
-        "title": "Tiella Barese",
-        "image": "/images/puglia/tiella.jpg",
-        "description": "Bari's layered rice, mussel, and potato casserole. Comfort food meets celebration.",
+        "id": "bagna-cauda",
+        "title": "Bagna Cauda",
+        "mode": "Rustic",
+        "image": "/images/piemonte/bagna.jpg",
         "ingredients": [
-          "1kg mussels, cleaned",
-          "300g Arborio rice",
-          "3 large potatoes, sliced thin",
-          "2 onions, sliced thin",
-          "4 ripe tomatoes, sliced",
-          "100g Pecorino, grated",
-          "Fresh parsley",
-          "Extra virgin olive oil",
-          "Salt, pepper"
+          "200g anchovy fillets in oil",
+          "8 cloves garlic, sliced thin",
+          "200ml extra virgin olive oil",
+          "50g butter",
+          "Seasonal vegetables (peppers, cardoons, cabbage, carrots)"
         ],
         "steps": [
-          "Preheat oven to 180°C. Grease a large terracotta or baking dish.",
-          "Layer half the potatoes on bottom. Season with salt.",
-          "Add half the rice, half the onions, half the tomatoes.",
-          "Arrange mussels on top (in their shells). Sprinkle with parsley and Pecorino.",
-          "Layer remaining rice, onions, tomatoes, and potatoes.",
-          "Drizzle generously with olive oil. Add 500ml water.",
-          "Cover with foil and bake 40 minutes. Remove foil, bake another 20 minutes until golden crust forms.",
-          "Let rest 10 minutes before serving."
+          "Gently heat olive oil and butter in earthenware pot",
+          "Add garlic and anchovies, stirring until anchovies dissolve (15-20 min)",
+          "Keep warm over low flame or candle",
+          "Serve with raw and cooked vegetables for dipping",
+          "Traditionally eaten communally—have bread ready to soak up drips"
         ],
-        "winePairing": "Verdeca or Falanghina",
-        "mode": "Refined"
+        "pairWithWineProfile": "crisp",
+        "winePairing": "Barbera d'Asti DOCG — Piemonte's most forgiving red; bright acidity, no heavy tannins, refreshes beautifully."
       },
       {
-        "id": "focaccia",
-        "title": "Focaccia Barese",
-        "image": "/images/puglia/focaccia-barese.jpg",
-        "description": "Tomato-topped flatbread. Crispy bottom, soft interior, vegetables on top. Breakfast, snack, or meal.",
+        "id": "vitello-tonnato",
+        "title": "Vitello Tonnato",
+        "mode": "Refined",
+        "image": "/images/piemonte/vitello.jpg",
         "ingredients": [
-          "500g semolina flour",
-          "350ml warm water",
-          "10g fresh yeast",
-          "10g salt",
-          "50ml extra virgin olive oil",
-          "Cherry tomatoes, halved",
-          "Black olives",
-          "Oregano",
-          "Coarse sea salt"
+          "800g veal roast",
+          "200g canned tuna in oil",
+          "4 anchovy fillets",
+          "2 egg yolks",
+          "Capers",
+          "Lemon juice",
+          "Olive oil"
         ],
         "steps": [
-          "Dissolve yeast in warm water. Add flour, salt, and mix until shaggy dough forms.",
-          "Knead 10 minutes until smooth. Add 30ml olive oil, knead to incorporate.",
-          "Let rise covered 2 hours until doubled.",
-          "Oil a baking sheet generously. Stretch dough to fit, pressing dimples with your fingers.",
-          "Top with tomatoes (cut side down), olives, oregano, sea salt, and remaining olive oil.",
-          "Let rest 30 minutes. Preheat oven to 220°C.",
-          "Bake 25-30 minutes until golden and crispy at edges.",
-          "Cool slightly, cut into squares, devour."
+          "Roast veal until just cooked, let cool completely",
+          "Blend tuna, anchovies, egg yolks, lemon juice until smooth",
+          "Slowly add olive oil to create mayonnaise-like sauce",
+          "Slice veal paper-thin, arrange on platter",
+          "Cover completely with tuna sauce",
+          "Refrigerate 2+ hours, garnish with capers before serving"
         ],
-        "winePairing": "Fiano Minutolo",
-        "mode": "Rustic"
+        "pairWithWineProfile": "crisp",
+        "winePairing": "Roero Arneis DOCG — floral, almond-scented, medium-bodied white that cuts through the richness of the sauce."
+      },
+      {
+        "id": "bonet-cacao",
+        "title": "Bonèt al Cacao e Amaretti",
+        "mode": "Refined",
+        "image": "/images/piemonte/bonet-al-cacao.jpg",
+        "story": "Bonèt (pronounced bo-nay) is Piemonte's answer to crème caramel — but darker, moodier, and grown up. It was the final flourish at 18th-century banquets in the Savoy court, meant to \"clean the palate\" after truffle and game. Made with cocoa, amaretto liqueur, and crushed amaretti cookies, it tastes like the moment between coffee and confession. Every family has a version — some silkier, some boozier — but all whisper of elegance and restraint.",
+        "whyRefined": "It looks simple but takes precision: low heat, perfect timing, just enough bitterness to keep the sweetness interesting. It's the kind of dessert you serve in small portions and remember for days.",
+        "ingredients": [
+          "500 ml whole milk",
+          "4 whole eggs + 2 egg yolks",
+          "120 g sugar (plus more for caramel)",
+          "30 g unsweetened cocoa powder",
+          "100 g crushed amaretti cookies",
+          "50 ml amaretto liqueur (optional but traditional)",
+          "Pinch of salt",
+          "Butter (for greasing molds)"
+        ],
+        "steps": [
+          "Make the caramel: In a saucepan, melt 100g sugar over medium heat until golden. Quickly pour into a loaf pan or ramekins, swirling to coat the base. Let set.",
+          "Prepare the custard: Warm milk in a saucepan (do not boil). In a bowl, whisk eggs, yolks, sugar, cocoa, salt, and amaretto. Add crushed amaretti cookies, then gradually pour in the warm milk, whisking constantly until smooth.",
+          "Bake gently: Pour mixture over the caramel base. Place the pan in a larger baking dish and fill with hot water halfway up the sides (bain-marie). Bake at 160°C / 320°F for about 45–50 minutes, until just set but still trembling in the center.",
+          "Cool and serve: Let cool completely, then refrigerate for at least 4 hours (preferably overnight). Invert onto plates before serving — the caramel will run like amber sauce."
+        ],
+        "servingSuggestion": "Serve chilled with a glass of Barolo Chinato or Moscato d'Asti — something aromatic but restrained. Top with a shard of amaretti crumble or a drizzle of espresso reduction if you want a modern accent.",
+        "pairWithWineProfile": "elegant",
+        "winePairing": "Barolo Chinato or Moscato d'Asti — aromatic, restrained, perfectly balanced with chocolate and amaretto."
       }
     ],
     "modes": ["Rustic", "Refined"]
   },
   "healthcare": {
     "intro": {
-      "headline": "Healthcare & Infrastructure",
-      "lead": "Puglia's healthcare system is solid, with major hospitals in Bari, Lecce, and Brindisi offering comprehensive services. Smaller towns have local clinics and pharmacies. Emergency care is free for all residents; routine care requires registration with SSN (Servizio Sanitario Nazionale). Getting around is straightforward—airports in Bari and Brindisi connect to Europe, trains link major towns, and highways make driving easy."
+      "headline": "Healthcare & Infrastructure: The Practical North",
+      "lead": "Piemonte doesn't brag about efficiency — it just runs on it. From its hospitals to its railways, everything here works with the same quiet precision as a Swiss watch that somehow learned to love truffles. The region's infrastructure isn't flashy, but it's reliable — a rare comfort for anyone considering a long-term move or retirement abroad."
     },
     "hospitals": [
       {
-        "name": "Policlinico di Bari",
-        "location": "Bari",
-        "coords": [41.1171, 16.8719],
-        "description": "Major university hospital with specialties in cardiology, oncology, and emergency medicine. Bari's primary medical center.",
-        "link": "https://www.policlinico.ba.it",
-        "mapUrl": "https://maps.google.com/?q=41.1171,16.8719"
+        "name": "Città della Salute e della Scienza di Torino",
+        "location": "Turin",
+        "coords": [45.0677, 7.6664],
+        "description": "Italy's largest teaching hospital, known for oncology and transplant programs.",
+        "link": "https://www.cittadellasalute.to.it/",
+        "mapUrl": "https://maps.google.com/?q=Citta+della+Salute+Torino"
       },
       {
-        "name": "Ospedale Vito Fazzi",
-        "location": "Lecce",
-        "coords": [40.3515, 18.1750],
-        "description": "Salento's largest hospital, offering comprehensive services including emergency care, surgery, and maternity.",
-        "link": "https://www.sanita.puglia.it",
-        "mapUrl": "https://maps.google.com/?q=40.3515,18.1750"
+        "name": "Ospedale Maggiore di Novara",
+        "location": "Novara",
+        "coords": [45.4386, 8.6225],
+        "description": "Historic university hospital serving the eastern plains; strong cardiology unit.",
+        "link": "https://www.maggioreosp.novara.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Novara"
       },
       {
-        "name": "Ospedale Perrino",
-        "location": "Brindisi",
-        "coords": [40.6323, 17.9417],
-        "description": "Regional hospital serving southern Puglia with strong emergency and surgical departments.",
-        "link": "https://www.sanita.puglia.it",
-        "mapUrl": "https://maps.google.com/?q=40.6323,17.9417"
+        "name": "Ospedale Santa Croce e Carle",
+        "location": "Cuneo",
+        "coords": [44.3960, 7.5442],
+        "description": "Regional reference for trauma and orthopedics; gateway to Alpine emergency services.",
+        "link": "https://www.ospedale.cuneo.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Cuneo"
+      },
+      {
+        "name": "Ospedale Cardinal Massaia",
+        "location": "Asti",
+        "coords": [44.9009, 8.2064],
+        "description": "Modern mid-size facility, efficient emergency ward, excellent maternity care.",
+        "link": "https://www.asl.at.it/",
+        "mapUrl": "https://maps.google.com/?q=Ospedale+Asti"
       }
     ],
     "airports": [
       {
-        "name": "Bari Karol Wojtyła Airport",
-        "coords": [41.1389, 16.7606],
-        "description": "Puglia's main airport with flights throughout Europe. 30 minutes from Bari centro, 40 minutes from Polignano a Mare.",
-        "link": "https://www.aeroportidipuglia.it/bari",
-        "mapUrl": "https://maps.google.com/?q=41.1389,16.7606"
+        "name": "Torino-Caselle Airport (TRN)",
+        "coords": [45.2008, 7.6496],
+        "description": "Compact, efficient hub 20 min from Turin; daily flights to Europe's major capitals.",
+        "link": "https://www.aeroportoditorino.it/en",
+        "mapUrl": "https://maps.google.com/?q=Torino+Caselle+Airport"
       },
       {
-        "name": "Brindisi Airport (Salento)",
-        "coords": [40.6576, 17.9470],
-        "description": "Southern Puglia's gateway. 40 minutes from Lecce, 35 minutes from Ostuni. Direct flights to major European cities.",
-        "link": "https://www.aeroportidipuglia.it/brindisi",
-        "mapUrl": "https://maps.google.com/?q=40.6576,17.9470"
+        "name": "Cuneo-Levaldigi Airport (CUF)",
+        "coords": [44.5471, 7.6232],
+        "description": "Small regional airport with seasonal routes to the UK and Northern Europe.",
+        "link": "https://www.aeroportocuneo.it/",
+        "mapUrl": "https://maps.google.com/?q=Cuneo+Airport"
       }
     ],
     "railways": [
       {
-        "name": "Bari Centrale",
-        "description": "Main regional hub with high-speed Freccia connections to Rome (4h), Naples (3h), and Milan (7h). Serves as gateway to Puglia's rail network.",
-        "link": "https://www.trenitalia.com"
+        "name": "Trenitalia National Network",
+        "description": "National trains connecting Turin, Milan, Florence, and Rome — punctual and affordable.",
+        "link": "https://www.trenitalia.com/en.html"
       },
       {
-        "name": "Lecce Station",
-        "description": "Southern terminus with regional connections throughout Salento. Direct trains to Bari, Brindisi, and Gallipoli.",
-        "link": "https://www.trenitalia.com"
-      },
-      {
-        "name": "FSE (Ferrovie del Sud Est)",
-        "description": "Narrow-gauge heritage network connecting Valle d'Itria towns like Alberobello, Martina Franca, and Ostuni. Slower but scenic.",
-        "link": "https://www.fseonline.it"
+        "name": "SFM Torino Lines",
+        "description": "Suburban network reaching Avigliana, Pinerolo, and Chieri — great for commuters.",
+        "link": "https://www.sfmtorino.it/"
       }
     ],
     "highways": [
       {
-        "name": "A14 (Adriatica)",
-        "description": "Main north-south autostrada connecting Bari to Bologna and beyond. Well-maintained toll road with rest stops every 30km.",
-        "link": "https://www.autostrade.it"
-      },
-      {
-        "name": "SS16 (Statale Adriatica)",
-        "description": "Coastal route from Bari south to Lecce. Free alternative to A14, passing through Polignano, Monopoli, and Brindisi.",
-        "link": "https://www.stradeanas.it"
-      },
-      {
-        "name": "SS7 (Via Appia)",
-        "description": "Historic inland route from Brindisi through Mesagne and Francavilla Fontana. Connects to Taranto and Matera.",
-        "link": "https://www.stradeanas.it"
+        "name": "A4 & A21 Autostrade",
+        "description": "Main arteries linking Turin with Milan, Genoa, and the Po Valley.",
+        "link": "https://www.autostrade.it/"
       }
     ],
     "parks": [
       {
-        "name": "Gargano National Park",
-        "coords": [41.7064, 15.9636],
-        "description": "Northern peninsula with ancient forests, dramatic cliffs, and coastal trails. Home to Vieste and the Tremiti Islands.",
-        "link": "https://www.parcogargano.it",
-        "mapUrl": "https://maps.google.com/?q=41.7064,15.9636"
+        "name": "Gran Paradiso National Park",
+        "coords": [45.5167, 7.2667],
+        "description": "Italy's first national park; alpine ibex, glaciers, and perfect signage.",
+        "link": "https://www.pngp.it/en",
+        "mapUrl": "https://maps.google.com/?q=Gran+Paradiso+National+Park"
       },
       {
-        "name": "Murgia National Park",
-        "coords": [40.8197, 16.5753],
-        "description": "Inland limestone plateau near Matera featuring cave dwellings (sassi), rock churches, and archaeological sites dating to Paleolithic times.",
-        "link": "https://www.parcomurgia.it",
-        "mapUrl": "https://maps.google.com/?q=40.8197,16.5753"
+        "name": "Parco delle Alpi Marittime",
+        "coords": [44.2333, 7.4000],
+        "description": "Wild valleys south of Cuneo; UNESCO biosphere reserve.",
+        "link": "https://www.parcoalpimarittime.it/",
+        "mapUrl": "https://maps.google.com/?q=Parco+Alpi+Marittime"
+      },
+      {
+        "name": "Parco Naturale del Po Piemonte",
+        "coords": [45.1000, 8.0500],
+        "description": "Wetlands and bird sanctuaries north of Turin; ideal day trip from the city.",
+        "link": "https://www.parcopopiemontese.it/parco-po-piemontese.php",
+        "mapUrl": "https://maps.google.com/?q=Parco+Po+Piemonte"
       }
     ],
     "travelTimes": [
       {
-        "from": "Bari",
+        "from": "Turin",
         "to": [
-          { "destination": "Polignano a Mare", "time": "30 min (train)" },
-          { "destination": "Ostuni", "time": "1h (train)" },
-          { "destination": "Lecce", "time": "1h 30min (train)" },
-          { "destination": "Alberobello", "time": "1h 15min (car)" }
+          { "destination": "Milan", "time": "55 min by train" },
+          { "destination": "Genoa", "time": "2h by train" },
+          { "destination": "Nice", "time": "3h 30 by train" },
+          { "destination": "Gran Paradiso Park", "time": "90 min by car" }
         ],
         "nearestAirport": {
-          "name": "Bari Karol Wojtyła Airport",
-          "code": "BRI",
+          "name": "Caselle Airport",
+          "code": "TRN",
           "time": "20 min",
-          "distance": "12 km",
-          "connectivity": "Direct flights to Rome, Milan, London, Paris, Brussels, and 50+ European cities",
-          "link": "https://www.aeroportidipuglia.it/bari"
+          "distance": "16 km",
+          "connectivity": "Direct flights to 50+ European cities",
+          "link": "https://www.aeroportoditorino.it/en"
         }
       },
       {
-        "from": "Lecce",
+        "from": "Alba",
         "to": [
-          { "destination": "Gallipoli", "time": "40 min (car)" },
-          { "destination": "Otranto", "time": "45 min (car)" },
-          { "destination": "Ostuni", "time": "1h 10min (train)" },
-          { "destination": "Bari", "time": "1h 30min (train)" }
+          { "destination": "Turin", "time": "1h 15 by train" },
+          { "destination": "Genoa", "time": "2h 10 by car" },
+          { "destination": "Milan", "time": "1h 45 by train" },
+          { "destination": "Alpi Marittime Park", "time": "90 min by car" }
         ],
         "nearestAirport": {
-          "name": "Brindisi Airport (Salento)",
-          "code": "BDS",
-          "time": "40 min",
-          "distance": "45 km",
-          "connectivity": "Connections to Rome, Milan, Northern Europe. Smaller than Bari but well-connected.",
-          "link": "https://www.aeroportidipuglia.it/brindisi"
+          "name": "Caselle Airport",
+          "code": "TRN",
+          "time": "1h",
+          "distance": "65 km",
+          "connectivity": "Direct flights to 50+ European cities",
+          "link": "https://www.aeroportoditorino.it/en"
         }
       },
       {
-        "from": "Ostuni",
+        "from": "Cuneo",
         "to": [
-          { "destination": "Alberobello", "time": "30 min (car)" },
-          { "destination": "Polignano a Mare", "time": "45 min (car)" },
-          { "destination": "Bari", "time": "1h (train)" },
-          { "destination": "Lecce", "time": "1h 10min (train)" }
+          { "destination": "Turin", "time": "1h 30 by train" },
+          { "destination": "Nice", "time": "2h 30 by car" },
+          { "destination": "Alpi Marittime Park", "time": "45 min by car" }
         ],
         "nearestAirport": {
-          "name": "Brindisi Airport (Salento)",
-          "code": "BDS",
-          "time": "25 min",
-          "distance": "30 km",
-          "connectivity": "Ideal for Valle d'Itria and coastal Salento. Direct flights to major Italian and European cities.",
-          "link": "https://www.aeroportidipuglia.it/brindisi"
+          "name": "Cuneo-Levaldigi Airport",
+          "code": "CUF",
+          "time": "15 min",
+          "distance": "18 km",
+          "connectivity": "Seasonal routes to UK & Northern Europe",
+          "link": "https://www.aeroportocuneo.it/"
         }
       },
       {
-        "from": "Polignano a Mare",
+        "from": "Verbania",
         "to": [
-          { "destination": "Bari", "time": "30 min (train)" },
-          { "destination": "Monopoli", "time": "15 min (train)" },
-          { "destination": "Alberobello", "time": "45 min (car)" },
-          { "destination": "Ostuni", "time": "45 min (car)" }
+          { "destination": "Milan", "time": "1h 20 by train" },
+          { "destination": "Turin", "time": "2h by train" },
+          { "destination": "Gran Paradiso Park", "time": "2h by car" }
         ],
         "nearestAirport": {
-          "name": "Bari Karol Wojtyła Airport",
-          "code": "BRI",
-          "time": "40 min",
-          "distance": "50 km",
-          "connectivity": "Easy access via SS16 coastal road or train to Bari. Excellent for international arrivals.",
-          "link": "https://www.aeroportidipuglia.it/bari"
+          "name": "Milan Malpensa Airport",
+          "code": "MXP",
+          "time": "45 min",
+          "distance": "55 km",
+          "connectivity": "Major international hub with global connections",
+          "link": "https://www.milanomalpensa-airport.com/en/"
         }
       }
     ],
     "quickInfo": {
       "emergencyNumbers": [
-        "112 - Unified Emergency (ambulance, police, fire)",
-        "118 - Direct Medical Emergency",
-        "1530 - Coast Guard (marine emergencies)"
+        "118 – Medical Emergency",
+        "112 – Police (Carabinieri)",
+        "115 – Fire Department"
       ],
       "healthcare": {
-        "title": "SSN Registration",
-        "description": "Register with Italy's national health service (SSN) at your local ASL office. Bring residency permit, tax code, and passport. Emergency care is free for all.",
-        "link": "https://www.sanita.puglia.it"
+        "title": "Register for Healthcare",
+        "description": "Via local ASL offices",
+        "link": "https://www.salute.gov.it/"
       },
       "transport": {
-        "title": "Trenitalia & FSE",
-        "description": "Book trains online or at stations. Trenitalia runs main lines; FSE covers smaller towns. Consider a car for Valle d'Itria and inland areas.",
-        "link": "https://www.trenitalia.com"
+        "title": "Transport Info",
+        "description": "Regional transport passes and schedules",
+        "link": "https://www.regione.piemonte.it/web/temi/trasporti"
       }
     },
-    "closing": "Puglia's infrastructure won't blow you away—it's not Switzerland—but it works. Hospitals are good, trains are reliable, and airports connect you to Europe. For day-to-day life, you'll be fine. For adventure, you'll have plenty of options."
+    "closing": "Piemonte offers a paradox rare in southern Europe: mountain air, Renaissance cities, and a bureaucracy that actually works. The wine may bring you here — the infrastructure is what makes you stay."
   },
   "costOfLiving": {
-    "intro": "Puglia is one of Italy's most affordable regions, especially compared to Tuscany, Lombardy, or the Amalfi Coast. Coastal towns command higher prices, but even Polignano or Ostuni are reasonable by northern European or North American standards. Inland towns offer remarkable value. Here's what life costs across three lifestyle tiers, with real numbers from three representative towns.",
+    "intro": {
+      "headline": "Cost of Living — What It Really Looks Like",
+      "lead": "Let's cut through the dream and talk real numbers. Piemonte offers a much lower entry cost than Milan or the Riviera—but \"low\" is relative. In this section, we show what life might cost in Torino, Asti, and Alba at three tiers: modest, normal, and high-end. Think of it as a slider from \"make-it-work\" to \"comfort living.\" Then you decide your middle ground.",
+      "realityCheck": "Retirement doesn't mean austerity—but you will live closer to the margin of comfort than excess. Utilities fluctuate by season. Dining out adds up more than you'd think when wine and culture are your hobbies. And yes, property taxes, heating, and local levies bite. Use these projections as a reality check, not a guarantee.",
+      "whyItWorks": "Compared to Italy's coastal hotspots or capitals, Piemonte wins on everyday stability: energy grids that are reliable, property taxes that are moderate (relative by region), and public services that punch above their weight. If your budget is well formed, you'll find breathing room."
+    },
     "townPresets": [
       {
-        "name": "Lecce",
-        "description": "University city, cultural capital, solid infrastructure",
-        "tiers": [
-          {
-            "level": "Modest",
-            "monthly": 1400,
-            "details": {
-              "rent": "€550 (1-bedroom outside centro)",
-              "utilities": "€120",
-              "food": "€350 (markets, cook at home)",
-              "transport": "€50 (bike, occasional train)",
-              "healthcare": "€80 (SSN + supplements)",
-              "entertainment": "€150 (cafés, cinema, local events)",
-              "misc": "€100"
-            }
-          },
-          {
-            "level": "Normal",
-            "monthly": 2100,
-            "details": {
-              "rent": "€750 (2-bedroom in centro storico)",
-              "utilities": "€140",
-              "food": "€500 (mix of markets and dining out)",
-              "transport": "€100 (car, insurance, fuel)",
-              "healthcare": "€120",
-              "entertainment": "€300 (restaurants, wine bars, culture)",
-              "misc": "€190"
-            }
-          },
-          {
-            "level": "High-End",
-            "monthly": 3500,
-            "details": {
-              "rent": "€1,400 (3-bedroom restored palazzo)",
-              "utilities": "€180",
-              "food": "€800 (frequent dining, quality ingredients)",
-              "transport": "€200 (car + occasional long trips)",
-              "healthcare": "€200 (private insurance)",
-              "entertainment": "€500 (theater, travel, fine dining)",
-              "misc": "€220"
-            }
-          }
-        ]
+        "id": "torino",
+        "label": "Torino (City)",
+        "modest": {
+          "rent": 700,
+          "utilities": 125,
+          "groceries": 350,
+          "dining": 225,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1350,
+          "utilities": 175,
+          "groceries": 525,
+          "dining": 350,
+          "transport": 100
+        },
+        "highEnd": {
+          "rent": 2000,
+          "utilities": 250,
+          "groceries": 700,
+          "dining": 500,
+          "transport": 160
+        }
       },
       {
-        "name": "Ostuni",
-        "description": "White city, expat-friendly, elevated living",
-        "tiers": [
-          {
-            "level": "Modest",
-            "monthly": 1500,
-            "details": {
-              "rent": "€600 (small flat outside centro)",
-              "utilities": "€120",
-              "food": "€380",
-              "transport": "€80 (car essential)",
-              "healthcare": "€80",
-              "entertainment": "€150",
-              "misc": "€90"
-            }
-          },
-          {
-            "level": "Normal",
-            "monthly": 2400,
-            "details": {
-              "rent": "€900 (restored trullo or centro flat)",
-              "utilities": "€150",
-              "food": "€550",
-              "transport": "€150",
-              "healthcare": "€120",
-              "entertainment": "€350",
-              "misc": "€180"
-            }
-          },
-          {
-            "level": "High-End",
-            "monthly": 4200,
-            "details": {
-              "rent": "€1,800 (luxury trullo with pool)",
-              "utilities": "€200",
-              "food": "€900",
-              "transport": "€250",
-              "healthcare": "€250",
-              "entertainment": "€600",
-              "misc": "€200"
-            }
-          }
-        ]
+        "id": "asti",
+        "label": "Asti (Town)",
+        "modest": {
+          "rent": 500,
+          "utilities": 100,
+          "groceries": 300,
+          "dining": 175,
+          "transport": 55
+        },
+        "normal": {
+          "rent": 800,
+          "utilities": 125,
+          "groceries": 425,
+          "dining": 300,
+          "transport": 80
+        },
+        "highEnd": {
+          "rent": 1200,
+          "utilities": 175,
+          "groceries": 600,
+          "dining": 400,
+          "transport": 125
+        }
       },
       {
-        "name": "Polignano a Mare",
-        "description": "Coastal cliff town, tourist energy, train access",
-        "tiers": [
-          {
-            "level": "Modest",
-            "monthly": 1550,
-            "details": {
-              "rent": "€650 (small flat, not sea view)",
-              "utilities": "€130",
-              "food": "€400",
-              "transport": "€60 (train to Bari)",
-              "healthcare": "€80",
-              "entertainment": "€150",
-              "misc": "€80"
-            }
-          },
-          {
-            "level": "Normal",
-            "monthly": 2600,
-            "details": {
-              "rent": "€1,000 (centro flat, partial sea view)",
-              "utilities": "€160",
-              "food": "€600",
-              "transport": "€120",
-              "healthcare": "€120",
-              "entertainment": "€400",
-              "misc": "€200"
-            }
-          },
-          {
-            "level": "High-End",
-            "monthly": 4800,
-            "details": {
-              "rent": "€2,200 (cliff-edge apartment, full sea view)",
-              "utilities": "€220",
-              "food": "€1,000",
-              "transport": "€250",
-              "healthcare": "€250",
-              "entertainment": "€700",
-              "misc": "€180"
-            }
-          }
-        ]
+        "id": "alba",
+        "label": "Alba (Wine Country)",
+        "modest": {
+          "rent": 600,
+          "utilities": 110,
+          "groceries": 330,
+          "dining": 205,
+          "transport": 65
+        },
+        "normal": {
+          "rent": 1050,
+          "utilities": 145,
+          "groceries": 475,
+          "dining": 315,
+          "transport": 90
+        },
+        "highEnd": {
+          "rent": 1700,
+          "utilities": 200,
+          "groceries": 600,
+          "dining": 450,
+          "transport": 135
+        }
       }
     ],
-    "notes": [
-      "These are estimates based on 2025 data; your costs will vary based on habits and exchange rates.",
-      "Rent can be lower if you buy property (mortgages ~3-4% interest).",
-      "Healthcare costs assume SSN registration; private insurance adds €100-300/month.",
-      "Food costs drop significantly if you shop at markets and cook Pugliese-style (simple, seasonal).",
-      "Transport costs assume car ownership; subtract €100-150/month if you use trains/buses.",
-      "Summer months (July-August) see price spikes in coastal areas; shoulder seasons are more affordable."
-    ]
+    "lifestyles": ["Modest", "Average", "High-End"],
+    "notes": {
+      "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
+      "sources": [
+        "Numbeo.com",
+        "LivingCost.org",
+        "Expatexchange.com",
+        "Politecnico di Torino Student Guide",
+        "Regional data extrapolations (2024)"
+      ],
+      "links": {
+        "torino": "https://www.numbeo.com/cost-of-living/in/Turin",
+        "asti": "https://www.livingcost.org/cost/italy/asti"
+      }
+    }
   },
   "prosCons": {
     "intro": {
-      "headline": "Pros & Cons: Puglia Without the Filter",
-      "lead": "Puglia isn't for everyone. It's hot. It's far from the Alps. It's not Tuscany (which, depending on your perspective, is either a pro or a con). But if you're looking for affordability, authenticity, sunshine, and a coast that never ends, this might be your place.",
-      "tradeoff": "The best part? You get Italy's soul without the tourist markup—real towns, real food, real people who'll feed you until you burst. The tradeoff? Summer heat that'll test your resolve, bureaucracy that moves at siesta speed, and small-town rhythms that reward patience over speed."
+      "headline": "Pros & Cons: Piemonte Without the Postcard Filter",
+      "lead": "Piemonte is what happens when Italy trades spectacle for substance. It's beautiful, yes — but quietly so. You don't come here for beaches or chaos; you come for rhythm, precision, and a certain civility that makes everyday life manageable. Think of it as Italy with its shirt tucked in: elegant, functional, and a little reserved until it decides you're worth knowing.",
+      "tradeoff": "The best part? It's still affordable by Western European standards and almost scandalously underhyped. The tradeoff? You'll need patience — not with the people, but with the pace of change. Piemonte rewards those who appreciate small victories: trains that arrive on time, a cappuccino that costs €1.50, a bureaucracy that only occasionally loses your paperwork."
     },
     "pros": [
       {
         "title": "Quality of Life",
         "points": [
-          "Over 300 days of sunshine annually with 800km of coastline.",
-          "Flat, walkable towns where outdoor life is the default year-round.",
-          "Slower rhythm focused on living well, not rushing through life."
+          "Clean, organized, safe — especially compared to major southern cities.",
+          "Excellent healthcare network and efficient public infrastructure.",
+          "Four true seasons, with real autumns and Alpine winters."
         ]
       },
       {
         "title": "Affordability",
         "points": [
-          "30-50% lower costs than Tuscany, Lombardy, or coastal Liguria.",
-          "Accessible real estate (€1,500-2,500/sqm in many towns).",
-          "Abundant local markets and affordable dining keep costs manageable."
+          "Rents and cost of living remain below Tuscany, Liguria, and Lombardy.",
+          "Strong value for quality housing, healthcare, and dining.",
+          "Plenty of small towns where €2,000/month buys comfort, not survival."
         ]
       },
       {
-        "title": "Culture & History",
+        "title": "Culture with Depth",
         "points": [
-          "3,000 years of layered history from Greeks, Romans, Byzantines, and Normans.",
-          "Architecture isn't roped off—it's your neighborhood piazza and Sunday walk.",
-          "Trulli, Baroque churches, and ancient olive groves you can actually touch."
-        ]
-      },
-      {
-        "title": "Food & Wine",
-        "points": [
-          "Cucina povera elevated through respect for ingredients and seasons.",
-          "DOP-protected olive oil and bread, plus wine that tastes like sunshine.",
-          "Fresh seafood pulled that morning, simple dishes done with reverence."
+          "Turin's museums, film festivals, and design heritage rival Europe's best.",
+          "Culinary culture anchored in substance — Slow Food, Barolo, and truffles.",
+          "Locals value courtesy, craftsmanship, and understatement."
         ]
       },
       {
         "title": "Connectivity",
         "points": [
-          "Bari and Brindisi airports connect to most European cities year-round.",
-          "Ferry connections to Greece, Albania, and Croatia from multiple ports.",
-          "Trains to Rome (4h), Naples (3h), Milan (7h) make travel accessible."
+          "Milan, Genoa, and the French border all within 2 hours.",
+          "High-speed rail, excellent highways, and two regional airports.",
+          "Reliable regional transport even in smaller towns."
+        ]
+      },
+      {
+        "title": "Nature and Balance",
+        "points": [
+          "Mountains, lakes, vineyards — all within reach of urban life.",
+          "Over 60 protected parks and reserves.",
+          "Fresh air, low pollution, and a slower rhythm of daily living."
         ]
       }
     ],
     "cons": [
       {
-        "title": "Social Integration",
+        "title": "Reserved Social Culture",
         "points": [
-          "Pugliese culture is warm but not immediately open to outsiders.",
-          "Small towns operate on decades-old relationships—earning trust takes patience.",
-          "Expat communities exist but are smaller than in Tuscany or Umbria."
+          "Locals can seem distant until you earn their trust.",
+          "Making friends takes time — especially if you don't speak Italian well."
         ]
       },
       {
-        "title": "Summer Heat",
+        "title": "Weather Swings",
         "points": [
-          "July-August regularly hit 35-40°C (95-104°F) with humidity.",
-          "Air conditioning is essential, not optional—siesta is survival.",
-          "If you can't handle serious heat, Puglia will break you."
+          "Winter fogs in the Po Valley can last for weeks.",
+          "Summers are humid in the plains, cold in the mountains — pick your poison."
         ]
       },
       {
-        "title": "Bureaucracy",
+        "title": "Bureaucratic Italy Still Exists",
         "points": [
-          "Italian bureaucracy is slow everywhere; in the south, it's slower.",
-          "Residency, healthcare registration, utilities—expect delays and multiple office visits.",
-          "English isn't widely spoken; patience and a translator are essential."
+          "Residency, tax, and healthcare paperwork still require persistence.",
+          "English isn't widely spoken outside Turin and tourist areas."
         ]
       },
       {
-        "title": "Limited Services",
+        "title": "Modest Nightlife",
         "points": [
-          "Smaller towns lack specialized medical care, international schools, direct flights.",
-          "Larger towns (Bari, Lecce, Brindisi) have infrastructure; villages require travel.",
-          "English-speaking services are rare outside expat-heavy areas."
+          "Outside Turin, nightlife is quiet — charming for some, dull for others.",
+          "Many towns still shut down midday and on Sundays."
         ]
       },
       {
-        "title": "Tourism Pressure",
+        "title": "Rising Property Interest",
         "points": [
-          "Polignano, Alberobello, Ostuni, Lecce see heavy tourism June-September.",
-          "Prices spike, restaurants fill, beaches crowd during peak season.",
-          "Shoulder seasons (April-May, Sept-Oct) ideal; lesser-known towns avoid crowds."
+          "Expats and Milanese investors are catching on, especially in the Langhe.",
+          "Alba and Barolo-area properties are rising in price faster than expected."
         ]
       }
     ],
     "finalTake": {
-      "headline": "Final Take: Is Puglia Right for You?",
-      "text": "Puglia is for people who want real Italy—not the postcard version, not the sanitized expat bubble, but the messy, hot, delicious, sun-drenched reality. You'll eat better, spend less, and live outdoors most of the year. You'll also sweat, wait in line at the comune, and occasionally feel like an outsider.",
-      "conclusion": "If that trade-off sounds fair—if you value authenticity over convenience and sunshine over air conditioning—start looking at flights. Puglia rewards those brave enough to embrace it on its own terms."
+      "headline": "Final Take: Is Piemonte Right for You?",
+      "text": "If you want Italy with order — the food without the frenzy, the art without the ego — Piemonte might feel like destiny. It's a region for people who appreciate craftsmanship, culture, and consistency. Not for those chasing a postcard fantasy, but for those who want to live well quietly.",
+      "conclusion": "It's less \"la dolce vita\" and more \"la vita giusta\" — the right life. If that phrase makes you nod instead of roll your eyes, Piemonte is your kind of north."
     }
   },
   "ctas": ["blueprint", "vf", "map7"],
   "closing": {
-    "message": "That's Puglia—sun, stone, and sea. Not perfect, but honest. Not trendy, but real. If you're curious, come visit. If you're serious, start planning. And if you're already sold, *benvenuto*—the table is set.",
-    "header": "Found Your Region?",
-    "subtitle": "Share this guide with someone planning their Italian life.",
-    "shareUrl": "https://caesartheday.com/puglia",
+    "message": "Grazie for reading Issue #7.",
+    "header": "If this tour of Piemonte sparked your wanderlust, pass it along to someone planning their own Italian chapter. Subscribe to keep traveling with me—one region, one story at a time.",
+    "subtitle": "If you liked this interactive newsletter experience, share it with others who'd appreciate a more immersive way to explore Italy.",
+    "shareUrl": "https://news.caesartheday.com/piemonte",
     "socialMessages": {
-      "facebook": "Thinking about retiring or relocating to Puglia? Here's the most honest guide I've found—covers everything from costs to culture to whether you can handle the summer heat. Worth a read.",
-      "threads": "Puglia: Where Italy drops its guard and sets the table. This newsletter breaks down the real costs, best towns, food, wine, and whether it's actually livable. Spoiler: yes, if you like sunshine and don't mind sweating.",
-      "bluesky": "Considering Puglia for retirement or relocation? This deep-dive newsletter covers the towns, costs, healthcare, pros/cons—everything you actually need to know. No fluff, just facts.",
-      "whatsapp": "Hey! I found this really comprehensive guide to living in Puglia—thought you might be interested given our Italy conversations. It's honest, detailed, and actually useful.",
-      "pinterest": "Planning an Italian retirement or relocation? This Puglia guide covers costs, towns, healthcare, food, wine, and the real pros/cons of life in Italy's sun-soaked heel."
+      "facebook": "Just finished this interactive deep-dive into Piemonte from CaesarTheDay — part travel, part retirement roadmap. Beautiful design, smart insights, and a few laughs along the way.\nWorth a read if you've ever dreamed of living in Italy.\n👉",
+      "threads": "Imagine your retirement smelling like espresso and Barolo.\nCaesarTheDay's new Piemonte guide shows what life there really looks like — interactive, immersive, and dangerously persuasive.",
+      "bluesky": "Interactive guide to retiring in Piemonte — equal parts data and daydream. Smart, beautiful work from CaesarTheDay for anyone plotting a softer landing in Italy.",
+      "whatsapp": "I just read this interactive guide to retiring in Piemonte — it's actually useful and gorgeous.\nThought you'd enjoy it too.\n👉",
+      "pinterest": {
+        "title": "Retire in Piemonte: Wine, Wellness & Real Numbers",
+        "description": "CaesarTheDay's interactive guide to living beautifully in Italy's Piemonte region — where truffles meet tax breaks."
+      }
     }
   }
 }
