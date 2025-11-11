@@ -137,83 +137,62 @@
       {
         "id": "lecce",
         "name": "Lecce",
-        "tagline": "The Florence of the South",
+        "bestFor": "The Florence of the South",
+        "photo": "/images/puglia/lecce-baroque.jpg",
         "summary": "Baroque architecture, university energy, and solid infrastructure make Lecce the cultural capital of Salento.",
-        "description": [
-          "Lecce is what happens when Baroque architecture meets soft golden limestone and generations of master carvers. Every church facade, every palazzo balcony, every doorway is a riot of angels, fruits, and flourishes carved with such delicacy you'd think the stone was butter. They call it 'Lecce stone,' and it's the city's secret weapon—soft enough to carve with precision, hard enough to last centuries.",
-          "But Lecce isn't a museum. It's a living city of 100,000, anchored by a major university that keeps the energy young and the café culture vibrant. The centro storico is compact and walkable—Roman amphitheater, duomo, piazzas lined with bookshops and wine bars. Summer evenings, the entire town spills into the streets for passeggiata, gelato in hand, conversations overlapping in the warm air.",
-          "Living here means: University town intellect meets southern warmth. Excellent healthcare (Vito Fazzi Hospital is one of Puglia's best). Train connections to Bari, Brindisi, and the coast. Affordable real estate compared to northern cities. Summers are hot and lively; winters are mild and quiet. You're 20 minutes from both Adriatic and Ionian beaches. The social fabric is welcoming but not intrusive—you'll be the foreigner who becomes a regular, not a spectacle."
-        ],
-        "photos": [
+        "fullDescription": "Lecce is what happens when Baroque architecture meets soft golden limestone and generations of master carvers. Every church facade, every palazzo balcony, every doorway is a riot of angels, fruits, and flourishes carved with such delicacy you'd think the stone was butter. They call it 'Lecce stone,' and it's the city's secret weapon—soft enough to carve with precision, hard enough to last centuries.\n\nBut Lecce isn't a museum. It's a living city of 100,000, anchored by a major university that keeps the energy young and the café culture vibrant. The centro storico is compact and walkable—Roman amphitheater, duomo, piazzas lined with bookshops and wine bars. Summer evenings, the entire town spills into the streets for passeggiata, gelato in hand, conversations overlapping in the warm air.\n\nLiving here means: University town intellect meets southern warmth. Excellent healthcare (Vito Fazzi Hospital is one of Puglia's best). Train connections to Bari, Brindisi, and the coast. Affordable real estate compared to northern cities. Summers are hot and lively; winters are mild and quiet. You're 20 minutes from both Adriatic and Ionian beaches. The social fabric is welcoming but not intrusive—you'll be the foreigner who becomes a regular, not a spectacle.",
+        "mapUrl": "https://maps.app.goo.gl/lecce",
+        "gallery": [
           "/images/puglia/lecce-baroque.jpg",
           "/images/puglia/lecce-piazza.jpg",
           "/images/puglia/lecce-duomo.jpg"
         ],
-        "highlights": [
-          "Baroque architecture in golden limestone",
-          "Major university town with young energy",
-          "Excellent healthcare and infrastructure",
-          "Walkable historic center",
-          "20 minutes to both coasts"
-        ],
-        "links": {
-          "website": "https://www.comune.lecce.it",
-          "map": "https://maps.app.goo.gl/lecce"
-        }
+        "links": [
+          {
+            "label": "City Website",
+            "href": "https://www.comune.lecce.it"
+          }
+        ]
       },
       {
         "id": "ostuni",
         "name": "Ostuni",
-        "tagline": "La Città Bianca – The White City",
+        "bestFor": "La Città Bianca – The White City",
+        "photo": "/images/puglia/ostuni-white-city.jpg",
         "summary": "Elevated whitewashed hilltop town with international expat presence, panoramic views, and exceptional dining.",
-        "description": [
-          "Ostuni announces itself from miles away—a white crown rising from olive groves, visible from both the Adriatic coast and the inland Valle d'Itria. The whitewash isn't just aesthetic; it's tradition, refreshed annually, giving the town its nickname and its luminous quality. Climb the narrow staircases of the centro storico and you're rewarded with terrace views that stretch to the sea.",
-          "This is one of Puglia's most international towns, with a well-established expat community (British, Dutch, German) that's woven into the social fabric without overwhelming it. The result is a town that's bilingual in menus, sophisticated in its restaurant scene, and comfortable with outsiders. You'll find yoga studios, art galleries, English-language book clubs, and wine bars that wouldn't feel out of place in Tuscany—but with better prices and less pretension.",
-          "Living here means: Hilltop elevation keeps summer temps slightly cooler. Strong expat network makes integration easier. Excellent restaurants (both traditional and contemporary). Train station connects to Bari and Brindisi. Real estate is mid-to-high range but holds value. The town has a slower, more refined pace than Lecce—less university chaos, more settled families and retirees. You're 8km from the coast, close enough for daily beach trips but far enough to maintain a different rhythm."
-        ],
-        "photos": [
+        "fullDescription": "Ostuni announces itself from miles away—a white crown rising from olive groves, visible from both the Adriatic coast and the inland Valle d'Itria. The whitewash isn't just aesthetic; it's tradition, refreshed annually, giving the town its nickname and its luminous quality. Climb the narrow staircases of the centro storico and you're rewarded with terrace views that stretch to the sea.\n\nThis is one of Puglia's most international towns, with a well-established expat community (British, Dutch, German) that's woven into the social fabric without overwhelming it. The result is a town that's bilingual in menus, sophisticated in its restaurant scene, and comfortable with outsiders. You'll find yoga studios, art galleries, English-language book clubs, and wine bars that wouldn't feel out of place in Tuscany—but with better prices and less pretension.\n\nLiving here means: Hilltop elevation keeps summer temps slightly cooler. Strong expat network makes integration easier. Excellent restaurants (both traditional and contemporary). Train station connects to Bari and Brindisi. Real estate is mid-to-high range but holds value. The town has a slower, more refined pace than Lecce—less university chaos, more settled families and retirees. You're 8km from the coast, close enough for daily beach trips but far enough to maintain a different rhythm.",
+        "mapUrl": "https://maps.app.goo.gl/ostuni",
+        "gallery": [
           "/images/puglia/ostuni-white-city.jpg",
           "/images/puglia/ostuni-view.jpg",
           "/images/puglia/ostuni-centro.jpg"
         ],
-        "highlights": [
-          "Iconic whitewashed hilltop architecture",
-          "Strong international expat community",
-          "Sophisticated dining and cultural scene",
-          "Elevated views and cooler summer temps",
-          "8km from Adriatic beaches"
-        ],
-        "links": {
-          "website": "https://www.comune.ostuni.br.it",
-          "map": "https://maps.app.goo.gl/ostuni"
-        }
+        "links": [
+          {
+            "label": "City Website",
+            "href": "https://www.comune.ostuni.br.it"
+          }
+        ]
       },
       {
         "id": "polignano",
         "name": "Polignano a Mare",
-        "tagline": "Cliffs, Caves, and Cosmopolitan Energy",
+        "bestFor": "Cliffs, Caves, and Cosmopolitan Energy",
+        "photo": "/images/puglia/polignano-cliffs.jpg",
         "summary": "Iconic coastal cliff town with dramatic sea caves, vibrant social scene, and excellent train access.",
-        "description": [
-          "Polignano is Puglia's postcard—the town built on cliffs above the Adriatic, with houses that seem to defy gravity, perched over turquoise water and sea caves carved by millennia of waves. The Lama Monachile beach (locals call it Cala Porto) is tucked between rock walls, a sliver of sand and pebbles that fills up in summer with locals and tourists alike. In July, Red Bull hosts a cliff diving competition here. The drama is real.",
-          "But Polignano is more than a pretty face. It's a working town with a lively centro storico, excellent seafood restaurants (including Grotta Palazzese, built into a cave with Michelin-level ambitions), and a train station that makes Bari a 30-minute commute. The town has grown in popularity—Instagram hasn't done it any favors—but it maintains a balance. Mornings are still quiet; locals still fish from the rocks; the pasticceria still sells pasticciotto to regulars.",
-          "Living here means: You're in a tourist town, so summer brings crowds. But shoulder seasons (April-May, September-October) offer the best of both worlds—warm weather, accessible beaches, fewer people. Real estate is pricier than inland towns but reasonable for coastal Italy. Train access makes Bari's airport, hospitals, and services easily reachable. The social scene is younger and more cosmopolitan than nearby towns. You trade some tranquility for convenience and beauty—many find it worth it."
-        ],
-        "photos": [
+        "fullDescription": "Polignano is Puglia's postcard—the town built on cliffs above the Adriatic, with houses that seem to defy gravity, perched over turquoise water and sea caves carved by millennia of waves. The Lama Monachile beach (locals call it Cala Porto) is tucked between rock walls, a sliver of sand and pebbles that fills up in summer with locals and tourists alike. In July, Red Bull hosts a cliff diving competition here. The drama is real.\n\nBut Polignano is more than a pretty face. It's a working town with a lively centro storico, excellent seafood restaurants (including Grotta Palazzese, built into a cave with Michelin-level ambitions), and a train station that makes Bari a 30-minute commute. The town has grown in popularity—Instagram hasn't done it any favors—but it maintains a balance. Mornings are still quiet; locals still fish from the rocks; the pasticceria still sells pasticciotto to regulars.\n\nLiving here means: You're in a tourist town, so summer brings crowds. But shoulder seasons (April-May, September-October) offer the best of both worlds—warm weather, accessible beaches, fewer people. Real estate is pricier than inland towns but reasonable for coastal Italy. Train access makes Bari's airport, hospitals, and services easily reachable. The social scene is younger and more cosmopolitan than nearby towns. You trade some tranquility for convenience and beauty—many find it worth it.",
+        "mapUrl": "https://maps.app.goo.gl/polignano",
+        "gallery": [
           "/images/puglia/polignano-cliffs.jpg",
           "/images/puglia/polignano-beach.jpg",
           "/images/puglia/polignano-night.jpg"
         ],
-        "highlights": [
-          "Dramatic cliffside setting over Adriatic",
-          "Iconic sea caves and beaches",
-          "30-minute train to Bari",
-          "Vibrant restaurant and social scene",
-          "Instagram-famous but still authentic"
-        ],
-        "links": {
-          "website": "https://www.comune.polignano-a-mare.ba.it",
-          "map": "https://maps.app.goo.gl/polignano"
-        }
+        "links": [
+          {
+            "label": "City Website",
+            "href": "https://www.comune.polignano-a-mare.ba.it"
+          }
+        ]
       }
     ],
     "grid": [
