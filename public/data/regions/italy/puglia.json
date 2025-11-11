@@ -25,83 +25,104 @@
       "signature": "/images/shared/cesare-signature.png"
     }
   },
-  "map": {
-    "center": [40.35, 17.5],
-    "zoom": 7.5,
-    "markers": [
+  "where": {
+    "map": {
+      "center": [40.35, 17.5],
+      "zoom": 7.5,
+      "markers": [
+        {
+          "id": "lecce",
+          "name": "Lecce",
+          "coordinates": [40.3515, 18.1750],
+          "type": "featured"
+        },
+        {
+          "id": "ostuni",
+          "name": "Ostuni",
+          "coordinates": [40.7315, 17.5781],
+          "type": "featured"
+        },
+        {
+          "id": "polignano",
+          "name": "Polignano a Mare",
+          "coordinates": [40.9943, 17.2209],
+          "type": "featured"
+        },
+        {
+          "id": "bari",
+          "name": "Bari",
+          "coordinates": [41.1171, 16.8719],
+          "type": "city"
+        },
+        {
+          "id": "brindisi",
+          "name": "Brindisi",
+          "coordinates": [40.6327, 17.9417],
+          "type": "port"
+        },
+        {
+          "id": "monopoli",
+          "name": "Monopoli",
+          "coordinates": [40.9516, 17.3024],
+          "type": "town"
+        },
+        {
+          "id": "gallipoli",
+          "name": "Gallipoli",
+          "coordinates": [40.0557, 17.9929],
+          "type": "town"
+        },
+        {
+          "id": "otranto",
+          "name": "Otranto",
+          "coordinates": [40.1435, 18.4913],
+          "type": "town"
+        },
+        {
+          "id": "alberobello",
+          "name": "Alberobello",
+          "coordinates": [40.7815, 17.2373],
+          "type": "unesco"
+        }
+      ]
+    },
+    "tabs": [
       {
-        "id": "lecce",
-        "name": "Lecce",
-        "coordinates": [40.3515, 18.1750],
-        "type": "featured"
+        "id": "geography",
+        "label": "Geography",
+        "content": "Puglia is Italy's heel—800km of coastline split between the Adriatic (east) and Ionian (west) seas. The landscape is predominantly flat with rolling hills in Valle d'Itria, the Gargano peninsula jutting north like a spur, and the Salento peninsula stretching south. Olive groves dominate the interior—over 60 million trees, some dating back 3,000 years. The region is defined by limestone geology, which gives the land its characteristic white stone, underground cave systems, and mineral-rich soil."
       },
       {
-        "id": "ostuni",
-        "name": "Ostuni",
-        "coordinates": [40.7315, 17.5781],
-        "type": "featured"
+        "id": "access",
+        "label": "Getting There",
+        "content": "**By Air**: Bari Karol Wojtyła Airport (BRI) is the main hub, with direct flights from across Europe. Brindisi Airport (BDS) serves the south. Budget carriers and seasonal routes abundant. **By Train**: Trenitalia connects Bari to Rome (4h), Naples (3h), and Milan (7h). Regional trains link coastal towns efficiently. **By Ferry**: Bari and Brindisi ports connect to Greece, Albania, and Croatia—you're a boat ride from the Balkans. **By Car**: A14 autostrada runs along the Adriatic coast; SS16 coastal road is slower but scenic."
       },
       {
-        "id": "polignano",
-        "name": "Polignano a Mare",
-        "coordinates": [40.9943, 17.2209],
-        "type": "featured"
-      },
-      {
-        "id": "bari",
-        "name": "Bari",
-        "coordinates": [41.1171, 16.8719],
-        "type": "city"
-      },
-      {
-        "id": "brindisi",
-        "name": "Brindisi",
-        "coordinates": [40.6327, 17.9417],
-        "type": "port"
-      },
-      {
-        "id": "monopoli",
-        "name": "Monopoli",
-        "coordinates": [40.9516, 17.3024],
-        "type": "town"
-      },
-      {
-        "id": "gallipoli",
-        "name": "Gallipoli",
-        "coordinates": [40.0557, 17.9929],
-        "type": "town"
-      },
-      {
-        "id": "otranto",
-        "name": "Otranto",
-        "coordinates": [40.1435, 18.4913],
-        "type": "town"
-      },
-      {
-        "id": "alberobello",
-        "name": "Alberobello",
-        "coordinates": [40.7815, 17.2373],
-        "type": "unesco"
+        "id": "transport",
+        "label": "Local Transport",
+        "content": "**Trains**: Ferrovie del Sud Est (FSE) narrow-gauge trains connect Valle d'Itria towns (trulli country). Trenitalia regional trains serve coastal routes. **Buses**: Local bus networks (STP, Ferrovie del Sud Est) connect smaller towns but schedules can be sparse. **Car**: Essential for exploring inland. Roads are good, traffic is light outside Bari. Parking is straightforward except in historic centers. **Cycling**: Flat terrain and coastal cyclovia routes make this a bike-friendly region. E-bike rentals increasingly common."
       }
     ]
   },
-  "tabs": [
-    {
-      "id": "geography",
-      "label": "Geography",
-      "content": "Puglia is Italy's heel—800km of coastline split between the Adriatic (east) and Ionian (west) seas. The landscape is predominantly flat with rolling hills in Valle d'Itria, the Gargano peninsula jutting north like a spur, and the Salento peninsula stretching south. Olive groves dominate the interior—over 60 million trees, some dating back 3,000 years. The region is defined by limestone geology, which gives the land its characteristic white stone, underground cave systems, and mineral-rich soil."
-    },
-    {
-      "id": "access",
-      "label": "Getting There",
-      "content": "**By Air**: Bari Karol Wojtyła Airport (BRI) is the main hub, with direct flights from across Europe. Brindisi Airport (BDS) serves the south. Budget carriers and seasonal routes abundant. **By Train**: Trenitalia connects Bari to Rome (4h), Naples (3h), and Milan (7h). Regional trains link coastal towns efficiently. **By Ferry**: Bari and Brindisi ports connect to Greece, Albania, and Croatia—you're a boat ride from the Balkans. **By Car**: A14 autostrada runs along the Adriatic coast; SS16 coastal road is slower but scenic."
-    },
-    {
-      "id": "transport",
-      "label": "Local Transport",
-      "content": "**Trains**: Ferrovie del Sud Est (FSE) narrow-gauge trains connect Valle d'Itria towns (trulli country). Trenitalia regional trains serve coastal routes. **Buses**: Local bus networks (STP, Ferrovie del Sud Est) connect smaller towns but schedules can be sparse. **Car**: Essential for exploring inland. Roads are good, traffic is light outside Bari. Parking is straightforward except in historic centers. **Cycling**: Flat terrain and coastal cyclovia routes make this a bike-friendly region. E-bike rentals increasingly common."
-    }
-  ],
+  "character": {
+    "slides": [
+      {
+        "image": "/images/puglia/alberobello-trulli.jpg",
+        "caption": "Trulli houses of Alberobello",
+        "copy": "These conical limestone dwellings are unique to Puglia—UNESCO-protected fairy-tale architecture that's still lived in today."
+      },
+      {
+        "image": "/images/puglia/olive-grove-ancient.jpg",
+        "caption": "Ancient olive trees",
+        "copy": "Some of Puglia's olive trees are over 3,000 years old, gnarled giants that witnessed the rise and fall of empires."
+      },
+      {
+        "image": "/images/puglia/baroque-lecce.jpg",
+        "caption": "Lecce's golden Baroque",
+        "copy": "The soft local limestone allowed master carvers to create Baroque facades so ornate they seem impossible."
+      }
+    ]
+  },
   "towns": {
     "featured": [
       {

@@ -9,5 +9,6 @@
     "enableAmbientAudio": true,
     "enableSeasonalParticles": true
   },
-  "piemonte": "default"
+  "piemonte": "default",
+  "puglia": "default"
 }
