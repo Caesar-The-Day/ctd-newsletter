@@ -26,34 +26,34 @@
   },
   "where": {
     "map": {
-      "center": [17.3, 40.8],
+      "center": [40.8, 17.3],
       "zoom": 7,
       "markers": [
         {
           "id": "bari",
           "name": "Bari",
-          "coords": [16.8719, 41.1171],
+          "coords": [41.1171, 16.8719],
           "photo": "/images/puglia/bari.jpg",
           "blurb": "Pragmatic capital and coastal hub — port city, university town, and gateway to the south."
         },
         {
           "id": "lecce",
           "name": "Lecce",
-          "coords": [18.1719, 40.3515],
+          "coords": [40.3515, 18.1719],
           "photo": "/images/puglia/lecce.jpg",
           "blurb": "Honey-colored Baroque splendor anchoring the region's far south with art and soul."
         },
         {
           "id": "ostuni",
           "name": "Ostuni",
-          "coords": [17.5769, 40.7314],
+          "coords": [40.7314, 17.5769],
           "photo": "/images/puglia/ostuni.jpg",
           "blurb": "The White City — gleaming limestone charm in the heart of the Valle d'Itria."
         },
         {
           "id": "alberobello",
           "name": "Alberobello",
-          "coords": [17.2378, 40.7812],
+          "coords": [40.7812, 17.2378],
           "photo": "/images/puglia/alberobello-trulli.jpg",
           "blurb": "UNESCO fairytale town famous for its conical trulli houses and red soil vineyards."
         }
@@ -70,28 +70,28 @@
               "name": "Primitivo di Manduria DOP",
               "description": "Bold, sun-soaked reds with notes of blackberry and Mediterranean herbs. Pairs perfectly with orecchiette with meat ragù.",
               "color": "#722f37",
-              "coords": [[17.3, 40.3], [17.5, 40.3], [17.5, 40.5], [17.3, 40.5], [17.3, 40.3]]
+              "coords": [[40.3, 17.3], [40.3, 17.5], [40.5, 17.5], [40.5, 17.3], [40.3, 17.3]]
             },
             {
               "type": "zone",
               "name": "Castel del Monte DOCG",
               "description": "Elegant wines from hillside vineyards. Nero di Troia creates structured reds with aging potential.",
               "color": "#8b4789",
-              "coords": [[16.2, 41.0], [16.5, 41.0], [16.5, 41.2], [16.2, 41.2], [16.2, 41.0]]
+              "coords": [[41.0, 16.2], [41.0, 16.5], [41.2, 16.5], [41.2, 16.2], [41.0, 16.2]]
             },
             {
               "type": "zone",
               "name": "Terra di Bari DOP Olive Oil",
               "description": "Grassy, peppery olive oil from ancient groves. Best drizzled on grilled vegetables and fresh bread.",
               "color": "#8b7e34",
-              "coords": [[16.5, 40.8], [17.2, 40.8], [17.2, 41.3], [16.5, 41.3], [16.5, 40.8]]
+              "coords": [[40.8, 16.5], [40.8, 17.2], [41.3, 17.2], [41.3, 16.5], [40.8, 16.5]]
             },
             {
               "type": "zone",
               "name": "Salento IGT (Wine & Olive Overlap)",
               "description": "Where wine and olive oil cultures merge. Negroamaro wines pair with local DOP oils in traditional Salentine cuisine.",
               "color": "#9b6b3d",
-              "coords": [[17.8, 39.9], [18.5, 39.9], [18.5, 40.4], [17.8, 40.4], [17.8, 39.9]]
+              "coords": [[39.9, 17.8], [39.9, 18.5], [40.4, 18.5], [40.4, 17.8], [39.9, 17.8]]
             }
           ]
         },
@@ -106,39 +106,39 @@
               "name": "Adriatic Coast (The Work Coast)",
               "description": "Pragmatic ports and fishing villages. Historic trade routes connect to the Balkans.",
               "color": "#4a90a4",
-              "coords": [[18.5, 40.0], [18.0, 40.5], [17.2, 41.1], [16.8, 41.3], [16.5, 41.5]]
+              "coords": [[40.0, 18.5], [40.5, 18.0], [41.1, 17.2], [41.3, 16.8], [41.5, 16.5]]
             },
             {
               "type": "line",
               "name": "Ionian Coast (The Dream Coast)",
               "description": "Warm waters and slower rhythms. Sandy beaches and sunset towns from Gallipoli to Taranto.",
               "color": "#5a9b7d",
-              "coords": [[18.0, 39.8], [17.5, 40.0], [17.2, 40.2], [17.0, 40.4]]
+              "coords": [[39.8, 18.0], [40.0, 17.5], [40.2, 17.2], [40.4, 17.0]]
             },
             {
               "type": "ferry",
               "name": "Bari → Durrës, Albania",
               "description": "9 hours overnight",
-              "coords": [[16.8719, 41.1171], [19.4500, 41.3275]]
+              "coords": [[41.1171, 16.8719], [41.3275, 19.4500]]
             },
             {
               "type": "ferry",
               "name": "Brindisi → Corfu, Greece",
               "description": "7 hours",
-              "coords": [[17.9463, 40.6384], [19.9217, 39.6243]]
+              "coords": [[40.6384, 17.9463], [39.6243, 19.9217]]
             },
             {
               "type": "ferry",
               "name": "Bari → Dubrovnik, Croatia",
               "description": "10 hours overnight",
-              "coords": [[16.8719, 41.1171], [18.0944, 42.6507]]
+              "coords": [[41.1171, 16.8719], [42.6507, 18.0944]]
             },
             {
               "type": "historic",
               "name": "Via Traiana (Roman Road)",
               "description": "Ancient spine road built by Emperor Trajan in 109 AD. Runs from Benevento through Puglia to Brindisi.",
               "color": "#8b6f47",
-              "coords": [[17.9463, 40.6384], [17.5, 40.8], [17.0, 41.0], [16.8, 41.1]]
+              "coords": [[40.6384, 17.9463], [40.8, 17.5], [41.0, 17.0], [41.1, 16.8]]
             }
           ]
         },
@@ -152,25 +152,25 @@
               "type": "marker",
               "name": "Alberobello",
               "timeCapsule": "Trulli — tax-dodging architecture from the 1500s that became iconic.",
-              "coords": [17.2378, 40.7812]
+              "coords": [40.7812, 17.2378]
             },
             {
               "type": "marker",
               "name": "Castel del Monte",
               "timeCapsule": "Octagonal fortress with no kitchen, no moat, no explanation.",
-              "coords": [16.2711, 41.0839]
+              "coords": [41.0839, 16.2711]
             },
             {
               "type": "marker",
               "name": "Lecce Baroque District",
               "timeCapsule": "Baroque carved from butter-soft stone by sculptors who couldn't stop.",
-              "coords": [18.1719, 40.3515]
+              "coords": [40.3515, 18.1719]
             },
             {
               "type": "marker",
               "name": "Matera (Basilicata border)",
               "timeCapsule": "Cave city inhabited for 9,000 years. Easy weekend escape from Puglia.",
-              "coords": [16.6043, 40.6664]
+              "coords": [40.6664, 16.6043]
             }
           ]
         },
@@ -184,25 +184,25 @@
               "type": "marker",
               "name": "Gravina Underground",
               "timeCapsule": "Cave churches and rock-cut dwellings honeycombed into canyon walls.",
-              "coords": [16.4196, 40.8183]
+              "coords": [40.8183, 16.4196]
             },
             {
               "type": "marker",
               "name": "Massafra Ravine Crypts",
               "timeCapsule": "Byzantine frescoes hidden in limestone ravines. Spiritual refuge from the 9th century.",
-              "coords": [17.1119, 40.5847]
+              "coords": [40.5847, 17.1119]
             },
             {
               "type": "marker",
               "name": "Locorotondo Hypogeum",
               "timeCapsule": "Subterranean olive oil mill with ancient presses still intact.",
-              "coords": [17.3272, 40.7541]
+              "coords": [40.7541, 17.3272]
             },
             {
               "type": "marker",
               "name": "Castellana Caves",
               "timeCapsule": "3km underground wonderland. Stalactites and alabaster formations.",
-              "coords": [17.1667, 40.8833]
+              "coords": [40.8833, 17.1667]
             }
           ]
         }
