@@ -339,28 +339,28 @@
               "name": "Gravina Underground",
               "timeCapsule": "Cave churches and rock-cut dwellings honeycombed into canyon walls.",
               "coords": [40.8183, 16.4196],
-              "photo": "/images/puglia/matera-unesco.jpg"
+              "photo": "/images/puglia/gravina-underground.jpg"
             },
             {
               "type": "marker",
               "name": "Massafra Ravine Crypts",
               "timeCapsule": "Byzantine frescoes hidden in limestone ravines. Spiritual refuge from the 9th century.",
               "coords": [40.5847, 17.1119],
-              "photo": "/images/puglia/lecce.jpg"
+              "photo": "/images/puglia/massafra-ravine-crypts.jpg"
             },
             {
               "type": "marker",
               "name": "Locorotondo Hypogeum",
               "timeCapsule": "Subterranean olive oil mill with ancient presses still intact.",
               "coords": [40.7541, 17.3272],
-              "photo": "/images/puglia/alberobello-trulli.jpg"
+              "photo": "/images/puglia/locorotondo-hypogeum.jpg"
             },
             {
               "type": "marker",
               "name": "Castellana Caves",
               "timeCapsule": "3km underground wonderland. Stalactites and alabaster formations.",
               "coords": [40.8833, 17.1667],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/castellana-caves.jpg"
             }
           ]
         }
