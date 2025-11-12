@@ -176,12 +176,13 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               closeButton: true
             });
           } else if (feature.type === 'ferry') {
-            // Ferry routes (dashed lines)
+            // Ferry routes (animated dashed lines)
             const ferryLine = L.polyline(feature.coords, {
               color: '#3b82f6',
-              weight: 2,
-              opacity: 0.6,
-              dashArray: '10, 10'
+              weight: 3,
+              opacity: 0.7,
+              dashArray: '10, 10',
+              className: 'ferry-route-animated'
             }).addTo(layerGroup);
 
             const popupContent = `
@@ -235,9 +236,12 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             }).addTo(layerGroup);
 
             const popupContent = `
-              <div class="zone-popup">
-                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
-                <p class="text-sm italic text-muted-foreground leading-relaxed">${feature.timeCapsule}</p>
+              <div class="zone-popup special-site-popup">
+                ${feature.photo ? `<img src="${feature.photo}" alt="${feature.name}" class="popup-image" />` : ''}
+                <div class="popup-content">
+                  <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                  <p class="text-sm italic text-muted-foreground leading-relaxed">${feature.timeCapsule}</p>
+                </div>
               </div>
             `;
             
@@ -443,6 +447,26 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
 
         .special-marker:hover {
           transform: scale(1.3);
+        }
+
+        .special-site-popup {
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .special-site-popup .popup-content {
+          padding: 12px;
+        }
+
+        @keyframes dash-flow {
+          to {
+            stroke-dashoffset: -20;
+          }
+        }
+
+        .ferry-route-animated {
+          animation: dash-flow 1s linear infinite;
         }
       `}</style>
     </section>
