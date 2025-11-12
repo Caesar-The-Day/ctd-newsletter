@@ -96,25 +96,145 @@
           ]
         },
         {
-          "id": "coastal",
-          "name": "Coastal Trails & Ports",
-          "icon": "Anchor",
-          "description": "Historic ports, ferry routes, and the ancient Via Traiana",
+          "id": "masseria",
+          "name": "Masseria & Agriturismo Network",
+          "icon": "Mountain",
+          "description": "Historic farmstays, cheese tours, and authentic farm-to-table dining",
           "features": [
             {
-              "type": "line",
-              "name": "Adriatic Coast (The Work Coast)",
-              "description": "Pragmatic ports and fishing villages. Historic trade routes connect to the Balkans.",
-              "color": "#4a90a4",
-              "coords": [[40.14, 18.49], [39.99, 18.43], [40.64, 17.94], [40.95, 17.30], [40.99, 17.22], [41.06, 17.08], [41.13, 16.87], [41.20, 16.60], [41.32, 16.28], [41.63, 16.15]]
+              "type": "marker",
+              "name": "Masseria Moroseta",
+              "timeCapsule": "Architectural gem near Ostuni. Modern minimalist design meets centuries-old olive groves.",
+              "coords": [40.7342, 17.5789],
+              "photo": "/images/puglia/ostuni.jpg"
             },
             {
-              "type": "line",
-              "name": "Ionian Coast (The Dream Coast)",
-              "description": "Warm waters and slower rhythms. Sandy beaches and sunset towns from Gallipoli to Taranto.",
-              "color": "#5a9b7d",
-              "coords": [[40.47, 17.23], [40.43, 16.89], [40.41, 16.85], [40.38, 16.80], [40.06, 17.99], [40.26, 17.89], [40.25, 17.78], [40.30, 18.38]]
+              "type": "marker",
+              "name": "Masseria Torre Maizza",
+              "timeCapsule": "16th-century fortress turned luxury retreat. Rosewood property in Savelletri.",
+              "coords": [40.8456, 17.5234],
+              "photo": "/images/puglia/ostuni.jpg"
             },
+            {
+              "type": "marker",
+              "name": "Masseria Le Carrube",
+              "timeCapsule": "Organic farm near Ostuni. Olive oil tastings and hands-on cheese-making classes.",
+              "coords": [40.7189, 17.6012],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Chiancone Torricella",
+              "timeCapsule": "Working farm in Valle d'Itria. Stay in trulli, harvest vegetables, make burrata.",
+              "coords": [40.7634, 17.4123],
+              "photo": "/images/puglia/alberobello-trulli.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Il Frantoio",
+              "timeCapsule": "17th-century farm estate. Olive oil museum, cooking classes, farm breakfast.",
+              "coords": [40.7823, 17.5567],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Cimino",
+              "timeCapsule": "Organic cheese producer near Locorotondo. Tour the dairy, taste fresh ricotta.",
+              "coords": [40.7489, 17.3234],
+              "photo": "/images/puglia/alberobello-trulli.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Borgo Egnazia",
+              "timeCapsule": "Puglia's most famous resort. Village-style luxury with traditional masseria architecture.",
+              "coords": [40.8523, 17.5345],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Torre Coccaro",
+              "timeCapsule": "Medieval watchtower transformed. Private beach access, spa, and 3 restaurants.",
+              "coords": [40.8412, 17.5189],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Salamina",
+              "timeCapsule": "19th-century rural retreat near Fasano. Olive groves, farm animals, traditional recipes.",
+              "coords": [40.8234, 17.3567],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Cervarolo",
+              "timeCapsule": "Budget-friendly agriturismo near Ostuni. Rustic rooms, pool, and home-cooked dinners.",
+              "coords": [40.6987, 17.5912],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Potenti",
+              "timeCapsule": "Working farm in Manduria wine country. Stay among vineyards, taste Primitivo.",
+              "coords": [40.3945, 17.6234],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria degli Ulivi",
+              "timeCapsule": "Sea-view estate near Polignano. Infinity pool overlooking olive terraces.",
+              "coords": [40.9834, 17.2145],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria San Domenico",
+              "timeCapsule": "5-star golf resort near Savelletri. 18-hole championship course, thalassotherapy spa.",
+              "coords": [40.8567, 17.5478],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Casale del Murgese",
+              "timeCapsule": "Family-run agriturismo near Alberobello. Trulli accommodations, horseback riding.",
+              "coords": [40.7945, 17.2689],
+              "photo": "/images/puglia/alberobello-trulli.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Trapanà",
+              "timeCapsule": "Organic farm near Cisternino. Vegetable gardens, farm-to-table lunches, yoga retreats.",
+              "coords": [40.7312, 17.4289],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Montenapoleone",
+              "timeCapsule": "Olive oil estate near Pezze di Greco. Award-winning extra virgin, tastings, and tours.",
+              "coords": [40.7689, 17.5845],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "La Sommità Relais",
+              "timeCapsule": "Boutique hotel in Ostuni's old town. Masseria-inspired design with rooftop views.",
+              "coords": [40.7314, 17.5789],
+              "photo": "/images/puglia/ostuni.jpg"
+            },
+            {
+              "type": "marker",
+              "name": "Masseria Spina Resort",
+              "timeCapsule": "Countryside retreat near Monopoli. Trulli suites, infinity pool, Michelin-starred dining.",
+              "coords": [40.9123, 17.2978],
+              "photo": "/images/puglia/ostuni.jpg"
+            }
+          ]
+        },
+        {
+          "id": "coastal",
+          "name": "Ferry Routes & Via Traiana",
+          "icon": "Anchor",
+          "description": "International ferries and the ancient Roman road",
+          "features": [
             {
               "type": "ferry",
               "name": "Bari → Durrës, Albania",

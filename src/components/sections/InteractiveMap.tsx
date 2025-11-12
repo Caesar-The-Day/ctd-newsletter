@@ -82,12 +82,13 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       crossOrigin: true
     }).addTo(map);
 
-    // Add city/town markers
+    // Add city/town markers with pulse effect for port cities
     mapData.markers.forEach(marker => {
+      const isPortCity = ['Bari', 'Brindisi', 'Otranto'].includes(marker.name);
       const iconHtml = renderToString(<MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />);
       const customIcon = L.divIcon({
         html: `
-          <div class="city-marker group cursor-pointer">
+          <div class="city-marker group cursor-pointer ${isPortCity ? 'port-city' : ''}">
             <div class="marker-icon transition-all duration-200 group-hover:scale-125 group-hover:drop-shadow-lg">
               ${iconHtml}
             </div>
@@ -176,11 +177,11 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               closeButton: true
             });
           } else if (feature.type === 'ferry') {
-            // Ferry routes (animated dashed lines)
+            // Ferry routes (animated dashed lines with enhanced visibility)
             const ferryLine = L.polyline(feature.coords, {
               color: '#3b82f6',
-              weight: 3,
-              opacity: 0.7,
+              weight: 4,
+              opacity: 0.8,
               dashArray: '10, 10',
               className: 'ferry-route-animated'
             }).addTo(layerGroup);
@@ -465,8 +466,40 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           }
         }
 
+        @keyframes port-pulse {
+          0%, 100% {
+            box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7);
+          }
+          50% {
+            box-shadow: 0 0 0 8px hsl(var(--primary) / 0);
+          }
+        }
+
         .ferry-route-animated {
           animation: dash-flow 1s linear infinite;
+        }
+
+        .port-city .marker-icon {
+          position: relative;
+        }
+
+        .port-city .marker-icon::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          animation: port-pulse 2s ease-out infinite;
+        }
+
+        .popup-image {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+          background: hsl(var(--muted));
         }
       `}</style>
     </section>
