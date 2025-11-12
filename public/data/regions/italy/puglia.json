@@ -26,48 +26,55 @@
   },
   "where": {
     "map": {
-      "center": [7.68, 45.07],
+      "center": [17.3, 40.8],
       "zoom": 7,
       "markers": [
         {
-          "id": "torino",
-          "name": "Torino",
-          "coords": [7.6869, 45.0703],
-          "photo": "/images/piemonte/torino.jpg",
-          "blurb": "Capital city with world-class services, culture, and healthcare. Elegant without the chaos of Rome or Milan."
+          "id": "bari",
+          "name": "Bari",
+          "coords": [16.8719, 41.1171],
+          "photo": "/images/puglia/bari.jpg",
+          "blurb": "Pragmatic capital and coastal hub — port city, university town, and gateway to the south."
         },
         {
-          "id": "alba",
-          "name": "Alba",
-          "coords": [8.0357, 44.7006],
-          "photo": "/images/piemonte/alba.jpg",
-          "blurb": "Heart of truffle country and Barolo wine. The epicenter of Piemontese gastronomy."
+          "id": "lecce",
+          "name": "Lecce",
+          "coords": [18.1719, 40.3515],
+          "photo": "/images/puglia/lecce.jpg",
+          "blurb": "Honey-colored Baroque splendor anchoring the region's far south with art and soul."
         },
         {
-          "id": "asti",
-          "name": "Asti",
-          "coords": [8.2064, 44.9007],
-          "photo": "/images/piemonte/asti.jpg",
-          "blurb": "Historic center with practical services. More affordable than Alba, equally charming."
+          "id": "ostuni",
+          "name": "Ostuni",
+          "coords": [17.5769, 40.7314],
+          "photo": "/images/puglia/ostuni.jpg",
+          "blurb": "The White City — gleaming limestone charm in the heart of the Valle d'Itria."
+        },
+        {
+          "id": "alberobello",
+          "name": "Alberobello",
+          "coords": [17.2378, 40.7812],
+          "photo": "/images/puglia/alberobello-trulli.jpg",
+          "blurb": "UNESCO fairytale town famous for its conical trulli houses and red soil vineyards."
         }
       ],
-      "externalMapUrl": "https://maps.google.com/?q=Piemonte+Italy"
+      "externalMapUrl": "https://maps.google.com/?q=Puglia+Italy"
     },
     "tabs": [
       {
         "id": "geography",
         "title": "Geography",
-        "content": "Piemonte sits in Italy's northwest corner, bordered by France and Switzerland. The name literally means 'at the foot of the mountains'—the Alps form a dramatic northern boundary. The Langhe and Monferrato hills roll through the southeast, covered in UNESCO-protected vineyards. The Po Valley stretches across the plains, while lakes like Maggiore and Orta dot the landscape. This diversity means you can choose Alpine villages, vineyard hamlets, or urban sophistication—all within an hour's drive."
+        "content": "Puglia stretches like a sunlit ribbon down Italy's southeastern edge, the long and graceful heel of the boot that dips into two seas — the Adriatic to the east and the Ionian to the west. It's a region of limestone and light, where dry stone walls divide silver olive groves and the horizon always ends in blue.\n\nAt its heart sits Bari, the pragmatic capital and gateway to the south — equal parts port city, university town, and coastal hub. To the north, the Gargano Peninsula juts into the Adriatic like a curled finger — cliffs, pine forests, and hidden beaches forming a miniature world of their own. Southward, the land narrows and whitens: Ostuni, Locorotondo, and Martina Franca gleam under the sun, while Lecce anchors the region's far end with its honey-colored Baroque splendor and southern soul.\n\nBetween them runs the Valle d'Itria, a fairytale landscape of trulli cones, vineyards, and red soil so rich it stains your shoes. To the west, the Ionian coast softens into slower rhythms — Gallipoli, Manduria, and Porto Cesareo, where life moves to the tempo of waves and afternoon naps.\n\nBorders & Access: North — Basilicata (cross near Matera, a UNESCO treasure). West — Campania (Naples four hours away). East — The Adriatic Sea (ferries to Greece, Albania, Croatia). South — The Ionian Sea (endless coastline, warmest waters in mainland Italy)."
       },
       {
         "id": "access",
         "title": "Getting There",
-        "content": "Torino Caselle Airport (TRN) connects to major European cities. Milan Malpensa (MXP) is 90 minutes away with more international options. High-speed trains link Torino to Milan (1 hour), Rome (4 hours), and France. The autostrade network (A4, A6, A21) makes driving straightforward. Regional trains connect smaller towns reliably—no car required in many areas."
+        "content": "By Car: The A14 'Adriatica' motorway runs the region's spine from Foggia to Lecce, hugging the coast and offering sea views for most of the journey.\n\nBy Rail: Regional trains (Trenitalia and Ferrovie del Sud Est) connect Bari to Lecce, Taranto, and the Itria Valley towns — slow but scenic.\n\nBy Air: Two main airports — Bari and Brindisi — serve Europe's major hubs. Both are efficient and blessedly small.\n\nBy Ferry: Regular sailings link Puglia to Greece, Albania, and the Balkans — perfect for spontaneous long weekends.\n\nBy Mindset: You've arrived in the Italy of open doors, longer lunches, and laughter that carries on the wind."
       },
       {
         "id": "transport",
         "title": "Local Transport",
-        "content": "Torino has metro, trams, and buses—efficient urban mobility. Regional trains connect major towns daily. Smaller hill towns may need a car for flexibility. The terrain is gentle compared to mountainous regions, making driving easier. Bike culture exists in cities. In rural areas, expect 10-30 minute drives to services."
+        "content": "Puglia isn't just at the end of Italy — it's the place where the country exhales. Two seas, one sun, and an unmistakable sense of balance between authenticity and possibility. For retirees, it means coastal living without the crowds, countryside charm without isolation, and the kind of warmth — both human and meteorological — that makes staying easy.\n\nLocal trains connect major coastal cities reliably. Smaller Itria Valley towns often require a car for flexibility. The terrain is flat and easy to navigate — driving is straightforward and roads are well-maintained. Bari has buses and a developing transit network. In rural areas, expect 15-30 minute drives to services."
       }
     ]
   },
