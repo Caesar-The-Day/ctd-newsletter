@@ -122,7 +122,10 @@ export default function RegionPage() {
 
       <Separator className="my-16" />
 
-      <InteractiveMap regionTitle={regionData.region.title.split(':')[0]} />
+      <InteractiveMap 
+        regionTitle={regionData.region.title.split(':')[0]} 
+        whereData={regionData.where}
+      />
 
       <ClimateSnapshot />
 
