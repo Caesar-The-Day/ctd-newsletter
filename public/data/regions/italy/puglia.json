@@ -120,7 +120,7 @@
               "name": "Masseria Le Carrube",
               "timeCapsule": "Organic farm near Ostuni. Olive oil tastings and hands-on cheese-making classes.",
               "coords": [40.7189, 17.6012],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-le-carrube.jpg"
             },
             {
               "type": "marker",
@@ -134,7 +134,7 @@
               "name": "Masseria Il Frantoio",
               "timeCapsule": "17th-century farm estate. Olive oil museum, cooking classes, farm breakfast.",
               "coords": [40.7823, 17.5567],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-il-frantoio.jpg"
             },
             {
               "type": "marker",
@@ -169,7 +169,7 @@
               "name": "Masseria Cervarolo",
               "timeCapsule": "Budget-friendly agriturismo near Ostuni. Rustic rooms, pool, and home-cooked dinners.",
               "coords": [40.6987, 17.5912],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-cervarolo.jpg"
             },
             {
               "type": "marker",
@@ -211,14 +211,14 @@
               "name": "Masseria Montenapoleone",
               "timeCapsule": "Olive oil estate near Pezze di Greco. Award-winning extra virgin, tastings, and tours.",
               "coords": [40.7689, 17.5845],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-montenapoleone.jpg"
             },
             {
               "type": "marker",
               "name": "La Sommità Relais",
               "timeCapsule": "Boutique hotel in Ostuni's old town. Masseria-inspired design with rooftop views.",
               "coords": [40.7314, 17.5789],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/la-sommita-relais.jpg"
             },
             {
               "type": "marker",
