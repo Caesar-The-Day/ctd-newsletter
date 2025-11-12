@@ -50,7 +50,11 @@ const cities = [{
   description: 'Wine royalty — a village that smells like oak barrels and ambition.',
   image: '/images/piemonte/barolo.jpg'
 }];
-export function InteractiveMap() {
+interface InteractiveMapProps {
+  regionTitle?: string;
+}
+
+export function InteractiveMap({ regionTitle = "Piemonte" }: InteractiveMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const wineLayerRef = useRef<L.GeoJSON | null>(null);
@@ -304,7 +308,7 @@ export function InteractiveMap() {
             <div className="text-center mb-4">
               <Globe className="h-12 w-12 mx-auto mb-4 text-primary" />
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Where is Piemonte?
+                Where is {regionTitle}?
               </h2>
             </div>
             <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
@@ -385,7 +389,7 @@ export function InteractiveMap() {
           <div className="text-center mb-4">
             <Globe className="h-12 w-12 mx-auto mb-4 text-primary" />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Where is Piemonte?
+              Where is {regionTitle}?
             </h2>
           </div>
           <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
