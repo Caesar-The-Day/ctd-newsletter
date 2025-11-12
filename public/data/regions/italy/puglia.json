@@ -303,28 +303,28 @@
               "name": "Alberobello",
               "timeCapsule": "Trulli — tax-dodging architecture from the 1500s that became iconic.",
               "coords": [40.7812, 17.2378],
-              "photo": "/images/puglia/alberobello-trulli.jpg"
+              "photo": "/images/puglia/alberobello-unesco.jpg"
             },
             {
               "type": "marker",
               "name": "Castel del Monte",
               "timeCapsule": "Octagonal fortress with no kitchen, no moat, no explanation.",
               "coords": [41.0839, 16.2711],
-              "photo": "/images/puglia/lecce.jpg"
+              "photo": "/images/puglia/castel-del-monte-unesco.jpg"
             },
             {
               "type": "marker",
               "name": "Lecce Baroque District",
               "timeCapsule": "Baroque carved from butter-soft stone by sculptors who couldn't stop.",
               "coords": [40.3515, 18.1719],
-              "photo": "/images/puglia/lecce.jpg"
+              "photo": "/images/puglia/lecce-unesco.jpg"
             },
             {
               "type": "marker",
               "name": "Matera (Basilicata border)",
               "timeCapsule": "Cave city inhabited for 9,000 years. Easy weekend escape from Puglia.",
               "coords": [40.6664, 16.6043],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/matera-unesco.jpg"
             }
           ]
         },
@@ -339,7 +339,7 @@
               "name": "Gravina Underground",
               "timeCapsule": "Cave churches and rock-cut dwellings honeycombed into canyon walls.",
               "coords": [40.8183, 16.4196],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/matera-unesco.jpg"
             },
             {
               "type": "marker",
