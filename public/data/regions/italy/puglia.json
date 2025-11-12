@@ -106,14 +106,14 @@
               "name": "Adriatic Coast (The Work Coast)",
               "description": "Pragmatic ports and fishing villages. Historic trade routes connect to the Balkans.",
               "color": "#4a90a4",
-              "coords": [[40.0, 18.5], [40.5, 18.0], [41.1, 17.2], [41.3, 16.8], [41.5, 16.5]]
+              "coords": [[40.14, 18.49], [39.99, 18.43], [40.64, 17.94], [40.95, 17.30], [40.99, 17.22], [41.06, 17.08], [41.13, 16.87], [41.20, 16.60], [41.32, 16.28], [41.63, 16.15]]
             },
             {
               "type": "line",
               "name": "Ionian Coast (The Dream Coast)",
               "description": "Warm waters and slower rhythms. Sandy beaches and sunset towns from Gallipoli to Taranto.",
               "color": "#5a9b7d",
-              "coords": [[39.8, 18.0], [40.0, 17.5], [40.2, 17.2], [40.4, 17.0]]
+              "coords": [[40.47, 17.23], [40.43, 16.89], [40.41, 16.85], [40.38, 16.80], [40.06, 17.99], [40.26, 17.89], [40.25, 17.78], [40.30, 18.38]]
             },
             {
               "type": "ferry",
