@@ -1,58 +1,38 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Wine, Mountain, Globe } from 'lucide-react';
+import { MapPin, Wine, Mountain, Globe, Anchor, Landmark } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
-const cities = [{
-  name: 'Turin (Torino)',
-  coords: [45.0703, 7.6869] as [number, number],
-  description: 'Elegant capital of the north — arcades, chocolate, and quiet grandeur.',
-  image: '/images/piemonte/torino.jpg'
-}, {
-  name: 'Alba',
-  coords: [44.7006, 8.0340] as [number, number],
-  description: 'White truffle capital of Italy — Barolo in the glass, magic underground.',
-  image: '/images/piemonte/alba.jpg'
-}, {
-  name: 'Asti',
-  coords: [44.9000, 8.2050] as [number, number],
-  description: 'Birthplace of spumante; think bubbles, palio horses, and perfect pace.',
-  image: '/images/piemonte/asti.jpg'
-}, {
-  name: 'Cuneo',
-  coords: [44.3833, 7.5500] as [number, number],
-  description: 'Gateway to the Alps — crisp air, Barolo nearby, and real mountain calm.',
-  image: '/images/piemonte/cuneo.jpg'
-}, {
-  name: 'Alessandria',
-  coords: [44.9130, 8.6170] as [number, number],
-  description: 'Junction city between Milan, Genoa, and Turin — practical and connected.',
-  image: '/images/piemonte/alessandria.jpg'
-}, {
-  name: 'Novara',
-  coords: [45.4455, 8.6179] as [number, number],
-  description: 'Rice fields, risotto, and Renaissance towers — the quiet northern edge.',
-  image: '/images/piemonte/novara.jpg'
-}, {
-  name: 'Verbania',
-  coords: [45.9216, 8.5560] as [number, number],
-  description: 'Overlooking Lake Maggiore — Alpine views meet Riviera charm.',
-  image: '/images/piemonte/verbania.jpg'
-}, {
-  name: 'Orta San Giulio',
-  coords: [45.8003, 8.4108] as [number, number],
-  description: 'Romantic island village on Lake Orta — serenity in postcard form.',
-  image: '/images/piemonte/market.jpg'
-}, {
-  name: 'Barolo',
-  coords: [44.6103, 7.9467] as [number, number],
-  description: 'Wine royalty — a village that smells like oak barrels and ambition.',
-  image: '/images/piemonte/barolo.jpg'
-}];
+
+interface MapMarker {
+  id: string;
+  name: string;
+  coords: [number, number];
+  photo: string;
+  blurb: string;
+}
+
+interface MapOverlay {
+  id: string;
+  name: string;
+  icon: string;
+  description: string;
+  features: any[];
+}
+
+interface MapData {
+  center: [number, number];
+  zoom: number;
+  markers: MapMarker[];
+  overlays?: MapOverlay[];
+  externalMapUrl?: string;
+}
+
 interface InteractiveMapProps {
   regionTitle?: string;
   whereData?: {
+    map: MapData;
     tabs: Array<{
       id: string;
       title: string;
@@ -61,25 +41,34 @@ interface InteractiveMapProps {
   };
 }
 
+const iconMap: Record<string, any> = {
+  Wine,
+  Mountain,
+  Anchor,
+  Landmark,
+};
+
 export function InteractiveMap({ regionTitle = "Piemonte", whereData }: InteractiveMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
-  const wineLayerRef = useRef<L.GeoJSON | null>(null);
-  const parksLayerRef = useRef<L.GeoJSON | null>(null);
-  const [showWineZones, setShowWineZones] = useState(false);
-  const [showNaturalParks, setShowNaturalParks] = useState(false);
+  const overlayLayersRef = useRef<Record<string, L.LayerGroup>>({}); 
+  const [activeOverlays, setActiveOverlays] = useState<Set<string>>(new Set());
+
+  const mapData = whereData?.map;
+
   useEffect(() => {
-    if (!mapRef.current || mapInstance.current) return;
+    if (!mapRef.current || mapInstance.current || !mapData) return;
+    
     const apiKey = import.meta.env.VITE_MAPTILER_KEY;
     if (!apiKey) {
       console.error('MapTiler API key not found');
       return;
     }
 
-    // Initialize map with Piemonte configuration
+    // Initialize map with region configuration
     const map = L.map(mapRef.current, {
-      center: [45.07, 7.88],
-      zoom: 7.2,
+      center: mapData.center,
+      zoom: mapData.zoom,
       scrollWheelZoom: false,
       zoomControl: true
     });
@@ -93,15 +82,8 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       crossOrigin: true
     }).addTo(map);
 
-    // Fit to Piemonte bounds
-    const bounds: L.LatLngBoundsExpression = [[44.0625, 6.6267],
-    // Southwest
-    [46.5520, 9.0981] // Northeast
-    ];
-    map.fitBounds(bounds);
-
-    // Add city markers
-    cities.forEach(city => {
+    // Add city/town markers
+    mapData.markers.forEach(marker => {
       const iconHtml = renderToString(<MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />);
       const customIcon = L.divIcon({
         html: `
@@ -110,7 +92,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               ${iconHtml}
             </div>
             <div class="marker-label text-xs font-semibold text-foreground bg-background/90 px-2 py-1 rounded shadow-sm whitespace-nowrap mt-1 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
-              ${city.name}
+              ${marker.name}
             </div>
           </div>
         `,
@@ -118,198 +100,196 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
         iconSize: [32, 32],
         iconAnchor: [16, 32]
       });
-      const marker = L.marker(city.coords, {
-        icon: customIcon
-      }).addTo(map);
+      
+      const markerInstance = L.marker(marker.coords, { icon: customIcon }).addTo(map);
 
-      // Add popup with city description
       const popupContent = `
         <div class="city-popup">
-          <img src="${city.image}" alt="${city.name}" class="popup-image" />
+          <img src="${marker.photo}" alt="${marker.name}" class="popup-image" />
           <div class="popup-content">
-            <h3 class="font-bold text-base mb-2 text-foreground">${city.name}</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">${city.description}</p>
+            <h3 class="font-bold text-base mb-2 text-foreground">${marker.name}</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">${marker.blurb}</p>
           </div>
         </div>
       `;
-      marker.bindPopup(popupContent, {
+      
+      markerInstance.bindPopup(popupContent, {
         className: 'custom-popup',
         maxWidth: 280,
         closeButton: true
       });
     });
 
-    // Wine Zones GeoJSON
-    const wineZonesGeoJSON = {
-      type: 'FeatureCollection' as const,
-      features: [{
-        type: 'Feature' as const,
-        properties: {
-          name: 'Langhe & Roero'
-        },
-        geometry: {
-          type: 'Polygon' as const,
-          coordinates: [[[7.8, 44.5], [8.3, 44.5], [8.3, 44.8], [7.8, 44.8], [7.8, 44.5]]]
-        }
-      }, {
-        type: 'Feature' as const,
-        properties: {
-          name: 'Monferrato'
-        },
-        geometry: {
-          type: 'Polygon' as const,
-          coordinates: [[[8.1, 44.8], [8.5, 44.8], [8.5, 45.0], [8.1, 45.0], [8.1, 44.8]]]
-        }
-      }]
-    };
-
-    // Natural Parks GeoJSON (approximated areas)
-    const naturalParksGeoJSON = {
-      type: 'FeatureCollection' as const,
-      features: [{
-        type: 'Feature' as const,
-        properties: {
-          name: 'Gran Paradiso Area'
-        },
-        geometry: {
-          type: 'Polygon' as const,
-          coordinates: [[[7.0, 45.3], [7.4, 45.3], [7.4, 45.7], [7.0, 45.7], [7.0, 45.3]]]
-        }
-      }, {
-        type: 'Feature' as const,
-        properties: {
-          name: 'Alpi Marittime Area'
-        },
-        geometry: {
-          type: 'Polygon' as const,
-          coordinates: [[[7.2, 44.0], [7.6, 44.0], [7.6, 44.3], [7.2, 44.3], [7.2, 44.0]]]
-        }
-      }]
-    };
-
-    // Wine zone descriptions
-    const wineDescriptions: Record<string, string> = {
-      'Langhe & Roero': 'Home to Barolo and Barbaresco, the "King and Queen" of Italian wines. Rolling hills covered in Nebbiolo vines produce some of the world\'s most prestigious and age-worthy wines.',
-      'Monferrato': 'Famous for Barbera and Moscato d\'Asti. This UNESCO World Heritage site is a patchwork of vineyards, medieval castles, and hilltop villages stretching across gentle hills.'
-    };
-
-    // Create wine zones layer
-    wineLayerRef.current = L.geoJSON(wineZonesGeoJSON, {
-      style: {
-        fillColor: '#a63d40',
-        fillOpacity: 0.3,
-        color: '#a63d40',
-        weight: 2,
-        opacity: 0.6
-      },
-      onEachFeature: (feature, layer) => {
-        if (feature.properties?.name) {
-          // Add popup with description
-          const description = wineDescriptions[feature.properties.name] || '';
-          const popupContent = `
-            <div class="zone-popup">
-              <h3 class="font-bold text-base mb-2 text-foreground">${feature.properties.name}</h3>
-              <p class="text-sm text-muted-foreground leading-relaxed">${description}</p>
-            </div>
-          `;
-          layer.bindPopup(popupContent, {
-            className: 'custom-popup',
-            maxWidth: 300,
-            closeButton: true
-          });
-
-          // Add hover effects
-          layer.on('mouseover', function () {
-            this.setStyle({
-              fillOpacity: 0.5,
-              weight: 3
-            });
-          });
-          layer.on('mouseout', function () {
-            this.setStyle({
-              fillOpacity: 0.3,
-              weight: 2
-            });
-          });
-        }
-      }
-    });
-
-    // Natural park descriptions
-    const parkDescriptions: Record<string, string> = {
-      'Gran Paradiso Area': 'Italy\'s oldest national park, established in 1922. Alpine ibex, golden eagles, and chamois roam through dramatic peaks, glaciers, and pristine valleys at the French border.',
-      'Alpi Marittime Area': 'Where the Alps meet the Mediterranean. Ancient salt routes, wolves, and rare alpine flowers thrive in this protected wilderness connecting Piemonte to the French Riviera.'
-    };
-
-    // Create natural parks layer
-    parksLayerRef.current = L.geoJSON(naturalParksGeoJSON, {
-      style: {
-        fillColor: '#2e8b57',
-        fillOpacity: 0.25,
-        color: '#2e8b57',
-        weight: 2,
-        opacity: 0.5
-      },
-      onEachFeature: (feature, layer) => {
-        if (feature.properties?.name) {
-          // Add popup with description
-          const description = parkDescriptions[feature.properties.name] || '';
-          const popupContent = `
-            <div class="zone-popup">
-              <h3 class="font-bold text-base mb-2 text-foreground">${feature.properties.name}</h3>
-              <p class="text-sm text-muted-foreground leading-relaxed">${description}</p>
-            </div>
-          `;
-          layer.bindPopup(popupContent, {
-            className: 'custom-popup',
-            maxWidth: 300,
-            closeButton: true
-          });
-
-          // Add hover effects
-          layer.on('mouseover', function () {
-            this.setStyle({
-              fillOpacity: 0.4,
-              weight: 3
-            });
-          });
-          layer.on('mouseout', function () {
-            this.setStyle({
+    // Create overlay layers
+    if (mapData.overlays) {
+      mapData.overlays.forEach(overlay => {
+        const layerGroup = L.layerGroup();
+        
+        overlay.features.forEach(feature => {
+          if (feature.type === 'zone') {
+            // Polygon zones (wine regions, olive oil areas)
+            const polygon = L.polygon(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+              fillColor: feature.color,
               fillOpacity: 0.25,
-              weight: 2
+              color: feature.color,
+              weight: 2,
+              opacity: 0.6
+            }).addTo(layerGroup);
+
+            const popupContent = `
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `;
+            
+            polygon.bindPopup(popupContent, {
+              className: 'custom-popup',
+              maxWidth: 300,
+              closeButton: true
             });
-          });
-        }
-      }
-    });
+
+            polygon.on('mouseover', function () {
+              this.setStyle({ fillOpacity: 0.4, weight: 3 });
+            });
+            polygon.on('mouseout', function () {
+              this.setStyle({ fillOpacity: 0.25, weight: 2 });
+            });
+          } else if (feature.type === 'line') {
+            // Coastlines and historic routes
+            const polyline = L.polyline(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+              color: feature.color,
+              weight: 3,
+              opacity: 0.7
+            }).addTo(layerGroup);
+
+            const popupContent = `
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `;
+            
+            polyline.bindPopup(popupContent, {
+              className: 'custom-popup',
+              maxWidth: 300,
+              closeButton: true
+            });
+          } else if (feature.type === 'ferry') {
+            // Ferry routes (dashed lines)
+            const ferryLine = L.polyline(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+              color: '#3b82f6',
+              weight: 2,
+              opacity: 0.6,
+              dashArray: '10, 10'
+            }).addTo(layerGroup);
+
+            const popupContent = `
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `;
+            
+            ferryLine.bindPopup(popupContent, {
+              className: 'custom-popup',
+              maxWidth: 300,
+              closeButton: true
+            });
+          } else if (feature.type === 'historic') {
+            // Historic routes
+            const historicLine = L.polyline(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+              color: feature.color,
+              weight: 3,
+              opacity: 0.6,
+              dashArray: '5, 5'
+            }).addTo(layerGroup);
+
+            const popupContent = `
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `;
+            
+            historicLine.bindPopup(popupContent, {
+              className: 'custom-popup',
+              maxWidth: 300,
+              closeButton: true
+            });
+          } else if (feature.type === 'marker') {
+            // Special markers (UNESCO sites, underground locations)
+            const specialIcon = L.divIcon({
+              html: `
+                <div class="special-marker">
+                  <div class="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-lg"></div>
+                </div>
+              `,
+              className: 'custom-special-marker',
+              iconSize: [16, 16],
+              iconAnchor: [8, 8]
+            });
+
+            const specialMarker = L.marker([feature.coords[1], feature.coords[0]], {
+              icon: specialIcon
+            }).addTo(layerGroup);
+
+            const popupContent = `
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm italic text-muted-foreground leading-relaxed">${feature.timeCapsule}</p>
+              </div>
+            `;
+            
+            specialMarker.bindPopup(popupContent, {
+              className: 'custom-popup',
+              maxWidth: 300,
+              closeButton: true
+            });
+          }
+        });
+
+        overlayLayersRef.current[overlay.id] = layerGroup;
+      });
+    }
+
     mapInstance.current = map;
+
     return () => {
       map.remove();
     };
-  }, []);
+  }, [mapData]);
 
-  // Toggle wine zones layer
+  // Toggle overlay visibility
   useEffect(() => {
-    if (!mapInstance.current || !wineLayerRef.current) return;
-    if (showWineZones) {
-      wineLayerRef.current.addTo(mapInstance.current);
-    } else {
-      wineLayerRef.current.remove();
-    }
-  }, [showWineZones]);
+    if (!mapInstance.current) return;
 
-  // Toggle natural parks layer
-  useEffect(() => {
-    if (!mapInstance.current || !parksLayerRef.current) return;
-    if (showNaturalParks) {
-      parksLayerRef.current.addTo(mapInstance.current);
-    } else {
-      parksLayerRef.current.remove();
-    }
-  }, [showNaturalParks]);
+    Object.entries(overlayLayersRef.current).forEach(([overlayId, layer]) => {
+      if (activeOverlays.has(overlayId)) {
+        layer.addTo(mapInstance.current!);
+      } else {
+        layer.remove();
+      }
+    });
+  }, [activeOverlays]);
+
+  const toggleOverlay = (overlayId: string) => {
+    setActiveOverlays(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(overlayId)) {
+        newSet.delete(overlayId);
+      } else {
+        newSet.add(overlayId);
+      }
+      return newSet;
+    });
+  };
+
   const apiKey = import.meta.env.VITE_MAPTILER_KEY;
+  
   if (!apiKey) {
-    return <section className="py-8 md:py-12 bg-background">
+    return (
+      <section className="py-8 md:py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-4">
@@ -318,11 +298,11 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
                 Where is {regionTitle}?
               </h2>
             </div>
+            
             <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
               {whereData?.tabs.map((tab, index) => (
                 <div key={tab.id}>
                   {tab.content.split('\n\n').map((paragraph, pIndex) => {
-                    // Check if paragraph starts with a header pattern (text ending with :)
                     const headerMatch = paragraph.match(/^([^:\n]+:)/);
                     if (headerMatch) {
                       const header = headerMatch[1];
@@ -344,7 +324,12 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               ))}
 
               <div className="mt-6">
-                <a href={`https://news.caesartheday.com/${regionTitle.toLowerCase()}-map`} target="_blank" rel="noopener noreferrer" className="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-4 rounded-md transition">
+                <a 
+                  href={mapData?.externalMapUrl || `https://maps.google.com/?q=${regionTitle}+Italy`}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-4 rounded-md transition"
+                >
                   Open the Interactive Map of {regionTitle}
                 </a>
               </div>
@@ -355,9 +340,12 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             </div>
           </div>
         </div>
-      </section>;
+      </section>
+    );
   }
-  return <section className="pt-4 pb-16 md:pb-24 bg-background">
+
+  return (
+    <section className="pt-4 pb-16 md:pb-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-4">
@@ -366,11 +354,11 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               Where is {regionTitle}?
             </h2>
           </div>
+          
           <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
             {whereData?.tabs.map((tab, index) => (
               <div key={tab.id}>
                 {tab.content.split('\n\n').map((paragraph, pIndex) => {
-                  // Check if paragraph starts with a header pattern (text ending with :)
                   const headerMatch = paragraph.match(/^([^:\n]+:)/);
                   if (headerMatch) {
                     const header = headerMatch[1];
@@ -392,71 +380,82 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             ))}
           </div>
 
-          {/* Layer Toggle Controls */}
-          <div className="flex flex-wrap gap-2 justify-center mb-4">
-            <Button variant={showWineZones ? "default" : "secondary"} size="sm" onClick={() => setShowWineZones(!showWineZones)} className="gap-2">
-              <Wine className="w-4 h-4" />
-              Wine Zones
-            </Button>
-            <Button variant={showNaturalParks ? "default" : "secondary"} size="sm" onClick={() => setShowNaturalParks(!showNaturalParks)} className="gap-2">
-              <Mountain className="w-4 h-4" />
-              Natural Parks
-            </Button>
-          </div>
+          {/* Overlay Toggle Controls */}
+          {mapData?.overlays && mapData.overlays.length > 0 && (
+            <div className="flex flex-wrap gap-2 justify-center mb-6">
+              {mapData.overlays.map(overlay => {
+                const IconComponent = iconMap[overlay.icon] || Wine;
+                return (
+                  <Button
+                    key={overlay.id}
+                    variant={activeOverlays.has(overlay.id) ? "default" : "secondary"}
+                    size="sm"
+                    onClick={() => toggleOverlay(overlay.id)}
+                    className="gap-2"
+                  >
+                    <IconComponent className="w-4 h-4" />
+                    {overlay.name}
+                  </Button>
+                );
+              })}
+            </div>
+          )}
           
           <div ref={mapRef} className="w-full h-[500px] md:h-[600px] rounded-lg shadow-soft overflow-hidden" />
-          
-          <style>{`
-            .city-marker {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              position: relative;
-            }
-            .marker-icon {
-              filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-            }
-            .marker-label {
-              position: absolute;
-              top: 100%;
-              z-index: 1000;
-              pointer-events: none;
-            }
-            .custom-marker {
-              background: transparent !important;
-              border: none !important;
-            }
-            .leaflet-popup-content-wrapper {
-              border-radius: 8px;
-              overflow: hidden;
-            }
-            .city-popup {
-              width: 260px;
-            }
-            .popup-image {
-              width: 100%;
-              height: 140px;
-              object-fit: cover;
-              margin: -16px -20px 12px -20px;
-            }
-            .popup-content {
-              padding: 0 4px;
-            }
-            .zone-popup {
-              padding: 8px;
-            }
-            .leaflet-popup-close-button {
-              top: 8px !important;
-              right: 8px !important;
-              font-size: 24px !important;
-              padding: 0 !important;
-              width: 24px !important;
-              height: 24px !important;
-              line-height: 24px !important;
-              text-align: center !important;
-            }
-          `}</style>
         </div>
       </div>
-    </section>;
+
+      <style>{`
+        .custom-popup .leaflet-popup-content-wrapper {
+          border-radius: 8px;
+          padding: 0;
+          overflow: hidden;
+        }
+        
+        .custom-popup .leaflet-popup-content {
+          margin: 0;
+          min-width: 200px;
+        }
+
+        .city-popup {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .popup-image {
+          width: 100%;
+          height: 140px;
+          object-fit: cover;
+        }
+
+        .popup-content {
+          padding: 12px;
+        }
+
+        .zone-popup {
+          padding: 12px;
+        }
+
+        .city-marker {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .custom-marker {
+          background: transparent !important;
+          border: none !important;
+        }
+
+        .special-marker {
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .special-marker:hover {
+          transform: scale(1.3);
+        }
+      `}</style>
+    </section>
+  );
 }
