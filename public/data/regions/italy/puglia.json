@@ -127,7 +127,7 @@
               "name": "Masseria Chiancone Torricella",
               "timeCapsule": "Working farm in Valle d'Itria. Stay in trulli, harvest vegetables, make burrata.",
               "coords": [40.7634, 17.4123],
-              "photo": "/images/puglia/alberobello-trulli.jpg"
+              "photo": "/images/puglia/masseria-chiancone-torricella.jpg"
             },
             {
               "type": "marker",
@@ -141,7 +141,7 @@
               "name": "Masseria Cimino",
               "timeCapsule": "Organic cheese producer near Locorotondo. Tour the dairy, taste fresh ricotta.",
               "coords": [40.7489, 17.3234],
-              "photo": "/images/puglia/alberobello-trulli.jpg"
+              "photo": "/images/puglia/masseria-cimino.jpg"
             },
             {
               "type": "marker",
@@ -162,7 +162,7 @@
               "name": "Masseria Salamina",
               "timeCapsule": "19th-century rural retreat near Fasano. Olive groves, farm animals, traditional recipes.",
               "coords": [40.8234, 17.3567],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-salamina.jpg"
             },
             {
               "type": "marker",
@@ -183,7 +183,7 @@
               "name": "Masseria degli Ulivi",
               "timeCapsule": "Sea-view estate near Polignano. Infinity pool overlooking olive terraces.",
               "coords": [40.9834, 17.2145],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-degli-ulivi.jpg"
             },
             {
               "type": "marker",
@@ -197,14 +197,14 @@
               "name": "Casale del Murgese",
               "timeCapsule": "Family-run agriturismo near Alberobello. Trulli accommodations, horseback riding.",
               "coords": [40.7945, 17.2689],
-              "photo": "/images/puglia/alberobello-trulli.jpg"
+              "photo": "/images/puglia/casale-del-murgese.jpg"
             },
             {
               "type": "marker",
               "name": "Masseria Trapanà",
               "timeCapsule": "Organic farm near Cisternino. Vegetable gardens, farm-to-table lunches, yoga retreats.",
               "coords": [40.7312, 17.4289],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-trapana.jpg"
             },
             {
               "type": "marker",
@@ -225,7 +225,7 @@
               "name": "Masseria Spina Resort",
               "timeCapsule": "Countryside retreat near Monopoli. Trulli suites, infinity pool, Michelin-starred dining.",
               "coords": [40.9123, 17.2978],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-spina-resort.jpg"
             }
           ]
         },
