@@ -9,6 +9,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  define: {
+    'import.meta.env.VITE_MAPTILER_KEY': JSON.stringify('S41LM8jeaS9EQcQkJCLr')
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

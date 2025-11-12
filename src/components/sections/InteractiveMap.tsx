@@ -322,17 +322,6 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
                   {index < whereData.tabs.length - 1 && <div className="my-6" />}
                 </div>
               ))}
-
-              <div className="mt-6">
-                <a 
-                  href={mapData?.externalMapUrl || `https://maps.google.com/?q=${regionTitle}+Italy`}
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-4 rounded-md transition"
-                >
-                  Open the Interactive Map of {regionTitle}
-                </a>
-              </div>
             </div>
             
             <div className="w-full h-[500px] md:h-[600px] rounded-lg bg-muted flex items-center justify-center">
