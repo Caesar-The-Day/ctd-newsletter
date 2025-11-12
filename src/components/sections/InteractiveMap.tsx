@@ -321,11 +321,24 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
               {whereData?.tabs.map((tab, index) => (
                 <div key={tab.id}>
-                  {tab.content.split('\n\n').map((paragraph, pIndex) => (
-                    <p key={pIndex} className="mb-4 whitespace-pre-line">
-                      {paragraph}
-                    </p>
-                  ))}
+                  {tab.content.split('\n\n').map((paragraph, pIndex) => {
+                    // Check if paragraph starts with a header pattern (text ending with :)
+                    const headerMatch = paragraph.match(/^([^:\n]+:)/);
+                    if (headerMatch) {
+                      const header = headerMatch[1];
+                      const rest = paragraph.slice(header.length).trim();
+                      return (
+                        <p key={pIndex} className="mb-4 whitespace-pre-line">
+                          <strong>{header}</strong> {rest}
+                        </p>
+                      );
+                    }
+                    return (
+                      <p key={pIndex} className="mb-4 whitespace-pre-line">
+                        {paragraph}
+                      </p>
+                    );
+                  })}
                   {index < whereData.tabs.length - 1 && <div className="my-6" />}
                 </div>
               ))}
@@ -356,11 +369,24 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           <div className="prose prose-lg max-w-3xl w-full text-gray-800 leading-relaxed mb-12 mx-auto">
             {whereData?.tabs.map((tab, index) => (
               <div key={tab.id}>
-                {tab.content.split('\n\n').map((paragraph, pIndex) => (
-                  <p key={pIndex} className="mb-4 whitespace-pre-line">
-                    {paragraph}
-                  </p>
-                ))}
+                {tab.content.split('\n\n').map((paragraph, pIndex) => {
+                  // Check if paragraph starts with a header pattern (text ending with :)
+                  const headerMatch = paragraph.match(/^([^:\n]+:)/);
+                  if (headerMatch) {
+                    const header = headerMatch[1];
+                    const rest = paragraph.slice(header.length).trim();
+                    return (
+                      <p key={pIndex} className="mb-4 whitespace-pre-line">
+                        <strong>{header}</strong> {rest}
+                      </p>
+                    );
+                  }
+                  return (
+                    <p key={pIndex} className="mb-4 whitespace-pre-line">
+                      {paragraph}
+                    </p>
+                  );
+                })}
                 {index < whereData.tabs.length - 1 && <div className="my-6" />}
               </div>
             ))}
