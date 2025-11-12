@@ -128,7 +128,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
         overlay.features.forEach(feature => {
           if (feature.type === 'zone') {
             // Polygon zones (wine regions, olive oil areas)
-            const polygon = L.polygon(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+            const polygon = L.polygon(feature.coords, {
               fillColor: feature.color,
               fillOpacity: 0.25,
               color: feature.color,
@@ -157,7 +157,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             });
           } else if (feature.type === 'line') {
             // Coastlines and historic routes
-            const polyline = L.polyline(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+            const polyline = L.polyline(feature.coords, {
               color: feature.color,
               weight: 3,
               opacity: 0.7
@@ -177,7 +177,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             });
           } else if (feature.type === 'ferry') {
             // Ferry routes (dashed lines)
-            const ferryLine = L.polyline(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+            const ferryLine = L.polyline(feature.coords, {
               color: '#3b82f6',
               weight: 2,
               opacity: 0.6,
@@ -198,7 +198,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             });
           } else if (feature.type === 'historic') {
             // Historic routes
-            const historicLine = L.polyline(feature.coords.map((c: number[]) => [c[1], c[0]]), {
+            const historicLine = L.polyline(feature.coords, {
               color: feature.color,
               weight: 3,
               opacity: 0.6,
@@ -230,7 +230,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               iconAnchor: [8, 8]
             });
 
-            const specialMarker = L.marker([feature.coords[1], feature.coords[0]], {
+            const specialMarker = L.marker(feature.coords, {
               icon: specialIcon
             }).addTo(layerGroup);
 
