@@ -84,6 +84,26 @@ export default {
           from: { transform: "scale(0.95)", opacity: "0" },
           to: { transform: "scale(1)", opacity: "1" },
         },
+        "cicada-pulse": {
+          "0%, 100%": { opacity: "0.2", transform: "translateY(0) scale(1)" },
+          "50%": { opacity: "0.6", transform: "translateY(-5px) scale(1.1)" },
+        },
+        "wave-drift": {
+          "0%": { transform: "translateX(-20px) translateY(0px)", opacity: "0.3" },
+          "50%": { transform: "translateX(10px) translateY(30px)", opacity: "0.6" },
+          "100%": { transform: "translateX(-10px) translateY(60px)", opacity: "0.2" },
+        },
+        "olive-drift": {
+          "0%": { transform: "translateY(-20px) rotate(0deg)", opacity: "0" },
+          "10%": { opacity: "0.7" },
+          "100%": { transform: "translateY(100vh) rotate(180deg)", opacity: "0.5" },
+        },
+        "wildflower-dance": {
+          "0%, 100%": { transform: "translateX(0px) translateY(0px) rotate(0deg)" },
+          "25%": { transform: "translateX(10px) translateY(20px) rotate(5deg)" },
+          "50%": { transform: "translateX(-5px) translateY(40px) rotate(-3deg)" },
+          "75%": { transform: "translateX(8px) translateY(60px) rotate(4deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.3s ease-out",
@@ -91,6 +111,10 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "slide-in": "slide-in 0.5s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
+        "cicada-pulse": "cicada-pulse 3s ease-in-out infinite",
+        "wave-drift": "wave-drift 15s ease-in-out infinite",
+        "olive-drift": "olive-drift 20s linear infinite",
+        "wildflower-dance": "wildflower-dance 12s ease-in-out infinite",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

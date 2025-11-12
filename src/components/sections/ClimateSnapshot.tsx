@@ -41,11 +41,19 @@ interface WeatherData {
   tempHigh: number;
   rainfall: number;
   sunHours: number;
+  lightQuality?: string; // Puglia-specific
 }
 
-type RegionKey = "torino" | "alba" | "verbania" | "cuneo";
+type RegionKey = "torino" | "alba" | "verbania" | "cuneo" | "bari" | "lecce" | "ostuni" | "alberobello";
 
-const seasonalBackgrounds = {
+const seasonalBackgroundsPuglia = {
+  winter: "from-cyan-100/30 via-sky-50/20 to-blue-100/30 dark:from-cyan-950/30 dark:via-sky-900/20 dark:to-blue-950/30",
+  spring: "from-lime-100/30 via-yellow-50/20 to-amber-100/30 dark:from-lime-950/30 dark:via-yellow-900/20 dark:to-amber-950/30",
+  summer: "from-amber-100/30 via-orange-50/20 to-yellow-100/30 dark:from-amber-950/30 dark:via-orange-900/20 dark:to-yellow-950/30",
+  autumn: "from-orange-100/30 via-amber-50/20 to-red-100/30 dark:from-orange-950/30 dark:via-amber-900/20 dark:to-red-950/30",
+};
+
+const seasonalBackgroundsPiemonte = {
   winter: "from-slate-200/30 via-blue-100/20 to-slate-100/30 dark:from-slate-900/30 dark:via-blue-950/20 dark:to-slate-800/30",
   spring: "from-green-100/30 via-emerald-50/20 to-lime-100/30 dark:from-green-950/30 dark:via-emerald-900/20 dark:to-lime-950/30",
   summer: "from-yellow-100/30 via-amber-50/20 to-orange-100/30 dark:from-yellow-950/30 dark:via-amber-900/20 dark:to-orange-950/30",
@@ -58,16 +66,34 @@ export function ClimateSnapshot() {
   const [selectedRegion, setSelectedRegion] = useState<RegionKey>("alba");
 
   useEffect(() => {
-    fetch("/data/piemonte-climate.json")
+    const region = window.location.pathname.slice(1) || "piemonte";
+    fetch(`/data/regions/italy/${region}-climate.json`)
       .then((res) => res.json())
-      .then((data) => setClimateData(data));
+      .then((data) => {
+        setClimateData(data);
+        // Set default region based on location
+        const firstRegionKey = Object.keys(data.regions)[0] as RegionKey;
+        setSelectedRegion(firstRegionKey);
+      })
+      .catch(() => {
+        // Fallback to piemonte if region climate data not found
+        fetch("/data/piemonte-climate.json")
+          .then((res) => res.json())
+          .then((data) => {
+            setClimateData(data);
+            setSelectedRegion("alba");
+          });
+      });
   }, []);
 
   if (!climateData) return null;
 
+  const region = window.location.pathname.slice(1) || "piemonte";
   const currentMonthData = climateData.months[currentMonth];
   const currentWeather = currentMonthData[selectedRegion];
   const currentSeason = currentMonthData.season;
+  
+  const seasonalBackgrounds = region === "puglia" ? seasonalBackgroundsPuglia : seasonalBackgroundsPiemonte;
 
   return (
     <section className="py-8 md:py-12 bg-background relative overflow-hidden">
@@ -77,7 +103,7 @@ export function ClimateSnapshot() {
       />
       
       {/* Seasonal particles */}
-      <SeasonalParticles monthIndex={currentMonth} />
+      <SeasonalParticles monthIndex={currentMonth} region={region} />
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}
@@ -158,7 +184,7 @@ export function ClimateSnapshot() {
           </div>
 
           {/* Weather Data Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className={`grid ${currentWeather.lightQuality ? 'grid-cols-2 md:grid-cols-5' : 'grid-cols-2 md:grid-cols-4'} gap-4 mb-6`}>
             <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
               <Thermometer className="w-8 h-8 text-primary mb-2" />
               <div className="text-2xl font-bold text-foreground">
@@ -182,6 +208,16 @@ export function ClimateSnapshot() {
               </div>
               <div className="text-xs text-muted-foreground">Sun Hours</div>
             </div>
+
+            {currentWeather.lightQuality && (
+              <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
+                <Sun className="w-8 h-8 text-amber-400 mb-2" />
+                <div className="text-sm font-semibold text-foreground text-center">
+                  {currentWeather.lightQuality}
+                </div>
+                <div className="text-xs text-muted-foreground">Light Quality</div>
+              </div>
+            )}
 
             <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
               <Cloud className="w-8 h-8 text-slate-400 mb-2" />

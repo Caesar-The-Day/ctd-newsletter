@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 interface SeasonalParticlesProps {
   monthIndex: number; // 0-11
+  region?: string; // "piemonte" or "puglia"
 }
 
 interface Particle {
@@ -16,7 +17,7 @@ interface Particle {
 
 type SeasonType = "winter" | "spring" | "summer" | "autumn";
 
-export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
+export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
   
   // Determine season type based on month
@@ -28,11 +29,84 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
   };
 
   const seasonType = getSeasonType(monthIndex);
+  const isPuglia = region === "puglia";
 
   useEffect(() => {
     const currentSeasonType = getSeasonType(monthIndex);
     
-    // Generate particles based on season (no particles for summer heat distortion)
+    // Puglia-specific particle generation
+    if (isPuglia) {
+      // Cicadas for July-August (months 6-7)
+      if (monthIndex === 6 || monthIndex === 7) {
+        const cicadaCount = 8;
+        const cicadas = Array.from({ length: cicadaCount }, (_, i) => ({
+          id: i,
+          left: 10 + Math.random() * 80,
+          delay: Math.random() * 5,
+          duration: 3 + Math.random() * 2,
+          size: 20 + Math.random() * 8,
+          symbol: "♪",
+          color: "text-amber-400/40",
+        }));
+        setParticles(cicadas);
+        return;
+      }
+      
+      // Waves for coastal months June-September (months 5-8)
+      if (monthIndex >= 5 && monthIndex <= 8) {
+        const waveCount = 15;
+        const waves = Array.from({ length: waveCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 8,
+          duration: 12 + Math.random() * 8,
+          size: 16 + Math.random() * 12,
+          symbol: "~",
+          color: "text-cyan-300/50",
+        }));
+        setParticles(waves);
+        return;
+      }
+      
+      // Olive leaves for harvest season Oct-Dec (months 9-11)
+      if (monthIndex >= 9 && monthIndex <= 11) {
+        const oliveCount = 25;
+        const oliveColors = ["text-green-700/60", "text-green-800/60", "text-olive-600/60"];
+        const olives = Array.from({ length: oliveCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 10,
+          duration: 15 + Math.random() * 10,
+          size: 14 + Math.random() * 8,
+          symbol: "🫒",
+          color: oliveColors[Math.floor(Math.random() * oliveColors.length)],
+        }));
+        setParticles(olives);
+        return;
+      }
+      
+      // Wildflowers/pollen for spring Mar-May (months 2-4)
+      if (monthIndex >= 2 && monthIndex <= 4) {
+        const flowerCount = 30;
+        const flowers = Array.from({ length: flowerCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 8,
+          duration: 10 + Math.random() * 8,
+          size: 8 + Math.random() * 8,
+          symbol: ["✿", "❀", "✾", "•"][Math.floor(Math.random() * 4)],
+          color: ["text-yellow-300/60", "text-pink-300/60", "text-purple-300/60"][Math.floor(Math.random() * 3)],
+        }));
+        setParticles(flowers);
+        return;
+      }
+      
+      // Winter (Jan-Feb) - minimal particles
+      setParticles([]);
+      return;
+    }
+    
+    // Piemonte particles (original logic)
     if (currentSeasonType === "summer") {
       setParticles([]);
       return;
@@ -88,9 +162,8 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
         color: currentSeasonType === "autumn" ? getAutumnColor() : undefined,
       };
     });
-    console.log(`[SeasonalParticles] Generated ${particleCount} ${currentSeasonType} particles for month ${monthIndex}`);
     setParticles(newParticles);
-  }, [monthIndex]);
+  }, [monthIndex, isPuglia]);
 
   const getParticleStyle = (type: SeasonType) => {
     switch (type) {
@@ -120,6 +193,25 @@ export function SeasonalParticles({ monthIndex }: SeasonalParticlesProps) {
 
 
   const getAnimationClass = (type: SeasonType) => {
+    if (isPuglia) {
+      // Cicadas pulse in place
+      if (monthIndex === 6 || monthIndex === 7) {
+        return "animate-cicada-pulse";
+      }
+      // Waves drift horizontally
+      if (monthIndex >= 5 && monthIndex <= 8) {
+        return "animate-wave-drift";
+      }
+      // Olive leaves drift down slowly
+      if (monthIndex >= 9 && monthIndex <= 11) {
+        return "animate-olive-drift";
+      }
+      // Wildflowers/pollen dance
+      if (monthIndex >= 2 && monthIndex <= 4) {
+        return "animate-wildflower-dance";
+      }
+    }
+    
     switch (type) {
       case "winter":
         return "animate-snowflake-fall";

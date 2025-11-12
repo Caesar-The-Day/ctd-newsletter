@@ -1,35 +1,35 @@
 {
   "intro": {
-    "headline": "Climate Snapshot: A Year in Piemonte",
-    "tagline": "A land that changes clothes four times a year — and always looks good in each.",
+    "headline": "The Pulse of the South",
+    "tagline": "Seasons of Salt and Sun",
     "paragraphs": [
-      "Piemonte lives in four full seasons — not the fake, two-season variety that flattens most of southern Europe. Here, winter actually bites, spring explodes, summer simmers, and autumn… steals the show.",
-      "It's not the Italy of perpetual sunshine — it's the Italy of shifting light. Mist over vineyards in February. The sharp scent of cut hay in June. The gold rush of October leaves in the Langhe. Each month feels distinct, and that's part of its magic.",
-      "Whether you crave Alpine winters or gentle vineyard warmth, this region gives you both — sometimes in the same weekend."
+      "Puglia doesn't do grey. The light here is sharp, golden, legendary — the kind photographers chase and painters try (and fail) to capture. This is the heel of Italy's boot, where the Adriatic meets the Ionian, where heat is a character in every story.",
+      "The seasons here aren't theatrical — they're sensory. You smell them before you see them: wildflowers in spring, sea salt in summer, wood smoke in autumn. Winter is quieter, emptier, honest. The beaches belong to you. The masserie light fires.",
+      "This is where you learn that sunshine isn't just weather — it's infrastructure."
     ],
-    "hoverQuote": "In Piemonte, you don't check the weather — you feel the air shift.",
-    "ctaText": "Slide through the seasons →"
+    "hoverQuote": "In Puglia, you don't watch the sunset. You feel it on your skin.",
+    "ctaText": "Slide through the seasons of the south →"
   },
   "regions": {
-    "torino": {
-      "name": "Turin",
-      "type": "city",
-      "palette": "urban"
+    "bari": {
+      "name": "Bari",
+      "type": "coastal_city",
+      "palette": "urban_sea"
     },
-    "alba": {
-      "name": "Alba",
-      "type": "vineyard",
-      "palette": "vineyard"
+    "lecce": {
+      "name": "Lecce",
+      "type": "baroque_inland",
+      "palette": "golden_stone"
     },
-    "verbania": {
-      "name": "Verbania",
-      "type": "lakeside",
-      "palette": "lakeside"
+    "ostuni": {
+      "name": "Ostuni",
+      "type": "white_city",
+      "palette": "whitewashed"
     },
-    "cuneo": {
-      "name": "Cuneo",
-      "type": "alpine",
-      "palette": "alpine"
+    "alberobello": {
+      "name": "Alberobello",
+      "type": "trulli_valley",
+      "palette": "valle_ditria"
     }
   },
   "months": [
@@ -37,156 +37,148 @@
       "month": "January",
       "index": 0,
       "season": "winter",
-      "torino": { "tempLow": 0, "tempHigh": 8, "rainfall": 45, "sunHours": 3 },
-      "alba": { "tempLow": -1, "tempHigh": 7, "rainfall": 50, "sunHours": 3 },
-      "verbania": { "tempLow": 2, "tempHigh": 9, "rainfall": 65, "sunHours": 4 },
-      "cuneo": { "tempLow": -2, "tempHigh": 6, "rainfall": 40, "sunHours": 4 },
-      "tooltip": "Fog, frost, Barolo season",
-      "culturalEvent": "Ski season peaks in Sestriere",
-      "culturalEventUrl": "https://sestriere-online.com/",
-      "visualCue": "Fog over vineyards; faint snowline on the Alps"
+      "bari": { "tempLow": 6, "tempHigh": 13, "rainfall": 55, "sunHours": 4, "lightQuality": "Crisp & Clear" },
+      "lecce": { "tempLow": 5, "tempHigh": 14, "rainfall": 60, "sunHours": 5, "lightQuality": "Soft Morning" },
+      "ostuni": { "tempLow": 6, "tempHigh": 13, "rainfall": 58, "sunHours": 4, "lightQuality": "Stone Glow" },
+      "alberobello": { "tempLow": 4, "tempHigh": 12, "rainfall": 65, "sunHours": 4, "lightQuality": "Valley Mist" },
+      "tooltip": "Empty beaches, dark moody sea",
+      "culturalEvent": "Masserie fireplaces, truffle season",
+      "visualCue": "Waves crashing, solitary walks"
     },
     {
       "month": "February",
       "index": 1,
       "season": "winter",
-      "torino": { "tempLow": 1, "tempHigh": 10, "rainfall": 40, "sunHours": 4 },
-      "alba": { "tempLow": 0, "tempHigh": 9, "rainfall": 45, "sunHours": 4 },
-      "verbania": { "tempLow": 3, "tempHigh": 11, "rainfall": 60, "sunHours": 5 },
-      "cuneo": { "tempLow": -1, "tempHigh": 8, "rainfall": 35, "sunHours": 5 },
-      "tooltip": "Mist over vineyards, early snowdrops",
-      "culturalEvent": "Carnival season begins",
-      "culturalEventUrl": "https://www.visitpiemonte.com/en/carnival-in-piemonte",
-      "visualCue": "Soft drifting mist"
+      "bari": { "tempLow": 6, "tempHigh": 14, "rainfall": 50, "sunHours": 5, "lightQuality": "Brightening" },
+      "lecce": { "tempLow": 6, "tempHigh": 15, "rainfall": 55, "sunHours": 5, "lightQuality": "Awakening" },
+      "ostuni": { "tempLow": 6, "tempHigh": 14, "rainfall": 52, "sunHours": 5, "lightQuality": "Morning Sun" },
+      "alberobello": { "tempLow": 5, "tempHigh": 13, "rainfall": 60, "sunHours": 5, "lightQuality": "Trulli Shadows" },
+      "tooltip": "Pruning olive trees, cold hands",
+      "culturalEvent": "Carnival in Putignano",
+      "culturalEventUrl": "https://www.carnevalediputignano.it/",
+      "visualCue": "Olive branches, wood smoke"
     },
     {
       "month": "March",
       "index": 2,
       "season": "spring",
-      "torino": { "tempLow": 4, "tempHigh": 14, "rainfall": 60, "sunHours": 5 },
-      "alba": { "tempLow": 3, "tempHigh": 13, "rainfall": 65, "sunHours": 5 },
-      "verbania": { "tempLow": 6, "tempHigh": 15, "rainfall": 80, "sunHours": 6 },
-      "cuneo": { "tempLow": 2, "tempHigh": 12, "rainfall": 55, "sunHours": 6 },
-      "tooltip": "Almond blossoms, rivers thawing",
-      "culturalEvent": "Messer Tulipano Festival",
-      "culturalEventUrl": "https://castellodipralormo.com/en/mister-tulip/",
-      "visualCue": "Budding vines, warming colors"
+      "bari": { "tempLow": 9, "tempHigh": 16, "rainfall": 45, "sunHours": 6, "lightQuality": "Fresh & Vibrant" },
+      "lecce": { "tempLow": 8, "tempHigh": 17, "rainfall": 48, "sunHours": 6, "lightQuality": "Wildflower Light" },
+      "ostuni": { "tempLow": 9, "tempHigh": 16, "rainfall": 46, "sunHours": 6, "lightQuality": "Almond Blossom" },
+      "alberobello": { "tempLow": 7, "tempHigh": 15, "rainfall": 50, "sunHours": 6, "lightQuality": "Green Valley" },
+      "tooltip": "Wildflowers explode everywhere",
+      "culturalEvent": "Sagre begin, spring festivals",
+      "visualCue": "Wildflowers dancing, pollen drifting"
     },
     {
       "month": "April",
       "index": 3,
       "season": "spring",
-      "torino": { "tempLow": 8, "tempHigh": 17, "rainfall": 75, "sunHours": 6 },
-      "alba": { "tempLow": 7, "tempHigh": 16, "rainfall": 80, "sunHours": 6 },
-      "verbania": { "tempLow": 10, "tempHigh": 18, "rainfall": 95, "sunHours": 7 },
-      "cuneo": { "tempLow": 6, "tempHigh": 15, "rainfall": 70, "sunHours": 7 },
-      "tooltip": "Vine sprouts growing, wildflowers",
-      "culturalEvent": "Vinum Food and Wine Festival in Alba",
-      "culturalEventUrl": "https://www.vinumalba.com/en/",
-      "visualCue": "Time-lapse of vine sprouts"
+      "bari": { "tempLow": 11, "tempHigh": 19, "rainfall": 40, "sunHours": 7, "lightQuality": "Azure Brilliance" },
+      "lecce": { "tempLow": 11, "tempHigh": 20, "rainfall": 42, "sunHours": 7, "lightQuality": "Honey Gold" },
+      "ostuni": { "tempLow": 12, "tempHigh": 19, "rainfall": 40, "sunHours": 7, "lightQuality": "White City Glow" },
+      "alberobello": { "tempLow": 10, "tempHigh": 18, "rainfall": 45, "sunHours": 7, "lightQuality": "Cone Roof Light" },
+      "tooltip": "Adriatic turns turquoise",
+      "culturalEvent": "Easter processions, fava beans everywhere",
+      "visualCue": "Wildflowers peak, turquoise water"
     },
     {
       "month": "May",
       "index": 4,
       "season": "spring",
-      "torino": { "tempLow": 12, "tempHigh": 22, "rainfall": 85, "sunHours": 7 },
-      "alba": { "tempLow": 11, "tempHigh": 21, "rainfall": 90, "sunHours": 7 },
-      "verbania": { "tempLow": 14, "tempHigh": 23, "rainfall": 110, "sunHours": 8 },
-      "cuneo": { "tempLow": 10, "tempHigh": 20, "rainfall": 80, "sunHours": 8 },
-      "tooltip": "Full green, hay cutting begins",
-      "culturalEvent": "Cantine Aperte - Open Cellars",
-      "culturalEventUrl": "https://www.avinturo.com/italian-wine-festivals",
-      "visualCue": "Vibrant green vineyards"
+      "bari": { "tempLow": 15, "tempHigh": 23, "rainfall": 35, "sunHours": 8, "lightQuality": "Pre-Summer Gold" },
+      "lecce": { "tempLow": 15, "tempHigh": 24, "rainfall": 35, "sunHours": 9, "lightQuality": "Baroque Stone" },
+      "ostuni": { "tempLow": 16, "tempHigh": 23, "rainfall": 33, "sunHours": 8, "lightQuality": "Dazzling White" },
+      "alberobello": { "tempLow": 14, "tempHigh": 22, "rainfall": 38, "sunHours": 8, "lightQuality": "Valley Shimmer" },
+      "tooltip": "Perfect weather, no tourists yet",
+      "culturalEvent": "Sagra della Ciliegia (Cherry Festival)",
+      "visualCue": "Last wildflowers, warming seas"
     },
     {
       "month": "June",
       "index": 5,
       "season": "summer",
-      "torino": { "tempLow": 16, "tempHigh": 26, "rainfall": 70, "sunHours": 9 },
-      "alba": { "tempLow": 15, "tempHigh": 25, "rainfall": 75, "sunHours": 9 },
-      "verbania": { "tempLow": 18, "tempHigh": 27, "rainfall": 95, "sunHours": 9 },
-      "cuneo": { "tempLow": 14, "tempHigh": 24, "rainfall": 65, "sunHours": 9 },
-      "tooltip": "Sharp scent of cut hay",
-      "culturalEvent": "Alba Jazz Festival",
-      "culturalEventUrl": "https://www.albajazz.com/",
-      "visualCue": "Lake shimmer, bright light"
+      "bari": { "tempLow": 19, "tempHigh": 28, "rainfall": 25, "sunHours": 10, "lightQuality": "Intense & Clear" },
+      "lecce": { "tempLow": 19, "tempHigh": 29, "rainfall": 22, "sunHours": 10, "lightQuality": "Limestone Blaze" },
+      "ostuni": { "tempLow": 20, "tempHigh": 28, "rainfall": 23, "sunHours": 10, "lightQuality": "Blinding Noon" },
+      "alberobello": { "tempLow": 18, "tempHigh": 27, "rainfall": 28, "sunHours": 10, "lightQuality": "Trulli Heat" },
+      "tooltip": "Heat begins, festas start",
+      "culturalEvent": "Notte della Taranta preparations",
+      "culturalEventUrl": "https://www.lanottedellataranta.it/",
+      "visualCue": "Gentle waves, coastal shimmer"
     },
     {
       "month": "July",
       "index": 6,
       "season": "summer",
-      "torino": { "tempLow": 18, "tempHigh": 29, "rainfall": 55, "sunHours": 10 },
-      "alba": { "tempLow": 17, "tempHigh": 28, "rainfall": 60, "sunHours": 10 },
-      "verbania": { "tempLow": 20, "tempHigh": 30, "rainfall": 80, "sunHours": 10 },
-      "cuneo": { "tempLow": 16, "tempHigh": 27, "rainfall": 50, "sunHours": 10 },
-      "tooltip": "Hazy skies, mountain escapes",
-      "culturalEvent": "Collisioni Festival Barolo",
-      "culturalEventUrl": "https://www.collisioni.it/",
-      "visualCue": "Water ripple animation, bright gradient"
+      "bari": { "tempLow": 22, "tempHigh": 31, "rainfall": 15, "sunHours": 11, "lightQuality": "Relentless Gold" },
+      "lecce": { "tempLow": 22, "tempHigh": 32, "rainfall": 12, "sunHours": 11, "lightQuality": "Scorching Honey" },
+      "ostuni": { "tempLow": 23, "tempHigh": 31, "rainfall": 13, "sunHours": 11, "lightQuality": "White Hot" },
+      "alberobello": { "tempLow": 21, "tempHigh": 30, "rainfall": 18, "sunHours": 11, "lightQuality": "Valley Haze" },
+      "tooltip": "Heat like a weight, siesta mandatory",
+      "culturalEvent": "Festas patronali every weekend",
+      "visualCue": "Cicadas pulsing, heat shimmer"
     },
     {
       "month": "August",
       "index": 7,
       "season": "summer",
-      "torino": { "tempLow": 18, "tempHigh": 28, "rainfall": 60, "sunHours": 9 },
-      "alba": { "tempLow": 17, "tempHigh": 27, "rainfall": 65, "sunHours": 9 },
-      "verbania": { "tempLow": 20, "tempHigh": 29, "rainfall": 85, "sunHours": 9 },
-      "cuneo": { "tempLow": 16, "tempHigh": 26, "rainfall": 55, "sunHours": 9 },
-      "tooltip": "Peak summer, vineyard work",
-      "culturalEvent": "Ferragosto - Take a Break. Touch Some Grass.",
-      "visualCue": "Cicadas humming, passing cloud shadows"
+      "bari": { "tempLow": 22, "tempHigh": 31, "rainfall": 20, "sunHours": 10, "lightQuality": "Peak Summer" },
+      "lecce": { "tempLow": 22, "tempHigh": 32, "rainfall": 18, "sunHours": 10, "lightQuality": "Golden Hour All Day" },
+      "ostuni": { "tempLow": 23, "tempHigh": 31, "rainfall": 19, "sunHours": 10, "lightQuality": "Eternal Glow" },
+      "alberobello": { "tempLow": 21, "tempHigh": 30, "rainfall": 23, "sunHours": 10, "lightQuality": "Sunbaked Stone" },
+      "tooltip": "Sea urchins & cold rosé",
+      "culturalEvent": "La Notte della Taranta Festival",
+      "culturalEventUrl": "https://www.lanottedellataranta.it/",
+      "visualCue": "Cicadas peak volume, waves rolling"
     },
     {
       "month": "September",
       "index": 8,
       "season": "autumn",
-      "torino": { "tempLow": 14, "tempHigh": 23, "rainfall": 70, "sunHours": 7 },
-      "alba": { "tempLow": 13, "tempHigh": 22, "rainfall": 75, "sunHours": 7 },
-      "verbania": { "tempLow": 16, "tempHigh": 24, "rainfall": 95, "sunHours": 7 },
-      "cuneo": { "tempLow": 12, "tempHigh": 21, "rainfall": 65, "sunHours": 7 },
-      "tooltip": "Harvest begins, grapes ripening",
-      "culturalEvent": "Palio di Asti",
-      "culturalEventUrl": "https://visit.asti.it/en/september-in-asti/the-palio-of-asti/",
-      "visualCue": "Vineyard rows turning gold"
+      "bari": { "tempLow": 19, "tempHigh": 27, "rainfall": 35, "sunHours": 8, "lightQuality": "Mellowing Gold" },
+      "lecce": { "tempLow": 19, "tempHigh": 28, "rainfall": 38, "sunHours": 8, "lightQuality": "Amber Evening" },
+      "ostuni": { "tempLow": 20, "tempHigh": 27, "rainfall": 36, "sunHours": 8, "lightQuality": "Soft Terracotta" },
+      "alberobello": { "tempLow": 18, "tempHigh": 26, "rainfall": 40, "sunHours": 8, "lightQuality": "Harvest Light" },
+      "tooltip": "Grape harvest in Manduria",
+      "culturalEvent": "Vendemmia (grape harvest), tourists leaving",
+      "visualCue": "Olive leaves starting to drift"
     },
     {
       "month": "October",
       "index": 9,
       "season": "autumn",
-      "torino": { "tempLow": 9, "tempHigh": 17, "rainfall": 80, "sunHours": 5 },
-      "alba": { "tempLow": 8, "tempHigh": 16, "rainfall": 85, "sunHours": 5 },
-      "verbania": { "tempLow": 11, "tempHigh": 18, "rainfall": 105, "sunHours": 5 },
-      "cuneo": { "tempLow": 7, "tempHigh": 15, "rainfall": 75, "sunHours": 5 },
-      "tooltip": "Gold rush of October leaves",
-      "culturalEvent": "International Alba White Truffle Fair",
-      "culturalEventUrl": "https://www.fieradeltartufo.org/en/",
-      "visualCue": "Leaves turning rust and gold"
+      "bari": { "tempLow": 15, "tempHigh": 23, "rainfall": 50, "sunHours": 6, "lightQuality": "Russet Glow" },
+      "lecce": { "tempLow": 15, "tempHigh": 24, "rainfall": 55, "sunHours": 6, "lightQuality": "Bronze Light" },
+      "ostuni": { "tempLow": 16, "tempHigh": 23, "rainfall": 52, "sunHours": 6, "lightQuality": "Stone Warmth" },
+      "alberobello": { "tempLow": 14, "tempHigh": 22, "rainfall": 58, "sunHours": 6, "lightQuality": "Valley Copper" },
+      "tooltip": "Olive harvest begins, sea still warm",
+      "culturalEvent": "Olive oil pressing season",
+      "visualCue": "Olive leaves drifting slowly"
     },
     {
       "month": "November",
       "index": 10,
       "season": "autumn",
-      "torino": { "tempLow": 4, "tempHigh": 11, "rainfall": 70, "sunHours": 3 },
-      "alba": { "tempLow": 3, "tempHigh": 10, "rainfall": 75, "sunHours": 3 },
-      "verbania": { "tempLow": 6, "tempHigh": 12, "rainfall": 95, "sunHours": 3 },
-      "cuneo": { "tempLow": 2, "tempHigh": 9, "rainfall": 65, "sunHours": 3 },
-      "tooltip": "First frosts, wine cellars busy",
-      "culturalEvent": "Cioccolatò Festival Torino",
-      "culturalEventUrl": "https://www.cioccola.to.it/",
-      "visualCue": "Bare vines, foggy mornings"
+      "bari": { "tempLow": 11, "tempHigh": 18, "rainfall": 60, "sunHours": 5, "lightQuality": "Deepening Amber" },
+      "lecce": { "tempLow": 11, "tempHigh": 19, "rainfall": 65, "sunHours": 5, "lightQuality": "Shortened Gold" },
+      "ostuni": { "tempLow": 11, "tempHigh": 18, "rainfall": 62, "sunHours": 5, "lightQuality": "Low Angle Sun" },
+      "alberobello": { "tempLow": 9, "tempHigh": 17, "rainfall": 68, "sunHours": 5, "lightQuality": "Twilight Valley" },
+      "tooltip": "Life returns after tourist season",
+      "culturalEvent": "Local sagre, olive oil tastings",
+      "visualCue": "Olive harvest peak, scattered leaves"
     },
     {
       "month": "December",
       "index": 11,
       "season": "winter",
-      "torino": { "tempLow": 1, "tempHigh": 8, "rainfall": 50, "sunHours": 2 },
-      "alba": { "tempLow": 0, "tempHigh": 7, "rainfall": 55, "sunHours": 2 },
-      "verbania": { "tempLow": 3, "tempHigh": 9, "rainfall": 70, "sunHours": 3 },
-      "cuneo": { "tempLow": -1, "tempHigh": 6, "rainfall": 45, "sunHours": 3 },
-      "tooltip": "Winter settles in, Alpine snow",
-      "culturalEvent": "Artist's Lights - Luci d'Artista - Torino",
-      "culturalEventUrl": "https://www.lucidartistatorino.org/LdA-26/en/homepage-en/index.html",
-      "visualCue": "Snow on mountains, festive lights"
+      "bari": { "tempLow": 8, "tempHigh": 15, "rainfall": 58, "sunHours": 4, "lightQuality": "Winter Clarity" },
+      "lecce": { "tempLow": 7, "tempHigh": 16, "rainfall": 62, "sunHours": 4, "lightQuality": "Stone Cold" },
+      "ostuni": { "tempLow": 8, "tempHigh": 15, "rainfall": 60, "sunHours": 4, "lightQuality": "White Winter" },
+      "alberobello": { "tempLow": 6, "tempHigh": 14, "rainfall": 65, "sunHours": 4, "lightQuality": "Trulli Dusk" },
+      "tooltip": "Masserie holidays, empty streets",
+      "culturalEvent": "Natale nei Trulli - Christmas in Alberobello",
+      "visualCue": "Waves continue, quiet coast"
     }
   ]
 }
