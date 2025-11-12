@@ -106,118 +106,127 @@
               "name": "Masseria Moroseta",
               "timeCapsule": "Architectural gem near Ostuni. Modern minimalist design meets centuries-old olive groves.",
               "coords": [40.7342, 17.5789],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-moroseta.jpg",
+              "website": "https://www.masseriamoroseta.it"
             },
             {
               "type": "marker",
               "name": "Masseria Torre Maizza",
               "timeCapsule": "16th-century fortress turned luxury retreat. Rosewood property in Savelletri.",
               "coords": [40.8591, 17.3873],
-              "photo": "/images/puglia/masseria-torre-maizza.jpg"
+              "photo": "/images/puglia/masseria-torre-maizza.jpg",
+              "website": "https://www.roccofortehotels.com"
             },
             {
               "type": "marker",
               "name": "Masseria Le Carrube",
               "timeCapsule": "Organic farm near Ostuni. Olive oil tastings and hands-on cheese-making classes.",
               "coords": [40.7189, 17.6012],
-              "photo": "/images/puglia/masseria-le-carrube.jpg"
+              "photo": "/images/puglia/masseria-le-carrube.jpg",
+              "website": "https://www.masserialecarrubeostuni.it"
             },
             {
               "type": "marker",
               "name": "Masseria Chiancone Torricella",
               "timeCapsule": "Working farm in Valle d'Itria. Stay in trulli, harvest vegetables, make burrata.",
               "coords": [40.7634, 17.4123],
-              "photo": "/images/puglia/masseria-chiancone-torricella.jpg"
+              "photo": "/images/puglia/masseria-chiancone-torricella.jpg",
+              "website": "https://www.masseriachiancone.it"
             },
             {
               "type": "marker",
               "name": "Masseria Il Frantoio",
               "timeCapsule": "17th-century farm estate. Olive oil museum, cooking classes, farm breakfast.",
               "coords": [40.7823, 17.5567],
-              "photo": "/images/puglia/masseria-il-frantoio.jpg"
-            },
-            {
-              "type": "marker",
-              "name": "Masseria Cimino",
-              "timeCapsule": "Organic cheese producer near Locorotondo. Tour the dairy, taste fresh ricotta.",
-              "coords": [40.7489, 17.3234],
-              "photo": "/images/puglia/masseria-cimino.jpg"
+              "photo": "/images/puglia/masseria-il-frantoio.jpg",
+              "website": "https://www.masseriailfrantoio.it"
             },
             {
               "type": "marker",
               "name": "Borgo Egnazia",
               "timeCapsule": "Puglia's most famous resort. Village-style luxury with traditional masseria architecture.",
               "coords": [40.8747, 17.3981],
-              "photo": "/images/puglia/borgo-egnazia.jpg"
+              "photo": "/images/puglia/borgo-egnazia.jpg",
+              "website": "https://www.borgoegnazia.com"
             },
             {
               "type": "marker",
               "name": "Masseria Torre Coccaro",
               "timeCapsule": "Medieval watchtower transformed. Private beach access, spa, and 3 restaurants.",
               "coords": [40.8580, 17.3850],
-              "photo": "/images/puglia/masseria-torre-coccaro.jpg"
+              "photo": "/images/puglia/masseria-torre-coccaro.jpg",
+              "website": "https://www.masseriatorrecoccaro.com"
             },
             {
               "type": "marker",
               "name": "Masseria Salamina",
               "timeCapsule": "19th-century rural retreat near Fasano. Olive groves, farm animals, traditional recipes.",
               "coords": [40.8234, 17.3567],
-              "photo": "/images/puglia/masseria-salamina.jpg"
+              "photo": "/images/puglia/masseria-salamina.jpg",
+              "website": "https://www.masseriasalamina.it"
             },
             {
               "type": "marker",
               "name": "Masseria Cervarolo",
               "timeCapsule": "Budget-friendly agriturismo near Ostuni. Rustic rooms, pool, and home-cooked dinners.",
               "coords": [40.6987, 17.5912],
-              "photo": "/images/puglia/masseria-cervarolo.jpg"
+              "photo": "/images/puglia/masseria-cervarolo.jpg",
+              "website": "https://www.masseriacervarolo.it"
             },
             {
               "type": "marker",
-              "name": "Masseria Potenti",
+              "name": "Masseria Spina Resort",
               "timeCapsule": "Working farm in Manduria wine country. Stay among vineyards, taste Primitivo.",
               "coords": [40.3945, 17.6234],
-              "photo": "/images/puglia/ostuni.jpg"
+              "photo": "/images/puglia/masseria-spina-resort.jpg",
+              "website": "https://www.masseriaspinaresort.com"
             },
             {
               "type": "marker",
               "name": "Masseria degli Ulivi",
               "timeCapsule": "Sea-view estate near Polignano. Infinity pool overlooking olive terraces.",
               "coords": [40.9834, 17.2145],
-              "photo": "/images/puglia/masseria-degli-ulivi.jpg"
+              "photo": "/images/puglia/masseria-degli-ulivi.jpg",
+              "website": "https://www.masseriadegliulivi.com"
             },
             {
               "type": "marker",
               "name": "Masseria San Domenico",
               "timeCapsule": "5-star golf resort near Savelletri. 18-hole championship course, thalassotherapy spa.",
               "coords": [40.8600, 17.3900],
-              "photo": "/images/puglia/masseria-san-domenico.jpg"
+              "photo": "/images/puglia/masseria-san-domenico.jpg",
+              "website": "https://www.masseriasandomenico.com"
             },
             {
               "type": "marker",
               "name": "Casale del Murgese",
               "timeCapsule": "Family-run agriturismo near Alberobello. Trulli accommodations, horseback riding.",
               "coords": [40.7945, 17.2689],
-              "photo": "/images/puglia/casale-del-murgese.jpg"
+              "photo": "/images/puglia/casale-del-murgese.jpg",
+              "website": "https://www.casaledelmurgese.net"
             },
             {
               "type": "marker",
               "name": "Masseria Trapanà",
               "timeCapsule": "Organic farm near Cisternino. Vegetable gardens, farm-to-table lunches, yoga retreats.",
               "coords": [40.7312, 17.4289],
-              "photo": "/images/puglia/masseria-trapana.jpg"
+              "photo": "/images/puglia/masseria-trapana.jpg",
+              "website": "https://www.trapana.com"
             },
             {
               "type": "marker",
               "name": "Masseria Montenapoleone",
               "timeCapsule": "Olive oil estate near Pezze di Greco. Award-winning extra virgin, tastings, and tours.",
               "coords": [40.7689, 17.5845],
-              "photo": "/images/puglia/masseria-montenapoleone.jpg"
+              "photo": "/images/puglia/masseria-montenapoleone.jpg",
+              "website": "https://www.masseriamontenapoleone.it"
             },
             {
               "type": "marker",
               "name": "La Sommità Relais",
               "timeCapsule": "Boutique hotel in Ostuni's old town. Masseria-inspired design with rooftop views.",
               "coords": [40.7314, 17.5789],
+              "website": "https://www.lasommita.it",
               "photo": "/images/puglia/la-sommita-relais.jpg"
             },
             {
