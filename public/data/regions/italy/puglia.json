@@ -686,160 +686,149 @@
         ]
       },
       "food": {
-        "title": "FOOD — When Simplicity Learns Restraint",
-        "intro": "Piemonte's food culture reads like a manifesto: take fewer ingredients, make them matter more. This is the region that invented Slow Food, not as a trend but as a protest — against speed, uniformity, and the loss of local taste. From Bra to Asti, markets overflow not with novelty but with precision: hazelnuts that taste like memory, butter that silences a room, and pasta so thin it flutters when you breathe. Meals here don't start until they mean something. Bagna càuda turns a bowl of anchovies and garlic into a social ritual. Tajarin pasta and agnolotti del plin are acts of regional loyalty. And in autumn, white truffles emerge like folklore — sudden, expensive, and irresistible.",
-        "backgroundImage": "/images/piemonte/market.jpg",
+        "title": "Food — Where the Land Teaches the Table",
+        "intro": "Puglia doesn't cook the way other regions cook. It cooks the way the land demands. Wheat fields, olive groves, blistering summers, and a double coastline have shaped a cucina that's deceptively simple and endlessly soulful. You taste it in the bitterness of wild chicory, in the chew of orecchiette rolled by a Bari nonna, in the golden crackle of Altamura bread pulled from a wood-fired oven. It's a cuisine born from scarcity yet rich in character, and for anyone dreaming of a life here, understanding the food is understanding the culture itself.",
+        "backgroundImage": "/images/puglia/cucina-povera.jpg",
         "cards": [
           {
-            "id": "white-truffle",
-            "title": "White Truffle of Alba",
-            "subtitle": "Sudden, expensive, irresistible",
-            "image": "/images/piemonte/white-truffle.jpg",
-            "description": "Emerge like folklore each autumn. Visit the International Alba White Truffle Fair for the full sensory experience — a heritage-level culinary event.",
+            "id": "orecchiette-cime-di-rapa",
+            "title": "Orecchiette & Cime di Rapa",
+            "subtitle": "The Dish That Defines Puglia",
+            "image": "/images/puglia/orecchiette-cime-di-rapa.jpg",
+            "description": "The dish that defines Puglia: handmade orecchiette gripping bitter greens, anchovy, garlic and oil — a perfect expression of the region's cucina povera roots. Walk through Bari Vecchia and you'll see it being shaped right on the street.",
             "links": [
               {
-                "label": "Alba Truffle Fair",
-                "href": "https://www.fieradeltartufo.org/"
+                "label": "Explore Puglia's Essential Foods",
+                "href": "https://italysegreta.com/20-foods-you-must-eat-in-puglia/"
               }
             ]
           },
           {
-            "id": "cultural-dishes",
-            "title": "Tajarin, Agnolotti, Bagna Càuda",
-            "subtitle": "Acts of regional loyalty",
-            "image": "/images/piemonte/agnolotti.jpg",
-            "description": "Pasta so thin it flutters when you breathe. Bagna càuda: anchovies, garlic, olive oil — a communal ritual that turns restraint into warmth.",
+            "id": "pane-altamura",
+            "title": "Pane di Altamura & the Bread Culture",
+            "subtitle": "PDO Bread Tradition",
+            "image": "/images/puglia/pane-altamura.jpg",
+            "description": "Altamura's PDO bread has a thick crust and a soft, yellow, almost custardy interior thanks to local durum wheat. It isn't just something to eat — it's an agricultural tradition, a communal oven culture, and a daily ritual.",
             "links": [
               {
-                "label": "Piemontese Recipes",
-                "href": "https://www.piemonteitalia.eu/it/enogastronomia/ricette"
+                "label": "Foods You Must Eat in Puglia",
+                "href": "https://www.lacucinaitaliana.com/trip-to-italy/southern-italy/foods-you-must-eat-in-puglia"
               }
             ]
           },
           {
-            "id": "slow-food",
-            "title": "Slow Food International",
-            "subtitle": "Born in Bra as protest, not trend",
-            "image": "/images/piemonte/slow-food.jpg",
-            "description": "Against speed, uniformity, and the loss of local taste. The manifesto started here: take fewer ingredients, make them matter more.",
+            "id": "crudo-di-mare",
+            "title": "Seafood & Crudo di Mare",
+            "subtitle": "Fresh from the Adriatic",
+            "image": "/images/puglia/crudo-di-mare.jpg",
+            "description": "Along the Adriatic, seafood isn't a luxury; it's morning routine. Raw mussels, sea urchins, and prawns (\"crudo di mare\") are a testament to waters so clean and cold that locals eat straight from the shell.",
             "links": [
               {
-                "label": "Slow Food International",
-                "href": "https://www.slowfood.com/"
+                "label": "20 of Puglia's Best Dishes",
+                "href": "https://www.pugliaguys.com/2025/08/31/20-of-puglias-best-dishes/"
               }
             ]
           },
           {
-            "id": "markets",
-            "title": "Markets of Precision",
-            "subtitle": "Hazelnuts, butter, and memory",
-            "image": "/images/piemonte/market.jpg",
-            "description": "From Bra to Asti, markets overflow with precision rather than novelty. Hazelnuts that taste like memory, butter that silences a room.",
+            "id": "cucina-povera",
+            "title": "Cucina Povera & Seasonal Simplicity",
+            "subtitle": "Humble Ingredients, Deep Flavor",
+            "image": "/images/puglia/cucina-povera.jpg",
+            "description": "Puglia's most iconic flavors come from humble ingredients: fava beans, wild chicory, tomatoes sun-warmed on the vine, and olive oil that tastes alive. It's a cuisine that follows the seasons, not the supermarkets.",
             "links": [
               {
-                "label": "Earth Markets - Italy/Piemonte",
-                "href": "https://www.fondazioneslowfood.com/it/nazioni-mercati/italia-it/?fwp_mercati_della_terra_nazioni=italia-it"
+                "label": "Puglia Food Guide",
+                "href": "https://thevespatrip.com/en/puglia-food-guide/"
+              }
+            ]
+          },
+          {
+            "id": "sagre-food-festivals",
+            "title": "Sagre & Local Food Festivals",
+            "subtitle": "Where Communities Gather",
+            "image": "/images/puglia/sagra-festival.jpg",
+            "description": "Every town has its own festival — panzerotti nights, orecchiette feasts, fig celebrations, grilled octopus weekends. These sagre are where you see the real Puglia: long tables, loud laughter, and recipes that never make it into cookbooks.",
+            "links": [
+              {
+                "label": "Guide to Puglia's Famous Food & Wine",
+                "href": "https://theitalianontour.com/a-guide-to-puglias-most-famous-food-and-wine/"
               }
             ]
           }
         ]
       },
       "culture": {
-        "title": "CULTURE — Where Grandeur Whispers, Not Shouts",
-        "intro": "Piemonte's cultural personality is subtle — stately façades, arcaded streets, and a calm intellect that reveals itself slowly. Turin, once the capital of a kingdom and now one of Europe's most underappreciated cultural cities, leads the region's aesthetic dialogue. Its museums — from the Museo Egizio to the Museum of Cinema — rival global icons, while its concert halls and galleries carry an understated confidence. Beyond the city, royal palaces, baroque towns, and contemporary art fairs create a patchwork of heritage that feels lived-in rather than staged. This is culture you stumble into, not queue for: frescoes in village churches, festivals that fill medieval squares, and jazz spilling from Turin's colonnades. Piemonte rewards curiosity over spectacle.",
-        "backgroundImage": "/images/piemonte/torino-hero.jpg",
+        "title": "Culture — Stories Written in Stone and Celebration",
+        "intro": "Culture in Puglia isn't something you step into; it's something you're surrounded by. It's the dry-stacked stones of a trullo holding the heat of a thousand summers. It's Lecce's creamy Baroque facades glowing at dusk, and a piazza filling without warning because the band decided to start early. It's the rhythm of pizzica echoing through a summer night, the solemnity of Holy Week processions, and the pride every town carries for its sagre, saints, and stories. For someone imagining a future life here, Puglia's culture offers something priceless: a sense of belonging that comes not from spectacle, but from continuity.",
+        "backgroundImage": "/images/puglia/trulli-architecture.jpg",
         "cards": [
           {
-            "id": "museo-egizio",
-            "title": "Museo Egizio",
-            "subtitle": "World's greatest Egyptian collection outside Cairo",
-            "image": "/images/piemonte/torino1.jpg",
-            "description": "Rivals global icons with understated confidence. Ancient Egyptian archaeology in a city that knows subtlety.",
+            "id": "pizzica-tarantismo",
+            "title": "Pizzica & Tarantismo",
+            "subtitle": "The Heartbeat of Salento",
+            "image": "/images/puglia/pizzica-dance.jpg",
+            "description": "A hypnotic, fast-footed dance born from ancient healing rituals, the pizzica is the heartbeat of Salento. Whether performed at a village festa or an impromptu gathering, it's one of the most visceral ways Puglia tells its story.",
             "links": [
               {
-                "label": "Visit Museo Egizio",
-                "href": "https://museoegizio.it/"
+                "label": "Discover the Real Secret of Pizzica",
+                "href": "https://pugliaparadise.com/the-real-secret-of-pizzica-an-apulian-dance/"
               }
             ]
           },
           {
-            "id": "cinema-museum",
-            "title": "Museo Nazionale del Cinema",
-            "subtitle": "A cinematic cathedral inside the Mole",
-            "image": "/images/piemonte/torino2.jpg",
-            "description": "Film history and art housed in Turin's iconic tower — a monument to serious cinema in a subtle city.",
+            "id": "notte-taranta",
+            "title": "La Notte della Taranta",
+            "subtitle": "Cultural Lightning Strike",
+            "image": "/images/puglia/notte-taranta.jpg",
+            "description": "This is Puglia's cultural lightning strike — an enormous open-air concert celebrating pizzica, folk traditions, and community. Held across multiple towns and culminating in Melpignano, it's both ancient ritual and modern music festival.",
             "links": [
               {
-                "label": "Cinema Museum",
-                "href": "https://www.museocinema.it/"
+                "label": "Learn About La Notte della Taranta",
+                "href": "https://en.wikipedia.org/wiki/Notte_della_Taranta"
               }
             ]
           },
           {
-            "id": "venaria-reale",
-            "title": "Reggia di Venaria Reale",
-            "subtitle": "Savoy opulence, better lighting than Versailles",
-            "image": "/images/piemonte/torino3.jpg",
-            "description": "A UNESCO World Heritage site. Royal grandeur that feels lived-in rather than staged.",
+            "id": "trulli-architecture",
+            "title": "Trulli, Town Centers & the Architecture of Slow Life",
+            "subtitle": "Living History",
+            "image": "/images/puglia/trulli-architecture.jpg",
+            "description": "From the fairytale cones of Alberobello to the whitewashed labyrinths of Ostuni and Locorotondo, Puglia's architecture tells centuries of agricultural, pastoral, and maritime history. These towns aren't postcards — they're living, breathing spaces shaped for human scale.",
             "links": [
               {
-                "label": "Plan Your Visit",
-                "href": "https://www.lavenaria.it/"
+                "label": "UNESCO – Trulli of Alberobello",
+                "href": "https://whc.unesco.org/en/list/787/"
               }
             ]
           },
           {
-            "id": "collisioni-festival",
-            "title": "Collisioni Festival",
-            "subtitle": "Literature, music, wine in Barolo",
-            "image": "/images/piemonte/alba.jpg",
-            "description": "Perfect harmony of art and terroir. Festivals that fill medieval squares with contemporary culture.",
+            "id": "patron-saints-feasts",
+            "title": "Sagre, Patron Saints & Local Feasts",
+            "subtitle": "Community Memory Made Visible",
+            "image": "/images/puglia/patron-saint-procession.jpg",
+            "description": "Every town has its own calendar of celebrations: fireworks for San Nicola, bonfires for San Giuseppe, processions winding through stone alleys. These aren't performances — they're the community's memory and identity made visible.",
             "links": [
               {
-                "label": "Festival Info",
-                "href": "https://www.collisioni.it/"
+                "label": "Tarantella Dance Festival Guide",
+                "href": "https://www.summerinitaly.com/guide/tarantella-dance-festival"
               }
             ]
           },
           {
-            "id": "torino-film",
-            "title": "Torino Film Festival",
-            "subtitle": "Serious cinema, subtle city",
-            "image": "/images/piemonte/torino.jpg",
-            "description": "One of Italy's most prestigious film festivals. Culture you stumble into, not queue for.",
+            "id": "piazza-passeggiata",
+            "title": "The Everyday Culture: Piazza Life & the Passeggiata",
+            "subtitle": "The Social Fabric",
+            "image": "/images/puglia/piazza-passeggiata.jpg",
+            "description": "Evening strolls, gossip shared over espresso, children playing freely in the piazza — this is the social fabric newcomers fall in love with. It's culture expressed in the ordinary, and it's the part that sticks with you long after the festivals end.",
             "links": [
               {
-                "label": "Film Festival",
-                "href": "https://www.torinofilmfest.org/"
-              }
-            ]
-          },
-          {
-            "id": "artissima",
-            "title": "Artissima Contemporary Art Fair",
-            "subtitle": "Italy's most forward-thinking exhibition",
-            "image": "/images/piemonte/market.jpg",
-            "description": "Leading international contemporary art fair. A patchwork of heritage meeting innovation.",
-            "links": [
-              {
-                "label": "Artissima",
-                "href": "https://www.artissima.art/"
-              }
-            ]
-          },
-          {
-            "id": "olivetti",
-            "title": "Olivetti's Modernist Utopia",
-            "subtitle": "Design legacy in Ivrea",
-            "image": "/images/piemonte/ivrea.jpg",
-            "description": "UNESCO site proving industry can be beautiful. Craftsmanship and calm intellect in architectural form.",
-            "links": [
-              {
-                "label": "Industrial City of Ivrea",
-                "href": "https://www.comune.ivrea.to.it/"
+                "label": "Living Italian Life in the Piazza",
+                "href": "https://www.italymagazine.com/featured-story/living-italian-life-piazza"
               }
             ]
           }
+        ]
+      }
         ]
       }
     },
