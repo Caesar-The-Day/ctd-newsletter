@@ -759,98 +759,73 @@
         ]
       },
       "culture": {
-        "title": "CULTURE — Where Grandeur Whispers, Not Shouts",
-        "intro": "Piemonte's cultural personality is subtle — stately façades, arcaded streets, and a calm intellect that reveals itself slowly. Turin, once the capital of a kingdom and now one of Europe's most underappreciated cultural cities, leads the region's aesthetic dialogue. Its museums — from the Museo Egizio to the Museum of Cinema — rival global icons, while its concert halls and galleries carry an understated confidence. Beyond the city, royal palaces, baroque towns, and contemporary art fairs create a patchwork of heritage that feels lived-in rather than staged. This is culture you stumble into, not queue for: frescoes in village churches, festivals that fill medieval squares, and jazz spilling from Turin's colonnades. Piemonte rewards curiosity over spectacle.",
-        "backgroundImage": "/images/piemonte/torino-hero.jpg",
+        "title": "Culture",
+        "intro": "Culture in Puglia isn't something you step into; it's something you're surrounded by. It's the dry-stacked stones of a trullo holding the heat of a thousand summers. It's Lecce's creamy Baroque facades glowing at dusk, and a piazza filling without warning because the band decided to start early. It's the rhythm of pizzica echoing through a summer night, the solemnity of Holy Week processions, and the pride every town carries for its sagre, saints, and stories. For someone imagining a future life here, Puglia's culture offers something priceless: a sense of belonging that comes not from spectacle, but from continuity.",
+        "header": "Culture — Stories Written in Stone and Celebration",
+        "backgroundImage": "/images/puglia/puglia-hero.jpg",
         "cards": [
           {
-            "id": "museo-egizio",
-            "title": "Museo Egizio",
-            "subtitle": "World's greatest Egyptian collection outside Cairo",
-            "image": "/images/piemonte/torino1.jpg",
-            "description": "Rivals global icons with understated confidence. Ancient Egyptian archaeology in a city that knows subtlety.",
+            "id": "pizzica-tarantismo",
+            "title": "Pizzica & Tarantismo",
+            "subtitle": "The hypnotic dance of healing",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "A hypnotic, fast-footed dance born from ancient healing rituals, the pizzica is the heartbeat of Salento. Whether performed at a village festa or an impromptu gathering, it's one of the most visceral ways Puglia tells its story.",
             "links": [
               {
-                "label": "Visit Museo Egizio",
-                "href": "https://museoegizio.it/"
+                "label": "Read More",
+                "href": "https://pugliaparadise.com/the-real-secret-of-pizzica-an-apulian-dance/"
               }
             ]
           },
           {
-            "id": "cinema-museum",
-            "title": "Museo Nazionale del Cinema",
-            "subtitle": "A cinematic cathedral inside the Mole",
-            "image": "/images/piemonte/torino2.jpg",
-            "description": "Film history and art housed in Turin's iconic tower — a monument to serious cinema in a subtle city.",
+            "id": "notte-taranta",
+            "title": "La Notte della Taranta",
+            "subtitle": "Puglia's cultural lightning strike",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "This is Puglia's cultural lightning strike — an enormous open-air concert celebrating pizzica, folk traditions, and community. Held across multiple towns and culminating in Melpignano, it's both ancient ritual and modern music festival.",
             "links": [
               {
-                "label": "Cinema Museum",
-                "href": "https://www.museocinema.it/"
+                "label": "Read More",
+                "href": "https://en.wikipedia.org/wiki/Notte_della_Taranta"
               }
             ]
           },
           {
-            "id": "venaria-reale",
-            "title": "Reggia di Venaria Reale",
-            "subtitle": "Savoy opulence, better lighting than Versailles",
-            "image": "/images/piemonte/torino3.jpg",
-            "description": "A UNESCO World Heritage site. Royal grandeur that feels lived-in rather than staged.",
+            "id": "trulli-architecture",
+            "title": "Trulli, Town Centers & the Architecture of Slow Life",
+            "subtitle": "Living history in stone",
+            "image": "/images/puglia/alberobello-trulli.jpg",
+            "description": "From the fairytale cones of Alberobello to the whitewashed labyrinths of Ostuni and Locorotondo, Puglia's architecture tells centuries of agricultural, pastoral, and maritime history. These towns aren't postcards — they're living, breathing spaces shaped for human scale.",
             "links": [
               {
-                "label": "Plan Your Visit",
-                "href": "https://www.lavenaria.it/"
+                "label": "UNESCO World Heritage Site",
+                "href": "https://whc.unesco.org/en/list/787/"
               }
             ]
           },
           {
-            "id": "collisioni-festival",
-            "title": "Collisioni Festival",
-            "subtitle": "Literature, music, wine in Barolo",
-            "image": "/images/piemonte/alba.jpg",
-            "description": "Perfect harmony of art and terroir. Festivals that fill medieval squares with contemporary culture.",
+            "id": "sagre-patron-saints",
+            "title": "Sagre, Patron Saints & Local Feasts",
+            "subtitle": "Community memory made visible",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "Every town has its own calendar of celebrations: fireworks for San Nicola, bonfires for San Giuseppe, processions winding through stone alleys. These aren't performances — they're the community's memory and identity made visible.",
             "links": [
               {
-                "label": "Festival Info",
-                "href": "https://www.collisioni.it/"
+                "label": "Read More",
+                "href": "https://www.summerinitaly.com/guide/tarantella-dance-festival"
               }
             ]
           },
           {
-            "id": "torino-film",
-            "title": "Torino Film Festival",
-            "subtitle": "Serious cinema, subtle city",
-            "image": "/images/piemonte/torino.jpg",
-            "description": "One of Italy's most prestigious film festivals. Culture you stumble into, not queue for.",
+            "id": "piazza-life",
+            "title": "The Everyday Culture: Piazza Life & the Passeggiata",
+            "subtitle": "Culture in the ordinary",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "Evening strolls, gossip shared over espresso, children playing freely in the piazza — this is the social fabric newcomers fall in love with. It's culture expressed in the ordinary, and it's the part that sticks with you long after the festivals end.",
             "links": [
               {
-                "label": "Film Festival",
-                "href": "https://www.torinofilmfest.org/"
-              }
-            ]
-          },
-          {
-            "id": "artissima",
-            "title": "Artissima Contemporary Art Fair",
-            "subtitle": "Italy's most forward-thinking exhibition",
-            "image": "/images/piemonte/market.jpg",
-            "description": "Leading international contemporary art fair. A patchwork of heritage meeting innovation.",
-            "links": [
-              {
-                "label": "Artissima",
-                "href": "https://www.artissima.art/"
-              }
-            ]
-          },
-          {
-            "id": "olivetti",
-            "title": "Olivetti's Modernist Utopia",
-            "subtitle": "Design legacy in Ivrea",
-            "image": "/images/piemonte/ivrea.jpg",
-            "description": "UNESCO site proving industry can be beautiful. Craftsmanship and calm intellect in architectural form.",
-            "links": [
-              {
-                "label": "Industrial City of Ivrea",
-                "href": "https://www.comune.ivrea.to.it/"
+                "label": "Read More",
+                "href": "https://www.italymagazine.com/featured-story/living-italian-life-piazza"
               }
             ]
           }
