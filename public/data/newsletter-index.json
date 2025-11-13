@@ -9,7 +9,7 @@
     "title": "Piemonte",
     "subtitle": "Italy's wine country awaits",
     "issueNumber": 7,
-    "date": "October 2024",
+    "date": "October 2025",
     "description": "Piemonte is Italy without the performance — elegant, grounded, and quietly confident. Tucked beneath the Alps, it's a region where mist rolls over vineyard hills and Barolo flows like a reward for patience. Turin sets the tone: stately cafés, Art Nouveau arcades, and a hum of intellect and history that gave Italy both its first capital and its first espresso machine. Beyond the city, you'll find medieval hill towns, truffle-scented forests, and lakes that mirror the sky so perfectly you forget which way is up. Piemonte doesn't chase attention; it earns devotion — one glass, one view, one slow afternoon at a time.",
     "heroImage": "/images/piemonte/hero-vineyards.jpg",
     "ctaText": "Explore Piemonte",
@@ -20,7 +20,7 @@
       "slug": "piemonte",
       "title": "Piemonte",
       "issueNumber": 7,
-      "date": "October 2024",
+      "date": "October 2025",
       "status": "live",
       "thumbnail": "/images/piemonte/alba-vineyards.jpg",
       "description": "Your complete retirement blueprint for Piemonte: healthcare infrastructure, cost breakdowns for 15+ towns, property market insights, and expat community connections. Wine country living made practical.",
@@ -31,12 +31,12 @@
       "slug": "puglia",
       "title": "Puglia",
       "issueNumber": 8,
-      "date": "November 2024",
+      "date": "November 2025",
       "status": "coming-soon",
       "thumbnail": "/images/puglia/alberobello-trulli.jpg",
       "description": "Retiring to Italy's sun-soaked heel: affordable coastal living, trulli house ownership, healthcare access, and why Puglia offers Italy's best value for retirees seeking Mediterranean warmth.",
       "ctaText": "Coming Soon",
-      "expectedDate": "November 2024"
+      "expectedDate": "November 2025"
     }
   ],
   "archive": [
