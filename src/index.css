@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Warm autumn palette - sophisticated editorial theme */
-    --background: 35 30% 97%;
-    --foreground: 20 15% 15%;
+    /* Mediterranean blue palette - coastal Puglia theme */
+    --background: 200 30% 97%;
+    --foreground: 210 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 15% 15%;
+    --card-foreground: 210 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 15% 15%;
+    --popover-foreground: 210 20% 15%;
 
-    /* Rich terracotta primary */
-    --primary: 16 68% 27%;
-    --primary-foreground: 35 30% 97%;
+    /* Deep Mediterranean blue primary */
+    --primary: 210 85% 35%;
+    --primary-foreground: 200 30% 97%;
 
-    /* Warm amber secondary */
-    --secondary: 30 75% 38%;
-    --secondary-foreground: 35 30% 97%;
+    /* Azure sky secondary */
+    --secondary: 200 75% 55%;
+    --secondary-foreground: 200 30% 97%;
 
-    /* Soft muted tones */
-    --muted: 35 20% 88%;
-    --muted-foreground: 20 10% 45%;
+    /* Cool muted tones */
+    --muted: 200 20% 90%;
+    --muted-foreground: 210 15% 45%;
 
-    /* Golden accent */
-    --accent: 38 92% 50%;
-    --accent-foreground: 20 15% 15%;
+    /* Turquoise coastal accent */
+    --accent: 185 80% 50%;
+    --accent-foreground: 210 20% 15%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 35 30% 97%;
+    --destructive-foreground: 200 30% 97%;
 
-    --border: 35 15% 85%;
-    --input: 35 15% 85%;
-    --ring: 16 68% 27%;
+    --border: 200 20% 85%;
+    --input: 200 20% 85%;
+    --ring: 210 85% 35%;
 
     --radius: 0.75rem;
 
-    /* Custom autumn gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(16 68% 27%) 0%, hsl(30 75% 38%) 100%);
-    --gradient-warm: linear-gradient(180deg, hsl(35 30% 97%) 0%, hsl(35 20% 92%) 100%);
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(20 15% 15% / 0.7) 100%);
+    /* Mediterranean coastal gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 85% 35%) 0%, hsl(185 80% 50%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(200 30% 97%) 0%, hsl(200 20% 92%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(210 20% 15% / 0.7) 100%);
 
     /* Elegant shadows */
-    --shadow-soft: 0 4px 16px hsl(20 15% 15% / 0.08);
-    --shadow-medium: 0 8px 24px hsl(20 15% 15% / 0.12);
-    --shadow-strong: 0 16px 48px hsl(20 15% 15% / 0.16);
+    --shadow-soft: 0 4px 16px hsl(210 20% 15% / 0.08);
+    --shadow-medium: 0 8px 24px hsl(210 20% 15% / 0.12);
+    --shadow-strong: 0 16px 48px hsl(210 20% 15% / 0.16);
 
     /* Smooth transitions */
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,33 +59,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 20 20% 8%;
-    --foreground: 35 30% 95%;
+    --background: 210 25% 8%;
+    --foreground: 200 30% 95%;
 
-    --card: 20 18% 12%;
-    --card-foreground: 35 30% 95%;
+    --card: 210 22% 12%;
+    --card-foreground: 200 30% 95%;
 
-    --popover: 20 18% 12%;
-    --popover-foreground: 35 30% 95%;
+    --popover: 210 22% 12%;
+    --popover-foreground: 200 30% 95%;
 
-    --primary: 30 75% 45%;
-    --primary-foreground: 20 20% 8%;
+    --primary: 200 75% 55%;
+    --primary-foreground: 210 25% 8%;
 
-    --secondary: 16 60% 35%;
-    --secondary-foreground: 35 30% 95%;
+    --secondary: 210 70% 40%;
+    --secondary-foreground: 200 30% 95%;
 
-    --muted: 20 15% 18%;
-    --muted-foreground: 35 15% 65%;
+    --muted: 210 18% 18%;
+    --muted-foreground: 200 20% 65%;
 
-    --accent: 38 85% 55%;
-    --accent-foreground: 20 20% 8%;
+    --accent: 185 75% 55%;
+    --accent-foreground: 210 25% 8%;
 
     --destructive: 0 75% 55%;
-    --destructive-foreground: 35 30% 95%;
+    --destructive-foreground: 200 30% 95%;
 
-    --border: 20 15% 20%;
-    --input: 20 15% 20%;
-    --ring: 30 75% 45%;
+    --border: 210 18% 20%;
+    --input: 210 18% 20%;
+    --ring: 200 75% 55%;
   }
 }
 
