@@ -105,6 +105,7 @@ export interface HighlightCategory {
 }
 
 export interface Highlights {
+  sectionIntro?: string;
   wine: HighlightCategory;
   food: HighlightCategory;
   culture: HighlightCategory;
