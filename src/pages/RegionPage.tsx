@@ -166,7 +166,13 @@ export default function RegionPage() {
 
       <Separator className="my-16" />
 
-      <HealthcareInfrastructure healthcare={regionData.healthcare} />
+      <HealthcareInfrastructure healthcare={{
+        intro: typeof regionData.healthcare.intro === 'string' 
+          ? regionData.healthcare.intro 
+          : regionData.healthcare.intro.lead,
+        hospitals: regionData.healthcare.hospitals,
+        airports: regionData.healthcare.airports
+      }} />
 
       <CostCalculator 
         townPresets={regionData.costOfLiving.townPresets} 
