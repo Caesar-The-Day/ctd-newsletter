@@ -42,7 +42,8 @@
       "ostuni": { "tempLow": 6, "tempHigh": 13, "rainfall": 58, "sunHours": 4, "lightQuality": "Stone Glow" },
       "alberobello": { "tempLow": 4, "tempHigh": 12, "rainfall": 65, "sunHours": 4, "lightQuality": "Valley Mist" },
       "tooltip": "Empty beaches, dark moody sea",
-      "culturalEvent": "Masserie fireplaces, truffle season",
+      "culturalEvent": "Fòcara di Novoli",
+      "culturalEventUrl": "https://www.focara.it/",
       "visualCue": "Waves crashing, solitary walks"
     },
     {
@@ -67,7 +68,8 @@
       "ostuni": { "tempLow": 9, "tempHigh": 16, "rainfall": 46, "sunHours": 6, "lightQuality": "Almond Blossom" },
       "alberobello": { "tempLow": 7, "tempHigh": 15, "rainfall": 50, "sunHours": 6, "lightQuality": "Green Valley" },
       "tooltip": "Wildflowers explode everywhere",
-      "culturalEvent": "Sagre begin, spring festivals",
+      "culturalEvent": "San Giuseppe Bonfires & Holy Week",
+      "culturalEventUrl": "https://en.wikipedia.org/wiki/Holy_Week_in_Ruvo_di_Puglia",
       "visualCue": "Wildflowers dancing, pollen drifting"
     },
     {
@@ -79,7 +81,8 @@
       "ostuni": { "tempLow": 12, "tempHigh": 19, "rainfall": 40, "sunHours": 7, "lightQuality": "White City Glow" },
       "alberobello": { "tempLow": 10, "tempHigh": 18, "rainfall": 45, "sunHours": 7, "lightQuality": "Cone Roof Light" },
       "tooltip": "Adriatic turns turquoise",
-      "culturalEvent": "Easter processions, fava beans everywhere",
+      "culturalEvent": "San Giorgio Festival (Vieste) & Spring Sagre",
+      "culturalEventUrl": "https://www.museodeibambini.it/the-ultimate-puglia-event-calendar/",
       "visualCue": "Wildflowers peak, turquoise water"
     },
     {
@@ -91,7 +94,8 @@
       "ostuni": { "tempLow": 16, "tempHigh": 23, "rainfall": 33, "sunHours": 8, "lightQuality": "Dazzling White" },
       "alberobello": { "tempLow": 14, "tempHigh": 22, "rainfall": 38, "sunHours": 8, "lightQuality": "Valley Shimmer" },
       "tooltip": "Perfect weather, no tourists yet",
-      "culturalEvent": "Sagra della Ciliegia (Cherry Festival)",
+      "culturalEvent": "Festa di San Nicola (Bari) & Cherry Festivals",
+      "culturalEventUrl": "https://travelpuglia.com/puglias-festivals-and-events-a-calendar-of-cultural-celebrations/",
       "visualCue": "Last wildflowers, warming seas"
     },
     {
@@ -103,8 +107,8 @@
       "ostuni": { "tempLow": 20, "tempHigh": 28, "rainfall": 23, "sunHours": 10, "lightQuality": "Blinding Noon" },
       "alberobello": { "tempLow": 18, "tempHigh": 27, "rainfall": 28, "sunHours": 10, "lightQuality": "Trulli Heat" },
       "tooltip": "Heat begins, festas start",
-      "culturalEvent": "Notte della Taranta preparations",
-      "culturalEventUrl": "https://www.lanottedellataranta.it/",
+      "culturalEvent": "Wine Festivals (Negroamaro) & Early Summer Events",
+      "culturalEventUrl": "https://bookingsforyou.com/blog/festivals-in-puglia/",
       "visualCue": "Gentle waves, coastal shimmer"
     },
     {
@@ -116,7 +120,8 @@
       "ostuni": { "tempLow": 23, "tempHigh": 31, "rainfall": 13, "sunHours": 11, "lightQuality": "White Hot" },
       "alberobello": { "tempLow": 21, "tempHigh": 30, "rainfall": 18, "sunHours": 11, "lightQuality": "Valley Haze" },
       "tooltip": "Heat like a weight, siesta mandatory",
-      "culturalEvent": "Festas patronali every weekend",
+      "culturalEvent": "Festival della Valle d'Itria & Alberobello Light Festival",
+      "culturalEventUrl": "https://www.festivaldellavalleditria.it/",
       "visualCue": "Cicadas pulsing, heat shimmer"
     },
     {
@@ -141,7 +146,8 @@
       "ostuni": { "tempLow": 20, "tempHigh": 27, "rainfall": 36, "sunHours": 8, "lightQuality": "Soft Terracotta" },
       "alberobello": { "tempLow": 18, "tempHigh": 26, "rainfall": 40, "sunHours": 8, "lightQuality": "Harvest Light" },
       "tooltip": "Grape harvest in Manduria",
-      "culturalEvent": "Vendemmia (grape harvest), tourists leaving",
+      "culturalEvent": "Wine Harvest Festivals & Sagre",
+      "culturalEventUrl": "https://bookingsforyou.com/blog/festivals-in-puglia/",
       "visualCue": "Olive leaves starting to drift"
     },
     {
@@ -153,7 +159,8 @@
       "ostuni": { "tempLow": 16, "tempHigh": 23, "rainfall": 52, "sunHours": 6, "lightQuality": "Stone Warmth" },
       "alberobello": { "tempLow": 14, "tempHigh": 22, "rainfall": 58, "sunHours": 6, "lightQuality": "Valley Copper" },
       "tooltip": "Olive harvest begins, sea still warm",
-      "culturalEvent": "Olive oil pressing season",
+      "culturalEvent": "Autumn Sagre & San Nicola Half Marathon",
+      "culturalEventUrl": "https://bookingsforyou.com/blog/festivals-in-puglia/",
       "visualCue": "Olive leaves drifting slowly"
     },
     {
@@ -165,7 +172,8 @@
       "ostuni": { "tempLow": 11, "tempHigh": 18, "rainfall": 62, "sunHours": 5, "lightQuality": "Low Angle Sun" },
       "alberobello": { "tempLow": 9, "tempHigh": 17, "rainfall": 68, "sunHours": 5, "lightQuality": "Twilight Valley" },
       "tooltip": "Life returns after tourist season",
-      "culturalEvent": "Local sagre, olive oil tastings",
+      "culturalEvent": "New Olive Oil Festivals & Bacco nelle Gnostre (Noci)",
+      "culturalEventUrl": "https://bookingsforyou.com/blog/festivals-in-puglia/",
       "visualCue": "Olive harvest peak, scattered leaves"
     },
     {
@@ -177,7 +185,8 @@
       "ostuni": { "tempLow": 8, "tempHigh": 15, "rainfall": 60, "sunHours": 4, "lightQuality": "White Winter" },
       "alberobello": { "tempLow": 6, "tempHigh": 14, "rainfall": 65, "sunHours": 4, "lightQuality": "Trulli Dusk" },
       "tooltip": "Masserie holidays, empty streets",
-      "culturalEvent": "Natale nei Trulli - Christmas in Alberobello",
+      "culturalEvent": "Natale nei Trulli & Christmas Season in Puglia",
+      "culturalEventUrl": "https://www.alberobellolightfestival.it/",
       "visualCue": "Waves continue, quiet coast"
     }
   ]
