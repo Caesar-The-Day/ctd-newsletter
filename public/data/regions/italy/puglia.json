@@ -506,7 +506,7 @@
         "mapUrl": "https://maps.google.com/?q=Martina+Franca,Italy",
         "blurb": "Martina Franca sits above the olive groves like a white-and-gold crown, refined and self-assured. Its palazzi and piazzas feel almost theatrical in the late afternoon light, when the stone blushes warm and the shadows stretch long. The Baroque architecture here isn't just decorative — it gives the whole town a sense of dignity and permanence.",
         "fullDescription": "What retirees find irresistible is the cultural heartbeat. Music spills into the streets during the Festival della Valle d'Itria, artisans open their workshops to passersby, and food here is practically a belief system. This is the homeland of capocollo — crafted with devotion, not marketing. Daily life feels polished without being pretentious. You'll find locals dressed well but never showily, conversations that stretch out for hours, and a civic pride that's felt in the swept streets and carefully maintained façades. Martina Franca is elegance with a pulse.",
-        "eligible7Percent": true
+        "eligible7Percent": false
       },
       {
         "id": "locorotondo",
@@ -552,11 +552,11 @@
         "id": "alberobello",
         "name": "Alberobello",
         "bestFor": "Trulli magic, whimsical charm",
-        "photo": "/images/puglia/alberobello-trulli.jpg",
+        "photo": "/images/puglia/alberobello.jpg",
         "mapUrl": "https://maps.google.com/?q=Alberobello,Italy",
         "blurb": "Alberobello is one of those rare places where architecture and landscape merge into a complete fantasy — a hillside dotted with conical stone houses that feel like something lifted from folklore. Tourists flock here for good reason, but step off the main lanes and you discover small residential clusters where the magic is quieter.",
         "fullDescription": "The town is deceptively livable. Its walkability makes errands effortless, and despite the tourism, Alberobello maintains a strong local identity. Retirees who choose it tend to love uniqueness — they want a home that feels like nowhere else in the world. Nights are peaceful, mornings full of soft light bouncing across whitewashed limestone, and daily rhythms take on a simplicity shaped by the architecture itself.",
-        "eligible7Percent": false
+        "eligible7Percent": true
       },
       {
         "id": "otranto",
@@ -566,7 +566,7 @@
         "mapUrl": "https://maps.google.com/?q=Otranto,Italy",
         "blurb": "Otranto is what happens when history and nature decide to collaborate. The town hugs a curve of impossibly clear water — bright turquoise on sunny days, deep sapphire at dusk. A medieval castle guards the old town, whose lanes open to panoramic sea views at unexpected moments.",
         "fullDescription": "Retirees love Otranto for its scale: small enough to know by heart, large enough to have everything you need. Cafés stay open most of the year, the waterfront promenade becomes your daily meditation, and the sea is always within sight or sound. Healthcare is accessible, day trips are effortless, and the town never feels overwhelming. Life in Otranto is blue-sky therapy.",
-        "eligible7Percent": false
+        "eligible7Percent": true
       },
       {
         "id": "tricase",
