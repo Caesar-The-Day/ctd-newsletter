@@ -1086,7 +1086,7 @@
         "Cime di rapa (turnip tops) were historically the vegetable you ate when you had to — the tough, bitter green that didn't demand much from the soil but gave everything in flavor. Peasants turned it into something more by pairing it with orecchiette, garlic gently warmed in olive oil, and those anchovies that melt into nothing but depth. This is cucina povera in its purest form: food born from necessity, elevated through repetition and love.",
         "And here's the real charm. When you make this dish — really make it, not just \"cook dinner\" — you get a glimpse of how life in Puglia works. Slowly. Seasonally. With ingredients that taste like the landscape they grew from. It's not culinary performance. It's tradition in motion. A bowl of quiet confidence that doesn't need reinvention."
       ],
-      "image": "/images/puglia/orecchiette-cime-di-rapa.jpg",
+      "image": "/images/puglia/orecchiette-alle-cime-di-rapa.jpg",
       "winePairing": [
         "Negroamaro Rosato (Salento rosé)",
         "Fiano Minutolo (bright, aromatic white)"
@@ -1228,196 +1228,73 @@
     "modes": ["Rustic", "Refined"]
   },
   "healthcare": {
-    "intro": {
-      "headline": "Healthcare & Infrastructure: The Practical North",
-      "lead": "Piemonte doesn't brag about efficiency — it just runs on it. From its hospitals to its railways, everything here works with the same quiet precision as a Swiss watch that somehow learned to love truffles. The region's infrastructure isn't flashy, but it's reliable — a rare comfort for anyone considering a long-term move or retirement abroad."
-    },
+    "intro": "Puglia isn't the kind of region where infrastructure feels abstract or distant — it's woven into the rhythm of daily life. Healthcare is regional but accessible, airports are small but well connected, and the roads link whitewashed hilltowns, olive groves, and two coastlines with surprising ease. This isn't a place built for speed; it's built for livability. Understanding how Puglia is organized — medically, geographically, and logistically — helps you picture what your days would actually look like here, not just your vacations.",
     "hospitals": [
       {
-        "name": "Città della Salute e della Scienza di Torino",
-        "location": "Turin",
-        "coords": [45.0677, 7.6664],
-        "description": "Italy's largest teaching hospital, known for oncology and transplant programs.",
-        "link": "https://www.cittadellasalute.to.it/",
-        "mapUrl": "https://maps.google.com/?q=Citta+della+Salute+Torino"
+        "name": "Azienda Ospedaliero‑Universitaria Policlinico di Bari",
+        "location": "Bari",
+        "link": "https://www.sanita.puglia.it/web/policlinico-di-bari-ospedale-giovanni-xxiii/-/azienda-ospedaliero-universitaria-consorziale-policlinico",
+        "mapLink": "https://goo.gl/maps/BariPoliclinico",
+        "specialties": ["Cardiology", "Oncology", "Neurology", "Emergency"],
+        "emergency": true
       },
       {
-        "name": "Ospedale Maggiore di Novara",
-        "location": "Novara",
-        "coords": [45.4386, 8.6225],
-        "description": "Historic university hospital serving the eastern plains; strong cardiology unit.",
-        "link": "https://www.maggioreosp.novara.it/",
-        "mapUrl": "https://maps.google.com/?q=Ospedale+Novara"
+        "name": "Azienda Ospedaliera ‑ Universitaria Vito Fazzi",
+        "location": "Lecce",
+        "link": "https://www.sanita.puglia.it/web/asl-lecce/-/ospedale-vito-fazzi-",
+        "mapLink": "https://goo.gl/maps/LecceVitoFazzi",
+        "specialties": ["General Medicine", "Surgery", "Emergency"],
+        "emergency": true
       },
       {
-        "name": "Ospedale Santa Croce e Carle",
-        "location": "Cuneo",
-        "coords": [44.3960, 7.5442],
-        "description": "Regional reference for trauma and orthopedics; gateway to Alpine emergency services.",
-        "link": "https://www.ospedale.cuneo.it/",
-        "mapUrl": "https://maps.google.com/?q=Ospedale+Cuneo"
+        "name": "Ospedale Cardinale G. Panico – Casa di Betania",
+        "location": "Tricase (Lecce province)",
+        "link": "https://www.piafondazionepanico.it/azienda",
+        "mapLink": "https://goo.gl/maps/TricasePanico",
+        "specialties": ["Cardiology", "Orthopedics", "Rehabilitation"],
+        "emergency": true
       },
       {
-        "name": "Ospedale Cardinal Massaia",
-        "location": "Asti",
-        "coords": [44.9009, 8.2064],
-        "description": "Modern mid-size facility, efficient emergency ward, excellent maternity care.",
-        "link": "https://www.asl.at.it/",
-        "mapUrl": "https://maps.google.com/?q=Ospedale+Asti"
+        "name": "Policlinico Foggia",
+        "location": "Foggia",
+        "link": "https://bollinirosa.it/ospedale/azienda-ospedaliero-universitaria-di-foggia-ospedali-riuniti/",
+        "mapLink": "https://goo.gl/maps/FoggiaPoliclinico",
+        "specialties": ["Emergency", "Trauma", "Intensive Care"],
+        "emergency": true
+      },
+      {
+        "name": "Ospedale Sacro Cuore di Gesù",
+        "location": "Gallipoli",
+        "link": "https://www.sanita.puglia.it/web/asl-lecce/-/ospedale-sacro-cuore-di-gesu-",
+        "mapLink": "https://goo.gl/maps/GallipoliSacroCuore",
+        "specialties": ["General Medicine", "Surgery"],
+        "emergency": true
       }
     ],
     "airports": [
       {
-        "name": "Torino-Caselle Airport (TRN)",
-        "coords": [45.2008, 7.6496],
-        "description": "Compact, efficient hub 20 min from Turin; daily flights to Europe's major capitals.",
-        "link": "https://www.aeroportoditorino.it/en",
-        "mapUrl": "https://maps.google.com/?q=Torino+Caselle+Airport"
+        "name": "Bari Karol Wojtyła Airport (BRI)",
+        "code": "BRI",
+        "website": "https://bari.airports.aeroportidipuglia.it/en/",
+        "mapLink": "https://goo.gl/maps/Ru2GHmEJzys2",
+        "description": "Primary international gateway to Puglia"
       },
       {
-        "name": "Cuneo-Levaldigi Airport (CUF)",
-        "coords": [44.5471, 7.6232],
-        "description": "Small regional airport with seasonal routes to the UK and Northern Europe.",
-        "link": "https://www.aeroportocuneo.it/",
-        "mapUrl": "https://maps.google.com/?q=Cuneo+Airport"
+        "name": "Brindisi–Salento Airport (BDS)",
+        "code": "BDS",
+        "website": "https://www.aeroportidipuglia.it/en/",
+        "mapLink": "https://goo.gl/maps/ijC9LPzcvM82",
+        "description": "Serves southern Puglia and Salento peninsula"
+      },
+      {
+        "name": "Foggia Gino Lisa Airport (FOG)",
+        "code": "FOG",
+        "website": "https://www.aeroportidipuglia.it/?lang=en",
+        "mapLink": "https://goo.gl/maps/t2WAHXHFh682",
+        "description": "Regional airport in northern Puglia"
       }
-    ],
-    "railways": [
-      {
-        "name": "Trenitalia National Network",
-        "description": "National trains connecting Turin, Milan, Florence, and Rome — punctual and affordable.",
-        "link": "https://www.trenitalia.com/en.html"
-      },
-      {
-        "name": "SFM Torino Lines",
-        "description": "Suburban network reaching Avigliana, Pinerolo, and Chieri — great for commuters.",
-        "link": "https://www.sfmtorino.it/"
-      }
-    ],
-    "highways": [
-      {
-        "name": "A4 & A21 Autostrade",
-        "description": "Main arteries linking Turin with Milan, Genoa, and the Po Valley.",
-        "link": "https://www.autostrade.it/"
-      }
-    ],
-    "parks": [
-      {
-        "name": "Gran Paradiso National Park",
-        "coords": [45.5167, 7.2667],
-        "description": "Italy's first national park; alpine ibex, glaciers, and perfect signage.",
-        "link": "https://www.pngp.it/en",
-        "mapUrl": "https://maps.google.com/?q=Gran+Paradiso+National+Park"
-      },
-      {
-        "name": "Parco delle Alpi Marittime",
-        "coords": [44.2333, 7.4000],
-        "description": "Wild valleys south of Cuneo; UNESCO biosphere reserve.",
-        "link": "https://www.parcoalpimarittime.it/",
-        "mapUrl": "https://maps.google.com/?q=Parco+Alpi+Marittime"
-      },
-      {
-        "name": "Parco Naturale del Po Piemonte",
-        "coords": [45.1000, 8.0500],
-        "description": "Wetlands and bird sanctuaries north of Turin; ideal day trip from the city.",
-        "link": "https://www.parcopopiemontese.it/parco-po-piemontese.php",
-        "mapUrl": "https://maps.google.com/?q=Parco+Po+Piemonte"
-      }
-    ],
-    "travelTimes": [
-      {
-        "from": "Turin",
-        "to": [
-          { "destination": "Milan", "time": "55 min by train" },
-          { "destination": "Genoa", "time": "2h by train" },
-          { "destination": "Nice", "time": "3h 30 by train" },
-          { "destination": "Gran Paradiso Park", "time": "90 min by car" }
-        ],
-        "nearestAirport": {
-          "name": "Caselle Airport",
-          "code": "TRN",
-          "time": "20 min",
-          "distance": "16 km",
-          "connectivity": "Direct flights to 50+ European cities",
-          "link": "https://www.aeroportoditorino.it/en"
-        }
-      },
-      {
-        "from": "Alba",
-        "to": [
-          { "destination": "Turin", "time": "1h 15 by train" },
-          { "destination": "Genoa", "time": "2h 10 by car" },
-          { "destination": "Milan", "time": "1h 45 by train" },
-          { "destination": "Alpi Marittime Park", "time": "90 min by car" }
-        ],
-        "nearestAirport": {
-          "name": "Caselle Airport",
-          "code": "TRN",
-          "time": "1h",
-          "distance": "65 km",
-          "connectivity": "Direct flights to 50+ European cities",
-          "link": "https://www.aeroportoditorino.it/en"
-        }
-      },
-      {
-        "from": "Cuneo",
-        "to": [
-          { "destination": "Turin", "time": "1h 30 by train" },
-          { "destination": "Nice", "time": "2h 30 by car" },
-          { "destination": "Alpi Marittime Park", "time": "45 min by car" }
-        ],
-        "nearestAirport": {
-          "name": "Cuneo-Levaldigi Airport",
-          "code": "CUF",
-          "time": "15 min",
-          "distance": "18 km",
-          "connectivity": "Seasonal routes to UK & Northern Europe",
-          "link": "https://www.aeroportocuneo.it/"
-        }
-      },
-      {
-        "from": "Verbania",
-        "to": [
-          { "destination": "Milan", "time": "1h 20 by train" },
-          { "destination": "Turin", "time": "2h by train" },
-          { "destination": "Gran Paradiso Park", "time": "2h by car" }
-        ],
-        "nearestAirport": {
-          "name": "Milan Malpensa Airport",
-          "code": "MXP",
-          "time": "45 min",
-          "distance": "55 km",
-          "connectivity": "Major international hub with global connections",
-          "link": "https://www.milanomalpensa-airport.com/en/"
-        }
-      }
-    ],
-    "quickInfo": {
-      "emergencyNumbers": [
-        "118 – Medical Emergency",
-        "112 – Police (Carabinieri)",
-        "115 – Fire Department"
-      ],
-      "healthcare": {
-        "title": "Register for Healthcare",
-        "description": "Via local ASL offices",
-        "link": "https://www.salute.gov.it/"
-      },
-      "transport": {
-        "title": "Transport Info",
-        "description": "Regional transport passes and schedules",
-        "link": "https://www.regione.piemonte.it/web/temi/trasporti"
-      }
-    },
-    "closing": "Piemonte offers a paradox rare in southern Europe: mountain air, Renaissance cities, and a bureaucracy that actually works. The wine may bring you here — the infrastructure is what makes you stay."
+    ]
   },
-  "costOfLiving": {
-    "intro": {
-      "headline": "Cost of Living — What It Really Looks Like",
-      "lead": "Let's cut through the dream and talk real numbers. Piemonte offers a much lower entry cost than Milan or the Riviera—but \"low\" is relative. In this section, we show what life might cost in Torino, Asti, and Alba at three tiers: modest, normal, and high-end. Think of it as a slider from \"make-it-work\" to \"comfort living.\" Then you decide your middle ground.",
-      "realityCheck": "Retirement doesn't mean austerity—but you will live closer to the margin of comfort than excess. Utilities fluctuate by season. Dining out adds up more than you'd think when wine and culture are your hobbies. And yes, property taxes, heating, and local levies bite. Use these projections as a reality check, not a guarantee.",
-      "whyItWorks": "Compared to Italy's coastal hotspots or capitals, Piemonte wins on everyday stability: energy grids that are reliable, property taxes that are moderate (relative by region), and public services that punch above their weight. If your budget is well formed, you'll find breathing room."
-    },
     "townPresets": [
       {
         "id": "torino",
