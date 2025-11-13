@@ -10,5 +10,14 @@
     "enableSeasonalParticles": true
   },
   "piemonte": "default",
-  "puglia": "default"
+  "puglia": {
+    "showWineQuiz": true,
+    "showBeerFeature": false,
+    "show7PercentCTA": true,
+    "showCollaborator": false,
+    "showBookCTA": true,
+    "showRetirementBlueprintCTA": true,
+    "enableAmbientAudio": true,
+    "enableSeasonalParticles": true
+  }
 }
