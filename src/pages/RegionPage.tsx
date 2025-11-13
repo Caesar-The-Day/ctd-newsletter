@@ -151,7 +151,7 @@ export default function RegionPage() {
         />
       )}
 
-      {config.showWineQuiz && regionData.wine && <WineQuiz profiles={regionData.wine.quiz.profiles} />}
+      {config.showWineQuiz && regionData.wine && <WineQuiz quizData={regionData.wine.quiz} />}
 
       {regionData.recipes && <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />}
 
