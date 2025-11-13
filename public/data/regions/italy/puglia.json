@@ -439,166 +439,55 @@
     ]
   },
   "towns": {
+    "subtitle": "Three Cities That Define Puglia",
     "featured": [
       {
-        "id": "torino",
-        "name": "Torino",
-        "bestFor": "Services, culture, healthcare access",
-        "photo": "/images/piemonte/torino-hero.jpg",
-        "summary": "Italy's fourth-largest city, but it feels manageable. Former capital with regal architecture, excellent museums, and a café culture that rivals Vienna. World-class hospitals. University energy. Efficient public transit. Not touristy—this is a real working city where Italians actually live. Perfect if you want urban amenities without Rome's chaos.",
-        "fullDescription": "Turin doesn't need to show off. It just gets everything right. While other Italian cities perform their beauty, Turin lives it in silence — colonnaded boulevards, uniform façades, and a rhythm that feels engineered rather than improvised. Once the capital of the Kingdom of Savoy, then the beating heart of Fiat, it has always built rather than posed.\n\nWalk beneath eighteen kilometers of arcades and you'll understand the design philosophy: keep people comfortable, rain or shine. Cafés are an institution here — not the standing bars of the south but grand parlors of marble and mirrors where waiters still wear jackets and the coffee arrives on a silver tray beside a glass of water. Order a bicerin, Turin's layered mix of espresso, chocolate, and cream, and you'll feel the city's character in a cup — precise, balanced, quietly indulgent.\n\nCulturally, Turin punches above its weight. The Egyptian Museum rivals Cairo's, the National Museum of Cinema sits inside the iconic Mole Antonelliana, and film, design, and architecture schools feed the city's creative edge. It's Italy's most organized metropolis: clean, efficient, and almost Swiss in punctuality. Locals joke that the trains leave on time here because the drivers are from Piedmont.\n\nFor retirees or long-stayers, it's one of Italy's most liveable large cities. Healthcare infrastructure is excellent, public transport reliable, and rents still reasonable for a European hub of this caliber. Turin gives you four honest seasons: foggy winters with the Alps glimmering in the distance, crisp autumns that smell of roasted chestnuts, and summers you escape with an hour's train to the Riviera or the mountain valleys.\n\nTurin's vibe is confidence without noise. The people are polite, sometimes reserved, and take pride in understatement. Don't expect effusive warmth on day one — but once you're accepted, you're treated as kin. It's a city that respects effort, structure, and a good pair of shoes. In short: if you want Italy's culture with Germany's order, Turin is where espresso meets engineering.",
-        "mapUrl": "https://maps.google.com/?q=Torino+Italy",
-        "gallery": ["/images/piemonte/torino-pink-moment.jpg", "/images/piemonte/torino-river-autumn.jpg", "/images/piemonte/torino-piazza.jpg"],
+        "id": "lecce",
+        "name": "Lecce",
+        "tagline": "Baroque jewel of the south",
+        "highlights": ["Baroque Architecture", "University Town", "Two-Beach Access", "Cultural Hub"],
+        "images": ["/images/puglia/lecce.jpg"],
+        "summary": "Baroque jewel of the south. Elegant sandstone palaces, golden piazzas glowing at sunset, and a food scene that treats vegetables like religion. Walkable, cultured, university-driven, and alive year-round. Close to both Adriatic and Ionian coasts. Southern warmth without southern chaos. Perfect home base for retirees who want beauty, rhythm, and accessibility.",
+        "description": "Lecce is the kind of beauty that doesn't demand your attention but gets it anyway. Carved almost entirely from pietra leccese — that honey-colored stone that captures light the way Florence captures tourists — the city feels like it was built by sculptors first and administrators second. It's baroque, but not in the showy "look at me" way of Rome; this is a softer, southern baroque, softened further by sea air and olive groves.\n\nThe rhythm here is different. Streets unwind slowly. The old town feels like a curated maze. In the morning, nuns glide between churches while university students spill out of bars at midnight. Lecce has this balance — intellectual but not pretentious, historic but not frozen, relaxed but never dull.\n\nCulturally, Lecce overdelivers. Concerts, open-air theater, a thriving art scene, and food so good it should come with a warning label. This is the land of ciceri e tria, rustico leccese, and pasticciotto — dishes born from poverty but perfected through pride. Want the sea? Pick a direction. Drive twenty minutes east and hit the Adriatic; twenty-five west and you're on the Ionian. Retirees call this "the two-beach lifestyle," and they're not wrong.\n\nFor long-stayers, Lecce is one of southern Italy's most livable urban centers. Healthcare access is solid, the university ecosystem brings constant life, and the cost of living is forgiving compared to the north. The summers get hot — this is Puglia, after all — but evenings are for strolling, gelato, and watching the city glow warm gold.\n\nLecce's character is subtle confidence. Locals love their city with a quiet loyalty. It's a place where time slows, not because nothing happens, but because the important things are allowed to breathe. If Turin is espresso and engineering, Lecce is sunlight and stone — built to be lived in, not rushed through.",
         "links": [
-          {
-            "label": "City Website",
-            "href": "https://www.comune.torino.it/"
-          },
-          {
-            "label": "Healthcare Info",
-            "href": "https://www.cittadellasalute.to.it/"
-          }
+          { "label": "Official Municipality Site", "url": "https://www.comune.lecce.it" },
+          { "label": "Local Guide to Lecce", "url": "https://goaskalocal.com/blog/local-guide-to-lecce" },
+          { "label": "Italia.it Lecce", "url": "https://www.italia.it/en/puglia/lecce" },
+          { "label": "View on Map", "url": "https://www.google.com/maps/place/Lecce,+Italy" }
         ]
       },
       {
-        "id": "alba",
-        "name": "Alba",
-        "bestFor": "Food/wine lovers; truffle season devotees",
-        "photo": "/images/piemonte/alba-hero.jpg",
-        "summary": "The white truffle capital of the world. Barolo and Barbaresco vineyards surround you. October's truffle fair draws global crowds—exciting but intense. Small-town feel with big-time gastronomy. Expect higher costs in exchange for being at the epicenter of Italian food culture. Not a place for hermits; this is social, culinary, communal living.",
-        "fullDescription": "If Turin is Italy's mind, Alba is its appetite. This tidy town at the center of the Langhe hills smells of earth, oak, and ambition — the scent of white truffles drifting through wine cellars and kitchen windows. Every autumn the streets fill with chefs, traders, and tourists chasing the season's first truffle, but most of the year Alba exudes quiet prosperity.\n\nThe medieval towers remind you this was once a fortress town; today it's a culinary one. Market mornings hum with produce vendors selling hazelnuts, cheeses, and armfuls of wild mushrooms. Afternoons belong to the vineyards: Barolo, Barbaresco, Dolcetto — names that define the region's liquid identity. Locals drink well and eat even better, but they do it without spectacle. There's wealth here, yet it's the kind that prefers an unmarked cellar door to a neon sign.\n\nInfrastructure is solid: hospitals in town, regional clinics nearby, and frequent trains to Turin for anything specialized. The roads wind but are well maintained, and broadband coverage — surprisingly — is excellent, even among the vines. Retirees who want a small-town rhythm with global sophistication find a sweet spot here: morning cappuccino, afternoon vineyard drive, dinner that could make Michelin jealous, and a sense that time hasn't been wasted on pretension.\n\nAlba's vibe is refined practicality. Locals work hard, eat slowly, and don't confuse friendliness with over-familiarity. Property prices reflect the demand but remain far below anything in Tuscany or the Riviera. It's not cheap, but it's worth every euro for the quality of life — and the view at sunset when the Langhe hills roll away in dusty gold. Alba isn't the Italy of chaos; it's the Italy of control — delicious, deliberate, and deeply satisfying.",
-        "mapUrl": "https://maps.google.com/?q=Alba+Italy",
-        "gallery": ["/images/piemonte/alba-vineyards.jpg", "/images/piemonte/alba-town.jpg", "/images/piemonte/alba-centro.jpg"],
+        "id": "ostuni",
+        "name": "Ostuni",
+        "tagline": "Hilltop white city with Greek-island vibes",
+        "highlights": ["Hilltop Views", "White City", "Itria Valley", "Mediterranean Charm"],
+        "images": ["/images/puglia/ostuni.jpg"],
+        "summary": "Hilltop white city with Greek-island vibes and Italian soul. Maze-like lanes, iconic views, and easy access to the Itria Valley. Tourist energy in summer, calm beauty the rest of the year. Ideal for those who want charm and vistas without sacrificing real-town practicality.",
+        "description": "Ostuni makes an entrance. Approach from the road and the city rises like a white crown above the olive fields — a dazzling hilltop citadel that looks more Aegean than Apulian. The effect is theatrical, and Ostuni knows it. Every corner, every staircase, every sunlit terrace feels like it was arranged by someone with a flair for drama.\n\nInside the whitewashed labyrinth, the town is equal parts chaos and perfection. Lanes twist, widen, narrow, and surprise you with sudden views across the plains to the Adriatic. Residents paint their doors in jewel tones, add pots of bougainvillea, and sweep their steps every morning. It's the kind of place where even your daily walk to buy milk feels like a postcard moment.\n\nCulturally, Ostuni punches above its population. Summer brings festivals, concerts, open-air cinema, and a lively restaurant scene that has grown up around international tourism — but the off-season belongs to the locals. Shopkeepers chat, old men argue in dialect on benches, and the whole town exhales.\n\nFor retirees, the appeal is obvious: slower lifestyle, small-but-adequate services, a deeply social rhythm, and proximity to the Itria Valley's all-stars — Cisternino, Locorotondo, and Martina Franca. Healthcare is available in nearby Fasano or Brindisi, and the coast is fifteen minutes away when you need salt air.\n\nOstuni's vibe is Mediterranean ease with an Italian heart. It's quieter than you'd expect, brighter than you remember, and more layered than the Instagram photos that made it famous. If you want a town that feels like Italy but looks like nowhere else, Ostuni is the white city that sets the tone.",
         "links": [
-          {
-            "label": "Truffle Fair",
-            "href": "https://www.fieradeltartufo.org/"
-          },
-          {
-            "label": "Wine Tourism",
-            "href": "https://www.langheroero.it/"
-          }
+          { "label": "Official Municipality Site", "url": "https://www.comune.ostuni.br.it" },
+          { "label": "Beautiful Puglia Guide", "url": "https://www.beautifulpuglia.com/ostuni" },
+          { "label": "Bon Traveler Guide", "url": "https://www.bontraveler.com/ostuni-italy" },
+          { "label": "View on Map", "url": "https://www.google.com/maps/place/Ostuni,+BR,+Italy" }
         ]
       },
       {
-        "id": "asti",
-        "name": "Asti",
-        "bestFor": "Balanced costs, services, historic charm",
-        "photo": "/images/piemonte/asti-hero.jpg",
-        "summary": "Alba's more practical neighbor. Historic center with medieval towers. Good rail connections. Hospital. Supermarkets. Banks. Everything you need without the tourist premium. The Asti wine zone surrounds it. Less glamorous than Alba but equally authentic—and more affordable. Ideal for those who want substance over style.",
-        "fullDescription": "Asti lives in Turin's shadow and seems perfectly happy about it. While Alba attracts the gourmets, Asti is where ordinary life carries on with elegance and purpose. The town's skyline bristles with medieval towers; its streets radiate from broad piazzas lined with porticoes and shops that still close for lunch because the owners believe in eating properly.\n\nAsti's global claim is its sparkling wine — Asti Spumante and Moscato d'Asti — yet the locals rarely drink them. They prefer a quiet Barbera or a Vermouth before dinner. The annual Palio di Asti, one of Italy's oldest horse races, transforms the town into a medieval carnival each September. The rest of the year it's unhurried and affordable, a place that functions on human scale.\n\nInfrastructure here is dependable: hospitals, a clean train station, and quick rail connections to Turin, Alessandria, and even Genoa. Roads are flat and forgiving, ideal for cycling or small-city driving. Services cluster around the walkable center, meaning you can live comfortably without a car — a rarity outside Italy's major hubs.\n\nThe vibe is small-town civic pride: flower boxes on balconies, shopkeepers who remember your face, and neighbors who nod instead of gush. There's culture, but it's local rather than global — evening concerts in churches, food fairs that celebrate sausages instead of status. For retirees, Asti offers value and community: rents are lower than Alba, bureaucracy moves at a tolerable pace, and life runs on espresso and predictability.\n\nIf Alba is truffles and Barolo, Asti is espresso and biscotti — simpler, lighter, but no less satisfying. It's the Piedmontese version of comfort food: unflashy, nourishing, and quietly proud of being overlooked.",
-        "mapUrl": "https://maps.google.com/?q=Asti+Italy",
-        "gallery": ["/images/piemonte/asti-vineyards.jpg", "/images/piemonte/asti-bridge.jpg", "/images/piemonte/asti-town.jpg"],
+        "id": "polignano",
+        "name": "Polignano a Mare",
+        "tagline": "Cliffside stunner above turquoise water",
+        "highlights": ["Coastal Cliffs", "Train to Bari", "Turquoise Waters", "Cliff Diving"],
+        "images": ["/images/puglia/polignano-a-mare.jpg"],
+        "summary": "Cliffside stunner hanging above turquoise water. Dramatic views, walkable center, and quick access to Bari. More touristy than other towns, but unmatched for coastal living. Perfect for readers who want sea, sun, and a lively social scene.",
+        "description": "Polignano doesn't whisper; it performs. Built on limestone cliffs carved by centuries of waves, the town perches over the Adriatic like it's daring gravity to disagree. Wander through the historic center and you'll find balconies hanging above the sea, staircases etched with poetry, and that unforgettable cove — Lama Monachile — where turquoise water slices into the rock like a blade.\n\nThe town is compact, photogenic, and buzzing. In summer, every table is full, every gelato melts too fast, and cliff divers hurl themselves into the sea as if auditioning for a myth. In winter, the energy softens. Locals reclaim the piazzas. Restaurants stay open. The sea keeps roaring, but the town exhales.\n\nPolignano's cultural vibe is part seaside holiday, part working fishing town. You feel both. Fishermen still unload their catch at dawn. Yet the town also hosts concerts, exhibitions, food festivals, and that famous cliff-diving world competition that turns the coastline into a stadium.\n\nFrom a practical standpoint, Polignano offers something rare in Puglia: a direct train line to Bari. That makes airport access simple, healthcare access better than many coastal towns, and everyday logistics smoother. Retirees who want coastal living without isolation gravitate here for a reason.\n\nThe people of Polignano are warm, expressive, and endlessly proud of their cliffs, their cuisine, and their Domenico Modugno statue — "Volare, oh-oh!" is practically a municipal greeting. The atmosphere is cheerful, bold, and unapologetically coastal.\n\nLiving here means living with the sea — its drama, its calm, its vastness. If Lecce is elegance and Ostuni is purity, Polignano is adrenaline. A place where the view becomes part of your daily metabolism.",
         "links": [
-          {
-            "label": "City Website",
-            "href": "https://www.comune.asti.it/"
-          },
-          {
-            "label": "Visit Asti",
-            "href": "https://visit.asti.it/en/"
-          }
+          { "label": "Official Tourism Site", "url": "https://polignanoamare.com/en" },
+          { "label": "Polignano Guide", "url": "https://www.polignanoamare.eu" },
+          { "label": "Info Point Details", "url": "https://mobile.viaggiareinpuglia.it/en/dettaglio-infopoint/info-point-polignano-mare" },
+          { "label": "View on Map", "url": "https://www.google.com/maps/place/Polignano+a+Mare,+BA,+Italy" }
         ]
       }
     ],
-    "grid": [
-      {
-        "id": "bra",
-        "name": "Bra",
-        "bestFor": "Slow Food culture, walkable center",
-        "photo": "/images/piemonte/bra.jpg",
-        "mapUrl": "https://maps.google.com/?q=Bra+Italy",
-        "blurb": "Birthplace of the global Slow Food movement, Bra wears its philosophy proudly. Markets here are measured, not rushed; meals unfold like conversations. The town balances Baroque beauty with genuine community warmth. You can stroll from butcher to baker to bookshop without crossing a major street. Excellent rail links connect Bra to Turin and Alba, but the pace is its own — a kind of elegant efficiency that doesn't rely on hurry. Ideal for anyone who wants culture and cuisine without crowding."
-      },
-      {
-        "id": "verbania",
-        "name": "Verbania",
-        "bestFor": "Lake Maggiore living, mild climate",
-        "photo": "/images/piemonte/verbania.jpg",
-        "mapUrl": "https://maps.google.com/?q=Verbania+Italy",
-        "blurb": "Set on the shores of Lake Maggiore, Verbania feels half Alpine, half Mediterranean. Palms and pines coexist, and ferries glide past snow-capped horizons. The climate is mild, the air clean, and property prices surprisingly sane for a lakeside address. Healthcare and services are solid — Verbania has the infrastructure of a small city wrapped in resort scenery. It's for those who love the idea of the lake life but not the tourist throngs of Como."
-      },
-      {
-        "id": "cuneo",
-        "name": "Cuneo",
-        "bestFor": "Alpine access, lower costs",
-        "photo": "/images/piemonte/cuneo.jpg",
-        "mapUrl": "https://maps.google.com/?q=Cuneo+Italy",
-        "blurb": "At the foot of the Maritime Alps, Cuneo has the crisp air and practical temperament of a mountain capital. Wide squares, grand arcades, and Alpine views define its center. This is Italy without pretense: clean, organized, unhurried. Winters bring skiers; summers, hikers. The local cuisine blends Piedmontese rigor with French finesse. For retirees, Cuneo's appeal is its scale — big enough for amenities, small enough to know your baker by name."
-      },
-      {
-        "id": "novara",
-        "name": "Novara",
-        "bestFor": "Strategic location, urban services",
-        "photo": "/images/piemonte/novara.jpg",
-        "mapUrl": "https://maps.google.com/?q=Novara+Italy",
-        "blurb": "Novara is rice country — fields, canals, and the hum of agricultural precision. It sits between Milan and Turin, serving both without bowing to either. Architecturally, it's a handsome provincial city with a monumental dome and plenty of green space. Trains to Milan take under an hour, making Novara a realistic commuter or semi-urban retirement base. The vibe is industrious but balanced: locals work hard, eat better, and avoid drama."
-      },
-      {
-        "id": "alessandria",
-        "name": "Alessandria",
-        "bestFor": "Affordability, rail access",
-        "photo": "/images/piemonte/alessandria.jpg",
-        "mapUrl": "https://maps.google.com/?q=Alessandria+Italy",
-        "blurb": "Strategically located at the crossroads of Turin, Milan, and Genoa, Alessandria has always been a connector city. It's pragmatic, well-serviced, and refreshingly affordable for northern Italy. The center mixes understated 19th-century elegance with functional modern blocks. You don't move here for spectacle — you move here because it works. Healthcare is excellent, transportation effortless, and life feels comfortably middle-class. A solid base for those who want access to everything but ownership of nothing chaotic."
-      },
-      {
-        "id": "biella",
-        "name": "Biella",
-        "bestFor": "Textile heritage, proximity to mountains",
-        "photo": "/images/piemonte/biella.jpg",
-        "mapUrl": "https://maps.google.com/?q=Biella+Italy",
-        "blurb": "Textile heartland and gateway to the mountains, Biella is where fabric mills meet fresh air. Once one of Italy's richest industrial districts, it now feels quietly prosperous, with art foundations and outdoor festivals replacing factory noise. It's surrounded by nature yet has the bones of a real city: hospitals, schools, and an opera season. The cost of living is lower than Turin or Alba, but the views — forests, lakes, and snowy peaks — are first-class. For creatives or nature-minded retirees, Biella delivers serenity with substance."
-      },
-      {
-        "id": "saluzzo",
-        "name": "Saluzzo",
-        "bestFor": "Medieval charm, artistic community",
-        "photo": "/images/piemonte/saluzzo.jpg",
-        "mapUrl": "https://maps.google.com/?q=Saluzzo+Italy",
-        "blurb": "A medieval jewel perched between plains and peaks, Saluzzo offers that elusive small-town charm without isolation. Cobbled lanes, frescoed courtyards, and a hilltop old quarter give it cinematic character. It's also practical: excellent food markets, modern clinics, and a strong sense of community. Artists love it, retirees appreciate its calm — Saluzzo is Piedmont distilled into stone and light."
-      },
-      {
-        "id": "acqui-terme",
-        "name": "Acqui Terme",
-        "bestFor": "Thermal spas, wine country",
-        "photo": "/images/piemonte/acqui-terme.jpg",
-        "mapUrl": "https://maps.google.com/?q=Acqui+Terme+Italy",
-        "blurb": "Roman ruins, thermal baths, and Barbera vineyards — Acqui Terme has been unwinding travelers for two thousand years. The town's spa culture remains alive but understated, with mineral springs, elegant hotels, and a well-preserved center. It's a haven for those who want health, heritage, and hedonism in balance. Affordable homes, good train links, and the aroma of mineral water in the air make it a quiet favorite for long stays."
-      },
-      {
-        "id": "orta-san-giulio",
-        "name": "Orta San Giulio",
-        "bestFor": "Lake life, romantic setting",
-        "photo": "/images/piemonte/orta-san-giulio.jpg",
-        "mapUrl": "https://maps.google.com/?q=Orta+San+Giulio+Italy",
-        "blurb": "Tiny, romantic, and absurdly picturesque, Orta San Giulio sits on Lake Orta — often called 'Maggiore's little sister.' The view from the island monastery feels almost timeless. It's small enough to walk end-to-end in ten minutes, yet filled with quality restaurants and art galleries. Limited parking and limited stress go hand in hand. Perfect for writers, dreamers, or anyone who wants the lake life in miniature."
-      },
-      {
-        "id": "cherasco",
-        "name": "Cherasco",
-        "bestFor": "Baroque elegance, antique markets",
-        "photo": "/images/piemonte/cherasco.jpg",
-        "mapUrl": "https://maps.google.com/?q=Cherasco+Italy",
-        "blurb": "Half fortress, half pastry shop, Cherasco is a town of surprising refinement. Known for its baroque arcades, antique fairs, and chocolate production, it has the atmosphere of a place that never rushes but always delivers. Within twenty minutes of Alba or Bra, it's a logical choice for those who want to live near the action but not in it. Elegant, friendly, and just quirky enough to feel personal."
-      },
-      {
-        "id": "ivrea",
-        "name": "Ivrea",
-        "bestFor": "Industrial heritage, mountain access",
-        "photo": "/images/piemonte/ivrea.jpg",
-        "mapUrl": "https://maps.google.com/?q=Ivrea+Italy",
-        "blurb": "Once the headquarters of Olivetti — the company that made typewriters cool — Ivrea carries the DNA of innovation and design. Its modernist industrial heritage earned it UNESCO status, and its annual orange-throwing carnival proves the locals have a sense of humor. Nestled by the Dora Baltea River, Ivrea is scenic and smart, a perfect midpoint between Turin and the Alps. Ideal for remote workers or semi-urban expats who crave balance."
-      },
-      {
-        "id": "mondovi",
-        "name": "Mondovì",
-        "bestFor": "Terraced hillside views, ceramic tradition",
-        "photo": "/images/piemonte/mondovi.jpg",
-        "mapUrl": "https://maps.google.com/?q=Mondovi+Italy",
-        "blurb": "Set on terraced hills overlooking the Tanaro Valley, Mondovì feels like two towns stacked — the medieval Piazza above and the modern Breo below. A funicular links them, because of course it does; this is Piedmont, where even old towns are engineered. Known for ceramics, wine, and its baroque cathedral, Mondovì is accessible yet atmospheric. Housing is modestly priced, and the mountain views come free."
-      }
-    ]
+    "grid": []
   },
   "highlights": {
     "wine": {
