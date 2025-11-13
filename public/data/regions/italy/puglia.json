@@ -487,7 +487,128 @@
         ]
       }
     ],
-    "grid": []
+    "grid": [
+      {
+        "id": "monopoli",
+        "name": "Monopoli",
+        "bestFor": "Harbor life, year-round authenticity",
+        "photo": "/images/puglia/monopoli.jpg",
+        "mapUrl": "https://maps.google.com/?q=Monopoli,Italy",
+        "blurb": "Monopoli feels like the kind of place Italy keeps for itself — a working coastal town that has learned to welcome outsiders without diluting its character. Its harbor is a living postcard: fishing boats rocking gently, nets drying in the sun, and old men repairing lines with the same gestures they learned from their fathers.",
+        "fullDescription": "For retirees, the appeal is balance. Monopoli gives you coastal beauty without the chaos of seasonal towns. It offers beaches, promenades, and breezy afternoons, but also grocery stores that know your name, doctors within walking distance, and shops that stay open year-round. Evening strolls along the lungomare become a lifestyle, not an event. It's a town that rewards routine — the same café every morning, the same produce market on Wednesdays, the same friendly nods from neighbors who start recognizing you from your second week. Monopoli is generous in all the quiet ways that matter.",
+        "eligible7Percent": false
+      },
+      {
+        "id": "martina-franca",
+        "name": "Martina Franca",
+        "bestFor": "Baroque elegance, cooler climate",
+        "photo": "/images/puglia/martina-franca.jpg",
+        "mapUrl": "https://maps.google.com/?q=Martina+Franca,Italy",
+        "blurb": "Martina Franca sits above the olive groves like a white-and-gold crown, refined and self-assured. Its palazzi and piazzas feel almost theatrical in the late afternoon light, when the stone blushes warm and the shadows stretch long. The Baroque architecture here isn't just decorative — it gives the whole town a sense of dignity and permanence.",
+        "fullDescription": "What retirees find irresistible is the cultural heartbeat. Music spills into the streets during the Festival della Valle d'Itria, artisans open their workshops to passersby, and food here is practically a belief system. This is the homeland of capocollo — crafted with devotion, not marketing. Daily life feels polished without being pretentious. You'll find locals dressed well but never showily, conversations that stretch out for hours, and a civic pride that's felt in the swept streets and carefully maintained façades. Martina Franca is elegance with a pulse.",
+        "eligible7Percent": true
+      },
+      {
+        "id": "locorotondo",
+        "name": "Locorotondo",
+        "bestFor": "Whitewashed calm, orderly beauty",
+        "photo": "/images/puglia/locorotondo-hypogeum.jpg",
+        "mapUrl": "https://maps.google.com/?q=Locorotondo,Italy",
+        "blurb": "Locorotondo rises in soft spirals of immaculate white — every street a gentle curve, every building glowing with sunlight. The town feels almost monastic in its cleanliness and order, but without severity. It's bright, soothing, and visually harmonious, the sort of place where your nervous system relaxes as soon as you step inside the walls.",
+        "fullDescription": "Retirees fall in love with Locorotondo's tempo. There's no pressure here — life moves in a gentle hum. Mornings mean fresh bread from the family bakery, afternoons drifting between cafés and panoramic viewpoints, and evenings watching the valley take on that impossible blue haze that photographers chase. Tourism arrives in light waves, never overwhelming the town's identity. And because the community is tight-knit yet welcoming, newcomers are gradually folded into the fabric of daily life. Locorotondo is the embodiment of restful living.",
+        "eligible7Percent": true
+      },
+      {
+        "id": "cisternino",
+        "name": "Cisternino",
+        "bestFor": "Village warmth, legendary food",
+        "photo": "/images/puglia/cisternino.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cisternino,Italy",
+        "blurb": "Cisternino greets you like a friend you haven't met yet. Conversations spill out of windows, laughter bounces between stone walls, and the air often carries the scent of grilling meat from the famous fornelli pronti. These butcher-grill hybrids are the heart of the town's food culture — informal, generous, and outrageously delicious.",
+        "fullDescription": "The charm of Cisternino isn't curated — it's lived. The historic center is compact and cozy, full of small squares where retirees often end up discussing weather, politics, and where to find the best olive oil. The pace is slow but lively, the kind of environment that encourages routine: morning espresso at the same counter, afternoon errands that turn into chats, evening passeggiatas where you inevitably bump into someone you know. For those seeking human connection over postcard perfection, Cisternino is a place that fills the emotional cup.",
+        "eligible7Percent": true
+      },
+      {
+        "id": "ceglie-messapica",
+        "name": "Ceglie Messapica",
+        "bestFor": "Gastronomy, rustic artistry",
+        "photo": "/images/puglia/ceglie-messapica.jpg",
+        "mapUrl": "https://maps.google.com/?q=Ceglie+Messapica,Italy",
+        "blurb": "Ceglie Messapica is where you go when you want the Italy that hasn't been polished for Instagram. It's a little wild, a little worn, and impossibly soulful. The historic center is a maze of chalk-white passages and ancient stones softened by time, crowned by a proud Norman castle that looks out over the countryside.",
+        "fullDescription": "But the real magnet is the food. Ceglie is the beating culinary heart of the region, known for rustic dishes elevated to art by local chefs and Michelin darlings who prefer roots over glamour. Even the markets feel intentional — produce that smells of the fields, cheeses still warm from production, recipes traded by grandmothers like heirlooms. Retirees who choose Ceglie often do so because life here feels deeply sensory — tastes, smells, textures, and stories woven together into a daily experience that feels grounded and nourishing.",
+        "eligible7Percent": true
+      },
+      {
+        "id": "fasano",
+        "name": "Fasano",
+        "bestFor": "Strategic hub, strong services",
+        "photo": "/images/puglia/fasano.jpg",
+        "mapUrl": "https://maps.google.com/?q=Fasano,Italy",
+        "blurb": "Fasano may not be the prettiest town in Puglia, but that's not why retirees choose it. They choose it because it works. Fasano is a logistical dream: excellent healthcare facilities, easy access to both the coast and the countryside, close to Bari and Brindisi airports, and well-connected to the Itria Valley's gems.",
+        "fullDescription": "Its historic center is understated but comfortable, full of modest beauty — stone arches, quiet courtyards, and family-run cafés that maintain steady local clientele. The surrounding territory widens your world: forested hills in Selva di Fasano, coastal hamlets with breezy promenades, and farmland dotted with masserie. Retirees appreciate the stability more than anything — supermarkets open year-round, smooth access to specialists, and a community that isn't reliant on tourism to stay alive.",
+        "eligible7Percent": false
+      },
+      {
+        "id": "alberobello",
+        "name": "Alberobello",
+        "bestFor": "Trulli magic, whimsical charm",
+        "photo": "/images/puglia/alberobello-trulli.jpg",
+        "mapUrl": "https://maps.google.com/?q=Alberobello,Italy",
+        "blurb": "Alberobello is one of those rare places where architecture and landscape merge into a complete fantasy — a hillside dotted with conical stone houses that feel like something lifted from folklore. Tourists flock here for good reason, but step off the main lanes and you discover small residential clusters where the magic is quieter.",
+        "fullDescription": "The town is deceptively livable. Its walkability makes errands effortless, and despite the tourism, Alberobello maintains a strong local identity. Retirees who choose it tend to love uniqueness — they want a home that feels like nowhere else in the world. Nights are peaceful, mornings full of soft light bouncing across whitewashed limestone, and daily rhythms take on a simplicity shaped by the architecture itself.",
+        "eligible7Percent": false
+      },
+      {
+        "id": "otranto",
+        "name": "Otranto",
+        "bestFor": "Sea, castle, crystalline beauty",
+        "photo": "/images/puglia/otranto.jpg",
+        "mapUrl": "https://maps.google.com/?q=Otranto,Italy",
+        "blurb": "Otranto is what happens when history and nature decide to collaborate. The town hugs a curve of impossibly clear water — bright turquoise on sunny days, deep sapphire at dusk. A medieval castle guards the old town, whose lanes open to panoramic sea views at unexpected moments.",
+        "fullDescription": "Retirees love Otranto for its scale: small enough to know by heart, large enough to have everything you need. Cafés stay open most of the year, the waterfront promenade becomes your daily meditation, and the sea is always within sight or sound. Healthcare is accessible, day trips are effortless, and the town never feels overwhelming. Life in Otranto is blue-sky therapy.",
+        "eligible7Percent": false
+      },
+      {
+        "id": "tricase",
+        "name": "Tricase",
+        "bestFor": "Southern soul, gentle pace",
+        "photo": "/images/puglia/tricase.jpg",
+        "mapUrl": "https://maps.google.com/?q=Tricase,Italy",
+        "blurb": "Tricase lives in the folds of the deep Salento — sunlit, warm, and emotionally generous. It's a town defined by character rather than spectacle. Piazza life is lively without chaos, cafés spill into the streets, and locals greet each other with a familiarity that quickly extends to newcomers.",
+        "fullDescription": "Then there's Tricase Porto, its tiny marina where fishing boats glide across jewel-toned water. Sunsets here feel like daily rituals. The surrounding countryside is lush, full of olive groves and quiet lanes perfect for long walks. Retirees who settle in Tricase do so for the warmth — the emotional kind, not just the climate. It's a place where you feel embedded in the community rather than standing outside looking in.",
+        "eligible7Percent": true
+      },
+      {
+        "id": "specchia",
+        "name": "Specchia",
+        "bestFor": "Medieval stone, deep tranquility",
+        "photo": "/images/puglia/specchia.jpg",
+        "mapUrl": "https://maps.google.com/?q=Specchia,Italy",
+        "blurb": "Specchia is a jewel for the contemplative retiree — a medieval village that feels almost suspended in time. Its stone lanes are narrow and cool, twisting around towers and walls that have witnessed centuries. When the late afternoon sun brushes the rooftops, the entire town glows in soft gold.",
+        "fullDescription": "Life here is slow, beautifully slow. People sit outside their homes, share stories in the piazza, and buy produce directly from neighbors. The cost of living is low, the sense of community high, and the environment calming without ever feeling empty. Specchia is ideal for anyone who wants a life structured around quiet moments, not crowds or noise.",
+        "eligible7Percent": true
+      },
+      {
+        "id": "nardo",
+        "name": "Nardò",
+        "bestFor": "Baroque warmth, Ionian proximity",
+        "photo": "/images/puglia/nardo.jpg",
+        "mapUrl": "https://maps.google.com/?q=Nardò,Italy",
+        "blurb": "Nardò is Lecce's gentler cousin — less polished, more personal, and full of baroque corners that reveal themselves slowly. The main piazza is a masterpiece of warm stone and elegant façades, framed by cafés where locals gather at every hour.",
+        "fullDescription": "Retirees often choose Nardò for its balance: cultural depth without pretension, seaside access without noise, and everyday life that feels both practical and pleasant. Its size gives you solid services and healthcare access, while the historic center provides beauty without crowds. For those who want Ionian elegance without coastal chaos, Nardò hits the sweet spot.",
+        "eligible7Percent": false
+      },
+      {
+        "id": "galatina",
+        "name": "Galatina",
+        "bestFor": "Frescoes, real Italy energy",
+        "photo": "/images/puglia/galatina.jpg",
+        "mapUrl": "https://maps.google.com/?q=Galatina,Italy",
+        "blurb": "Galatina is an underdog, and that's exactly its charm. It has one of the greatest artistic treasures in southern Italy — the frescoes of Santa Caterina — yet the town remains grounded, working-class in the best sense, and deeply authentic.",
+        "fullDescription": "For retirees, Galatina offers a lifestyle rooted in normalcy — no pretense, no spectacle, just a solid Italian town where the rhythms of life are reassuring and human. It's close to Lecce and Otranto, making day trips easy, but comes home to something quieter and less touristed. If you want authenticity and cultural beauty without the hype, Galatina fits beautifully.",
+        "eligible7Percent": false
+      }
+    ]
   },
   "highlights": {
     "wine": {
