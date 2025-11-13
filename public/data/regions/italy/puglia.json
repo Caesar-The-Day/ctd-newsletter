@@ -686,59 +686,73 @@
         ]
       },
       "food": {
-        "title": "FOOD — When Simplicity Learns Restraint",
-        "intro": "Piemonte's food culture reads like a manifesto: take fewer ingredients, make them matter more. This is the region that invented Slow Food, not as a trend but as a protest — against speed, uniformity, and the loss of local taste. From Bra to Asti, markets overflow not with novelty but with precision: hazelnuts that taste like memory, butter that silences a room, and pasta so thin it flutters when you breathe. Meals here don't start until they mean something. Bagna càuda turns a bowl of anchovies and garlic into a social ritual. Tajarin pasta and agnolotti del plin are acts of regional loyalty. And in autumn, white truffles emerge like folklore — sudden, expensive, and irresistible.",
-        "backgroundImage": "/images/piemonte/market.jpg",
+        "title": "Food",
+        "intro": "Puglia doesn't cook the way other regions cook. It cooks the way the land demands. Wheat fields, olive groves, blistering summers, and a double coastline have shaped a cucina that's deceptively simple and endlessly soulful. You taste it in the bitterness of wild chicory, in the chew of orecchiette rolled by a Bari nonna, in the golden crackle of Altamura bread pulled from a wood-fired oven. It's a cuisine born from scarcity yet rich in character, and for anyone dreaming of a life here, understanding the food is understanding the culture itself.",
+        "header": "Food — Where the Land Teaches the Table",
+        "backgroundImage": "/images/puglia/puglia-hero.jpg",
         "cards": [
           {
-            "id": "white-truffle",
-            "title": "White Truffle of Alba",
-            "subtitle": "Sudden, expensive, irresistible",
-            "image": "/images/piemonte/white-truffle.jpg",
-            "description": "Emerge like folklore each autumn. Visit the International Alba White Truffle Fair for the full sensory experience — a heritage-level culinary event.",
+            "id": "orecchiette",
+            "title": "Orecchiette & Cime di Rapa",
+            "subtitle": "The pasta that defines Puglia",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "The dish that defines Puglia: handmade orecchiette gripping bitter greens, anchovy, garlic and oil — a perfect expression of the region's cucina povera roots. Walk through Bari Vecchia and you'll see it being shaped right on the street.",
             "links": [
               {
-                "label": "Alba Truffle Fair",
-                "href": "https://www.fieradeltartufo.org/"
+                "label": "Read More",
+                "href": "https://italysegreta.com/20-foods-you-must-eat-in-puglia/"
               }
             ]
           },
           {
-            "id": "cultural-dishes",
-            "title": "Tajarin, Agnolotti, Bagna Càuda",
-            "subtitle": "Acts of regional loyalty",
-            "image": "/images/piemonte/agnolotti.jpg",
-            "description": "Pasta so thin it flutters when you breathe. Bagna càuda: anchovies, garlic, olive oil — a communal ritual that turns restraint into warmth.",
+            "id": "altamura-bread",
+            "title": "Pane di Altamura & the Bread Culture",
+            "subtitle": "PDO bread with ancient roots",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "Altamura's PDO bread has a thick crust and a soft, yellow, almost custardy interior thanks to local durum wheat. It isn't just something to eat — it's an agricultural tradition, a communal oven culture, and a daily ritual.",
             "links": [
               {
-                "label": "Piemontese Recipes",
-                "href": "https://www.piemonteitalia.eu/it/enogastronomia/ricette"
+                "label": "Read More",
+                "href": "https://www.lacucinaitaliana.com/trip-to-italy/southern-italy/foods-you-must-eat-in-puglia"
               }
             ]
           },
           {
-            "id": "slow-food",
-            "title": "Slow Food International",
-            "subtitle": "Born in Bra as protest, not trend",
-            "image": "/images/piemonte/slow-food.jpg",
-            "description": "Against speed, uniformity, and the loss of local taste. The manifesto started here: take fewer ingredients, make them matter more.",
+            "id": "crudo-di-mare",
+            "title": "Seafood & Crudo di Mare",
+            "subtitle": "Raw from the Adriatic",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "Along the Adriatic, seafood isn't a luxury; it's morning routine. Raw mussels, sea urchins, and prawns (\"crudo di mare\") are a testament to waters so clean and cold that locals eat straight from the shell.",
             "links": [
               {
-                "label": "Slow Food International",
-                "href": "https://www.slowfood.com/"
+                "label": "Read More",
+                "href": "https://www.pugliaguys.com/2025/08/31/20-of-puglias-best-dishes/"
               }
             ]
           },
           {
-            "id": "markets",
-            "title": "Markets of Precision",
-            "subtitle": "Hazelnuts, butter, and memory",
-            "image": "/images/piemonte/market.jpg",
-            "description": "From Bra to Asti, markets overflow with precision rather than novelty. Hazelnuts that taste like memory, butter that silences a room.",
+            "id": "cucina-povera",
+            "title": "Cucina Povera & Seasonal Simplicity",
+            "subtitle": "Humble ingredients, extraordinary flavors",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "Puglia's most iconic flavors come from humble ingredients: fava beans, wild chicory, tomatoes sun-warmed on the vine, and olive oil that tastes alive. It's a cuisine that follows the seasons, not the supermarkets.",
             "links": [
               {
-                "label": "Earth Markets - Italy/Piemonte",
-                "href": "https://www.fondazioneslowfood.com/it/nazioni-mercati/italia-it/?fwp_mercati_della_terra_nazioni=italia-it"
+                "label": "Read More",
+                "href": "https://thevespatrip.com/en/puglia-food-guide/"
+              }
+            ]
+          },
+          {
+            "id": "sagre-festivals",
+            "title": "Sagre & Local Food Festivals",
+            "subtitle": "Where towns celebrate their dishes",
+            "image": "/images/puglia/puglia-hero.jpg",
+            "description": "Every town has its own festival — panzerotti nights, orecchiette feasts, fig celebrations, grilled octopus weekends. These sagre are where you see the real Puglia: long tables, loud laughter, and recipes that never make it into cookbooks.",
+            "links": [
+              {
+                "label": "Read More",
+                "href": "https://theitalianontour.com/a-guide-to-puglias-most-famous-food-and-wine/"
               }
             ]
           }
