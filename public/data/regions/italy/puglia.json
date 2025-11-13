@@ -847,42 +847,227 @@
   },
   "wine": {
     "quiz": {
+      "title": "Which Puglia Wine Are You?",
+      "subtitle": "Your personality says more about your wine preferences than any sommelier ever will. Answer a few questions and discover your Pugliese wine twin.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Your perfect afternoon in Puglia looks like:",
+          "answers": [
+            {
+              "text": "Wandering a sun-baked hilltown with no plan at all.",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "Long lunch in a masseria with too much olive oil on the table.",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Swimming, drying off, swimming again — repeat until sunset.",
+              "wine": "rosato"
+            },
+            {
+              "text": "Getting lost in a Baroque alleyway with a gelato.",
+              "wine": "fiano"
+            },
+            {
+              "text": "A grill, a breeze, and the smell of seared meat drifting through a piazza.",
+              "wine": "negroamaro"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "text": "When someone cancels plans last minute, you:",
+          "answers": [
+            {
+              "text": "Celebrate the unexpected free time.",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "Text back \"no worries\" and mean it.",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Immediately move to Plan B and keep the day going.",
+              "wine": "fiano"
+            },
+            {
+              "text": "Suggest rescheduling in the least-pressure way possible.",
+              "wine": "rosato"
+            },
+            {
+              "text": "Hold a tiny, private grudge you'll get over in 15 minutes.",
+              "wine": "negroamaro"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "text": "Pick a Pugliese home base:",
+          "answers": [
+            {
+              "text": "Trullo in the countryside",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Whitewashed apartment in Ostuni",
+              "wine": "fiano"
+            },
+            {
+              "text": "Seafront place near Otranto",
+              "wine": "rosato"
+            },
+            {
+              "text": "Historic stone home in Martina Franca",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "A quiet spot in Salice Salentino near vineyards",
+              "wine": "negroamaro"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "text": "What's your relationship with food?",
+          "answers": [
+            {
+              "text": "Simple, rustic, comforting",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "Bold flavors and long meals",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Light, fresh, give-me-all-the-seafood",
+              "wine": "rosato"
+            },
+            {
+              "text": "Aromatic and a little adventurous",
+              "wine": "fiano"
+            },
+            {
+              "text": "Grilled, smoky, deeply satisfying",
+              "wine": "negroamaro"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "text": "Choose a soundtrack for your trip:",
+          "answers": [
+            {
+              "text": "Something cinematic and introspective",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "Upbeat, warm, road-trip energy",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Pool-side summer playlist",
+              "wine": "rosato"
+            },
+            {
+              "text": "Something unique and a little quirky",
+              "wine": "fiano"
+            },
+            {
+              "text": "A strong rhythm with depth",
+              "wine": "negroamaro"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "text": "What's your ideal pace of life in Italy?",
+          "answers": [
+            {
+              "text": "Slow burn, thoughtful",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "Warm and social",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Breezy and flexible",
+              "wine": "rosato"
+            },
+            {
+              "text": "Curious and energetic",
+              "wine": "fiano"
+            },
+            {
+              "text": "Relaxed but grounded",
+              "wine": "negroamaro"
+            }
+          ]
+        },
+        {
+          "id": "q7",
+          "text": "Pick an evening ritual:",
+          "answers": [
+            {
+              "text": "Watching the sun disappear behind stone rooftops",
+              "wine": "nero-di-troia"
+            },
+            {
+              "text": "Opening a bottle and talking until midnight",
+              "wine": "primitivo"
+            },
+            {
+              "text": "Sunset walk by the sea",
+              "wine": "rosato"
+            },
+            {
+              "text": "Wandering to a tiny bar with no plan",
+              "wine": "fiano"
+            },
+            {
+              "text": "Grilling dinner with neighbors",
+              "wine": "negroamaro"
+            }
+          ]
+        }
+      ],
       "profiles": [
         {
-          "id": "bold",
-          "label": "Bold & Age-worthy",
-          "result": {
-            "name": "Barolo",
-            "note": "The King of Wines. Nebbiolo grape. Tar, roses, leather. Needs years to open. Cellar-worthy investment.",
-            "image": "/images/piemonte/barolo-wine.jpg"
-          }
+          "id": "primitivo",
+          "name": "Primitivo",
+          "title": "Bold, Sun-Soaked, Unapologetically You",
+          "description": "You're warm, expressive, and a little larger than life. Like Primitivo, you thrive in sunlight and good company. You're the friend people call when they want a guaranteed good night.",
+          "image": "/images/puglia/primitivo-grapes.jpg"
         },
         {
-          "id": "silky",
-          "label": "Silky & Perfumed",
-          "result": {
-            "name": "Barbaresco",
-            "note": "Nebbiolo's elegant sibling. Aromatic, refined, less tannic. Shorter aging. The Queen to Barolo's King.",
-            "image": "/images/piemonte/barbaresco.jpg"
-          }
+          "id": "negroamaro",
+          "name": "Negroamaro",
+          "title": "Deep Roots & Quiet Confidence",
+          "description": "You have presence without trying. Like Negroamaro, you run deeper than first impressions, appreciating structure, depth, and traditions that hold their ground.",
+          "image": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg"
         },
         {
-          "id": "everyday",
-          "label": "Everyday Red",
-          "result": {
-            "name": "Dolcetto d'Alba",
-            "note": "Juicy, dark fruit. Low tannins. Drink young. Perfect weeknight wine. Affordable and delicious.",
-            "image": "/images/piemonte/dolcetto.jpg"
-          }
+          "id": "rosato",
+          "name": "Rosato del Salento",
+          "title": "Effortless Charm & Coastal Spirit",
+          "description": "Bright, breezy, adaptable. You're the person who brings sunshine into the room and knows the value of a well-timed pause by the sea.",
+          "image": "/images/puglia/seasonal-backgrounds/summer-landscape.jpg"
         },
         {
-          "id": "crisp",
-          "label": "Crisp & Aromatic White",
-          "result": {
-            "name": "Arneis",
-            "note": "Pear, almond, white flowers. Fresh acidity. Pairs with seafood, vegetables. Underrated gem.",
-            "image": "/images/piemonte/arneis.jpg"
-          }
+          "id": "nero-di-troia",
+          "name": "Nero di Troia",
+          "title": "The Slow Burn",
+          "description": "Reserved at first, unforgettable later. You carry a quiet strength and a thoughtful way of moving through the world, just like this elegant, underrated Pugliese grape.",
+          "image": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg"
+        },
+        {
+          "id": "fiano",
+          "name": "Fiano Minutolo",
+          "title": "Aromatic, Creative & Unexpected",
+          "description": "Curious, lively, always up for something new — you're the spark that keeps things interesting. Fiano Minutolo matches your energy: floral, vibrant, and full of personality.",
+          "image": "/images/puglia/seasonal-backgrounds/spring-landscape.jpg"
         }
       ]
     }
