@@ -24,9 +24,11 @@ export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
         <div className="text-center mb-8 md:mb-12">
           <Landmark className="h-12 w-12 mx-auto mb-4 text-primary" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Food, Wine & Culture</h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
-            Piemonte doesn't shout its pleasures — it whispers them in truffle-scented kitchens and candlelit wine cellars. This is where the Slow Food movement began, where Barolo ages in quiet brick vaults, and where every village seems to have its own festival, saint, or sauce. Life here is less about indulgence and more about precision — each meal, each glass, each conversation crafted with the same care as the wine itself.
-          </p>
+          {highlights.sectionIntro && (
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
+              {highlights.sectionIntro}
+            </p>
+          )}
         </div>
 
         <Tabs defaultValue="wine" className="w-full">

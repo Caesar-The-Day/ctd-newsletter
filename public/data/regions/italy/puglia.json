@@ -612,47 +612,74 @@
     ]
   },
   "highlights": {
+    "sectionIntro": "Anyone who spends more than twelve minutes in Puglia figures out that the region doesn't separate its pleasures: food, wine, and culture are the same organism. They breathe together. A plate of orecchiette isn't just lunch; it's the way a grandmother teaches history. A glass of Primitivo isn't just a drink; it's the geography of the land poured into something you can hold. And culture, in Puglia, is not a museum concept—it's what happens when the town piazza fills up on a Tuesday night because someone's cousin is frying anchovies and the band showed up early. If you want to understand why so many people fall head-over-heels for this place, start here: the region where meals are stories, harvests are holidays, and the rhythm of life is measured in festivals, not deadlines.",
     "wine": {
-        "title": "WINE — Precision in Every Hillside",
-        "intro": "In Piemonte, wine isn't agriculture — it's architecture. Hills rise and curve with mathematical purpose, each slope engineered to catch just the right light. The region's UNESCO-listed vineyard landscapes of Langhe, Roero, and Monferrato are a monument to human discipline in pursuit of flavor. This is where the Nebbiolo grape becomes Barolo and Barbaresco, wines of patience and structure; where Barbera, Dolcetto, and Arneis define everyday elegance. The story of Piemonte's wines isn't about excess; it's about restraint. These are wines made for slow meals, foggy evenings, and quiet company — bottles that reward conversation as much as aging. The geography does most of the work, the people simply listen to it.",
-        "backgroundImage": "/images/piemonte/vineyard-fall.jpg",
+        "title": "Wine - Sunlight Turned Into Red",
+        "intro": "If food is the body of Puglia's lifestyle, wine is the pulse. The region has shed its old image as simply \"bulk winemaking\" and is now quietly punching above its weight in quality and identity. The reds — especially from grapes like Primitivo and Negroamaro — carry the story of sun, soil, and salt-laden breezes. For someone thinking \"move abroad, live here, belong here\", wine isn't just an indulgence; it's a way to connect: with growers, with region, with lifestyle.",
+        "backgroundImage": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg",
         "cards": [
           {
-            "id": "unesco-vineyards",
-            "title": "UNESCO Vineyard Landscapes",
-            "subtitle": "Langhe, Roero, and Monferrato",
-            "image": "/images/piemonte/hero-vineyards.jpg",
-            "description": "Hills that rise with mathematical purpose. Each slope engineered to catch the right light. A monument to human discipline in pursuit of flavor.",
+            "id": "primitivo-rise",
+            "title": "Primitivo & its Rise",
+            "subtitle": "explore how Puglia turned this grape into a symbol",
+            "image": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg",
+            "description": "Once dismissed as a rustic table wine, Primitivo has become the bold red heart of Puglia, shaped by sun-soaked vineyards and centuries of local tradition. Its rise mirrors the region's own evolution from humble farmland to one of Italy's most expressive wine territories.",
             "links": [
               {
-                "label": "UNESCO Vineyard Landscapes",
-                "href": "https://whc.unesco.org/en/list/1390/"
+                "label": "Primitivo: An Introduction",
+                "href": "https://cellartours.com/blog/italy/primitivo-wine-an-introduction-to-puglias-mythical-grape"
               }
             ]
           },
           {
-            "id": "signature-grapes",
-            "title": "Nebbiolo, Barbera, Arneis",
-            "subtitle": "Patience, structure, everyday elegance",
-            "image": "/images/piemonte/barolo.jpg",
-            "description": "Nebbiolo becomes Barolo and Barbaresco — wines of patience and structure. Barbera and Dolcetto offer balance and bite. Arneis and Gavi bring crisp, mineral power.",
+            "id": "wine-regions",
+            "title": "Puglia Wine Regions & Grape Varieties",
+            "subtitle": "overview of region, DOCs, IGTs",
+            "image": "/images/puglia/seasonal-backgrounds/summer-landscape.jpg",
+            "description": "From the deep reds of Manduria to the limestone-kissed Nero di Troia of northern Puglia, the region's DOCs and IGTs reflect a landscape split between sea, stone, and centuries of cultivation. Each grape carries a different accent of the territory, making Puglia one of Italy's most diverse wine regions.",
             "links": [
               {
-                "label": "Wines of Piemonte",
-                "href": "https://www.ivinidelpiemonte.com/vini-e-territorio/"
+                "label": "Puglia Wine Regions Guide",
+                "href": "https://italianwinecentral.com/region-province/puglia/"
               }
             ]
           },
           {
-            "id": "vineyard-stewardship",
-            "title": "Multigenerational Producers",
-            "subtitle": "Culture of vineyard stewardship",
-            "image": "/images/piemonte/vineyard-fall.jpg",
-            "description": "Family producers who listen to the geography. Harvest, fog season, truffle season — a rhythm measured in generations, not quarters.",
+            "id": "wine-tasting-masserie",
+            "title": "Wine-Tasting Off Tourist Track",
+            "subtitle": "family masserie, cooperatives, small cellars",
+            "image": "/images/puglia/masseria-moroseta.jpg",
+            "description": "Some of Puglia's best experiences happen far from the polished tasting rooms, in masserie and cooperative cantine where winemakers pour from barrels and tell you about the land firsthand. These hidden spots offer the intimacy and authenticity your readers crave — the kind of tasting that feels like being welcomed into a family.",
             "links": [
               {
-                "label": "Langhe.net Tours",
-                "href": "https://www.langhe.net/"
+                "label": "View Masserie on Map",
+                "href": "#map"
+              }
+            ]
+          },
+          {
+            "id": "sustainable-wine-oil",
+            "title": "Sustainable & Olive-Oil-Wine Intersections",
+            "subtitle": "Puglia grows both olives and grapes; two sides of the terroir coin",
+            "image": "/images/puglia/seasonal-backgrounds/spring-landscape.jpg",
+            "description": "In Puglia, vines and olive trees grow side by side, sharing the same rocky soil and sea-winds that shape their flavors. This natural overlap has pushed many producers toward sustainable farming, creating a regional identity built equally on wine, oil, and respect for the land.",
+            "links": [
+              {
+                "label": "Puglian Cuisine & Terroir",
+                "href": "https://www.cellartours.com/blog/italy/puglian-cuisine"
+              }
+            ]
+          },
+          {
+            "id": "wine-festivals",
+            "title": "Wine Festivals & Harvest Events",
+            "subtitle": "timing, what a visiting-resigner should mark on calendar",
+            "image": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg",
+            "description": "Autumn transforms Puglia into a rolling calendar of vendemmia celebrations, with towns filling their piazzas for tastings, music, and harvest rituals. These festivals are more than events — they're an invitation to witness how deeply wine is woven into everyday life here.",
+            "links": [
+              {
+                "label": "Puglia's Wine Culture",
+                "href": "https://www.theguardian.com/food/article/2024/may/26/puglias-wines-pack-a-punch"
               }
             ]
           }
