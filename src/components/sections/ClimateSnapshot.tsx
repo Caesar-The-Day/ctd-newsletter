@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
 import { Cloud, Droplets, Sun, Thermometer, CloudSun, ExternalLink } from "lucide-react";
-import { SeasonalParticles } from "@/components/effects/SeasonalParticles";
 
 interface ClimateData {
   intro: {
@@ -60,6 +59,20 @@ const seasonalBackgroundsPiemonte = {
   autumn: "from-orange-100/30 via-red-50/20 to-amber-100/30 dark:from-orange-950/30 dark:via-red-900/20 dark:to-amber-950/30",
 };
 
+const seasonalImagesPuglia = {
+  winter: "/images/puglia/seasonal-backgrounds/winter-landscape.jpg",
+  spring: "/images/puglia/seasonal-backgrounds/spring-landscape.jpg",
+  summer: "/images/puglia/seasonal-backgrounds/summer-landscape.jpg",
+  autumn: "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg",
+};
+
+const seasonalImagesPiemonte = {
+  winter: "/images/piemonte/seasonal-backgrounds/winter-landscape.jpg",
+  spring: "/images/piemonte/seasonal-backgrounds/spring-landscape.jpg",
+  summer: "/images/piemonte/seasonal-backgrounds/summer-landscape.jpg",
+  autumn: "/images/piemonte/seasonal-backgrounds/autumn-landscape.jpg",
+};
+
 export function ClimateSnapshot() {
   const [climateData, setClimateData] = useState<ClimateData | null>(null);
   const [currentMonth, setCurrentMonth] = useState(0);
@@ -94,16 +107,28 @@ export function ClimateSnapshot() {
   const currentSeason = currentMonthData.season;
   
   const seasonalBackgrounds = region === "puglia" ? seasonalBackgroundsPuglia : seasonalBackgroundsPiemonte;
+  const seasonalImages = region === "puglia" ? seasonalImagesPuglia : seasonalImagesPiemonte;
 
   return (
     <section className="py-8 md:py-12 bg-background relative overflow-hidden">
-      {/* Animated seasonal background */}
+      {/* Seasonal background image */}
+      <div 
+        key={currentSeason}
+        className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+        style={{
+          backgroundImage: `url(${seasonalImages[currentSeason]})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(4px) brightness(0.6)',
+          transform: 'scale(1.1)',
+          opacity: 0.35,
+        }}
+      />
+      
+      {/* Gradient overlay for text readability */}
       <div 
         className={`absolute inset-0 bg-gradient-to-br ${seasonalBackgrounds[currentSeason]} transition-all duration-1000 ease-in-out`}
       />
-      
-      {/* Seasonal particles */}
-      <SeasonalParticles monthIndex={currentMonth} region={region} />
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}
