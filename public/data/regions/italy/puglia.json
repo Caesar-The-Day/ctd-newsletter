@@ -1119,107 +1119,110 @@
     },
     "cards": [
       {
-        "id": "tajarin-tartufo",
-        "title": "Tajarin al Tartufo",
+        "id": "fave-e-cicoria",
+        "title": "Fave e Cicoria",
         "mode": "Rustic",
-        "image": "/images/piemonte/tajarin.jpg",
+        "image": "/images/puglia/fave-e-cicoria.jpg",
+        "story": "This is the real countryside bowl — a dish older than half the churches in Puglia. Soft, creamy puréed fava beans meet the sharp minerality of wilted chicory. The bitterness and sweetness play off each other like they've been arguing for centuries and still can't quit each other.",
         "ingredients": [
-          "400g fresh tajarin (thin egg pasta)",
-          "100g butter",
-          "50g white truffle (or 20g if being reasonable)",
-          "Parmigiano-Reggiano",
-          "Salt"
+          "Dried split fava beans",
+          "Water",
+          "Olive oil",
+          "Onion",
+          "Chicory or broccoli rabe",
+          "Salt & pepper"
         ],
         "steps": [
-          "Cook tajarin in salted boiling water for 2-3 minutes until al dente",
-          "Meanwhile, melt butter gently in a large pan—don't brown it",
-          "Drain pasta, reserving 1/2 cup pasta water",
-          "Toss pasta in butter, adding pasta water to create silky sauce",
-          "Plate immediately and shave truffle generously over top",
-          "Finish with a light grating of Parmigiano"
+          "Rinse the fava beans and simmer with water, onion, and a splash of olive oil until they collapse into a pale yellow purée. Mash or blend lightly.",
+          "Boil the chicory until tender; drain well.",
+          "Serve the purée topped with the greens and a generous drizzle of olive oil. Pepper is non-negotiable."
         ],
-        "pairWithWineProfile": "silky",
-        "winePairing": "Barolo DOCG — ideally 8–10 years old; its forest-floor complexity mirrors truffle's depth.",
-        "links": [
-          {
-            "label": "Alba Truffle Fair (Oct-Nov)",
-            "href": "https://www.fieradeltartufo.org/"
-          }
-        ]
+        "pairWithWineProfile": "nero-di-troia",
+        "winePairing": "Nero di Troia — the bitterness of the greens needs a structured red."
       },
       {
-        "id": "bagna-cauda",
-        "title": "Bagna Cauda",
+        "id": "tiella-barese",
+        "title": "Tiella Barese (Rice, Potatoes & Mussels)",
         "mode": "Rustic",
-        "image": "/images/piemonte/bagna.jpg",
+        "image": "/images/puglia/tiella-barese.jpg",
+        "story": "Tiella is the embodiment of Bari kitchens: nothing fancy, everything stunning. Raw rice, sliced potatoes, tomatoes, onions, parsley, Pecorino, and mussels layered into a clay dish and baked until the rice swells with brine and tomato juices. One of those \"why doesn't everyone make this?\" dishes.",
         "ingredients": [
-          "200g anchovy fillets in oil",
-          "8 cloves garlic, sliced thin",
-          "200ml extra virgin olive oil",
-          "50g butter",
-          "Seasonal vegetables (peppers, cardoons, cabbage, carrots)"
+          "Raw mussels (cleaned)",
+          "Potatoes, thinly sliced",
+          "Cherry tomatoes",
+          "Onion, thinly sliced",
+          "Raw Arborio or Carnaroli rice",
+          "Parsley",
+          "Pecorino",
+          "Olive oil",
+          "Breadcrumbs",
+          "Salt & pepper"
         ],
         "steps": [
-          "Gently heat olive oil and butter in earthenware pot",
-          "Add garlic and anchovies, stirring until anchovies dissolve (15-20 min)",
-          "Keep warm over low flame or candle",
-          "Serve with raw and cooked vegetables for dipping",
-          "Traditionally eaten communally—have bread ready to soak up drips"
+          "Oil a baking dish.",
+          "Start layering: potatoes → onions → tomatoes → parsley → cheese → rice → mussels. Repeat.",
+          "Season each layer.",
+          "Add enough water to barely reach the top layer.",
+          "Top with breadcrumbs, olive oil, more cheese.",
+          "Bake until the rice has absorbed everything and the top is golden."
         ],
-        "pairWithWineProfile": "crisp",
-        "winePairing": "Barbera d'Asti DOCG — Piemonte's most forgiving red; bright acidity, no heavy tannins, refreshes beautifully."
+        "pairWithWineProfile": "fiano",
+        "winePairing": "Fiano Minutolo — aromatic, acidic, great with seafood."
       },
       {
-        "id": "vitello-tonnato",
-        "title": "Vitello Tonnato",
+        "id": "calamari-ripieni",
+        "title": "Calamari Ripieni (Stuffed Calamari)",
         "mode": "Refined",
-        "image": "/images/piemonte/vitello.jpg",
+        "image": "/images/puglia/calamari-ripieni.jpg",
+        "story": "This dish tastes like a quiet seaside dinner — the kind where you hear waves between forkfuls. Calamari tubes are stuffed with a savory mix of toasted breadcrumbs, garlic, capers, lemon zest, and parsley, then braised in white wine until tender and velvety.",
+        "whyRefined": "The delicate stuffing, wine-based braising technique, and careful balance of acidity and richness elevate this beyond rustic seafood into refined coastal dining.",
         "ingredients": [
-          "800g veal roast",
-          "200g canned tuna in oil",
-          "4 anchovy fillets",
-          "2 egg yolks",
+          "Calamari tubes",
+          "Breadcrumbs",
+          "Garlic",
+          "Parsley",
+          "Lemon zest",
           "Capers",
-          "Lemon juice",
-          "Olive oil"
+          "Olive oil",
+          "White wine"
         ],
         "steps": [
-          "Roast veal until just cooked, let cool completely",
-          "Blend tuna, anchovies, egg yolks, lemon juice until smooth",
-          "Slowly add olive oil to create mayonnaise-like sauce",
-          "Slice veal paper-thin, arrange on platter",
-          "Cover completely with tuna sauce",
-          "Refrigerate 2+ hours, garnish with capers before serving"
+          "Toast breadcrumbs in olive oil until golden.",
+          "Mix with garlic, parsley, capers, lemon zest, salt.",
+          "Stuff the calamari and secure with toothpicks.",
+          "Sear lightly, then add white wine and simmer until tender.",
+          "Reduce the sauce and spoon over the top before serving."
         ],
-        "pairWithWineProfile": "crisp",
-        "winePairing": "Roero Arneis DOCG — floral, almond-scented, medium-bodied white that cuts through the richness of the sauce."
+        "pairWithWineProfile": "fiano",
+        "winePairing": "Bombino Bianco — crisp, floral, clean."
       },
       {
-        "id": "bonet-cacao",
-        "title": "Bonèt al Cacao e Amaretti",
+        "id": "orecchiette-lamb-ragu",
+        "title": "Orecchiette with Lamb Ragù",
         "mode": "Refined",
-        "image": "/images/piemonte/bonet-al-cacao.jpg",
-        "story": "Bonèt (pronounced bo-nay) is Piemonte's answer to crème caramel — but darker, moodier, and grown up. It was the final flourish at 18th-century banquets in the Savoy court, meant to \"clean the palate\" after truffle and game. Made with cocoa, amaretto liqueur, and crushed amaretti cookies, it tastes like the moment between coffee and confession. Every family has a version — some silkier, some boozier — but all whisper of elegance and restraint.",
-        "whyRefined": "It looks simple but takes precision: low heat, perfect timing, just enough bitterness to keep the sweetness interesting. It's the kind of dessert you serve in small portions and remember for days.",
+        "image": "/images/puglia/orecchiette-lamb-ragu.jpg",
+        "story": "A sophisticated twist on Puglia's favorite pasta. Lamb shoulder is cooked low and slow with rosemary, bay leaves, red wine, and tomatoes until it becomes a velvet ragù. Tossed with orecchiette, it's a dish that feels like winter in a stone farmhouse with a fire crackling nearby.",
+        "whyRefined": "The slow-braised lamb, red wine reduction, and layered herb profile transform simple pasta into an elegant, restaurant-worthy dish with depth and sophistication.",
         "ingredients": [
-          "500 ml whole milk",
-          "4 whole eggs + 2 egg yolks",
-          "120 g sugar (plus more for caramel)",
-          "30 g unsweetened cocoa powder",
-          "100 g crushed amaretti cookies",
-          "50 ml amaretto liqueur (optional but traditional)",
-          "Pinch of salt",
-          "Butter (for greasing molds)"
+          "Lamb shoulder, diced",
+          "Onion, carrot, celery",
+          "Red wine",
+          "Tomatoes or tomato passata",
+          "Rosemary & bay",
+          "Fresh orecchiette",
+          "Olive oil",
+          "Pecorino"
         ],
         "steps": [
-          "Make the caramel: In a saucepan, melt 100g sugar over medium heat until golden. Quickly pour into a loaf pan or ramekins, swirling to coat the base. Let set.",
-          "Prepare the custard: Warm milk in a saucepan (do not boil). In a bowl, whisk eggs, yolks, sugar, cocoa, salt, and amaretto. Add crushed amaretti cookies, then gradually pour in the warm milk, whisking constantly until smooth.",
-          "Bake gently: Pour mixture over the caramel base. Place the pan in a larger baking dish and fill with hot water halfway up the sides (bain-marie). Bake at 160°C / 320°F for about 45–50 minutes, until just set but still trembling in the center.",
-          "Cool and serve: Let cool completely, then refrigerate for at least 4 hours (preferably overnight). Invert onto plates before serving — the caramel will run like amber sauce."
+          "Sauté vegetables until soft.",
+          "Add lamb, brown gently.",
+          "Deglaze with red wine.",
+          "Add tomatoes, herbs, salt. Simmer 2–3 hours until spoon-tender.",
+          "Cook orecchiette and toss with the ragù.",
+          "Finish with Pecorino and a drizzle of oil."
         ],
-        "servingSuggestion": "Serve chilled with a glass of Barolo Chinato or Moscato d'Asti — something aromatic but restrained. Top with a shard of amaretti crumble or a drizzle of espresso reduction if you want a modern accent.",
-        "pairWithWineProfile": "elegant",
-        "winePairing": "Barolo Chinato or Moscato d'Asti — aromatic, restrained, perfectly balanced with chocolate and amaretto."
+        "pairWithWineProfile": "primitivo",
+        "winePairing": "Primitivo di Manduria — bold, warm, perfect with lamb."
       }
     ],
     "modes": ["Rustic", "Refined"]
