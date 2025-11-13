@@ -1039,40 +1039,84 @@
           "name": "Primitivo",
           "title": "Bold, Sun-Soaked, Unapologetically You",
           "description": "You're warm, expressive, and a little larger than life. Like Primitivo, you thrive in sunlight and good company. You're the friend people call when they want a guaranteed good night.",
-          "image": "/images/puglia/primitivo-grapes.jpg"
+          "image": "/images/puglia/primitivo-wine.jpg"
         },
         {
           "id": "negroamaro",
           "name": "Negroamaro",
           "title": "Deep Roots & Quiet Confidence",
           "description": "You have presence without trying. Like Negroamaro, you run deeper than first impressions, appreciating structure, depth, and traditions that hold their ground.",
-          "image": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg"
+          "image": "/images/puglia/negroamaro-wine.jpg"
         },
         {
           "id": "rosato",
           "name": "Rosato del Salento",
           "title": "Effortless Charm & Coastal Spirit",
           "description": "Bright, breezy, adaptable. You're the person who brings sunshine into the room and knows the value of a well-timed pause by the sea.",
-          "image": "/images/puglia/seasonal-backgrounds/summer-landscape.jpg"
+          "image": "/images/puglia/rosato-wine.jpg"
         },
         {
           "id": "nero-di-troia",
           "name": "Nero di Troia",
           "title": "The Slow Burn",
           "description": "Reserved at first, unforgettable later. You carry a quiet strength and a thoughtful way of moving through the world, just like this elegant, underrated Pugliese grape.",
-          "image": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg"
+          "image": "/images/puglia/nero-di-troia-wine.jpg"
         },
         {
           "id": "fiano",
           "name": "Fiano Minutolo",
           "title": "Aromatic, Creative & Unexpected",
           "description": "Curious, lively, always up for something new — you're the spark that keeps things interesting. Fiano Minutolo matches your energy: floral, vibrant, and full of personality.",
-          "image": "/images/puglia/seasonal-backgrounds/spring-landscape.jpg"
+          "image": "/images/puglia/fiano-minutolo-wine.jpg"
         }
       ]
     }
   },
   "recipes": {
+    "header": {
+      "title": "Puglia Recipes — Where Tradition Meets the Table",
+      "subtitle": "From cucina povera to the plates that tell Puglia's story"
+    },
+    "originStory": {
+      "title": "Orecchiette e Cime di Rapa",
+      "subtitle": "If Puglia had to explain itself with one bowl, this would be it.",
+      "story": [
+        "If Puglia had a coat of arms, orecchiette would be on it — probably held aloft by a Bari nonna with a flour-dusted apron and a stare that says, politely but firmly, \"You're not rolling them right.\" The dish is deceptively simple: a handful of flour, bitter greens pulled straight from the earth, garlic, olive oil, and maybe an anchovy or two if you're honest about how Puglia really cooks. Nothing fancy, nothing wasted. And yet the result is a dish that somehow feels both ancient and essential.",
+        "Orecchiette were never meant to be beautiful; they were meant to be practical. The shape — that little domed ear — holds sauce, greens, breadcrumbs, whatever you throw at it. In Bari Vecchia, you can still walk down the narrow alleys and see women sitting at low wooden tables, turning dough into orecchiette faster than you can count them. They chat, they gossip, they don't look down at their hands once. Each pasta ear is formed with a practiced flick of the knife and a pull against the board, leaving behind a thousand tiny ridges and the unmistakable stamp of a human hand.",
+        "Cime di rapa (turnip tops) were historically the vegetable you ate when you had to — the tough, bitter green that didn't demand much from the soil but gave everything in flavor. Peasants turned it into something more by pairing it with orecchiette, garlic gently warmed in olive oil, and those anchovies that melt into nothing but depth. This is cucina povera in its purest form: food born from necessity, elevated through repetition and love.",
+        "And here's the real charm. When you make this dish — really make it, not just \"cook dinner\" — you get a glimpse of how life in Puglia works. Slowly. Seasonally. With ingredients that taste like the landscape they grew from. It's not culinary performance. It's tradition in motion. A bowl of quiet confidence that doesn't need reinvention."
+      ],
+      "image": "/images/puglia/orecchiette-cime-di-rapa.jpg",
+      "winePairing": [
+        "Negroamaro Rosato (Salento rosé)",
+        "Fiano Minutolo (bright, aromatic white)"
+      ],
+      "recipes": [
+        {
+          "version": "Quick Weeknight Version",
+          "description": "The way you'd make it on a Tuesday night when you don't have patience but still want to taste Puglia.",
+          "ingredients": [
+            "Orecchiette (fresh if possible, dried is fine)",
+            "Cime di rapa or broccoli rabe",
+            "Olive oil",
+            "Garlic, thinly sliced",
+            "1–2 anchovy fillets in oil",
+            "Chili flakes (optional)",
+            "Salt",
+            "Toasted breadcrumbs (optional but recommended)"
+          ],
+          "steps": [
+            "Boil a large pot of salted water.",
+            "Trim the cime di rapa; keep leaves, florets, and tender stems.",
+            "In a pan, warm a generous glug of olive oil. Add the garlic, anchovies, and chili. Let the anchovies melt into the oil.",
+            "Add the greens to the boiling water. One minute later, add the orecchiette into the same pot.",
+            "When the pasta is al dente and the greens are tender, transfer everything to the pan using a slotted spoon. Add a splash of pasta water if it looks dry.",
+            "Toss until glossy and emulsified. Taste for salt.",
+            "Finish with a final drizzle of oil and a snowfall of toasted breadcrumbs."
+          ]
+        }
+      ]
+    },
     "cards": [
       {
         "id": "tajarin-tartufo",
