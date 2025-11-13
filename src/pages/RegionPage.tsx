@@ -153,7 +153,14 @@ export default function RegionPage() {
 
       {config.showWineQuiz && regionData.wine && <WineQuiz quizData={regionData.wine.quiz} />}
 
-      {regionData.recipes && <RecipesInteractive recipes={regionData.recipes.cards} modes={regionData.recipes.modes} />}
+      {regionData.recipes && (
+        <RecipesInteractive 
+          header={regionData.recipes.header}
+          originStory={regionData.recipes.originStory}
+          recipes={regionData.recipes.cards} 
+          modes={regionData.recipes.modes} 
+        />
+      )}
 
       {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA />}
 

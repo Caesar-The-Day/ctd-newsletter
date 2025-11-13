@@ -221,6 +221,23 @@ export interface RegionData {
     };
   };
   recipes: {
+    header?: {
+      title: string;
+      subtitle: string;
+    };
+    originStory?: {
+      title: string;
+      subtitle: string;
+      story: string[];
+      image: string;
+      winePairing: string[];
+      recipes: Array<{
+        version: string;
+        description: string;
+        ingredients: string[];
+        steps: string[];
+      }>;
+    };
     cards: Array<{
       id: string;
       title: string;
