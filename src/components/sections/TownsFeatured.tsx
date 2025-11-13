@@ -24,6 +24,7 @@ interface FeaturedTown {
     label: string;
     href: string;
   }>;
+  eligible7Percent?: boolean;
 }
 
 interface TownsFeaturedProps {
@@ -72,6 +73,13 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
                     alt={`${town.name} ${currentIndex + 1}`}
                     className="w-full h-full object-cover"
                   />
+                  
+                  {/* 7% Badge */}
+                  {town.eligible7Percent && (
+                    <div className="absolute top-3 right-3 bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
+                      7%
+                    </div>
+                  )}
                   
                   {/* Gallery Controls */}
                   {hasGallery && (

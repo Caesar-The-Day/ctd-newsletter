@@ -484,7 +484,8 @@
           { "label": "Official Tourism Site", "href": "https://polignanoamare.com/en" },
           { "label": "Polignano Guide", "href": "https://www.polignanoamare.eu" },
           { "label": "Info Point Details", "href": "https://mobile.viaggiareinpuglia.it/en/dettaglio-infopoint/info-point-polignano-mare" }
-        ]
+        ],
+        "eligible7Percent": true
       }
     ],
     "grid": [
