@@ -689,13 +689,13 @@
         "title": "Food",
         "intro": "Puglia doesn't cook the way other regions cook. It cooks the way the land demands. Wheat fields, olive groves, blistering summers, and a double coastline have shaped a cucina that's deceptively simple and endlessly soulful. You taste it in the bitterness of wild chicory, in the chew of orecchiette rolled by a Bari nonna, in the golden crackle of Altamura bread pulled from a wood-fired oven. It's a cuisine born from scarcity yet rich in character, and for anyone dreaming of a life here, understanding the food is understanding the culture itself.",
         "header": "Food — Where the Land Teaches the Table",
-        "backgroundImage": "/images/puglia/puglia-hero.jpg",
+        "backgroundImage": "/images/puglia/orecchiette-cime-di-rapa.jpg",
         "cards": [
           {
             "id": "orecchiette",
             "title": "Orecchiette & Cime di Rapa",
             "subtitle": "The pasta that defines Puglia",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/orecchiette-cime-di-rapa.jpg",
             "description": "The dish that defines Puglia: handmade orecchiette gripping bitter greens, anchovy, garlic and oil — a perfect expression of the region's cucina povera roots. Walk through Bari Vecchia and you'll see it being shaped right on the street.",
             "links": [
               {
@@ -708,7 +708,7 @@
             "id": "altamura-bread",
             "title": "Pane di Altamura & the Bread Culture",
             "subtitle": "PDO bread with ancient roots",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/pane-altamura.jpg",
             "description": "Altamura's PDO bread has a thick crust and a soft, yellow, almost custardy interior thanks to local durum wheat. It isn't just something to eat — it's an agricultural tradition, a communal oven culture, and a daily ritual.",
             "links": [
               {
@@ -721,7 +721,7 @@
             "id": "crudo-di-mare",
             "title": "Seafood & Crudo di Mare",
             "subtitle": "Raw from the Adriatic",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/crudo-di-mare.jpg",
             "description": "Along the Adriatic, seafood isn't a luxury; it's morning routine. Raw mussels, sea urchins, and prawns (\"crudo di mare\") are a testament to waters so clean and cold that locals eat straight from the shell.",
             "links": [
               {
@@ -734,7 +734,7 @@
             "id": "cucina-povera",
             "title": "Cucina Povera & Seasonal Simplicity",
             "subtitle": "Humble ingredients, extraordinary flavors",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/cucina-povera-ingredients.jpg",
             "description": "Puglia's most iconic flavors come from humble ingredients: fava beans, wild chicory, tomatoes sun-warmed on the vine, and olive oil that tastes alive. It's a cuisine that follows the seasons, not the supermarkets.",
             "links": [
               {
@@ -747,7 +747,7 @@
             "id": "sagre-festivals",
             "title": "Sagre & Local Food Festivals",
             "subtitle": "Where towns celebrate their dishes",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/sagra-food-festival.jpg",
             "description": "Every town has its own festival — panzerotti nights, orecchiette feasts, fig celebrations, grilled octopus weekends. These sagre are where you see the real Puglia: long tables, loud laughter, and recipes that never make it into cookbooks.",
             "links": [
               {
@@ -762,13 +762,13 @@
         "title": "Culture",
         "intro": "Culture in Puglia isn't something you step into; it's something you're surrounded by. It's the dry-stacked stones of a trullo holding the heat of a thousand summers. It's Lecce's creamy Baroque facades glowing at dusk, and a piazza filling without warning because the band decided to start early. It's the rhythm of pizzica echoing through a summer night, the solemnity of Holy Week processions, and the pride every town carries for its sagre, saints, and stories. For someone imagining a future life here, Puglia's culture offers something priceless: a sense of belonging that comes not from spectacle, but from continuity.",
         "header": "Culture — Stories Written in Stone and Celebration",
-        "backgroundImage": "/images/puglia/puglia-hero.jpg",
+        "backgroundImage": "/images/puglia/ostuni-whitecity.jpg",
         "cards": [
           {
             "id": "pizzica-tarantismo",
             "title": "Pizzica & Tarantismo",
             "subtitle": "The hypnotic dance of healing",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/pizzica-dance.jpg",
             "description": "A hypnotic, fast-footed dance born from ancient healing rituals, the pizzica is the heartbeat of Salento. Whether performed at a village festa or an impromptu gathering, it's one of the most visceral ways Puglia tells its story.",
             "links": [
               {
@@ -781,7 +781,7 @@
             "id": "notte-taranta",
             "title": "La Notte della Taranta",
             "subtitle": "Puglia's cultural lightning strike",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/notte-della-taranta.jpg",
             "description": "This is Puglia's cultural lightning strike — an enormous open-air concert celebrating pizzica, folk traditions, and community. Held across multiple towns and culminating in Melpignano, it's both ancient ritual and modern music festival.",
             "links": [
               {
@@ -807,7 +807,7 @@
             "id": "sagre-patron-saints",
             "title": "Sagre, Patron Saints & Local Feasts",
             "subtitle": "Community memory made visible",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/lecce.jpg",
             "description": "Every town has its own calendar of celebrations: fireworks for San Nicola, bonfires for San Giuseppe, processions winding through stone alleys. These aren't performances — they're the community's memory and identity made visible.",
             "links": [
               {
@@ -820,7 +820,7 @@
             "id": "piazza-life",
             "title": "The Everyday Culture: Piazza Life & the Passeggiata",
             "subtitle": "Culture in the ordinary",
-            "image": "/images/puglia/puglia-hero.jpg",
+            "image": "/images/puglia/piazza-passeggiata.jpg",
             "description": "Evening strolls, gossip shared over espresso, children playing freely in the piazza — this is the social fabric newcomers fall in love with. It's culture expressed in the ordinary, and it's the part that sticks with you long after the festivals end.",
             "links": [
               {
