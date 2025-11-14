@@ -19,11 +19,11 @@ export function EditorialIntro({
         <div className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12">
           {/* Portrait */}
           <div className="flex justify-center md:justify-start">
-            <img
-              src={portrait}
-              alt="Cesare"
-              className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-soft"
-            />
+              <img
+                src={portrait}
+                alt={`${headline} - Portrait of Cesare, Italian retirement guide expert`}
+                className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-soft"
+              />
           </div>
 
           {/* Content */}
@@ -47,7 +47,7 @@ export function EditorialIntro({
                 <div className="mt-8 opacity-0 animate-fade-in-up" style={{ animationDelay: `${paragraphs.length * 0.15}s`, animationFillMode: 'forwards' }}>
                   <img 
                     src={signature} 
-                    alt="Cesare signature" 
+                    alt="Personal signature of Cesare Sedek, Italian retirement expert and guide" 
                     className="h-48 w-auto"
                   />
                 </div>

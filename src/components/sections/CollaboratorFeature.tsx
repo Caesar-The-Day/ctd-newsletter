@@ -132,7 +132,7 @@ export function CollaboratorFeature({
             >
               <img
                 src="/images/lucca-portrait.jpg"
-                alt="Luca, Italian teacher and founder of Italian Conversation Club"
+                alt="Luca - Italian language teacher and founder of Italian Conversation Club, expert in helping retirees learn Italian"
                 className="h-full w-full object-cover"
               />
             </div>

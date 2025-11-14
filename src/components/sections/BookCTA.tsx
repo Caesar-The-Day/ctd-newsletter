@@ -45,11 +45,11 @@ export function BookCTA() {
                     filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2))'
                   }}
                 >
-                  <img 
-                    src="/images/escape-plan-cover.jpg" 
-                    alt="Escape Plan: How to Move from the US to Italy (Without Losing Your Money or Mind)" 
-                    className="w-full h-auto rounded-lg"
-                  />
+                <img
+                  src="/images/escape-plan-cover.jpg" 
+                  alt="Escape Plan: How to Move from the US to Italy - Complete guide book cover showing practical advice for retiring in Italy without losing your money or mind" 
+                  className="w-full h-auto rounded-lg"
+                />
                 </div>
               </div>
 

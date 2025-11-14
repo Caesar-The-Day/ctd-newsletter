@@ -68,11 +68,11 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
               <Card key={town.id} className="overflow-hidden shadow-medium hover-lift">
                 {/* Image Gallery */}
                 <div className="relative h-64 group">
-                  <img
-                    src={currentImage}
-                    alt={`${town.name} ${currentIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                    <img
+                      src={currentImage}
+                      alt={`${town.name} - Image ${currentIndex + 1} showcasing ${town.bestFor} - the charm of this Italian town for retirees`}
+                      className="w-full h-full object-cover"
+                    />
                   
                   {/* 7% Badge */}
                   {town.eligible7Percent && (
