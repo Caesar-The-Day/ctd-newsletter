@@ -5,17 +5,28 @@
     "backgroundImage": "/images/shared/italy-hero-landscape.jpg"
   },
   "featured": {
-    "slug": "piemonte",
-    "title": "Piemonte",
-    "subtitle": "Italy's wine country awaits",
-    "issueNumber": 7,
-    "date": "October 2025",
-    "description": "Piemonte is Italy without the performance — elegant, grounded, and quietly confident. Tucked beneath the Alps, it's a region where mist rolls over vineyard hills and Barolo flows like a reward for patience. Turin sets the tone: stately cafés, Art Nouveau arcades, and a hum of intellect and history that gave Italy both its first capital and its first espresso machine. Beyond the city, you'll find medieval hill towns, truffle-scented forests, and lakes that mirror the sky so perfectly you forget which way is up. Piemonte doesn't chase attention; it earns devotion — one glass, one view, one slow afternoon at a time.",
-    "heroImage": "/images/piemonte/hero-vineyards.jpg",
-    "ctaText": "Explore Piemonte",
-    "ctaLink": "/piemonte"
+    "slug": "puglia",
+    "title": "Puglia",
+    "subtitle": "Where the heel of Italy meets the sea",
+    "issueNumber": 8,
+    "date": "November 2025",
+    "description": "Puglia is what happens when coastal Italy stays grounded. It's stunning — whitewashed towns, two seas, endless olive groves — but it's also real: hot summers, slower infrastructure, and a way of life that prioritizes human connection over efficiency. You don't move here for convenience; you move here for warmth, literally and socially. The best part? It's wildly affordable by Western European standards and still relatively undiscovered by the international retirement crowd.",
+    "heroImage": "/images/puglia/puglia-hero.jpg",
+    "ctaText": "Explore Puglia",
+    "ctaLink": "/puglia"
   },
   "newsletters": [
+    {
+      "slug": "puglia",
+      "title": "Puglia",
+      "issueNumber": 8,
+      "date": "November 2025",
+      "status": "live",
+      "thumbnail": "/images/puglia/alberobello-trulli.jpg",
+      "description": "Retiring to Italy's sun-soaked heel: affordable coastal living, trulli house ownership, healthcare access, and why Puglia offers Italy's best value for retirees seeking Mediterranean warmth.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/puglia"
+    },
     {
       "slug": "piemonte",
       "title": "Piemonte",
@@ -28,15 +39,15 @@
       "ctaLink": "/piemonte"
     },
     {
-      "slug": "puglia",
-      "title": "Puglia",
-      "issueNumber": 8,
-      "date": "November 2025",
+      "slug": "lombardia",
+      "title": "Lombardia",
+      "issueNumber": 10,
+      "date": "December 2025",
       "status": "coming-soon",
-      "thumbnail": "/images/puglia/alberobello-trulli.jpg",
-      "description": "Retiring to Italy's sun-soaked heel: affordable coastal living, trulli house ownership, healthcare access, and why Puglia offers Italy's best value for retirees seeking Mediterranean warmth.",
+      "thumbnail": "/images/archive/lombardia-thumbnail.jpg",
+      "description": "Northern Italy's economic powerhouse meets Alpine beauty: Milan's world-class healthcare, Lake Como's elegance, and why Lombardia offers sophisticated urban retirement with mountain access.",
       "ctaText": "Coming Soon",
-      "expectedDate": "November 2025"
+      "expectedDate": "December 2025"
     }
   ],
   "archive": [
