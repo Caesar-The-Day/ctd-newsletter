@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Train, Car, Plane, ThumbsUp, AlertCircle, X } from 'lucide-react';
+import { MapPin, Train, Car, Plane, ThumbsUp, AlertCircle, X, Waves } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -76,6 +76,9 @@ export function PugliaCoastSelector() {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="flex justify-center mb-4">
+            <Waves className="h-10 w-10 text-primary" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Which Pugliese Coast Fits Your Lifestyle?
           </h2>
