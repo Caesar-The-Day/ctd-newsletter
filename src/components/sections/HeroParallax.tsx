@@ -43,7 +43,7 @@ export function HeroParallax({
       <div className="absolute top-6 right-6 z-20">
         <img 
           src="/images/caesartheday-logo.png" 
-          alt="CaesarTheDay" 
+          alt="CaesarTheDay - Your Guide to Retiring in Italy" 
           className="h-44 md:h-56 lg:h-64 w-auto opacity-0 animate-fade-in-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] mt-10 md:mt-12"
         />
       </div>
@@ -56,11 +56,11 @@ export function HeroParallax({
           transition: 'transform 0.1s linear',
         }}
       >
-        <img
-          src={bannerImage}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
+          <img
+            src={bannerImage}
+            alt={`${title} - Scenic landscape showcasing the beauty and charm of retiring in this Italian region`}
+            className="w-full h-full object-cover"
+          />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-background/95" />
       </div>
 

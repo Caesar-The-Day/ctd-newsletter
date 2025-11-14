@@ -101,11 +101,11 @@ export function SevenPercentCTA() {
                   isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                 }`}
               >
-                <img 
-                  src="/images/7-percent-icon.png" 
-                  alt="7% Tax Icon" 
-                  className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
-                />
+                  <img
+                    src="/images/7-percent-icon.png" 
+                    alt="7% Flat Tax Rate Icon - Italy's special tax advantage for new residents retiring in Southern Italy" 
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
+                  />
               </div>
             </div>
             <div className="space-y-4 mb-8">

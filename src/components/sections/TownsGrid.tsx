@@ -38,11 +38,11 @@ export function TownsGrid({ towns }: TownsGridProps) {
             {towns.map((town) => (
               <Card key={town.id} className="overflow-hidden hover-lift shadow-soft">
                 <div className="relative h-48">
-                  <img
-                    src={town.photo}
-                    alt={town.name}
-                    className="w-full h-full object-cover"
-                  />
+                    <img
+                      src={town.photo}
+                      alt={`${town.name} - ${town.blurb.substring(0, 80)} - Town worth living in for retirees`}
+                      className="w-full h-full object-cover"
+                    />
                   {town.eligible7Percent && (
                     <div className="absolute top-3 right-3 bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
                       7%

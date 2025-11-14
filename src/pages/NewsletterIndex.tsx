@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Download, FileText } from 'lucide-react';
 import { getNewsletterIndexData, getGlobals, type GlobalsData } from '@/utils/getRegionData';
 import { Footer } from '@/components/common/Footer';
+import { SEO } from '@/components/common/SEO';
 
 interface NewsletterIndexData {
   hero: {
@@ -76,6 +77,29 @@ const NewsletterIndex = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
+        description="Veni. Vidi. Vici. is your region-by-region guide to conquering retirement in Italy, with deep dives on cost of living, towns worth living in, regional secrets, and interactive tools like maps, quizzes, and recipes."
+        canonical="https://news.caesartheday.com/"
+        ogTitle="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
+        ogDescription="Immersive regional guides for retiring in Italy, with cost-of-living insights, livable towns, cultural secrets, and interactive tools to turn daydreams into plans."
+        ogUrl="https://news.caesartheday.com/"
+        ogType="website"
+        ogImage="https://news.caesartheday.com/og-veni-vidi-vici.jpg"
+        keywords={['retirement in Italy', 'Italian regions guide', 'cost of living in Italy', 'interactive retirement tools', 'Veni. Vidi. Vici. guides']}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Veni. Vidi. Vici. – Your Guide to Conquering Retirement in Italy",
+          "description": "Region-by-region guides to retiring in Italy, including cost of living, livable towns, cultural insights, and interactive tools like maps, quizzes, and recipes.",
+          "url": "https://news.caesartheday.com/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "CaesarTheDay",
+            "url": "https://www.caesartheday.com"
+          }
+        }}
+      />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax Effect */}
