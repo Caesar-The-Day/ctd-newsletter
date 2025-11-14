@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/collapsible';
 import { useImageReveal } from '@/hooks/use-image-reveal';
 import { useParallax } from '@/hooks/use-parallax';
-import { RecipeImage, RecipeCard } from './RecipesInteractive-helpers';
 
 interface Recipe {
   id: string;
@@ -297,23 +296,6 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
         </div>
       </div>
     </section>
-  );
-}
-
-function RecipeImage({ src, alt }: { src: string; alt: string }) {
-  const { isVisible, imageRef } = useImageReveal();
-
-  return (
-    <div className="relative h-48 overflow-hidden">
-      <img
-        ref={imageRef}
-        src={src}
-        alt={alt}
-        className={`w-full h-full object-cover transition-all duration-700 ${
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-        }`}
-      />
-    </div>
   );
 }
 
