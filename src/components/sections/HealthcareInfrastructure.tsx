@@ -31,7 +31,7 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Healthcare & Infrastructure — Life Runs on Human Scale Here
+            Healthcare & Infrastructure —<br />Life Runs on Human Scale Here
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {healthcare.intro}
