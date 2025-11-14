@@ -1295,80 +1295,112 @@
       }
     ]
   },
+  "costOfLiving": {
+    "intro": {
+      "headline": "Cost of Living Calculator",
+      "lead": "Puglia offers one of Italy's most compelling value propositions: coastal living without the Riviera prices, historic towns without tourist traps, and a food culture that doesn't need Michelin stars to impress. This isn't about sacrifice — it's about living well on less, with sunshine as your dividend.",
+      "realityCheck": "Most American and Northern European retirees find their purchasing power stretches 30-40% further here than at home. A comfortable life is accessible in ways that coastal Spain or southern France no longer offer. That said, don't expect Milan-level services or infrastructure — this is small-town Italy, beautifully so.",
+      "whyItWorks": "Puglia's cost advantage comes from being off the tourist radar (relative to Tuscany or Amalfi), having an agricultural economy, and benefiting from EU development funds that keep infrastructure modern without inflating local prices. Plus, produce, wine, and olive oil are literally grown here — no middlemen markup."
+    },
     "townPresets": [
       {
-        "id": "torino",
-        "label": "Torino (City)",
+        "id": "bari",
+        "label": "Bari (City)",
         "modest": {
-          "rent": 700,
-          "utilities": 125,
-          "groceries": 350,
-          "dining": 225,
-          "transport": 65
+          "rent": 650,
+          "utilities": 130,
+          "groceries": 340,
+          "dining": 210,
+          "transport": 70
         },
         "normal": {
-          "rent": 1350,
-          "utilities": 175,
-          "groceries": 525,
-          "dining": 350,
+          "rent": 1200,
+          "utilities": 170,
+          "groceries": 500,
+          "dining": 340,
           "transport": 100
         },
         "highEnd": {
-          "rent": 2000,
-          "utilities": 250,
-          "groceries": 700,
-          "dining": 500,
-          "transport": 160
+          "rent": 1800,
+          "utilities": 230,
+          "groceries": 680,
+          "dining": 480,
+          "transport": 150
         }
       },
       {
-        "id": "asti",
-        "label": "Asti (Town)",
+        "id": "lecce",
+        "label": "Lecce (City)",
         "modest": {
-          "rent": 500,
-          "utilities": 100,
-          "groceries": 300,
-          "dining": 175,
-          "transport": 55
-        },
-        "normal": {
-          "rent": 800,
-          "utilities": 125,
-          "groceries": 425,
-          "dining": 300,
-          "transport": 80
-        },
-        "highEnd": {
-          "rent": 1200,
-          "utilities": 175,
-          "groceries": 600,
-          "dining": 400,
-          "transport": 125
-        }
-      },
-      {
-        "id": "alba",
-        "label": "Alba (Wine Country)",
-        "modest": {
-          "rent": 600,
-          "utilities": 110,
-          "groceries": 330,
-          "dining": 205,
+          "rent": 580,
+          "utilities": 120,
+          "groceries": 320,
+          "dining": 195,
           "transport": 65
         },
         "normal": {
           "rent": 1050,
-          "utilities": 145,
-          "groceries": 475,
-          "dining": 315,
+          "utilities": 160,
+          "groceries": 470,
+          "dining": 320,
           "transport": 90
         },
         "highEnd": {
-          "rent": 1700,
-          "utilities": 200,
-          "groceries": 600,
+          "rent": 1600,
+          "utilities": 210,
+          "groceries": 640,
           "dining": 450,
           "transport": 135
+        }
+      },
+      {
+        "id": "ostuni",
+        "label": "Ostuni (Town)",
+        "modest": {
+          "rent": 520,
+          "utilities": 105,
+          "groceries": 300,
+          "dining": 180,
+          "transport": 60
+        },
+        "normal": {
+          "rent": 900,
+          "utilities": 140,
+          "groceries": 440,
+          "dining": 290,
+          "transport": 85
+        },
+        "highEnd": {
+          "rent": 1400,
+          "utilities": 185,
+          "groceries": 600,
+          "dining": 410,
+          "transport": 120
+        }
+      },
+      {
+        "id": "locorotondo",
+        "label": "Locorotondo (Small Town)",
+        "modest": {
+          "rent": 480,
+          "utilities": 95,
+          "groceries": 285,
+          "dining": 165,
+          "transport": 55
+        },
+        "normal": {
+          "rent": 820,
+          "utilities": 125,
+          "groceries": 415,
+          "dining": 270,
+          "transport": 75
+        },
+        "highEnd": {
+          "rent": 1250,
+          "utilities": 165,
+          "groceries": 570,
+          "dining": 380,
+          "transport": 105
         }
       }
     ],
@@ -1379,27 +1411,27 @@
         "Numbeo.com",
         "LivingCost.org",
         "Expatexchange.com",
-        "Politecnico di Torino Student Guide",
-        "Regional data extrapolations (2024)"
+        "Local real estate listings (2024-2025)",
+        "Regional data extrapolations"
       ],
       "links": {
-        "torino": "https://www.numbeo.com/cost-of-living/in/Turin",
-        "asti": "https://www.livingcost.org/cost/italy/asti"
+        "bari": "https://www.numbeo.com/cost-of-living/in/Bari",
+        "lecce": "https://www.numbeo.com/cost-of-living/in/Lecce"
       }
     }
   },
   "prosCons": {
     "intro": {
-      "headline": "Pros & Cons: Piemonte Without the Postcard Filter",
-      "lead": "Piemonte is what happens when Italy trades spectacle for substance. It's beautiful, yes — but quietly so. You don't come here for beaches or chaos; you come for rhythm, precision, and a certain civility that makes everyday life manageable. Think of it as Italy with its shirt tucked in: elegant, functional, and a little reserved until it decides you're worth knowing.",
-      "tradeoff": "The best part? It's still affordable by Western European standards and almost scandalously underhyped. The tradeoff? You'll need patience — not with the people, but with the pace of change. Piemonte rewards those who appreciate small victories: trains that arrive on time, a cappuccino that costs €1.50, a bureaucracy that only occasionally loses your paperwork."
+      "headline": "Pros & Cons: Puglia Without the Postcard Filter",
+      "lead": "Puglia is what happens when coastal Italy stays grounded. It's stunning — whitewashed towns, two seas, endless olive groves — but it's also real: hot summers, slower infrastructure, and a way of life that prioritizes human connection over efficiency. You don't move here for convenience; you move here for warmth, literally and socially.",
+      "tradeoff": "The best part? It's wildly affordable by Western European standards and still relatively undiscovered by the international retirement crowd. The tradeoff? You'll need to embrace the rhythms of southern Italy — where August shuts down, where buses don't always run on schedule, and where 'tomorrow' is a flexible concept. Puglia rewards those who can slow down, not those in a hurry."
     },
     "pros": [
       {
-        "title": "Quality of Life",
+        "title": "Coastal Living on Two Seas",
         "points": [
-          "Clean, organized, safe — especially compared to major southern cities.",
-          "Excellent healthcare network and efficient public infrastructure.",
+          "Access to both the Adriatic and Ionian coasts — different personalities, same stunning water.",
+          "Beaches aren't overcrowded outside of August, and many remain refreshingly local.",
           "Four true seasons, with real autumns and Alpine winters."
         ]
       },
@@ -1438,62 +1470,64 @@
     ],
     "cons": [
       {
-        "title": "Reserved Social Culture",
+        "title": "Limited Public Transport Outside Cities",
         "points": [
-          "Locals can seem distant until you earn their trust.",
-          "Making friends takes time — especially if you don't speak Italian well."
+          "Buses are infrequent in rural areas; trains connect major cities but skip smaller towns.",
+          "A car is essentially required for exploring Valle d'Itria or the Salento coast.",
+          "Infrastructure is improving but still lags behind northern Italy."
         ]
       },
       {
-        "title": "Weather Swings",
+        "title": "Hot, Hot Summers",
         "points": [
-          "Winter fogs in the Po Valley can last for weeks.",
-          "Summers are humid in the plains, cold in the mountains — pick your poison."
+          "July and August regularly hit 38-40°C (100-104°F) with high humidity near the coast.",
+          "Air conditioning is a must, not a luxury — expect higher electricity bills in summer.",
+          "Many businesses and restaurants close for August ferragosto — life slows to a crawl."
         ]
       },
       {
-        "title": "Bureaucratic Italy Still Exists",
+        "title": "Healthcare Concentrated in Major Cities",
         "points": [
-          "Residency, tax, and healthcare paperwork still require persistence.",
-          "English isn't widely spoken outside Turin and tourist areas."
+          "Top hospitals are in Bari, Lecce, and Brindisi — rural towns have clinics, not specialists.",
+          "Emergency response times can be slower in remote areas.",
+          "Private healthcare supplements public services for expats seeking faster access."
         ]
       },
       {
-        "title": "Modest Nightlife",
+        "title": "Fewer International Connections",
         "points": [
-          "Outside Turin, nightlife is quiet — charming for some, dull for others.",
-          "Many towns still shut down midday and on Sundays."
+          "Bari and Brindisi airports have limited direct international flights compared to Rome or Milan.",
+          "Long-haul travel often requires a connection through Rome, Milan, or Frankfurt.",
+          "Trains to northern Italy take 5-7 hours — Puglia feels geographically distant from Europe's core."
         ]
       },
       {
-        "title": "Rising Property Interest",
+        "title": "Less English Spoken Than Tourist Hubs",
         "points": [
-          "Expats and Milanese investors are catching on, especially in the Langhe.",
-          "Alba and Barolo-area properties are rising in price faster than expected."
+          "In smaller towns, English proficiency is low — Italian is essential for daily life.",
+          "Bureaucracy, healthcare, and local services require Italian or a translator.",
+          "Expat communities are growing but remain small compared to Tuscany or Umbria."
         ]
       }
     ],
     "finalTake": {
-      "headline": "Final Take: Is Piemonte Right for You?",
-      "text": "If you want Italy with order — the food without the frenzy, the art without the ego — Piemonte might feel like destiny. It's a region for people who appreciate craftsmanship, culture, and consistency. Not for those chasing a postcard fantasy, but for those who want to live well quietly.",
-      "conclusion": "It's less \"la dolce vita\" and more \"la vita giusta\" — the right life. If that phrase makes you nod instead of roll your eyes, Piemonte is your kind of north."
+      "headline": "The Verdict",
+      "main": "Puglia is for people who want Italy to feel real — not curated. It's hot, social, affordable, and unapologetically rooted in its own rhythms. If you value sunshine, coastal living, and a food culture that doesn't need Michelin stars to feel extraordinary, this is your region. If you need efficiency, cooler summers, or the convenience of northern European infrastructure, Puglia will test your patience.",
+      "conclusion": "But here's the thing: Puglia doesn't rush. It invites you to slow down, eat well, and remember that life isn't just about productivity — it's about being alive."
     }
   },
-  "ctas": ["blueprint", "vf", "map7"],
   "closing": {
-    "message": "Grazie for reading Issue #7.",
-    "header": "If this tour of Piemonte sparked your wanderlust, pass it along to someone planning their own Italian chapter. Subscribe to keep traveling with me—one region, one story at a time.",
-    "subtitle": "If you liked this interactive newsletter experience, share it with others who'd appreciate a more immersive way to explore Italy.",
-    "shareUrl": "https://news.caesartheday.com/piemonte",
+    "message": "If Puglia sounds like the kind of place where you could picture yourself swimming in turquoise water, eating orecchiette at a beachside trattoria, and living well without needing a hedge fund — then let's talk.",
+    "header": "A dopo… See You Soon",
+    "subtitle": "If this issue sparked something — or if Puglia sounds like the Italy you've been craving without realizing it — share it with someone who'd love to live somewhere that values joy over efficiency.",
+    "shareUrl": "https://caesartheday.com/puglia",
     "socialMessages": {
-      "facebook": "Just finished this interactive deep-dive into Piemonte from CaesarTheDay — part travel, part retirement roadmap. Beautiful design, smart insights, and a few laughs along the way.\nWorth a read if you've ever dreamed of living in Italy.\n👉",
-      "threads": "Imagine your retirement smelling like espresso and Barolo.\nCaesarTheDay's new Piemonte guide shows what life there really looks like — interactive, immersive, and dangerously persuasive.",
-      "bluesky": "Interactive guide to retiring in Piemonte — equal parts data and daydream. Smart, beautiful work from CaesarTheDay for anyone plotting a softer landing in Italy.",
-      "whatsapp": "I just read this interactive guide to retiring in Piemonte — it's actually useful and gorgeous.\nThought you'd enjoy it too.\n👉",
-      "pinterest": {
-        "title": "Retire in Piemonte: Wine, Wellness & Real Numbers",
-        "description": "CaesarTheDay's interactive guide to living beautifully in Italy's Piemonte region — where truffles meet tax breaks."
-      }
+      "facebook": "Puglia: Southern Italy's sun-soaked secret — whitewashed towns, two coastlines, and a food culture that doesn't need Michelin stars to impress.",
+      "threads": "Puglia is what happens when coastal Italy stays grounded. Trulli, olive groves, and Baroque beauty — without the tourist markups.",
+      "bluesky": "Puglia: Italy's most underrated region. Adriatic beaches, Primitivo wine, and a cost of living that actually makes sense. Read the full guide:",
+      "whatsapp": "I just read this incredible deep-dive on Puglia — Italy's heel with two seas, endless sunshine, and surprising affordability. Thought you'd love it!",
+      "pinterest": "Puglia Italy travel guide: coastal towns, wine regions, cost of living, retirement tips, and UNESCO heritage sites",
+      "email": "I came across this detailed guide to Puglia and immediately thought of you. It covers everything from Alberobello's trulli to Lecce's Baroque splendor to realistic retirement costs — beautifully written and packed with insights you won't find in typical travel blogs."
     }
   }
 }
