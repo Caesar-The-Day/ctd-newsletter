@@ -87,36 +87,27 @@ export default function RegionPage() {
       keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
       ogImage: 'https://news.caesartheday.com/images/puglia-og.jpg',
     }
-  }[region || 'piemonte'] || {
+  };
+
+  type SEOConfig = {
+    title: string;
+    description: string;
+    keywords: string[];
+    ogImage: string;
+  };
+
+  const defaultSEO: SEOConfig = {
     title: 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy',
     description: 'Region-by-region guides to retiring in Italy.',
     keywords: ['retirement in Italy', 'Italian regions guide'],
     ogImage: 'https://news.caesartheday.com/og-veni-vidi-vici.jpg',
   };
 
+  const currentSEO: SEOConfig = (region && seoConfig[region as keyof typeof seoConfig]) || defaultSEO;
+
   return (
     <>
-      <SEO config={seoConfig} />
       <ScrollProgress />
-      <div className="min-h-screen bg-background">
-    piemonte: {
-      title: 'Veni. Vidi. Vici. Piemonte | Retire in Piemonte: Towns, Cost of Living & Wine',
-      description: 'Veni. Vidi. Vici. Piemonte is your immersive guide to retiring in Northern Italy: cost of living, best towns to live in, regional healthcare, infrastructure, wine culture, and interactive tools to plan your move.',
-      keywords: ['retire in Piemonte', 'best towns in Piemonte', 'Northern Italy retirement', 'Piemonte cost of living', 'Piemonte wine regions', 'retiring in Italy', 'Italian regions guide'],
-      ogImage: 'https://news.caesartheday.com/images/piemonte-og.jpg',
-    },
-    puglia: {
-      title: 'Veni. Vidi. Vici. Puglia | Retire in Puglia: Cost of Living, Towns & Coastal Life',
-      description: 'Veni. Vidi. Vici. Puglia is your guide to retiring in Southern Italy: coastlines, walkable towns, cost of living, healthcare, infrastructure, recipes, wine, and interactive tools like maps, quizzes, and calculators.',
-      keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retirement in Italy', 'best towns for retirees'],
-      ogImage: 'https://news.caesartheday.com/images/puglia-og.jpg',
-    }
-  };
-
-  const currentSEO = seoConfig[region as keyof typeof seoConfig] || seoConfig.piemonte;
-
-  return (
-    <div className="min-h-screen">
       <SEO
         title={currentSEO.title}
         description={currentSEO.description}
@@ -145,7 +136,8 @@ export default function RegionPage() {
           "mainEntityOfPage": `https://news.caesartheday.com/${region}`
         }}
       />
-      <Header globals={globals} />
+      <div className="min-h-screen bg-background">
+        <Header globals={globals} />
       
       {/* Breadcrumb Navigation */}
       <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border/40">
@@ -272,6 +264,7 @@ export default function RegionPage() {
       />
 
       <Footer globals={globals} />
-    </div>
+      </div>
+    </>
   );
 }
