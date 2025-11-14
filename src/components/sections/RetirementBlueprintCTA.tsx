@@ -63,13 +63,16 @@ export function RetirementBlueprintCTA() {
             {/* Content */}
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                Turn Your Daydream into a Plan
+                Puglia Is Calling. Let's Turn 'Maybe One Day' Into a Timeline.
               </h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+                When a region keeps tugging at you — the coastline, the pace, the affordability — it's usually your future trying to introduce itself.
+              </p>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                If Piemonte already feels like home in your mind, let's make it real. My Retirement Blueprint is a one-on-one consulting session that turns your Italian dream into a structured plan—covering costs, visas, tax strategy, housing, and timelines.
+                The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Puglia: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings.
               </p>
               <p className="text-xl font-semibold mb-6 text-foreground italic">
-                You bring the dream. I'll bring the map.
+                The dream is yours. The strategy is mine.
               </p>
               <Button size="lg" asChild className="hover-lift">
                 <a href="https://www.caesartheday.com/services" target="_blank" rel="noopener noreferrer">

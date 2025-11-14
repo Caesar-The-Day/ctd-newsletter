@@ -31,6 +31,7 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
     <section className="py-16 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
+          <Building2 className="h-12 w-12 mx-auto mb-4 text-primary" />
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Healthcare & Infrastructure —<br />Life Runs on Human Scale Here
           </h2>
