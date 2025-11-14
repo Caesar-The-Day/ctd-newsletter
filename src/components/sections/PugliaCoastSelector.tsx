@@ -19,7 +19,7 @@ const coastalRegions: CoastalRegion[] = [
   {
     id: 'adriatic',
     name: 'Adriatic Coast',
-    image: '/images/puglia/polignano-cliffs.jpg',
+    image: '/images/puglia/adriatic-coast.webp',
     vibe: 'Whitewashed towns, cliffs, coves, clear blue water; the postcard version of Puglia.',
     towns: ['Polignano a Mare', 'Monopoli', 'Ostuni', 'Trani'],
     access: 'Strong train network, easy access to Bari Airport.',
@@ -29,7 +29,7 @@ const coastalRegions: CoastalRegion[] = [
   {
     id: 'ionian',
     name: 'Ionian Coast',
-    image: '/images/puglia/monopoli.jpg',
+    image: '/images/puglia/ionian-coast.jpg',
     vibe: 'Warm, shallow, Caribbean-like seas; slower, softer, quieter.',
     towns: ['Porto Cesareo', 'Gallipoli', 'Manduria', 'Maruggio'],
     access: 'Best with a car; fewer direct train lines.',
@@ -39,7 +39,7 @@ const coastalRegions: CoastalRegion[] = [
   {
     id: 'salento',
     name: 'Salento',
-    image: '/images/puglia/otranto.jpg',
+    image: '/images/puglia/salento-coast.jpg',
     vibe: 'Dramatic cliffs, turquoise water, Greece-meets-Italy energy.',
     towns: ['Otranto', 'Santa Maria di Leuca', 'Castro', 'Nardò'],
     access: 'Primarily from Lecce; car recommended.',
@@ -49,7 +49,7 @@ const coastalRegions: CoastalRegion[] = [
   {
     id: 'gargano',
     name: 'Gargano Peninsula',
-    image: '/images/puglia/puglia-hero.jpg',
+    image: '/images/puglia/gargano-coast.jpg',
     vibe: 'Forested, wild, mountainous — unlike anywhere else in Puglia.',
     towns: ['Vieste', 'Peschici', 'Monte Sant\'Angelo'],
     access: 'Limited trains; best by car.',
@@ -59,7 +59,7 @@ const coastalRegions: CoastalRegion[] = [
   {
     id: 'alta-murgia',
     name: 'Alta Murgia',
-    image: '/images/puglia/gravina-underground.jpg',
+    image: '/images/puglia/alta-murgia.jpg',
     vibe: 'Rolling stone plateaus, agriculture, olive groves, slow rural life.',
     towns: ['Altamura', 'Gravina', 'Ruvo', 'Andria'],
     access: 'Easy driving, moderate train access.',
