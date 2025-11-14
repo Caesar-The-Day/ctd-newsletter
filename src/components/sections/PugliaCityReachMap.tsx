@@ -2,8 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Plane, Train, Ship, Building2 } from 'lucide-react';
-import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
+
+// Fix Leaflet's default icon paths
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
 
 interface CityData {
   name: string;
@@ -54,6 +61,8 @@ const cities: CityData[] = [
 
 export const PugliaCityReachMap: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<CityData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
@@ -61,57 +70,89 @@ export const PugliaCityReachMap: React.FC = () => {
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
 
+    console.log('Initializing PugliaCityReachMap...');
+
     const apiKey = import.meta.env.VITE_MAPTILER_KEY;
+    console.log('MapTiler API key available:', !!apiKey);
+    
     if (!apiKey) {
       console.error('MapTiler API key not found');
+      setError('Map configuration error');
+      setIsLoading(false);
       return;
     }
 
-    // Initialize map centered on Puglia
-    const map = L.map(mapRef.current, {
-      center: [40.8, 17.0],
-      zoom: 8,
-      scrollWheelZoom: false,
-      zoomControl: true
-    });
-
-    // Add MapTiler tile layer
-    L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${apiKey}`, {
-      tileSize: 512,
-      zoomOffset: -1,
-      minZoom: 1,
-      attribution: '© MapTiler © OpenStreetMap contributors',
-      crossOrigin: true
-    }).addTo(map);
-
-    // Add city markers
-    cities.forEach(city => {
-      const iconHtml = renderToString(<MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />);
-      const customIcon = L.divIcon({
-        html: `
-          <div class="city-marker-pulse group cursor-pointer">
-            <div class="marker-icon transition-all duration-200 group-hover:scale-125">
-              ${iconHtml}
-            </div>
-          </div>
-        `,
-        className: 'custom-city-marker',
-        iconSize: [30, 30],
-        iconAnchor: [15, 30]
+    try {
+      // Initialize map centered on Puglia
+      const map = L.map(mapRef.current, {
+        center: [40.8, 17.0],
+        zoom: 8,
+        scrollWheelZoom: false,
+        zoomControl: true
       });
 
-      const marker = L.marker(city.coords, { icon: customIcon })
-        .addTo(map)
-        .on('click', () => setSelectedCity(city));
+      console.log('Map instance created');
 
-      markersRef.current[city.name] = marker;
-    });
+      // Add MapTiler tile layer
+      L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${apiKey}`, {
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 1,
+        attribution: '© MapTiler © OpenStreetMap contributors',
+        crossOrigin: true
+      }).addTo(map);
 
-    mapInstance.current = map;
+      console.log('Tile layer added');
+
+      // Add city markers with simple HTML icons
+      cities.forEach(city => {
+        const customIcon = L.divIcon({
+          html: `
+            <div class="city-marker-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="city-marker-label">${city.name}</div>
+            </div>
+          `,
+          className: 'custom-city-marker',
+          iconSize: [32, 42],
+          iconAnchor: [16, 42]
+        });
+
+        const marker = L.marker(city.coords, { icon: customIcon })
+          .addTo(map)
+          .on('click', () => {
+            console.log('City clicked:', city.name);
+            setSelectedCity(city);
+          });
+
+        markersRef.current[city.name] = marker;
+      });
+
+      console.log('Markers added:', Object.keys(markersRef.current));
+
+      mapInstance.current = map;
+
+      // Force map to recalculate size after render
+      setTimeout(() => {
+        map.invalidateSize();
+        console.log('Map size invalidated');
+        setIsLoading(false);
+      }, 100);
+
+    } catch (err) {
+      console.error('Error initializing map:', err);
+      setError('Failed to initialize map');
+      setIsLoading(false);
+    }
 
     return () => {
-      map.remove();
-      mapInstance.current = null;
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
+      }
     };
   }, []);
 
@@ -124,23 +165,36 @@ export const PugliaCityReachMap: React.FC = () => {
       const city = cities.find(c => c.name === cityName);
       if (!city) return;
 
-      const iconHtml = renderToString(<MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />);
       const customIcon = L.divIcon({
         html: `
-          <div class="city-marker-pulse group cursor-pointer ${isSelected ? 'selected-marker' : ''}">
-            <div class="marker-icon transition-all duration-200 group-hover:scale-125 ${isSelected ? 'scale-125' : ''}">
-              ${iconHtml}
-            </div>
+          <div class="city-marker-wrapper ${isSelected ? 'selected' : ''}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="city-marker-label">${city.name}</div>
           </div>
         `,
         className: 'custom-city-marker',
-        iconSize: [30, 30],
-        iconAnchor: [15, 30]
+        iconSize: [32, 42],
+        iconAnchor: [16, 42]
       });
 
       marker.setIcon(customIcon);
     });
   }, [selectedCity]);
+
+  if (error) {
+    return (
+      <div className="my-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-6 text-center">
+            <p className="text-destructive">{error}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="my-16 px-4">
@@ -154,8 +208,16 @@ export const PugliaCityReachMap: React.FC = () => {
 
         <div className="grid lg:grid-cols-[2fr,1fr] gap-8 items-start">
           {/* Map Area */}
-          <div className="relative bg-muted/30 rounded-lg overflow-hidden h-[600px]">
-            <div ref={mapRef} className="w-full h-full" />
+          <div className="relative bg-muted/30 rounded-lg overflow-hidden" style={{ height: '600px' }}>
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-background/80 z-10">
+                <div className="text-center">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-solid border-primary border-r-transparent mb-2"></div>
+                  <p className="text-sm text-muted-foreground">Loading map...</p>
+                </div>
+              </div>
+            )}
+            <div ref={mapRef} className="w-full h-full relative z-0" />
           </div>
 
           {/* Info Panel */}
@@ -238,22 +300,53 @@ export const PugliaCityReachMap: React.FC = () => {
       </div>
 
       <style>{`
-        .city-marker-pulse.selected-marker .marker-icon {
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.6;
-          }
-        }
-
         .custom-city-marker {
           background: transparent !important;
           border: none !important;
+        }
+
+        .city-marker-wrapper {
+          position: relative;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .city-marker-wrapper:hover {
+          transform: scale(1.15);
+          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+
+        .city-marker-wrapper.selected {
+          animation: markerPulse 2s ease-in-out infinite;
+        }
+
+        .city-marker-label {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          white-space: nowrap;
+          background: hsl(var(--background));
+          color: hsl(var(--foreground));
+          padding: 2px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+          margin-top: 4px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          border: 1px solid hsl(var(--border));
+        }
+
+        @keyframes markerPulse {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 0.8;
+          }
         }
 
         .animate-fade-in {
@@ -269,6 +362,20 @@ export const PugliaCityReachMap: React.FC = () => {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        /* Ensure Leaflet map renders properly */
+        .leaflet-container {
+          background: hsl(var(--muted));
+          z-index: 0;
+        }
+
+        .leaflet-tile-pane {
+          z-index: 1;
+        }
+
+        .leaflet-marker-pane {
+          z-index: 600;
         }
       `}</style>
     </div>
