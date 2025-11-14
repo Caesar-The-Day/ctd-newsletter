@@ -470,6 +470,16 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           padding: 12px;
         }
 
+        .special-site-popup .popup-content a {
+          color: #ffffff !important;
+          text-decoration: none;
+        }
+
+        .special-site-popup .popup-content a:hover {
+          color: #ffffff !important;
+          opacity: 0.9;
+        }
+
         @keyframes dash-flow {
           to {
             stroke-dashoffset: -20;
