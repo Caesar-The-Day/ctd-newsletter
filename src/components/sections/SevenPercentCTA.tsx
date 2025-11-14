@@ -108,9 +108,19 @@ export function SevenPercentCTA() {
                 />
               </div>
             </div>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Some corners of Italy reward newcomers with a 7% flat tax—and views worth far more. The Escape Map helps you find those towns that match your lifestyle, cost, and climate preferences.
-            </p>
+            <div className="space-y-4 mb-8">
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                Southern Italy is full of towns offering the 7% flat tax — but most people only ever see the lists, not the logic. The Escape Map changes that. It turns hundreds of eligible towns into an interactive, personalized selector that shows you exactly where your life would fit best.
+              </p>
+              
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Search by what actually matters:</strong> walkability, coastline vs. countryside, population size, housing affordability, healthcare access, climate, infrastructure, airport distance, even overall vibe. See towns side-by-side, filter down to your must-haves, and build a short list that finally makes sense.
+              </p>
+              
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed italic">
+                It's not just a map. It's the smartest tool available for choosing your future home in Italy's 7% zone.
+              </p>
+            </div>
             <Button size="lg" asChild className="hover-lift shadow-xl">
               <a href="https://italy7percent.caesartheday.com" target="_blank" rel="noopener noreferrer">
                 Launch the Escape Map

@@ -115,7 +115,7 @@ export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCa
               </Card>
               <Card className="shadow-soft">
                 <CardHeader>
-                  <CardTitle className="text-lg">Why It Works in Piemonte</CardTitle>
+                  <CardTitle className="text-lg">Why It Works</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-foreground/80 leading-relaxed">
