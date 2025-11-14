@@ -31,6 +31,7 @@ import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
 import { BookCTA } from '@/components/sections/BookCTA';
 import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprintCTA';
 import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
+import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
@@ -136,6 +137,10 @@ export default function RegionPage() {
       {config.showBookCTA && <BookCTA />}
 
       <TownsGrid towns={regionData.towns.grid} />
+
+      <Separator className="my-16" />
+
+      <PugliaCoastSelector />
 
       <Separator className="my-16" />
 
