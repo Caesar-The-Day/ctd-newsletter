@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Scale } from 'lucide-react';
+import { Scale, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface ProConItem {
   title: string;
@@ -48,27 +48,23 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
             {/* Pros Section */}
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src="/images/caesar-thumbs-up.png" 
-                  alt="Caesar Thumbs Up" 
-                  className="h-20 w-20 object-contain"
-                />
-                <h3 className="text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400">
+                <CheckCircle2 className="h-10 w-10 text-primary" />
+                <h3 className="text-2xl md:text-3xl font-bold text-primary">
                   The Pros
                 </h3>
               </div>
 
               <div className="space-y-4">
                 {pros.map((pro, idx) => (
-                  <Card key={idx} className="shadow-soft hover:shadow-lg transition-shadow">
+                  <Card key={idx} className="shadow-soft hover:shadow-lg transition-shadow border-l-4 border-l-primary">
                     <CardContent className="p-5">
-                      <h4 className="font-bold text-lg mb-3 text-green-700 dark:text-green-300">
+                      <h4 className="font-bold text-lg mb-3 text-foreground">
                         {idx + 1}. {pro.title}
                       </h4>
                       <ul className="space-y-2">
                         {pro.points.map((point, pidx) => (
                           <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <span className="text-green-600 dark:text-green-400 mt-0.5">•</span>
+                            <span className="text-primary mt-0.5">•</span>
                             <span>{point}</span>
                           </li>
                         ))}
@@ -82,27 +78,23 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
             {/* Cons Section */}
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src="/images/caesar-thumbs-down.png" 
-                  alt="Caesar Thumbs Down" 
-                  className="h-20 w-20 object-contain"
-                />
-                <h3 className="text-2xl md:text-3xl font-bold text-orange-600 dark:text-orange-400">
+                <AlertCircle className="h-10 w-10 text-muted-foreground" />
+                <h3 className="text-2xl md:text-3xl font-bold text-muted-foreground">
                   The Cons
                 </h3>
               </div>
 
               <div className="space-y-4">
                 {cons.map((con, idx) => (
-                  <Card key={idx} className="shadow-soft hover:shadow-lg transition-shadow">
+                  <Card key={idx} className="shadow-soft hover:shadow-lg transition-shadow border-l-4 border-l-muted-foreground/50">
                     <CardContent className="p-5">
-                      <h4 className="font-bold text-lg mb-3 text-orange-700 dark:text-orange-300">
+                      <h4 className="font-bold text-lg mb-3 text-foreground">
                         {idx + 1}. {con.title}
                       </h4>
                       <ul className="space-y-2">
                         {con.points.map((point, pidx) => (
                           <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <span className="text-orange-600 dark:text-orange-400 mt-0.5">•</span>
+                            <span className="text-muted-foreground mt-0.5">•</span>
                             <span>{point}</span>
                           </li>
                         ))}
@@ -117,13 +109,13 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
           {/* Final Take */}
           <Card className="shadow-medium bg-primary/5 border-primary/20">
             <CardContent className="p-8 md:p-10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">
                 {finalTake.headline}
               </h3>
-              <p className="text-lg text-foreground/90 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
+              <p className="text-base text-foreground/90 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
                 {finalTake.text}
               </p>
-              <p className="text-base md:text-lg text-foreground/80 leading-relaxed text-center max-w-3xl mx-auto italic">
+              <p className="text-sm md:text-base text-foreground/80 leading-relaxed text-center max-w-3xl mx-auto italic">
                 {finalTake.conclusion}
               </p>
             </CardContent>
