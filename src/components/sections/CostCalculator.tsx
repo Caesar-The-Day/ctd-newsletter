@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useCountUp } from '@/hooks/use-count-up';
 import {
   Select,
   SelectContent,
@@ -182,14 +183,7 @@ export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCa
                 <CostRow label="Dining Out" amount={costs.dining} />
                 <CostRow label="Transport" amount={costs.transport} />
                 
-                <div className="pt-4 border-t">
-                  <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold">Monthly Total</span>
-                    <span className="text-2xl font-bold text-primary">
-                      €{costs.total.toLocaleString()}
-                    </span>
-                  </div>
-                </div>
+                <TotalRow amount={costs.total} />
               </div>
             </CardContent>
           </Card>
@@ -226,6 +220,24 @@ function CostRow({ label, amount }: { label: string; amount: number }) {
     <div className="flex justify-between items-center">
       <span className="text-foreground/80">{label}</span>
       <span className="font-semibold">€{amount.toLocaleString()}</span>
+    </div>
+  );
+}
+
+function TotalRow({ amount }: { amount: number }) {
+  const { count, elementRef } = useCountUp(amount, 800);
+  
+  return (
+    <div className="pt-4 border-t">
+      <div className="flex justify-between items-center">
+        <span className="text-lg font-bold">Monthly Total</span>
+        <span 
+          ref={elementRef as any}
+          className="text-2xl font-bold text-primary"
+        >
+          €{count.toLocaleString()}
+        </span>
+      </div>
     </div>
   );
 }

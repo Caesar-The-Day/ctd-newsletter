@@ -4,6 +4,7 @@ import { getGlobals, getRegionData, getRegionConfig, GlobalsData, RegionData, Fe
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
+import { ScrollProgress } from '@/components/common/ScrollProgress';
 import { Separator } from '@/components/ui/separator';
 import { 
   Breadcrumb, 
@@ -73,8 +74,31 @@ export default function RegionPage() {
     );
   }
 
-  // SEO Configuration per region
   const seoConfig = {
+    piemonte: {
+      title: 'Veni. Vidi. Vici. Piemonte | Retire in Piemonte: Towns, Cost of Living & Wine',
+      description: 'Veni. Vidi. Vici. Piemonte is your immersive guide to retiring in Northern Italy: cost of living, best towns to live in, regional healthcare, infrastructure, wine culture, and interactive tools to plan your move.',
+      keywords: ['retire in Piemonte', 'best towns in Piemonte', 'Northern Italy retirement', 'Piemonte cost of living', 'Piemonte wine regions', 'retiring in Italy', 'Italian regions guide'],
+      ogImage: 'https://news.caesartheday.com/images/piemonte-og.jpg',
+    },
+    puglia: {
+      title: 'Veni. Vidi. Vici. Puglia | Retire in Puglia: Cost of Living, Towns & Coastal Life',
+      description: 'Veni. Vidi. Vici. Puglia is your guide to retiring in Southern Italy: coastlines, walkable towns, cost of living, healthcare, infrastructure, recipes, wine, and interactive tools like maps, quizzes, and calculators.',
+      keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
+      ogImage: 'https://news.caesartheday.com/images/puglia-og.jpg',
+    }
+  }[region || 'piemonte'] || {
+    title: 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy',
+    description: 'Region-by-region guides to retiring in Italy.',
+    keywords: ['retirement in Italy', 'Italian regions guide'],
+    ogImage: 'https://news.caesartheday.com/og-veni-vidi-vici.jpg',
+  };
+
+  return (
+    <>
+      <SEO config={seoConfig} />
+      <ScrollProgress />
+      <div className="min-h-screen bg-background">
     piemonte: {
       title: 'Veni. Vidi. Vici. Piemonte | Retire in Piemonte: Towns, Cost of Living & Wine',
       description: 'Veni. Vidi. Vici. Piemonte is your immersive guide to retiring in Northern Italy: cost of living, best towns to live in, regional healthcare, infrastructure, wine culture, and interactive tools to plan your move.',

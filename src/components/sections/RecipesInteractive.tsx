@@ -7,6 +7,9 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import { useImageReveal } from '@/hooks/use-image-reveal';
+import { useParallax } from '@/hooks/use-parallax';
+import { RecipeImage, RecipeCard } from './RecipesInteractive-helpers';
 
 interface Recipe {
   id: string;
@@ -76,7 +79,10 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
           {/* Header */}
           <div className="text-center mb-12">
             <ChefHat className="h-12 w-12 mx-auto mb-4 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 
+              className="text-3xl md:text-4xl font-bold mb-4"
+              style={{ transform: `translateY(${useParallax(0.3)}px)` }}
+            >
               {header?.title || "Recipes"}
             </h2>
             {header?.subtitle && (
@@ -91,13 +97,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
             <div className="mb-16">
               <Card className="overflow-hidden shadow-lg border-2 border-primary/20">
                 <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative h-64 md:h-auto">
-                    <img
-                      src={originStory.image}
-                      alt={originStory.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <RecipeImage src={originStory.image} alt={originStory.title} />
                   <CardContent className="p-8 md:p-10 flex flex-col justify-center">
                     <div className="mb-6">
                       <h3 className="text-2xl md:text-3xl font-bold mb-2 text-primary">
@@ -194,18 +194,11 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {filteredRecipes.map((recipe) => (
-              <Card key={recipe.id} className="overflow-hidden shadow-soft">
-                <div className="relative h-48">
-                  <img
-                    src={recipe.image}
-                    alt={recipe.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <CardContent className="p-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {filteredRecipes.map((recipe) => (
+                <Card key={recipe.id} className="overflow-hidden shadow-soft">
+                  <RecipeImage src={recipe.image} alt={recipe.title} />
+                  <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3">{recipe.title}</h3>
 
                   {/* Story (for refined recipes) */}
@@ -304,5 +297,39 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
         </div>
       </div>
     </section>
+  );
+}
+
+function RecipeImage({ src, alt }: { src: string; alt: string }) {
+  const { isVisible, imageRef } = useImageReveal();
+
+  return (
+    <div className="relative h-48 overflow-hidden">
+      <img
+        ref={imageRef}
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover transition-all duration-700 ${
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+        }`}
+      />
+    </div>
+  );
+}
+
+function RecipeImage({ src, alt }: { src: string; alt: string }) {
+  const { isVisible, imageRef } = useImageReveal();
+
+  return (
+    <div className="relative h-48 overflow-hidden">
+      <img
+        ref={imageRef}
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover transition-all duration-700 ${
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+        }`}
+      />
+    </div>
   );
 }
