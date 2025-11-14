@@ -7,6 +7,7 @@ import { ArrowRight, Download, FileText } from 'lucide-react';
 import { getNewsletterIndexData, getGlobals, type GlobalsData } from '@/utils/getRegionData';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
+import ItalyMapInteractive from '@/components/sections/ItalyMapInteractive';
 
 interface NewsletterIndexData {
   hero: {
@@ -154,6 +155,9 @@ const NewsletterIndex = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Italy Map Section */}
+      <ItalyMapInteractive newsletters={data.newsletters} archive={data.archive} />
 
       {/* All Regional Newsletters Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20">
