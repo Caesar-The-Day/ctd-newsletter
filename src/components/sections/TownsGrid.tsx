@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { MapPin, Map } from 'lucide-react';
+import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface GridTown {
   id: string;
@@ -35,44 +36,8 @@ export function TownsGrid({ towns }: TownsGridProps) {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {towns.map((town) => (
-              <Card key={town.id} className="overflow-hidden hover-lift shadow-soft">
-                <div className="relative h-48">
-                    <img
-                      src={town.photo}
-                      alt={`${town.name} - ${town.blurb.substring(0, 80)} - Town worth living in for retirees`}
-                      className="w-full h-full object-cover"
-                    />
-                  {town.eligible7Percent && (
-                    <div className="absolute top-3 right-3 bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
-                      7%
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-3 left-3">
-                    <h3 className="text-xl font-bold text-white drop-shadow-lg">{town.name}</h3>
-                    <p className="text-sm text-white drop-shadow-md">{town.bestFor}</p>
-                  </div>
-                </div>
-
-                <CardContent className="p-5">
-                  <p className="text-sm text-foreground/80 mb-2">{town.blurb}</p>
-                  {town.fullDescription && (
-                    <button
-                      onClick={() => setSelectedTown(town)}
-                      className="text-primary hover:underline text-sm font-medium mb-4 block"
-                    >
-                      Read More...
-                    </button>
-                  )}
-                  <Button variant="outline" size="sm" asChild className="w-full">
-                    <a href={town.mapUrl} target="_blank" rel="noopener noreferrer">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      View on Map
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+            {towns.map((town, index) => (
+              <TownCard key={town.id} town={town} index={index} onSelect={setSelectedTown} />
             ))}
           </div>
         </div>
@@ -98,5 +63,63 @@ export function TownsGrid({ towns }: TownsGridProps) {
         </DialogContent>
       </Dialog>
     </>
+  );
+}
+
+function TownCard({ 
+  town, 
+  index, 
+  onSelect 
+}: { 
+  town: GridTown; 
+  index: number; 
+  onSelect: (town: GridTown) => void;
+}) {
+  const { isVisible, elementRef } = useStaggeredReveal();
+
+  return (
+    <Card 
+      ref={elementRef as any}
+      className={`overflow-hidden hover-lift shadow-soft transition-all duration-500 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+      style={{ transitionDelay: `${index * 50}ms` }}
+    >
+      <div className="relative h-48">
+        <img
+          src={town.photo}
+          alt={`${town.name} - ${town.blurb.substring(0, 80)} - Town worth living in for retirees`}
+          className="w-full h-full object-cover"
+        />
+        {town.eligible7Percent && (
+          <div className="absolute top-3 right-3 bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
+            7%
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute bottom-3 left-3">
+          <h3 className="text-xl font-bold text-white drop-shadow-lg">{town.name}</h3>
+          <p className="text-sm text-white drop-shadow-md">{town.bestFor}</p>
+        </div>
+      </div>
+
+      <CardContent className="p-5">
+        <p className="text-sm text-foreground/80 mb-2">{town.blurb}</p>
+        {town.fullDescription && (
+          <button
+            onClick={() => onSelect(town)}
+            className="text-primary hover:underline text-sm font-medium mb-4 block"
+          >
+            Read More...
+          </button>
+        )}
+        <Button variant="outline" size="sm" asChild className="w-full">
+          <a href={town.mapUrl} target="_blank" rel="noopener noreferrer">
+            <MapPin className="h-4 w-4 mr-2" />
+            View on Map
+          </a>
+        </Button>
+      </CardContent>
+    </Card>
   );
 }

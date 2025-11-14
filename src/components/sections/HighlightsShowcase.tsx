@@ -102,8 +102,8 @@ function HighlightCard({ card }: HighlightCardProps) {
         <CollapsibleTrigger asChild>
           <button className="w-full text-left cursor-pointer">
             <div className="relative aspect-video overflow-hidden">
-                <img
-                  src={card.image}
+              <HighlightImage src={card.image} alt={card.title} />
+            </div>
                   alt={`${card.title} - ${card.description.substring(0, 100)}...`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
@@ -162,5 +162,20 @@ function HighlightCard({ card }: HighlightCardProps) {
         </CollapsibleContent>
       </Card>
     </Collapsible>
+  );
+}
+
+function HighlightImage({ src, alt }: { src: string; alt: string }) {
+  const { isVisible, imageRef } = useImageReveal();
+
+  return (
+    <img
+      ref={imageRef}
+      src={src}
+      alt={alt}
+      className={`w-full h-full object-cover transition-all duration-700 ${
+        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+      }`}
+    />
   );
 }

@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Scale, CheckCircle2, AlertCircle } from 'lucide-react';
+import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface ProConItem {
   title: string;
@@ -56,21 +57,19 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
 
               <div className="space-y-4">
                 {pros.map((pro, idx) => (
-                  <Card key={idx} className="shadow-soft hover:shadow-lg transition-shadow border-l-4 border-l-primary">
-                    <CardContent className="p-5">
-                      <h4 className="font-bold text-lg mb-3 text-foreground">
-                        {idx + 1}. {pro.title}
-                      </h4>
-                      <ul className="space-y-2">
-                        {pro.points.map((point, pidx) => (
-                          <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <span className="text-primary mt-0.5">•</span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                  <ProConCard key={idx} index={idx} type="pro">
+                    <h4 className="font-bold text-lg mb-3 text-foreground">
+                      {idx + 1}. {pro.title}
+                    </h4>
+                    <ul className="space-y-2">
+                      {pro.points.map((point, pidx) => (
+                        <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
+                          <span className="text-primary mt-0.5">•</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </ProConCard>
                 ))}
               </div>
             </div>
@@ -86,21 +85,19 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
 
               <div className="space-y-4">
                 {cons.map((con, idx) => (
-                  <Card key={idx} className="shadow-soft hover:shadow-lg transition-shadow border-l-4 border-l-muted-foreground/50">
-                    <CardContent className="p-5">
-                      <h4 className="font-bold text-lg mb-3 text-foreground">
-                        {idx + 1}. {con.title}
-                      </h4>
-                      <ul className="space-y-2">
-                        {con.points.map((point, pidx) => (
-                          <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <span className="text-muted-foreground mt-0.5">•</span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                  <ProConCard key={idx} index={idx} type="con">
+                    <h4 className="font-bold text-lg mb-3 text-foreground">
+                      {idx + 1}. {con.title}
+                    </h4>
+                    <ul className="space-y-2">
+                      {con.points.map((point, pidx) => (
+                        <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
+                          <span className="text-muted-foreground mt-0.5">•</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </ProConCard>
                 ))}
               </div>
             </div>
@@ -123,5 +120,32 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function ProConCard({ 
+  children, 
+  index, 
+  type 
+}: { 
+  children: React.ReactNode; 
+  index: number;
+  type: 'pro' | 'con';
+}) {
+  const { isVisible, elementRef } = useStaggeredReveal();
+  const borderClass = type === 'pro' ? 'border-l-primary' : 'border-l-muted-foreground/50';
+
+  return (
+    <Card 
+      ref={elementRef as any}
+      className={`shadow-soft hover:shadow-lg border-l-4 ${borderClass} transition-all duration-500 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+      style={{ transitionDelay: `${index * 75}ms` }}
+    >
+      <CardContent className="p-5">
+        {children}
+      </CardContent>
+    </Card>
   );
 }

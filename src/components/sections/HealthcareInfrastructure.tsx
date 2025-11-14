@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { PugliaCityReachMap } from './PugliaCityReachMap';
+import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface HealthcareInfrastructureProps {
   healthcare: {
@@ -51,49 +52,47 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
             {healthcare.hospitals && healthcare.hospitals.length > 0 && (
               <div className="grid md:grid-cols-2 gap-6">
                 {healthcare.hospitals.map((hospital, idx) => (
-                  <Card key={idx} className="border-l-4 border-l-primary hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <Building2 className="w-8 h-8 text-primary flex-shrink-0" />
-                        <div className="flex-1">
-                          <h4 className="font-bold text-lg mb-2">{hospital.name}</h4>
-                          <p className="text-sm text-muted-foreground mb-3">{hospital.location}</p>
-                          
-                          {hospital.specialties && hospital.specialties.length > 0 && (
-                            <div className="mb-3">
-                              <p className="text-xs font-medium text-muted-foreground mb-1">Specialties:</p>
-                              <div className="flex flex-wrap gap-2">
-                                {hospital.specialties.map((specialty, i) => (
-                                  <span key={i} className="text-xs bg-muted px-2 py-1 rounded">
-                                    {specialty}
-                                  </span>
-                                ))}
-                              </div>
+                  <FacilityCard key={idx} index={idx}>
+                    <div className="flex items-start gap-4">
+                      <Building2 className="w-8 h-8 text-primary flex-shrink-0" />
+                      <div className="flex-1">
+                        <h4 className="font-bold text-lg mb-2">{hospital.name}</h4>
+                        <p className="text-sm text-muted-foreground mb-3">{hospital.location}</p>
+                        
+                        {hospital.specialties && hospital.specialties.length > 0 && (
+                          <div className="mb-3">
+                            <p className="text-xs font-medium text-muted-foreground mb-1">Specialties:</p>
+                            <div className="flex flex-wrap gap-2">
+                              {hospital.specialties.map((specialty, i) => (
+                                <span key={i} className="text-xs bg-muted px-2 py-1 rounded">
+                                  {specialty}
+                                </span>
+                              ))}
                             </div>
-                          )}
-
-                          <div className="flex gap-2 flex-wrap">
-                            {hospital.link && (
-                              <Button size="sm" variant="outline" asChild>
-                                <a href={hospital.link} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="w-3 h-3 mr-1" />
-                                  Website
-                                </a>
-                              </Button>
-                            )}
-                            {hospital.mapLink && (
-                              <Button size="sm" variant="outline" asChild>
-                                <a href={hospital.mapLink} target="_blank" rel="noopener noreferrer">
-                                  <Building2 className="w-3 h-3 mr-1" />
-                                  Map
-                                </a>
-                              </Button>
-                            )}
                           </div>
+                        )}
+
+                        <div className="flex gap-2 flex-wrap">
+                          {hospital.link && (
+                            <Button size="sm" variant="outline" asChild>
+                              <a href={hospital.link} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="w-3 h-3 mr-1" />
+                                Website
+                              </a>
+                            </Button>
+                          )}
+                          {hospital.mapLink && (
+                            <Button size="sm" variant="outline" asChild>
+                              <a href={hospital.mapLink} target="_blank" rel="noopener noreferrer">
+                                <Building2 className="w-3 h-3 mr-1" />
+                                Map
+                              </a>
+                            </Button>
+                          )}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </FacilityCard>
                 ))}
               </div>
             )}
@@ -156,5 +155,29 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
         </div>
       </div>
     </section>
+  );
+}
+
+function FacilityCard({ 
+  children, 
+  index 
+}: { 
+  children: React.ReactNode; 
+  index: number;
+}) {
+  const { isVisible, elementRef } = useStaggeredReveal();
+
+  return (
+    <Card 
+      ref={elementRef as any}
+      className={`border-l-4 border-l-primary hover:shadow-lg transition-all duration-500 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+      style={{ transitionDelay: `${index * 75}ms` }}
+    >
+      <CardContent className="p-6">
+        {children}
+      </CardContent>
+    </Card>
   );
 }
