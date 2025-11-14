@@ -76,7 +76,7 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
                   
                   {/* 7% Badge */}
                   {town.eligible7Percent && (
-                    <div className="absolute top-3 right-3 bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
+                    <div className="absolute bottom-3 right-3 bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
                       7%
                     </div>
                   )}
