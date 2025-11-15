@@ -130,6 +130,22 @@ const NewsletterIndex = () => {
             <p className={`text-lg md:text-xl text-white/80 mt-4 max-w-3xl mx-auto transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Independent, data-rich regional guides for smart retirees who want to plan their Italian chapter with confidence.
             </p>
+            <p className={`text-base md:text-lg text-white/70 mt-3 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              by CaesarTheDay™
+            </p>
+            <div className={`mt-4 transition-all duration-700 delay-250 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <Button 
+                variant="outline" 
+                size="sm"
+                asChild
+                className="bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white/50"
+              >
+                <a href="https://www.caesartheday.com" target="_blank" rel="noopener noreferrer">
+                  Visit CaesarTheDay.com
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
           </div>
 
           {/* Featured Newsletter Card */}
