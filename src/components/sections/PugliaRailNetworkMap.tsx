@@ -402,57 +402,25 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
               </linearGradient>
             </defs>
 
-            {/* Accurate Puglia region shape - the "heel of Italy's boot" */}
-            <path
-              d="M 150 50 
-                 Q 180 40, 220 60 
-                 L 280 90 
-                 Q 300 100, 320 120 
-                 L 340 140 
-                 Q 360 155, 380 180 
-                 L 400 220 
-                 Q 410 250, 420 290 
-                 L 430 340 
-                 Q 440 380, 445 420 
-                 L 450 470 
-                 Q 455 510, 460 540 
-                 L 465 570 
-                 Q 460 580, 450 585 
-                 L 420 590 
-                 Q 390 595, 360 590 
-                 L 320 580 
-                 Q 290 570, 270 555 
-                 L 240 530 
-                 Q 220 510, 210 485 
-                 L 200 450 
-                 Q 195 420, 190 390 
-                 L 180 340 
-                 Q 170 290, 165 250 
-                 L 160 200 
-                 Q 155 160, 152 120 
-                 L 150 80 Z"
-              fill="hsl(var(--muted))"
+            {/* Real Puglia Map Background */}
+            <image 
+              href="/images/puglia/puglia-rail-reference.png"
+              x="50" 
+              y="20" 
+              width="520" 
+              height="580"
+              opacity="0.28"
+              className="pointer-events-none"
+              preserveAspectRatio="xMidYMid slice"
+            />
+            
+            {/* Subtle overlay to blend with theme */}
+            <rect 
+              x="0" y="0" width="600" height="600" 
+              fill="hsl(var(--background))" 
               opacity="0.15"
-              stroke="hsl(var(--border))"
-              strokeWidth="1.5"
+              className="pointer-events-none"
             />
-            
-            {/* Water - Adriatic Sea (east) and Ionian Sea (southwest) */}
-            <path
-              d="M 380 180 Q 420 200, 460 240 L 500 300 Q 520 360, 530 420 L 540 480 Q 545 530, 550 570 L 600 600 L 600 0 L 400 100 Q 380 140, 380 180 Z"
-              fill="url(#water)"
-            />
-            <text x="510" y="300" className="text-[10px] fill-blue-500/50 italic font-semibold" textAnchor="middle">
-              Adriatic Sea
-            </text>
-            
-            <path
-              d="M 200 450 Q 220 490, 240 530 L 270 560 Q 310 580, 360 590 L 420 595 Q 460 590, 480 585 L 500 600 L 0 600 L 0 500 Q 50 480, 100 470 L 150 460 Q 175 455, 200 450 Z"
-              fill="url(#water)"
-            />
-            <text x="280" y="575" className="text-[10px] fill-blue-500/50 italic font-semibold" textAnchor="middle">
-              Ionian Sea
-            </text>
 
             {/* Rail Lines */}
             
@@ -478,11 +446,33 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
               </g>
             )}
 
-            {/* FSE - Valle d'Itria loop */}
+            {/* Trenitalia - Bari to Taranto via Martina Franca */}
+            {isVisible('trenitalia') && (
+              <g className="transition-opacity duration-500">
+                <path
+                  d="M 320 180 L 300 240 L 280 290 L 260 320 L 240 360"
+                  stroke={networkColors.trenitalia}
+                  strokeWidth="6"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.9"
+                  style={{ filter: `drop-shadow(0 0 8px ${networkColors.trenitalia})` }}
+                />
+                {/* Animated train on Bari-Taranto route */}
+                <circle r="8" fill={networkColors.trenitalia} className="shadow-lg">
+                  <animateMotion dur="22s" repeatCount="indefinite">
+                    <mpath href="#trenitalia-taranto-path" />
+                  </animateMotion>
+                </circle>
+                <path id="trenitalia-taranto-path" d="M 320 180 L 300 240 L 280 290 L 260 320 L 240 360" fill="none" opacity="0" />
+              </g>
+            )}
+
+            {/* FSE - Valle d'Itria loop connecting Taranto to Lecce */}
             {isVisible('fse') && (
               <g className="transition-opacity duration-500">
                 <path
-                  d="M 320 180 L 320 290 L 330 300 L 340 320 L 380 280 L 400 340 L 420 460 L 420 520 L 460 540"
+                  d="M 240 360 L 280 340 L 300 320 L 330 300 L 340 320 L 380 280 L 400 340 L 420 460 L 420 520 L 460 540"
                   stroke={networkColors.fse}
                   strokeWidth="5"
                   fill="none"
@@ -496,7 +486,7 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
                     <mpath href="#fse-path" />
                   </animateMotion>
                 </circle>
-                <path id="fse-path" d="M 320 180 L 320 290 L 330 300 L 340 320 L 380 280 L 400 340 L 420 460 L 420 520 L 460 540" fill="none" opacity="0" />
+                <path id="fse-path" d="M 240 360 L 280 340 L 300 320 L 330 300 L 340 320 L 380 280 L 400 340 L 420 460 L 420 520 L 460 540" fill="none" opacity="0" />
               </g>
             )}
 
@@ -542,6 +532,28 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
                   </animateMotion>
                 </circle>
                 <path id="fal-path" d="M 320 180 L 260 160 L 200 150 L 140 140" fill="none" opacity="0" />
+                
+                {/* FAL line continues off-map indicator */}
+                <g>
+                  <circle 
+                    cx="140" 
+                    cy="140" 
+                    r="10" 
+                    fill="none"
+                    stroke={networkColors.fal} 
+                    strokeWidth="2"
+                    strokeDasharray="3,3"
+                    opacity="0.7"
+                  />
+                  <text 
+                    x="145" 
+                    y="145" 
+                    className="text-lg font-bold fill-foreground"
+                    style={{ textShadow: '0 0 4px hsl(var(--background))' }}
+                  >
+                    →
+                  </text>
+                </g>
               </g>
             )}
 
@@ -549,7 +561,7 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
             {isVisible('buses') && (
               <g className="transition-opacity duration-500">
                 <path
-                  d="M 420 460 L 340 520 M 420 460 L 460 540 M 200 80 L 160 120"
+                  d="M 420 460 L 340 520 M 420 460 L 460 540 M 200 80 L 220 50 L 250 30"
                   stroke={networkColors.buses}
                   strokeWidth="3"
                   fill="none"
@@ -558,25 +570,25 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
                   opacity="0.7"
                 />
                 
-                {/* Bus destination label - Gargano Coast */}
+                {/* Bus destination label - Gargano Peninsula */}
                 <text 
-                  x="140" 
-                  y="115" 
+                  x="260" 
+                  y="25" 
                   className="text-[10px] font-semibold fill-foreground"
                   style={{ 
                     textShadow: '0 0 4px hsl(var(--background)), 0 0 6px hsl(var(--background))',
                     paintOrder: 'stroke fill' 
                   }}
                 >
-                  ↖ Gargano
+                  ↑ Gargano Peninsula
                 </text>
                 <text 
-                  x="140" 
-                  y="128" 
+                  x="260" 
+                  y="40" 
                   className="text-[9px] fill-muted-foreground italic"
                   style={{ textShadow: '0 0 3px hsl(var(--background))' }}
                 >
-                  Vieste, Peschici
+                  (Vieste, Peschici, Monte Sant'Angelo)
                 </text>
               </g>
             )}
