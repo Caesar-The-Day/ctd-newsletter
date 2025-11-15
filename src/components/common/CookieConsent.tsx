@@ -27,7 +27,11 @@ export function CookieConsent() {
       window.dataLayer.push(args);
     }
     gtag('js', new Date());
-    gtag('config', 'G-6NPM83DF0C');
+    gtag('config', 'G-6NPM83DF0C', {
+      'linker': {
+        'domains': ['caesartheday.com', 'news.caesartheday.com', 'italy7percent.com']
+      }
+    });
   };
 
   const handleAccept = () => {
