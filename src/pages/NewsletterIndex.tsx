@@ -115,7 +115,7 @@ const NewsletterIndex = () => {
         <img 
           src="/images/shared/caesartheday-logo.png" 
           alt="CaesarTheDay Logo" 
-          className="absolute top-4 right-4 md:top-8 md:right-8 w-16 h-16 md:w-20 md:h-20 object-contain z-20"
+          className="absolute top-4 right-4 md:top-8 md:right-8 w-32 h-32 md:w-40 md:h-40 object-contain z-20"
         />
 
         {/* Hero Content */}
