@@ -43,7 +43,7 @@ export function HeroParallax({
       <div className="absolute top-6 right-6 z-20">
         <img 
           src="/images/caesartheday-logo.png" 
-          alt="CaesarTheDay - Your Guide to Retiring in Italy" 
+          alt="CaesarTheDay™ - Your Guide to Retiring in Italy" 
           className="h-44 md:h-56 lg:h-64 w-auto opacity-0 animate-fade-in-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] mt-10 md:mt-12"
         />
       </div>

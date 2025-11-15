@@ -96,7 +96,7 @@ const NewsletterIndex = () => {
           "url": "https://news.caesartheday.com/",
           "publisher": {
             "@type": "Organization",
-            "name": "CaesarTheDay",
+            "name": "CaesarTheDay™",
             "url": "https://www.caesartheday.com"
           }
         }}
@@ -114,7 +114,7 @@ const NewsletterIndex = () => {
         {/* Logo in top-right corner */}
         <img 
           src="/images/shared/caesartheday-logo.png" 
-          alt="CaesarTheDay Logo" 
+          alt="CaesarTheDay™ Logo" 
           className="absolute top-4 right-4 md:top-8 md:right-8 w-32 h-32 md:w-40 md:h-40 object-contain z-20"
         />
 
