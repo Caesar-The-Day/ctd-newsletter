@@ -402,25 +402,82 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
               </linearGradient>
             </defs>
 
-            {/* Real Puglia Map Background */}
-            <image 
-              href="/images/puglia/puglia-rail-reference.png"
-              x="50" 
-              y="20" 
-              width="520" 
-              height="580"
-              opacity="0.28"
+            {/* Puglia Region SVG Outline */}
+            <defs>
+              <linearGradient id="adriaticGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.03" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
+              </linearGradient>
+              <linearGradient id="ionianGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.05" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.09" />
+              </linearGradient>
+            </defs>
+
+            {/* Puglia land mass - distinctive boot heel shape */}
+            <path
+              d="M 180 30 
+                 L 240 20 L 280 30 L 300 50 
+                 L 280 70 L 260 80 L 240 90 
+                 L 220 100 L 200 110
+                 L 190 140 L 200 170 L 230 180
+                 L 280 190 L 320 200 L 360 220
+                 L 390 250 L 410 290 L 420 340
+                 L 425 390 L 430 440 L 435 490
+                 L 440 520 L 450 540 L 465 555
+                 L 475 540 L 470 510 L 455 480
+                 L 445 450 L 440 420 L 430 380
+                 L 420 350 L 400 310 L 370 270
+                 L 340 240 L 310 220 L 280 210
+                 L 240 200 L 200 200 L 170 210
+                 L 140 230 L 120 260 L 110 300
+                 L 115 340 L 130 370 L 160 390
+                 L 190 400 L 220 405 L 250 400
+                 L 270 390 L 280 370 L 275 350
+                 L 260 330 L 240 320 L 220 330
+                 L 200 350 L 190 380 L 195 410
+                 L 210 430 L 230 440 L 250 445
+                 L 270 450 L 290 460 L 310 480
+                 L 330 510 L 340 540 L 345 565
+                 L 335 575 L 310 570 L 280 555
+                 L 250 530 L 220 500 L 200 470
+                 L 185 440 L 175 410 L 170 380
+                 L 165 350 L 155 320 L 140 290
+                 L 125 260 L 115 230 L 110 200
+                 L 110 170 L 115 140 L 125 110
+                 L 140 80 L 160 55 L 180 30 Z"
+              fill="hsl(var(--muted))"
+              fillOpacity="0.15"
+              stroke="hsl(var(--border))"
+              strokeWidth="1.5"
+              strokeOpacity="0.3"
               className="pointer-events-none"
-              preserveAspectRatio="xMidYMid slice"
             />
-            
-            {/* Subtle overlay to blend with theme */}
-            <rect 
-              x="0" y="0" width="600" height="600" 
-              fill="hsl(var(--background))" 
-              opacity="0.15"
+
+            {/* Adriatic Sea indication (east) */}
+            <rect
+              x="430" y="200" width="170" height="400"
+              fill="url(#adriaticGradient)"
               className="pointer-events-none"
             />
+
+            {/* Ionian Sea indication (south/west) */}
+            <path
+              d="M 100 400 L 350 580 L 0 580 L 0 400 Z"
+              fill="url(#ionianGradient)"
+              className="pointer-events-none"
+            />
+
+            {/* Sea labels */}
+            <text x="500" y="350" className="text-xs fill-muted-foreground italic opacity-40" style={{ textShadow: '0 0 3px hsl(var(--background))' }}>
+              Adriatic
+            </text>
+            <text x="500" y="365" className="text-xs fill-muted-foreground italic opacity-40" style={{ textShadow: '0 0 3px hsl(var(--background))' }}>
+              Sea
+            </text>
+            <text x="150" y="560" className="text-xs fill-muted-foreground italic opacity-40" style={{ textShadow: '0 0 3px hsl(var(--background))' }}>
+              Ionian Sea
+            </text>
 
             {/* Rail Lines */}
             
@@ -533,25 +590,68 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
                 </circle>
                 <path id="fal-path" d="M 320 180 L 260 160 L 200 150 L 140 140" fill="none" opacity="0" />
                 
-                {/* FAL line continues off-map indicator */}
+                {/* FAL line exit to Basilicata - destination markers */}
                 <g>
+                  {/* Exit marker circle */}
                   <circle 
                     cx="140" 
                     cy="140" 
-                    r="10" 
-                    fill="none"
+                    r="12" 
+                    fill={networkColors.fal}
+                    fillOpacity="0.3"
                     stroke={networkColors.fal} 
-                    strokeWidth="2"
-                    strokeDasharray="3,3"
-                    opacity="0.7"
+                    strokeWidth="2.5"
+                    opacity="0.85"
                   />
+                  <circle 
+                    cx="140" 
+                    cy="140" 
+                    r="5" 
+                    fill={networkColors.fal}
+                    opacity="0.9"
+                  />
+                  
+                  {/* Destination label box */}
+                  <rect
+                    x="50"
+                    y="105"
+                    width="155"
+                    height="55"
+                    fill="hsl(var(--background))"
+                    fillOpacity="0.95"
+                    stroke={networkColors.fal}
+                    strokeWidth="1.5"
+                    rx="4"
+                    className="shadow-lg"
+                  />
+                  
+                  {/* Main destination heading */}
                   <text 
-                    x="145" 
-                    y="145" 
-                    className="text-lg font-bold fill-foreground"
-                    style={{ textShadow: '0 0 4px hsl(var(--background))' }}
+                    x="127" 
+                    y="122" 
+                    className="text-xs font-bold fill-foreground"
+                    textAnchor="middle"
+                    style={{ textShadow: '0 0 2px hsl(var(--background))' }}
                   >
-                    →
+                    → BASILICATA
+                  </text>
+                  
+                  {/* Town names */}
+                  <text 
+                    x="127" 
+                    y="137" 
+                    className="text-[10px] fill-muted-foreground"
+                    textAnchor="middle"
+                  >
+                    Altamura • Matera
+                  </text>
+                  <text 
+                    x="127" 
+                    y="150" 
+                    className="text-[10px] fill-muted-foreground"
+                    textAnchor="middle"
+                  >
+                    Gravina • Potenza
                   </text>
                 </g>
               </g>
