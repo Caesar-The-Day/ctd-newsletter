@@ -8,7 +8,6 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { useImageReveal } from '@/hooks/use-image-reveal';
-import { useParallax } from '@/hooks/use-parallax';
 
 interface Recipe {
   id: string;
@@ -78,12 +77,9 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
           {/* Header */}
           <div className="text-center mb-12">
             <ChefHat className="h-12 w-12 mx-auto mb-4 text-primary" />
-            <h2 
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ transform: `translateY(${useParallax(0.3)}px)` }}
-            >
-              {header?.title || "Recipes"}
-            </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {header?.title || "Recipes"}
+          </h2>
             {header?.subtitle && (
               <p className="text-lg text-muted-foreground">
                 {header.subtitle}
