@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Download, FileText } from 'lucide-react';
+import { ArrowRight, Download, FileText, ArrowDown } from 'lucide-react';
 import { getNewsletterIndexData, getGlobals, type GlobalsData } from '@/utils/getRegionData';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
@@ -111,6 +111,13 @@ const NewsletterIndex = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         </div>
 
+        {/* Logo in top-right corner */}
+        <img 
+          src="/images/shared/caesartheday-logo.png" 
+          alt="CaesarTheDay Logo" 
+          className="absolute top-4 right-4 md:top-8 md:right-8 w-16 h-16 md:w-20 md:h-20 object-contain z-20"
+        />
+
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 py-20 mt-20 md:mt-0">
           <div className="max-w-5xl mx-auto text-center mb-12">
@@ -119,6 +126,9 @@ const NewsletterIndex = () => {
             </h1>
             <p className={`text-xl md:text-2xl text-white/90 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {data.hero.tagline}
+            </p>
+            <p className={`text-lg md:text-xl text-white/80 mt-4 max-w-3xl mx-auto transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              Independent, data-rich regional guides for smart retirees who want to plan their Italian chapter with confidence.
             </p>
           </div>
 
@@ -153,11 +163,30 @@ const NewsletterIndex = () => {
               </div>
             </Card>
           </div>
+
+          {/* Browse All Regions CTA */}
+          <div className={`text-center mt-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => {
+                document.querySelector('#italy-map-section')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+              className="group bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white/50"
+            >
+              Browse All Regions
+              <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* Interactive Italy Map Section */}
-      <ItalyMapInteractive newsletters={data.newsletters} archive={data.archive} />
+      <section id="italy-map-section">
+        <ItalyMapInteractive newsletters={data.newsletters} archive={data.archive} />
+      </section>
 
       {/* All Regional Newsletters Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20">
