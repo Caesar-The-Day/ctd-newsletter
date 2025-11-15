@@ -212,6 +212,13 @@ export default function RegionPage() {
 
       <PugliaCoastSelector />
 
+      {config.show7PercentCTA && (
+        <>
+          <Separator className="my-16" />
+          <SevenPercentCTA />
+        </>
+      )}
+
       <Separator className="my-16" />
 
       <HighlightsShowcase highlights={regionData.highlights} />
@@ -227,6 +234,8 @@ export default function RegionPage() {
       )}
 
       {config.showWineQuiz && regionData.wine && <WineQuiz quizData={regionData.wine.quiz} />}
+
+      <Separator className="my-16" />
 
       {regionData.recipes && (
         <RecipesInteractive 
@@ -255,8 +264,6 @@ export default function RegionPage() {
         intro={regionData.costOfLiving.intro}
         notes={regionData.costOfLiving.notes}
       />
-
-      {config.show7PercentCTA && <SevenPercentCTA />}
 
       <ProsConsInteractive prosCons={regionData.prosCons} />
 
