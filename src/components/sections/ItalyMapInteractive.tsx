@@ -182,10 +182,10 @@ const ItalyMapInteractive = ({ newsletters, archive }: ItalyMapInteractiveProps)
           <ComposableMap
             projection="geoMercator"
             projectionConfig={{
-              scale: 2400,
-              center: [12.5, 41],
+              scale: 2200,
+              center: [12.5, 41.5],
             }}
-            className="w-full h-auto min-h-[700px]"
+            className="w-full h-auto min-h-[800px]"
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
