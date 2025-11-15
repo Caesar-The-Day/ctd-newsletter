@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { getGlobals, getRegionData, getRegionConfig, GlobalsData, RegionData, FeatureFlags } from '@/utils/getRegionData';
-import { Header } from '@/components/common/Header';
+import { Header, SocialLinks } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
@@ -139,27 +139,34 @@ export default function RegionPage() {
       <div className="min-h-screen bg-background">
         <Header globals={globals} />
       
-      {/* Breadcrumb Navigation */}
+      {/* Breadcrumb Navigation with Social Icons */}
       <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border/40">
         <div className="container mx-auto px-4 py-3">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
-                    <Home className="h-4 w-4" />
-                    <span>Home</span>
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-foreground font-medium">
-                  {regionData.region.title}
-                </BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <div className="flex items-center justify-between">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                      <Home className="h-4 w-4" />
+                      <span>Home</span>
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-foreground font-medium">
+                    {regionData.region.title}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+            
+            {/* Social Icons aligned right */}
+            <div className="hidden md:flex items-center gap-2">
+              <SocialLinks globals={globals} />
+            </div>
+          </div>
         </div>
       </div>
       
