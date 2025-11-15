@@ -132,7 +132,7 @@ export default function RegionPage() {
           },
           "publisher": {
             "@type": "Organization",
-            "name": "CaesarTheDay",
+            "name": "CaesarTheDay™",
             "url": "https://www.caesartheday.com"
           },
           "url": `https://news.caesartheday.com/${region}`,
