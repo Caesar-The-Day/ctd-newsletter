@@ -75,7 +75,12 @@ export function RetirementBlueprintCTA() {
                 The dream is yours. The strategy is mine.
               </p>
               <Button size="lg" asChild className="hover-lift">
-                <a href="https://www.caesartheday.com/services" target="_blank" rel="noopener noreferrer">
+                <a 
+                  href="https://www.caesartheday.com/services" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  data-analytics-event="blueprint_cta_click"
+                >
                   Book a Consultation
                 </a>
               </Button>

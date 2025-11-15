@@ -86,8 +86,11 @@ export function WineQuiz({ quizData }: WineQuizProps) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
     } else {
-      // Calculate result
+      // Calculate result and track completion
       setStage('result');
+      if (window.trackEvent) {
+        window.trackEvent('wine_quiz_complete', { location: window.location.pathname });
+      }
     }
   };
 
@@ -147,6 +150,7 @@ export function WineQuiz({ quizData }: WineQuizProps) {
               size="lg" 
               onClick={handleStart}
               className="px-8 py-6 text-lg"
+              data-analytics-event="wine_quiz_start"
             >
               Start Quiz
               <ChevronRight className="ml-2 h-5 w-5" />

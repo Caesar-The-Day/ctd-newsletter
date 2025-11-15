@@ -85,7 +85,7 @@ export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCa
   if (!costs) return null;
 
   return (
-    <section className="py-8 md:py-12 bg-background">
+    <section className="py-8 md:py-12 bg-background" data-analytics-event="cost_calculator_view">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Header with Intro */}

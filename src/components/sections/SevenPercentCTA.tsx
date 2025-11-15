@@ -122,7 +122,12 @@ export function SevenPercentCTA() {
               </p>
             </div>
             <Button size="lg" asChild className="hover-lift shadow-xl">
-              <a href="https://italy7percent.caesartheday.com" target="_blank" rel="noopener noreferrer">
+              <a 
+                href="https://italy7percent.caesartheday.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                data-analytics-event="escape_map_click"
+              >
                 Launch the Escape Map
               </a>
             </Button>
