@@ -3,6 +3,7 @@ import { Train, TrainFront, Mountain, BusFront, MapPin, Clock, Users } from 'luc
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface StationData {
@@ -359,7 +360,7 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
             </h3>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Click any station to see detailed connections, schedules, and accessibility info. 
+            Hover stations for quick info, click for full details. 
             Toggle networks to explore specific routes.
           </p>
         </div>
@@ -394,14 +395,86 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
             className="w-full h-auto max-w-4xl mx-auto"
             style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}
           >
-            {/* Puglia region outline (simplified) */}
+            {/* Geographic Background */}
+            <defs>
+              <linearGradient id="adriatic" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="hsl(200 80% 85%)" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="hsl(200 80% 75%)" stopOpacity="0.5" />
+              </linearGradient>
+              <linearGradient id="ionian" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="hsl(195 70% 80%)" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="hsl(195 70% 70%)" stopOpacity="0.5" />
+              </linearGradient>
+            </defs>
+
+            {/* Adriatic Sea (eastern coast) */}
+            <path
+              d="M 450 100 L 500 150 L 520 250 L 540 350 L 550 450 L 560 550 L 600 600 L 600 0 Z"
+              fill="url(#adriatic)"
+            />
+            
+            {/* Ionian Sea (southern coast) */}
+            <path
+              d="M 200 500 L 250 540 L 300 570 L 400 580 L 500 570 L 550 550 L 600 600 L 0 600 L 0 500 Z"
+              fill="url(#ionian)"
+            />
+
+            {/* Gargano Peninsula (north) */}
+            <ellipse
+              cx="220" cy="100" rx="80" ry="60"
+              fill="hsl(40 30% 80%)"
+              opacity="0.4"
+            />
+            <text x="220" y="105" className="text-[10px] fill-muted-foreground italic opacity-60" textAnchor="middle">
+              Gargano
+            </text>
+
+            {/* Alta Murgia (central-west plateau) */}
+            <ellipse
+              cx="250" cy="220" rx="70" ry="90"
+              fill="hsl(30 20% 75%)"
+              opacity="0.35"
+            />
+            <text x="250" y="225" className="text-[10px] fill-muted-foreground italic opacity-60" textAnchor="middle">
+              Alta Murgia
+            </text>
+
+            {/* Valle d'Itria (trulli region) */}
+            <ellipse
+              cx="340" cy="310" rx="60" ry="50"
+              fill="hsl(120 30% 80%)"
+              opacity="0.35"
+            />
+            <text x="340" y="315" className="text-[10px] fill-muted-foreground italic opacity-60" textAnchor="middle">
+              Valle d'Itria
+            </text>
+
+            {/* Salento (heel of the boot) */}
+            <path
+              d="M 380 380 L 420 420 L 450 480 L 470 540 L 430 530 L 400 500 L 380 450 Z"
+              fill="hsl(60 40% 85%)"
+              opacity="0.35"
+            />
+            <text x="430" y="480" className="text-[11px] fill-muted-foreground italic opacity-60" textAnchor="middle">
+              Salento
+            </text>
+
+            {/* Sea labels */}
+            <text x="520" y="280" className="text-[12px] fill-blue-400/60 italic" textAnchor="middle">
+              Mar Adriatico
+            </text>
+            <text x="350" y="560" className="text-[12px] fill-blue-400/60 italic" textAnchor="middle">
+              Mar Ionio
+            </text>
+
+            {/* Puglia region outline */}
             <path
               d="M 180 60 L 240 140 L 260 150 L 320 180 L 380 200 L 420 260 L 440 340 L 460 420 L 470 500 L 450 540 L 400 560 L 340 570 L 300 550 L 260 520 L 240 480 L 220 440 L 200 400 L 180 360 L 160 300 L 150 240 L 160 180 L 180 120 Z"
-              fill="hsl(var(--muted))"
-              opacity="0.15"
+              fill="none"
               stroke="hsl(var(--border))"
-              strokeWidth="1"
-              strokeDasharray="5,5"
+              strokeWidth="2"
+              strokeDasharray="8,4"
+              opacity="0.4"
             />
 
             {/* Rail Lines */}
@@ -476,7 +549,7 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
             {isVisible('fal') && (
               <g className="transition-opacity duration-500">
                 <path
-                  d="M 320 180 L 280 220 L 240 260 L 200 300"
+                  d="M 320 180 L 260 160 L 200 150 L 140 140"
                   stroke={networkColors.fal}
                   strokeWidth="4"
                   fill="none"
@@ -491,7 +564,7 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
                     <mpath href="#fal-path" />
                   </animateMotion>
                 </circle>
-                <path id="fal-path" d="M 320 180 L 280 220 L 240 260 L 200 300" fill="none" opacity="0" />
+                <path id="fal-path" d="M 320 180 L 260 160 L 200 150 L 140 140" fill="none" opacity="0" />
               </g>
             )}
 
@@ -519,52 +592,84 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
               const radius = getStationSize(station.type);
 
               return (
-                <g key={idx} className="station-marker">
-                  {/* Pulse ring for selected station */}
-                  {isSelected && (
-                    <circle
-                      cx={station.x}
-                      cy={station.y}
-                      r="15"
-                      fill="none"
-                      stroke="hsl(var(--primary))"
-                      strokeWidth="2"
-                      opacity="0.5"
-                      className="animate-ping"
-                    />
-                  )}
-                  
-                  {/* Station marker */}
-                  <circle
-                    cx={station.x}
-                    cy={station.y}
-                    r={radius}
-                    fill="hsl(var(--background))"
-                    stroke={isSelected ? 'hsl(var(--primary))' : 'hsl(var(--foreground))'}
-                    strokeWidth={isSelected ? '3' : '2'}
-                    onClick={() => setSelectedStation(station)}
-                    className={`cursor-pointer transition-all duration-300 hover:scale-150 ${isSelected ? 'scale-150' : ''}`}
-                    style={{
-                      filter: isSelected 
-                        ? 'drop-shadow(0 0 8px hsl(var(--primary)))' 
-                        : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
-                    }}
-                  />
-                  
-                  {/* Permanent station label */}
-                  <text
-                    x={station.x}
-                    y={station.y - (radius + 8)}
-                    textAnchor="middle"
-                    className={`${getLabelSize(station.type)} font-semibold fill-foreground pointer-events-none`}
-                    style={{
-                      textShadow: '0 0 3px hsl(var(--background)), 0 0 5px hsl(var(--background))',
-                      paintOrder: 'stroke fill'
-                    }}
-                  >
-                    {station.name}
-                  </text>
-                </g>
+                <TooltipProvider key={idx}>
+                  <Tooltip delayDuration={200}>
+                    <TooltipTrigger asChild>
+                      <g className="station-marker">
+                        {/* Pulse ring for selected station */}
+                        {isSelected && (
+                          <circle
+                            cx={station.x}
+                            cy={station.y}
+                            r="15"
+                            fill="none"
+                            stroke="hsl(var(--primary))"
+                            strokeWidth="2"
+                            opacity="0.5"
+                            className="animate-ping"
+                          />
+                        )}
+                        
+                        {/* Station marker */}
+                        <circle
+                          cx={station.x}
+                          cy={station.y}
+                          r={radius}
+                          fill="hsl(var(--background))"
+                          stroke={isSelected ? 'hsl(var(--primary))' : 'hsl(var(--foreground))'}
+                          strokeWidth={isSelected ? '3' : '2'}
+                          onClick={() => setSelectedStation(station)}
+                          className={`cursor-pointer transition-all duration-300 hover:scale-125 ${isSelected ? 'scale-150' : ''}`}
+                          style={{
+                            filter: isSelected 
+                              ? 'drop-shadow(0 0 8px hsl(var(--primary)))' 
+                              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                          }}
+                        />
+                        
+                        {/* Permanent station label */}
+                        <text
+                          x={station.x}
+                          y={station.y - (radius + 8)}
+                          textAnchor="middle"
+                          className={`${getLabelSize(station.type)} font-semibold fill-foreground pointer-events-none transition-opacity ${isSelected ? 'opacity-100' : 'opacity-80'}`}
+                          style={{
+                            textShadow: '0 0 3px hsl(var(--background)), 0 0 5px hsl(var(--background))',
+                            paintOrder: 'stroke fill'
+                          }}
+                        >
+                          {station.name}
+                        </text>
+                      </g>
+                    </TooltipTrigger>
+                    
+                    <TooltipContent 
+                      side="top" 
+                      className="max-w-xs p-3 space-y-2"
+                      sideOffset={10}
+                    >
+                      <div className="font-semibold text-base">{station.name}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {station.dailyTrains} trains/day • {station.population} residents
+                      </div>
+                      <div className="flex gap-1 flex-wrap">
+                        {station.networks.map(net => (
+                          <Badge 
+                            key={net} 
+                            variant="secondary" 
+                            className="text-xs"
+                            style={{ backgroundColor: `${networkColors[net]}40` }}
+                          >
+                            {networks.find(n => n.id === net)?.name}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="text-xs text-muted-foreground italic border-t pt-2">
+                        Click for full details
+                      </div>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               );
             })}
           </svg>
@@ -573,7 +678,7 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
         {/* Legend */}
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground italic">
-            Click station markers to see detailed connections and schedules. Lines show approximate routes—not exact paths.
+            Hover stations to preview, click for full details. Lines show approximate routes—not exact paths.
           </p>
         </div>
       </div>
