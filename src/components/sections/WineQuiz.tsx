@@ -20,6 +20,7 @@ interface WineProfile {
   title: string;
   description: string;
   image: string;
+  tastingNotes?: string;
 }
 
 interface WineQuizData {
@@ -290,6 +291,16 @@ export function WineQuiz({ quizData }: WineQuizProps) {
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
                     {result.description}
                   </p>
+                  {result.tastingNotes && (
+                    <div className="mb-8 pt-6 border-t border-border/40">
+                      <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                        Tasting Notes
+                      </h4>
+                      <p className="text-base md:text-lg text-foreground/90 leading-relaxed italic">
+                        {result.tastingNotes}
+                      </p>
+                    </div>
+                  )}
                   <Button 
                     variant="outline" 
                     size="lg" 
