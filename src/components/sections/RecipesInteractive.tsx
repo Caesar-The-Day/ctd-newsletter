@@ -345,8 +345,9 @@ function RecipeImage({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         className={`w-full h-full object-cover transition-all duration-700 ${
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
+        style={{ willChange: isVisible ? 'auto' : 'opacity, transform' }}
         loading="lazy"
       />
     </div>
