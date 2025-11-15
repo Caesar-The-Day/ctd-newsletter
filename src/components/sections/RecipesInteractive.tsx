@@ -6,6 +6,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useImageReveal } from '@/hooks/use-image-reveal';
 
 interface Recipe {
@@ -55,7 +56,6 @@ interface RecipesInteractiveProps {
 }
 
 export function RecipesInteractive({ header, originStory, recipes, modes }: RecipesInteractiveProps) {
-  const [mode, setMode] = useState(0);
   const [expandedRecipes, setExpandedRecipes] = useState<string[]>([]);
 
   const toggleRecipe = (id: string) => {
@@ -65,9 +65,6 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
   };
 
   const validModes = modes && modes.length > 0 ? modes : ['Rustic', 'Refined'];
-  const filteredRecipes = recipes?.filter(
-    (recipe) => recipe.mode === validModes[mode]
-  ) || [];
 
   if (!recipes || recipes.length === 0) {
     return null;
@@ -179,24 +176,28 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
             </div>
           )}
 
-          {/* Mode Toggle */}
-          <div className="flex justify-center gap-4 mb-12">
-            {validModes.map((modeName, idx) => (
-              <Button
-                key={idx}
-                onClick={() => setMode(idx)}
-                variant={mode === idx ? "default" : "outline"}
-                size="lg"
-                className="min-w-[140px]"
-              >
-                {modeName}
-              </Button>
-            ))}
-          </div>
+          {/* Mode Toggle with Tabs */}
+          <Tabs defaultValue={validModes[0]} className="w-full">
+            <div className="flex justify-center mb-12">
+              <TabsList className="grid w-full max-w-md grid-cols-2">
+                {validModes.map((modeName) => (
+                  <TabsTrigger key={modeName} value={modeName}>
+                    {modeName}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
-          {/* Recipe Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {filteredRecipes.map((recipe) => (
+            {validModes.map((modeName) => {
+              const filteredRecipes = recipes?.filter(
+                (recipe) => recipe.mode === modeName
+              ) || [];
+
+              return (
+                <TabsContent key={modeName} value={modeName}>
+                  {/* Recipe Grid */}
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {filteredRecipes.map((recipe) => (
               <div
                 key={recipe.id}
                 className="rounded-lg border bg-card shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
@@ -321,9 +322,13 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
                     </CollapsibleContent>
                   </Collapsible>
                 </div>
-              </div>
-            ))}
-          </div>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            );
+          })}
+        </Tabs>
         </div>
       </div>
     </section>
