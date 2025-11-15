@@ -70,13 +70,23 @@ export function BookCTA() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" asChild className="hover-lift">
-                    <a href="https://www.caesartheday.com/the-book" target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href="https://www.caesartheday.com/the-book" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      data-analytics-event="book_purchase_website"
+                    >
                       Get the Book
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
                   <Button size="lg" variant="outline" asChild className="hover-lift">
-                    <a href="https://a.co/d/ebHUEtP" target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href="https://a.co/d/ebHUEtP" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      data-analytics-event="book_purchase_amazon"
+                    >
                       Get it on Amazon
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </a>

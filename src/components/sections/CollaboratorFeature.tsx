@@ -113,6 +113,7 @@ export function CollaboratorFeature({
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-semibold bg-amber-700 text-white hover:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition"
+              data-analytics-event="collaborator_cta_click"
             >
               {ctaText}
               <ExternalLink className="h-4 w-4" />

@@ -201,6 +201,8 @@ const ItalyMapInteractive = ({ newsletters, archive }: ItalyMapInteractiveProps)
                       onClick={() => region && handleRegionClick(regionSlug)}
                       style={getRegionStyle(regionSlug)}
                       className="transition-all duration-200 outline-none"
+                      data-analytics-event="map_region_click"
+                      data-region={regionSlug}
                     />
                   );
                 })

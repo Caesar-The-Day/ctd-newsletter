@@ -110,7 +110,10 @@ export function ClimateSnapshot() {
   const seasonalImages = region === "puglia" ? seasonalImagesPuglia : seasonalImagesPiemonte;
 
   return (
-    <section className="py-8 md:py-12 bg-background relative overflow-hidden">
+    <section 
+      className="py-8 md:py-12 bg-background relative overflow-hidden"
+      data-analytics-event="climate_module_view"
+    >
       {/* Seasonal background image */}
       <div 
         key={currentSeason}
