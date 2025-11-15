@@ -76,16 +76,18 @@ export default function RegionPage() {
 
   const seoConfig = {
     piemonte: {
-      title: 'Veni. Vidi. Vici. Piemonte | Retire in Piemonte: Towns, Cost of Living & Wine',
-      description: 'Veni. Vidi. Vici. Piemonte is your immersive guide to retiring in Northern Italy: cost of living, best towns to live in, regional healthcare, infrastructure, wine culture, and interactive tools to plan your move.',
+      title: 'Retiring in Piemonte | Veni. Vidi. Vici. Region Guide',
+      description: 'Discover Piemonte through an immersive, data-rich regional guide for smart retirees: best towns to live in, cost of living, healthcare access, wine culture, infrastructure, and interactive tools to plan your Italian chapter with confidence.',
       keywords: ['retire in Piemonte', 'best towns in Piemonte', 'Northern Italy retirement', 'Piemonte cost of living', 'Piemonte wine regions', 'retiring in Italy', 'Italian regions guide'],
       ogImage: 'https://news.caesartheday.com/images/piemonte-og.jpg',
+      ogDescription: 'Explore Piemonte like a local — from walkable towns and cost-of-living insights to healthcare, wine culture, and interactive planning tools. A smart retiree\'s guide to Northern Italy.',
     },
     puglia: {
-      title: 'Veni. Vidi. Vici. Puglia | Retire in Puglia: Cost of Living, Towns & Coastal Life',
-      description: 'Veni. Vidi. Vici. Puglia is your guide to retiring in Southern Italy: coastlines, walkable towns, cost of living, healthcare, infrastructure, recipes, wine, and interactive tools like maps, quizzes, and calculators.',
+      title: 'Retiring in Puglia | Veni. Vidi. Vici. Region Guide',
+      description: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
       keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
       ogImage: 'https://news.caesartheday.com/images/puglia-og.jpg',
+      ogDescription: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
     }
   };
 
@@ -94,6 +96,7 @@ export default function RegionPage() {
     description: string;
     keywords: string[];
     ogImage: string;
+    ogDescription?: string;
   };
 
   const defaultSEO: SEOConfig = {
@@ -112,8 +115,8 @@ export default function RegionPage() {
         title={currentSEO.title}
         description={currentSEO.description}
         canonical={`https://news.caesartheday.com/${region}`}
-        ogTitle={`Retiring in ${regionData.region.title} | Veni. Vidi. Vici. Region Guide`}
-        ogDescription={currentSEO.description}
+        ogTitle={currentSEO.title}
+        ogDescription={currentSEO.ogDescription || currentSEO.description}
         ogUrl={`https://news.caesartheday.com/${region}`}
         ogType="article"
         ogImage={currentSEO.ogImage}
@@ -235,15 +238,16 @@ export default function RegionPage() {
 
       {config.showWineQuiz && regionData.wine && <WineQuiz quizData={regionData.wine.quiz} />}
 
-      <Separator className="my-16" />
-
       {regionData.recipes && (
-        <RecipesInteractive 
-          header={regionData.recipes.header}
-          originStory={regionData.recipes.originStory}
-          recipes={regionData.recipes.cards} 
-          modes={regionData.recipes.modes} 
-        />
+        <>
+          <Separator className="my-16" />
+          <RecipesInteractive 
+            header={regionData.recipes.header}
+            originStory={regionData.recipes.originStory}
+            recipes={regionData.recipes.cards} 
+            modes={regionData.recipes.modes} 
+          />
+        </>
       )}
 
       {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA />}

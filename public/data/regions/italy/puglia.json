@@ -1519,13 +1519,16 @@
     "message": "If Puglia sounds like the kind of place where you could picture yourself swimming in turquoise water, eating orecchiette at a beachside trattoria, and living well without needing a hedge fund — then let's talk.",
     "header": "A dopo… See You Soon",
     "subtitle": "If this issue sparked something — or if Puglia sounds like the Italy you've been craving without realizing it — share it with someone who'd love to live somewhere that values joy over efficiency.",
-    "shareUrl": "https://caesartheday.com/puglia",
+    "shareUrl": "https://news.caesartheday.com/puglia",
     "socialMessages": {
       "facebook": "Puglia: Southern Italy's sun-soaked secret — whitewashed towns, two coastlines, and a food culture that doesn't need Michelin stars to impress.",
       "threads": "Puglia is what happens when coastal Italy stays grounded. Trulli, olive groves, and Baroque beauty — without the tourist markups.",
       "bluesky": "Puglia: Italy's most underrated region. Adriatic beaches, Primitivo wine, and a cost of living that actually makes sense. Read the full guide:",
       "whatsapp": "I just read this incredible deep-dive on Puglia — Italy's heel with two seas, endless sunshine, and surprising affordability. Thought you'd love it!",
-      "pinterest": "Puglia Italy travel guide: coastal towns, wine regions, cost of living, retirement tips, and UNESCO heritage sites",
+      "pinterest": {
+        "title": "Retiring in Puglia | Veni. Vidi. Vici. Region Guide",
+        "description": "Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy's best choices for retirement. An interactive guide that goes far beyond travel blogs."
+      },
       "email": "I came across this detailed guide to Puglia and immediately thought of you. It covers everything from Alberobello's trulli to Lecce's Baroque splendor to realistic retirement costs — beautifully written and packed with insights you won't find in typical travel blogs."
     }
   }
