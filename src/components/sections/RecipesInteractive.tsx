@@ -303,7 +303,7 @@ function RecipeImage({ src, alt }: { src: string; alt: string }) {
   const { isVisible, imageRef } = useImageReveal();
 
   return (
-    <div className="relative h-48 overflow-hidden">
+    <div className="relative h-64 md:h-full overflow-hidden">
       <img
         ref={imageRef}
         src={src}
