@@ -1,6 +1,31 @@
 import React, { useState } from 'react';
-import { Train, TrainFront, Mountain, BusFront } from 'lucide-react';
+import { Train, TrainFront, Mountain, BusFront, MapPin, Clock, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
+import { useIsMobile } from '@/hooks/use-mobile';
+
+interface StationData {
+  name: string;
+  x: number;
+  y: number;
+  networks: string[];
+  type: 'major-hub' | 'regional-hub' | 'local-stop';
+  population: string;
+  dailyTrains: number;
+  connections: Array<{
+    to: string;
+    time: string;
+    frequency: string;
+    network: string;
+  }>;
+  highlights: string[];
+  accessibility: {
+    staffed: boolean;
+    ticketOffice: boolean;
+    elevator: boolean;
+  };
+}
 
 interface PugliaRailNetworkMapProps {
   networks: Array<{
@@ -16,6 +41,8 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
   const [visibleNetworks, setVisibleNetworks] = useState<Set<string>>(
     new Set(networks.map(n => n.id))
   );
+  const [selectedStation, setSelectedStation] = useState<StationData | null>(null);
+  const isMobile = useIsMobile();
 
   const toggleNetwork = (id: string) => {
     setVisibleNetworks(prev => {
@@ -31,23 +58,183 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
 
   const isVisible = (networkId: string) => visibleNetworks.has(networkId);
 
-  // Major cities with coordinates (relative to viewBox)
-  const cities = [
-    { name: 'Foggia', x: 200, y: 80, networks: ['trenitalia', 'fal', 'buses'] },
-    { name: 'Barletta', x: 240, y: 140, networks: ['ferrotramviaria', 'trenitalia'] },
-    { name: 'Trani', x: 260, y: 150, networks: ['ferrotramviaria', 'trenitalia'] },
-    { name: 'Bari', x: 320, y: 180, networks: ['trenitalia', 'fse', 'ferrotramviaria', 'fal'] },
-    { name: 'Monopoli', x: 360, y: 220, networks: ['trenitalia', 'fse'] },
-    { name: 'Polignano', x: 350, y: 210, networks: ['trenitalia'] },
-    { name: 'Ostuni', x: 380, y: 280, networks: ['trenitalia', 'fse'] },
-    { name: 'Brindisi', x: 400, y: 340, networks: ['trenitalia', 'fse'] },
-    { name: 'Martina Franca', x: 340, y: 320, networks: ['fse'] },
-    { name: 'Locorotondo', x: 330, y: 300, networks: ['fse'] },
-    { name: 'Alberobello', x: 320, y: 290, networks: ['fse'] },
-    { name: 'Taranto', x: 240, y: 360, networks: ['trenitalia', 'fse'] },
-    { name: 'Lecce', x: 420, y: 460, networks: ['trenitalia', 'fse', 'buses'] },
-    { name: 'Gallipoli', x: 340, y: 520, networks: ['buses', 'fse'] },
-    { name: 'Otranto', x: 460, y: 540, networks: ['buses', 'fse'] },
+  // Enhanced stations with rich metadata
+  const stations: StationData[] = [
+    {
+      name: 'Bari', x: 320, y: 180, 
+      networks: ['trenitalia', 'fse', 'ferrotramviaria', 'fal'],
+      type: 'major-hub', population: '320,000', dailyTrains: 150,
+      connections: [
+        { to: 'Lecce', time: '1h 30min', frequency: 'Every hour', network: 'trenitalia' },
+        { to: 'Roma', time: '4h', frequency: 'Hourly Frecce', network: 'trenitalia' },
+        { to: 'Airport', time: '15min', frequency: 'Every 20min', network: 'ferrotramviaria' },
+        { to: 'Matera', time: '1h 15min', frequency: '8 trains/day', network: 'fal' },
+      ],
+      highlights: ['Main regional hub', 'Airport connection', 'High-speed rail'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: true }
+    },
+    {
+      name: 'Lecce', x: 420, y: 460,
+      networks: ['trenitalia', 'fse', 'buses'],
+      type: 'major-hub', population: '95,000', dailyTrains: 85,
+      connections: [
+        { to: 'Bari', time: '1h 30min', frequency: 'Every hour', network: 'trenitalia' },
+        { to: 'Roma', time: '5h 30min', frequency: '6 trains/day', network: 'trenitalia' },
+        { to: 'Gallipoli', time: '35min', frequency: 'Every 90min', network: 'fse' },
+        { to: 'Otranto', time: '50min', frequency: '8 buses/day', network: 'buses' },
+      ],
+      highlights: ['Baroque capital', 'Salento gateway', 'Cultural hub'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: true }
+    },
+    {
+      name: 'Foggia', x: 200, y: 80,
+      networks: ['trenitalia', 'fal', 'buses'],
+      type: 'major-hub', population: '150,000', dailyTrains: 95,
+      connections: [
+        { to: 'Bari', time: '1h 45min', frequency: 'Every 90min', network: 'trenitalia' },
+        { to: 'Napoli', time: '2h 30min', frequency: 'Every 2hrs', network: 'trenitalia' },
+        { to: 'Roma', time: '3h 45min', frequency: '10 trains/day', network: 'trenitalia' },
+      ],
+      highlights: ['Northern hub', 'Gateway to Gargano', 'Agricultural center'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: true }
+    },
+    {
+      name: 'Brindisi', x: 400, y: 340,
+      networks: ['trenitalia', 'fse'],
+      type: 'regional-hub', population: '87,000', dailyTrains: 65,
+      connections: [
+        { to: 'Bari', time: '1h 15min', frequency: 'Every 90min', network: 'trenitalia' },
+        { to: 'Lecce', time: '35min', frequency: 'Every hour', network: 'trenitalia' },
+        { to: 'Ostuni', time: '20min', frequency: 'Every hour', network: 'trenitalia' },
+      ],
+      highlights: ['Airport hub', 'Ferry port to Greece', 'Ancient Roman port'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: true }
+    },
+    {
+      name: 'Taranto', x: 240, y: 360,
+      networks: ['trenitalia', 'fse'],
+      type: 'regional-hub', population: '195,000', dailyTrains: 55,
+      connections: [
+        { to: 'Bari', time: '1h 30min', frequency: 'Every 2hrs', network: 'trenitalia' },
+        { to: 'Martina Franca', time: '45min', frequency: '8 trains/day', network: 'fse' },
+        { to: 'Brindisi', time: '1h 20min', frequency: '6 trains/day', network: 'trenitalia' },
+      ],
+      highlights: ['Ionian coast city', 'Naval base', 'Seafood capital'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: false }
+    },
+    {
+      name: 'Ostuni', x: 380, y: 280,
+      networks: ['trenitalia', 'fse'],
+      type: 'regional-hub', population: '32,000', dailyTrains: 42,
+      connections: [
+        { to: 'Bari', time: '50min', frequency: 'Every hour', network: 'trenitalia' },
+        { to: 'Brindisi', time: '20min', frequency: 'Every hour', network: 'trenitalia' },
+        { to: 'Martina Franca', time: '30min', frequency: 'Every 90min', network: 'fse' },
+      ],
+      highlights: ['The White City', 'Valle d\'Itria gateway', 'Expat favorite'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: false }
+    },
+    {
+      name: 'Monopoli', x: 360, y: 220,
+      networks: ['trenitalia', 'fse'],
+      type: 'regional-hub', population: '49,000', dailyTrains: 38,
+      connections: [
+        { to: 'Bari', time: '30min', frequency: 'Every 30min', network: 'trenitalia' },
+        { to: 'Polignano', time: '10min', frequency: 'Every 30min', network: 'trenitalia' },
+        { to: 'Ostuni', time: '25min', frequency: 'Every hour', network: 'trenitalia' },
+      ],
+      highlights: ['Coastal gem', 'Old port town', 'Active fishing harbor'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: false }
+    },
+    {
+      name: 'Martina Franca', x: 340, y: 320,
+      networks: ['fse'],
+      type: 'regional-hub', population: '48,000', dailyTrains: 24,
+      connections: [
+        { to: 'Lecce', time: '1h 40min', frequency: '6 trains/day', network: 'fse' },
+        { to: 'Taranto', time: '45min', frequency: '8 trains/day', network: 'fse' },
+        { to: 'Ostuni', time: '30min', frequency: 'Every 90min', network: 'fse' },
+      ],
+      highlights: ['Valle d\'Itria heart', 'Baroque architecture', 'Hill town charm'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: false }
+    },
+    {
+      name: 'Trani', x: 260, y: 150,
+      networks: ['ferrotramviaria', 'trenitalia'],
+      type: 'local-stop', population: '55,000', dailyTrains: 32,
+      connections: [
+        { to: 'Bari', time: '40min', frequency: 'Every 30min', network: 'ferrotramviaria' },
+        { to: 'Barletta', time: '10min', frequency: 'Every 20min', network: 'ferrotramviaria' },
+      ],
+      highlights: ['Cathedral by the sea', 'Adriatic beauty', 'Medieval port'],
+      accessibility: { staffed: true, ticketOffice: false, elevator: false }
+    },
+    {
+      name: 'Barletta', x: 240, y: 140,
+      networks: ['ferrotramviaria', 'trenitalia'],
+      type: 'local-stop', population: '94,000', dailyTrains: 35,
+      connections: [
+        { to: 'Bari', time: '50min', frequency: 'Every 30min', network: 'ferrotramviaria' },
+        { to: 'Trani', time: '10min', frequency: 'Every 20min', network: 'ferrotramviaria' },
+      ],
+      highlights: ['Historic center', 'Colossus statue', 'Coastal city'],
+      accessibility: { staffed: true, ticketOffice: true, elevator: false }
+    },
+    {
+      name: 'Polignano', x: 350, y: 210,
+      networks: ['trenitalia'],
+      type: 'local-stop', population: '18,000', dailyTrains: 28,
+      connections: [
+        { to: 'Bari', time: '35min', frequency: 'Every 30min', network: 'trenitalia' },
+        { to: 'Monopoli', time: '10min', frequency: 'Every 30min', network: 'trenitalia' },
+      ],
+      highlights: ['Clifftop town', 'Beach caves', 'Instagram famous'],
+      accessibility: { staffed: false, ticketOffice: false, elevator: false }
+    },
+    {
+      name: 'Alberobello', x: 320, y: 290,
+      networks: ['fse'],
+      type: 'local-stop', population: '11,000', dailyTrains: 18,
+      connections: [
+        { to: 'Martina Franca', time: '20min', frequency: '6 trains/day', network: 'fse' },
+        { to: 'Bari', time: '1h 50min', frequency: '6 trains/day', network: 'fse' },
+      ],
+      highlights: ['UNESCO trulli houses', 'Fairytale town', 'Tourist magnet'],
+      accessibility: { staffed: false, ticketOffice: false, elevator: false }
+    },
+    {
+      name: 'Locorotondo', x: 330, y: 300,
+      networks: ['fse'],
+      type: 'local-stop', population: '14,000', dailyTrains: 16,
+      connections: [
+        { to: 'Martina Franca', time: '15min', frequency: '6 trains/day', network: 'fse' },
+        { to: 'Alberobello', time: '10min', frequency: '6 trains/day', network: 'fse' },
+      ],
+      highlights: ['Circular old town', 'White wine region', 'Quiet charm'],
+      accessibility: { staffed: false, ticketOffice: false, elevator: false }
+    },
+    {
+      name: 'Gallipoli', x: 340, y: 520,
+      networks: ['buses', 'fse'],
+      type: 'local-stop', population: '20,000', dailyTrains: 14,
+      connections: [
+        { to: 'Lecce', time: '35min', frequency: 'Every 90min', network: 'fse' },
+        { to: 'Otranto', time: '1h 15min', frequency: '5 buses/day', network: 'buses' },
+      ],
+      highlights: ['Ionian beach town', 'Walled old town', 'Summer destination'],
+      accessibility: { staffed: false, ticketOffice: false, elevator: false }
+    },
+    {
+      name: 'Otranto', x: 460, y: 540,
+      networks: ['buses', 'fse'],
+      type: 'local-stop', population: '5,800', dailyTrains: 12,
+      connections: [
+        { to: 'Lecce', time: '50min', frequency: '8 buses/day', network: 'buses' },
+        { to: 'Gallipoli', time: '1h 15min', frequency: '5 buses/day', network: 'buses' },
+      ],
+      highlights: ['Adriatic easternmost point', 'Medieval castle', 'Beach paradise'],
+      accessibility: { staffed: false, ticketOffice: false, elevator: false }
+    },
   ];
 
   // Network color map
