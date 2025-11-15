@@ -333,7 +333,7 @@ export const PugliaCityReachMap: React.FC = () => {
                 </div>
 
                 {/* Ferry Routes */}
-                {selectedCity.ferryRoutes.length > 0 && (
+                {selectedCity.ferryRoutes && selectedCity.ferryRoutes.length > 0 && (
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-primary font-medium">
                       <Ship className="w-5 h-5" />
