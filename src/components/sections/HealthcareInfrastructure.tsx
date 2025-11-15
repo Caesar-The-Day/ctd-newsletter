@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Building2, Plane, ExternalLink, TrainFront, Train, Mountain, BusFront, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PugliaCityReachMap } from './PugliaCityReachMap';
+import { PugliaRailNetworkMap } from './PugliaRailNetworkMap';
 import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface HealthcareInfrastructureProps {
@@ -54,6 +56,28 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
   const travelTime = origin && destination && trains
     ? trains.travelMatrix[travelMode]?.[origin]?.[destination]
     : null;
+
+  // Extract network badges from travel time string
+  const getNetworkBadges = (timeString: string | null) => {
+    if (!timeString) return [];
+    const badges: Array<{ name: string; color: string }> = [];
+    if (timeString.includes('FSE')) {
+      badges.push({ name: 'FSE', color: 'hsl(142 76% 36%)' });
+    }
+    // Default to Trenitalia if no specific network mentioned
+    if (badges.length === 0) {
+      badges.push({ name: 'Trenitalia', color: 'hsl(142 71% 45%)' });
+    }
+    return badges;
+  };
+
+  const getRouteComplexity = (timeString: string | null) => {
+    if (!timeString) return null;
+    const duration = timeString.toLowerCase();
+    if (duration.includes('fse') || duration.includes('–')) return '🟡';
+    if (parseInt(duration) > 180) return '🟠'; // More than 3 hours
+    return '🟢';
+  };
 
   const getIconComponent = (iconName: string) => {
     const icons: Record<string, any> = {
@@ -240,6 +264,9 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
                   </p>
                 </div>
 
+                {/* Visual Rail Network Map */}
+                <PugliaRailNetworkMap networks={trains.networks} />
+
                 {/* Interactive Travel Time Selector */}
                 <div className="bg-card border border-border rounded-xl p-8 shadow-sm">
                   <h4 className="text-2xl font-bold text-foreground mb-6 text-center">
@@ -327,11 +354,34 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
                           {origin} → {destination}
                         </p>
                       </div>
-                      <p className="text-4xl font-bold text-primary mb-2">
-                        {travelTime}
-                      </p>
+                      <div className="flex items-center justify-center gap-4 mb-3">
+                        <p className="text-4xl font-bold text-primary">
+                          {travelTime.replace(/\s*\(.*?\)\s*/g, '')}
+                        </p>
+                        <span className="text-2xl">
+                          {getRouteComplexity(travelTime)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        {getNetworkBadges(travelTime).map((badge, idx) => (
+                          <Badge
+                            key={idx}
+                            variant="outline"
+                            style={{
+                              borderColor: badge.color,
+                              backgroundColor: `${badge.color}20`,
+                              color: badge.color,
+                            }}
+                          >
+                            {badge.name}
+                          </Badge>
+                        ))}
+                      </div>
                       <p className="text-sm text-muted-foreground">
                         Estimated travel time
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-2">
+                        🟢 Direct • 🟡 Simple (1 transfer) • 🟠 Complex (2+ transfers)
                       </p>
                     </div>
                   )}
