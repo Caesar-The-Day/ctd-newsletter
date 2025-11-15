@@ -65,10 +65,18 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
     );
   };
 
+  // Ensure modes array exists and has valid data
+  const validModes = modes && modes.length > 0 ? modes : ['Rustic', 'Refined'];
+  
   // Filter recipes based on selected mode
-  const filteredRecipes = recipes.filter(
-    (recipe) => recipe.mode === modes[mode]
-  );
+  const filteredRecipes = recipes?.filter(
+    (recipe) => recipe.mode === validModes[mode]
+  ) || [];
+
+  // If no recipes, don't render the section
+  if (!recipes || recipes.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-12 md:py-16 bg-background">
@@ -176,7 +184,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
 
             {/* Mode Toggle */}
             <div className="inline-flex gap-2 p-1 bg-muted rounded-lg">
-              {modes.map((modeName, idx) => (
+              {validModes.map((modeName, idx) => (
                 <Button
                   key={modeName}
                   variant={mode === idx ? 'default' : 'ghost'}
@@ -189,38 +197,39 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
             </div>
           </div>
 
+          {filteredRecipes.length > 0 ? (
             <div className="grid md:grid-cols-2 gap-6">
               {filteredRecipes.map((recipe) => (
                 <Card key={recipe.id} className="overflow-hidden shadow-soft">
                   <RecipeImage src={recipe.image} alt={recipe.title} />
                   <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3">{recipe.title}</h3>
+                    <h3 className="text-xl font-bold mb-3">{recipe.title}</h3>
 
-                  {/* Story (for refined recipes) */}
-                  {recipe.story && (
-                    <div className="mb-4 text-sm text-foreground/80 italic border-l-2 border-primary/30 pl-3">
-                      {recipe.story}
-                    </div>
-                  )}
+                    {/* Story (for refined recipes) */}
+                    {recipe.story && (
+                      <div className="mb-4 text-sm text-foreground/80 italic border-l-2 border-primary/30 pl-3">
+                        {recipe.story}
+                      </div>
+                    )}
 
-                  {/* Why Refined */}
-                  {recipe.whyRefined && (
-                    <div className="mb-4 bg-accent/10 p-3 rounded-lg text-sm">
-                      <strong>Why it's Refined:</strong> {recipe.whyRefined}
-                    </div>
-                  )}
+                    {/* Why Refined */}
+                    {recipe.whyRefined && (
+                      <div className="mb-4 bg-accent/10 p-3 rounded-lg text-sm">
+                        <strong>Why it's Refined:</strong> {recipe.whyRefined}
+                      </div>
+                    )}
 
-                  <Collapsible
-                    open={expandedRecipes.includes(recipe.id)}
-                    onOpenChange={() => toggleRecipe(recipe.id)}
-                  >
-                    <CollapsibleTrigger asChild>
-                      <Button variant="outline" size="sm" className="w-full mb-4">
-                        {expandedRecipes.includes(recipe.id) ? 'Hide' : 'Show'} Recipe
-                      </Button>
-                    </CollapsibleTrigger>
+                    <Collapsible
+                      open={expandedRecipes.includes(recipe.id)}
+                      onOpenChange={() => toggleRecipe(recipe.id)}
+                    >
+                      <CollapsibleTrigger asChild>
+                        <Button variant="outline" size="sm" className="w-full mb-4">
+                          {expandedRecipes.includes(recipe.id) ? 'Hide' : 'Show'} Recipe
+                        </Button>
+                      </CollapsibleTrigger>
 
-                    <CollapsibleContent className="space-y-4 animate-accordion-down">
+                      <CollapsibleContent className="space-y-4 animate-accordion-down">
                       {/* Ingredients */}
                       <div>
                         <h4 className="font-semibold mb-2">Ingredients</h4>
@@ -286,9 +295,14 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
                     </div>
                   )}
                 </CardContent>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 text-muted-foreground">
+              No {validModes[mode]} recipes available.
+            </div>
+          )}
         </div>
       </div>
     </section>
