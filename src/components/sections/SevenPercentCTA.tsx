@@ -87,11 +87,12 @@ export function SevenPercentCTA() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Left Column - Text Content */}
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            <div className="flex items-center justify-center gap-4 md:gap-6 mb-6">
+            <div className="flex items-center gap-4 mb-6">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                 Find Your 7% Town
               </h2>
@@ -131,6 +132,21 @@ export function SevenPercentCTA() {
                 Launch the Escape Map
               </a>
             </Button>
+          </div>
+
+          {/* Right Column - Interactive Map */}
+          <div className={`transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-border/20 bg-background/5 backdrop-blur-sm">
+              <iframe
+                src="https://api.maptiler.com/maps/01997db4-a344-7835-ae1a-eac04c4d8272/?key=S41LM8jeaS9EQcQkJCLr#6.0/40.74707/13.77413"
+                className="w-full h-[400px] md:h-[500px]"
+                title="Interactive Map of Italy's 7% Tax Towns"
+                loading="lazy"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>
