@@ -136,24 +136,56 @@ export function WineQuiz({ quizData }: WineQuizProps) {
   // Intro Screen
   if (stage === 'intro') {
     return (
-      <section className="py-12 md:py-16 bg-muted/20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-12 md:py-16 overflow-hidden">
+        {/* Wine-themed background */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{ backgroundImage: "url('/images/puglia/primitivo-grapes.jpg')" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <Wine className="h-16 w-16 mx-auto mb-6 text-primary" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              {quizData.title}
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
+            <Wine className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{quizData.title}</h2>
+            <p className="text-lg md:text-xl text-muted-foreground mb-6">
               {quizData.subtitle}
             </p>
+            
+            {/* Wine preview images to clarify purpose */}
+            <div className="flex justify-center gap-4 mb-8 opacity-90">
+              <div className="relative w-24 h-32 rounded-lg overflow-hidden shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                <img 
+                  src="/images/puglia/primitivo-puglia-wine.jpg" 
+                  alt="Primitivo wine" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative w-24 h-32 rounded-lg overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition-transform">
+                <img 
+                  src="/images/puglia/negroamaro-puglia-wine.jpg" 
+                  alt="Negroamaro wine" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative w-24 h-32 rounded-lg overflow-hidden shadow-lg transform -rotate-2 hover:rotate-0 transition-transform">
+                <img 
+                  src="/images/puglia/fiano-minutolo-puglia-wine.jpg" 
+                  alt="Fiano Minutolo wine" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+              Take a quick quiz to discover which Puglian wine matches your personality — complete with tasting notes and where to find it.
+            </p>
+            
             <Button 
               size="lg" 
               onClick={handleStart}
-              className="px-8 py-6 text-lg"
+              className="group"
               data-analytics-event="wine_quiz_start"
             >
               Start Quiz
-              <ChevronRight className="ml-2 h-5 w-5" />
+              <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
