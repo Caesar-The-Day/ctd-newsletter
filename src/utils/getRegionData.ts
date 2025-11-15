@@ -323,6 +323,22 @@ export interface RegionData {
       };
     };
     closing: string;
+    trains?: {
+      header: string;
+      subcopy: string;
+      networks: Array<{
+        id: string;
+        name: string;
+        icon: string;
+        color: string;
+        description: string;
+      }>;
+      closing: string;
+      travelMatrix: {
+        withinPuglia: Record<string, Record<string, string>>;
+        toMajorCities: Record<string, Record<string, string>>;
+      };
+    };
   };
   costOfLiving: {
     intro?: {

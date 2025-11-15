@@ -259,7 +259,8 @@ export default function RegionPage() {
           ? regionData.healthcare.intro 
           : regionData.healthcare.intro.lead,
         hospitals: regionData.healthcare.hospitals,
-        airports: regionData.healthcare.airports
+        airports: regionData.healthcare.airports,
+        trains: regionData.healthcare.trains
       }} />
 
       <CostCalculator 
