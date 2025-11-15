@@ -1039,35 +1039,40 @@
           "name": "Primitivo",
           "title": "Bold, Sun-Soaked, Unapologetically You",
           "description": "You're warm, expressive, and a little larger than life. Like Primitivo, you thrive in sunlight and good company. You're the friend people call when they want a guaranteed good night.",
-          "image": "/images/puglia/primitivo-puglia-wine.jpg"
+          "image": "/images/puglia/primitivo-puglia-wine.jpg",
+          "tastingNotes": "Plush, warm, and generous. Expect ripe blackberries, dark cherries, sweet spices, and a hint of sun-baked earth. Soft tannins and higher alcohol give it that unmistakable Pugliese warmth — the red you drink with everything grilled."
         },
         {
           "id": "negroamaro",
           "name": "Negroamaro",
           "title": "Deep Roots & Quiet Confidence",
           "description": "You have presence without trying. Like Negroamaro, you run deeper than first impressions, appreciating structure, depth, and traditions that hold their ground.",
-          "image": "/images/puglia/negroamaro-puglia-wine.jpg"
+          "image": "/images/puglia/negroamaro-puglia-wine.jpg",
+          "tastingNotes": "Dusky and brooding, but never heavy. Black plum, wild herbs, bitter orange peel, and a subtle saline kick from coastal vineyards. The finish has that characteristic gentle bitterness (amaro), which is why it pairs so well with rich, savory dishes."
         },
         {
           "id": "rosato",
           "name": "Rosato del Salento",
           "title": "Effortless Charm & Coastal Spirit",
           "description": "Bright, breezy, adaptable. You're the person who brings sunshine into the room and knows the value of a well-timed pause by the sea.",
-          "image": "/images/puglia/rosato-puglia-wine.jpg"
+          "image": "/images/puglia/rosato-puglia-wine.jpg",
+          "tastingNotes": "Light in color, bold in flavor — the opposite of those barely-there rosés from the north. Expect wild strawberries, watermelon rind, fresh herbs, and a bright minerality that tastes like a sea breeze. Dry, crisp, and built for hot evenings."
         },
         {
           "id": "nero-di-troia",
           "name": "Nero di Troia",
           "title": "The Slow Burn",
           "description": "Reserved at first, unforgettable later. You carry a quiet strength and a thoughtful way of moving through the world, just like this elegant, underrated Pugliese grape.",
-          "image": "/images/puglia/nero-di-troia-puglia-wine.jpg"
+          "image": "/images/puglia/nero-di-troia-puglia-wine.jpg",
+          "tastingNotes": "Structured, aromatic, a little dramatic. Notes of violet, black pepper, dark cherry, and tobacco leaf, with firmer tannins than most southern Italian reds. It's Puglia's sleeper powerhouse — elegant when made well, and surprisingly age-worthy."
         },
         {
           "id": "fiano",
           "name": "Fiano Minutolo",
           "title": "Aromatic, Creative & Unexpected",
           "description": "Curious, lively, always up for something new — you're the spark that keeps things interesting. Fiano Minutolo matches your energy: floral, vibrant, and full of personality.",
-          "image": "/images/puglia/fiano-minutolo-puglia-wine.jpg"
+          "image": "/images/puglia/fiano-minutolo-puglia-wine.jpg",
+          "tastingNotes": "Perfumed and vibrant, almost exotic. Aromas of citrus blossom, mandarin, green apple, and Mediterranean herbs. Fresh, zesty, and lightly floral with an aromatic lift that feels closer to Muscat or Gewürztraminer than typical Fiano. A perfect coastal white."
         }
       ]
     }
