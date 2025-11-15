@@ -1350,7 +1350,9 @@
             "Lecce": "1 hr 30 min",
             "Trani": "40 min",
             "Barletta": "50 min",
-            "Foggia": "1 hr 45 min"
+            "Foggia": "1 hr 45 min",
+            "Taranto": "1 hr 30 min",
+            "Martina Franca": "1 hr 50 min"
           },
           "Lecce": {
             "Brindisi": "35 min",
@@ -1360,7 +1362,9 @@
             "Bari": "1 hr 30 min",
             "Gallipoli": "25–35 min",
             "Otranto": "30–40 min",
-            "Martina Franca": "1 hr 40 min"
+            "Martina Franca": "1 hr 40 min (FSE)",
+            "Taranto": "1 hr 50 min",
+            "Foggia": "3 hr 15 min"
           },
           "Brindisi": {
             "Lecce": "35 min",
@@ -1368,7 +1372,72 @@
             "Ostuni": "20 min",
             "Monopoli": "40 min",
             "Polignano a Mare": "45 min",
-            "Taranto": "1 hr 20 min"
+            "Taranto": "1 hr 20 min",
+            "Foggia": "2 hr 30 min",
+            "Trani": "1 hr 30 min"
+          },
+          "Foggia": {
+            "Bari": "1 hr 45 min",
+            "Lecce": "3 hr 15 min",
+            "Brindisi": "2 hr 30 min",
+            "Trani": "45 min",
+            "Barletta": "35 min",
+            "Taranto": "2 hr 20 min",
+            "Monopoli": "2 hr 10 min"
+          },
+          "Ostuni": {
+            "Bari": "50 min",
+            "Lecce": "55 min",
+            "Brindisi": "20 min",
+            "Monopoli": "25 min",
+            "Polignano a Mare": "35 min",
+            "Taranto": "1 hr",
+            "Martina Franca": "30 min (FSE)"
+          },
+          "Monopoli": {
+            "Bari": "30 min",
+            "Polignano a Mare": "10 min",
+            "Ostuni": "25 min",
+            "Brindisi": "40 min",
+            "Lecce": "1 hr 20 min",
+            "Trani": "1 hr",
+            "Taranto": "1 hr 15 min",
+            "Foggia": "2 hr 10 min"
+          },
+          "Taranto": {
+            "Bari": "1 hr 30 min",
+            "Brindisi": "1 hr 20 min",
+            "Lecce": "1 hr 50 min",
+            "Ostuni": "1 hr",
+            "Monopoli": "1 hr 15 min",
+            "Foggia": "2 hr 20 min",
+            "Martina Franca": "45 min"
+          },
+          "Trani": {
+            "Bari": "40 min",
+            "Barletta": "10 min",
+            "Foggia": "45 min",
+            "Monopoli": "1 hr",
+            "Polignano a Mare": "50 min",
+            "Brindisi": "1 hr 30 min",
+            "Lecce": "2 hr"
+          },
+          "Martina Franca": {
+            "Lecce": "1 hr 40 min (FSE)",
+            "Ostuni": "30 min (FSE)",
+            "Taranto": "45 min",
+            "Bari": "1 hr 50 min",
+            "Brindisi": "1 hr",
+            "Locorotondo": "15 min (FSE)",
+            "Alberobello": "20 min (FSE)"
+          },
+          "Gallipoli": {
+            "Lecce": "30 min",
+            "Otranto": "1 hr",
+            "Brindisi": "1 hr 10 min",
+            "Bari": "2 hr 15 min",
+            "Taranto": "1 hr 30 min",
+            "Ostuni": "1 hr 25 min"
           }
         },
         "toMajorCities": {
@@ -1399,6 +1468,19 @@
             "Milano": "6 hr 30 min",
             "Ancona": "1 hr 45 min",
             "Pescara": "1 hr 15 min"
+          },
+          "Brindisi": {
+            "Roma": "5 hr 15 min",
+            "Napoli": "4 hr",
+            "Milano": "8 hr 30 min",
+            "Bologna": "7 hr 15 min",
+            "Firenze": "6 hr 45 min"
+          },
+          "Taranto": {
+            "Roma": "5 hr 45 min",
+            "Napoli": "4 hr 30 min",
+            "Milano": "9 hr",
+            "Salerno": "3 hr 15 min"
           }
         }
       }
