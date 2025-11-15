@@ -246,6 +246,108 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
     buses: 'hsl(280 65% 60%)',
   };
 
+  const getStationSize = (type: string) => {
+    switch (type) {
+      case 'major-hub': return 10;
+      case 'regional-hub': return 7;
+      default: return 5;
+    }
+  };
+
+  const getLabelSize = (type: string) => {
+    switch (type) {
+      case 'major-hub': return 'text-[14px] md:text-[16px]';
+      case 'regional-hub': return 'text-[11px] md:text-[13px]';
+      default: return 'text-[9px] md:text-[11px]';
+    }
+  };
+
+  const StationDialog = () => (
+    <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+      <DialogHeader>
+        <div className="flex items-center gap-3 mb-2">
+          <Train className="w-8 h-8 text-primary" />
+          <DialogTitle className="text-2xl">{selectedStation?.name}</DialogTitle>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <Badge variant="outline" className="capitalize">{selectedStation?.type.replace('-', ' ')}</Badge>
+          <Badge variant="secondary">{selectedStation?.population} residents</Badge>
+          <Badge>{selectedStation?.dailyTrains} trains/day</Badge>
+        </div>
+      </DialogHeader>
+
+      {/* Network Badges */}
+      <div className="space-y-2">
+        <h4 className="font-semibold text-sm text-muted-foreground">Available Networks</h4>
+        <div className="flex gap-2 flex-wrap">
+          {selectedStation?.networks.map(net => (
+            <Badge
+              key={net}
+              style={{ backgroundColor: networkColors[net] }}
+              className="text-white"
+            >
+              {networks.find(n => n.id === net)?.name}
+            </Badge>
+          ))}
+        </div>
+      </div>
+
+      {/* Key Connections */}
+      <div className="space-y-3">
+        <h4 className="font-semibold flex items-center gap-2">
+          <MapPin className="w-4 h-4" />
+          Direct Connections
+        </h4>
+        {selectedStation?.connections.map((conn, idx) => (
+          <div key={idx} className="flex justify-between items-center p-3 rounded-lg bg-muted/50">
+            <div>
+              <p className="font-medium">{conn.to}</p>
+              <p className="text-sm text-muted-foreground">{conn.frequency}</p>
+            </div>
+            <div className="text-right">
+              <p className="font-semibold text-primary">{conn.time}</p>
+              <Badge variant="outline" className="text-xs">{conn.network}</Badge>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Highlights */}
+      <div className="space-y-2">
+        <h4 className="font-semibold">Station Highlights</h4>
+        <ul className="space-y-1">
+          {selectedStation?.highlights.map((highlight, idx) => (
+            <li key={idx} className="text-sm flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Accessibility */}
+      <div className="space-y-2 pt-4 border-t">
+        <h4 className="font-semibold text-sm">Accessibility & Services</h4>
+        <div className="grid grid-cols-3 gap-2 text-sm">
+          <div className={selectedStation?.accessibility.staffed ? 'text-green-600' : 'text-muted-foreground'}>
+            {selectedStation?.accessibility.staffed ? '✓' : '✗'} Staffed
+          </div>
+          <div className={selectedStation?.accessibility.ticketOffice ? 'text-green-600' : 'text-muted-foreground'}>
+            {selectedStation?.accessibility.ticketOffice ? '✓' : '✗'} Ticket Office
+          </div>
+          <div className={selectedStation?.accessibility.elevator ? 'text-green-600' : 'text-muted-foreground'}>
+            {selectedStation?.accessibility.elevator ? '✓' : '✗'} Elevator
+          </div>
+        </div>
+      </div>
+
+      {/* Footer tip */}
+      <div className="bg-primary/5 rounded-lg p-3 text-sm italic text-muted-foreground">
+        💡 Tip: Check Trenitalia.com or FSEonline.it for live schedules
+      </div>
+    </DialogContent>
+  );
+
   return (
     <div className="py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-6xl mx-auto px-4">
@@ -257,8 +359,8 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
             </h3>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Color-coded lines show how Puglia's four rail operators and regional buses weave through the region. 
-            Toggle networks to see specific routes.
+            Click any station to see detailed connections, schedules, and accessibility info. 
+            Toggle networks to explore specific routes.
           </p>
         </div>
 
@@ -408,45 +510,59 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
               </g>
             )}
 
-            {/* Station markers */}
-            {cities.map((city, idx) => {
-              const hasVisibleNetwork = city.networks.some(n => isVisible(n));
+            {/* Station markers with permanent labels */}
+            {stations.map((station, idx) => {
+              const hasVisibleNetwork = station.networks.some(n => isVisible(n));
               if (!hasVisibleNetwork) return null;
+              
+              const isSelected = selectedStation?.name === station.name;
+              const radius = getStationSize(station.type);
 
               return (
-                <g key={idx} className="station-marker group cursor-pointer">
+                <g key={idx} className="station-marker">
+                  {/* Pulse ring for selected station */}
+                  {isSelected && (
+                    <circle
+                      cx={station.x}
+                      cy={station.y}
+                      r="15"
+                      fill="none"
+                      stroke="hsl(var(--primary))"
+                      strokeWidth="2"
+                      opacity="0.5"
+                      className="animate-ping"
+                    />
+                  )}
+                  
+                  {/* Station marker */}
                   <circle
-                    cx={city.x}
-                    cy={city.y}
-                    r="6"
+                    cx={station.x}
+                    cy={station.y}
+                    r={radius}
                     fill="hsl(var(--background))"
-                    stroke="hsl(var(--foreground))"
-                    strokeWidth="2"
-                    className="transition-all duration-300 hover:scale-150 hover:fill-primary"
+                    stroke={isSelected ? 'hsl(var(--primary))' : 'hsl(var(--foreground))'}
+                    strokeWidth={isSelected ? '3' : '2'}
+                    onClick={() => setSelectedStation(station)}
+                    className={`cursor-pointer transition-all duration-300 hover:scale-150 ${isSelected ? 'scale-150' : ''}`}
                     style={{
-                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                      filter: isSelected 
+                        ? 'drop-shadow(0 0 8px hsl(var(--primary)))' 
+                        : 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
                     }}
                   />
-                  <circle
-                    cx={city.x}
-                    cy={city.y}
-                    r="8"
-                    fill="hsl(var(--primary))"
-                    opacity="0"
-                    className="animate-ping"
-                    style={{
-                      animationDuration: `${2 + idx * 0.3}s`,
-                    }}
-                  />
-                  {/* City label */}
+                  
+                  {/* Permanent station label */}
                   <text
-                    x={city.x}
-                    y={city.y - 15}
+                    x={station.x}
+                    y={station.y - (radius + 8)}
                     textAnchor="middle"
-                    className="text-[10px] font-semibold fill-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ pointerEvents: 'none' }}
+                    className={`${getLabelSize(station.type)} font-semibold fill-foreground pointer-events-none`}
+                    style={{
+                      textShadow: '0 0 3px hsl(var(--background)), 0 0 5px hsl(var(--background))',
+                      paintOrder: 'stroke fill'
+                    }}
                   >
-                    {city.name}
+                    {station.name}
                   </text>
                 </g>
               );
@@ -457,10 +573,23 @@ export function PugliaRailNetworkMap({ networks }: PugliaRailNetworkMapProps) {
         {/* Legend */}
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground italic">
-            Hover over station markers to see city names. Lines show approximate routes—not exact paths.
+            Click station markers to see detailed connections and schedules. Lines show approximate routes—not exact paths.
           </p>
         </div>
       </div>
+
+      {/* Station Detail Modal */}
+      {isMobile ? (
+        <Sheet open={!!selectedStation} onOpenChange={() => setSelectedStation(null)}>
+          <SheetContent side="bottom" className="h-[70vh] overflow-y-auto">
+            <StationDialog />
+          </SheetContent>
+        </Sheet>
+      ) : (
+        <Dialog open={!!selectedStation} onOpenChange={() => setSelectedStation(null)}>
+          <StationDialog />
+        </Dialog>
+      )}
     </div>
   );
 }
