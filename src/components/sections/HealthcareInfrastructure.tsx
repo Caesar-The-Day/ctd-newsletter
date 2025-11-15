@@ -1,8 +1,10 @@
-import React from 'react';
-import { Building2, Plane, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building2, Plane, ExternalLink, TrainFront, Train, Mountain, BusFront, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PugliaCityReachMap } from './PugliaCityReachMap';
 import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
@@ -24,10 +26,46 @@ interface HealthcareInfrastructureProps {
       mapLink?: string;
       description?: string;
     }>;
+    trains?: {
+      header: string;
+      subcopy: string;
+      networks: Array<{
+        id: string;
+        name: string;
+        icon: string;
+        color: string;
+        description: string;
+      }>;
+      closing: string;
+      travelMatrix: {
+        withinPuglia: Record<string, Record<string, string>>;
+        toMajorCities: Record<string, Record<string, string>>;
+      };
+    };
   };
 }
 
 export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructureProps) {
+  const [travelMode, setTravelMode] = useState<'withinPuglia' | 'toMajorCities'>('withinPuglia');
+  const [origin, setOrigin] = useState<string>('');
+  const [destination, setDestination] = useState<string>('');
+  
+  const trains = healthcare.trains;
+  const travelTime = origin && destination && trains
+    ? trains.travelMatrix[travelMode]?.[origin]?.[destination]
+    : null;
+
+  const getIconComponent = (iconName: string) => {
+    const icons: Record<string, any> = {
+      'train-front': TrainFront,
+      'train': Train,
+      'train-track': Train,
+      'mountain': Mountain,
+      'bus-front': BusFront,
+    };
+    return icons[iconName] || Train;
+  };
+
   return (
     <section className="py-16 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
@@ -41,11 +79,12 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
           </p>
         </div>
 
-        {/* Tabs for Hospitals and Airports */}
+        {/* Tabs for Hospitals, Airports, and Trains */}
         <Tabs defaultValue="hospitals" className="mb-16">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-8">
             <TabsTrigger value="hospitals">Hospitals</TabsTrigger>
             <TabsTrigger value="airports">Airports</TabsTrigger>
+            <TabsTrigger value="trains">Trains</TabsTrigger>
           </TabsList>
 
           <TabsContent value="hospitals">
@@ -138,6 +177,171 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="trains">
+            {trains && (
+              <div className="space-y-12">
+                {/* Animated Train Header */}
+                <div className="relative overflow-hidden bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-xl p-8 border border-primary/20">
+                  <div className="absolute top-4 right-4 animate-[slide-train_20s_linear_infinite]">
+                    <TrainFront className="w-12 h-12 text-primary opacity-30" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-foreground mb-4">
+                    {trains.header}
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed max-w-4xl">
+                    {trains.subcopy}
+                  </p>
+                </div>
+
+                {/* Transit Networks Accordion */}
+                <Accordion type="single" collapsible className="space-y-4">
+                  {trains.networks.map((network, idx) => {
+                    const IconComponent = getIconComponent(network.icon);
+                    return (
+                      <AccordionItem
+                        key={network.id}
+                        value={network.id}
+                        className="border rounded-lg px-6 hover:border-primary/50 transition-colors"
+                      >
+                        <AccordionTrigger className="hover:no-underline py-6">
+                          <div className="flex items-center gap-4 text-left">
+                            <div
+                              className="p-3 rounded-lg"
+                              style={{ backgroundColor: `${network.color.replace('hsl(var(--primary))', 'hsl(var(--primary) / 0.1)')}15` }}
+                            >
+                              <IconComponent 
+                                className="w-6 h-6" 
+                                style={{ color: network.color }}
+                              />
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-lg">{network.name}</h4>
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pt-2 pb-6">
+                          <p className="text-muted-foreground leading-relaxed">
+                            {network.description}
+                          </p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    );
+                  })}
+                </Accordion>
+
+                {/* Closing Statement */}
+                <div className="text-center py-6 px-8 bg-muted/30 rounded-lg border border-border/50">
+                  <p className="text-lg font-medium text-foreground italic">
+                    {trains.closing}
+                  </p>
+                </div>
+
+                {/* Interactive Travel Time Selector */}
+                <div className="bg-card border border-border rounded-xl p-8 shadow-sm">
+                  <h4 className="text-2xl font-bold text-foreground mb-6 text-center">
+                    Train Travel Time Matrix
+                  </h4>
+                  
+                  {/* Mode Toggle */}
+                  <div className="flex justify-center gap-4 mb-8">
+                    <Button
+                      variant={travelMode === 'withinPuglia' ? 'default' : 'outline'}
+                      onClick={() => {
+                        setTravelMode('withinPuglia');
+                        setOrigin('');
+                        setDestination('');
+                      }}
+                      className="min-w-[160px]"
+                    >
+                      Within Puglia
+                    </Button>
+                    <Button
+                      variant={travelMode === 'toMajorCities' ? 'default' : 'outline'}
+                      onClick={() => {
+                        setTravelMode('toMajorCities');
+                        setOrigin('');
+                        setDestination('');
+                      }}
+                      className="min-w-[160px]"
+                    >
+                      To Major Cities
+                    </Button>
+                  </div>
+
+                  {/* Origin & Destination Selectors */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground">
+                        <MapPin className="inline w-4 h-4 mr-1" />
+                        Origin
+                      </label>
+                      <Select value={origin} onValueChange={setOrigin}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select departure city" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.keys(trains.travelMatrix[travelMode]).map((city) => (
+                            <SelectItem key={city} value={city}>
+                              {city}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground">
+                        <MapPin className="inline w-4 h-4 mr-1" />
+                        Destination
+                      </label>
+                      <Select 
+                        value={destination} 
+                        onValueChange={setDestination}
+                        disabled={!origin}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder={origin ? "Select arrival city" : "Choose origin first"} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {origin && trains.travelMatrix[travelMode][origin] &&
+                            Object.keys(trains.travelMatrix[travelMode][origin]).map((city) => (
+                              <SelectItem key={city} value={city}>
+                                {city}
+                              </SelectItem>
+                            ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  {/* Travel Time Result */}
+                  {travelTime && (
+                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 rounded-lg p-8 text-center animate-fade-in">
+                      <div className="flex items-center justify-center gap-4 mb-3">
+                        <TrainFront className="w-8 h-8 text-primary animate-pulse" />
+                        <p className="text-sm font-medium text-muted-foreground">
+                          {origin} → {destination}
+                        </p>
+                      </div>
+                      <p className="text-4xl font-bold text-primary mb-2">
+                        {travelTime}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Estimated travel time
+                      </p>
+                    </div>
+                  )}
+
+                  {!travelTime && origin && destination && (
+                    <div className="text-center py-8 text-muted-foreground">
+                      <p>No direct route available for this selection.</p>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </TabsContent>

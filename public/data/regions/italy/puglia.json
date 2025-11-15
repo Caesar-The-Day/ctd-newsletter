@@ -1298,7 +1298,111 @@
         "mapLink": "https://maps.app.goo.gl/3NGsGbHVrMP2azgK8",
         "description": "Regional airport in northern Puglia"
       }
-    ]
+    ],
+    "trains": {
+      "header": "Puglia Moves Differently — Here's How to Read the System",
+      "subcopy": "Puglia doesn't have one unified rail system; it has four overlapping networks that weave through the region like mismatched but surprisingly reliable threads. Locals navigate them effortlessly because they grew up with the quirks. Retirees… usually don't. So here's the simple, honest version of how mobility actually works here.",
+      "networks": [
+        {
+          "id": "trenitalia",
+          "name": "Trenitalia",
+          "icon": "train-front",
+          "color": "hsl(var(--primary))",
+          "description": "This is Italy's national rail powerhouse and the backbone of long-distance travel. High-speed Frecce trains link Bari to Rome and the north, with Intercity and Regional trains covering the rest. If you're headed across Italy, Trenitalia is the one doing the heavy lifting."
+        },
+        {
+          "id": "fse",
+          "name": "Ferrovie del Sud Est (FSE)",
+          "icon": "train",
+          "color": "hsl(142 76% 36%)",
+          "description": "The rural soul of Puglia's rail network. They run slower, they wander through tiny towns no high-speed train will ever see, and they're the reason you can live in the Valle d'Itria without a car. Quirky, yes. Essential, absolutely."
+        },
+        {
+          "id": "ferrotramviaria",
+          "name": "Ferrotramviaria",
+          "icon": "train-track",
+          "color": "hsl(217 91% 60%)",
+          "description": "Best known for operating the Bari Airport line—fast, punctual, sanity-saving—and the north-Bari commuter corridor toward Barletta. If you live in Trani, Barletta, or Andria, this is your daily lifeline."
+        },
+        {
+          "id": "fal",
+          "name": "Ferrovie Appulo Lucane (FAL)",
+          "icon": "mountain",
+          "color": "hsl(24 95% 53%)",
+          "description": "Heads inland toward Basilicata (Matera included) and serves smaller communities between Bari and the interior. It's the route you'll use if you're the type who prefers hilltowns over seaside."
+        },
+        {
+          "id": "buses",
+          "name": "Regional Buses (COTRAP, STP)",
+          "icon": "bus-front",
+          "color": "hsl(280 65% 60%)",
+          "description": "Where rails stop, buses take over. Puglia's regional bus networks actually fill the gaps well—particularly for smaller towns and Sunday travel when trains thin out. Retirees underestimate this part; locals rely on it."
+        }
+      ],
+      "closing": "You won't starve for transit in Puglia. You'll just use more than one system.",
+      "travelMatrix": {
+        "withinPuglia": {
+          "Bari": {
+            "Polignano a Mare": "25 min",
+            "Monopoli": "30 min",
+            "Ostuni": "50 min",
+            "Brindisi": "1 hr",
+            "Lecce": "1 hr 30 min",
+            "Trani": "40 min",
+            "Barletta": "50 min",
+            "Foggia": "1 hr 45 min"
+          },
+          "Lecce": {
+            "Brindisi": "35 min",
+            "Ostuni": "55 min",
+            "Monopoli": "1 hr 20 min",
+            "Polignano a Mare": "1 hr 30 min",
+            "Bari": "1 hr 30 min",
+            "Gallipoli": "25–35 min",
+            "Otranto": "30–40 min",
+            "Martina Franca": "1 hr 40 min"
+          },
+          "Brindisi": {
+            "Lecce": "35 min",
+            "Bari": "1 hr",
+            "Ostuni": "20 min",
+            "Monopoli": "40 min",
+            "Polignano a Mare": "45 min",
+            "Taranto": "1 hr 20 min"
+          }
+        },
+        "toMajorCities": {
+          "Bari Centrale": {
+            "Napoli": "3 hr 15 min",
+            "Roma": "4 hr 00 min",
+            "Firenze": "6 hr 00 min",
+            "Bologna": "6 hr 30 min",
+            "Milano": "7 hr 45 min",
+            "Torino": "8 hr 30 min",
+            "Ancona": "3 hr 00 min",
+            "Pescara": "2 hr 30 min"
+          },
+          "Lecce": {
+            "Napoli": "4 hr 30 min",
+            "Roma": "5 hr 30 min",
+            "Firenze": "7 hr 15 min",
+            "Bologna": "7 hr 45 min",
+            "Milano": "9 hr 00 min",
+            "Ancona": "4 hr 30 min",
+            "Pescara": "3 hr 45 min"
+          },
+          "Foggia": {
+            "Roma": "2 hr 40 min",
+            "Napoli": "2 hr 30 min",
+            "Firenze": "5 hr 00 min",
+            "Bologna": "5 hr 30 min",
+            "Milano": "6 hr 30 min",
+            "Ancona": "1 hr 45 min",
+            "Pescara": "1 hr 15 min"
+          }
+        }
+      }
+    }
   },
   "costOfLiving": {
     "intro": {

@@ -109,6 +109,10 @@ export default {
           "50%": { transform: "translateX(-5px) translateY(40px) rotate(-3deg)" },
           "75%": { transform: "translateX(8px) translateY(60px) rotate(4deg)" },
         },
+        "slide-train": {
+          "0%": { transform: "translateX(-200%)" },
+          "100%": { transform: "translateX(200vw)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.3s ease-out",
@@ -120,6 +124,7 @@ export default {
         "wave-drift": "wave-drift 15s ease-in-out infinite",
         "olive-drift": "olive-drift 20s linear infinite",
         "wildflower-dance": "wildflower-dance 12s ease-in-out infinite",
+        "slide-train": "slide-train 20s linear infinite",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
