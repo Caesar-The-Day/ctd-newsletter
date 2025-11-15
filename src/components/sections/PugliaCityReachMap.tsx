@@ -15,47 +15,128 @@ L.Icon.Default.mergeOptions({
 interface CityData {
   name: string;
   coords: [number, number];
+  tagline: string;
   hospitals: string[];
   airport: string;
-  ferryRoutes?: string;
-  trains: string;
-  coastAccess: string;
+  ferryRoutes: string[];
+  trains: string[];
+  coastAccess: string[];
+  notes: string[];
 }
 
 const cities: CityData[] = [
   {
     name: 'Bari',
     coords: [41.1171, 16.8719],
-    hospitals: ['Polyclinic', 'Mater Dei'],
-    airport: 'Bari BRI (15–25 mins)',
-    ferryRoutes: 'Greece, Albania, Croatia',
-    trains: 'Fastest connections in Puglia',
-    coastAccess: 'Polignano/Monopoli 30–40 mins'
+    tagline: "Your access hub in Puglia — the region's best-connected city",
+    hospitals: [
+      'Policlinico di Bari (largest teaching hospital in Southern Italy)',
+      'Mater Dei Hospital (private, high-quality)'
+    ],
+    airport: 'Bari–Palese BRI — 15–25 minutes from most neighborhoods',
+    ferryRoutes: [
+      'Croatia (Dubrovnik)',
+      'Albania (Durres)',
+      'Greece (Patras, Igoumenitsa)'
+    ],
+    trains: [
+      'Fastest connections in Puglia',
+      'High-speed Frecce + Intercity to Rome, Bologna, Milano',
+      'Airport Metro line (Ferrotramviaria)'
+    ],
+    coastAccess: [
+      'Polignano a Mare / Monopoli — 30–40 minutes',
+      'Torre a Mare — 15 minutes'
+    ],
+    notes: [
+      'Best infrastructure in the region',
+      'Excellent medical coverage',
+      'Easy for visitors to fly in/out',
+      'Urban lifestyle; most walkable districts are Murat, Libertà, Madonnella'
+    ]
   },
   {
     name: 'Brindisi',
     coords: [40.6320, 17.9419],
-    hospitals: ['Brindisi Perrino'],
-    airport: 'Brindisi BDS',
-    ferryRoutes: 'Greece',
-    trains: 'Southbound to Lecce',
-    coastAccess: 'Torre Guaceto 20 mins'
+    tagline: 'Compact, efficient, and perfectly placed for Salento',
+    hospitals: [
+      'Ospedale Antonio Perrino (main public hospital)'
+    ],
+    airport: 'Brindisi–Salento BDS — extremely easy and uncrowded',
+    ferryRoutes: [
+      'Greece (Igoumenitsa)',
+      'Seasonal lines to Albania'
+    ],
+    trains: [
+      'Northbound to Bari',
+      'Southbound to Lecce',
+      'Good regional coverage along the Adriatic mid-coast'
+    ],
+    coastAccess: [
+      'Torre Guaceto Nature Reserve — 20 minutes',
+      'Brindisi beaches — 10–15 minutes'
+    ],
+    notes: [
+      'Surprisingly good for frequent flyers',
+      'Easy access to countryside and beaches',
+      'Compact city center with moderate walkability'
+    ]
   },
   {
     name: 'Lecce',
     coords: [40.3515, 18.1750],
-    hospitals: ['Lecce Vito Fazzi'],
-    airport: '35–40 mins to BDS',
-    trains: 'Local lines into Salento',
-    coastAccess: 'Otranto 30 mins; Gallipoli 35 mins'
+    tagline: "Salento's cultural capital — refined, walkable, beautifully connected",
+    hospitals: [
+      'Ospedale Vito Fazzi (main provincial hospital)',
+      'Several private clinics in city center'
+    ],
+    airport: 'Brindisi BDS — 35–40 minutes (shuttle or train → bus combo)',
+    ferryRoutes: [
+      'Via Brindisi (35–40 minutes away)'
+    ],
+    trains: [
+      'Regional lines across Salento',
+      'Direct trains to Bari and north',
+      'FSE lines to Otranto, Gallipoli, Nardò, Gagliano'
+    ],
+    coastAccess: [
+      'Otranto — 30 minutes',
+      'Gallipoli — 35–40 minutes',
+      'Torre dell\'Orso — 25–30 minutes'
+    ],
+    notes: [
+      'One of Italy\'s most walkable small cities',
+      'Excellent cafes, culture, and winter livability',
+      'The perfect base for exploring both Salento coasts'
+    ]
   },
   {
     name: 'Taranto',
     coords: [40.4764, 17.2294],
-    hospitals: ['Santissima Annunziata'],
-    airport: 'Bari or Brindisi (1h10+)',
-    trains: 'Good regional connections',
-    coastAccess: 'Marina di Pulsano 20–25 mins'
+    tagline: 'A major city with strong services and underrated coastal access',
+    hospitals: [
+      'Ospedale SS. Annunziata (largest public hospital)',
+      'Moscati Hospital (specialty care)'
+    ],
+    airport: 'Bari BRI or Brindisi BDS — approx. 1h10–1h20. Military airport (Grottaglie) may become civilian in the future',
+    ferryRoutes: [
+      'Occasional seasonal routes; Bari/Brindisi are your real ferry hubs'
+    ],
+    trains: [
+      'Good regional links toward Bari, Brindisi, Metaponto',
+      'Direct trains to Naples (Intercity)',
+      'Many daily commuter lines to the Ionian towns'
+    ],
+    coastAccess: [
+      'Marina di Pulsano — 20–25 minutes',
+      'San Pietro in Bevagna — 40 minutes',
+      'Ionian Sea beaches are warmer + calmer than Adriatic side'
+    ],
+    notes: [
+      'Big-city services at lower cost',
+      'Beautiful Ionian beaches nearby',
+      'Car is helpful for daily life compared to Bari/Lecce'
+    ]
   }
 ];
 
@@ -226,7 +307,7 @@ export const PugliaCityReachMap: React.FC = () => {
               <div className="bg-card border border-border rounded-lg p-6 space-y-6 animate-fade-in">
                 <div className="border-b border-border pb-4">
                   <h4 className="text-2xl font-bold text-foreground mb-2">{selectedCity.name}</h4>
-                  <p className="text-sm text-muted-foreground">Your access hub in Puglia</p>
+                  <p className="text-sm text-muted-foreground italic">{selectedCity.tagline}</p>
                 </div>
 
                 {/* Hospitals */}
@@ -235,7 +316,7 @@ export const PugliaCityReachMap: React.FC = () => {
                     <Building2 className="w-5 h-5" />
                     <span>Hospitals</span>
                   </div>
-                  <ul className="space-y-1 pl-7">
+                  <ul className="space-y-1 pl-7 list-disc list-inside">
                     {selectedCity.hospitals.map((hospital, idx) => (
                       <li key={idx} className="text-sm text-foreground">{hospital}</li>
                     ))}
@@ -252,13 +333,17 @@ export const PugliaCityReachMap: React.FC = () => {
                 </div>
 
                 {/* Ferry Routes */}
-                {selectedCity.ferryRoutes && (
+                {selectedCity.ferryRoutes.length > 0 && (
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-primary font-medium">
                       <Ship className="w-5 h-5" />
                       <span>Ferry Routes</span>
                     </div>
-                    <p className="text-sm text-foreground pl-7">{selectedCity.ferryRoutes}</p>
+                    <ul className="space-y-1 pl-7 list-disc list-inside">
+                      {selectedCity.ferryRoutes.map((route, idx) => (
+                        <li key={idx} className="text-sm text-foreground">{route}</li>
+                      ))}
+                    </ul>
                   </div>
                 )}
 
@@ -268,7 +353,11 @@ export const PugliaCityReachMap: React.FC = () => {
                     <Train className="w-5 h-5" />
                     <span>Trains</span>
                   </div>
-                  <p className="text-sm text-foreground pl-7">{selectedCity.trains}</p>
+                  <ul className="space-y-1 pl-7 list-disc list-inside">
+                    {selectedCity.trains.map((train, idx) => (
+                      <li key={idx} className="text-sm text-foreground">{train}</li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* Coast Access */}
@@ -277,7 +366,21 @@ export const PugliaCityReachMap: React.FC = () => {
                     <MapPin className="w-5 h-5" />
                     <span>Coast Access</span>
                   </div>
-                  <p className="text-sm text-foreground pl-7">{selectedCity.coastAccess}</p>
+                  <ul className="space-y-1 pl-7 list-disc list-inside">
+                    {selectedCity.coastAccess.map((access, idx) => (
+                      <li key={idx} className="text-sm text-foreground">{access}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Notes for Retirees */}
+                <div className="space-y-2 border-t border-border pt-4">
+                  <h5 className="font-medium text-foreground">Notes for Retirees</h5>
+                  <ul className="space-y-1 pl-4 list-disc list-inside">
+                    {selectedCity.notes.map((note, idx) => (
+                      <li key={idx} className="text-sm text-muted-foreground">{note}</li>
+                    ))}
+                  </ul>
                 </div>
 
                 <Button
