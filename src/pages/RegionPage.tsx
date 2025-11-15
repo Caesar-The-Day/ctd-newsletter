@@ -86,7 +86,7 @@ export default function RegionPage() {
       title: 'Retiring in Puglia | Veni. Vidi. Vici. Region Guide',
       description: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
       keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
-      ogImage: 'https://news.caesartheday.com/images/puglia-og.jpg',
+      ogImage: 'https://news.caesartheday.com/puglia-og.jpg',
       ogDescription: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
     }
   };
