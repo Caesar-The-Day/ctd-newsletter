@@ -1512,7 +1512,8 @@
     ],
     "finalTake": {
       "headline": "The Verdict",
-      "main": "Puglia isn't trying to impress you. It isn't hurried, polished, or curated. It just is — warm, generous, affordable, and deeply human. Life here slows to a pace where meals matter, neighbors notice you, and days have texture again. If you're looking for a place where your money stretches and your pulse settles, Puglia doesn't just make sense. It makes you wonder why you waited so long."
+      "text": "Puglia isn't trying to impress you. It isn't hurried, polished, or curated. It just is — warm, generous, affordable, and deeply human. Life here slows to a pace where meals matter, neighbors notice you, and days have texture again. If you're looking for a place where your money stretches and your pulse settles, Puglia doesn't just make sense. It makes you wonder why you waited so long.",
+      "conclusion": ""
     }
   },
   "closing": {
