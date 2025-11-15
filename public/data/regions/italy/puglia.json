@@ -1234,7 +1234,7 @@
         "name": "Azienda Ospedaliero‑Universitaria Policlinico di Bari",
         "location": "Bari",
         "link": "https://www.sanita.puglia.it/web/policlinico-di-bari-ospedale-giovanni-xxiii/-/azienda-ospedaliero-universitaria-consorziale-policlinico",
-        "mapLink": "https://goo.gl/maps/BariPoliclinico",
+        "mapLink": "https://maps.app.goo.gl/nBkejC71XsZvRVVW7",
         "specialties": ["Cardiology", "Oncology", "Neurology", "Emergency"],
         "emergency": true
       },
@@ -1242,7 +1242,7 @@
         "name": "Azienda Ospedaliera ‑ Universitaria Vito Fazzi",
         "location": "Lecce",
         "link": "https://www.sanita.puglia.it/web/asl-lecce/-/ospedale-vito-fazzi-",
-        "mapLink": "https://goo.gl/maps/LecceVitoFazzi",
+        "mapLink": "https://maps.app.goo.gl/q9VcDzTf1c2z7vYZ6",
         "specialties": ["General Medicine", "Surgery", "Emergency"],
         "emergency": true
       },
@@ -1250,7 +1250,7 @@
         "name": "Ospedale Cardinale G. Panico – Casa di Betania",
         "location": "Tricase (Lecce province)",
         "link": "https://www.piafondazionepanico.it/azienda",
-        "mapLink": "https://goo.gl/maps/TricasePanico",
+        "mapLink": "https://maps.app.goo.gl/f2SDxnfgJLFv15YG8",
         "specialties": ["Cardiology", "Orthopedics", "Rehabilitation"],
         "emergency": true
       },
@@ -1258,7 +1258,7 @@
         "name": "Policlinico Foggia",
         "location": "Foggia",
         "link": "https://bollinirosa.it/ospedale/azienda-ospedaliero-universitaria-di-foggia-ospedali-riuniti/",
-        "mapLink": "https://goo.gl/maps/FoggiaPoliclinico",
+        "mapLink": "https://maps.app.goo.gl/KSQ5WHPUFhg8hkDx7",
         "specialties": ["Emergency", "Trauma", "Intensive Care"],
         "emergency": true
       },
@@ -1266,7 +1266,7 @@
         "name": "Ospedale Sacro Cuore di Gesù",
         "location": "Gallipoli",
         "link": "https://www.sanita.puglia.it/web/asl-lecce/-/ospedale-sacro-cuore-di-gesu-",
-        "mapLink": "https://goo.gl/maps/GallipoliSacroCuore",
+        "mapLink": "https://maps.app.goo.gl/LtQTQdFzGiUpdq1L6",
         "specialties": ["General Medicine", "Surgery"],
         "emergency": true
       }
@@ -1276,21 +1276,21 @@
         "name": "Bari Karol Wojtyła Airport (BRI)",
         "code": "BRI",
         "website": "https://bari.airports.aeroportidipuglia.it/en/",
-        "mapLink": "https://goo.gl/maps/Ru2GHmEJzys2",
+        "mapLink": "https://maps.app.goo.gl/xNuWvPAci59nQKPw8",
         "description": "Primary international gateway to Puglia"
       },
       {
         "name": "Brindisi–Salento Airport (BDS)",
         "code": "BDS",
         "website": "https://www.aeroportidipuglia.it/en/",
-        "mapLink": "https://goo.gl/maps/ijC9LPzcvM82",
+        "mapLink": "https://maps.app.goo.gl/eJLwsx4mmGK4qFDu8",
         "description": "Serves southern Puglia and Salento peninsula"
       },
       {
         "name": "Foggia Gino Lisa Airport (FOG)",
         "code": "FOG",
         "website": "https://www.aeroportidipuglia.it/?lang=en",
-        "mapLink": "https://goo.gl/maps/t2WAHXHFh682",
+        "mapLink": "https://maps.app.goo.gl/3NGsGbHVrMP2azgK8",
         "description": "Regional airport in northern Puglia"
       }
     ]
