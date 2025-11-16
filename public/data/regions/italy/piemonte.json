@@ -26,27 +26,27 @@
   },
   "where": {
     "map": {
-      "center": [7.68, 45.07],
+      "center": [45.07, 7.68],
       "zoom": 7,
       "markers": [
         {
           "id": "torino",
           "name": "Torino",
-          "coords": [7.6869, 45.0703],
+          "coords": [45.0703, 7.6869],
           "photo": "/images/piemonte/torino.jpg",
           "blurb": "Capital city with world-class services, culture, and healthcare. Elegant without the chaos of Rome or Milan."
         },
         {
           "id": "alba",
           "name": "Alba",
-          "coords": [8.0357, 44.7006],
+          "coords": [44.7006, 8.0357],
           "photo": "/images/piemonte/alba.jpg",
           "blurb": "Heart of truffle country and Barolo wine. The epicenter of Piemontese gastronomy."
         },
         {
           "id": "asti",
           "name": "Asti",
-          "coords": [8.2064, 44.9007],
+          "coords": [44.9007, 8.2064],
           "photo": "/images/piemonte/asti.jpg",
           "blurb": "Historic center with practical services. More affordable than Alba, equally charming."
         }
