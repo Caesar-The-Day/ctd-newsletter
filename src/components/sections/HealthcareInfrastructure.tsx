@@ -11,6 +11,7 @@ import { PugliaRailNetworkMap } from './PugliaRailNetworkMap';
 import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface HealthcareInfrastructureProps {
+  region?: string;
   healthcare: {
     intro: string;
     hospitals?: Array<{
@@ -47,7 +48,7 @@ interface HealthcareInfrastructureProps {
   };
 }
 
-export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructureProps) {
+export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfrastructureProps) {
   const [travelMode, setTravelMode] = useState<'withinPuglia' | 'toMajorCities'>('withinPuglia');
   const [origin, setOrigin] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
@@ -265,7 +266,7 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
                 </div>
 
                 {/* Visual Rail Network Map */}
-                <PugliaRailNetworkMap networks={trains.networks} />
+                {region === 'puglia' && <PugliaRailNetworkMap networks={trains.networks} />}
 
                 {/* Interactive Travel Time Selector */}
                 <div className="bg-card border border-border rounded-xl p-8 shadow-sm">
@@ -398,13 +399,15 @@ export function HealthcareInfrastructure({ healthcare }: HealthcareInfrastructur
         </Tabs>
 
         {/* City Reach Map */}
-        <PugliaCityReachMap />
+        {region === 'puglia' && <PugliaCityReachMap />}
 
         {/* Closing Statement */}
         <div className="text-center max-w-2xl mx-auto mt-16">
           <p className="text-muted-foreground leading-relaxed">
-            Infrastructure in Puglia is designed to support comfortable, connected living — 
-            whether you're here seasonally or year-round.
+            {region === 'puglia' 
+              ? 'Infrastructure in Puglia is designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
+              : 'Healthcare and infrastructure are designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
+            }
           </p>
         </div>
       </div>

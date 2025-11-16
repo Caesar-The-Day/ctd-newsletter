@@ -213,7 +213,7 @@ export default function RegionPage() {
 
       <Separator className="my-16" />
 
-      <PugliaCoastSelector />
+      {region === 'puglia' && <PugliaCoastSelector />}
 
       {config.show7PercentCTA && (
         <>
@@ -254,14 +254,17 @@ export default function RegionPage() {
 
       <Separator className="my-16" />
 
-      <HealthcareInfrastructure healthcare={{
-        intro: typeof regionData.healthcare.intro === 'string' 
-          ? regionData.healthcare.intro 
-          : regionData.healthcare.intro.lead,
-        hospitals: regionData.healthcare.hospitals,
-        airports: regionData.healthcare.airports,
-        trains: regionData.healthcare.trains
-      }} />
+      <HealthcareInfrastructure 
+        region={region}
+        healthcare={{
+          intro: typeof regionData.healthcare.intro === 'string' 
+            ? regionData.healthcare.intro 
+            : regionData.healthcare.intro.lead,
+          hospitals: regionData.healthcare.hospitals,
+          airports: regionData.healthcare.airports,
+          trains: regionData.healthcare.trains
+        }} 
+      />
 
       <CostCalculator 
         townPresets={regionData.costOfLiving.townPresets} 
