@@ -7,6 +7,7 @@ import { CookieConsent } from "@/components/common/CookieConsent";
 import Index from "./pages/Index";
 import RegionPage from "./pages/RegionPage";
 import NotFound from "./pages/NotFound";
+import DesignSystem from "./pages/DesignSystem";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/design-system" element={<DesignSystem />} />
           <Route path="/:region" element={<RegionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
