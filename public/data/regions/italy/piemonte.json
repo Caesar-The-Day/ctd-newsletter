@@ -51,6 +51,115 @@
           "blurb": "Historic center with practical services. More affordable than Alba, equally charming."
         }
       ],
+      "overlays": [
+        {
+          "id": "wine-regions",
+          "name": "Wine Regions & DOCG Zones",
+          "icon": "Wine",
+          "description": "Explore Piemonte's legendary wine territories",
+          "features": [
+            {
+              "type": "zone",
+              "name": "Barolo DOCG",
+              "description": "King of wines. Nebbiolo-based reds from Langhe hills. Age-worthy, tannic, complex.",
+              "color": "#722f37",
+              "coords": [[44.6, 7.9], [44.6, 8.1], [44.75, 8.1], [44.75, 7.9], [44.6, 7.9]]
+            },
+            {
+              "type": "zone",
+              "name": "Barbaresco DOCG",
+              "description": "Queen of wines. Elegant Nebbiolo with finesse. Lighter, earlier-drinking than Barolo.",
+              "color": "#8b4789",
+              "coords": [[44.7, 8.0], [44.7, 8.15], [44.8, 8.15], [44.8, 8.0], [44.7, 8.0]]
+            },
+            {
+              "type": "zone",
+              "name": "Asti DOCG (Moscato d'Asti)",
+              "description": "Sweet, fizzy, low-alcohol Moscato. Perfect with hazelnut desserts.",
+              "color": "#d4a017",
+              "coords": [[44.85, 8.1], [44.85, 8.35], [45.0, 8.35], [45.0, 8.1], [44.85, 8.1]]
+            },
+            {
+              "type": "zone",
+              "name": "Roero DOCG",
+              "description": "Arneis whites and Nebbiolo reds. Sandy soils create approachable, fruity wines.",
+              "color": "#9b6b3d",
+              "coords": [[44.75, 7.85], [44.75, 8.05], [44.85, 8.05], [44.85, 7.85], [44.75, 7.85]]
+            },
+            {
+              "type": "zone",
+              "name": "Gavi DOCG (Cortese)",
+              "description": "Crisp, mineral-driven whites from southern Piemonte. Pairs beautifully with seafood.",
+              "color": "#8b7e34",
+              "coords": [[44.65, 8.75], [44.65, 8.95], [44.8, 8.95], [44.8, 8.75], [44.65, 8.75]]
+            }
+          ]
+        },
+        {
+          "id": "parks-nature",
+          "name": "National Parks & Protected Areas",
+          "icon": "Mountain",
+          "description": "Alpine wilderness and protected landscapes",
+          "features": [
+            {
+              "type": "marker",
+              "name": "Gran Paradiso National Park",
+              "timeCapsule": "Italy's first national park (1922). Alpine ibex, glaciers, and pristine wilderness.",
+              "coords": [45.5167, 7.2667],
+              "photo": "/images/piemonte/alps.jpg",
+              "website": "https://www.pngp.it"
+            },
+            {
+              "type": "marker",
+              "name": "Lake Maggiore",
+              "timeCapsule": "Shared with Switzerland. Borromean Islands, belle époque villas, and mountain backdrop.",
+              "coords": [45.95, 8.55],
+              "photo": "/images/piemonte/verbania.jpg",
+              "website": "https://www.lagomaggiore.it"
+            },
+            {
+              "type": "marker",
+              "name": "Lake Orta",
+              "timeCapsule": "Hidden gem. Medieval island monastery, car-free village, and peaceful shores.",
+              "coords": [45.8036, 8.4069],
+              "photo": "/images/piemonte/orta.jpg",
+              "website": "https://www.ortalake.com"
+            }
+          ]
+        },
+        {
+          "id": "unesco",
+          "name": "UNESCO & Heritage Sites",
+          "icon": "Landmark",
+          "description": "World Heritage vineyards and royal residences",
+          "features": [
+            {
+              "type": "marker",
+              "name": "Langhe-Roero and Monferrato UNESCO Vineyards",
+              "timeCapsule": "UNESCO World Heritage since 2014. Cultural landscape of exceptional beauty and wine-making tradition.",
+              "coords": [44.7006, 8.0357],
+              "photo": "/images/piemonte/alba-vineyards.jpg",
+              "website": "https://whc.unesco.org/en/list/1390/"
+            },
+            {
+              "type": "marker",
+              "name": "Residences of the Royal House of Savoy",
+              "timeCapsule": "22 palaces and hunting lodges around Torino. Baroque splendor from Italy's last royal dynasty.",
+              "coords": [45.0703, 7.6869],
+              "photo": "/images/piemonte/torino.jpg",
+              "website": "https://whc.unesco.org/en/list/823/"
+            },
+            {
+              "type": "marker",
+              "name": "Sacri Monti (Sacred Mountains)",
+              "timeCapsule": "9 devotional complexes across Piemonte and Lombardia. Alpine chapels with Renaissance art.",
+              "coords": [45.8972, 8.4094],
+              "photo": "/images/piemonte/orta-san-giulio.jpg",
+              "website": "https://whc.unesco.org/en/list/1068/"
+            }
+          ]
+        }
+      ],
       "externalMapUrl": "https://maps.google.com/?q=Piemonte+Italy"
     },
     "tabs": [

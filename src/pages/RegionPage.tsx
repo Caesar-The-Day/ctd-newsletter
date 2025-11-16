@@ -250,7 +250,7 @@ export default function RegionPage() {
         </>
       )}
 
-      {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA />}
+      {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA region={region} />}
 
       <Separator className="my-16" />
 

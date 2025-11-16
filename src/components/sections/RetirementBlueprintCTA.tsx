@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Compass } from 'lucide-react';
 
-export function RetirementBlueprintCTA() {
+interface RetirementBlueprintCTAProps {
+  region?: string;
+}
+
+export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -63,13 +67,28 @@ export function RetirementBlueprintCTA() {
             {/* Content */}
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                Puglia Is Calling. Let's Turn 'Maybe One Day' Into a Timeline.
+                {region === 'piemonte' 
+                  ? "Piemonte Is Calling. Let's Turn 'Maybe One Day' Into a Timeline."
+                  : region === 'puglia'
+                  ? "Puglia Is Calling. Let's Turn 'Maybe One Day' Into a Timeline."
+                  : "Italy Is Calling. Let's Turn 'Maybe One Day' Into a Timeline."
+                }
               </h3>
               <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                When a region keeps tugging at you — the coastline, the pace, the affordability — it's usually your future trying to introduce itself.
+                {region === 'piemonte'
+                  ? "When a region keeps tugging at you — the vineyards, the refinement, the Alpine air — it's usually your future trying to introduce itself."
+                  : region === 'puglia'
+                  ? "When a region keeps tugging at you — the coastline, the pace, the affordability — it's usually your future trying to introduce itself."
+                  : "When a place keeps tugging at you — the culture, the pace, the lifestyle — it's usually your future trying to introduce itself."
+                }
               </p>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Puglia: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings.
+                {region === 'piemonte'
+                  ? "The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Piemonte: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings."
+                  : region === 'puglia'
+                  ? "The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Puglia: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings."
+                  : "The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Italy: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings."
+                }
               </p>
               <p className="text-xl font-semibold mb-6 text-foreground italic">
                 The dream is yours. The strategy is mine.
