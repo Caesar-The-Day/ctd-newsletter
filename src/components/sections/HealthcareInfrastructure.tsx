@@ -58,7 +58,7 @@ interface HealthcareInfrastructureProps {
         distance: string;
         connectivity: string;
         link: string;
-      };
+      } | string;
     }>;
   };
 }
@@ -428,37 +428,39 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                           ))}
                         </div>
 
-                        {/* Airport info */}
-                        <div className="border-t pt-4 mt-4">
-                          <div className="flex items-start gap-2">
-                            <Plane className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                            <div className="flex-1">
-                              <p className="font-semibold text-sm">
-                                {location.nearestAirport.name} ({location.nearestAirport.code})
-                              </p>
-                              <p className="text-xs text-muted-foreground">
-                                {location.nearestAirport.time} • {location.nearestAirport.distance}
-                              </p>
-                              <p className="text-xs text-muted-foreground mt-1">
-                                {location.nearestAirport.connectivity}
-                              </p>
-                              <Button 
-                                variant="link" 
-                                size="sm" 
-                                className="p-0 h-auto mt-2" 
-                                asChild
-                              >
-                                <a 
-                                  href={location.nearestAirport.link} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                >
-                                  Airport Details <ExternalLink className="ml-1 h-3 w-3" />
-                                </a>
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
+              {/* Airport info */}
+              {typeof location.nearestAirport !== 'string' && (
+                <div className="border-t pt-4 mt-4">
+                  <div className="flex items-start gap-2">
+                    <Plane className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <p className="font-semibold text-sm">
+                        {location.nearestAirport.name} ({location.nearestAirport.code})
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {location.nearestAirport.time} • {location.nearestAirport.distance}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {location.nearestAirport.connectivity}
+                      </p>
+                      <Button 
+                        variant="link" 
+                        size="sm" 
+                        className="p-0 h-auto mt-2" 
+                        asChild
+                      >
+                        <a 
+                          href={location.nearestAirport.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          Airport Details <ExternalLink className="ml-1 h-3 w-3" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
                       </CardContent>
                     </Card>
                   ))}
