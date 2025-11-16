@@ -62,6 +62,25 @@ export default function RegionPage() {
       });
   }, [region]);
 
+  // Apply region-specific theme
+  useEffect(() => {
+    if (!region) return;
+    
+    // Remove all theme classes first
+    document.body.classList.remove('piemonte-theme', 'puglia-theme');
+    
+    // Apply region-specific theme
+    if (region === 'piemonte') {
+      document.body.classList.add('piemonte-theme');
+    }
+    // Puglia uses default theme (no class needed)
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('piemonte-theme', 'puglia-theme');
+    };
+  }, [region]);
+
   if (error) return <Navigate to="/404" />;
   if (!globals || !regionData || !config) {
     return (

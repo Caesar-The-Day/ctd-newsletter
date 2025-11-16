@@ -45,6 +45,21 @@ interface HealthcareInfrastructureProps {
         toMajorCities: Record<string, Record<string, string>>;
       };
     };
+    travelTimes?: Array<{
+      from: string;
+      to: Array<{
+        destination: string;
+        time: string;
+      }>;
+      nearestAirport: {
+        name: string;
+        code: string;
+        time: string;
+        distance: string;
+        connectivity: string;
+        link: string;
+      };
+    }>;
   };
 }
 
@@ -109,7 +124,9 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
           <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-8">
             <TabsTrigger value="hospitals">Hospitals</TabsTrigger>
             <TabsTrigger value="airports">Airports</TabsTrigger>
-            <TabsTrigger value="trains">Trains</TabsTrigger>
+            <TabsTrigger value="connectivity">
+              {healthcare.trains ? "Trains" : "Connectivity"}
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="hospitals">
@@ -206,8 +223,9 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
             )}
           </TabsContent>
 
-          <TabsContent value="trains">
-            {trains && (
+          <TabsContent value="connectivity">
+            {healthcare.trains ? (
+              // Puglia: Trains content
               <div className="space-y-12">
                 {/* Animated Train Header */}
                 <div className="relative overflow-hidden bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-xl p-8 border border-primary/20">
@@ -300,19 +318,18 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                     </Button>
                   </div>
 
-                  {/* Origin & Destination Selectors */}
+                  {/* Origin/Destination Selectors */}
                   <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-foreground">
-                        <MapPin className="inline w-4 h-4 mr-1" />
+                      <label className="block text-sm font-semibold text-foreground mb-2">
                         Origin
                       </label>
                       <Select value={origin} onValueChange={setOrigin}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select departure city" />
+                          <SelectValue placeholder="Select starting city" />
                         </SelectTrigger>
                         <SelectContent>
-                          {Object.keys(trains.travelMatrix[travelMode]).map((city) => (
+                          {trains && Object.keys(trains.travelMatrix[travelMode] || {}).map((city) => (
                             <SelectItem key={city} value={city}>
                               {city}
                             </SelectItem>
@@ -322,66 +339,58 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-foreground">
-                        <MapPin className="inline w-4 h-4 mr-1" />
+                      <label className="block text-sm font-semibold text-foreground mb-2">
                         Destination
                       </label>
-                      <Select 
-                        value={destination} 
-                        onValueChange={setDestination}
-                        disabled={!origin}
-                      >
+                      <Select value={destination} onValueChange={setDestination} disabled={!origin}>
                         <SelectTrigger>
-                          <SelectValue placeholder={origin ? "Select arrival city" : "Choose origin first"} />
+                          <SelectValue placeholder="Select destination" />
                         </SelectTrigger>
                         <SelectContent>
-                          {origin && trains.travelMatrix[travelMode][origin] &&
-                            Object.keys(trains.travelMatrix[travelMode][origin]).map((city) => (
-                              <SelectItem key={city} value={city}>
-                                {city}
-                              </SelectItem>
-                            ))}
+                          {trains && origin && Object.keys(trains.travelMatrix[travelMode]?.[origin] || {}).map((city) => (
+                            <SelectItem key={city} value={city}>
+                              {city}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
-                  {/* Travel Time Result */}
+                  {/* Result Display */}
                   {travelTime && (
-                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 rounded-lg p-8 text-center animate-fade-in">
-                      <div className="flex items-center justify-center gap-4 mb-3">
-                        <TrainFront className="w-8 h-8 text-primary animate-pulse" />
-                        <p className="text-sm font-medium text-muted-foreground">
-                          {origin} → {destination}
-                        </p>
+                    <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 text-center space-y-4">
+                      <div className="flex items-center justify-center gap-3 text-3xl font-bold text-foreground">
+                        <Train className="w-8 h-8 text-primary" />
+                        {travelTime.replace(/\s*\(.*?\)\s*/g, '')}
                       </div>
-                      <div className="flex items-center justify-center gap-4 mb-3">
-                        <p className="text-4xl font-bold text-primary">
-                          {travelTime.replace(/\s*\(.*?\)\s*/g, '')}
-                        </p>
-                        <span className="text-2xl">
-                          {getRouteComplexity(travelTime)}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 mb-2">
+                      
+                      <div className="flex items-center justify-center gap-2">
                         {getNetworkBadges(travelTime).map((badge, idx) => (
-                          <Badge
+                          <Badge 
                             key={idx}
-                            variant="outline"
-                            style={{
-                              borderColor: badge.color,
+                            variant="secondary"
+                            style={{ 
                               backgroundColor: `${badge.color}20`,
                               color: badge.color,
+                              borderColor: badge.color
                             }}
+                            className="border"
                           >
                             {badge.name}
                           </Badge>
                         ))}
                       </div>
+
                       <p className="text-sm text-muted-foreground">
-                        Estimated travel time
+                        {origin} → {destination}
                       </p>
-                      <p className="text-xs text-muted-foreground mt-2">
+
+                      <div className="flex items-center justify-center gap-2 pt-4">
+                        <span className="text-2xl">{getRouteComplexity(travelTime)}</span>
+                      </div>
+                      
+                      <p className="text-xs text-muted-foreground pt-2">
                         🟢 Direct • 🟡 Simple (1 transfer) • 🟠 Complex (2+ transfers)
                       </p>
                     </div>
@@ -394,7 +403,68 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                   )}
                 </div>
               </div>
-            )}
+            ) : healthcare.travelTimes ? (
+              // Piemonte: Connectivity content
+              <div className="space-y-6">
+                <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">
+                  Piemonte's strategic location offers excellent connectivity to major Italian and European destinations.
+                </p>
+                <div className="grid gap-6 md:grid-cols-2">
+                  {healthcare.travelTimes.map((location, idx) => (
+                    <Card key={idx} className="hover:shadow-lg transition-shadow">
+                      <CardContent className="p-6">
+                        <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
+                          <MapPin className="h-5 w-5 text-primary" />
+                          From {location.from}
+                        </h4>
+                        
+                        {/* Travel destinations */}
+                        <div className="space-y-2 mb-4">
+                          {location.to.map((dest, destIdx) => (
+                            <div key={destIdx} className="flex justify-between items-center text-sm">
+                              <span className="text-muted-foreground">→ {dest.destination}</span>
+                              <Badge variant="secondary">{dest.time}</Badge>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Airport info */}
+                        <div className="border-t pt-4 mt-4">
+                          <div className="flex items-start gap-2">
+                            <Plane className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <div className="flex-1">
+                              <p className="font-semibold text-sm">
+                                {location.nearestAirport.name} ({location.nearestAirport.code})
+                              </p>
+                              <p className="text-xs text-muted-foreground">
+                                {location.nearestAirport.time} • {location.nearestAirport.distance}
+                              </p>
+                              <p className="text-xs text-muted-foreground mt-1">
+                                {location.nearestAirport.connectivity}
+                              </p>
+                              <Button 
+                                variant="link" 
+                                size="sm" 
+                                className="p-0 h-auto mt-2" 
+                                asChild
+                              >
+                                <a 
+                                  href={location.nearestAirport.link} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                >
+                                  Airport Details <ExternalLink className="ml-1 h-3 w-3" />
+                                </a>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </TabsContent>
         </Tabs>
 
