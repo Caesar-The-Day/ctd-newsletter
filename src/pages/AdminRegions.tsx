@@ -19,7 +19,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, Trash2 } from 'lucide-react';
+import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, Trash2, Palette, GitCompare } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function AdminRegions() {
@@ -252,14 +252,29 @@ export default function AdminRegions() {
             </p>
           </div>
 
-          <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <DialogTrigger asChild>
-              <Button size="lg">
-                <Plus className="mr-2 h-5 w-5" />
-                Create New Region
+          <div className="flex gap-3">
+            <Link to="/admin/color-generator">
+              <Button variant="outline" size="lg">
+                <Palette className="mr-2 h-5 w-5" />
+                Color Generator
               </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-2xl">
+            </Link>
+            
+            <Link to="/admin/comparison">
+              <Button variant="outline" size="lg">
+                <GitCompare className="mr-2 h-5 w-5" />
+                Compare Versions
+              </Button>
+            </Link>
+
+            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg">
+                  <Plus className="mr-2 h-5 w-5" />
+                  Create New Region
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl">
               <DialogHeader>
                 <DialogTitle>Scaffold New Region</DialogTitle>
                 <DialogDescription>
@@ -579,6 +594,7 @@ export default function AdminRegions() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      </div>
     </div>
   );
 }
