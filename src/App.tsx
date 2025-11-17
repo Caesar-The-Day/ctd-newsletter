@@ -9,6 +9,8 @@ import RegionPage from "./pages/RegionPage";
 import NotFound from "./pages/NotFound";
 import DesignSystem from "./pages/DesignSystem";
 import AdminRegions from "./pages/AdminRegions";
+import AdminColorGenerator from "./pages/AdminColorGenerator";
+import AdminRegionComparison from "./pages/AdminRegionComparison";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/design-system" element={<DesignSystem />} />
           <Route path="/admin/regions" element={<AdminRegions />} />
+          <Route path="/admin/color-generator" element={<AdminColorGenerator />} />
+          <Route path="/admin/comparison" element={<AdminRegionComparison />} />
           <Route path="/:region" element={<RegionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
