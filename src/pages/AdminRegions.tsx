@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getRegionRegistry, RegionRegistry, RegionRegistryEntry } from '@/utils/getRegionData';
+import { 
+  scaffoldNewRegion, 
+  updateRegionLock, 
+  setActiveRegion, 
+  publishRegion,
+  archiveRegion,
+  getPendingOperations,
+  clearPendingOperations
+} from '@/utils/regionManagement';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle } from 'lucide-react';
+import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, Trash2 } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function AdminRegions() {
@@ -18,6 +27,8 @@ export default function AdminRegions() {
   const [aiInstructions, setAiInstructions] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [publishDialogOpen, setPublishDialogOpen] = useState(false);
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const { toast } = useToast();
 
   // Form state
@@ -69,39 +80,36 @@ export default function AdminRegions() {
       if (!confirmed) return;
     }
 
-    try {
-      // In a real implementation, this would call an API endpoint
-      // For now, we'll simulate with localStorage or show instructions
+    const result = await updateRegionLock(slug, !currentLocked);
+    
+    if (result.success) {
       toast({
         title: currentLocked ? 'Region Unlocked' : 'Region Locked',
-        description: `${slug} is now ${currentLocked ? 'unlocked and editable' : 'locked and protected'}`,
+        description: result.message,
       });
-
-      // Reload data
       await loadData();
-    } catch (error) {
+    } else {
       toast({
         title: 'Error',
-        description: 'Failed to update lock status',
+        description: result.message,
         variant: 'destructive',
       });
     }
   };
 
   const handleSetActive = async (slug: string) => {
-    try {
-      // In a real implementation, this would update ai-instructions.json via API
+    const result = await setActiveRegion(slug);
+    
+    if (result.success) {
       toast({
         title: 'Active Region Set',
-        description: `AI will now work on: ${slug}`,
+        description: result.message,
       });
-      
-      // Reload data
       await loadData();
-    } catch (error) {
+    } else {
       toast({
         title: 'Error',
-        description: 'Failed to set active region',
+        description: result.message,
         variant: 'destructive',
       });
     }
@@ -119,32 +127,98 @@ export default function AdminRegions() {
       return;
     }
 
-    try {
-      // In a real implementation, this would:
-      // 1. Copy _template.json to /data/regions/italy/{slug}.json
-      // 2. Create {slug}-climate.json
-      // 3. Update region-registry.json
-      // 4. Update newsletter-index.json
-      // 5. Update feature-flags.json
-      // 6. Update section-order.json
-      // 7. Create color scheme class in index.css
-      
+    const result = await scaffoldNewRegion({
+      slug: formData.slug,
+      displayName: formData.displayName,
+      issueNumber: formData.issueNumber,
+      colorScheme: formData.colorScheme
+    });
+
+    if (result.success) {
       toast({
         title: 'Region Scaffolded',
-        description: `${formData.displayName} has been created as a draft region`,
+        description: result.message,
       });
 
       setDialogOpen(false);
       setFormData({ slug: '', displayName: '', issueNumber: '', colorScheme: 'default' });
       await loadData();
-    } catch (error) {
+    } else {
       toast({
         title: 'Error',
-        description: 'Failed to create region',
+        description: result.message,
         variant: 'destructive',
       });
     }
   };
+
+  const handlePublishRegion = async () => {
+    if (!selectedRegion) return;
+
+    const confirmed = window.confirm(
+      `🚀 PUBLISH "${selectedRegion}"\n\nThis will:\n• Change status to LIVE\n• Lock the region\n• Make it publicly visible\n\nAre you ready to publish?`
+    );
+
+    if (!confirmed) return;
+
+    const result = await publishRegion(selectedRegion);
+    
+    if (result.success) {
+      toast({
+        title: 'Region Published',
+        description: result.message,
+      });
+      setPublishDialogOpen(false);
+      setSelectedRegion(null);
+      await loadData();
+    } else {
+      toast({
+        title: 'Error',
+        description: result.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const handleArchiveRegion = async (slug: string) => {
+    const confirmed = window.confirm(
+      `📦 ARCHIVE "${slug}"\n\nThis will remove the region from public view but preserve all data. Continue?`
+    );
+
+    if (!confirmed) return;
+
+    const result = await archiveRegion(slug);
+    
+    if (result.success) {
+      toast({
+        title: 'Region Archived',
+        description: result.message,
+      });
+      await loadData();
+    } else {
+      toast({
+        title: 'Error',
+        description: result.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const handleClearOperations = () => {
+    const confirmed = window.confirm(
+      '⚠️ Clear all pending operations?\n\nThis will reset all simulated changes in localStorage.'
+    );
+
+    if (!confirmed) return;
+
+    clearPendingOperations();
+    toast({
+      title: 'Operations Cleared',
+      description: 'All pending operations have been cleared.',
+    });
+  };
+
+  const pendingOps = getPendingOperations();
 
   if (loading) {
     return (
@@ -274,6 +348,27 @@ export default function AdminRegions() {
           </Alert>
         )}
 
+        {/* Pending Operations (Dev Only) */}
+        {(pendingOps.scaffoldQueue.length > 0 || 
+          Object.keys(pendingOps.lockChanges).length > 0 || 
+          pendingOps.publishQueue.length > 0) && (
+          <Alert className="mb-6 border-orange-500 bg-orange-500/10">
+            <AlertCircle className="h-4 w-4 text-orange-500" />
+            <AlertDescription className="text-foreground flex items-center justify-between">
+              <div>
+                <strong>Development Mode:</strong> {
+                  pendingOps.scaffoldQueue.length + 
+                  Object.keys(pendingOps.lockChanges).length + 
+                  pendingOps.publishQueue.length
+                } pending operation(s) in localStorage
+              </div>
+              <Button variant="outline" size="sm" onClick={handleClearOperations}>
+                Clear All
+              </Button>
+            </AlertDescription>
+          </Alert>
+        )}
+
         {/* Region List */}
         <Card>
           <CardHeader>
@@ -349,6 +444,32 @@ export default function AdminRegions() {
                           </Button>
                         )}
 
+                        {region.status === 'draft' && (
+                          <Button
+                            variant="default"
+                            size="sm"
+                            onClick={() => {
+                              setSelectedRegion(slug);
+                              setPublishDialogOpen(true);
+                            }}
+                            className="bg-green-600 hover:bg-green-700"
+                          >
+                            <Rocket className="h-4 w-4 mr-1" />
+                            Publish
+                          </Button>
+                        )}
+
+                        {region.status === 'live' && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleArchiveRegion(slug)}
+                          >
+                            <Archive className="h-4 w-4 mr-1" />
+                            Archive
+                          </Button>
+                        )}
+
                         <Button
                           variant={region.locked ? 'destructive' : 'default'}
                           size="sm"
@@ -400,14 +521,64 @@ export default function AdminRegions() {
               <strong className="text-foreground">4. Preview:</strong> Click the eye icon to preview the region page
             </div>
             <div>
-              <strong className="text-foreground">5. Publish & Lock:</strong> When ready, change status to "live" and lock to protect from edits
+              <strong className="text-foreground">5. Publish:</strong> Click "Publish" to make the region live and automatically lock it
             </div>
             <div className="pt-2 border-t">
               <strong className="text-foreground">⚠️ Lock Protection:</strong> Locked regions (like Piemonte & Puglia) cannot be modified by AI or manual edits
             </div>
+            <div className="pt-2 border-t text-xs">
+              <strong className="text-foreground">📝 Development Note:</strong> Currently in simulation mode. All operations are logged to localStorage. In production, these would be API endpoints that modify the actual JSON configuration files.
+            </div>
           </CardContent>
         </Card>
       </div>
+
+      {/* Publish Confirmation Dialog */}
+      <Dialog open={publishDialogOpen} onOpenChange={setPublishDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>🚀 Publish Region</DialogTitle>
+            <DialogDescription>
+              Publishing will make this region live and automatically lock it for protection.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-4">
+            <Alert>
+              <Rocket className="h-4 w-4" />
+              <AlertDescription>
+                <strong>What happens when you publish:</strong>
+                <ul className="list-disc ml-4 mt-2 space-y-1">
+                  <li>Status changes from "draft" to "live"</li>
+                  <li>Region is automatically locked</li>
+                  <li>Becomes visible on the public site</li>
+                  <li>Removed from active editing (if set)</li>
+                  <li>Added to locked regions list</li>
+                </ul>
+              </AlertDescription>
+            </Alert>
+
+            {selectedRegion && (
+              <div className="bg-muted p-4 rounded-lg">
+                <p className="text-sm font-medium">Region: <strong>{selectedRegion}</strong></p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Make sure all content is finalized before publishing.
+                </p>
+              </div>
+            )}
+          </div>
+
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setPublishDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handlePublishRegion} className="bg-green-600 hover:bg-green-700">
+              <Rocket className="mr-2 h-4 w-4" />
+              Publish Now
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
