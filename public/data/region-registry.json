@@ -1,0 +1,28 @@
+{
+  "regions": {
+    "piemonte": {
+      "status": "live",
+      "locked": true,
+      "createdDate": "2025-10-15",
+      "publishedDate": "2025-10-20",
+      "version": "1.0",
+      "colorScheme": "piemonte-theme",
+      "slug": "piemonte",
+      "displayName": "Piemonte"
+    },
+    "puglia": {
+      "status": "live",
+      "locked": true,
+      "createdDate": "2025-11-01",
+      "publishedDate": "2025-11-10",
+      "version": "1.0",
+      "colorScheme": "default",
+      "slug": "puglia",
+      "displayName": "Puglia"
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2025-11-17",
+    "version": "1.0.0"
+  }
+}

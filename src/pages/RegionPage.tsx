@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { getGlobals, getRegionData, getRegionConfig, GlobalsData, RegionData, FeatureFlags } from '@/utils/getRegionData';
+import { getGlobals, getRegionData, getRegionConfig, getRegionRegistry, GlobalsData, RegionData, FeatureFlags, RegionRegistryEntry } from '@/utils/getRegionData';
 import { Header, SocialLinks } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
@@ -41,6 +41,7 @@ export default function RegionPage() {
   const [globals, setGlobals] = useState<GlobalsData | null>(null);
   const [regionData, setRegionData] = useState<RegionData | null>(null);
   const [config, setConfig] = useState<FeatureFlags | null>(null);
+  const [registryEntry, setRegistryEntry] = useState<RegionRegistryEntry | null>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -48,13 +49,19 @@ export default function RegionPage() {
     Promise.all([
       getGlobals(), 
       getRegionData(region || 'piemonte'),
-      getRegionConfig(region || 'piemonte')
+      getRegionConfig(region || 'piemonte'),
+      getRegionRegistry()
     ])
-      .then(([g, r, c]) => {
+      .then(([g, r, c, registry]) => {
         console.log('[RegionPage] Data loaded successfully');
         setGlobals(g);
         setRegionData(r);
         setConfig(c);
+        
+        // Get registry entry for current region
+        if (registry && registry.regions[region || 'piemonte']) {
+          setRegistryEntry(registry.regions[region || 'piemonte']);
+        }
       })
       .catch((err) => {
         console.error('[RegionPage] Failed to load data:', err);
@@ -177,8 +184,13 @@ export default function RegionPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="text-foreground font-medium">
+                  <BreadcrumbPage className="text-foreground font-medium flex items-center gap-2">
                     {regionData.region.title}
+                    {registryEntry && registryEntry.status === 'draft' && (
+                      <span className="px-2 py-0.5 text-xs font-semibold bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 rounded-full border border-yellow-500/30">
+                        DRAFT
+                      </span>
+                    )}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
