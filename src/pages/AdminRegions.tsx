@@ -19,7 +19,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, Trash2, Palette, GitCompare } from 'lucide-react';
+import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, Trash2, Palette, GitCompare, MoreHorizontal } from 'lucide-react';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function AdminRegions() {
@@ -59,17 +61,16 @@ export default function AdminRegions() {
   };
 
   const getStatusBadge = (status: string) => {
-    const variants: Record<string, any> = {
-      live: { variant: 'default', className: 'bg-green-500 hover:bg-green-600' },
-      draft: { variant: 'secondary', className: 'bg-yellow-500 hover:bg-yellow-600 text-white' },
-      archived: { variant: 'outline', className: 'bg-gray-500 hover:bg-gray-600' }
-    };
-    const config = variants[status] || variants.draft;
-    return (
-      <Badge {...config}>
-        {status.toUpperCase()}
-      </Badge>
-    );
+    switch (status) {
+      case 'live':
+        return <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border-transparent">Live</Badge>;
+      case 'draft':
+        return <Badge className="bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-transparent">Draft</Badge>;
+      case 'archived':
+        return <Badge className="bg-slate-100 text-slate-800 dark:bg-slate-900/30 dark:text-slate-400 border-transparent">Archived</Badge>;
+      default:
+        return <Badge variant="outline">{status}</Badge>;
+    }
   };
 
   const handleToggleLock = async (slug: string, currentLocked: boolean) => {
@@ -234,43 +235,49 @@ export default function AdminRegions() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto py-8 px-4">
+      <div className="container mx-auto py-8 px-4 max-w-[1400px]">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <div className="flex items-center gap-4 mb-2">
-              <Link to="/">
-                <Button variant="ghost" size="sm">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Site
-                </Button>
-              </Link>
-            </div>
-            <h1 className="text-4xl font-bold text-foreground">Region Administration</h1>
-            <p className="text-muted-foreground mt-2">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+          <div className="w-full md:w-auto">
+            <Link to="/">
+              <Button variant="ghost" size="sm" className="mb-4 -ml-3">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Site
+              </Button>
+            </Link>
+            <h1 className="text-3xl md:text-4xl font-bold">Region Administration</h1>
+            <p className="text-sm text-muted-foreground mt-2">
               Manage regional content, create drafts, and control publishing workflow
             </p>
           </div>
-
-          <div className="flex gap-3">
-            <Link to="/admin/color-generator">
-              <Button variant="outline" size="lg">
-                <Palette className="mr-2 h-5 w-5" />
-                Color Generator
-              </Button>
-            </Link>
-            
-            <Link to="/admin/comparison">
-              <Button variant="outline" size="lg">
-                <GitCompare className="mr-2 h-5 w-5" />
-                Compare Versions
-              </Button>
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="lg" className="gap-2">
+                  <MoreHorizontal className="h-4 w-4" />
+                  Tools
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link to="/admin/color-generator" className="flex items-center cursor-pointer">
+                    <Palette className="mr-2 h-4 w-4" />
+                    Color Generator
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/admin/comparison" className="flex items-center cursor-pointer">
+                    <GitCompare className="mr-2 h-4 w-4" />
+                    Compare Versions
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
               <DialogTrigger asChild>
                 <Button size="lg">
-                  <Plus className="mr-2 h-5 w-5" />
+                  <Plus className="mr-2 h-4 w-4" />
                   Create New Region
                 </Button>
               </DialogTrigger>
@@ -355,10 +362,10 @@ export default function AdminRegions() {
 
         {/* Active Region Alert */}
         {activeRegion && (
-          <Alert className="mb-6 border-blue-500 bg-blue-500/10">
-            <Power className="h-4 w-4 text-blue-500" />
-            <AlertDescription className="text-foreground">
-              <strong>Active Region:</strong> AI is currently working on <strong>{activeRegion}</strong>
+          <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/20">
+            <Power className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+            <AlertDescription className="text-blue-900 dark:text-blue-100">
+              <strong className="font-semibold">Active Region:</strong> AI is currently working on <strong className="font-bold">{activeRegion}</strong>
             </AlertDescription>
           </Alert>
         )}
@@ -367,182 +374,220 @@ export default function AdminRegions() {
         {(pendingOps.scaffoldQueue.length > 0 || 
           Object.keys(pendingOps.lockChanges).length > 0 || 
           pendingOps.publishQueue.length > 0) && (
-          <Alert className="mb-6 border-orange-500 bg-orange-500/10">
-            <AlertCircle className="h-4 w-4 text-orange-500" />
-            <AlertDescription className="text-foreground flex items-center justify-between">
-              <div>
-                <strong>Development Mode:</strong> {
-                  pendingOps.scaffoldQueue.length + 
-                  Object.keys(pendingOps.lockChanges).length + 
-                  pendingOps.publishQueue.length
-                } pending operation(s) in localStorage
+          <Alert className="mb-6 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/20">
+            <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+            <AlertDescription className="text-amber-900 dark:text-amber-100">
+              <div className="flex items-center justify-between">
+                <span>
+                  <strong className="font-semibold">Development Mode:</strong> {
+                    pendingOps.scaffoldQueue.length + 
+                    Object.keys(pendingOps.lockChanges).length + 
+                    pendingOps.publishQueue.length
+                  } pending operation(s) in localStorage
+                </span>
+                <Button variant="outline" size="sm" className="h-7 ml-4" onClick={handleClearOperations}>
+                  Clear All
+                </Button>
               </div>
-              <Button variant="outline" size="sm" onClick={handleClearOperations}>
-                Clear All
-              </Button>
             </AlertDescription>
           </Alert>
         )}
 
         {/* Region List */}
-        <Card>
-          <CardHeader>
-            <CardTitle>All Regions</CardTitle>
-            <CardDescription>
-              Manage status, lock protection, and publishing workflow for each region
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Region</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Lock</TableHead>
-                  <TableHead>Version</TableHead>
-                  <TableHead>Published</TableHead>
-                  <TableHead>Color Scheme</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {Object.entries(regions).map(([slug, region]: [string, RegionRegistryEntry]) => (
-                  <TableRow key={slug}>
-                    <TableCell className="font-medium">
-                      <div className="flex items-center gap-2">
-                        {region.displayName}
-                        {activeRegion === slug && (
-                          <Badge variant="outline" className="bg-blue-500/20 text-blue-700 dark:text-blue-400 border-blue-500/30">
-                            ACTIVE
-                          </Badge>
-                        )}
-                      </div>
-                      <p className="text-xs text-muted-foreground">/{slug}</p>
-                    </TableCell>
-                    <TableCell>{getStatusBadge(region.status)}</TableCell>
-                    <TableCell>
-                      {region.locked ? (
-                        <Badge variant="destructive" className="gap-1">
-                          <Lock className="h-3 w-3" />
-                          Locked
-                        </Badge>
-                      ) : (
-                        <Badge variant="outline" className="gap-1">
-                          <Unlock className="h-3 w-3" />
-                          Unlocked
-                        </Badge>
-                      )}
-                    </TableCell>
-                    <TableCell className="text-muted-foreground">{region.version}</TableCell>
-                    <TableCell className="text-muted-foreground">
-                      {region.publishedDate || '—'}
-                    </TableCell>
-                    <TableCell className="text-muted-foreground text-sm">
-                      {region.colorScheme}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex justify-end gap-2">
-                        <Link to={`/${slug}`}>
-                          <Button variant="ghost" size="sm">
-                            <Eye className="h-4 w-4" />
-                          </Button>
-                        </Link>
-                        
-                        {region.status === 'draft' && activeRegion !== slug && (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleSetActive(slug)}
-                          >
-                            <Power className="h-4 w-4 mr-1" />
-                            Set Active
-                          </Button>
-                        )}
-
-                        {region.status === 'draft' && (
-                          <Button
-                            variant="default"
-                            size="sm"
-                            onClick={() => {
-                              setSelectedRegion(slug);
-                              setPublishDialogOpen(true);
-                            }}
-                            className="bg-green-600 hover:bg-green-700"
-                          >
-                            <Rocket className="h-4 w-4 mr-1" />
-                            Publish
-                          </Button>
-                        )}
-
-                        {region.status === 'live' && (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleArchiveRegion(slug)}
-                          >
-                            <Archive className="h-4 w-4 mr-1" />
-                            Archive
-                          </Button>
-                        )}
-
-                        <Button
-                          variant={region.locked ? 'destructive' : 'default'}
-                          size="sm"
-                          onClick={() => handleToggleLock(slug, region.locked)}
-                        >
-                          {region.locked ? (
-                            <>
-                              <Unlock className="h-4 w-4 mr-1" />
-                              Unlock
-                            </>
-                          ) : (
-                            <>
-                              <Lock className="h-4 w-4 mr-1" />
-                              Lock
-                            </>
-                          )}
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-
-            {Object.keys(regions).length === 0 && (
-              <div className="text-center py-12 text-muted-foreground">
-                <p>No regions found. Create your first region to get started.</p>
+        {loading ? (
+          <Card className="mb-8 border-border/50 shadow-sm">
+            <CardContent className="p-6">
+              <div className="space-y-4">
+                <Skeleton className="h-12 w-full" />
+                <Skeleton className="h-12 w-full" />
+                <Skeleton className="h-12 w-full" />
+                <Skeleton className="h-12 w-full" />
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        ) : Object.keys(regions).length === 0 ? (
+          <Card className="mb-8 border-border/50 shadow-sm">
+            <CardContent className="p-16">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
+                  <Plus className="h-8 w-8 text-muted-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">No regions yet</h3>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Get started by creating your first region
+                </p>
+                <Button onClick={() => setDialogOpen(true)}>
+                  <Plus className="mr-2 h-4 w-4" />
+                  Create New Region
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="mb-8 border-border/50 shadow-sm">
+            <CardHeader className="border-b border-border/50 bg-muted/20">
+              <CardTitle className="text-xl">All Regions</CardTitle>
+              <CardDescription className="text-sm">
+                Manage status, lock protection, and publishing workflow
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="overflow-x-auto">
+                <Table className="min-w-[900px]">
+                  <TableHeader>
+                    <TableRow className="hover:bg-transparent">
+                      <TableHead className="w-[200px] pl-6">Region</TableHead>
+                      <TableHead className="w-[100px]">Status</TableHead>
+                      <TableHead className="w-[120px]">Lock Status</TableHead>
+                      <TableHead className="w-[80px]">Version</TableHead>
+                      <TableHead className="w-[120px]">Published</TableHead>
+                      <TableHead className="w-[140px]">Color Scheme</TableHead>
+                      <TableHead className="text-right pr-6 w-auto min-w-[280px]">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {Object.entries(regions).map(([slug, region]: [string, RegionRegistryEntry]) => (
+                      <TableRow key={slug} className="hover:bg-muted/50 transition-colors border-b border-border/50">
+                        <TableCell className="font-medium py-4 pl-6">
+                          <div className="flex items-center gap-2">
+                            {region.displayName}
+                            {activeRegion === slug && (
+                              <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 border-blue-200 dark:border-blue-800 border">
+                                Active
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-xs text-muted-foreground">/{slug}</p>
+                        </TableCell>
+                        <TableCell className="py-4">{getStatusBadge(region.status)}</TableCell>
+                        <TableCell className="py-4">
+                          {region.locked ? (
+                            <Badge className="bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400 border-transparent">
+                              Locked
+                            </Badge>
+                          ) : (
+                            <Badge className="bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border-transparent">
+                              Unlocked
+                            </Badge>
+                          )}
+                        </TableCell>
+                        <TableCell className="py-4 text-muted-foreground">{region.version}</TableCell>
+                        <TableCell className="py-4 text-sm text-muted-foreground">
+                          {region.publishedDate || 'Not published'}
+                        </TableCell>
+                        <TableCell className="py-4">
+                          <span className="text-xs text-muted-foreground">{region.colorScheme}</span>
+                        </TableCell>
+                        <TableCell className="py-4 pr-6">
+                          <div className="flex items-center justify-end gap-2 flex-wrap">
+                            <Link to={`/${slug}`}>
+                              <Button variant="ghost" size="sm" className="h-8">
+                                <Eye className="h-3.5 w-3.5" />
+                              </Button>
+                            </Link>
+                            {region.status === 'draft' && activeRegion !== slug && (
+                              <Button variant="outline" size="sm" className="h-8" onClick={() => handleSetActive(slug)}>
+                                <Power className="h-3.5 w-3.5 mr-1.5" />
+                                Activate
+                              </Button>
+                            )}
+                            {region.status === 'draft' && (
+                              <Button size="sm" className="h-8 bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => {
+                                setSelectedRegion(slug);
+                                setPublishDialogOpen(true);
+                              }}>
+                                <Rocket className="h-3.5 w-3.5 mr-1.5" />
+                                Publish
+                              </Button>
+                            )}
+                            {region.status === 'live' && (
+                              <Button variant="outline" size="sm" className="h-8" onClick={() => handleArchiveRegion(slug)}>
+                                <Archive className="h-3.5 w-3.5 mr-1.5" />
+                                Archive
+                              </Button>
+                            )}
+                            <Button
+                              variant={region.locked ? 'destructive' : 'default'}
+                              size="sm"
+                              className="h-8"
+                              onClick={() => handleToggleLock(slug, region.locked)}
+                            >
+                              {region.locked ? (
+                                <>
+                                  <Unlock className="h-3.5 w-3.5 mr-1.5" />
+                                  Unlock
+                                </>
+                              ) : (
+                                <>
+                                  <Lock className="h-3.5 w-3.5 mr-1.5" />
+                                  Lock
+                                </>
+                              )}
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Instructions */}
-        <Card className="mt-6">
+        <Card className="border-border/50">
           <CardHeader>
-            <CardTitle>How to Use</CardTitle>
+            <CardTitle className="text-lg">Quick Guide</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-sm text-muted-foreground">
-            <div>
-              <strong className="text-foreground">1. Create New Region:</strong> Click "Create New Region" to scaffold a draft from the template
+          <CardContent className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+                  1
+                </div>
+                <div>
+                  <p className="font-medium text-sm">Create Region</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Scaffold a new draft from template with all necessary files
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+                  2
+                </div>
+                <div>
+                  <p className="font-medium text-sm">Set Active for AI</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Activate a draft so the AI works on this region
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <strong className="text-foreground">2. Set Active:</strong> Set a draft region as "Active" to work on it with AI assistance
-            </div>
-            <div>
-              <strong className="text-foreground">3. Populate Content:</strong> Use AI prompts to add towns, recipes, images, etc. (only affects active region)
-            </div>
-            <div>
-              <strong className="text-foreground">4. Preview:</strong> Click the eye icon to preview the region page
-            </div>
-            <div>
-              <strong className="text-foreground">5. Publish:</strong> Click "Publish" to make the region live and automatically lock it
-            </div>
-            <div className="pt-2 border-t">
-              <strong className="text-foreground">⚠️ Lock Protection:</strong> Locked regions (like Piemonte & Puglia) cannot be modified by AI or manual edits
-            </div>
-            <div className="pt-2 border-t text-xs">
-              <strong className="text-foreground">📝 Development Note:</strong> Currently in simulation mode. All operations are logged to localStorage. In production, these would be API endpoints that modify the actual JSON configuration files.
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+                  3
+                </div>
+                <div>
+                  <p className="font-medium text-sm">Lock/Unlock</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Control whether AI can modify a region
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">
+                  4
+                </div>
+                <div>
+                  <p className="font-medium text-sm">Publish or Archive</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Make drafts live or archive regions from public view
+                  </p>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>
