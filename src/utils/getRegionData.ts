@@ -57,6 +57,36 @@ export async function getSectionOrder(slug: string): Promise<string[]> {
     : allOrders[slug] || allOrders.default;
 }
 
+export interface RegionRegistryEntry {
+  status: 'live' | 'draft' | 'archived';
+  locked: boolean;
+  createdDate: string;
+  publishedDate?: string;
+  version: string;
+  colorScheme: string;
+  slug: string;
+  displayName: string;
+}
+
+export interface RegionRegistry {
+  regions: Record<string, RegionRegistryEntry>;
+  metadata: {
+    lastUpdated: string;
+    version: string;
+  };
+}
+
+export async function getRegionRegistry(): Promise<RegionRegistry | null> {
+  try {
+    const response = await fetch('/data/region-registry.json');
+    if (!response.ok) return null;
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to load region registry:', error);
+    return null;
+  }
+}
+
 export interface GlobalsData {
   brand: {
     siteTitle: string;
