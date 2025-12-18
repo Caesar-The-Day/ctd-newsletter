@@ -86,56 +86,36 @@ const dishes: DishData[] = [
   }
 ];
 
-// Accurate SVG paths for Lombardy provinces (traced from administrative map)
-const provincePaths: Record<string, { path: string; center: [number, number] }> = {
-  varese: {
-    path: "M52,168 L48,155 L35,150 L25,160 L18,148 L8,152 L5,165 L12,178 L8,192 L15,205 L28,210 L40,205 L52,215 L58,205 L55,190 L62,180 L58,172 Z",
-    center: [32, 178]
-  },
-  como: {
-    path: "M95,125 L85,110 L78,95 L65,88 L55,95 L48,85 L58,75 L70,70 L82,58 L95,55 L105,62 L108,75 L100,88 L108,100 L115,115 L110,130 L100,138 L88,145 L78,140 L68,148 L58,155 L52,168 L62,180 L72,175 L85,168 L95,158 L105,150 L98,138 Z",
-    center: [82, 115]
-  },
-  sondrio: {
-    path: "M115,115 L125,100 L140,85 L158,75 L175,62 L195,52 L220,45 L248,42 L275,48 L298,58 L315,72 L325,88 L318,105 L305,115 L288,120 L268,118 L248,125 L228,128 L208,122 L188,128 L168,125 L148,130 L128,125 L115,115 Z",
-    center: [218, 88]
-  },
-  lecco: {
-    path: "M115,115 L128,125 L148,130 L155,145 L148,160 L135,168 L120,165 L108,155 L100,138 L105,150 L95,158 L98,138 L110,130 Z",
-    center: [125, 145]
-  },
-  bergamo: {
-    path: "M155,145 L168,125 L188,128 L208,122 L228,128 L248,125 L255,140 L248,158 L235,172 L218,180 L198,178 L178,185 L162,180 L148,168 L148,160 Z",
-    center: [200, 155]
-  },
-  brescia: {
-    path: "M255,140 L268,118 L288,120 L305,115 L318,105 L332,115 L345,132 L355,150 L358,172 L352,195 L340,215 L322,228 L298,235 L275,238 L258,230 L248,215 L252,195 L258,178 L248,158 Z",
-    center: [305, 175]
-  },
-  monza: {
-    path: "M95,158 L85,168 L72,175 L78,190 L92,198 L108,195 L120,188 L135,192 L148,185 L148,168 L135,168 L120,165 L108,155 L100,138 L105,150 Z",
-    center: [108, 178]
-  },
-  milano: {
-    path: "M78,190 L62,180 L55,190 L58,205 L52,215 L58,230 L72,245 L88,252 L108,255 L125,250 L140,242 L152,230 L158,215 L162,198 L162,180 L148,185 L135,192 L120,188 L108,195 L92,198 Z",
-    center: [108, 220]
-  },
-  pavia: {
-    path: "M52,215 L40,205 L28,210 L15,225 L8,245 L15,268 L28,288 L45,305 L68,318 L92,322 L115,315 L132,302 L142,285 L138,265 L128,252 L108,255 L88,252 L72,245 L58,230 Z",
-    center: [75, 275]
-  },
-  lodi: {
-    path: "M142,285 L158,275 L175,270 L188,278 L195,295 L188,315 L172,325 L152,328 L135,320 L128,302 L132,302 Z",
-    center: [162, 300]
-  },
-  cremona: {
-    path: "M195,295 L208,280 L228,272 L248,268 L265,275 L278,290 L285,310 L278,332 L262,348 L242,355 L218,352 L195,342 L178,332 L172,325 L188,315 Z",
-    center: [235, 315]
-  },
-  mantova: {
-    path: "M285,310 L298,295 L318,285 L340,282 L358,292 L368,310 L365,332 L352,352 L332,365 L308,368 L282,362 L262,352 L262,348 L278,332 Z",
-    center: [325, 330]
-  }
+// Province positions as percentages on the map image (based on actual Lombardy geography)
+const provincePositions: Record<string, { x: number; y: number; labelOffset?: { x: number; y: number } }> = {
+  varese: { x: 17, y: 42 },
+  como: { x: 28, y: 32 },
+  sondrio: { x: 52, y: 18 },
+  lecco: { x: 38, y: 42 },
+  bergamo: { x: 52, y: 48 },
+  brescia: { x: 70, y: 48 },
+  monza: { x: 35, y: 52 },
+  milano: { x: 30, y: 60 },
+  pavia: { x: 22, y: 78 },
+  lodi: { x: 42, y: 72 },
+  cremona: { x: 58, y: 80 },
+  mantova: { x: 78, y: 85 }
+};
+
+// Province display names
+const provinceNames: Record<string, string> = {
+  varese: 'Varese',
+  como: 'Como',
+  sondrio: 'Sondrio',
+  lecco: 'Lecco',
+  bergamo: 'Bergamo',
+  brescia: 'Brescia',
+  monza: 'Monza',
+  milano: 'Milano',
+  pavia: 'Pavia',
+  lodi: 'Lodi',
+  cremona: 'Cremona',
+  mantova: 'Mantova'
 };
 
 interface LombardyMapProps {
@@ -144,67 +124,59 @@ interface LombardyMapProps {
 
 function LombardyMap({ highlightedProvinces }: LombardyMapProps) {
   return (
-    <svg 
-      viewBox="0 0 380 380" 
-      className="w-full h-full"
-      style={{ maxHeight: '300px' }}
-    >
-      {/* All provinces */}
-      {Object.entries(provincePaths).map(([province, { path }]) => {
-        const isHighlighted = highlightedProvinces.includes(province);
-        return (
-          <g key={province}>
-            <path
-              d={path}
-              fill={isHighlighted ? "hsl(var(--primary))" : "hsl(var(--muted))"}
-              stroke="hsl(var(--background))"
-              strokeWidth="2"
-              className={`transition-all duration-500 ${isHighlighted ? 'opacity-100' : 'opacity-50'}`}
-            />
-            {isHighlighted && (
-              <path
-                d={path}
-                fill="none"
-                stroke="hsl(var(--primary-foreground) / 0.4)"
-                strokeWidth="3"
-                className="animate-pulse"
-              />
-            )}
-          </g>
-        );
-      })}
+    <div className="relative w-full" style={{ maxWidth: '400px', margin: '0 auto' }}>
+      {/* Base map image */}
+      <img
+        src="/images/lombardia/lombardia-provinces-map.png"
+        alt="Map of Lombardy provinces"
+        className="w-full h-auto opacity-30"
+        style={{ filter: 'grayscale(100%)' }}
+      />
       
-      {/* Province labels for highlighted areas */}
-      {highlightedProvinces.map(province => {
-        const data = provincePaths[province];
-        if (!data) return null;
-        const [x, y] = data.center;
-        return (
-          <text
-            key={`label-${province}`}
-            x={x}
-            y={y}
-            fill="hsl(var(--primary-foreground))"
-            fontSize="11"
-            fontWeight="600"
-            textAnchor="middle"
-            dominantBaseline="middle"
-            className="uppercase tracking-wider pointer-events-none"
-            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
-          >
-            {province}
-          </text>
-        );
-      })}
+      {/* Overlay for highlighted provinces */}
+      <div className="absolute inset-0">
+        {highlightedProvinces.map(province => {
+          const pos = provincePositions[province];
+          if (!pos) return null;
+          
+          return (
+            <div
+              key={province}
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1"
+              style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+            >
+              {/* Highlight marker */}
+              <div className="relative">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/90 flex items-center justify-center shadow-lg animate-pulse">
+                  <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-primary-foreground" />
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/40 blur-md -z-10" />
+              </div>
+              
+              {/* Province label */}
+              <span 
+                className="text-xs md:text-sm font-semibold text-primary bg-background/90 px-2 py-0.5 rounded shadow-sm whitespace-nowrap"
+              >
+                {provinceNames[province] || province}
+              </span>
+            </div>
+          );
+        })}
+      </div>
       
       {/* Legend */}
-      <g transform="translate(10, 350)">
-        <rect x="0" y="0" width="14" height="14" fill="hsl(var(--primary))" rx="2" />
-        <text x="20" y="11" fill="hsl(var(--foreground))" fontSize="11" fontWeight="500">Origin</text>
-        <rect x="80" y="0" width="14" height="14" fill="hsl(var(--muted))" rx="2" opacity="0.5" />
-        <text x="100" y="11" fill="hsl(var(--muted-foreground))" fontSize="11">Other provinces</text>
-      </g>
-    </svg>
+      <div className="flex items-center justify-center gap-6 mt-4 text-sm">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full bg-primary" />
+          <span className="text-foreground font-medium">Origin</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded bg-muted/50" />
+          <span className="text-muted-foreground">Other provinces</span>
+        </div>
+      </div>
+    </div>
   );
 }
 
