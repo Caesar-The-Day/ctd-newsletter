@@ -5,7 +5,7 @@ import { Header, SocialLinks } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
-import { Separator } from '@/components/ui/separator';
+
 import { 
   Breadcrumb, 
   BreadcrumbItem, 
@@ -225,8 +225,6 @@ export default function RegionPage() {
         signature={regionData.region.intro.signature}
       />
 
-      <Separator className="my-16" />
-
       <InteractiveMap 
         regionTitle={regionData.region.title.split(':')[0]} 
         whereData={regionData.where}
@@ -234,26 +232,15 @@ export default function RegionPage() {
 
       <ClimateSnapshot />
 
-      <Separator className="my-16" />
-
       <TownsFeatured towns={regionData.towns.featured} />
       
       {config.showBookCTA && <BookCTA />}
 
       <TownsGrid towns={regionData.towns.grid} />
 
-      <Separator className="my-16" />
-
       {region === 'puglia' && <PugliaCoastSelector />}
 
-      {config.show7PercentCTA && (
-        <>
-          <Separator className="my-16" />
-          <SevenPercentCTA />
-        </>
-      )}
-
-      <Separator className="my-16" />
+      {config.show7PercentCTA && <SevenPercentCTA />}
 
       <HighlightsShowcase highlights={regionData.highlights} />
 
@@ -270,20 +257,15 @@ export default function RegionPage() {
       {config.showWineQuiz && regionData.wine && <WineQuiz quizData={regionData.wine.quiz} />}
 
       {regionData.recipes && (
-        <>
-          <Separator className="my-16" />
-          <RecipesInteractive 
-            header={regionData.recipes.header}
-            originStory={regionData.recipes.originStory}
-            recipes={regionData.recipes.cards} 
-            modes={regionData.recipes.modes} 
-          />
-        </>
+        <RecipesInteractive 
+          header={regionData.recipes.header}
+          originStory={regionData.recipes.originStory}
+          recipes={regionData.recipes.cards} 
+          modes={regionData.recipes.modes} 
+        />
       )}
 
       {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA region={region} />}
-
-      <Separator className="my-16" />
 
           <HealthcareInfrastructure 
             region={region}
@@ -306,8 +288,6 @@ export default function RegionPage() {
       />
 
       <ProsConsInteractive prosCons={regionData.prosCons} />
-
-      <Separator className="my-16" />
 
       <ClosingShare
         message={regionData.closing.message}

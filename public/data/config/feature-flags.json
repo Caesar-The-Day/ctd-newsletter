@@ -19,5 +19,15 @@
     "showRetirementBlueprintCTA": true,
     "enableAmbientAudio": true,
     "enableSeasonalParticles": true
+  },
+  "lombardia": {
+    "showWineQuiz": true,
+    "showBeerFeature": false,
+    "show7PercentCTA": false,
+    "showCollaborator": true,
+    "showBookCTA": true,
+    "showRetirementBlueprintCTA": true,
+    "enableAmbientAudio": true,
+    "enableSeasonalParticles": true
   }
 }
