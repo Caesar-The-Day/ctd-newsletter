@@ -86,69 +86,36 @@ const dishes: DishData[] = [
   }
 ];
 
-// Accurate province boundaries traced from the official Lombardy administrative map
-// ViewBox coordinates matched to the actual SVG proportions
-const provinceData: Record<string, { path: string; center: [number, number]; name: string }> = {
-  varese: {
-    path: "M58,145 L52,138 L48,125 L42,118 L35,122 L28,115 L22,118 L18,128 L22,142 L18,155 L25,168 L35,175 L48,172 L55,178 L62,172 L68,162 L72,152 L68,145 Z",
-    center: [45, 148],
-    name: "Varese"
-  },
-  como: {
-    path: "M72,152 L68,145 L58,145 L52,138 L58,128 L65,118 L72,105 L78,92 L88,82 L98,75 L108,72 L115,78 L118,88 L112,102 L118,115 L122,128 L115,142 L105,152 L95,162 L85,168 L75,172 L68,162 Z",
-    center: [92, 125],
-    name: "Como"
-  },
-  sondrio: {
-    path: "M122,128 L132,115 L148,102 L168,88 L192,78 L218,72 L248,68 L278,72 L302,82 L322,98 L332,115 L325,132 L308,142 L285,148 L262,145 L238,152 L215,148 L192,155 L168,152 L145,158 L128,152 L118,142 Z",
-    center: [225, 112],
-    name: "Sondrio"
-  },
-  lecco: {
-    path: "M118,142 L128,152 L145,158 L152,172 L145,188 L132,198 L118,195 L105,185 L98,172 L105,162 L95,162 L105,152 L115,142 Z",
-    center: [125, 172],
-    name: "Lecco"
-  },
-  bergamo: {
-    path: "M152,172 L168,152 L192,155 L215,148 L238,152 L262,145 L272,162 L265,182 L248,198 L228,208 L205,205 L182,212 L162,205 L148,195 L145,188 Z",
-    center: [208, 178],
-    name: "Bergamo"
-  },
-  brescia: {
-    path: "M272,162 L285,148 L308,142 L325,132 L342,142 L358,162 L368,185 L372,212 L365,242 L348,268 L325,285 L298,295 L272,298 L252,288 L242,265 L248,238 L258,215 L248,198 L265,182 Z",
-    center: [308, 215],
-    name: "Brescia"
-  },
-  monza: {
-    path: "M95,162 L85,168 L75,172 L72,185 L82,198 L98,205 L115,202 L128,208 L145,205 L148,195 L145,188 L132,198 L118,195 L105,185 L98,172 L105,162 Z",
-    center: [108, 188],
-    name: "Monza"
-  },
-  milano: {
-    path: "M72,185 L62,178 L55,188 L52,205 L58,222 L72,242 L92,255 L115,262 L138,255 L155,242 L165,222 L168,205 L162,205 L145,205 L128,208 L115,202 L98,205 L82,198 Z",
-    center: [112, 225],
-    name: "Milano"
-  },
-  pavia: {
-    path: "M52,205 L42,198 L32,205 L22,222 L18,248 L25,278 L42,305 L68,325 L98,335 L125,328 L145,312 L155,292 L152,268 L142,252 L115,262 L92,255 L72,242 L58,222 Z",
-    center: [82, 278],
-    name: "Pavia"
-  },
-  lodi: {
-    path: "M155,292 L172,278 L192,272 L208,282 L215,302 L205,322 L185,335 L162,338 L148,328 L142,312 L145,312 Z",
-    center: [178, 305],
-    name: "Lodi"
-  },
-  cremona: {
-    path: "M215,302 L232,285 L255,275 L278,272 L298,282 L312,302 L318,328 L308,355 L285,372 L258,378 L232,372 L208,358 L192,342 L185,335 L205,322 Z",
-    center: [258, 328],
-    name: "Cremona"
-  },
-  mantova: {
-    path: "M312,302 L328,288 L352,282 L375,288 L392,308 L395,335 L385,362 L365,382 L338,392 L308,388 L285,378 L285,372 L308,355 L318,328 Z",
-    center: [348, 342],
-    name: "Mantova"
-  }
+// Province positions as percentages on the map image (based on actual Lombardy geography)
+const provincePositions: Record<string, { x: number; y: number; labelOffset?: { x: number; y: number } }> = {
+  varese: { x: 17, y: 42 },
+  como: { x: 28, y: 32 },
+  sondrio: { x: 52, y: 18 },
+  lecco: { x: 38, y: 42 },
+  bergamo: { x: 52, y: 48 },
+  brescia: { x: 70, y: 48 },
+  monza: { x: 35, y: 52 },
+  milano: { x: 30, y: 60 },
+  pavia: { x: 22, y: 78 },
+  lodi: { x: 42, y: 72 },
+  cremona: { x: 58, y: 80 },
+  mantova: { x: 78, y: 85 }
+};
+
+// Province display names
+const provinceNames: Record<string, string> = {
+  varese: 'Varese',
+  como: 'Como',
+  sondrio: 'Sondrio',
+  lecco: 'Lecco',
+  bergamo: 'Bergamo',
+  brescia: 'Brescia',
+  monza: 'Monza',
+  milano: 'Milano',
+  pavia: 'Pavia',
+  lodi: 'Lodi',
+  cremona: 'Cremona',
+  mantova: 'Mantova'
 };
 
 interface LombardyMapProps {
@@ -157,83 +124,55 @@ interface LombardyMapProps {
 
 function LombardyMap({ highlightedProvinces }: LombardyMapProps) {
   return (
-    <div className="w-full flex flex-col items-center">
-      <svg 
-        viewBox="0 0 420 420" 
-        className="w-full max-w-md"
-        style={{ maxHeight: '320px' }}
-      >
-        {/* Background */}
-        <rect x="0" y="50" width="420" height="370" fill="hsl(var(--muted) / 0.2)" rx="8" />
-        
-        {/* All province boundaries */}
-        {Object.entries(provinceData).map(([id, { path }]) => {
-          const isHighlighted = highlightedProvinces.includes(id);
+    <div className="relative w-full" style={{ maxWidth: '400px', margin: '0 auto' }}>
+      {/* Base map image */}
+      <img
+        src="/images/lombardia/lombardia-provinces-map.png"
+        alt="Map of Lombardy provinces"
+        className="w-full h-auto opacity-30"
+        style={{ filter: 'grayscale(100%)' }}
+      />
+      
+      {/* Overlay for highlighted provinces */}
+      <div className="absolute inset-0">
+        {highlightedProvinces.map(province => {
+          const pos = provincePositions[province];
+          if (!pos) return null;
+          
           return (
-            <g key={id}>
-              {/* Province shape */}
-              <path
-                d={path}
-                fill={isHighlighted ? "hsl(var(--primary))" : "hsl(var(--muted) / 0.6)"}
-                stroke="hsl(var(--background))"
-                strokeWidth={isHighlighted ? "3" : "2"}
-                className={`transition-all duration-500 ${isHighlighted ? 'opacity-100' : 'opacity-40'}`}
-              />
-              {/* Glow effect for highlighted */}
-              {isHighlighted && (
-                <path
-                  d={path}
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="6"
-                  opacity="0.3"
-                  className="animate-pulse"
-                />
-              )}
-            </g>
-          );
-        })}
-        
-        {/* Province labels for highlighted areas */}
-        {highlightedProvinces.map(id => {
-          const data = provinceData[id];
-          if (!data) return null;
-          const [x, y] = data.center;
-          return (
-            <g key={`label-${id}`}>
-              {/* Label background */}
-              <rect
-                x={x - 28}
-                y={y - 10}
-                width="56"
-                height="20"
-                fill="hsl(var(--background) / 0.9)"
-                rx="4"
-              />
-              <text
-                x={x}
-                y={y + 4}
-                fill="hsl(var(--primary))"
-                fontSize="11"
-                fontWeight="600"
-                textAnchor="middle"
-                className="uppercase tracking-wide pointer-events-none"
+            <div
+              key={province}
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1"
+              style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+            >
+              {/* Highlight marker */}
+              <div className="relative">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/90 flex items-center justify-center shadow-lg animate-pulse">
+                  <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-primary-foreground" />
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/40 blur-md -z-10" />
+              </div>
+              
+              {/* Province label */}
+              <span 
+                className="text-xs md:text-sm font-semibold text-primary bg-background/90 px-2 py-0.5 rounded shadow-sm whitespace-nowrap"
               >
-                {data.name}
-              </text>
-            </g>
+                {provinceNames[province] || province}
+              </span>
+            </div>
           );
         })}
-      </svg>
+      </div>
       
       {/* Legend */}
       <div className="flex items-center justify-center gap-6 mt-4 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-primary" />
+          <div className="w-4 h-4 rounded-full bg-primary" />
           <span className="text-foreground font-medium">Origin</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-muted/40" />
+          <div className="w-4 h-4 rounded bg-muted/50" />
           <span className="text-muted-foreground">Other provinces</span>
         </div>
       </div>
