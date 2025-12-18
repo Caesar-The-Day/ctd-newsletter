@@ -838,6 +838,123 @@
     }
   },
   
+  "recipes": {
+    "header": {
+      "title": "Lombardia Recipes — From Alpine Hearth to Milanese Table",
+      "subtitle": "Where mountain survival meets urban refinement"
+    },
+    "cards": [
+      {
+        "id": "pizzoccheri-valtellinese",
+        "title": "Pizzoccheri alla Valtellinese",
+        "mode": "Rustic",
+        "image": "/images/lombardia/pizzoccheri.jpg",
+        "story": "Born in the Valtellina Alps, where wheat was unreliable and winters were long. Buckwheat, dairy, and calories mattered more than elegance. This is survival food refined by repetition.",
+        "whyExists": "Traditional pasta is ~80% buckwheat. Casera DOP is the canonical cheese. Protected recipe culture in Teglio. Olive oil is historically foreign here.",
+        "ingredients": [
+          "350 g pizzoccheri (buckwheat pasta)",
+          "250 g potatoes, sliced",
+          "200 g Savoy cabbage or Swiss chard",
+          "200 g Valtellina Casera (Fontina acceptable)",
+          "120 g unsalted butter",
+          "2 garlic cloves, crushed",
+          "6–8 sage leaves",
+          "Salt"
+        ],
+        "steps": [
+          "Boil potatoes in salted water for 5 minutes.",
+          "Add cabbage, cook 2–3 minutes, then add pasta and cook until tender.",
+          "Melt butter gently with garlic and sage.",
+          "Drain everything together, layer with cheese, and pour over butter.",
+          "Toss lightly and serve immediately."
+        ],
+        "winePairing": "Valtellina Superiore DOCG — High-altitude Nebbiolo with firm acidity and restrained tannins cuts through the butter and cheese without overpowering the buckwheat.",
+        "wineAlternative": "Rosso di Valtellina DOC for a lighter, more casual match that still respects the dish's mountain roots."
+      },
+      {
+        "id": "polenta-taragna",
+        "title": "Polenta Taragna",
+        "mode": "Rustic",
+        "image": "/images/lombardia/polenta-taragna.jpg",
+        "story": "This is Lombard mountain comfort food. Polenta was the backbone of northern Italian diets, and buckwheat made it heartier for cold climates. 'Taragna' means mixed flour (corn + buckwheat), typically enriched with Bitto or Casera. Eaten as a main course, not a side.",
+        "ingredients": [
+          "1 L water",
+          "250 g polenta taragna flour",
+          "150 g Bitto or Casera cheese, cubed",
+          "60 g unsalted butter",
+          "Salt"
+        ],
+        "steps": [
+          "Bring salted water to a boil.",
+          "Whisk in flour slowly.",
+          "Cook, stirring often, 35–40 minutes until thick.",
+          "Stir in butter and cheese off heat until melted and elastic.",
+          "Serve hot, often with braised meats or mushrooms."
+        ],
+        "winePairing": "Valtellina Superiore Inferno or Sassella — These subzones produce slightly more structured Nebbiolo, standing up to the richness and weight of melted cheese.",
+        "wineAlternative": "Valcalepio Rosso DOC (Merlot-based blend from Bergamo area) if you want something rounder and less austere."
+      },
+      {
+        "id": "risotto-milanese",
+        "title": "Risotto alla Milanese",
+        "mode": "Refined",
+        "image": "/images/lombardia/risotto-milanese.jpg",
+        "story": "Rice cultivation flourished in the Po Valley, and Milan's wealth turned simplicity into discipline. Saffron arrived via trade routes; precision made it iconic. Traditionally uses Carnaroli rice. Color should be golden, not orange. Served as a main course in Lombardy. Technique matters more than ingredients.",
+        "whyRefined": "The meticulous mantecatura technique, restrained saffron infusion, and perfect al'onda consistency require discipline that separates home cooking from mastery.",
+        "ingredients": [
+          "320 g Carnaroli rice",
+          "1 small onion, finely chopped",
+          "50 g unsalted butter (divided)",
+          "1 L hot beef or light chicken stock",
+          "100 ml dry white wine",
+          "0.15 g saffron threads",
+          "50 g Parmigiano-Reggiano",
+          "Salt"
+        ],
+        "steps": [
+          "Bloom saffron in warm stock.",
+          "Sweat onion in half the butter.",
+          "Toast rice, deglaze with wine.",
+          "Add stock gradually, stirring.",
+          "Add saffron halfway. Cook ~18 minutes.",
+          "Off heat, stir in remaining butter and Parmigiano (mantecatura).",
+          "Rest 1 minute before serving."
+        ],
+        "winePairing": "Franciacorta Brut — The acidity and fine bubbles cleanse the palate between creamy bites without competing with the saffron. The most classic modern pairing in Lombardy.",
+        "wineAlternative": "Lugana DOC (from the Lombard side of Lake Garda) for a still white option with enough structure and freshness to support the dish."
+      },
+      {
+        "id": "ossobuco-milanese",
+        "title": "Ossobuco alla Milanese",
+        "mode": "Refined",
+        "image": "/images/lombardia/ossobuco.jpg",
+        "story": "This is Milanese refinement applied to a tough cut of meat. Slow cooking, restraint, and balance define it. Traditionally served with risotto alla Milanese. Gremolata (lemon, garlic, parsley) is essential. Sauce should be light, not heavy.",
+        "whyRefined": "The slow-braised veal and marrow demand careful technique, while the gremolata adds brightness that transforms rustic braising into elegant dining.",
+        "ingredients": [
+          "4 veal shanks, 4–5 cm thick",
+          "Flour for dredging",
+          "60 g butter",
+          "1 onion, diced",
+          "1 carrot, diced",
+          "1 celery stalk, diced",
+          "200 ml dry white wine",
+          "300 ml light stock",
+          "Gremolata: zest of 1 lemon, 1 garlic clove minced, 2 tbsp chopped parsley"
+        ],
+        "steps": [
+          "Dredge shanks lightly in flour.",
+          "Brown in butter, remove.",
+          "Sauté vegetables, deglaze with wine.",
+          "Return meat, add stock, cover and braise gently 90 minutes until tender.",
+          "Finish with gremolata just before serving."
+        ],
+        "winePairing": "Valtellina Superiore Riserva — The slow-braised veal and marrow demand a wine with elegance and staying power rather than brute force.",
+        "wineAlternative": "Valcalepio Rosso Riserva for a softer, more accessible pairing that still holds its ground."
+      }
+    ],
+    "modes": ["Rustic", "Refined"]
+  },
+  
   "prosCons": {
     "intro": {
       "headline": "Pros & Cons: Lombardia Without the Hype",
