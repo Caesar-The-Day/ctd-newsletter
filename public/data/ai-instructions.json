@@ -1,6 +1,6 @@
 {
-  "activeRegion": null,
+  "activeRegion": "lombardia",
   "lockedRegions": ["piemonte", "puglia"],
   "instruction": "CRITICAL: The following regions are LOCKED and cannot be modified: piemonte, puglia. These regions are live and published. Do NOT make any changes to their data files, components, or configurations unless explicitly unlocked. If the user asks to make changes without specifying a region, confirm which region they mean. If activeRegion is set, only modify files related to that region.",
-  "lastUpdated": "2025-11-17"
+  "lastUpdated": "2025-12-18"
 }

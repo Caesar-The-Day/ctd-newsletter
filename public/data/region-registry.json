@@ -19,10 +19,19 @@
       "colorScheme": "default",
       "slug": "puglia",
       "displayName": "Puglia"
+    },
+    "lombardia": {
+      "status": "draft",
+      "locked": false,
+      "createdDate": "2025-12-18",
+      "version": "0.1",
+      "colorScheme": "custom",
+      "slug": "lombardia",
+      "displayName": "Lombardia"
     }
   },
   "metadata": {
-    "lastUpdated": "2025-11-17",
-    "version": "1.0.0"
+    "lastUpdated": "2025-12-18",
+    "version": "1.0.1"
   }
 }
