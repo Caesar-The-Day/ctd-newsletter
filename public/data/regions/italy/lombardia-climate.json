@@ -107,6 +107,7 @@
       "brescia": { "tempLow": 16, "tempHigh": 27, "rainfall": 65, "sunHours": 9 },
       "tooltip": "Summer arrives, aperitivo season",
       "culturalEvent": "Milano Summer Festival",
+      "culturalEventUrl": "https://www.idays.it/",
       "visualCue": "Long golden evenings, outdoor dining"
     },
     {
@@ -156,6 +157,7 @@
       "brescia": { "tempLow": 9, "tempHigh": 18, "rainfall": 85, "sunHours": 5 },
       "tooltip": "Fall colors peak, first fog returns",
       "culturalEvent": "Truffle festivals in Lombardy hills",
+      "culturalEventUrl": "https://www.visitbrembo.it/it/eventi/festa-del-tartufo-nero-di-bracca",
       "visualCue": "Stunning autumn colors on lakes"
     },
     {
