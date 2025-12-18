@@ -339,30 +339,31 @@
   },
   
   "towns": {
+    "intro": "Lombardia reveals itself through roles, not romance. These three cities show how the region actually operates — economically, culturally, and logistically — and who it works for.",
     "featured": [
       {
-        "id": "como",
-        "name": "Como",
-        "bestFor": "Lake lifestyle, elegant retirement",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "summary": "Como offers the quintessential Italian lake experience: waterfront promenades, Belle Époque villas, and a relaxed sophistication that has attracted artists and aristocrats for centuries. The silk industry legacy adds cultural depth beyond tourism.",
-        "fullDescription": "Como sits at the southwestern tip of its namesake lake, a city that has mastered the art of elegant living. The waterfront Piazza Cavour serves as living room for locals and visitors alike, while the medieval center reveals Gothic and Romanesque architecture at every turn. The funicular to Brunate offers Alpine panoramas, and the lakeside walking paths provide daily exercise with incomparable views. Healthcare is excellent with immediate access to Milan's world-class facilities. Property prices are premium but justified by the setting and lifestyle.",
-        "mapUrl": "https://maps.google.com/?q=Como+Italy",
+        "id": "milano",
+        "name": "Milano",
+        "bestFor": "The Engine",
+        "photo": "/images/lombardia/milano-featured.jpg",
+        "summary": "Milan is the engine of Italy. Dense, expensive, and relentlessly functional, it powers everything around it. Most retirees won't live here, but nearly everyone in Lombardia benefits from its gravity.",
+        "fullDescription": "Milan is Italy's most consequential city, even if it's rarely its most beloved. This is where finance, fashion, design, manufacturing leadership, and higher education converge. It is a city built for output, not introspection.\n\nFor retirees, Milan's value lies in access. The region's best hospitals and specialists are concentrated here. High-speed rail connects Milan to the rest of northern and central Italy in hours, not days. International airports with real route networks make long-distance travel straightforward rather than aspirational.\n\nDaily life in Milan is demanding. Housing is expensive and often compact. Noise is constant. Green spaces exist, but they're planned, busy, and shared. This is not a city that slows down for anyone.\n\nAs a result, Milan functions best as a hub rather than a home for most retirees. Living within rail reach allows you to use Milan when you need it — healthcare, culture, travel — without absorbing its daily intensity.\n\nMilan is not charming by design. It is efficient by necessity.",
+        "mapUrl": "https://maps.google.com/?q=Milano+Italy",
         "gallery": [],
         "links": [
           {
-            "label": "Visit Como",
-            "href": "https://www.visitcomo.eu/"
+            "label": "Visit Milano",
+            "href": "https://www.visitamilano.it/"
           }
         ]
       },
       {
         "id": "bergamo",
         "name": "Bergamo",
-        "bestFor": "Authentic Italy, excellent value",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "summary": "Bergamo offers two cities in one: the medieval Città Alta (Upper Town) perched on a hill, and the modern Città Bassa below. The combination delivers authenticity, culture, and practical living at prices significantly below Milan or Como.",
-        "fullDescription": "Bergamo may be Lombardia's best-kept secret for retirement. The UNESCO-listed Città Alta is Italy as you imagined it: narrow lanes, ancient walls, piazzas where locals gather at dusk. Yet below, modern Bergamo offers excellent shopping, dining, and services. The airport provides budget connections across Europe. The city sits between mountains and plains, offering both Alpine excursions and easy access to Milan. Healthcare includes the renowned Papa Giovanni XXIII Hospital. Property in the lower town offers exceptional value.",
+        "bestFor": "The Balance",
+        "photo": "/images/lombardia/bergamo-featured.jpg",
+        "summary": "Bergamo is Lombardia's proof that balance is possible. Historic but not frozen, connected but not overwhelmed, it offers access to Milan without living inside its pressure cooker.",
+        "fullDescription": "Bergamo occupies a rare middle ground. Its medieval Città Alta sits above a modern, orderly lower city, creating a place where history and contemporary life coexist without friction.\n\nThe city feels lived-in rather than staged. Shops serve residents. Streets are walkable. Tourism exists, particularly in the upper city, but it doesn't dominate daily life. Winters are cold, summers are moderate, and the seasons shape how people live rather than being something to escape.\n\nBergamo's strategic advantage is location. Milan is less than an hour away by train. The international airport is minutes from the city, yet the presence of air traffic doesn't overwhelm the local rhythm. Healthcare services are strong, with easy escalation to Milan when specialized care is needed.\n\nCosts are high by Italian standards but measured. You pay for competence, access, and order, not hype or spectacle.\n\nBergamo works for retirees who want structure without intensity and beauty without performance. It doesn't sell an image. It delivers a life.",
         "mapUrl": "https://maps.google.com/?q=Bergamo+Italy",
         "gallery": [],
         "links": [
@@ -373,18 +374,18 @@
         ]
       },
       {
-        "id": "lecco",
-        "name": "Lecco",
-        "bestFor": "Mountain access, outdoor lifestyle",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "summary": "Lecco sits at the southeastern branch of Lake Como, beneath dramatic limestone peaks. Less famous than Como city, it offers a more active, outdoor-oriented lifestyle with excellent hiking, climbing, and water sports.",
-        "fullDescription": "Where Alessandro Manzoni set 'The Betrothed,' Lecco remains beautifully literary while thoroughly practical. The Resegone mountain looms above, offering hiking in summer and nearby skiing in winter. The lakefront is less polished than Como's but more authentic — families, joggers, and fishermen rather than yacht clubs. Property prices are notably lower than Como while still offering lake access and mountain views. Milan is 50 minutes by train, making Lecco viable for those who want occasional city access without city living.",
-        "mapUrl": "https://maps.google.com/?q=Lecco+Italy",
+        "id": "brescia",
+        "name": "Brescia",
+        "bestFor": "The Backbone",
+        "photo": "/images/lombardia/brescia-featured.jpg",
+        "summary": "Brescia is the backbone of Lombardia. Industrial, understated, and quietly affluent, it's a city built for people who value reliability over attention.",
+        "fullDescription": "Brescia rarely appears on shortlists, and that's precisely why it deserves attention. This is one of Italy's most productive provinces, anchored by manufacturing, engineering, and export-driven industries. The city reflects that mindset: practical, organized, and unapologetically functional.\n\nIts historic center is compact and genuinely livable, with Roman ruins, Renaissance architecture, and cultural institutions that locals actively use. Tourism exists but remains peripheral. Life here is oriented toward residents, not visitors.\n\nBrescia is well connected to Milan, Verona, and the lake districts, making it strategically positioned without being consumed by tourism or commuter overflow. Healthcare is solid and accessible. Bureaucracy tends to be more predictable than in more performative cities.\n\nHousing availability is better than in Milan or Bergamo, though still far from cheap. Winters are cold. Summers are warm but manageable.\n\nBrescia suits retirees who want Italy without theatrics — people who appreciate systems that work and communities that mind their own business.\n\nIt's not a place that asks for your attention. It earns your trust over time.",
+        "mapUrl": "https://maps.google.com/?q=Brescia+Italy",
         "gallery": [],
         "links": [
           {
-            "label": "Visit Lecco",
-            "href": "https://www.turismolecco.com/"
+            "label": "Visit Brescia",
+            "href": "https://www.bresciatourism.it/"
           }
         ]
       }
