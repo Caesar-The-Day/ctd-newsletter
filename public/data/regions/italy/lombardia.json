@@ -353,7 +353,7 @@
         "links": [
           {
             "label": "Visit Milano",
-            "href": "https://www.visitamilano.it/"
+            "href": "https://www.yesmilano.it/en"
           }
         ]
       },
@@ -483,7 +483,7 @@
         "id": "chiavenna",
         "name": "Chiavenna",
         "bestFor": "Alpine, Swiss border, seasonal",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "photo": "/images/lombardia/chiavenna.jpg",
         "mapUrl": "https://maps.google.com/?q=Chiavenna,+Lombardy,+Italy",
         "blurb": "A mountain town near the Swiss border with dramatic scenery and a strong local culture. Winters are long and quiet, summers are active and social. Best for retirees who want Alpine life and are comfortable with seasonal isolation."
       }
