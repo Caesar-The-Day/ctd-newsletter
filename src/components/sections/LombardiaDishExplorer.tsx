@@ -13,6 +13,7 @@ interface DishData {
   climateGeo: string;
   takeaway: string;
   coords: [number, number];
+  funFact?: string;
 }
 
 const dishes: DishData[] = [
@@ -68,13 +69,14 @@ const dishes: DishData[] = [
     id: 'casoncelli',
     name: 'Casoncelli alla Bergamasca',
     descriptor: 'Stuffed pasta with meat, breadcrumbs, butter, sage',
-    image: '/images/lombardia/bergamo-featured.jpg',
+    image: '/images/lombardia/casoncelli.webp',
     mapHighlight: 'Bergamo and surrounding hills',
     mapZone: 'hills',
     whyExists: 'Casoncelli evolved as a way to stretch meat using breadcrumbs, eggs, and cheese — turning scarcity into structure.',
     climateGeo: 'Hill towns with mixed agriculture relied on preservation and balance rather than abundance.',
     takeaway: "Even Lombard \"pasta\" is pragmatic. Filling matters more than flourish.",
-    coords: [45.70, 9.67]
+    coords: [45.70, 9.67],
+    funFact: "Casoncelli is a close cousin to Polish Pierogi — both are filled dumplings born from the same logic of stretching precious ingredients. The shape, the crimped edges, the butter-sage finish: this is Central European peasant wisdom wearing Italian clothes."
   }
 ];
 
@@ -222,6 +224,14 @@ export default function LombardiaDishExplorer() {
                   <h4 className="font-serif text-lg text-foreground mb-2">Cultural Takeaway</h4>
                   <p className="text-foreground/90 leading-relaxed italic">{selectedDish.takeaway}</p>
                 </div>
+
+                {/* Fun Fact (if exists) */}
+                {selectedDish.funFact && (
+                  <div className="p-4 bg-secondary/30 rounded-lg">
+                    <h4 className="font-serif text-lg text-foreground mb-2">Did You Know?</h4>
+                    <p className="text-muted-foreground leading-relaxed">{selectedDish.funFact}</p>
+                  </div>
+                )}
 
                 {/* Footer */}
                 <p className="text-center text-sm text-muted-foreground/70 pt-4 border-t border-border">
