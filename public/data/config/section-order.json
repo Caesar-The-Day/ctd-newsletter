@@ -19,5 +19,23 @@
     "closing"
   ],
   "piemonte": "default",
-  "puglia": "default"
+  "puglia": "default",
+  "lombardia": [
+    "hero",
+    "editorialIntro",
+    "map",
+    "climate",
+    "townsFeatured",
+    "bookCTA",
+    "townsGrid",
+    "highlights",
+    "collaborator",
+    "quiz",
+    "recipes",
+    "retirementBlueprintCTA",
+    "healthcare",
+    "costCalculator",
+    "prosCons",
+    "closing"
+  ]
 }
