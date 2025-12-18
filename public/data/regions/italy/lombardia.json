@@ -512,7 +512,7 @@
           "id": "franciacorta",
           "title": "Franciacorta DOCG",
           "subtitle": "Italy's finest sparkling",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/franciacorta.jpeg",
           "description": "Method Champenoise sparklers that rival Champagne at fraction of the price. Chardonnay, Pinot Nero, and Pinot Bianco create elegant, complex wines near Lake Iseo.",
           "links": [
             {
@@ -525,7 +525,7 @@
           "id": "valtellina",
           "title": "Valtellina Superiore DOCG",
           "subtitle": "Alpine Nebbiolo",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/valtellina-superiore.webp",
           "description": "Nebbiolo (called Chiavennasca here) grown on dramatic Alpine terraces. Structured, elegant reds that age beautifully. One of Italy's most scenic wine regions.",
           "links": [
             {
@@ -538,7 +538,7 @@
           "id": "lugana",
           "title": "Lugana DOC",
           "subtitle": "Lake Garda whites",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/lugana.jpg",
           "description": "Crisp, mineral Turbiana whites from the southern shores of Lake Garda. Perfect aperitivo wines, increasingly recognized internationally.",
           "links": [
             {
@@ -558,7 +558,7 @@
           "id": "risotto-milanese",
           "title": "Risotto alla Milanese",
           "subtitle": "Saffron-gold comfort",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/risotto-milanese.jpg",
           "description": "The dish that defines Milanese cuisine. Carnaroli rice, saffron, bone marrow, and patience create creamy perfection. Often paired with ossobuco.",
           "links": []
         },
@@ -566,7 +566,7 @@
           "id": "gorgonzola",
           "title": "Gorgonzola DOP",
           "subtitle": "Blue cheese excellence",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/gorgonzola.jpg",
           "description": "Italy's most famous blue cheese, made for centuries in the town of the same name near Milan. Dolce or piccante, always magnificent.",
           "links": []
         },
@@ -574,7 +574,7 @@
           "id": "bresaola",
           "title": "Bresaola della Valtellina",
           "subtitle": "Air-cured beef perfection",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/bresaola.jpg",
           "description": "Lean, air-dried beef from the Alpine valleys. Served with arugula, Parmigiano, and lemon. Light yet deeply flavorful.",
           "links": []
         }
@@ -589,7 +589,7 @@
           "id": "la-scala",
           "title": "Teatro alla Scala",
           "subtitle": "Opera's spiritual home",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/teatro-alla-scala.jpg",
           "description": "Simply the most famous opera house in the world. Even if opera isn't your passion, attending a performance here is transformative.",
           "links": [
             {
@@ -602,7 +602,7 @@
           "id": "last-supper",
           "title": "The Last Supper",
           "subtitle": "Leonardo's masterpiece",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/last-supper.jpg",
           "description": "Da Vinci's fragile masterpiece in Santa Maria delle Grazie. Book months ahead — this is bucket-list essential.",
           "links": [
             {
@@ -615,7 +615,7 @@
           "id": "villa-carlotta",
           "title": "Villa Carlotta",
           "subtitle": "Lake Como's garden jewel",
-          "image": "/images/archive/lombardia-thumbnail.jpg",
+          "image": "/images/lombardia/villa-carlotta.jpg",
           "description": "Botanical gardens and neoclassical art on Como's shore. Azaleas and rhododendrons in spring, sculpture year-round.",
           "links": [
             {
