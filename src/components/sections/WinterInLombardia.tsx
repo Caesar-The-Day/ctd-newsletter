@@ -5,32 +5,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { X, MapPin, Snowflake, TreePine, Trophy, Calendar, Mountain, Thermometer } from 'lucide-react';
-
-// Province positions for map pins (percentage-based)
-const provincePositions: Record<string, { x: number; y: number }> = {
-  milano: { x: 35, y: 58 },
-  bergamo: { x: 58, y: 45 },
-  brescia: { x: 72, y: 48 },
-  mantova: { x: 65, y: 78 },
-  sondrio: { x: 55, y: 15 },
-  como: { x: 32, y: 28 },
-  lecco: { x: 45, y: 32 },
-  varese: { x: 22, y: 32 },
-  monza: { x: 40, y: 50 },
-  pavia: { x: 28, y: 72 },
-  cremona: { x: 52, y: 72 },
-  lodi: { x: 42, y: 65 },
-};
-
-// Winter destination positions
-const winterDestinations: Record<string, { x: number; y: number; name: string }> = {
-  bormio: { x: 68, y: 12, name: 'Bormio' },
-  livigno: { x: 75, y: 8, name: 'Livigno' },
-  aprica: { x: 62, y: 25, name: 'Aprica' },
-  pontedilegno: { x: 78, y: 20, name: 'Ponte di Legno' },
-  valmalenco: { x: 58, y: 18, name: 'Valmalenco' },
-};
+import { Snowflake, Trophy, Calendar, Mountain } from 'lucide-react';
+import LombardyMapSVG, { winterDestinations as winterDestinationPositions } from './LombardyMapSVG';
 
 // Christmas market cities
 const christmasCities = ['milano', 'bergamo', 'brescia', 'mantova'];
@@ -122,8 +98,8 @@ export default function WinterInLombardia() {
     return () => observer.disconnect();
   }, []);
 
-  // Get active pins based on tab and state
-  const getActivePins = () => {
+  // Get highlighted provinces based on tab and state
+  const getHighlightedProvinces = () => {
     if (activeTab === 'traditions') {
       if (activeTimelineSegment === 'early') {
         return christmasCities;
@@ -131,18 +107,42 @@ export default function WinterInLombardia() {
       return [];
     }
     if (activeTab === 'recreation') {
-      return Object.keys(winterDestinations);
+      // For recreation, we highlight sondrio (contains mountain resorts)
+      return ['sondrio', 'brescia'];
     }
     if (activeTab === 'sport') {
       if (showOlympicOverlay) {
-        return ['milano', 'bormio', 'livigno'];
+        return ['milano', 'sondrio', 'brescia'];
       }
       return ['milano', 'bergamo'];
     }
     return [];
   };
 
-  const activePins = getActivePins();
+  // Get highlight color based on tab
+  const getHighlightColor = () => {
+    if (activeTab === 'traditions') return '#38bdf8'; // sky-400
+    if (activeTab === 'recreation') return '#34d399'; // emerald-400
+    if (activeTab === 'sport' && showOlympicOverlay) return '#fbbf24'; // amber-400
+    if (activeTab === 'sport') return '#34d399'; // emerald-400
+    return '#38bdf8';
+  };
+
+  const highlightedProvinces = getHighlightedProvinces();
+
+  // Handle province click on map
+  const handleProvinceClick = (province: string) => {
+    if (activeTab === 'traditions' && christmasCities.includes(province)) {
+      setSelectedCity(province);
+    } else if (activeTab === 'sport') {
+      if (showOlympicOverlay && ['milano', 'sondrio', 'brescia'].includes(province)) {
+        const venueMap: Record<string, string> = { milano: 'milano', sondrio: 'bormio', brescia: 'livigno' };
+        setSelectedOlympicVenue(venueMap[province] || province);
+      } else if (['milano', 'bergamo'].includes(province)) {
+        setSelectedCity(province);
+      }
+    }
+  };
 
   return (
     <section
@@ -179,90 +179,60 @@ export default function WinterInLombardia() {
             <div className="sticky top-24">
               <div className="relative bg-slate-800/50 rounded-2xl p-4 border border-slate-700/50">
                 <div className="relative aspect-[4/5] w-full">
-                  <img
-                    src="/images/lombardia/lombardia-provinces-map.png"
-                    alt="Map of Lombardia provinces"
-                    className="w-full h-full object-contain opacity-80"
+                  <LombardyMapSVG
+                    highlightedProvinces={highlightedProvinces}
+                    highlightColor={getHighlightColor()}
+                    onProvinceClick={handleProvinceClick}
+                    showLabels={true}
                   />
                   
-                  {/* Province Pins for Traditions & Sport tabs */}
-                  {(activeTab === 'traditions' || activeTab === 'sport') && 
-                    activePins.filter(pin => provincePositions[pin]).map((pin) => (
-                      <button
-                        key={pin}
-                        onClick={() => {
-                          if (activeTab === 'sport' && showOlympicOverlay) {
-                            setSelectedOlympicVenue(pin);
-                          } else {
-                            setSelectedCity(pin);
-                          }
-                        }}
-                        className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group ${
-                          activeTab === 'sport' && showOlympicOverlay 
-                            ? 'z-20' 
-                            : 'z-10'
-                        }`}
-                        style={{
-                          left: `${provincePositions[pin].x}%`,
-                          top: `${provincePositions[pin].y}%`,
-                        }}
-                      >
-                        <div className={`relative ${
-                          activeTab === 'sport' && showOlympicOverlay
-                            ? 'animate-pulse'
-                            : ''
-                        }`}>
-                          <div className={`w-4 h-4 rounded-full border-2 ${
-                            activeTab === 'sport' && showOlympicOverlay
-                              ? 'bg-amber-500 border-amber-300'
-                              : activeTab === 'sport'
-                              ? 'bg-emerald-500 border-emerald-300'
-                              : 'bg-sky-500 border-sky-300'
-                          } shadow-lg`} />
-                          <div className={`absolute inset-0 w-4 h-4 rounded-full ${
-                            activeTab === 'sport' && showOlympicOverlay
-                              ? 'bg-amber-400'
-                              : activeTab === 'sport'
-                              ? 'bg-emerald-400'
-                              : 'bg-sky-400'
-                          } animate-ping opacity-40`} />
-                        </div>
-                        <span className="absolute left-1/2 -translate-x-1/2 top-6 text-xs font-medium text-slate-200 bg-slate-800/90 px-2 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity capitalize">
-                          {cityModals[pin]?.title.split(' ')[0] || pin}
-                        </span>
-                      </button>
-                    ))}
-
-                  {/* Winter Destination Pins for Recreation tab */}
-                  {activeTab === 'recreation' && 
-                    Object.entries(winterDestinations).map(([key, dest]) => (
-                      <button
-                        key={key}
-                        onClick={() => setSelectedDestination(key)}
-                        className="absolute transform -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 group"
-                        style={{
-                          left: `${dest.x}%`,
-                          top: `${dest.y}%`,
-                        }}
-                      >
-                        <div className="relative">
-                          <Mountain className="w-6 h-6 text-emerald-400 drop-shadow-lg" />
-                          <div className="absolute inset-0 w-6 h-6 text-emerald-400 animate-ping opacity-30">
-                            <Mountain className="w-6 h-6" />
-                          </div>
-                        </div>
-                        <span className="absolute left-1/2 -translate-x-1/2 top-8 text-xs font-medium text-slate-200 bg-slate-800/90 px-2 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                          {dest.name}
-                        </span>
-                      </button>
-                    ))}
+                  {/* Winter Destination Pins for Recreation tab - overlay on SVG */}
+                  {activeTab === 'recreation' && (
+                    <svg
+                      viewBox="80 50 560 510"
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                    >
+                      {Object.entries(winterDestinationPositions).map(([key, dest]) => (
+                        <g 
+                          key={key} 
+                          className="pointer-events-auto cursor-pointer"
+                          onClick={() => setSelectedDestination(key)}
+                        >
+                          <circle
+                            cx={dest.x}
+                            cy={dest.y}
+                            r="12"
+                            fill="rgba(52, 211, 153, 0.3)"
+                            className="animate-ping"
+                          />
+                          <circle
+                            cx={dest.x}
+                            cy={dest.y}
+                            r="8"
+                            fill="#34d399"
+                            stroke="#ffffff"
+                            strokeWidth="2"
+                          />
+                          <text
+                            x={dest.x}
+                            y={dest.y + 22}
+                            textAnchor="middle"
+                            className="text-[9px] font-medium fill-slate-200"
+                            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}
+                          >
+                            {dest.label}
+                          </text>
+                        </g>
+                      ))}
+                    </svg>
+                  )}
                 </div>
                 
                 {/* Map Legend */}
                 <div className="mt-4 flex flex-wrap gap-3 justify-center text-xs text-slate-400">
                   {activeTab === 'traditions' && (
                     <span className="flex items-center gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-sky-500" />
+                      <div className="w-3 h-3 rounded-full bg-sky-400" />
                       Christmas Markets
                     </span>
                   )}
@@ -274,13 +244,13 @@ export default function WinterInLombardia() {
                   )}
                   {activeTab === 'sport' && !showOlympicOverlay && (
                     <span className="flex items-center gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                      <div className="w-3 h-3 rounded-full bg-emerald-400" />
                       Football Cities
                     </span>
                   )}
                   {activeTab === 'sport' && showOlympicOverlay && (
                     <span className="flex items-center gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-amber-500" />
+                      <div className="w-3 h-3 rounded-full bg-amber-400" />
                       Olympic Venues 2026
                     </span>
                   )}
@@ -288,6 +258,7 @@ export default function WinterInLombardia() {
               </div>
             </div>
           </div>
+
 
           {/* Content Panel */}
           <div className="order-2 lg:order-2">
