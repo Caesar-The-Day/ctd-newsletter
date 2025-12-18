@@ -2,9 +2,12 @@
  * Region Management API
  * 
  * Calls Edge Functions to manage region scaffolding, locking, publishing, and active state.
+ * Uses direct fetch to Edge Functions for reliability.
  */
 
-import { supabase } from '@/integrations/supabase/client';
+// Get Supabase URL from env or use hardcoded value as fallback
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://jolbywwrnehhwodlgytt.supabase.co';
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvbGJ5d3dybmVoaHdvZGxneXR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMDczNTIsImV4cCI6MjA4MTU4MzM1Mn0.3UUV5PbolRzbZmo1_oCe9TgctYF1esT2xvA_izLR4SQ';
 
 export interface ScaffoldRegionParams {
   slug: string;
@@ -93,23 +96,39 @@ export interface SetActiveResponse {
 }
 
 /**
+ * Call an edge function directly via fetch
+ */
+async function callEdgeFunction<T>(functionName: string, body: object): Promise<T> {
+  const url = `${SUPABASE_URL}/functions/v1/${functionName}`;
+  
+  console.log(`[regionApi] Calling ${functionName}:`, body);
+  
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      'apikey': SUPABASE_ANON_KEY,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const data = await response.json();
+  console.log(`[regionApi] ${functionName} response:`, data);
+  
+  if (!response.ok) {
+    throw new Error(data.error || `Failed to call ${functionName}`);
+  }
+  
+  return data as T;
+}
+
+/**
  * Scaffolds a new region from template via Edge Function
  */
 export async function scaffoldRegionApi(params: ScaffoldRegionParams): Promise<ScaffoldResponse> {
   try {
-    console.log('[regionApi] Calling scaffold-region:', params);
-    
-    const { data, error } = await supabase.functions.invoke('scaffold-region', {
-      body: params
-    });
-
-    if (error) {
-      console.error('[regionApi] Edge function error:', error);
-      return { success: false, message: 'Failed to scaffold region', error: error.message };
-    }
-
-    console.log('[regionApi] Scaffold response:', data);
-    return data as ScaffoldResponse;
+    return await callEdgeFunction<ScaffoldResponse>('scaffold-region', params);
   } catch (error) {
     console.error('[regionApi] Scaffold error:', error);
     return { 
@@ -125,19 +144,7 @@ export async function scaffoldRegionApi(params: ScaffoldRegionParams): Promise<S
  */
 export async function updateRegionLockApi(slug: string, locked: boolean): Promise<LockResponse> {
   try {
-    console.log('[regionApi] Calling region-lock:', { slug, locked });
-    
-    const { data, error } = await supabase.functions.invoke('region-lock', {
-      body: { slug, locked }
-    });
-
-    if (error) {
-      console.error('[regionApi] Edge function error:', error);
-      return { success: false, message: 'Failed to update lock status', error: error.message };
-    }
-
-    console.log('[regionApi] Lock response:', data);
-    return data as LockResponse;
+    return await callEdgeFunction<LockResponse>('region-lock', { slug, locked });
   } catch (error) {
     console.error('[regionApi] Lock error:', error);
     return { 
@@ -153,19 +160,7 @@ export async function updateRegionLockApi(slug: string, locked: boolean): Promis
  */
 export async function publishRegionApi(slug: string): Promise<PublishResponse> {
   try {
-    console.log('[regionApi] Calling publish-region:', slug);
-    
-    const { data, error } = await supabase.functions.invoke('publish-region', {
-      body: { slug }
-    });
-
-    if (error) {
-      console.error('[regionApi] Edge function error:', error);
-      return { success: false, message: 'Failed to publish region', error: error.message };
-    }
-
-    console.log('[regionApi] Publish response:', data);
-    return data as PublishResponse;
+    return await callEdgeFunction<PublishResponse>('publish-region', { slug });
   } catch (error) {
     console.error('[regionApi] Publish error:', error);
     return { 
@@ -181,19 +176,7 @@ export async function publishRegionApi(slug: string): Promise<PublishResponse> {
  */
 export async function setActiveRegionApi(slug: string | null): Promise<SetActiveResponse> {
   try {
-    console.log('[regionApi] Calling set-active-region:', slug);
-    
-    const { data, error } = await supabase.functions.invoke('set-active-region', {
-      body: { slug }
-    });
-
-    if (error) {
-      console.error('[regionApi] Edge function error:', error);
-      return { success: false, message: 'Failed to set active region', error: error.message };
-    }
-
-    console.log('[regionApi] Set active response:', data);
-    return data as SetActiveResponse;
+    return await callEdgeFunction<SetActiveResponse>('set-active-region', { slug });
   } catch (error) {
     console.error('[regionApi] Set active error:', error);
     return { 
