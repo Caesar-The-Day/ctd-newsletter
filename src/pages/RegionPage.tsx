@@ -34,6 +34,7 @@ import { BookCTA } from '@/components/sections/BookCTA';
 import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprintCTA';
 import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
+import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
@@ -239,6 +240,8 @@ export default function RegionPage() {
       <TownsGrid towns={regionData.towns.grid} />
 
       {region === 'puglia' && <PugliaCoastSelector />}
+
+      {region === 'lombardia' && <MilanProximityTool />}
 
       {config.show7PercentCTA && <SevenPercentCTA />}
 
