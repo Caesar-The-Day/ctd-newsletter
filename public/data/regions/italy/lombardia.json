@@ -637,12 +637,17 @@
   "closing": {
     "header": "Share This Guide",
     "subtitle": "Know someone dreaming of Italian retirement?",
-    "message": "Lombardia offers what many retirees seek but few regions deliver: genuine sophistication without pretension, world-class healthcare, international connectivity, and natural beauty from Alpine peaks to legendary lakes. It's not Italy's cheapest option, but for those who prioritize quality, it may be the smartest choice. Ciao for now — may your espresso be strong and your lake views endless.",
-    "shareUrl": "https://caesartheday.com/lombardia",
+    "message": "Grazie for reading Issue #9.",
+    "shareUrl": "https://news.caesartheday.com/lombardia",
     "socialMessages": {
-      "twitter": "Dreaming of retirement in Lombardia? Lakes, Alps, and La Scala await. My complete guide to northern Italian living. #ItalyRetirement #LakeComo",
       "facebook": "Lombardia: where world-class healthcare meets lake-side living. My comprehensive retirement guide to Italy's most sophisticated region.",
-      "email": "I thought you might enjoy this guide to retiring in Lombardia — beautiful lakes, excellent healthcare, and real four-season living."
+      "threads": "Lake Como views. La Scala nights. World-class hospitals. Lombardia is Italy for people who want quality without compromise. CaesarTheDay's new guide shows what life there really looks like.",
+      "bluesky": "Interactive guide to retiring in Lombardia — where Alpine peaks meet legendary lakes. Smart, beautiful work from CaesarTheDay for anyone plotting a sophisticated Italian retirement.",
+      "whatsapp": "I just read this interactive guide to retiring in Lombardia — it's actually useful and gorgeous. Thought you'd enjoy it too. 👉",
+      "pinterest": {
+        "title": "Retire in Lombardia: Lakes, Culture & Northern Excellence",
+        "description": "CaesarTheDay's interactive guide to living beautifully in Italy's Lombardia region — where Lake Como meets La Scala."
+      }
     }
   }
 }
