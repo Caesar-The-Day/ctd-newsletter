@@ -416,91 +416,125 @@
   "costOfLiving": {
     "intro": {
       "headline": "Cost of Living — Premium North",
-      "subheadline": "Quality comes at a price, but value exists for those who know where to look."
+      "lead": "Lombardia sits at Italy's economic apex — which means costs run higher than the national average. But value exists for those who know where to look. Milan commands premium prices, while secondary cities like Bergamo and Brescia offer surprising affordability with excellent services.",
+      "realityCheck": "Lombardia won't be your cheapest Italian option. Milan rivals Paris and Munich in living costs. But step outside the fashion district and costs normalize quickly. Lake towns vary wildly by season — winter rentals can be half summer prices. The real value lies in efficiency: things work here, saving you time, stress, and hidden costs.",
+      "whyItWorks": "What you pay extra in rent, you save in reliability. Hospitals that function, trains that run, bureaucracy that (mostly) makes sense. For retirees prioritizing quality of life over raw savings, Lombardia's premium delivers peace of mind that cheaper regions often lack."
     },
     "townPresets": [
       {
-        "town": "Milano Centro",
-        "housingType": "Apartment",
-        "monthlyRent": 1800,
-        "utilities": 180,
-        "groceries": 450,
-        "dining": 400,
-        "healthcare": 100,
-        "transport": 50,
-        "total": 2980
+        "id": "milano",
+        "label": "Milano (City Center)",
+        "modest": {
+          "rent": 1200,
+          "utilities": 150,
+          "groceries": 400,
+          "dining": 250,
+          "transport": 50
+        },
+        "normal": {
+          "rent": 1800,
+          "utilities": 180,
+          "groceries": 500,
+          "dining": 400,
+          "transport": 75
+        },
+        "highEnd": {
+          "rent": 2800,
+          "utilities": 250,
+          "groceries": 700,
+          "dining": 600,
+          "transport": 120
+        }
       },
       {
-        "town": "Como",
-        "housingType": "Apartment",
-        "monthlyRent": 1200,
-        "utilities": 150,
-        "groceries": 400,
-        "dining": 300,
-        "healthcare": 80,
-        "transport": 60,
-        "total": 2190
+        "id": "como",
+        "label": "Como (Lake)",
+        "modest": {
+          "rent": 800,
+          "utilities": 130,
+          "groceries": 350,
+          "dining": 200,
+          "transport": 60
+        },
+        "normal": {
+          "rent": 1200,
+          "utilities": 160,
+          "groceries": 450,
+          "dining": 320,
+          "transport": 80
+        },
+        "highEnd": {
+          "rent": 2000,
+          "utilities": 220,
+          "groceries": 600,
+          "dining": 500,
+          "transport": 120
+        }
       },
       {
-        "town": "Bergamo",
-        "housingType": "Apartment",
-        "monthlyRent": 900,
-        "utilities": 130,
-        "groceries": 380,
-        "dining": 250,
-        "healthcare": 80,
-        "transport": 50,
-        "total": 1790
+        "id": "bergamo",
+        "label": "Bergamo (Best Value)",
+        "modest": {
+          "rent": 600,
+          "utilities": 110,
+          "groceries": 320,
+          "dining": 180,
+          "transport": 50
+        },
+        "normal": {
+          "rent": 900,
+          "utilities": 140,
+          "groceries": 400,
+          "dining": 280,
+          "transport": 70
+        },
+        "highEnd": {
+          "rent": 1400,
+          "utilities": 190,
+          "groceries": 550,
+          "dining": 420,
+          "transport": 110
+        }
       },
       {
-        "town": "Brescia",
-        "housingType": "Apartment",
-        "monthlyRent": 800,
-        "utilities": 130,
-        "groceries": 370,
-        "dining": 220,
-        "healthcare": 80,
-        "transport": 50,
-        "total": 1650
-      },
-      {
-        "town": "Mantova",
-        "housingType": "Apartment",
-        "monthlyRent": 650,
-        "utilities": 120,
-        "groceries": 350,
-        "dining": 180,
-        "healthcare": 70,
-        "transport": 40,
-        "total": 1410
+        "id": "brescia",
+        "label": "Brescia (Wine Country)",
+        "modest": {
+          "rent": 550,
+          "utilities": 105,
+          "groceries": 310,
+          "dining": 170,
+          "transport": 50
+        },
+        "normal": {
+          "rent": 850,
+          "utilities": 135,
+          "groceries": 390,
+          "dining": 260,
+          "transport": 65
+        },
+        "highEnd": {
+          "rent": 1300,
+          "utilities": 180,
+          "groceries": 530,
+          "dining": 400,
+          "transport": 100
+        }
       }
     ],
-    "lifestyles": [
-      {
-        "id": "frugal",
-        "name": "Frugal",
-        "description": "Cooking at home, public transport, minimal dining out",
-        "multiplier": 0.8
-      },
-      {
-        "id": "moderate",
-        "name": "Moderate",
-        "description": "Regular dining out, occasional travel, comfortable living",
-        "multiplier": 1.0
-      },
-      {
-        "id": "comfortable",
-        "name": "Comfortable",
-        "description": "Frequent dining, cultural activities, regular travel",
-        "multiplier": 1.3
+    "lifestyles": ["Modest", "Average", "High-End"],
+    "notes": {
+      "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
+      "sources": [
+        "Numbeo.com",
+        "LivingCost.org",
+        "Regional data extrapolations (2024)"
+      ],
+      "links": {
+        "milano": "https://www.numbeo.com/cost-of-living/in/Milan",
+        "como": "https://www.numbeo.com/cost-of-living/in/Como"
       }
-    ],
-    "notes": [
-      "Milan prices reflect city center; suburbs 30-40% lower",
-      "Lake towns peak in summer; off-season rentals more negotiable",
-      "Property purchase prices in Como among Italy's highest",
-      "Bergamo and Brescia offer best value-to-amenities ratio"
-    ]
+    }
   },
   
   "prosCons": {
