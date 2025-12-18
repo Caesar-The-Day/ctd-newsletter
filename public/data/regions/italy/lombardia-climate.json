@@ -1,0 +1,188 @@
+{
+  "intro": {
+    "headline": "Climate Snapshot: A Year in Lombardia",
+    "tagline": "Where Alpine winters meet Mediterranean ambitions — four seasons with northern character.",
+    "paragraphs": [
+      "Lombardia lives between two worlds: the continental chill of the Po Valley and the moderating influence of its great lakes. The result is genuine four-season living — winter cold enough for snow, summers warm enough for lake swimming, and shoulder seasons that steal the show.",
+      "The lakes create microclimates that surprise visitors. Como's western shore can be 5 degrees warmer than Milan on a winter day. The fog that blankets the plains rarely reaches the lakeside towns perched above. Choose your location carefully — climate varies dramatically across short distances.",
+      "For those who crave seasonal change without extremes, Lombardia delivers. You'll need a winter coat, yes, but you'll also enjoy spring blossoms, summer evenings, and golden autumns that make every photograph look composed."
+    ],
+    "hoverQuote": "In Lombardia, the fog lifts and suddenly the Alps appear — that never gets old.",
+    "ctaText": "Slide through the seasons →"
+  },
+  "regions": {
+    "milano": {
+      "name": "Milan",
+      "type": "city",
+      "palette": "urban"
+    },
+    "como": {
+      "name": "Como",
+      "type": "lakeside",
+      "palette": "lakeside"
+    },
+    "bergamo": {
+      "name": "Bergamo",
+      "type": "foothills",
+      "palette": "alpine"
+    },
+    "brescia": {
+      "name": "Brescia",
+      "type": "plains",
+      "palette": "vineyard"
+    }
+  },
+  "months": [
+    {
+      "month": "January",
+      "index": 0,
+      "season": "winter",
+      "milano": { "tempLow": -1, "tempHigh": 6, "rainfall": 60, "sunHours": 2 },
+      "como": { "tempLow": 1, "tempHigh": 7, "rainfall": 65, "sunHours": 3 },
+      "bergamo": { "tempLow": -2, "tempHigh": 5, "rainfall": 55, "sunHours": 3 },
+      "brescia": { "tempLow": -1, "tempHigh": 6, "rainfall": 50, "sunHours": 3 },
+      "tooltip": "Fog season, Alpine snow above",
+      "culturalEvent": "La Scala opera season peaks",
+      "culturalEventUrl": "https://www.teatroallascala.org/",
+      "visualCue": "Dense fog lifting to reveal snow-capped mountains"
+    },
+    {
+      "month": "February",
+      "index": 1,
+      "season": "winter",
+      "milano": { "tempLow": 0, "tempHigh": 9, "rainfall": 55, "sunHours": 3 },
+      "como": { "tempLow": 2, "tempHigh": 10, "rainfall": 60, "sunHours": 4 },
+      "bergamo": { "tempLow": -1, "tempHigh": 8, "rainfall": 50, "sunHours": 4 },
+      "brescia": { "tempLow": 0, "tempHigh": 9, "rainfall": 45, "sunHours": 4 },
+      "tooltip": "Carnival season, first hints of spring",
+      "culturalEvent": "Carnevale Ambrosiano",
+      "culturalEventUrl": "https://www.turismo.milano.it/",
+      "visualCue": "Crisp sunny days breaking through winter gray"
+    },
+    {
+      "month": "March",
+      "index": 2,
+      "season": "spring",
+      "milano": { "tempLow": 4, "tempHigh": 14, "rainfall": 70, "sunHours": 5 },
+      "como": { "tempLow": 5, "tempHigh": 13, "rainfall": 80, "sunHours": 5 },
+      "bergamo": { "tempLow": 3, "tempHigh": 13, "rainfall": 65, "sunHours": 5 },
+      "brescia": { "tempLow": 4, "tempHigh": 14, "rainfall": 60, "sunHours": 5 },
+      "tooltip": "Spring arrives, camellias bloom on lakes",
+      "culturalEvent": "Milan Design Week preparations",
+      "visualCue": "First flowers on lake shores"
+    },
+    {
+      "month": "April",
+      "index": 3,
+      "season": "spring",
+      "milano": { "tempLow": 8, "tempHigh": 18, "rainfall": 80, "sunHours": 6 },
+      "como": { "tempLow": 9, "tempHigh": 17, "rainfall": 95, "sunHours": 6 },
+      "bergamo": { "tempLow": 7, "tempHigh": 17, "rainfall": 85, "sunHours": 6 },
+      "brescia": { "tempLow": 8, "tempHigh": 18, "rainfall": 75, "sunHours": 6 },
+      "tooltip": "Perfect lake weather begins",
+      "culturalEvent": "Salone del Mobile (Milan Design Week)",
+      "culturalEventUrl": "https://www.salonemilano.it/",
+      "visualCue": "Wisteria and azaleas exploding"
+    },
+    {
+      "month": "May",
+      "index": 4,
+      "season": "spring",
+      "milano": { "tempLow": 13, "tempHigh": 23, "rainfall": 95, "sunHours": 7 },
+      "como": { "tempLow": 13, "tempHigh": 21, "rainfall": 115, "sunHours": 7 },
+      "bergamo": { "tempLow": 11, "tempHigh": 22, "rainfall": 100, "sunHours": 7 },
+      "brescia": { "tempLow": 12, "tempHigh": 23, "rainfall": 85, "sunHours": 7 },
+      "tooltip": "Gardens peak, lake swimming begins",
+      "culturalEvent": "Villa Carlotta gardens at peak",
+      "culturalEventUrl": "https://www.villacarlotta.it/",
+      "visualCue": "Lush green everywhere, boats on water"
+    },
+    {
+      "month": "June",
+      "index": 5,
+      "season": "summer",
+      "milano": { "tempLow": 17, "tempHigh": 27, "rainfall": 70, "sunHours": 9 },
+      "como": { "tempLow": 17, "tempHigh": 25, "rainfall": 85, "sunHours": 9 },
+      "bergamo": { "tempLow": 15, "tempHigh": 26, "rainfall": 80, "sunHours": 9 },
+      "brescia": { "tempLow": 16, "tempHigh": 27, "rainfall": 65, "sunHours": 9 },
+      "tooltip": "Summer arrives, aperitivo season",
+      "culturalEvent": "Milano Summer Festival",
+      "visualCue": "Long golden evenings, outdoor dining"
+    },
+    {
+      "month": "July",
+      "index": 6,
+      "season": "summer",
+      "milano": { "tempLow": 19, "tempHigh": 30, "rainfall": 50, "sunHours": 10 },
+      "como": { "tempLow": 19, "tempHigh": 28, "rainfall": 70, "sunHours": 10 },
+      "bergamo": { "tempLow": 18, "tempHigh": 29, "rainfall": 65, "sunHours": 10 },
+      "brescia": { "tempLow": 18, "tempHigh": 30, "rainfall": 55, "sunHours": 10 },
+      "tooltip": "Peak heat, locals flee to lakes",
+      "culturalEvent": "Lake festivals throughout region",
+      "visualCue": "Crowded lake beaches, thunderstorms"
+    },
+    {
+      "month": "August",
+      "index": 7,
+      "season": "summer",
+      "milano": { "tempLow": 19, "tempHigh": 29, "rainfall": 65, "sunHours": 9 },
+      "como": { "tempLow": 19, "tempHigh": 27, "rainfall": 85, "sunHours": 9 },
+      "bergamo": { "tempLow": 17, "tempHigh": 28, "rainfall": 80, "sunHours": 9 },
+      "brescia": { "tempLow": 18, "tempHigh": 29, "rainfall": 70, "sunHours": 9 },
+      "tooltip": "Ferragosto exodus, cities empty",
+      "culturalEvent": "Ferragosto (Aug 15) - everything closes",
+      "visualCue": "Empty Milan streets, packed lake towns"
+    },
+    {
+      "month": "September",
+      "index": 8,
+      "season": "autumn",
+      "milano": { "tempLow": 15, "tempHigh": 24, "rainfall": 70, "sunHours": 7 },
+      "como": { "tempLow": 15, "tempHigh": 22, "rainfall": 100, "sunHours": 7 },
+      "bergamo": { "tempLow": 13, "tempHigh": 23, "rainfall": 85, "sunHours": 7 },
+      "brescia": { "tempLow": 14, "tempHigh": 24, "rainfall": 75, "sunHours": 7 },
+      "tooltip": "Perfect month, wine harvest begins",
+      "culturalEvent": "Franciacorta harvest festivals",
+      "culturalEventUrl": "https://www.franciacorta.wine/",
+      "visualCue": "Golden light, grape harvest activity"
+    },
+    {
+      "month": "October",
+      "index": 9,
+      "season": "autumn",
+      "milano": { "tempLow": 10, "tempHigh": 18, "rainfall": 90, "sunHours": 5 },
+      "como": { "tempLow": 10, "tempHigh": 16, "rainfall": 120, "sunHours": 5 },
+      "bergamo": { "tempLow": 8, "tempHigh": 17, "rainfall": 100, "sunHours": 5 },
+      "brescia": { "tempLow": 9, "tempHigh": 18, "rainfall": 85, "sunHours": 5 },
+      "tooltip": "Fall colors peak, first fog returns",
+      "culturalEvent": "Truffle festivals in Lombardy hills",
+      "visualCue": "Stunning autumn colors on lakes"
+    },
+    {
+      "month": "November",
+      "index": 10,
+      "season": "autumn",
+      "milano": { "tempLow": 5, "tempHigh": 11, "rainfall": 80, "sunHours": 3 },
+      "como": { "tempLow": 5, "tempHigh": 10, "rainfall": 100, "sunHours": 3 },
+      "bergamo": { "tempLow": 3, "tempHigh": 10, "rainfall": 85, "sunHours": 3 },
+      "brescia": { "tempLow": 4, "tempHigh": 11, "rainfall": 75, "sunHours": 3 },
+      "tooltip": "Gray skies, cultural season begins",
+      "culturalEvent": "La Scala season opening (Dec 7)",
+      "culturalEventUrl": "https://www.teatroallascala.org/",
+      "visualCue": "Last leaves falling, fog settling"
+    },
+    {
+      "month": "December",
+      "index": 11,
+      "season": "winter",
+      "milano": { "tempLow": 0, "tempHigh": 7, "rainfall": 60, "sunHours": 2 },
+      "como": { "tempLow": 2, "tempHigh": 8, "rainfall": 70, "sunHours": 3 },
+      "bergamo": { "tempLow": -1, "tempHigh": 6, "rainfall": 55, "sunHours": 3 },
+      "brescia": { "tempLow": 0, "tempHigh": 7, "rainfall": 50, "sunHours": 3 },
+      "tooltip": "Christmas markets, Alpine skiing",
+      "culturalEvent": "Oh Bej! Oh Bej! Christmas market Milan",
+      "culturalEventUrl": "https://www.turismo.milano.it/",
+      "visualCue": "Festive lights, snow on distant peaks"
+    }
+  ]
+}
