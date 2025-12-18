@@ -35,6 +35,7 @@ import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprin
 import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
+import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
@@ -246,6 +247,8 @@ export default function RegionPage() {
       {config.show7PercentCTA && <SevenPercentCTA />}
 
       <HighlightsShowcase highlights={regionData.highlights} />
+
+      {region === 'lombardia' && <LombardiaDishExplorer />}
 
       {config.showCollaborator && regionData.collaborator && (
         <CollaboratorFeature
