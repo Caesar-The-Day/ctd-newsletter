@@ -36,7 +36,6 @@ import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
-import WinterInLombardia from '@/components/sections/WinterInLombardia';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
@@ -238,8 +237,6 @@ export default function RegionPage() {
       <TownsFeatured towns={regionData.towns.featured} />
       
       {config.showBookCTA && <BookCTA />}
-
-      {region === 'lombardia' && <WinterInLombardia />}
 
       <TownsGrid towns={regionData.towns.grid} />
 

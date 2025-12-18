@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import LombardyMapSVG from './LombardyMapSVG';
 
 interface DishData {
   id: string;
@@ -86,6 +85,100 @@ const dishes: DishData[] = [
     funFact: "Casoncelli is a close cousin to Polish Pierogi — both are filled dumplings born from the same logic of stretching precious ingredients. The shape, the crimped edges, the butter-sage finish: this is Central European peasant wisdom wearing Italian clothes."
   }
 ];
+
+// Province positions as percentages on the map image (based on actual Lombardy geography)
+const provincePositions: Record<string, { x: number; y: number; labelOffset?: { x: number; y: number } }> = {
+  varese: { x: 17, y: 42 },
+  como: { x: 28, y: 32 },
+  sondrio: { x: 52, y: 18 },
+  lecco: { x: 38, y: 42 },
+  bergamo: { x: 52, y: 48 },
+  brescia: { x: 70, y: 48 },
+  monza: { x: 35, y: 52 },
+  milano: { x: 30, y: 60 },
+  pavia: { x: 22, y: 78 },
+  lodi: { x: 42, y: 72 },
+  cremona: { x: 58, y: 80 },
+  mantova: { x: 78, y: 85 }
+};
+
+// Province display names
+const provinceNames: Record<string, string> = {
+  varese: 'Varese',
+  como: 'Como',
+  sondrio: 'Sondrio',
+  lecco: 'Lecco',
+  bergamo: 'Bergamo',
+  brescia: 'Brescia',
+  monza: 'Monza',
+  milano: 'Milano',
+  pavia: 'Pavia',
+  lodi: 'Lodi',
+  cremona: 'Cremona',
+  mantova: 'Mantova'
+};
+
+interface LombardyMapProps {
+  highlightedProvinces: string[];
+}
+
+function LombardyMap({ highlightedProvinces }: LombardyMapProps) {
+  return (
+    <div className="relative w-full" style={{ maxWidth: '400px', margin: '0 auto' }}>
+      {/* Base map image */}
+      <img
+        src="/images/lombardia/lombardia-provinces-map.png"
+        alt="Map of Lombardy provinces"
+        className="w-full h-auto opacity-30"
+        style={{ filter: 'grayscale(100%)' }}
+      />
+      
+      {/* Overlay for highlighted provinces */}
+      <div className="absolute inset-0">
+        {highlightedProvinces.map(province => {
+          const pos = provincePositions[province];
+          if (!pos) return null;
+          
+          return (
+            <div
+              key={province}
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1"
+              style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+            >
+              {/* Highlight marker */}
+              <div className="relative">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/90 flex items-center justify-center shadow-lg animate-pulse">
+                  <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-primary-foreground" />
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/40 blur-md -z-10" />
+              </div>
+              
+              {/* Province label */}
+              <span 
+                className="text-xs md:text-sm font-semibold text-primary bg-background/90 px-2 py-0.5 rounded shadow-sm whitespace-nowrap"
+              >
+                {provinceNames[province] || province}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      
+      {/* Legend */}
+      <div className="flex items-center justify-center gap-6 mt-4 text-sm">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full bg-primary" />
+          <span className="text-foreground font-medium">Origin</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded bg-muted/50" />
+          <span className="text-muted-foreground">Other provinces</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function LombardiaDishExplorer() {
   const [selectedDish, setSelectedDish] = useState<DishData | null>(null);
@@ -188,26 +281,9 @@ export default function LombardiaDishExplorer() {
               </DialogHeader>
 
               <div className="space-y-6 pt-2">
-                {/* Map with highlighted provinces - using SVG for sharp rendering */}
+                {/* Map with highlighted provinces */}
                 <div className="bg-muted/20 rounded-lg p-4">
-                  <div className="w-full max-w-md mx-auto aspect-square">
-                    <LombardyMapSVG 
-                      highlightedProvinces={selectedDish.highlightProvinces}
-                      highlightColor="hsl(var(--primary))"
-                      showLabels={true}
-                    />
-                  </div>
-                  {/* Legend */}
-                  <div className="flex items-center justify-center gap-6 mt-4 text-sm">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-primary" />
-                      <span className="text-foreground font-medium">Origin</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded bg-muted/50" />
-                      <span className="text-muted-foreground">Other provinces</span>
-                    </div>
-                  </div>
+                  <LombardyMap highlightedProvinces={selectedDish.highlightProvinces} />
                 </div>
 
                 {/* Map Highlight */}
