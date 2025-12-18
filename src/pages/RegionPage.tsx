@@ -29,6 +29,7 @@ import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
+import { MosquitoWarning } from '@/components/sections/MosquitoWarning';
 import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
 import { BookCTA } from '@/components/sections/BookCTA';
 import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprintCTA';
@@ -233,6 +234,8 @@ export default function RegionPage() {
       />
 
       <ClimateSnapshot />
+
+      {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} />
       
