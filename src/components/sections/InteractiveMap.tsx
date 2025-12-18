@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Wine, Mountain, Globe, Anchor, Landmark } from 'lucide-react';
+import { MapPin, Wine, Mountain, Globe, Anchor, Landmark, Train, Waves, Plane } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
 
@@ -11,6 +11,9 @@ interface MapMarker {
   coords: [number, number];
   photo: string;
   blurb: string;
+  railTime?: string | null;
+  isHub?: boolean;
+  isOlympic?: boolean;
 }
 
 interface MapOverlay {
@@ -46,6 +49,10 @@ const iconMap: Record<string, any> = {
   Mountain,
   Anchor,
   Landmark,
+  Train,
+  Waves,
+  Globe,
+  Plane,
 };
 
 export function InteractiveMap({ regionTitle = "Piemonte", whereData }: InteractiveMapProps) {
@@ -82,12 +89,51 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       crossOrigin: true
     }).addTo(map);
 
-    // Add city/town markers with pulse effect for port cities
+    // Add city/town markers with special styling for hubs and Olympic cities
     mapData.markers.forEach(marker => {
       const isPortCity = ['Bari', 'Brindisi', 'Otranto'].includes(marker.name);
-      const iconHtml = renderToString(<MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />);
-      const customIcon = L.divIcon({
-        html: `
+      const isHub = (marker as any).isHub;
+      const isOlympic = (marker as any).isOlympic;
+      const railTime = (marker as any).railTime;
+      
+      let markerHtml = '';
+      
+      if (isOlympic) {
+        // Olympic rings marker for Cortina
+        markerHtml = `
+          <div class="city-marker group cursor-pointer olympic-city">
+            <div class="marker-icon transition-all duration-200 group-hover:scale-125 group-hover:drop-shadow-lg">
+              <div class="olympic-rings">
+                <svg width="32" height="20" viewBox="0 0 100 60">
+                  <circle cx="20" cy="20" r="12" fill="none" stroke="#0085C7" stroke-width="3"/>
+                  <circle cx="50" cy="20" r="12" fill="none" stroke="#000000" stroke-width="3"/>
+                  <circle cx="80" cy="20" r="12" fill="none" stroke="#DF0024" stroke-width="3"/>
+                  <circle cx="35" cy="35" r="12" fill="none" stroke="#F4C300" stroke-width="3"/>
+                  <circle cx="65" cy="35" r="12" fill="none" stroke="#009F3D" stroke-width="3"/>
+                </svg>
+              </div>
+            </div>
+            <div class="marker-label text-xs font-semibold text-foreground bg-background/90 px-2 py-1 rounded shadow-sm whitespace-nowrap mt-1 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+              ${marker.name}
+            </div>
+          </div>
+        `;
+      } else if (isHub) {
+        // Hub marker (Milan) with larger styling
+        const iconHtml = renderToString(<MapPin className="w-8 h-8 text-primary" strokeWidth={2.5} />);
+        markerHtml = `
+          <div class="city-marker group cursor-pointer hub-city">
+            <div class="marker-icon transition-all duration-200 group-hover:scale-125 group-hover:drop-shadow-lg hub-glow">
+              ${iconHtml}
+            </div>
+            <div class="marker-label text-sm font-bold text-foreground bg-background/95 px-3 py-1.5 rounded shadow-md whitespace-nowrap mt-1">
+              ${marker.name}
+            </div>
+          </div>
+        `;
+      } else {
+        const iconHtml = renderToString(<MapPin className="w-6 h-6 text-primary" strokeWidth={2.5} />);
+        markerHtml = `
           <div class="city-marker group cursor-pointer ${isPortCity ? 'port-city' : ''}">
             <div class="marker-icon transition-all duration-200 group-hover:scale-125 group-hover:drop-shadow-lg">
               ${iconHtml}
@@ -96,10 +142,14 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               ${marker.name}
             </div>
           </div>
-        `,
+        `;
+      }
+      
+      const customIcon = L.divIcon({
+        html: markerHtml,
         className: 'custom-marker',
-        iconSize: [32, 32],
-        iconAnchor: [16, 32]
+        iconSize: isHub ? [40, 40] : [32, 32],
+        iconAnchor: isHub ? [20, 40] : [16, 32]
       });
       
       const markerInstance = L.marker(marker.coords, { icon: customIcon }).addTo(map);
@@ -110,6 +160,8 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           <div class="popup-content">
             <h3 class="font-bold text-base mb-2 text-foreground">${marker.name}</h3>
             <p class="text-sm text-muted-foreground leading-relaxed">${marker.blurb}</p>
+            ${railTime ? `<p class="text-xs font-medium text-primary mt-2">🚄 ${railTime}</p>` : ''}
+            ${isOlympic ? `<p class="text-xs font-medium text-blue-600 mt-2">🏅 Milano-Cortina 2026 Olympic Venue</p>` : ''}
           </div>
         </div>
       `;
@@ -261,6 +313,175 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               maxWidth: 300,
               closeButton: true
             });
+          } else if (feature.type === 'gravity-center') {
+            // Economic gravity center (Milan)
+            const gravityIcon = L.divIcon({
+              html: `
+                <div class="gravity-center">
+                  <div class="gravity-pulse"></div>
+                  <div class="gravity-core"></div>
+                </div>
+              `,
+              className: 'custom-gravity-marker',
+              iconSize: [60, 60],
+              iconAnchor: [30, 30]
+            });
+
+            const gravityMarker = L.marker(feature.coords, { icon: gravityIcon }).addTo(layerGroup);
+            gravityMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'gravity-node') {
+            // Secondary economic node
+            const nodeIcon = L.divIcon({
+              html: `<div class="gravity-node"></div>`,
+              className: 'custom-gravity-node',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+
+            const nodeMarker = L.marker(feature.coords, { icon: nodeIcon }).addTo(layerGroup);
+            nodeMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'gravity-line') {
+            // Economic corridor lines
+            const gravityLine = L.polyline(feature.coords, {
+              color: feature.color || '#8b5cf6',
+              weight: 4,
+              opacity: 0.6,
+              dashArray: '8, 4'
+            }).addTo(layerGroup);
+
+            gravityLine.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'rail-hs') {
+            // High-speed rail lines
+            const railLine = L.polyline(feature.coords, {
+              color: feature.color || '#ef4444',
+              weight: 5,
+              opacity: 0.8,
+              className: 'rail-animated'
+            }).addTo(layerGroup);
+
+            railLine.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">🚄 ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'highway') {
+            // Highway routes
+            const highwayLine = L.polyline(feature.coords, {
+              color: feature.color || '#f97316',
+              weight: 4,
+              opacity: 0.7
+            }).addTo(layerGroup);
+
+            highwayLine.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">🛣️ ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'airport') {
+            // Airport markers
+            const planeIconHtml = renderToString(<Plane className="w-5 h-5 text-blue-600" />);
+            const airportIcon = L.divIcon({
+              html: `
+                <div class="airport-marker">
+                  <div class="airport-icon">${planeIconHtml}</div>
+                  <div class="airport-code">${feature.code}</div>
+                </div>
+              `,
+              className: 'custom-airport-marker',
+              iconSize: [40, 40],
+              iconAnchor: [20, 20]
+            });
+
+            const airportMarker = L.marker(feature.coords, { icon: airportIcon }).addTo(layerGroup);
+            airportMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">✈️ ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'lake') {
+            // Lake areas with shape polygons
+            if (feature.shape) {
+              const lakePolygon = L.polygon(feature.shape, {
+                fillColor: feature.color || '#3b82f6',
+                fillOpacity: 0.3,
+                color: feature.color || '#3b82f6',
+                weight: 2,
+                opacity: 0.7
+              }).addTo(layerGroup);
+
+              const popInfo = feature.winterPop && feature.summerPop 
+                ? `<p class="text-xs mt-2"><span class="font-medium">Winter:</span> ${feature.winterPop} | <span class="font-medium">Summer:</span> ${feature.summerPop}</p>`
+                : '';
+              const townsInfo = feature.nearbyTowns?.length 
+                ? `<p class="text-xs mt-2 text-primary">${feature.nearbyTowns.join(' • ')}</p>`
+                : '';
+
+              lakePolygon.bindPopup(`
+                <div class="zone-popup">
+                  <h3 class="font-bold text-base mb-2 text-foreground">🏞️ ${feature.name}</h3>
+                  <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+                  ${popInfo}
+                  ${townsInfo}
+                </div>
+              `, { className: 'custom-popup', maxWidth: 320 });
+
+              lakePolygon.on('mouseover', function() { this.setStyle({ fillOpacity: 0.5 }); });
+              lakePolygon.on('mouseout', function() { this.setStyle({ fillOpacity: 0.3 }); });
+            }
+          } else if (feature.type === 'border-crossing') {
+            // Border crossing markers
+            const borderIcon = L.divIcon({
+              html: `
+                <div class="border-crossing-marker">
+                  <div class="border-icon">🇨🇭</div>
+                </div>
+              `,
+              className: 'custom-border-marker',
+              iconSize: [28, 28],
+              iconAnchor: [14, 14]
+            });
+
+            const borderMarker = L.marker(feature.coords, { icon: borderIcon }).addTo(layerGroup);
+            borderMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-xs text-primary font-medium mb-2">→ ${feature.destination}</p>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'cross-border-route') {
+            // Cross-border rail/road routes
+            const borderRoute = L.polyline(feature.coords, {
+              color: feature.color || '#dc2626',
+              weight: 3,
+              opacity: 0.7,
+              dashArray: '12, 6'
+            }).addTo(layerGroup);
+
+            borderRoute.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
           }
         });
 
@@ -520,6 +741,96 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           height: 140px;
           object-fit: cover;
           background: hsl(var(--muted));
+        }
+
+        /* Hub city glow effect */
+        .hub-city .hub-glow {
+          filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.5));
+        }
+
+        /* Olympic rings marker */
+        .olympic-city .olympic-rings {
+          background: white;
+          border-radius: 4px;
+          padding: 2px 4px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Economic gravity markers */
+        .gravity-center {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .gravity-pulse {
+          position: absolute;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: hsl(var(--primary) / 0.15);
+          animation: gravity-pulse 2s ease-out infinite;
+        }
+
+        .gravity-core {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: hsl(var(--primary));
+          box-shadow: 0 0 12px hsl(var(--primary) / 0.6);
+          z-index: 1;
+        }
+
+        @keyframes gravity-pulse {
+          0% {
+            transform: scale(0.5);
+            opacity: 0.8;
+          }
+          100% {
+            transform: scale(1.5);
+            opacity: 0;
+          }
+        }
+
+        .gravity-node {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: hsl(var(--primary) / 0.7);
+          border: 2px solid white;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Airport markers */
+        .airport-marker {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: white;
+          border-radius: 6px;
+          padding: 4px 6px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .airport-code {
+          font-size: 9px;
+          font-weight: bold;
+          color: #1e40af;
+        }
+
+        /* Border crossing markers */
+        .border-crossing-marker {
+          background: white;
+          border-radius: 50%;
+          padding: 4px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          font-size: 16px;
+        }
+
+        /* Rail line animation */
+        .rail-animated {
+          stroke-linecap: round;
         }
       `}</style>
     </section>

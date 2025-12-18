@@ -34,36 +34,286 @@
   
   "where": {
     "map": {
-      "center": [9.5, 45.65],
-      "zoom": 7,
+      "center": [45.65, 9.5],
+      "zoom": 8,
       "markers": [
         {
           "id": "milano",
           "name": "Milano",
-          "coords": [9.19, 45.46],
-          "photo": "/images/archive/lombardia-thumbnail.jpg",
-          "blurb": "Italy's fashion and finance capital. World-class culture, healthcare, and international connectivity."
-        },
-        {
-          "id": "como",
-          "name": "Como",
-          "coords": [9.08, 45.81],
-          "photo": "/images/archive/lombardia-thumbnail.jpg",
-          "blurb": "Gateway to the legendary lake. Silk history, stunning villas, and Alpine backdrop."
+          "coords": [45.46, 9.19],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Italy's fashion and finance capital. World-class culture, healthcare, and international connectivity.",
+          "railTime": null,
+          "isHub": true
         },
         {
           "id": "bergamo",
           "name": "Bergamo",
-          "coords": [9.67, 45.69],
-          "photo": "/images/archive/lombardia-thumbnail.jpg",
-          "blurb": "Medieval upper city, modern lower city. Excellent airport, authentic Lombardian character."
+          "coords": [45.69, 9.67],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Medieval upper city, modern lower city. Excellent airport, authentic Lombardian character.",
+          "railTime": "50 min to Milan"
         },
         {
           "id": "brescia",
           "name": "Brescia",
-          "coords": [10.22, 45.54],
-          "photo": "/images/archive/lombardia-thumbnail.jpg",
-          "blurb": "Roman ruins meet industrial heritage. Gateway to Lake Garda and Franciacorta wine country."
+          "coords": [45.54, 10.22],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Roman ruins meet industrial heritage. Gateway to Lake Garda and Franciacorta wine country.",
+          "railTime": "55 min to Milan"
+        },
+        {
+          "id": "como",
+          "name": "Como",
+          "coords": [45.81, 9.08],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Gateway to the legendary lake. Silk history, stunning villas, and Alpine backdrop.",
+          "railTime": "40 min to Milan"
+        },
+        {
+          "id": "pavia",
+          "name": "Pavia",
+          "coords": [45.19, 9.15],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Ancient university city with Romanesque churches. Affordable alternative to Milan with direct rail access.",
+          "railTime": "30 min to Milan"
+        },
+        {
+          "id": "mantova",
+          "name": "Mantova",
+          "coords": [45.15, 10.79],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Renaissance gem surrounded by lakes. UNESCO World Heritage center with authentic provincial character.",
+          "railTime": "1h 45min to Milan"
+        },
+        {
+          "id": "sondrio",
+          "name": "Sondrio",
+          "coords": [46.17, 9.87],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Alpine gateway to Valtellina. Wine country, ski access, and genuine mountain community.",
+          "railTime": "2h 30min to Milan"
+        },
+        {
+          "id": "cortina",
+          "name": "Cortina d'Ampezzo",
+          "coords": [46.54, 12.14],
+          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "blurb": "Queen of the Dolomites. Milano-Cortina 2026 Olympic host. Premium Alpine destination.",
+          "railTime": "4h+ to Milan",
+          "isOlympic": true
+        }
+      ],
+      "overlays": [
+        {
+          "id": "economic-gravity",
+          "name": "Economic Gravity",
+          "icon": "Landmark",
+          "description": "Milan doesn't just dominate Lombardia. It organizes it.",
+          "features": [
+            {
+              "type": "gravity-center",
+              "name": "Milan",
+              "coords": [45.46, 9.19],
+              "description": "Economic epicenter of northern Italy. Financial services, fashion, design, and media concentrate here."
+            },
+            {
+              "type": "gravity-node",
+              "name": "Bergamo",
+              "coords": [45.69, 9.67],
+              "description": "Secondary manufacturing and logistics hub. Strong local economy."
+            },
+            {
+              "type": "gravity-node",
+              "name": "Brescia",
+              "coords": [45.54, 10.22],
+              "description": "Industrial powerhouse. Steel, machinery, and wine production."
+            },
+            {
+              "type": "gravity-line",
+              "name": "Milan-Bergamo Corridor",
+              "coords": [[45.46, 9.19], [45.69, 9.67]],
+              "color": "#8b5cf6",
+              "description": "Dense economic corridor with continuous development."
+            },
+            {
+              "type": "gravity-line",
+              "name": "Milan-Brescia Corridor",
+              "coords": [[45.46, 9.19], [45.54, 10.22]],
+              "color": "#8b5cf6",
+              "description": "A4 autostrada axis of manufacturing and logistics."
+            }
+          ]
+        },
+        {
+          "id": "transportation",
+          "name": "Transportation Spine",
+          "icon": "Train",
+          "description": "You can live outside Milan and still access everything.",
+          "features": [
+            {
+              "type": "rail-hs",
+              "name": "Milan ↔ Turin (45 min)",
+              "coords": [[45.46, 9.19], [45.07, 7.69]],
+              "color": "#ef4444",
+              "description": "High-speed Frecciarossa connection. Multiple daily departures."
+            },
+            {
+              "type": "rail-hs",
+              "name": "Milan ↔ Venice (2.5 hrs)",
+              "coords": [[45.46, 9.19], [45.44, 12.32]],
+              "color": "#ef4444",
+              "description": "High-speed connection via Verona and Padova."
+            },
+            {
+              "type": "rail-hs",
+              "name": "Milan ↔ Bologna (1 hr)",
+              "coords": [[45.46, 9.19], [44.49, 11.34]],
+              "color": "#ef4444",
+              "description": "Gateway to Florence and Rome. Under 3 hours to the capital."
+            },
+            {
+              "type": "highway",
+              "name": "A4 Autostrada",
+              "coords": [[45.07, 7.69], [45.46, 9.19], [45.54, 10.22], [45.44, 12.32]],
+              "color": "#f97316",
+              "description": "Turin-Trieste corridor. Northern Italy's main east-west artery."
+            },
+            {
+              "type": "highway",
+              "name": "A1 Autostrada",
+              "coords": [[45.46, 9.19], [44.49, 11.34]],
+              "color": "#f97316",
+              "description": "Autostrada del Sole. Milan to Rome via Bologna and Florence."
+            },
+            {
+              "type": "airport",
+              "name": "Milan Malpensa (MXP)",
+              "coords": [45.63, 8.72],
+              "code": "MXP",
+              "description": "Primary international hub. Intercontinental connections."
+            },
+            {
+              "type": "airport",
+              "name": "Milan Linate (LIN)",
+              "coords": [45.45, 9.28],
+              "code": "LIN",
+              "description": "City airport. European business routes."
+            },
+            {
+              "type": "airport",
+              "name": "Bergamo Orio al Serio (BGY)",
+              "coords": [45.67, 9.70],
+              "code": "BGY",
+              "description": "Budget carrier hub. Surprising European reach."
+            }
+          ]
+        },
+        {
+          "id": "geography",
+          "name": "Alpine vs Plains",
+          "icon": "Mountain",
+          "description": "Lombardia contains multiple climates, not variations of one.",
+          "features": [
+            {
+              "type": "zone",
+              "name": "Alpine North",
+              "coords": [[46.50, 8.50], [46.60, 10.50], [46.20, 10.80], [45.90, 9.80], [46.10, 8.80]],
+              "color": "#0ea5e9",
+              "description": "True Alps. Heavy snow, ski resorts, Alpine villages. Cold winters, cool summers."
+            },
+            {
+              "type": "zone",
+              "name": "Pre-Alpine Foothills & Lakes",
+              "coords": [[46.10, 8.80], [45.90, 9.80], [46.20, 10.80], [45.70, 10.50], [45.50, 9.00], [45.70, 8.50]],
+              "color": "#22c55e",
+              "description": "Lake country. Moderate climate, Mediterranean influence on lakeshores. Most desirable for retirement."
+            },
+            {
+              "type": "zone",
+              "name": "Po Valley Plains",
+              "coords": [[45.70, 8.50], [45.50, 9.00], [45.70, 10.50], [45.00, 10.80], [45.00, 8.50]],
+              "color": "#eab308",
+              "description": "Flat agricultural lowlands. Foggy winters, humid summers. Milan sits at the northern edge."
+            }
+          ]
+        },
+        {
+          "id": "lakes",
+          "name": "Lake Systems",
+          "icon": "Waves",
+          "description": "Each lake has distinct character and climate.",
+          "features": [
+            {
+              "type": "lake",
+              "name": "Lake Como",
+              "coords": [46.02, 9.26],
+              "shape": [[46.17, 9.40], [46.05, 9.45], [45.85, 9.27], [45.82, 9.08], [45.95, 9.05], [46.05, 9.10], [46.10, 9.25]],
+              "color": "#3b82f6",
+              "description": "Y-shaped Alpine lake. Most prestigious, most expensive. Celebrity residents, Belle Époque villas.",
+              "winterPop": "sparse",
+              "summerPop": "crowded",
+              "nearbyTowns": ["Como", "Bellagio", "Varenna", "Lecco", "Menaggio"]
+            },
+            {
+              "type": "lake",
+              "name": "Lake Iseo",
+              "coords": [45.73, 10.07],
+              "shape": [[45.82, 10.05], [45.78, 10.12], [45.68, 10.10], [45.65, 10.00], [45.72, 9.98]],
+              "color": "#3b82f6",
+              "description": "Hidden gem. Less touristy, Franciacorta wine country nearby. Monte Isola is largest lake island in Italy.",
+              "winterPop": "quiet",
+              "summerPop": "moderate",
+              "nearbyTowns": ["Iseo", "Sarnico", "Lovere", "Monte Isola"]
+            },
+            {
+              "type": "lake",
+              "name": "Lake Garda (Lombard shore)",
+              "coords": [45.58, 10.55],
+              "shape": [[45.88, 10.72], [45.75, 10.82], [45.45, 10.70], [45.42, 10.62], [45.60, 10.50], [45.75, 10.55]],
+              "color": "#3b82f6",
+              "description": "Italy's largest lake. Mild microclimate, olive and lemon groves. Shared with Veneto and Trentino.",
+              "winterPop": "moderate",
+              "summerPop": "very crowded",
+              "nearbyTowns": ["Sirmione", "Desenzano", "Salò", "Gardone Riviera"]
+            }
+          ]
+        },
+        {
+          "id": "cross-border",
+          "name": "Cross-Border Reality",
+          "icon": "Globe",
+          "description": "Lombardia doesn't just face Italy. It faces Europe.",
+          "features": [
+            {
+              "type": "border-crossing",
+              "name": "Chiasso",
+              "coords": [45.84, 9.03],
+              "destination": "Lugano, Switzerland",
+              "description": "Primary Swiss crossing. Direct rail to Lugano (30 min), Zurich (3 hrs)."
+            },
+            {
+              "type": "border-crossing",
+              "name": "Tirano",
+              "coords": [46.22, 10.17],
+              "destination": "St. Moritz, Switzerland",
+              "description": "Bernina Express route. UNESCO-listed railway to St. Moritz."
+            },
+            {
+              "type": "cross-border-route",
+              "name": "Milan → Zurich",
+              "coords": [[45.46, 9.19], [45.84, 9.03], [47.38, 8.54]],
+              "color": "#dc2626",
+              "description": "Direct trains. Under 4 hours to Zurich Airport and Swiss banking."
+            },
+            {
+              "type": "cross-border-route",
+              "name": "Bernina Express Route",
+              "coords": [[46.17, 9.87], [46.22, 10.17], [46.50, 9.84]],
+              "color": "#dc2626",
+              "description": "Scenic UNESCO railway. Sondrio to St. Moritz through Alpine passes."
+            }
+          ]
         }
       ],
       "externalMapUrl": "https://maps.google.com/?q=Lombardia+Italy"
