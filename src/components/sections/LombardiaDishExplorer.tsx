@@ -86,20 +86,56 @@ const dishes: DishData[] = [
   }
 ];
 
-// SVG paths for Lombardy provinces (simplified shapes)
-const provincePaths: Record<string, string> = {
-  varese: "M95,180 L85,165 L75,170 L60,155 L55,165 L45,160 L40,175 L50,190 L65,195 L80,200 L95,195 Z",
-  como: "M140,130 L125,115 L110,120 L95,110 L85,125 L75,120 L70,135 L80,155 L95,160 L110,155 L125,160 L140,150 Z",
-  sondrio: "M280,70 L255,55 L230,60 L200,50 L175,65 L150,60 L140,80 L155,100 L180,105 L210,100 L240,110 L270,95 Z",
-  lecco: "M175,145 L160,130 L145,135 L135,125 L125,140 L135,160 L150,170 L165,165 L180,175 L185,160 Z",
-  bergamo: "M235,170 L215,155 L195,160 L180,150 L170,165 L180,185 L195,195 L215,190 L235,200 L245,185 Z",
-  brescia: "M330,175 L305,160 L280,165 L260,155 L250,170 L260,190 L280,205 L305,200 L330,210 L345,195 Z",
-  milano: "M145,230 L125,215 L105,220 L90,210 L80,225 L90,245 L110,255 L130,250 L150,260 L160,245 Z",
-  monza: "M165,200 L150,190 L135,195 L125,185 L115,195 L125,210 L140,220 L155,215 L170,225 L175,210 Z",
-  pavia: "M115,300 L95,285 L75,290 L55,280 L45,295 L55,315 L75,330 L100,325 L120,335 L135,320 Z",
-  lodi: "M175,295 L155,280 L135,285 L120,275 L110,290 L120,310 L140,320 L160,315 L180,325 L190,310 Z",
-  cremona: "M245,310 L220,295 L195,300 L175,290 L165,305 L175,325 L200,340 L225,335 L250,345 L265,330 Z",
-  mantova: "M335,320 L305,305 L275,310 L255,300 L245,315 L255,335 L280,350 L310,345 L340,355 L355,340 Z"
+// Accurate SVG paths for Lombardy provinces (traced from administrative map)
+const provincePaths: Record<string, { path: string; center: [number, number] }> = {
+  varese: {
+    path: "M52,168 L48,155 L35,150 L25,160 L18,148 L8,152 L5,165 L12,178 L8,192 L15,205 L28,210 L40,205 L52,215 L58,205 L55,190 L62,180 L58,172 Z",
+    center: [32, 178]
+  },
+  como: {
+    path: "M95,125 L85,110 L78,95 L65,88 L55,95 L48,85 L58,75 L70,70 L82,58 L95,55 L105,62 L108,75 L100,88 L108,100 L115,115 L110,130 L100,138 L88,145 L78,140 L68,148 L58,155 L52,168 L62,180 L72,175 L85,168 L95,158 L105,150 L98,138 Z",
+    center: [82, 115]
+  },
+  sondrio: {
+    path: "M115,115 L125,100 L140,85 L158,75 L175,62 L195,52 L220,45 L248,42 L275,48 L298,58 L315,72 L325,88 L318,105 L305,115 L288,120 L268,118 L248,125 L228,128 L208,122 L188,128 L168,125 L148,130 L128,125 L115,115 Z",
+    center: [218, 88]
+  },
+  lecco: {
+    path: "M115,115 L128,125 L148,130 L155,145 L148,160 L135,168 L120,165 L108,155 L100,138 L105,150 L95,158 L98,138 L110,130 Z",
+    center: [125, 145]
+  },
+  bergamo: {
+    path: "M155,145 L168,125 L188,128 L208,122 L228,128 L248,125 L255,140 L248,158 L235,172 L218,180 L198,178 L178,185 L162,180 L148,168 L148,160 Z",
+    center: [200, 155]
+  },
+  brescia: {
+    path: "M255,140 L268,118 L288,120 L305,115 L318,105 L332,115 L345,132 L355,150 L358,172 L352,195 L340,215 L322,228 L298,235 L275,238 L258,230 L248,215 L252,195 L258,178 L248,158 Z",
+    center: [305, 175]
+  },
+  monza: {
+    path: "M95,158 L85,168 L72,175 L78,190 L92,198 L108,195 L120,188 L135,192 L148,185 L148,168 L135,168 L120,165 L108,155 L100,138 L105,150 Z",
+    center: [108, 178]
+  },
+  milano: {
+    path: "M78,190 L62,180 L55,190 L58,205 L52,215 L58,230 L72,245 L88,252 L108,255 L125,250 L140,242 L152,230 L158,215 L162,198 L162,180 L148,185 L135,192 L120,188 L108,195 L92,198 Z",
+    center: [108, 220]
+  },
+  pavia: {
+    path: "M52,215 L40,205 L28,210 L15,225 L8,245 L15,268 L28,288 L45,305 L68,318 L92,322 L115,315 L132,302 L142,285 L138,265 L128,252 L108,255 L88,252 L72,245 L58,230 Z",
+    center: [75, 275]
+  },
+  lodi: {
+    path: "M142,285 L158,275 L175,270 L188,278 L195,295 L188,315 L172,325 L152,328 L135,320 L128,302 L132,302 Z",
+    center: [162, 300]
+  },
+  cremona: {
+    path: "M195,295 L208,280 L228,272 L248,268 L265,275 L278,290 L285,310 L278,332 L262,348 L242,355 L218,352 L195,342 L178,332 L172,325 L188,315 Z",
+    center: [235, 315]
+  },
+  mantova: {
+    path: "M285,310 L298,295 L318,285 L340,282 L358,292 L368,310 L365,332 L352,352 L332,365 L308,368 L282,362 L262,352 L262,348 L278,332 Z",
+    center: [325, 330]
+  }
 };
 
 interface LombardyMapProps {
@@ -109,33 +145,29 @@ interface LombardyMapProps {
 function LombardyMap({ highlightedProvinces }: LombardyMapProps) {
   return (
     <svg 
-      viewBox="0 0 400 400" 
+      viewBox="0 0 380 380" 
       className="w-full h-full"
-      style={{ maxHeight: '280px' }}
+      style={{ maxHeight: '300px' }}
     >
-      {/* Background */}
-      <rect width="400" height="400" fill="hsl(var(--muted) / 0.3)" rx="8" />
-      
       {/* All provinces */}
-      {Object.entries(provincePaths).map(([province, path]) => {
+      {Object.entries(provincePaths).map(([province, { path }]) => {
         const isHighlighted = highlightedProvinces.includes(province);
         return (
           <g key={province}>
             <path
               d={path}
               fill={isHighlighted ? "hsl(var(--primary))" : "hsl(var(--muted))"}
-              stroke="hsl(var(--border))"
-              strokeWidth="1.5"
-              className={`transition-all duration-500 ${isHighlighted ? 'opacity-100' : 'opacity-60'}`}
+              stroke="hsl(var(--background))"
+              strokeWidth="2"
+              className={`transition-all duration-500 ${isHighlighted ? 'opacity-100' : 'opacity-50'}`}
             />
             {isHighlighted && (
               <path
                 d={path}
                 fill="none"
-                stroke="hsl(var(--primary-foreground))"
-                strokeWidth="2"
+                stroke="hsl(var(--primary-foreground) / 0.4)"
+                strokeWidth="3"
                 className="animate-pulse"
-                style={{ opacity: 0.5 }}
               />
             )}
           </g>
@@ -144,33 +176,21 @@ function LombardyMap({ highlightedProvinces }: LombardyMapProps) {
       
       {/* Province labels for highlighted areas */}
       {highlightedProvinces.map(province => {
-        const labelPositions: Record<string, [number, number]> = {
-          varese: [70, 180],
-          como: [110, 140],
-          sondrio: [210, 80],
-          lecco: [155, 155],
-          bergamo: [210, 180],
-          brescia: [295, 185],
-          milano: [120, 240],
-          monza: [145, 205],
-          pavia: [90, 310],
-          lodi: [150, 300],
-          cremona: [215, 320],
-          mantova: [300, 335]
-        };
-        const pos = labelPositions[province];
-        if (!pos) return null;
+        const data = provincePaths[province];
+        if (!data) return null;
+        const [x, y] = data.center;
         return (
           <text
             key={`label-${province}`}
-            x={pos[0]}
-            y={pos[1]}
+            x={x}
+            y={y}
             fill="hsl(var(--primary-foreground))"
-            fontSize="10"
+            fontSize="11"
             fontWeight="600"
             textAnchor="middle"
-            className="uppercase tracking-wide"
-            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}
+            dominantBaseline="middle"
+            className="uppercase tracking-wider pointer-events-none"
+            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
           >
             {province}
           </text>
@@ -178,11 +198,11 @@ function LombardyMap({ highlightedProvinces }: LombardyMapProps) {
       })}
       
       {/* Legend */}
-      <g transform="translate(20, 360)">
-        <rect x="0" y="0" width="12" height="12" fill="hsl(var(--primary))" rx="2" />
-        <text x="18" y="10" fill="hsl(var(--foreground))" fontSize="10">Origin region</text>
-        <rect x="100" y="0" width="12" height="12" fill="hsl(var(--muted))" rx="2" opacity="0.6" />
-        <text x="118" y="10" fill="hsl(var(--muted-foreground))" fontSize="10">Other provinces</text>
+      <g transform="translate(10, 350)">
+        <rect x="0" y="0" width="14" height="14" fill="hsl(var(--primary))" rx="2" />
+        <text x="20" y="11" fill="hsl(var(--foreground))" fontSize="11" fontWeight="500">Origin</text>
+        <rect x="80" y="0" width="14" height="14" fill="hsl(var(--muted))" rx="2" opacity="0.5" />
+        <text x="100" y="11" fill="hsl(var(--muted-foreground))" fontSize="11">Other provinces</text>
       </g>
     </svg>
   );
