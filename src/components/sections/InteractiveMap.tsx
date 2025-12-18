@@ -99,10 +99,10 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       let markerHtml = '';
       
       if (isOlympic) {
-        // Olympic rings marker for Cortina
+        // Olympic rings marker for Cortina - name always visible
         markerHtml = `
           <div class="city-marker group cursor-pointer olympic-city">
-            <div class="marker-icon transition-all duration-200 group-hover:scale-125 group-hover:drop-shadow-lg">
+            <div class="marker-icon transition-all duration-200 group-hover:scale-110 group-hover:drop-shadow-lg">
               <div class="olympic-rings">
                 <svg width="32" height="20" viewBox="0 0 100 60">
                   <circle cx="20" cy="20" r="12" fill="none" stroke="#0085C7" stroke-width="3"/>
@@ -113,7 +113,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
                 </svg>
               </div>
             </div>
-            <div class="marker-label text-xs font-semibold text-foreground bg-background/90 px-2 py-1 rounded shadow-sm whitespace-nowrap mt-1 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+            <div class="marker-label text-xs font-semibold text-foreground bg-background/95 px-2 py-1 rounded shadow-md whitespace-nowrap mt-1">
               ${marker.name}
             </div>
           </div>

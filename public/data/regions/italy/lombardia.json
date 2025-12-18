@@ -41,7 +41,7 @@
           "id": "milano",
           "name": "Milano",
           "coords": [45.46, 9.19],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/milano.jpg",
           "blurb": "Italy's fashion and finance capital. World-class culture, healthcare, and international connectivity.",
           "railTime": null,
           "isHub": true
@@ -50,7 +50,7 @@
           "id": "bergamo",
           "name": "Bergamo",
           "coords": [45.69, 9.67],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/bergamo.jpg",
           "blurb": "Medieval upper city, modern lower city. Excellent airport, authentic Lombardian character.",
           "railTime": "50 min to Milan"
         },
@@ -58,7 +58,7 @@
           "id": "brescia",
           "name": "Brescia",
           "coords": [45.54, 10.22],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/brescia.jpg",
           "blurb": "Roman ruins meet industrial heritage. Gateway to Lake Garda and Franciacorta wine country.",
           "railTime": "55 min to Milan"
         },
@@ -66,7 +66,7 @@
           "id": "como",
           "name": "Como",
           "coords": [45.81, 9.08],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/como.jpg",
           "blurb": "Gateway to the legendary lake. Silk history, stunning villas, and Alpine backdrop.",
           "railTime": "40 min to Milan"
         },
@@ -74,7 +74,7 @@
           "id": "pavia",
           "name": "Pavia",
           "coords": [45.19, 9.15],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/pavia.jpg",
           "blurb": "Ancient university city with Romanesque churches. Affordable alternative to Milan with direct rail access.",
           "railTime": "30 min to Milan"
         },
@@ -82,7 +82,7 @@
           "id": "mantova",
           "name": "Mantova",
           "coords": [45.15, 10.79],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/mantova.jpg",
           "blurb": "Renaissance gem surrounded by lakes. UNESCO World Heritage center with authentic provincial character.",
           "railTime": "1h 45min to Milan"
         },
@@ -90,7 +90,7 @@
           "id": "sondrio",
           "name": "Sondrio",
           "coords": [46.17, 9.87],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/sondrio.jpg",
           "blurb": "Alpine gateway to Valtellina. Wine country, ski access, and genuine mountain community.",
           "railTime": "2h 30min to Milan"
         },
@@ -98,7 +98,7 @@
           "id": "cortina",
           "name": "Cortina d'Ampezzo",
           "coords": [46.54, 12.14],
-          "photo": "/images/lombardia/lake-como-hero.jpg",
+          "photo": "/images/lombardia/cortina.jpg",
           "blurb": "Queen of the Dolomites. Milano-Cortina 2026 Olympic host. Premium Alpine destination.",
           "railTime": "4h+ to Milan",
           "isOlympic": true
