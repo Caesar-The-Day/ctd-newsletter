@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getRegionRegistry, RegionRegistry, RegionRegistryEntry } from '@/utils/getRegionData';
 import { 
-  scaffoldNewRegion, 
-  updateRegionLock, 
-  setActiveRegion, 
-  publishRegion,
-  archiveRegion,
+  scaffoldRegionApi, 
+  updateRegionLockApi, 
+  setActiveRegionApi, 
+  publishRegionApi 
+} from '@/utils/regionApi';
+import { 
   getPendingOperations,
-  clearPendingOperations
+  clearPendingOperations,
+  archiveRegion
 } from '@/utils/regionManagement';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -19,16 +21,18 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, Trash2 } from 'lucide-react';
+import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, CheckCircle2, Loader2 } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function AdminRegions() {
   const [registry, setRegistry] = useState<RegionRegistry | null>(null);
   const [aiInstructions, setAiInstructions] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [publishDialogOpen, setPublishDialogOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+  const [lastScaffoldResult, setLastScaffoldResult] = useState<any>(null);
   const { toast } = useToast();
 
   // Form state
@@ -80,7 +84,9 @@ export default function AdminRegions() {
       if (!confirmed) return;
     }
 
-    const result = await updateRegionLock(slug, !currentLocked);
+    setActionLoading(`lock-${slug}`);
+    const result = await updateRegionLockApi(slug, !currentLocked);
+    setActionLoading(null);
     
     if (result.success) {
       toast({
@@ -91,14 +97,16 @@ export default function AdminRegions() {
     } else {
       toast({
         title: 'Error',
-        description: result.message,
+        description: result.error || result.message,
         variant: 'destructive',
       });
     }
   };
 
   const handleSetActive = async (slug: string) => {
-    const result = await setActiveRegion(slug);
+    setActionLoading(`active-${slug}`);
+    const result = await setActiveRegionApi(slug);
+    setActionLoading(null);
     
     if (result.success) {
       toast({
@@ -109,7 +117,7 @@ export default function AdminRegions() {
     } else {
       toast({
         title: 'Error',
-        description: result.message,
+        description: result.error || result.message,
         variant: 'destructive',
       });
     }
@@ -127,17 +135,27 @@ export default function AdminRegions() {
       return;
     }
 
-    const result = await scaffoldNewRegion({
+    setActionLoading('create');
+    const result = await scaffoldRegionApi({
       slug: formData.slug,
       displayName: formData.displayName,
-      issueNumber: formData.issueNumber,
+      issueNumber: parseInt(formData.issueNumber) || 1,
       colorScheme: formData.colorScheme
     });
+    setActionLoading(null);
 
     if (result.success) {
+      setLastScaffoldResult(result.data);
       toast({
-        title: 'Region Scaffolded',
-        description: result.message,
+        title: 'Region Scaffolded Successfully',
+        description: (
+          <div className="mt-2">
+            <p>{result.message}</p>
+            <p className="text-xs mt-2 text-muted-foreground">
+              Generated files: {result.data?.filesToCreate?.join(', ')}
+            </p>
+          </div>
+        ),
       });
 
       setDialogOpen(false);
@@ -146,7 +164,7 @@ export default function AdminRegions() {
     } else {
       toast({
         title: 'Error',
-        description: result.message,
+        description: result.error || result.message,
         variant: 'destructive',
       });
     }
@@ -161,7 +179,9 @@ export default function AdminRegions() {
 
     if (!confirmed) return;
 
-    const result = await publishRegion(selectedRegion);
+    setActionLoading(`publish-${selectedRegion}`);
+    const result = await publishRegionApi(selectedRegion);
+    setActionLoading(null);
     
     if (result.success) {
       toast({
@@ -174,7 +194,7 @@ export default function AdminRegions() {
     } else {
       toast({
         title: 'Error',
-        description: result.message,
+        description: result.error || result.message,
         variant: 'destructive',
       });
     }
@@ -187,7 +207,9 @@ export default function AdminRegions() {
 
     if (!confirmed) return;
 
+    setActionLoading(`archive-${slug}`);
     const result = await archiveRegion(slug);
+    setActionLoading(null);
     
     if (result.success) {
       toast({
@@ -223,14 +245,14 @@ export default function AdminRegions() {
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-muted-foreground">Loading admin panel...</p>
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <p className="text-muted-foreground ml-3">Loading admin panel...</p>
       </div>
     );
   }
 
   const regions = registry?.regions || {};
   const activeRegion = aiInstructions?.activeRegion;
-  const lockedRegions = aiInstructions?.lockedRegions || [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -263,7 +285,7 @@ export default function AdminRegions() {
               <DialogHeader>
                 <DialogTitle>Scaffold New Region</DialogTitle>
                 <DialogDescription>
-                  Create a new region from the template. All structural sections will be pre-populated.
+                  Create a new region from the template. This will call the backend to generate all necessary files.
                 </DialogDescription>
               </DialogHeader>
 
@@ -285,7 +307,7 @@ export default function AdminRegions() {
                     id="slug"
                     placeholder="e.g., liguria"
                     value={formData.slug}
-                    onChange={(e) => setFormData({ ...formData, slug: e.target.value.toLowerCase() })}
+                    onChange={(e) => setFormData({ ...formData, slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '') })}
                     required
                   />
                   <p className="text-xs text-muted-foreground">
@@ -311,17 +333,18 @@ export default function AdminRegions() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="default">Default (Puglia Blue)</SelectItem>
+                      <SelectItem value="default">Default (Mediterranean Blue)</SelectItem>
                       <SelectItem value="piemonte-theme">Piemonte (Warm Fall)</SelectItem>
-                      <SelectItem value="custom">Custom (Will generate)</SelectItem>
+                      <SelectItem value="coastal-theme">Coastal (Azure Blue)</SelectItem>
+                      <SelectItem value="custom">Custom (Generate later)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <Alert>
-                  <AlertCircle className="h-4 w-4" />
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
                   <AlertDescription>
-                    This will create a draft region with all standard sections pre-populated from the template.
+                    <strong>Backend Function:</strong> This will call the <code>scaffold-region</code> edge function to generate region data structures.
                   </AlertDescription>
                 </Alert>
 
@@ -329,8 +352,15 @@ export default function AdminRegions() {
                   <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
                     Cancel
                   </Button>
-                  <Button type="submit">
-                    Create Draft Region
+                  <Button type="submit" disabled={actionLoading === 'create'}>
+                    {actionLoading === 'create' ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Creating...
+                      </>
+                    ) : (
+                      'Create Draft Region'
+                    )}
                   </Button>
                 </div>
               </form>
@@ -348,6 +378,26 @@ export default function AdminRegions() {
           </Alert>
         )}
 
+        {/* Last Scaffold Result */}
+        {lastScaffoldResult && (
+          <Alert className="mb-6 border-green-500 bg-green-500/10">
+            <CheckCircle2 className="h-4 w-4 text-green-500" />
+            <AlertDescription className="text-foreground">
+              <div className="flex items-center justify-between">
+                <div>
+                  <strong>Last Scaffold:</strong> {lastScaffoldResult.registryEntry?.displayName}
+                  <span className="text-xs text-muted-foreground ml-2">
+                    (Active region set to: {lastScaffoldResult.aiInstructions?.activeRegion})
+                  </span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => setLastScaffoldResult(null)}>
+                  Dismiss
+                </Button>
+              </div>
+            </AlertDescription>
+          </Alert>
+        )}
+
         {/* Pending Operations (Dev Only) */}
         {(pendingOps.scaffoldQueue.length > 0 || 
           Object.keys(pendingOps.lockChanges).length > 0 || 
@@ -356,14 +406,14 @@ export default function AdminRegions() {
             <AlertCircle className="h-4 w-4 text-orange-500" />
             <AlertDescription className="text-foreground flex items-center justify-between">
               <div>
-                <strong>Development Mode:</strong> {
+                <strong>Local Storage Cache:</strong> {
                   pendingOps.scaffoldQueue.length + 
                   Object.keys(pendingOps.lockChanges).length + 
                   pendingOps.publishQueue.length
-                } pending operation(s) in localStorage
+                } cached operation(s)
               </div>
               <Button variant="outline" size="sm" onClick={handleClearOperations}>
-                Clear All
+                Clear Cache
               </Button>
             </AlertDescription>
           </Alert>
@@ -438,9 +488,16 @@ export default function AdminRegions() {
                             variant="outline"
                             size="sm"
                             onClick={() => handleSetActive(slug)}
+                            disabled={actionLoading === `active-${slug}`}
                           >
-                            <Power className="h-4 w-4 mr-1" />
-                            Set Active
+                            {actionLoading === `active-${slug}` ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <>
+                                <Power className="h-4 w-4 mr-1" />
+                                Set Active
+                              </>
+                            )}
                           </Button>
                         )}
 
@@ -464,9 +521,16 @@ export default function AdminRegions() {
                             variant="outline"
                             size="sm"
                             onClick={() => handleArchiveRegion(slug)}
+                            disabled={actionLoading === `archive-${slug}`}
                           >
-                            <Archive className="h-4 w-4 mr-1" />
-                            Archive
+                            {actionLoading === `archive-${slug}` ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <>
+                                <Archive className="h-4 w-4 mr-1" />
+                                Archive
+                              </>
+                            )}
                           </Button>
                         )}
 
@@ -474,8 +538,11 @@ export default function AdminRegions() {
                           variant={region.locked ? 'destructive' : 'default'}
                           size="sm"
                           onClick={() => handleToggleLock(slug, region.locked)}
+                          disabled={actionLoading === `lock-${slug}`}
                         >
-                          {region.locked ? (
+                          {actionLoading === `lock-${slug}` ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : region.locked ? (
                             <>
                               <Unlock className="h-4 w-4 mr-1" />
                               Unlock
@@ -493,92 +560,100 @@ export default function AdminRegions() {
                 ))}
               </TableBody>
             </Table>
-
-            {Object.keys(regions).length === 0 && (
-              <div className="text-center py-12 text-muted-foreground">
-                <p>No regions found. Create your first region to get started.</p>
-              </div>
-            )}
           </CardContent>
         </Card>
 
+        {/* Publish Confirmation Dialog */}
+        <Dialog open={publishDialogOpen} onOpenChange={setPublishDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Publish Region: {selectedRegion}</DialogTitle>
+              <DialogDescription>
+                This will make the region publicly visible and lock it from further edits.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <Alert>
+                <Rocket className="h-4 w-4" />
+                <AlertDescription>
+                  <strong>This action will:</strong>
+                  <ul className="list-disc list-inside mt-2 text-sm">
+                    <li>Change status from DRAFT to LIVE</li>
+                    <li>Lock the region (prevent modifications)</li>
+                    <li>Update the newsletter index</li>
+                    <li>Make the region visible on the map</li>
+                  </ul>
+                </AlertDescription>
+              </Alert>
+            </div>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setPublishDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button 
+                className="bg-green-600 hover:bg-green-700"
+                onClick={handlePublishRegion}
+                disabled={actionLoading === `publish-${selectedRegion}`}
+              >
+                {actionLoading === `publish-${selectedRegion}` ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Publishing...
+                  </>
+                ) : (
+                  <>
+                    <Rocket className="mr-2 h-4 w-4" />
+                    Publish Now
+                  </>
+                )}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
         {/* Instructions */}
-        <Card className="mt-6">
+        <Card className="mt-8">
           <CardHeader>
-            <CardTitle>How to Use</CardTitle>
+            <CardTitle className="text-lg">How It Works</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-sm text-muted-foreground">
-            <div>
-              <strong className="text-foreground">1. Create New Region:</strong> Click "Create New Region" to scaffold a draft from the template
-            </div>
-            <div>
-              <strong className="text-foreground">2. Set Active:</strong> Set a draft region as "Active" to work on it with AI assistance
-            </div>
-            <div>
-              <strong className="text-foreground">3. Populate Content:</strong> Use AI prompts to add towns, recipes, images, etc. (only affects active region)
-            </div>
-            <div>
-              <strong className="text-foreground">4. Preview:</strong> Click the eye icon to preview the region page
-            </div>
-            <div>
-              <strong className="text-foreground">5. Publish:</strong> Click "Publish" to make the region live and automatically lock it
-            </div>
-            <div className="pt-2 border-t">
-              <strong className="text-foreground">⚠️ Lock Protection:</strong> Locked regions (like Piemonte & Puglia) cannot be modified by AI or manual edits
-            </div>
-            <div className="pt-2 border-t text-xs">
-              <strong className="text-foreground">📝 Development Note:</strong> Currently in simulation mode. All operations are logged to localStorage. In production, these would be API endpoints that modify the actual JSON configuration files.
+          <CardContent className="prose prose-sm dark:prose-invert max-w-none">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold mb-2">🆕 Creating a Region</h4>
+                <ol className="text-sm text-muted-foreground list-decimal list-inside space-y-1">
+                  <li>Click "Create New Region"</li>
+                  <li>Fill in region details</li>
+                  <li>Edge function generates JSON files</li>
+                  <li>Region is set as ACTIVE for AI work</li>
+                </ol>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">🚀 Publishing Flow</h4>
+                <ol className="text-sm text-muted-foreground list-decimal list-inside space-y-1">
+                  <li>Work on region content while it's DRAFT</li>
+                  <li>Click "Publish" when ready</li>
+                  <li>Region becomes LIVE and LOCKED</li>
+                  <li>Map automatically shows new region</li>
+                </ol>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">🔒 Lock Protection</h4>
+                <p className="text-sm text-muted-foreground">
+                  LOCKED regions cannot be modified. This protects published content.
+                  Unlocking requires confirmation and should only be done for urgent fixes.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">⚡ Active Region</h4>
+                <p className="text-sm text-muted-foreground">
+                  Setting a region as ACTIVE tells the AI to focus exclusively on that region.
+                  This prevents accidental modifications to other regions.
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
       </div>
-
-      {/* Publish Confirmation Dialog */}
-      <Dialog open={publishDialogOpen} onOpenChange={setPublishDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>🚀 Publish Region</DialogTitle>
-            <DialogDescription>
-              Publishing will make this region live and automatically lock it for protection.
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="space-y-4 py-4">
-            <Alert>
-              <Rocket className="h-4 w-4" />
-              <AlertDescription>
-                <strong>What happens when you publish:</strong>
-                <ul className="list-disc ml-4 mt-2 space-y-1">
-                  <li>Status changes from "draft" to "live"</li>
-                  <li>Region is automatically locked</li>
-                  <li>Becomes visible on the public site</li>
-                  <li>Removed from active editing (if set)</li>
-                  <li>Added to locked regions list</li>
-                </ul>
-              </AlertDescription>
-            </Alert>
-
-            {selectedRegion && (
-              <div className="bg-muted p-4 rounded-lg">
-                <p className="text-sm font-medium">Region: <strong>{selectedRegion}</strong></p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Make sure all content is finalized before publishing.
-                </p>
-              </div>
-            )}
-          </div>
-
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setPublishDialogOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={handlePublishRegion} className="bg-green-600 hover:bg-green-700">
-              <Rocket className="mr-2 h-4 w-4" />
-              Publish Now
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }
