@@ -538,50 +538,100 @@
   },
   
   "prosCons": {
+    "intro": {
+      "headline": "Pros & Cons: Lombardia Without the Hype",
+      "lead": "Lombardia is Italy's powerhouse — economically, culturally, medically. It's where efficiency meets elegance, where trains run on time and hospitals actually work. But this isn't the Italy of sun-drenched piazzas and eternal leisure. It's Italy with ambition, deadlines, and a November fog that can outlast your patience.",
+      "tradeoff": "The best part? Everything works. World-class healthcare, international connectivity, cultural riches that rival any European capital. The tradeoff? You'll pay northern European prices for the privilege, and the pace can feel more Munich than Mediterranean. Lombardia rewards those who want quality over quantity — and have the budget to match."
+    },
     "pros": [
       {
-        "title": "World-Class Healthcare",
-        "description": "Some of Europe's finest hospitals, particularly in Milan. Excellent specialist care and emergency services throughout region."
+        "title": "Healthcare Excellence",
+        "points": [
+          "Italy's best hospitals, particularly in Milan (San Raffaele, Policlinico).",
+          "Excellent specialist care and emergency services throughout region.",
+          "English-speaking medical staff more common than elsewhere in Italy."
+        ]
       },
       {
         "title": "International Connectivity",
-        "description": "Three airports serve the region with extensive connections. High-speed rail reaches all of Italy efficiently."
-      },
-      {
-        "title": "Four Distinct Seasons",
-        "description": "Unlike southern Italy, Lombardia offers true seasonal variety. Alpine winters, warm summers, glorious springs and autumns."
+        "points": [
+          "Three major airports: Malpensa, Linate, Bergamo — fly anywhere.",
+          "High-speed rail to Rome, Florence, Venice, and across Europe.",
+          "Easy access to Switzerland, France, and Austria."
+        ]
       },
       {
         "title": "Cultural Abundance",
-        "description": "La Scala, Leonardo's Last Supper, Lake Como villas, Roman ruins — cultural riches at every turn."
+        "points": [
+          "La Scala, The Last Supper, world-class museums and galleries.",
+          "Lake Como's legendary villas and gardens.",
+          "Franciacorta wine country and UNESCO sites at Mantova, Bergamo."
+        ]
+      },
+      {
+        "title": "Four True Seasons",
+        "points": [
+          "Alpine winters for skiing, warm summers for lake swimming.",
+          "Spectacular autumns with fall colors on the lakes.",
+          "Spring blooms at Villa Carlotta and across the region."
+        ]
       },
       {
         "title": "Economic Stability",
-        "description": "Italy's richest region. Strong job market if you need part-time work, thriving expat communities, professional services."
+        "points": [
+          "Italy's richest region with professional services and expat support.",
+          "Strong job market for part-time work if desired.",
+          "Reliable infrastructure: things work here."
+        ]
       }
     ],
     "cons": [
       {
         "title": "Higher Costs",
-        "description": "Milan and lake towns carry premium prices. Budget carefully or look to secondary cities for better value."
+        "points": [
+          "Milan rivals Paris and Munich for living expenses.",
+          "Lake Como property prices among Italy's highest.",
+          "Even secondary cities cost more than southern alternatives."
+        ]
       },
       {
         "title": "Winter Fog",
-        "description": "The Po Valley fog is legendary — dense, persistent, and occasionally depressing. Not for sun-seekers."
+        "points": [
+          "Po Valley fog is legendary — dense, gray, and persistent.",
+          "Can last weeks, especially November through February.",
+          "Not for those seeking perpetual sunshine."
+        ]
       },
       {
         "title": "Fast Pace",
-        "description": "Milan moves quickly. If you're seeking la dolce vita's slow rhythms, look to smaller towns or other regions."
+        "points": [
+          "Milan moves at northern European speed — efficient but not relaxed.",
+          "Less 'dolce vita' atmosphere than southern regions.",
+          "Better suited to active retirees than those seeking total tranquility."
+        ]
       },
       {
         "title": "Tourist Pressure",
-        "description": "Lake Como and Milan attract crowds. Off-season is manageable, but July-August brings congestion."
+        "points": [
+          "Lake Como and Milan attract massive crowds in peak season.",
+          "Summer congestion on lake roads and ferries.",
+          "Off-season is manageable, but July-August requires patience."
+        ]
       },
       {
         "title": "Less 'Traditional' Italy",
-        "description": "Lombardia is Italy's most European region. Those seeking old-world Italian atmosphere may prefer the south."
+        "points": [
+          "Lombardia feels more European than classically Italian.",
+          "Those seeking old-world village atmosphere may prefer south.",
+          "Modernity is the norm — charming for some, disappointing for others."
+        ]
       }
-    ]
+    ],
+    "finalTake": {
+      "headline": "Final Take: Is Lombardia Right for You?",
+      "text": "Lombardia is for retirees who want quality without compromise — world-class healthcare, reliable infrastructure, and beauty that ranges from Alpine peaks to legendary lakes. It's Italy for people who value efficiency alongside elegance.",
+      "conclusion": "If you want Italy that works like Switzerland but still serves proper espresso, Lombardia might be exactly what you're looking for. Just bring a winter coat and a healthy budget."
+    }
   },
   
   "closing": {
