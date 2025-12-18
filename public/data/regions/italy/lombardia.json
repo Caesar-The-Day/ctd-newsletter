@@ -392,52 +392,100 @@
     ],
     "grid": [
       {
-        "id": "milano",
-        "name": "Milano",
-        "bestFor": "Culture, healthcare, international access",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "mapUrl": "https://maps.google.com/?q=Milano+Italy",
-        "blurb": "Italy's most international city. World-class in every measure — opera, fashion, dining, medicine. High costs but unmatched convenience and cultural offerings."
-      },
-      {
-        "id": "brescia",
-        "name": "Brescia",
-        "bestFor": "Roman heritage, wine country",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "mapUrl": "https://maps.google.com/?q=Brescia+Italy",
-        "blurb": "Underrated UNESCO city with Roman ruins and medieval core. Gateway to Lake Garda and Franciacorta sparkling wine region. Strong industrial economy, excellent value."
+        "id": "pavia",
+        "name": "Pavia",
+        "bestFor": "University town, intellectual calm",
+        "photo": "/images/lombardia/pavia.jpg",
+        "mapUrl": "https://maps.google.com/?q=Pavia,+Lombardy,+Italy",
+        "blurb": "A historic university town south of Milan with a calm, intellectual atmosphere and lower housing pressure than the northern suburbs. Well connected by train, walkable, and less performative than better-known neighbors. Appeals to retirees who value culture, rhythm, and proximity to Milan without needing to be seen."
       },
       {
         "id": "mantova",
         "name": "Mantova",
-        "bestFor": "Renaissance art, peaceful pace",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "mapUrl": "https://maps.google.com/?q=Mantova+Italy",
-        "blurb": "Renaissance jewel surrounded by lakes. Palazzo Ducale rivals Florence's best. Quiet, cultured, and remarkably affordable. Perfect for art lovers seeking tranquility."
+        "bestFor": "Renaissance elegance, walkable",
+        "photo": "/images/lombardia/mantova.jpg",
+        "mapUrl": "https://maps.google.com/?q=Mantova,+Lombardy,+Italy",
+        "blurb": "Elegant, compact, and deeply livable, with Renaissance architecture and a human scale that encourages daily routines on foot. Tourism exists but remains secondary to local life. Best for retirees who want beauty without chaos and don't need immediate access to Milan."
       },
       {
-        "id": "pavia",
-        "name": "Pavia",
-        "bestFor": "University town charm",
-        "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "mapUrl": "https://maps.google.com/?q=Pavia+Italy",
-        "blurb": "Ancient university city with Certosa masterpiece nearby. Young energy, excellent restaurants, easy Milan access. Often overlooked, often perfect."
+        "id": "lecco",
+        "name": "Lecco",
+        "bestFor": "Practical lake living",
+        "photo": "/images/lombardia/como.jpg",
+        "mapUrl": "https://maps.google.com/?q=Lecco,+Lombardy,+Italy",
+        "blurb": "A practical alternative to Como, sitting directly on the lake with better transport links and fewer status seekers. Offers mountain access, rail connectivity, and a more resident-focused feel year-round. Ideal for active retirees who value function over flash."
       },
       {
-        "id": "sirmione",
-        "name": "Sirmione",
-        "bestFor": "Lake Garda, thermal spas",
+        "id": "sondrio",
+        "name": "Sondrio",
+        "bestFor": "Alpine quiet, real winters",
+        "photo": "/images/lombardia/sondrio.jpg",
+        "mapUrl": "https://maps.google.com/?q=Sondrio,+Lombardy,+Italy",
+        "blurb": "An Alpine town with real winters, strong local identity, and lower density than the lowlands. Life here is quieter, more seasonal, and grounded in community rather than tourism. Best suited to retirees comfortable with isolation and cold in exchange for space and calm."
+      },
+      {
+        "id": "varese",
+        "name": "Varese",
+        "bestFor": "Green, residential, Swiss access",
         "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "mapUrl": "https://maps.google.com/?q=Sirmione+Italy",
-        "blurb": "Narrow peninsula jutting into Lake Garda. Medieval castle, Roman ruins, thermal springs. Touristy in summer, magical off-season. Wellness retirement central."
+        "mapUrl": "https://maps.google.com/?q=Varese,+Lombardy,+Italy",
+        "blurb": "Green, residential, and quietly affluent, with good access to Milan and Switzerland. Known for healthcare access, parks, and a restrained lifestyle. Works well for retirees who want order, greenery, and connectivity without urban intensity."
       },
       {
         "id": "cremona",
         "name": "Cremona",
-        "bestFor": "Music heritage, authentic Po Valley",
+        "bestFor": "Music heritage, craftsmanship",
         "photo": "/images/archive/lombardia-thumbnail.jpg",
-        "mapUrl": "https://maps.google.com/?q=Cremona+Italy",
-        "blurb": "Home of Stradivarius and violin-making tradition. Stunning Romanesque architecture, local food culture, genuine Italian living far from tourist circuits."
+        "mapUrl": "https://maps.google.com/?q=Cremona,+Lombardy,+Italy",
+        "blurb": "Refined and unhurried, with a strong cultural identity tied to music and craftsmanship. The city center is walkable, costs are more reasonable, and daily life feels stable. Appeals to retirees seeking tradition and rhythm rather than stimulation."
+      },
+      {
+        "id": "lodi",
+        "name": "Lodi",
+        "bestFor": "Overlooked, affordable, genuine",
+        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "mapUrl": "https://maps.google.com/?q=Lodi,+Lombardy,+Italy",
+        "blurb": "A smaller, overlooked city south of Milan with reliable rail access and a genuine local pace. Less expensive than Milan-adjacent towns and largely free of tourism. Best for retirees who want normal life, not a curated experience."
+      },
+      {
+        "id": "monza",
+        "name": "Monza",
+        "bestFor": "Affluent, orderly, Milan-adjacent",
+        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "mapUrl": "https://maps.google.com/?q=Monza,+Lombardy,+Italy",
+        "blurb": "Affluent and orderly, with excellent green space and direct access to Milan. More residential than cultural, but highly functional. Suits retirees who want proximity, predictability, and minimal friction."
+      },
+      {
+        "id": "desenzano",
+        "name": "Desenzano del Garda",
+        "bestFor": "Lively lakeside, year-round",
+        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "mapUrl": "https://maps.google.com/?q=Desenzano+del+Garda,+Lombardy,+Italy",
+        "blurb": "Lively, polished, and well connected, with a year-round population larger than most lake towns. Costs reflect demand, but services and transport are strong. Better for retirees who want social energy and don't mind tourism as background noise."
+      },
+      {
+        "id": "iseo",
+        "name": "Iseo",
+        "bestFor": "Quiet lake, local community",
+        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "mapUrl": "https://maps.google.com/?q=Iseo,+Lombardy,+Italy",
+        "blurb": "Smaller and quieter than Garda, with a strong local community and manageable tourism. Walkable center, lake access, and a slower pace without isolation. Ideal for retirees who want lake life without constant spectacle."
+      },
+      {
+        "id": "busto-arsizio",
+        "name": "Busto Arsizio",
+        "bestFor": "Functional, well-connected",
+        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "mapUrl": "https://maps.google.com/?q=Busto+Arsizio,+Lombardy,+Italy",
+        "blurb": "Functional and unglamorous, with excellent transport links and strong services. Largely ignored by tourists, which keeps daily life practical. Appeals to retirees who prioritize access and affordability over aesthetics."
+      },
+      {
+        "id": "chiavenna",
+        "name": "Chiavenna",
+        "bestFor": "Alpine, Swiss border, seasonal",
+        "photo": "/images/archive/lombardia-thumbnail.jpg",
+        "mapUrl": "https://maps.google.com/?q=Chiavenna,+Lombardy,+Italy",
+        "blurb": "A mountain town near the Swiss border with dramatic scenery and a strong local culture. Winters are long and quiet, summers are active and social. Best for retirees who want Alpine life and are comfortable with seasonal isolation."
       }
     ]
   },
