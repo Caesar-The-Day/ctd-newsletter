@@ -285,7 +285,11 @@ export default function RegionPage() {
               intro: typeof regionData.healthcare.intro === 'string' 
                 ? regionData.healthcare.intro 
                 : regionData.healthcare.intro.lead,
+              sectionTitle: regionData.healthcare.sectionTitle,
               hospitals: regionData.healthcare.hospitals,
+              hospitalGroups: regionData.healthcare.hospitalGroups,
+              howCareWorks: regionData.healthcare.howCareWorks,
+              whyItMatters: regionData.healthcare.whyItMatters,
               airports: regionData.healthcare.airports,
               trains: regionData.healthcare.trains,
               travelTimes: regionData.healthcare.travelTimes
