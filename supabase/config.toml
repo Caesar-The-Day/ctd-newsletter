@@ -1,1 +1,16 @@
 project_id = "jolbywwrnehhwodlgytt"
+
+[functions.scaffold-region]
+verify_jwt = false
+
+[functions.region-lock]
+verify_jwt = false
+
+[functions.publish-region]
+verify_jwt = false
+
+[functions.set-active-region]
+verify_jwt = false
+
+[functions.generate-region-theme]
+verify_jwt = false

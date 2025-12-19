@@ -16,32 +16,23 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, CheckCircle2, Loader2 } from 'lucide-react';
+import { Lock, Unlock, Plus, Eye, Power, ArrowLeft, AlertCircle, Rocket, Archive, CheckCircle2, Loader2, Sparkles } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { RegionCreationWizard } from '@/components/admin/RegionCreationWizard';
 
 export default function AdminRegions() {
   const [registry, setRegistry] = useState<RegionRegistry | null>(null);
   const [aiInstructions, setAiInstructions] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [wizardOpen, setWizardOpen] = useState(false);
   const [publishDialogOpen, setPublishDialogOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [lastScaffoldResult, setLastScaffoldResult] = useState<any>(null);
+  const [nextIssueNumber, setNextIssueNumber] = useState(11);
   const { toast } = useToast();
-
-  // Form state
-  const [formData, setFormData] = useState({
-    slug: '',
-    displayName: '',
-    issueNumber: '',
-    colorScheme: 'default'
-  });
 
   useEffect(() => {
     loadData();
@@ -49,12 +40,22 @@ export default function AdminRegions() {
 
   const loadData = async () => {
     try {
-      const [reg, aiInst] = await Promise.all([
+      const [reg, aiInst, newsletterIdx] = await Promise.all([
         getRegionRegistry(),
-        fetch('/data/ai-instructions.json').then(r => r.json())
+        fetch('/data/ai-instructions.json').then(r => r.json()),
+        fetch('/data/newsletter-index.json').then(r => r.json())
       ]);
       setRegistry(reg);
       setAiInstructions(aiInst);
+      
+      // Calculate next issue number
+      const allIssues = [
+        ...(newsletterIdx.newsletters || []),
+        ...(newsletterIdx.archive || [])
+      ];
+      const maxIssue = Math.max(...allIssues.map((n: any) => n.issueNumber || 0), 0);
+      setNextIssueNumber(maxIssue + 1);
+      
       setLoading(false);
     } catch (error) {
       console.error('Failed to load admin data:', error);
@@ -123,43 +124,41 @@ export default function AdminRegions() {
     }
   };
 
-  const handleCreateRegion = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleWizardComplete = async (wizardData: any) => {
+    console.log('[AdminRegions] Wizard completed with data:', wizardData);
     
-    if (!formData.slug || !formData.displayName) {
-      toast({
-        title: 'Validation Error',
-        description: 'Please fill in all required fields',
-        variant: 'destructive',
-      });
-      return;
-    }
-
     setActionLoading('create');
     const result = await scaffoldRegionApi({
-      slug: formData.slug,
-      displayName: formData.displayName,
-      issueNumber: parseInt(formData.issueNumber) || 1,
-      colorScheme: formData.colorScheme
+      slug: wizardData.slug,
+      displayName: wizardData.regionName,
+      issueNumber: wizardData.issueNumber,
+      colorScheme: 'ai-generated',
+      // Extended data for enhanced scaffolding
+      vibeDescription: wizardData.vibeDescription,
+      generatedTheme: wizardData.generatedTheme,
+      enabledSections: wizardData.enabledSections,
+      publicationDate: wizardData.publicationDate,
     });
     setActionLoading(null);
 
     if (result.success) {
-      setLastScaffoldResult(result.data);
+      setLastScaffoldResult({
+        ...result.data,
+        wizardData
+      });
       toast({
-        title: 'Region Scaffolded Successfully',
+        title: 'Region Created Successfully!',
         description: (
           <div className="mt-2">
             <p>{result.message}</p>
             <p className="text-xs mt-2 text-muted-foreground">
-              Generated files: {result.data?.filesToCreate?.join(', ')}
+              AI-generated theme applied with {wizardData.enabledSections?.length || 0} sections enabled.
             </p>
           </div>
         ),
       });
 
-      setDialogOpen(false);
-      setFormData({ slug: '', displayName: '', issueNumber: '', colorScheme: 'default' });
+      setWizardOpen(false);
       await loadData();
     } else {
       toast({
@@ -274,99 +273,19 @@ export default function AdminRegions() {
             </p>
           </div>
 
-          <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <DialogTrigger asChild>
-              <Button size="lg">
-                <Plus className="mr-2 h-5 w-5" />
-                Create New Region
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-2xl">
-              <DialogHeader>
-                <DialogTitle>Scaffold New Region</DialogTitle>
-                <DialogDescription>
-                  Create a new region from the template. This will call the backend to generate all necessary files.
-                </DialogDescription>
-              </DialogHeader>
-
-              <form onSubmit={handleCreateRegion} className="space-y-6 mt-4">
-                <div className="space-y-2">
-                  <Label htmlFor="displayName">Display Name *</Label>
-                  <Input
-                    id="displayName"
-                    placeholder="e.g., Liguria"
-                    value={formData.displayName}
-                    onChange={(e) => setFormData({ ...formData, displayName: e.target.value })}
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="slug">Slug *</Label>
-                  <Input
-                    id="slug"
-                    placeholder="e.g., liguria"
-                    value={formData.slug}
-                    onChange={(e) => setFormData({ ...formData, slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '') })}
-                    required
-                  />
-                  <p className="text-xs text-muted-foreground">
-                    URL path: /{formData.slug || 'region-slug'}
-                  </p>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="issueNumber">Issue Number</Label>
-                  <Input
-                    id="issueNumber"
-                    type="number"
-                    placeholder="e.g., 9"
-                    value={formData.issueNumber}
-                    onChange={(e) => setFormData({ ...formData, issueNumber: e.target.value })}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="colorScheme">Color Scheme</Label>
-                  <Select value={formData.colorScheme} onValueChange={(value) => setFormData({ ...formData, colorScheme: value })}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="default">Default (Mediterranean Blue)</SelectItem>
-                      <SelectItem value="piemonte-theme">Piemonte (Warm Fall)</SelectItem>
-                      <SelectItem value="coastal-theme">Coastal (Azure Blue)</SelectItem>
-                      <SelectItem value="custom">Custom (Generate later)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Alert>
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
-                  <AlertDescription>
-                    <strong>Backend Function:</strong> This will call the <code>scaffold-region</code> edge function to generate region data structures.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="flex justify-end gap-3">
-                  <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                    Cancel
-                  </Button>
-                  <Button type="submit" disabled={actionLoading === 'create'}>
-                    {actionLoading === 'create' ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Creating...
-                      </>
-                    ) : (
-                      'Create Draft Region'
-                    )}
-                  </Button>
-                </div>
-              </form>
-            </DialogContent>
-          </Dialog>
+          <Button size="lg" onClick={() => setWizardOpen(true)}>
+            <Sparkles className="mr-2 h-5 w-5" />
+            Create New Region
+          </Button>
         </div>
+
+        {/* AI Wizard */}
+        <RegionCreationWizard
+          open={wizardOpen}
+          onOpenChange={setWizardOpen}
+          onComplete={handleWizardComplete}
+          nextIssueNumber={nextIssueNumber}
+        />
 
         {/* Active Region Alert */}
         {activeRegion && (
@@ -385,7 +304,13 @@ export default function AdminRegions() {
             <AlertDescription className="text-foreground">
               <div className="flex items-center justify-between">
                 <div>
-                  <strong>Last Scaffold:</strong> {lastScaffoldResult.registryEntry?.displayName}
+                  <strong>Last Created:</strong> {lastScaffoldResult.registryEntry?.displayName || lastScaffoldResult.wizardData?.regionName}
+                  {lastScaffoldResult.wizardData?.generatedTheme && (
+                    <Badge variant="secondary" className="ml-2 gap-1">
+                      <Sparkles className="h-3 w-3" />
+                      AI Theme
+                    </Badge>
+                  )}
                   <span className="text-xs text-muted-foreground ml-2">
                     (Active region set to: {lastScaffoldResult.aiInstructions?.activeRegion})
                   </span>
@@ -619,12 +544,16 @@ export default function AdminRegions() {
           <CardContent className="prose prose-sm dark:prose-invert max-w-none">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-2">🆕 Creating a Region</h4>
+                <h4 className="font-semibold mb-2 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-primary" />
+                  AI-Powered Creation
+                </h4>
                 <ol className="text-sm text-muted-foreground list-decimal list-inside space-y-1">
                   <li>Click "Create New Region"</li>
-                  <li>Fill in region details</li>
-                  <li>Edge function generates JSON files</li>
-                  <li>Region is set as ACTIVE for AI work</li>
+                  <li>Enter region name (slug auto-generated)</li>
+                  <li>Describe the vibe → AI generates theme</li>
+                  <li>Select which sections to include</li>
+                  <li>Region scaffolded with custom theme!</li>
                 </ol>
               </div>
               <div>
