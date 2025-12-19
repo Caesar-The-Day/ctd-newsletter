@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Building2, Plane, ExternalLink, TrainFront, Train, Mountain, BusFront, MapPin } from 'lucide-react';
+import { Building2, Plane, ExternalLink, TrainFront, Train, Mountain, BusFront, MapPin, Trees, Snowflake, Waves } from 'lucide-react';
+import { LombardiaNatureMap } from './LombardiaNatureMap';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -412,7 +413,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                       </div>
                     )}
 
-                    {section.features && (
+                {section.features && section.title !== 'Access to Nature & Recreation' && (
                       <ul className="space-y-2 mt-4">
                         {section.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-3 text-muted-foreground">
@@ -421,6 +422,13 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                           </li>
                         ))}
                       </ul>
+                    )}
+
+                    {/* Nature & Recreation Map for Lombardia */}
+                    {section.title === 'Access to Nature & Recreation' && (
+                      <div className="mt-8">
+                        <LombardiaNatureMap />
+                      </div>
                     )}
 
                     {/* Subsections (like Rail, Airports) */}
@@ -490,34 +498,6 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                   </div>
                 ))}
 
-                {/* One-Hour Reach Visual */}
-                {healthcare.infrastructure!.oneHourReach && (
-                  <div className="bg-gradient-to-b from-muted/40 to-muted/20 rounded-xl p-8 border border-border/50 text-center">
-                    <h3 className="text-2xl font-bold text-foreground mb-4">
-                      {healthcare.infrastructure!.oneHourReach.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                      {healthcare.infrastructure!.oneHourReach.description}
-                    </p>
-                    
-                    {/* Legend */}
-                    <div className="flex flex-wrap justify-center gap-6 mb-8">
-                      {healthcare.infrastructure!.oneHourReach.legend.map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          {item.icon === 'train' && <TrainFront className="w-4 h-4 text-primary" />}
-                          {item.icon === 'plane' && <Plane className="w-4 h-4 text-primary" />}
-                          {item.icon === 'hospital' && <Building2 className="w-4 h-4 text-primary" />}
-                          {item.icon === 'mountain' && <Mountain className="w-4 h-4 text-primary" />}
-                          <span>{item.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <p className="text-lg font-medium text-foreground italic">
-                      {healthcare.infrastructure!.oneHourReach.anchor}
-                    </p>
-                  </div>
-                )}
               </div>
             </TabsContent>
           )}
