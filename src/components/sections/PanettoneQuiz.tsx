@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Cake, Star, Heart } from 'lucide-react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { Cake, Star, Heart, Snowflake } from 'lucide-react';
 
 interface Question {
   question: string;
@@ -42,6 +42,66 @@ const questions: Question[] = [
 
 type Answer = 'A' | 'B' | null;
 type Result = 'panettone' | 'pandoro' | 'hybrid';
+
+// Snowflake component for festive animation
+const SnowParticles = () => {
+  const snowflakes = useMemo(() => 
+    Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 8,
+      duration: 6 + Math.random() * 6,
+      size: 8 + Math.random() * 12,
+      opacity: 0.3 + Math.random() * 0.5
+    })), []
+  );
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {snowflakes.map((flake) => (
+        <div
+          key={flake.id}
+          className="absolute animate-snow-fall"
+          style={{
+            left: `${flake.left}%`,
+            animationDelay: `${flake.delay}s`,
+            animationDuration: `${flake.duration}s`,
+          }}
+        >
+          <Snowflake 
+            className="text-blue-200/60 dark:text-blue-300/40" 
+            style={{ 
+              width: flake.size, 
+              height: flake.size,
+              opacity: flake.opacity 
+            }} 
+          />
+        </div>
+      ))}
+      <style>{`
+        @keyframes snow-fall {
+          0% {
+            transform: translateY(-20px) rotate(0deg);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        .animate-snow-fall {
+          animation: snow-fall linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 const PanettoneQuiz = () => {
   const [stage, setStage] = useState<'intro' | 'quiz' | 'result'>('intro');
@@ -114,9 +174,12 @@ const PanettoneQuiz = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-amber-50/50 to-background dark:from-amber-950/20 dark:to-background"
+      className="relative py-16 md:py-24 bg-gradient-to-b from-blue-50/50 via-amber-50/30 to-background dark:from-blue-950/20 dark:via-amber-950/10 dark:to-background overflow-hidden"
     >
-      <div className="container mx-auto px-4 max-w-3xl">
+      {/* Snow Particles */}
+      <SnowParticles />
+      
+      <div className="container mx-auto px-4 max-w-3xl relative z-10">
         <div 
           className={`transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -124,9 +187,9 @@ const PanettoneQuiz = () => {
         >
           {/* Header - Always visible */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 dark:bg-amber-900/30 rounded-full text-amber-800 dark:text-amber-200 text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 dark:bg-red-900/30 rounded-full text-red-800 dark:text-red-200 text-sm font-medium mb-4">
               <Cake className="w-4 h-4" />
-              Christmas Personality Test
+              🎄 Christmas Personality Test
             </div>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-3">
               Panettone or Pandoro?
@@ -137,7 +200,7 @@ const PanettoneQuiz = () => {
           </div>
 
           {/* Quiz Card */}
-          <div className="bg-card border border-border rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-card/95 backdrop-blur-sm border border-border rounded-2xl shadow-lg overflow-hidden">
             {/* Intro Stage */}
             {stage === 'intro' && (
               <div className="p-8 md:p-12 text-center">
@@ -236,8 +299,13 @@ const PanettoneQuiz = () => {
               <div className="p-8 md:p-12">
                 {result === 'panettone' && (
                   <div className="text-center space-y-6">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-2">
-                      <Star className="w-10 h-10 text-amber-600" />
+                    {/* Dessert Image */}
+                    <div className="w-40 h-40 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-amber-200 dark:border-amber-800">
+                      <img 
+                        src="/images/lombardia/panettone.jpg" 
+                        alt="Panettone - traditional Milanese Christmas bread"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <h3 className="text-3xl md:text-4xl font-display text-foreground mb-2">
@@ -263,8 +331,13 @@ const PanettoneQuiz = () => {
 
                 {result === 'pandoro' && (
                   <div className="text-center space-y-6">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-2">
-                      <Heart className="w-10 h-10 text-amber-600" />
+                    {/* Dessert Image */}
+                    <div className="w-40 h-40 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-amber-200 dark:border-amber-800">
+                      <img 
+                        src="/images/lombardia/pandoro.jpg" 
+                        alt="Pandoro - traditional Veronese Christmas cake"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <h3 className="text-3xl md:text-4xl font-display text-foreground mb-2">
@@ -290,10 +363,21 @@ const PanettoneQuiz = () => {
 
                 {result === 'hybrid' && (
                   <div className="text-center space-y-6">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-2">
-                      <div className="flex">
-                        <Star className="w-6 h-6 text-amber-600" />
-                        <Heart className="w-6 h-6 text-amber-600 -ml-1" />
+                    {/* Both Desserts Side by Side */}
+                    <div className="flex justify-center gap-4">
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg border-4 border-amber-200 dark:border-amber-800 -rotate-6">
+                        <img 
+                          src="/images/lombardia/panettone.jpg" 
+                          alt="Panettone"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg border-4 border-amber-200 dark:border-amber-800 rotate-6">
+                        <img 
+                          src="/images/lombardia/pandoro.jpg" 
+                          alt="Pandoro"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                     <div>
