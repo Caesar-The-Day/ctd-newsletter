@@ -5,6 +5,7 @@ import { Header, SocialLinks } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
+import { supabase } from '@/integrations/supabase/client';
 
 import { 
   Breadcrumb, 
@@ -40,12 +41,19 @@ import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
+type RegionOgOverride = {
+  title: string;
+  description: string;
+  image_url: string | null;
+} | null;
+
 export default function RegionPage() {
   const { region } = useParams<{ region: string }>();
   const [globals, setGlobals] = useState<GlobalsData | null>(null);
   const [regionData, setRegionData] = useState<RegionData | null>(null);
   const [config, setConfig] = useState<FeatureFlags | null>(null);
   const [registryEntry, setRegistryEntry] = useState<RegionRegistryEntry | null>(null);
+  const [ogOverride, setOgOverride] = useState<RegionOgOverride>(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -70,6 +78,23 @@ export default function RegionPage() {
       .catch((err) => {
         console.error('[RegionPage] Failed to load data:', err);
         setError(true);
+      });
+  }, [region]);
+
+  useEffect(() => {
+    if (!region) return;
+
+    supabase
+      .from('region_og_metadata')
+      .select('title,description,image_url')
+      .eq('region_slug', region)
+      .maybeSingle()
+      .then(({ data, error }) => {
+        if (error || !data) {
+          setOgOverride(null);
+          return;
+        }
+        setOgOverride(data);
       });
   }, [region]);
 
@@ -145,24 +170,28 @@ export default function RegionPage() {
 
   const currentSEO: SEOConfig = (region && seoConfig[region as keyof typeof seoConfig]) || defaultSEO;
 
+  const effectiveSeoTitle = ogOverride?.title || currentSEO.title;
+  const effectiveSeoDescription = ogOverride?.description || currentSEO.description;
+  const effectiveOgImage = ogOverride?.image_url || currentSEO.ogImage;
+
   return (
     <>
       <ScrollProgress />
       <SEO
-        title={currentSEO.title}
-        description={currentSEO.description}
+        title={effectiveSeoTitle}
+        description={effectiveSeoDescription}
         canonical={`https://news.caesartheday.com/${region}`}
-        ogTitle={currentSEO.title}
-        ogDescription={currentSEO.ogDescription || currentSEO.description}
+        ogTitle={effectiveSeoTitle}
+        ogDescription={effectiveSeoDescription}
         ogUrl={`https://news.caesartheday.com/${region}`}
         ogType="article"
-        ogImage={currentSEO.ogImage}
+        ogImage={effectiveOgImage}
         keywords={currentSEO.keywords}
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": `Veni. Vidi. Vici. ${regionData.region.title} – Retiring in ${regionData.region.title}, Italy`,
-          "description": currentSEO.description,
+          "description": effectiveSeoDescription,
           "author": {
             "@type": "Person",
             "name": "Caesar Sedek"

@@ -46,42 +46,74 @@ export function OGImageManager() {
   async function handleImageUpload(regionSlug: string, file: File) {
     setUploading(regionSlug);
 
-    const fileExt = file.name.split('.').pop();
+    const fileExt = (file.name.split('.').pop() || 'jpg').toLowerCase();
     const filePath = `${regionSlug}-og.${fileExt}`;
 
-    // Upload to storage
-    const { error: uploadError } = await supabase.storage
+    const uploadAttempt = await supabase.storage
       .from('og-images')
-      .upload(filePath, file, { upsert: true });
+      .upload(filePath, file, {
+        upsert: true,
+        contentType: file.type,
+        cacheControl: '3600',
+      });
 
-    if (uploadError) {
-      toast({ title: 'Upload failed', description: uploadError.message, variant: 'destructive' });
-      setUploading(null);
-      return;
+    if (uploadAttempt.error) {
+      // Some environments can return a conflict on "upload" even with upsert.
+      // Try a direct update as a fallback.
+      const isConflict =
+        (uploadAttempt.error as any)?.statusCode === 409 ||
+        /already exists/i.test(uploadAttempt.error.message);
+
+      if (!isConflict) {
+        toast({
+          title: 'Upload failed',
+          description: uploadAttempt.error.message,
+          variant: 'destructive',
+        });
+        setUploading(null);
+        return;
+      }
+
+      const updateAttempt = await supabase.storage
+        .from('og-images')
+        .update(filePath, file, {
+          contentType: file.type,
+          cacheControl: '3600',
+        });
+
+      if (updateAttempt.error) {
+        toast({
+          title: 'Upload failed',
+          description: updateAttempt.error.message,
+          variant: 'destructive',
+        });
+        setUploading(null);
+        return;
+      }
     }
 
-    // Get public URL
-    const { data: urlData } = supabase.storage
-      .from('og-images')
-      .getPublicUrl(filePath);
-
+    const { data: urlData } = supabase.storage.from('og-images').getPublicUrl(filePath);
     const imageUrl = urlData.publicUrl;
 
-    // Update database
     const { error: updateError } = await supabase
       .from('region_og_metadata')
       .update({ image_url: imageUrl })
       .eq('region_slug', regionSlug);
 
     if (updateError) {
-      toast({ title: 'Failed to save image URL', description: updateError.message, variant: 'destructive' });
+      toast({
+        title: 'Failed to save image URL',
+        description: updateError.message,
+        variant: 'destructive',
+      });
     } else {
       toast({ title: 'Image uploaded successfully' });
-      fetchRegions();
+      setRegions(prev => prev.map(r => (r.region_slug === regionSlug ? { ...r, image_url: imageUrl } : r)));
     }
 
     setUploading(null);
   }
+
 
   async function handleSave(region: RegionOGMetadata) {
     setSaving(region.id);
