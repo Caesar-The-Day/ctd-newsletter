@@ -157,15 +157,22 @@ export default function AdminRegions() {
         region_data: JSON.parse(JSON.stringify(result.data.regionData)),
         climate_data: JSON.parse(JSON.stringify(result.data.climateData)),
       };
-      const { error: dbError } = await supabase.from('regions').insert([insertData]);
+      const { data: insertedData, error: dbError } = await supabase.from('regions').insert([insertData]).select();
 
       setActionLoading(null);
 
       if (dbError) {
-        console.error('[AdminRegions] Failed to save region to database:', dbError);
+        console.error('[AdminRegions] Failed to save region to database:', {
+          error: dbError,
+          code: dbError.code,
+          message: dbError.message,
+          details: dbError.details,
+          hint: dbError.hint,
+          insertData
+        });
         toast({
-          title: 'Warning',
-          description: `Region scaffolded but failed to save to database: ${dbError.message}`,
+          title: 'Database Error',
+          description: `Failed to save region: ${dbError.message}. Code: ${dbError.code}`,
           variant: 'destructive',
         });
       } else {
