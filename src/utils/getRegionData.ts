@@ -288,11 +288,13 @@ export interface RegionData {
     modes: string[];
   };
   healthcare: {
-    intro: {
+    intro?: {
       headline: string;
       lead: string;
     };
     sectionTitle?: string;
+    sectionSubtitle?: string;
+    hospitalsIntro?: string;
     hospitals?: Array<{
       name: string;
       location: string;
@@ -319,6 +321,32 @@ export interface RegionData {
     whyItMatters?: {
       title: string;
       paragraphs: string[];
+    };
+    infrastructure?: {
+      intro: string;
+      sections: Array<{
+        title: string;
+        paragraphs?: string[];
+        features?: string[];
+        subsections?: Array<{
+          title: string;
+          paragraphs?: string[];
+          intro?: string;
+          airports?: Array<{
+            name: string;
+            description: string;
+            link?: string;
+            mapUrl?: string;
+          }>;
+          closing?: string;
+        }>;
+      }>;
+      oneHourReach?: {
+        title: string;
+        description: string;
+        legend: Array<{ icon: string; label: string }>;
+        anchor: string;
+      };
     };
     airports: Array<{
       name: string;

@@ -629,8 +629,9 @@
   },
   
   "healthcare": {
-    "intro": "You don't need to know every hospital in the region. You need to know the ones people are actually referred to.",
-    "sectionTitle": "The Hospitals That Matter",
+    "sectionTitle": "Healthcare & Infrastructure",
+    "sectionSubtitle": "This is why people pay more here",
+    "hospitalsIntro": "You don't need to know every hospital in the region. You need to know the ones people are actually referred to.",
     "hospitalGroups": [
       {
         "title": "Milan — National & International Referral Centers",
@@ -700,71 +701,71 @@
         "That's the trade-off Lombardia offers."
       ]
     },
-    "airports": [
-      {
-        "name": "Milano Malpensa (MXP)",
-        "coords": [8.72, 45.63],
-        "description": "Lombardia's main international hub. Long-haul and European connections. Malpensa Express train to Milan central in 45 minutes.",
-        "link": "https://www.milanomalpensa-airport.com/",
-        "mapUrl": "https://maps.google.com/?q=Milan+Malpensa+Airport"
-      },
-      {
-        "name": "Milano Linate (LIN)",
-        "coords": [9.28, 45.45],
-        "description": "City airport for domestic and short-haul European flights. 20 minutes from center by bus or taxi.",
-        "link": "https://www.milanolinate-airport.com/",
-        "mapUrl": "https://maps.google.com/?q=Milan+Linate+Airport"
-      },
-      {
-        "name": "Bergamo Orio al Serio (BGY)",
-        "coords": [9.70, 45.67],
-        "description": "Budget airline hub with extensive European network. Surprisingly useful for retirees seeking affordable travel.",
-        "link": "https://www.milanbergamoairport.it/",
-        "mapUrl": "https://maps.google.com/?q=Bergamo+Orio+al+Serio+Airport"
-      }
-    ],
-    "railways": [
-      {
-        "name": "Trenitalia / Italo",
-        "description": "High-speed rail connects Milan to major Italian cities. Regional trains serve lake towns and smaller cities efficiently.",
-        "link": "https://www.trenitalia.com/"
-      }
-    ],
-    "highways": [
-      {
-        "name": "A4 Autostrada",
-        "description": "Turin-Milan-Venice corridor. Lombardia's main east-west axis with connections to all major cities.",
-        "link": "https://www.autostrade.it/"
-      }
-    ],
-    "parks": [
-      {
-        "name": "Parco Nazionale dello Stelvio",
-        "coords": [10.45, 46.50],
-        "description": "Italy's largest national park. Alpine wilderness with hiking, wildlife, and dramatic mountain scenery.",
-        "link": "https://www.stelviopark.it/",
-        "mapUrl": "https://maps.google.com/?q=Stelvio+National+Park"
-      }
-    ],
-    "travelTimes": [],
-    "quickInfo": {
-      "emergencyNumbers": [
-        "118 – Medical Emergency",
-        "112 – Police",
-        "115 – Fire Department"
+    "infrastructure": {
+      "intro": "Lombardia's infrastructure isn't designed to impress visitors. It's designed to keep a dense, wealthy, working population moving year-round. For retirees, that means fewer compromises and less friction in daily life.",
+      "sections": [
+        {
+          "title": "Transportation & Access",
+          "subsections": [
+            {
+              "title": "Rail",
+              "paragraphs": [
+                "Lombardia has the densest regional rail network in Italy, with Milan as its central hub. Secondary cities are well connected to each other and to Milan, making it realistic to live outside major urban centers without losing access.",
+                "High-speed trains connect Lombardia directly to Turin, Venice, Bologna, and Florence, expanding reach without requiring air travel."
+              ]
+            },
+            {
+              "title": "Airports",
+              "intro": "Lombardia is served by three major airports, each with a distinct role:",
+              "airports": [
+                {
+                  "name": "Milano Malpensa (MXP)",
+                  "description": "Long-haul international flights and intercontinental connections.",
+                  "link": "https://www.milanomalpensa-airport.com/",
+                  "mapUrl": "https://maps.google.com/?q=Milan+Malpensa+Airport"
+                },
+                {
+                  "name": "Milano Linate (LIN)",
+                  "description": "Short-haul European and domestic flights, favored for speed and convenience.",
+                  "link": "https://www.milanolinate-airport.com/",
+                  "mapUrl": "https://maps.google.com/?q=Milan+Linate+Airport"
+                },
+                {
+                  "name": "Bergamo Orio al Serio (BGY)",
+                  "description": "Regional and budget flights, particularly useful for frequent European travel.",
+                  "link": "https://www.milanbergamoairport.it/",
+                  "mapUrl": "https://maps.google.com/?q=Bergamo+Orio+al+Serio+Airport"
+                }
+              ],
+              "closing": "This redundancy matters. If one airport doesn't work for your route, another usually will."
+            }
+          ]
+        },
+        {
+          "title": "Access to Nature & Recreation",
+          "paragraphs": [
+            "Lombardia integrates infrastructure and nature rather than separating them. Alpine areas, lakes, and protected parks are reachable without abandoning rail lines, roads, or services.",
+            "This is not wilderness living. It's managed access."
+          ],
+          "features": [
+            "Alps and pre-Alps for hiking, skiing, and winter recreation",
+            "Lakes Como, Iseo, and Garda (Lombard side)",
+            "Regional parks and protected areas close to populated centers"
+          ]
+        }
       ],
-      "healthcare": {
-        "title": "Register for Healthcare",
-        "description": "SSN registration through local ASL (Azienda Sanitaria Locale)",
-        "link": "https://www.salute.gov.it/"
-      },
-      "transport": {
-        "title": "Transport Info",
-        "description": "ATM Milan and Trenord regional services",
-        "link": "https://www.atm.it/"
+      "oneHourReach": {
+        "title": "One-Hour Reach",
+        "description": "A single map showing Lombardia with Milan as a reference point and three translucent rings at 30, 45, and 60 minutes.",
+        "legend": [
+          { "icon": "train", "label": "Rail hubs" },
+          { "icon": "plane", "label": "Airports" },
+          { "icon": "hospital", "label": "Major hospitals" },
+          { "icon": "mountain", "label": "Alpine access" }
+        ],
+        "anchor": "In Lombardia, quality of life is measured by reach, not remoteness."
       }
-    },
-    "closing": "Lombardia's infrastructure sets Italy's standard. World-class hospitals, efficient transport, and international connectivity make this region ideal for retirees who want quality without compromise."
+    }
   },
   
   "costOfLiving": {
