@@ -37,6 +37,7 @@ import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
+import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 export default function RegionPage() {
@@ -276,7 +277,9 @@ export default function RegionPage() {
 
       {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA region={region} />}
 
-          <HealthcareInfrastructure 
+      {region === 'lombardia' && <PanettoneQuiz />}
+
+          <HealthcareInfrastructure
             region={region}
             healthcare={{
               intro: typeof regionData.healthcare.intro === 'string' 
