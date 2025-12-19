@@ -292,7 +292,8 @@ export interface RegionData {
       headline: string;
       lead: string;
     };
-    hospitals: Array<{
+    sectionTitle?: string;
+    hospitals?: Array<{
       name: string;
       location: string;
       coords: [number, number];
@@ -300,6 +301,25 @@ export interface RegionData {
       link: string;
       mapUrl: string;
     }>;
+    hospitalGroups?: Array<{
+      title: string;
+      hospitals: Array<{
+        name: string;
+        location: string;
+        description: string;
+        link: string;
+        mapLink: string;
+      }>;
+    }>;
+    howCareWorks?: {
+      title: string;
+      paragraphs: string[];
+      anchor: string;
+    };
+    whyItMatters?: {
+      title: string;
+      paragraphs: string[];
+    };
     airports: Array<{
       name: string;
       coords: [number, number];
