@@ -12,6 +12,7 @@ import {
   clearPendingOperations,
   archiveRegion
 } from '@/utils/regionManagement';
+import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -141,28 +142,54 @@ export default function AdminRegions() {
       enabledSections: wizardData.enabledSections,
       publicationDate: wizardData.publicationDate,
     });
-    setActionLoading(null);
 
-    if (result.success) {
-      setLastScaffoldResult({
-        ...result.data,
-        wizardData
-      });
-      toast({
-        title: 'Region Created Successfully!',
-        description: (
-          <div className="mt-2">
-            <p>{result.message}</p>
-            <p className="text-xs mt-2 text-muted-foreground">
-              AI-generated theme applied with {wizardData.enabledSections?.length || 0} sections enabled.
-            </p>
-          </div>
-        ),
-      });
+    if (result.success && result.data) {
+      // Save the new region to the database
+      const insertData = {
+        slug: result.data.registryEntry.slug,
+        display_name: result.data.registryEntry.displayName,
+        status: result.data.registryEntry.status,
+        locked: result.data.registryEntry.locked,
+        created_date: result.data.registryEntry.createdDate,
+        version: result.data.registryEntry.version,
+        color_scheme: result.data.registryEntry.colorScheme,
+        issue_number: wizardData.issueNumber,
+        region_data: JSON.parse(JSON.stringify(result.data.regionData)),
+        climate_data: JSON.parse(JSON.stringify(result.data.climateData)),
+      };
+      const { error: dbError } = await supabase.from('regions').insert([insertData]);
+
+      setActionLoading(null);
+
+      if (dbError) {
+        console.error('[AdminRegions] Failed to save region to database:', dbError);
+        toast({
+          title: 'Warning',
+          description: `Region scaffolded but failed to save to database: ${dbError.message}`,
+          variant: 'destructive',
+        });
+      } else {
+        setLastScaffoldResult({
+          ...result.data,
+          wizardData
+        });
+        toast({
+          title: 'Region Created Successfully!',
+          description: (
+            <div className="mt-2">
+              <p>{result.message}</p>
+              <p className="text-xs mt-2 text-muted-foreground">
+                AI-generated theme applied with {wizardData.enabledSections?.length || 0} sections enabled.
+              </p>
+            </div>
+          ),
+        });
+      }
 
       setWizardOpen(false);
       await loadData();
     } else {
+      setActionLoading(null);
       toast({
         title: 'Error',
         description: result.error || result.message,

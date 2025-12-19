@@ -1,3 +1,5 @@
+import { supabase } from "@/integrations/supabase/client";
+
 // Data access layer - swap JSON for Supabase later by changing these functions
 export async function getGlobals() {
   const response = await fetch('/data/globals.json');
@@ -78,9 +80,42 @@ export interface RegionRegistry {
 
 export async function getRegionRegistry(): Promise<RegionRegistry | null> {
   try {
-    const response = await fetch('/data/region-registry.json');
-    if (!response.ok) return null;
-    return await response.json();
+    // Fetch regions from Supabase database
+    const { data: dbRegions, error } = await supabase
+      .from('regions')
+      .select('slug, display_name, status, locked, created_date, published_date, version, color_scheme')
+      .order('created_date', { ascending: true });
+
+    if (error) {
+      console.error('Failed to load regions from database:', error);
+      // Fall back to static JSON
+      const response = await fetch('/data/region-registry.json');
+      if (!response.ok) return null;
+      return await response.json();
+    }
+
+    // Transform database rows to registry format
+    const regions: Record<string, RegionRegistryEntry> = {};
+    for (const row of dbRegions || []) {
+      regions[row.slug] = {
+        status: row.status as 'live' | 'draft' | 'archived',
+        locked: row.locked,
+        createdDate: row.created_date,
+        publishedDate: row.published_date || undefined,
+        version: row.version,
+        colorScheme: row.color_scheme,
+        slug: row.slug,
+        displayName: row.display_name,
+      };
+    }
+
+    return {
+      regions,
+      metadata: {
+        lastUpdated: new Date().toISOString().split('T')[0],
+        version: '2.0-db',
+      },
+    };
   } catch (error) {
     console.error('Failed to load region registry:', error);
     return null;

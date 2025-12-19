@@ -44,6 +44,57 @@ export type Database = {
         }
         Relationships: []
       }
+      regions: {
+        Row: {
+          climate_data: Json | null
+          color_scheme: string
+          created_at: string
+          created_date: string
+          display_name: string
+          id: string
+          issue_number: number | null
+          locked: boolean
+          published_date: string | null
+          region_data: Json | null
+          slug: string
+          status: string
+          updated_at: string
+          version: string
+        }
+        Insert: {
+          climate_data?: Json | null
+          color_scheme?: string
+          created_at?: string
+          created_date?: string
+          display_name: string
+          id?: string
+          issue_number?: number | null
+          locked?: boolean
+          published_date?: string | null
+          region_data?: Json | null
+          slug: string
+          status?: string
+          updated_at?: string
+          version?: string
+        }
+        Update: {
+          climate_data?: Json | null
+          color_scheme?: string
+          created_at?: string
+          created_date?: string
+          display_name?: string
+          id?: string
+          issue_number?: number | null
+          locked?: boolean
+          published_date?: string | null
+          region_data?: Json | null
+          slug?: string
+          status?: string
+          updated_at?: string
+          version?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
