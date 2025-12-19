@@ -2,15 +2,32 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!newsletters/|data/|images/|assets/|.*\\.).*)",
-      "destination": "/index.html"
+      "src": "^/(piemonte|lombardia|puglia)(?:/)?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|slackbot|telegrambot|pinterest|discordbot).*"
+        }
+      ],
+      "dest": "/api/og?path=/$1"
+    },
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|slackbot|telegrambot|pinterest|discordbot).*"
+        }
+      ],
+      "dest": "/api/og?path=/"
+    },
+    {
+      "src": "/((?!newsletters/|data/|images/|assets/|.*\\.).*)",
+      "dest": "/index.html"
     }
-  ],
-  "functions": {
-    "middleware.ts": {
-      "runtime": "@vercel/edge"
-    }
-  }
+  ]
 }
