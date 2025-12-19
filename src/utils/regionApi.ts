@@ -9,11 +9,28 @@
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://jolbywwrnehhwodlgytt.supabase.co';
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvbGJ5d3dybmVoaHdvZGxneXR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMDczNTIsImV4cCI6MjA4MTU4MzM1Mn0.3UUV5PbolRzbZmo1_oCe9TgctYF1esT2xvA_izLR4SQ';
 
+export interface GeneratedTheme {
+  primary: string;
+  secondary: string;
+  accent: string;
+  muted: string;
+  gradients: {
+    hero: string;
+    warm: string;
+  };
+  seasonalBackgrounds: string[];
+  reasoning: string;
+}
+
 export interface ScaffoldRegionParams {
   slug: string;
   displayName: string;
   issueNumber: number;
   colorScheme: string;
+  vibeDescription?: string;
+  generatedTheme?: GeneratedTheme;
+  enabledSections?: string[];
+  publicationDate?: string;
 }
 
 export interface ScaffoldResponse {
