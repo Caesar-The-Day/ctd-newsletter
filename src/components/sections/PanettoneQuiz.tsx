@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Cake, Star, Heart, Snowflake } from 'lucide-react';
+import { Cake, Snowflake, Share2, Twitter, Facebook, Link } from 'lucide-react';
+import { toast } from '@/hooks/use-toast';
 
 interface Question {
   question: string;
@@ -399,8 +400,54 @@ const PanettoneQuiz = () => {
                   </div>
                 )}
 
+                {/* Share Buttons */}
+                <div className="flex flex-col items-center gap-4 mt-8 pt-6 border-t border-border">
+                  <p className="text-sm text-muted-foreground flex items-center gap-2">
+                    <Share2 className="w-4 h-4" />
+                    Share your result
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => {
+                        const text = result === 'panettone' 
+                          ? "I'm Panettone! 🎄 Milan would approve. Take the quiz:" 
+                          : result === 'pandoro' 
+                          ? "I'm Pandoro! 🎄 Verona welcomes me. Take the quiz:"
+                          : "I'm Diplomatically Conflicted! 🎄 Italy is full of people like me. Take the quiz:";
+                        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+                      }}
+                      className="p-3 rounded-full bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 text-[#1DA1F2] transition-colors"
+                      aria-label="Share on Twitter"
+                    >
+                      <Twitter className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => {
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+                      }}
+                      className="p-3 rounded-full bg-[#4267B2]/10 hover:bg-[#4267B2]/20 text-[#4267B2] transition-colors"
+                      aria-label="Share on Facebook"
+                    >
+                      <Facebook className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(window.location.href);
+                        toast({
+                          title: "Link copied!",
+                          description: "Share the quiz with your friends",
+                        });
+                      }}
+                      className="p-3 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition-colors"
+                      aria-label="Copy link"
+                    >
+                      <Link className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+
                 {/* Retake Button */}
-                <div className="text-center mt-8">
+                <div className="text-center mt-4">
                   <button
                     onClick={handleRetake}
                     className="px-6 py-2 text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 font-medium transition-colors"
