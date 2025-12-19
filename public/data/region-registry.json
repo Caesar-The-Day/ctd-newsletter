@@ -21,10 +21,11 @@
       "displayName": "Puglia"
     },
     "lombardia": {
-      "status": "draft",
-      "locked": false,
+      "status": "live",
+      "locked": true,
       "createdDate": "2025-12-18",
-      "version": "0.1",
+      "publishedDate": "2025-12-19",
+      "version": "1.0",
       "colorScheme": "custom",
       "slug": "lombardia",
       "displayName": "Lombardia"
