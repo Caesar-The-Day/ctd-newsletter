@@ -112,6 +112,13 @@ export default function RegionPage() {
       ogImage: 'https://news.caesartheday.com/images/piemonte-og.jpg',
       ogDescription: 'Explore Piemonte like a local — from walkable towns and cost-of-living insights to healthcare, wine culture, and interactive planning tools. A smart retiree\'s guide to Northern Italy.',
     },
+    lombardia: {
+      title: 'Retiring in Lombardia | Veni. Vidi. Vici. Region Guide',
+      description: 'Discover Lombardia — Northern sophistication with mountain soul. From the lakes of Como and Iseo to Milan\'s cultural riches, explore cost of living, best towns, healthcare, and everything you need to retire in Italy\'s most dynamic region.',
+      keywords: ['retire in Lombardia', 'Lake Como retirement', 'Milan region living', 'Lombardy cost of living', 'Northern Italy retirement', 'retiring in Italy', 'Italian regions guide', 'Lake Iseo', 'Bergamo'],
+      ogImage: 'https://news.caesartheday.com/images/lombardia-og.jpg',
+      ogDescription: 'Northern sophistication with mountain soul. Your guide to retiring in Lombardia — lakes, culture, cost of living, and the best towns to call home.',
+    },
     puglia: {
       title: 'Retiring in Puglia | Veni. Vidi. Vici. Region Guide',
       description: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
