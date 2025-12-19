@@ -754,17 +754,6 @@
           ]
         }
       ],
-      "oneHourReach": {
-        "title": "One-Hour Reach",
-        "description": "A single map showing Lombardia with Milan as a reference point and three translucent rings at 30, 45, and 60 minutes.",
-        "legend": [
-          { "icon": "train", "label": "Rail hubs" },
-          { "icon": "plane", "label": "Airports" },
-          { "icon": "hospital", "label": "Major hospitals" },
-          { "icon": "mountain", "label": "Alpine access" }
-        ],
-        "anchor": "In Lombardia, quality of life is measured by reach, not remoteness."
-      }
     }
   },
   
