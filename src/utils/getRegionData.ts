@@ -8,8 +8,30 @@ export async function getGlobals() {
 }
 
 export async function getRegionData(slug: string) {
-  // Try nested path first (regions/italy/piemonte), fall back to flat structure
   console.log('[getRegionData] Loading region:', slug);
+  
+  // First, try to fetch from Supabase database
+  try {
+    const { data: dbRegion, error } = await supabase
+      .from('regions')
+      .select('region_data')
+      .eq('slug', slug)
+      .maybeSingle();
+    
+    if (!error && dbRegion?.region_data) {
+      console.log('[getRegionData] Loaded from database:', slug);
+      return dbRegion.region_data;
+    }
+    
+    if (error) {
+      console.warn('[getRegionData] Database fetch failed:', error.message);
+    }
+  } catch (err) {
+    console.warn('[getRegionData] Database fetch error:', err);
+  }
+  
+  // Fall back to static JSON files
+  console.log('[getRegionData] Trying static JSON files for:', slug);
   let response = await fetch(`/data/regions/italy/${slug}.json`);
   if (!response.ok) {
     console.log('[getRegionData] Nested path failed, trying flat structure');
@@ -19,7 +41,7 @@ export async function getRegionData(slug: string) {
     console.error('[getRegionData] Failed to load region:', slug);
     throw new Error(`Failed to load region: ${slug}`);
   }
-  console.log('[getRegionData] Successfully loaded region:', slug);
+  console.log('[getRegionData] Loaded from static JSON:', slug);
   return response.json();
 }
 
