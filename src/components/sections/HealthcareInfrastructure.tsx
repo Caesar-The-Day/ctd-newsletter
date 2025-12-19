@@ -25,11 +25,44 @@ interface HospitalGroup {
   hospitals: Hospital[];
 }
 
+interface InfrastructureSubsection {
+  title: string;
+  paragraphs?: string[];
+  intro?: string;
+  airports?: Array<{
+    name: string;
+    description: string;
+    link?: string;
+    mapUrl?: string;
+  }>;
+  closing?: string;
+}
+
+interface InfrastructureSection {
+  title: string;
+  paragraphs?: string[];
+  subsections?: InfrastructureSubsection[];
+  features?: string[];
+}
+
+interface Infrastructure {
+  intro: string;
+  sections: InfrastructureSection[];
+  oneHourReach?: {
+    title: string;
+    description: string;
+    legend: Array<{ icon: string; label: string }>;
+    anchor: string;
+  };
+}
+
 interface HealthcareInfrastructureProps {
   region?: string;
   healthcare: {
-    intro: string;
+    intro?: string;
     sectionTitle?: string;
+    sectionSubtitle?: string;
+    hospitalsIntro?: string;
     hospitals?: Hospital[];
     hospitalGroups?: HospitalGroup[];
     howCareWorks?: {
@@ -41,6 +74,7 @@ interface HealthcareInfrastructureProps {
       title: string;
       paragraphs: string[];
     };
+    infrastructure?: Infrastructure;
     airports?: Array<{
       name: string;
       code?: string;
@@ -127,30 +161,56 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
     return icons[iconName] || Train;
   };
 
+  const isLombardia = region === 'lombardia';
+  const hasInfrastructure = healthcare.infrastructure;
+  
   return (
     <section className="py-16 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <Building2 className="h-12 w-12 mx-auto mb-4 text-primary" />
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             {healthcare.sectionTitle || "Healthcare & Infrastructure"}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {healthcare.intro}
-          </p>
+          {healthcare.sectionSubtitle && (
+            <p className="text-xl text-muted-foreground mb-6 italic">
+              {healthcare.sectionSubtitle}
+            </p>
+          )}
+          {healthcare.intro && (
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              {healthcare.intro}
+            </p>
+          )}
         </div>
 
-        {/* Tabs for Hospitals, Airports, and Trains */}
+        {/* Tabs - Lombardia gets 2 tabs, others get 3 */}
         <Tabs defaultValue="hospitals" className="mb-16">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-8">
+          <TabsList className={`grid w-full max-w-2xl mx-auto ${isLombardia ? 'grid-cols-2' : 'grid-cols-3'} mb-8`}>
             <TabsTrigger value="hospitals">Hospitals</TabsTrigger>
-            <TabsTrigger value="airports">Airports</TabsTrigger>
-            <TabsTrigger value="connectivity">
-              {healthcare.trains ? "Trains" : "Connectivity"}
-            </TabsTrigger>
+            {isLombardia ? (
+              <TabsTrigger value="infrastructure">Infrastructure</TabsTrigger>
+            ) : (
+              <>
+                <TabsTrigger value="airports">Airports</TabsTrigger>
+                <TabsTrigger value="connectivity">
+                  {healthcare.trains ? "Trains" : "Connectivity"}
+                </TabsTrigger>
+              </>
+            )}
           </TabsList>
 
           <TabsContent value="hospitals">
+            {/* Hospitals intro for Lombardia */}
+            {healthcare.hospitalsIntro && (
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-foreground mb-4">The Hospitals That Matter</h3>
+                <p className="text-muted-foreground leading-relaxed max-w-4xl">
+                  {healthcare.hospitalsIntro}
+                </p>
+              </div>
+            )}
+            
             {/* Grouped hospitals (Lombardia style) */}
             {healthcare.hospitalGroups && healthcare.hospitalGroups.length > 0 ? (
               <div className="space-y-12">
@@ -324,6 +384,143 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
               </div>
             )}
           </TabsContent>
+
+          {/* Lombardia Infrastructure Tab */}
+          {isLombardia && hasInfrastructure && (
+            <TabsContent value="infrastructure">
+              <div className="space-y-12">
+                {/* Section Intro */}
+                <div className="bg-gradient-to-r from-muted/50 to-muted/30 rounded-xl p-8 border border-border/50">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Built for Daily Life, Not Postcards</h3>
+                  <p className="text-muted-foreground leading-relaxed max-w-4xl">
+                    {healthcare.infrastructure!.intro}
+                  </p>
+                </div>
+
+                {/* Infrastructure Sections */}
+                {healthcare.infrastructure!.sections.map((section, sectionIdx) => (
+                  <div key={sectionIdx} className="space-y-6">
+                    <h3 className="text-2xl font-bold text-foreground pb-3 border-b border-border">
+                      {section.title}
+                    </h3>
+                    
+                    {section.paragraphs && (
+                      <div className="space-y-4 text-muted-foreground leading-relaxed">
+                        {section.paragraphs.map((para, idx) => (
+                          <p key={idx}>{para}</p>
+                        ))}
+                      </div>
+                    )}
+
+                    {section.features && (
+                      <ul className="space-y-2 mt-4">
+                        {section.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3 text-muted-foreground">
+                            <Mountain className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {/* Subsections (like Rail, Airports) */}
+                    {section.subsections && (
+                      <div className="space-y-8 mt-6">
+                        {section.subsections.map((subsection, subIdx) => (
+                          <div key={subIdx} className="bg-card border border-border rounded-lg p-6">
+                            <h4 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                              {subsection.title === 'Rail' && <TrainFront className="w-5 h-5 text-primary" />}
+                              {subsection.title === 'Airports' && <Plane className="w-5 h-5 text-primary" />}
+                              {subsection.title}
+                            </h4>
+                            
+                            {subsection.paragraphs && (
+                              <div className="space-y-3 text-muted-foreground leading-relaxed">
+                                {subsection.paragraphs.map((para, idx) => (
+                                  <p key={idx}>{para}</p>
+                                ))}
+                              </div>
+                            )}
+
+                            {subsection.intro && (
+                              <p className="text-muted-foreground mb-4">{subsection.intro}</p>
+                            )}
+
+                            {subsection.airports && (
+                              <div className="space-y-4">
+                                {subsection.airports.map((airport, airportIdx) => (
+                                  <div key={airportIdx} className="bg-muted/30 rounded-lg p-4">
+                                    <div className="flex items-start justify-between gap-4">
+                                      <div>
+                                        <h5 className="font-bold text-foreground">{airport.name}</h5>
+                                        <p className="text-sm text-muted-foreground mt-1">{airport.description}</p>
+                                      </div>
+                                      <div className="flex gap-2 flex-shrink-0">
+                                        {airport.link && (
+                                          <Button size="sm" variant="outline" asChild>
+                                            <a href={airport.link} target="_blank" rel="noopener noreferrer">
+                                              <ExternalLink className="w-3 h-3 mr-1" />
+                                              Website
+                                            </a>
+                                          </Button>
+                                        )}
+                                        {airport.mapUrl && (
+                                          <Button size="sm" variant="outline" asChild>
+                                            <a href={airport.mapUrl} target="_blank" rel="noopener noreferrer">
+                                              <MapPin className="w-3 h-3 mr-1" />
+                                              Map
+                                            </a>
+                                          </Button>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                                {subsection.closing && (
+                                  <p className="text-sm text-muted-foreground italic mt-4 pl-2 border-l-2 border-primary/30">
+                                    {subsection.closing}
+                                  </p>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* One-Hour Reach Visual */}
+                {healthcare.infrastructure!.oneHourReach && (
+                  <div className="bg-gradient-to-b from-muted/40 to-muted/20 rounded-xl p-8 border border-border/50 text-center">
+                    <h3 className="text-2xl font-bold text-foreground mb-4">
+                      {healthcare.infrastructure!.oneHourReach.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                      {healthcare.infrastructure!.oneHourReach.description}
+                    </p>
+                    
+                    {/* Legend */}
+                    <div className="flex flex-wrap justify-center gap-6 mb-8">
+                      {healthcare.infrastructure!.oneHourReach.legend.map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          {item.icon === 'train' && <TrainFront className="w-4 h-4 text-primary" />}
+                          {item.icon === 'plane' && <Plane className="w-4 h-4 text-primary" />}
+                          {item.icon === 'hospital' && <Building2 className="w-4 h-4 text-primary" />}
+                          {item.icon === 'mountain' && <Mountain className="w-4 h-4 text-primary" />}
+                          <span>{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <p className="text-lg font-medium text-foreground italic">
+                      {healthcare.infrastructure!.oneHourReach.anchor}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+          )}
 
           <TabsContent value="connectivity">
             {healthcare.trains ? (
