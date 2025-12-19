@@ -10,23 +10,44 @@ import { PugliaCityReachMap } from './PugliaCityReachMap';
 import { PugliaRailNetworkMap } from './PugliaRailNetworkMap';
 import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
+interface Hospital {
+  name: string;
+  location: string;
+  link?: string;
+  mapLink?: string;
+  description?: string;
+  specialties?: string[];
+  emergency?: boolean;
+}
+
+interface HospitalGroup {
+  title: string;
+  hospitals: Hospital[];
+}
+
 interface HealthcareInfrastructureProps {
   region?: string;
   healthcare: {
     intro: string;
-    hospitals?: Array<{
-      name: string;
-      location: string;
-      link?: string;
-      mapLink?: string;
-      specialties?: string[];
-      emergency?: boolean;
-    }>;
+    sectionTitle?: string;
+    hospitals?: Hospital[];
+    hospitalGroups?: HospitalGroup[];
+    howCareWorks?: {
+      title: string;
+      paragraphs: string[];
+      anchor: string;
+    };
+    whyItMatters?: {
+      title: string;
+      paragraphs: string[];
+    };
     airports?: Array<{
       name: string;
       code?: string;
       website?: string;
+      link?: string;
       mapLink?: string;
+      mapUrl?: string;
       description?: string;
     }>;
     trains?: {
@@ -112,7 +133,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
         <div className="text-center mb-12">
           <Building2 className="h-12 w-12 mx-auto mb-4 text-primary" />
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Healthcare & Infrastructure —<br />Life Runs on Human Scale Here
+            {healthcare.sectionTitle || "Healthcare & Infrastructure"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {healthcare.intro}
@@ -130,7 +151,88 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
           </TabsList>
 
           <TabsContent value="hospitals">
-            {healthcare.hospitals && healthcare.hospitals.length > 0 && (
+            {/* Grouped hospitals (Lombardia style) */}
+            {healthcare.hospitalGroups && healthcare.hospitalGroups.length > 0 ? (
+              <div className="space-y-12">
+                {healthcare.hospitalGroups.map((group, groupIdx) => (
+                  <div key={groupIdx}>
+                    <h3 className="text-2xl font-bold text-foreground mb-6 pb-3 border-b border-border">
+                      {group.title}
+                    </h3>
+                    <div className="space-y-6">
+                      {group.hospitals.map((hospital, idx) => (
+                        <div 
+                          key={idx} 
+                          className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow"
+                        >
+                          <div className="flex items-start justify-between gap-4 mb-3">
+                            <div>
+                              <h4 className="font-bold text-lg text-foreground">{hospital.name}</h4>
+                              <p className="text-sm text-muted-foreground">{hospital.location}</p>
+                            </div>
+                            <div className="flex gap-2 flex-shrink-0">
+                              {hospital.link && (
+                                <Button size="sm" variant="outline" asChild>
+                                  <a href={hospital.link} target="_blank" rel="noopener noreferrer">
+                                    <ExternalLink className="w-3 h-3 mr-1" />
+                                    Website
+                                  </a>
+                                </Button>
+                              )}
+                              {hospital.mapLink && (
+                                <Button size="sm" variant="outline" asChild>
+                                  <a href={hospital.mapLink} target="_blank" rel="noopener noreferrer">
+                                    <MapPin className="w-3 h-3 mr-1" />
+                                    Map
+                                  </a>
+                                </Button>
+                              )}
+                            </div>
+                          </div>
+                          {hospital.description && (
+                            <p className="text-muted-foreground leading-relaxed">
+                              {hospital.description}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+                {/* How Care Works Section */}
+                {healthcare.howCareWorks && (
+                  <div className="mt-16 pt-12 border-t border-border">
+                    <h3 className="text-2xl font-bold text-foreground mb-6">
+                      {healthcare.howCareWorks.title}
+                    </h3>
+                    <div className="space-y-4 text-muted-foreground leading-relaxed max-w-4xl">
+                      {healthcare.howCareWorks.paragraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+                    <p className="mt-8 text-lg font-medium text-foreground italic">
+                      {healthcare.howCareWorks.anchor}
+                    </p>
+                  </div>
+                )}
+
+                {/* Why It Matters Section */}
+                {healthcare.whyItMatters && (
+                  <div className="mt-12 bg-muted/50 rounded-xl p-8">
+                    <h3 className="text-2xl font-bold text-foreground mb-6">
+                      {healthcare.whyItMatters.title}
+                    </h3>
+                    <div className="space-y-4 text-muted-foreground leading-relaxed max-w-4xl">
+                      {healthcare.whyItMatters.paragraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : healthcare.hospitals && healthcare.hospitals.length > 0 ? (
+              /* Standard hospitals grid (other regions) */
               <div className="grid md:grid-cols-2 gap-6">
                 {healthcare.hospitals.map((hospital, idx) => (
                   <FacilityCard key={idx} index={idx}>
@@ -165,7 +267,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                           {hospital.mapLink && (
                             <Button size="sm" variant="outline" asChild>
                               <a href={hospital.mapLink} target="_blank" rel="noopener noreferrer">
-                                <Building2 className="w-3 h-3 mr-1" />
+                                <MapPin className="w-3 h-3 mr-1" />
                                 Map
                               </a>
                             </Button>
@@ -176,7 +278,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                   </FacilityCard>
                 ))}
               </div>
-            )}
+            ) : null}
           </TabsContent>
 
           <TabsContent value="airports">
@@ -197,18 +299,18 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                           )}
                           
                           <div className="flex gap-2 flex-wrap">
-                            {airport.website && (
+                            {(airport.website || airport.link) && (
                               <Button size="sm" variant="outline" asChild>
-                                <a href={airport.website} target="_blank" rel="noopener noreferrer">
+                                <a href={airport.website || airport.link} target="_blank" rel="noopener noreferrer">
                                   <ExternalLink className="w-3 h-3 mr-1" />
                                   Website
                                 </a>
                               </Button>
                             )}
-                            {airport.mapLink && (
+                            {(airport.mapLink || airport.mapUrl) && (
                               <Button size="sm" variant="outline" asChild>
-                                <a href={airport.mapLink} target="_blank" rel="noopener noreferrer">
-                                  <Plane className="w-3 h-3 mr-1" />
+                                <a href={airport.mapLink || airport.mapUrl} target="_blank" rel="noopener noreferrer">
+                                  <MapPin className="w-3 h-3 mr-1" />
                                   Map
                                 </a>
                               </Button>
@@ -473,15 +575,17 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
         {/* City Reach Map */}
         {region === 'puglia' && <PugliaCityReachMap />}
 
-        {/* Closing Statement */}
-        <div className="text-center max-w-2xl mx-auto mt-16">
-          <p className="text-muted-foreground leading-relaxed">
-            {region === 'puglia' 
-              ? 'Infrastructure in Puglia is designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
-              : 'Healthcare and infrastructure are designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
-            }
-          </p>
-        </div>
+        {/* Closing Statement - hide for lombardia since it's in the hospitals tab */}
+        {region !== 'lombardia' && (
+          <div className="text-center max-w-2xl mx-auto mt-16">
+            <p className="text-muted-foreground leading-relaxed">
+              {region === 'puglia' 
+                ? 'Infrastructure in Puglia is designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
+                : 'Healthcare and infrastructure are designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
+              }
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

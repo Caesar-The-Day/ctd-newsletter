@@ -629,36 +629,77 @@
   },
   
   "healthcare": {
-    "intro": {
-      "headline": "Healthcare & Infrastructure: Northern Excellence",
-      "lead": "Lombardia boasts Italy's best healthcare system — world-renowned hospitals, efficient emergency services, and a healthcare infrastructure that serves as model for the nation. Milan's hospitals regularly rank among Europe's finest."
-    },
-    "hospitals": [
+    "intro": "You don't need to know every hospital in the region. You need to know the ones people are actually referred to.",
+    "sectionTitle": "The Hospitals That Matter",
+    "hospitalGroups": [
       {
-        "name": "Ospedale San Raffaele",
-        "location": "Milano",
-        "coords": [9.26, 45.50],
-        "description": "Research hospital with international reputation. Cardiology, oncology, and neuroscience centers of excellence. English-speaking staff available.",
-        "link": "https://www.hsr.it/",
-        "mapUrl": "https://maps.google.com/?q=Ospedale+San+Raffaele+Milano"
+        "title": "Milan — National & International Referral Centers",
+        "hospitals": [
+          {
+            "name": "Ospedale Niguarda",
+            "location": "Milan",
+            "description": "One of Italy's largest public hospitals, designed to handle high volumes and complex cases across virtually every specialty. Known for emergency medicine, cardiology, oncology, and trauma care. This is a workhorse hospital, not a showpiece.",
+            "link": "https://www.ospedaleniguarda.it/",
+            "mapLink": "https://maps.google.com/?q=Ospedale+Niguarda+Milano"
+          },
+          {
+            "name": "Policlinico di Milano",
+            "location": "Milan",
+            "description": "A historic teaching hospital affiliated with the University of Milan. Strong in specialist care, research, and long-term treatment pathways. Often involved when cases require depth rather than speed.",
+            "link": "https://www.policlinico.mi.it/",
+            "mapLink": "https://maps.google.com/?q=Policlinico+di+Milano"
+          },
+          {
+            "name": "Humanitas Research Hospital",
+            "location": "Rozzano",
+            "description": "A highly organized private hospital just south of Milan, frequently chosen by international patients. Known for oncology, orthopedics, and clear administrative processes. English is commonly spoken, which reduces friction for non-native Italian speakers.",
+            "link": "https://www.humanitas.it/",
+            "mapLink": "https://maps.google.com/?q=Humanitas+Research+Hospital+Rozzano"
+          },
+          {
+            "name": "San Raffaele Hospital",
+            "location": "Milan",
+            "description": "One of Italy's leading research hospitals, particularly strong in neurology, cardiology, and advanced treatments. A major destination for complex diagnoses and specialist follow-up.",
+            "link": "https://www.hsr.it/",
+            "mapLink": "https://maps.google.com/?q=Ospedale+San+Raffaele+Milano"
+          }
+        ]
       },
       {
-        "name": "Policlinico di Milano",
-        "location": "Milano",
-        "coords": [9.19, 45.46],
-        "description": "Historic teaching hospital in city center. Comprehensive services, emergency care, and specialists across all fields.",
-        "link": "https://www.policlinico.mi.it/",
-        "mapUrl": "https://maps.google.com/?q=Policlinico+di+Milano"
-      },
-      {
-        "name": "Papa Giovanni XXIII",
-        "location": "Bergamo",
-        "coords": [9.67, 45.69],
-        "description": "Modern regional hospital with excellent emergency services. Gained recognition during pandemic for exceptional care.",
-        "link": "https://www.asst-pg23.it/",
-        "mapUrl": "https://maps.google.com/?q=Papa+Giovanni+XXIII+Bergamo"
+        "title": "Outside Milan — Regional Anchors",
+        "hospitals": [
+          {
+            "name": "Papa Giovanni XXIII",
+            "location": "Bergamo",
+            "description": "A modern, well-respected hospital serving eastern Lombardia. Strong emergency care and specialty services, with direct links into Milan's healthcare network when escalation is needed.",
+            "link": "https://www.asst-pg23.it/",
+            "mapLink": "https://maps.google.com/?q=Papa+Giovanni+XXIII+Bergamo"
+          },
+          {
+            "name": "Spedali Civili di Brescia",
+            "location": "Brescia",
+            "description": "A major regional hospital supporting a large population base. Reliable, high-capacity, and deeply integrated into the public healthcare system.",
+            "link": "https://www.asst-spedalicivili.it/",
+            "mapLink": "https://maps.google.com/?q=Spedali+Civili+di+Brescia"
+          }
+        ]
       }
     ],
+    "howCareWorks": {
+      "title": "How Care Actually Works Here",
+      "paragraphs": [
+        "Most healthcare in Lombardia happens locally. Family doctors, clinics, and regional hospitals handle routine and ongoing care. When something becomes complex, care is escalated deliberately and predictably, often toward Milan.",
+        "This is normal here. It's built into the system."
+      ],
+      "anchor": "Lombardia doesn't concentrate healthcare in one place. It connects it."
+    },
+    "whyItMatters": {
+      "title": "Why This Matters for Retirees",
+      "paragraphs": [
+        "You don't need to live next door to a top hospital. You need to live inside a region that knows how to move patients, information, and care efficiently when it counts.",
+        "That's the trade-off Lombardia offers."
+      ]
+    },
     "airports": [
       {
         "name": "Milano Malpensa (MXP)",
