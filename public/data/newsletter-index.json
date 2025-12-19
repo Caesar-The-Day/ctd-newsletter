@@ -5,17 +5,28 @@
     "backgroundImage": "/images/shared/italy-hero-landscape.jpg"
   },
   "featured": {
-    "slug": "puglia",
-    "title": "Puglia",
-    "subtitle": "Where the heel of Italy meets the sea",
-    "issueNumber": 8,
-    "date": "November 2025",
-    "description": "Puglia is what happens when coastal Italy stays grounded. It's stunning — whitewashed towns, two seas, endless olive groves — but it's also real: hot summers, slower infrastructure, and a way of life that prioritizes human connection over efficiency. You don't move here for convenience; you move here for warmth, literally and socially. The best part? It's wildly affordable by Western European standards and still relatively undiscovered by the international retirement crowd.",
-    "heroImage": "/images/puglia/puglia-hero.jpg",
-    "ctaText": "Explore Puglia",
-    "ctaLink": "/puglia"
+    "slug": "lombardia",
+    "title": "Lombardia",
+    "subtitle": "Where Alps Meet Elegance",
+    "issueNumber": 9,
+    "date": "December 2025",
+    "description": "Lombardia is a different Italy altogether. Cooler, wealthier, more demanding. This is not the land of tax incentives or bargain retirements — it's the industrial, financial, and logistical heart of the country. What it offers is substance: Europe-class hospitals, high-speed rail, international airports, and infrastructure that feels closer to northern Europe. For the right person, it might be the most strategic place in Italy to land.",
+    "heroImage": "/images/lombardia/lake-como-hero.jpg",
+    "ctaText": "Explore Lombardia",
+    "ctaLink": "/lombardia"
   },
   "newsletters": [
+    {
+      "slug": "lombardia",
+      "title": "Lombardia",
+      "issueNumber": 9,
+      "date": "December 2025",
+      "status": "live",
+      "thumbnail": "/images/lombardia/lake-como-hero.jpg",
+      "description": "Northern Italy's economic powerhouse meets Alpine beauty: Milan's world-class healthcare, Lake Como's elegance, and why Lombardia offers sophisticated urban retirement with mountain access.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/lombardia"
+    },
     {
       "slug": "puglia",
       "title": "Puglia",
@@ -39,15 +50,15 @@
       "ctaLink": "/piemonte"
     },
     {
-      "slug": "lombardia",
-      "title": "Lombardia",
+      "slug": "umbria",
+      "title": "Umbria",
       "issueNumber": 10,
-      "date": "December 2025",
+      "date": "January 2026",
       "status": "coming-soon",
-      "thumbnail": "/images/archive/lombardia-thumbnail.jpg",
-      "description": "Northern Italy's economic powerhouse meets Alpine beauty: Milan's world-class healthcare, Lake Como's elegance, and why Lombardia offers sophisticated urban retirement with mountain access.",
+      "thumbnail": "/images/archive/umbria-thumbnail.jpg",
+      "description": "Italy's green heart: medieval hilltop towns, spiritual retreats, and why Umbria offers authentic Italian living without the Tuscan price tag. Coming soon.",
       "ctaText": "Coming Soon",
-      "expectedDate": "December 2025"
+      "expectedDate": "January 2026"
     }
   ],
   "archive": [
