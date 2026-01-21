@@ -193,7 +193,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
         
         overlay.features.forEach(feature => {
           if (feature.type === 'zone') {
-            // Polygon zones (wine regions, olive oil areas)
+            // Polygon zones (wine regions, olive oil areas, parks)
             const polygon = L.polygon(feature.coords, {
               fillColor: feature.color,
               fillOpacity: 0.25,
@@ -202,8 +202,13 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               opacity: 0.6
             }).addTo(layerGroup);
 
+            const photoHtml = feature.photo 
+              ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
+              : '';
+
             const popupContent = `
               <div class="zone-popup">
+                ${photoHtml}
                 <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
                 <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
               </div>
@@ -211,7 +216,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             
             polygon.bindPopup(popupContent, {
               className: 'custom-popup',
-              maxWidth: 300,
+              maxWidth: 320,
               closeButton: true
             });
 
@@ -1013,6 +1018,15 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
 
         .point-marker:hover {
           transform: scale(1.3);
+        }
+
+        /* Zone popup images */
+        .zone-popup-image {
+          width: 100%;
+          height: 120px;
+          object-fit: cover;
+          border-radius: 6px;
+          margin-bottom: 10px;
         }
       `}</style>
     </section>
