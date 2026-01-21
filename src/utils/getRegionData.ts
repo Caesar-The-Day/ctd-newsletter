@@ -544,4 +544,17 @@ export interface RegionData {
     shareUrl: string;
     socialMessages: SocialMessages;
   };
+  // AI-generated theme from the wizard (optional for legacy regions)
+  generatedTheme?: {
+    primary: { h: number; s: number; l: number };
+    secondary: { h: number; s: number; l: number };
+    accent: { h: number; s: number; l: number };
+    muted: { h: number; s: number; l: number };
+    background: { h: number; s: number; l: number };
+    foreground: { h: number; s: number; l: number };
+    gradients?: {
+      hero: string;
+      warm: string;
+    };
+  };
 }
