@@ -61,8 +61,9 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {towns.map((town) => {
             const currentIndex = galleryIndices[town.id] || 0;
-            const currentImage = town.gallery[currentIndex] || town.photo;
-            const hasGallery = town.gallery.length > 1;
+            const gallery = town.gallery || [];
+            const currentImage = gallery[currentIndex] || town.photo;
+            const hasGallery = gallery.length > 1;
 
             return (
               <Card key={town.id} className="overflow-hidden shadow-medium hover-lift">
@@ -85,21 +86,21 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
                   {hasGallery && (
                     <>
                       <button
-                        onClick={() => prevImage(town.id, town.gallery.length - 1)}
+                        onClick={() => prevImage(town.id, gallery.length - 1)}
                         className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/60 backdrop-blur-sm p-2 rounded-full opacity-60 hover:opacity-100 transition-opacity"
                         aria-label="Previous image"
                       >
                         <ChevronLeft className="h-4 w-4" />
                       </button>
                       <button
-                        onClick={() => nextImage(town.id, town.gallery.length - 1)}
+                        onClick={() => nextImage(town.id, gallery.length - 1)}
                         className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/60 backdrop-blur-sm p-2 rounded-full opacity-60 hover:opacity-100 transition-opacity"
                         aria-label="Next image"
                       >
                         <ChevronRight className="h-4 w-4" />
                       </button>
                       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                        {town.gallery.map((_, idx) => (
+                        {gallery.map((_, idx) => (
                           <div
                             key={idx}
                             className={`w-2 h-2 rounded-full ${
