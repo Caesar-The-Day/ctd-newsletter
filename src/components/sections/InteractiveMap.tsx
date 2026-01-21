@@ -286,9 +286,15 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             });
           } else if (feature.type === 'marker') {
             // Special markers (UNESCO sites, underground locations)
+            // Offset coords slightly for visual separation from town markers (~50m north)
+            const offsetCoords: [number, number] = [
+              feature.coords[0] + 0.0004,
+              feature.coords[1]
+            ];
+            
             const specialIcon = L.divIcon({
               html: `
-                <div class="special-marker">
+                <div class="special-marker overlay-priority">
                   <div class="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-lg"></div>
                 </div>
               `,
@@ -297,8 +303,9 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               iconAnchor: [8, 8]
             });
 
-            const specialMarker = L.marker(feature.coords, {
-              icon: specialIcon
+            const specialMarker = L.marker(offsetCoords, {
+              icon: specialIcon,
+              zIndexOffset: 1000  // Ensure overlay markers appear above town markers
             }).addTo(layerGroup);
 
             const popupContent = `
@@ -517,9 +524,15 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             `, { className: 'custom-popup', maxWidth: 300 });
           } else if (feature.type === 'heritage') {
             // UNESCO Heritage site marker with gold styling
+            // Offset coords slightly for visual separation from town markers (~50m north)
+            const offsetCoords: [number, number] = [
+              feature.coords[0] + 0.0004,
+              feature.coords[1]
+            ];
+            
             const heritageIcon = L.divIcon({
               html: `
-                <div class="heritage-marker">
+                <div class="heritage-marker overlay-priority">
                   <div class="heritage-ring"></div>
                   <div class="heritage-core"></div>
                 </div>
@@ -529,7 +542,10 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               iconAnchor: [12, 12]
             });
 
-            const heritageMarker = L.marker(feature.coords, { icon: heritageIcon }).addTo(layerGroup);
+            const heritageMarker = L.marker(offsetCoords, { 
+              icon: heritageIcon,
+              zIndexOffset: 1000  // Priority over town markers
+            }).addTo(layerGroup);
             heritageMarker.bindPopup(`
               <div class="zone-popup">
                 <h3 class="font-bold text-base mb-2 text-foreground">🏛️ ${feature.name}</h3>
@@ -585,13 +601,19 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
     };
   }, [mapData]);
 
-  // Toggle overlay visibility
+  // Toggle overlay visibility - bring active overlays to front
   useEffect(() => {
     if (!mapInstance.current) return;
 
     Object.entries(overlayLayersRef.current).forEach(([overlayId, layer]) => {
       if (activeOverlays.has(overlayId)) {
         layer.addTo(mapInstance.current!);
+        // Bring each marker to front so they are clickable over town markers
+        layer.eachLayer((l) => {
+          if (l instanceof L.Marker) {
+            l.setZIndexOffset(1000);
+          }
+        });
       } else {
         layer.remove();
       }
@@ -957,6 +979,17 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             transform: scale(1.8);
             opacity: 0;
           }
+        }
+
+        /* Overlay priority markers - enhanced visibility when active */
+        .overlay-priority {
+          filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6));
+          cursor: pointer;
+        }
+
+        .overlay-priority:hover {
+          filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.9));
+          transform: scale(1.2);
         }
 
         /* Hospital markers */
