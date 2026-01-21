@@ -199,10 +199,10 @@ export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCa
           {notes && (
             <div className="mt-8 text-center">
               <p className="text-xs text-muted-foreground mb-2">
-                Data sources: {notes.sources.join(', ')}
+                Data sources: {(notes.sources ?? []).join(', ')}
               </p>
               <div className="flex justify-center gap-4 text-xs">
-                {Object.entries(notes.links).map(([key, url]) => (
+                {Object.entries(notes.links ?? {}).map(([key, url]) => (
                   <a
                     key={key}
                     href={url}
