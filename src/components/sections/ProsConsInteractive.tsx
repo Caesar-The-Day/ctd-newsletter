@@ -25,7 +25,16 @@ interface ProsConsInteractiveProps {
 }
 
 export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
-  const { intro, pros, cons, finalTake } = prosCons;
+  // Defensive defaults for incomplete scaffolded data
+  const intro = prosCons?.intro ?? { headline: '', lead: '', tradeoff: '' };
+  const pros = prosCons?.pros ?? [];
+  const cons = prosCons?.cons ?? [];
+  const finalTake = prosCons?.finalTake ?? { headline: '', text: '', conclusion: '' };
+  
+  // Don't render if there's no meaningful content
+  if (!intro.headline && pros.length === 0 && cons.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-8 md:py-12 bg-muted/30">
