@@ -547,16 +547,31 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               iconAnchor: [12, 12]
             });
 
+            const photoHtml = feature.photo 
+              ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
+              : '';
+
             const heritageMarker = L.marker(offsetCoords, { 
               icon: heritageIcon,
               zIndexOffset: 1000  // Priority over town markers
             }).addTo(layerGroup);
             heritageMarker.bindPopup(`
-              <div class="zone-popup">
+              <div class="zone-popup heritage-popup">
+                ${photoHtml}
                 <h3 class="font-bold text-base mb-2 text-foreground">🏛️ ${feature.name}</h3>
-                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.timeCapsule || feature.description}</p>
+                ${feature.website ? `
+                  <a 
+                    href="${feature.website}" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-block mt-3 px-4 py-2 text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 rounded-md transition-colors"
+                  >
+                    Learn More →
+                  </a>
+                ` : ''}
               </div>
-            `, { className: 'custom-popup', maxWidth: 300 });
+            `, { className: 'custom-popup', maxWidth: 320 });
           } else if (feature.type === 'hospital') {
             // Hospital/medical facility marker
             const hospitalIcon = L.divIcon({
