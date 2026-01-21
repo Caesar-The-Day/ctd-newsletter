@@ -38,6 +38,9 @@ serve(async (req) => {
 
 Your task is to research an Italian region and provide ACCURATE, FACTUAL information. You must verify all data is real:
 - Real town names with correct coordinates (latitude, longitude to 4 decimal places)
+  CRITICAL: Return coordinates as { "lat": <latitude>, "lng": <longitude> } objects.
+  Italy's coordinates are approximately: latitude 36-47°N, longitude 6-19°E.
+  Example: Perugia is { "lat": 43.1107, "lng": 12.3908 } - latitude FIRST, then longitude.
 - Actual wines produced in the region (not made up)
 - Real regional dishes with authentic Italian names
 - Actual hospitals and healthcare facilities

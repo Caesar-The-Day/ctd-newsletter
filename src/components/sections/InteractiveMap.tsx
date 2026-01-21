@@ -72,6 +72,19 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       return;
     }
 
+    // CRITICAL: Validate coordinates are in correct order for Italy
+    // Leaflet uses [lat, lng] order. Italy is roughly lat: 36-47, lng: 6-19
+    // If first coord is outside this lat range, coordinates are likely swapped
+    mapData.markers?.forEach(marker => {
+      const [first, second] = marker.coords || [];
+      if (first !== undefined && (first < 30 || first > 50)) {
+        console.warn(
+          `[InteractiveMap] ⚠️ Possible lat/lng swap for "${marker.name}": [${first}, ${second}]. ` +
+          `Expected lat in 36-47 range for Italy. Leaflet uses [lat, lng] order.`
+        );
+      }
+    });
+
     // Initialize map with region configuration
     const map = L.map(mapRef.current, {
       center: mapData.center,
@@ -90,7 +103,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
     }).addTo(map);
 
     // Add city/town markers with special styling for hubs and Olympic cities
-    mapData.markers.forEach(marker => {
+    mapData.markers?.forEach(marker => {
       const isPortCity = ['Bari', 'Brindisi', 'Otranto'].includes(marker.name);
       const isHub = (marker as any).isHub;
       const isOlympic = (marker as any).isOlympic;
