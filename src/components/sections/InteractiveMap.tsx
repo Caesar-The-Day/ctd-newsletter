@@ -482,6 +482,82 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
                 <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
               </div>
             `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'point') {
+            // Point of interest marker (parks, natural features)
+            const pointIcon = L.divIcon({
+              html: `
+                <div class="point-marker">
+                  <div class="w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-lg"></div>
+                </div>
+              `,
+              className: 'custom-point-marker',
+              iconSize: [12, 12],
+              iconAnchor: [6, 6]
+            });
+
+            const pointMarker = L.marker(feature.coords, { icon: pointIcon }).addTo(layerGroup);
+            pointMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">🌲 ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'heritage') {
+            // UNESCO Heritage site marker with gold styling
+            const heritageIcon = L.divIcon({
+              html: `
+                <div class="heritage-marker">
+                  <div class="heritage-ring"></div>
+                  <div class="heritage-core"></div>
+                </div>
+              `,
+              className: 'custom-heritage-marker',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+
+            const heritageMarker = L.marker(feature.coords, { icon: heritageIcon }).addTo(layerGroup);
+            heritageMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">🏛️ ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'hospital') {
+            // Hospital/medical facility marker
+            const hospitalIcon = L.divIcon({
+              html: `
+                <div class="hospital-marker">
+                  <div class="hospital-icon">🏥</div>
+                </div>
+              `,
+              className: 'custom-hospital-marker',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
+
+            const hospitalMarker = L.marker(feature.coords, { icon: hospitalIcon }).addTo(layerGroup);
+            hospitalMarker.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">🏥 ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
+          } else if (feature.type === 'rail') {
+            // Regional rail corridor
+            const railLine = L.polyline(feature.coords, {
+              color: feature.color || '#3b82f6',
+              weight: 4,
+              opacity: 0.7,
+              dashArray: '10, 5'
+            }).addTo(layerGroup);
+
+            railLine.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">🚆 ${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 300 });
           }
         });
 
@@ -831,6 +907,66 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
         /* Rail line animation */
         .rail-animated {
           stroke-linecap: round;
+        }
+
+        /* Heritage/UNESCO markers */
+        .heritage-marker {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .heritage-ring {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 2px solid #f59e0b;
+          animation: heritage-pulse 2s ease-out infinite;
+        }
+
+        .heritage-core {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #f59e0b;
+          box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+          z-index: 1;
+        }
+
+        @keyframes heritage-pulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.8;
+          }
+          100% {
+            transform: scale(1.8);
+            opacity: 0;
+          }
+        }
+
+        /* Hospital markers */
+        .hospital-marker {
+          background: white;
+          border-radius: 6px;
+          padding: 2px 4px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+          font-size: 14px;
+        }
+
+        .hospital-marker:hover {
+          transform: scale(1.1);
+        }
+
+        /* Point of interest markers */
+        .point-marker {
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+
+        .point-marker:hover {
+          transform: scale(1.3);
         }
       `}</style>
     </section>
