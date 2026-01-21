@@ -224,7 +224,11 @@ export default function AdminRegions() {
         version: result.data.registryEntry.version,
         color_scheme: result.data.registryEntry.colorScheme,
         issue_number: wizardData.issueNumber,
-        region_data: JSON.parse(JSON.stringify(finalRegionData)),
+        region_data: JSON.parse(JSON.stringify({
+          ...finalRegionData,
+          // CRITICAL: Store AI-generated theme for dynamic CSS injection in RegionPage
+          generatedTheme: wizardData.generatedTheme,
+        })),
         climate_data: JSON.parse(JSON.stringify(result.data.climateData)),
       };
       const { error: dbError } = await supabase.from('regions').insert([insertData]).select();

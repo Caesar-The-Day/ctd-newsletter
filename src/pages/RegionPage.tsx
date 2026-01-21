@@ -98,24 +98,82 @@ export default function RegionPage() {
       });
   }, [region]);
 
-  // Apply region-specific theme
+  // Apply region-specific theme (AI-generated or legacy CSS classes)
   useEffect(() => {
     if (!region) return;
     
-    // Remove all theme classes first
+    const root = document.documentElement;
+    
+    // Remove all legacy theme classes first
     document.body.classList.remove('piemonte-theme', 'puglia-theme');
     
-    // Apply region-specific theme
-    if (region === 'piemonte') {
-      document.body.classList.add('piemonte-theme');
-    }
-    // Puglia uses default theme (no class needed)
+    // Check if we have an AI-generated theme in the region data
+    const theme = (regionData as any)?.generatedTheme;
     
-    // Cleanup on unmount
+    if (theme) {
+      // Apply AI-generated theme as CSS custom properties
+      const hslString = (c: { h: number; s: number; l: number }) =>
+        `${c.h} ${c.s}% ${c.l}%`;
+      
+      if (theme.primary) root.style.setProperty('--primary', hslString(theme.primary));
+      if (theme.secondary) root.style.setProperty('--secondary', hslString(theme.secondary));
+      if (theme.accent) root.style.setProperty('--accent', hslString(theme.accent));
+      if (theme.muted) root.style.setProperty('--muted', hslString(theme.muted));
+      if (theme.background) root.style.setProperty('--background', hslString(theme.background));
+      if (theme.foreground) root.style.setProperty('--foreground', hslString(theme.foreground));
+      
+      // Derived colors for better contrast
+      if (theme.primary) {
+        root.style.setProperty('--primary-foreground', `${theme.primary.h} ${Math.max(5, theme.primary.s - 30)}% ${theme.primary.l > 50 ? 10 : 98}%`);
+      }
+      if (theme.secondary) {
+        root.style.setProperty('--secondary-foreground', `${theme.secondary.h} ${Math.max(5, theme.secondary.s - 20)}% ${theme.secondary.l > 50 ? 15 : 95}%`);
+      }
+      if (theme.accent) {
+        root.style.setProperty('--accent-foreground', `${theme.accent.h} ${Math.max(5, theme.accent.s - 20)}% ${theme.accent.l > 50 ? 10 : 98}%`);
+      }
+      if (theme.muted) {
+        root.style.setProperty('--muted-foreground', `${theme.muted.h} ${theme.muted.s}% ${theme.muted.l > 50 ? 35 : 70}%`);
+      }
+      
+      // Apply gradients if provided
+      if (theme.gradients?.hero) {
+        root.style.setProperty('--gradient-hero', theme.gradients.hero);
+      }
+      if (theme.gradients?.warm) {
+        root.style.setProperty('--gradient-warm', theme.gradients.warm);
+      }
+      
+      console.log('[RegionPage] Applied AI-generated theme for:', region, theme);
+    } else {
+      // Fall back to legacy CSS theme classes for older regions
+      if (region === 'piemonte') {
+        document.body.classList.add('piemonte-theme');
+      }
+      // Puglia/Lombardia use default theme (no class needed)
+    }
+    
+    // Cleanup on unmount - reset to defaults
     return () => {
       document.body.classList.remove('piemonte-theme', 'puglia-theme');
+      
+      // Only remove custom properties if we applied them
+      if (theme) {
+        root.style.removeProperty('--primary');
+        root.style.removeProperty('--primary-foreground');
+        root.style.removeProperty('--secondary');
+        root.style.removeProperty('--secondary-foreground');
+        root.style.removeProperty('--accent');
+        root.style.removeProperty('--accent-foreground');
+        root.style.removeProperty('--muted');
+        root.style.removeProperty('--muted-foreground');
+        root.style.removeProperty('--background');
+        root.style.removeProperty('--foreground');
+        root.style.removeProperty('--gradient-hero');
+        root.style.removeProperty('--gradient-warm');
+      }
     };
-  }, [region]);
+  }, [region, regionData]);
 
   if (error) return <Navigate to="/404" />;
   if (!globals || !regionData || !config) {
