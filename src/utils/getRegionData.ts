@@ -7,7 +7,7 @@ export async function getGlobals() {
   return response.json();
 }
 
-export async function getRegionData(slug: string) {
+export async function getRegionData(slug: string): Promise<RegionData> {
   console.log('[getRegionData] Loading region:', slug);
   
   // First, try to fetch from Supabase database
@@ -20,7 +20,8 @@ export async function getRegionData(slug: string) {
     
     if (!error && dbRegion?.region_data) {
       console.log('[getRegionData] Loaded from database:', slug);
-      return dbRegion.region_data;
+      // Cast JSONB to RegionData type
+      return dbRegion.region_data as unknown as RegionData;
     }
     
     if (error) {
@@ -42,7 +43,7 @@ export async function getRegionData(slug: string) {
     throw new Error(`Failed to load region: ${slug}`);
   }
   console.log('[getRegionData] Loaded from static JSON:', slug);
-  return response.json();
+  return response.json() as Promise<RegionData>;
 }
 
 export async function getNewsletterIndexData() {
