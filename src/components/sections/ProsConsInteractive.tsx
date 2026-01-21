@@ -71,7 +71,7 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
                       {idx + 1}. {pro.title}
                     </h4>
                     <ul className="space-y-2">
-                      {pro.points.map((point, pidx) => (
+                      {(pro.points ?? []).map((point, pidx) => (
                         <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
                           <span className="text-primary mt-0.5">•</span>
                           <span>{point}</span>
@@ -99,7 +99,7 @@ export function ProsConsInteractive({ prosCons }: ProsConsInteractiveProps) {
                       {idx + 1}. {con.title}
                     </h4>
                     <ul className="space-y-2">
-                      {con.points.map((point, pidx) => (
+                      {(con.points ?? []).map((point, pidx) => (
                         <li key={pidx} className="text-sm text-foreground/80 flex items-start gap-2">
                           <span className="text-muted-foreground mt-0.5">•</span>
                           <span>{point}</span>
