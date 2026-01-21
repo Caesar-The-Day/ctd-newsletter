@@ -53,7 +53,14 @@ interface CostCalculatorProps {
   };
 }
 
+const defaultCosts = { rent: 0, utilities: 0, groceries: 0, dining: 0, transport: 0 };
+
 export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCalculatorProps) {
+  // Early return if no town presets
+  if (!townPresets || townPresets.length === 0) {
+    return null;
+  }
+
   const [selectedTown, setSelectedTown] = useState<string>(townPresets[0]?.id || '');
   const [lifestyleIndex, setLifestyleIndex] = useState(1); // 0=Modest, 1=Average, 2=High-End
 
@@ -62,22 +69,22 @@ export function CostCalculator({ townPresets, lifestyles, intro, notes }: CostCa
   const costs = useMemo(() => {
     if (!town) return null;
 
-    // Get costs based on lifestyle tier
+    // Get costs based on lifestyle tier with defensive fallbacks
     let tierCosts;
     if (lifestyleIndex === 0) {
-      tierCosts = town.modest;
+      tierCosts = town.modest || defaultCosts;
     } else if (lifestyleIndex === 1) {
-      tierCosts = town.normal;
+      tierCosts = town.normal || defaultCosts;
     } else {
-      tierCosts = town.highEnd;
+      tierCosts = town.highEnd || defaultCosts;
     }
 
     const total = 
-      tierCosts.rent + 
-      tierCosts.utilities + 
-      tierCosts.groceries + 
-      tierCosts.dining + 
-      tierCosts.transport;
+      (tierCosts.rent || 0) + 
+      (tierCosts.utilities || 0) + 
+      (tierCosts.groceries || 0) + 
+      (tierCosts.dining || 0) + 
+      (tierCosts.transport || 0);
 
     return { ...tierCosts, total };
   }, [town, lifestyleIndex]);
