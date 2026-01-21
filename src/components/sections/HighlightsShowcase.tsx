@@ -12,10 +12,13 @@ interface HighlightsShowcaseProps {
 }
 
 export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
+  // Defensive defaults for scaffolded data
+  const defaultCategory = { title: '', intro: '', backgroundImage: '', cards: [] };
+  
   const categories = [
-    { key: 'wine', label: 'Wine', icon: Wine, data: highlights.wine },
-    { key: 'food', label: 'Food', icon: Utensils, data: highlights.food },
-    { key: 'culture', label: 'Culture', icon: Landmark, data: highlights.culture },
+    { key: 'wine', label: 'Wine', icon: Wine, data: highlights?.wine ?? defaultCategory },
+    { key: 'food', label: 'Food', icon: Utensils, data: highlights?.food ?? defaultCategory },
+    { key: 'culture', label: 'Culture', icon: Landmark, data: highlights?.culture ?? defaultCategory },
   ];
 
   return (

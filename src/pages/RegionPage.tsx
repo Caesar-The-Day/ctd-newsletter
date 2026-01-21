@@ -300,9 +300,9 @@ export default function RegionPage() {
         />
       )}
 
-      {config.showWineQuiz && regionData.wine && <WineQuiz quizData={regionData.wine.quiz} />}
+      {config.showWineQuiz && regionData.wine?.quiz && <WineQuiz quizData={regionData.wine.quiz} />}
 
-      {regionData.recipes && (
+      {regionData.recipes?.cards && regionData.recipes.cards.length > 0 && (
         <RecipesInteractive 
           header={regionData.recipes.header}
           originStory={regionData.recipes.originStory}
