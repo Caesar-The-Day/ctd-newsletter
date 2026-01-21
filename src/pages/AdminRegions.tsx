@@ -170,7 +170,30 @@ export default function AdminRegions() {
             ...where,
             map: {
               ...(where.map || {}),
-              center: r.region?.coordinates ? [r.region.coordinates.lng, r.region.coordinates.lat] : where.map?.center,
+              // CRITICAL: Leaflet uses [lat, lng] order (opposite of GeoJSON [lng, lat])
+              center: r.region?.coordinates 
+                ? [r.region.coordinates.lat, r.region.coordinates.lng] 
+                : where.map?.center,
+              markers: [
+                ...(r.towns?.featured?.map((town: any) => ({
+                  id: town.name.toLowerCase().replace(/\s+/g, '-'),
+                  name: town.name,
+                  // CRITICAL: Leaflet [lat, lng] order
+                  coords: [town.coordinates.lat, town.coordinates.lng],
+                  photo: `/images/${wizardData.slug}/${town.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
+                  blurb: town.summary || town.fullDescription?.substring(0, 150),
+                  type: 'anchor',
+                })) || []),
+                ...(r.towns?.grid?.map((town: any) => ({
+                  id: town.name.toLowerCase().replace(/\s+/g, '-'),
+                  name: town.name,
+                  // CRITICAL: Leaflet [lat, lng] order
+                  coords: [town.coordinates.lat, town.coordinates.lng],
+                  photo: `/images/${wizardData.slug}/${town.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
+                  blurb: town.blurb,
+                  type: 'secondary',
+                })) || []),
+              ],
             }
           },
           towns: r.towns || finalRegionData.towns,
