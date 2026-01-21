@@ -152,8 +152,10 @@ export function ClimateSnapshot() {
   const [selectedRegion, setSelectedRegion] = useState<RegionKey>("alba");
   const [animationKey, setAnimationKey] = useState(0);
 
+  // Get region from URL
+  const region = window.location.pathname.slice(1) || "piemonte";
+
   useEffect(() => {
-    const region = window.location.pathname.slice(1) || "piemonte";
     fetch(`/data/regions/italy/${region}-climate.json`)
       .then((res) => res.json())
       .then((data) => {
@@ -171,19 +173,17 @@ export function ClimateSnapshot() {
             setSelectedRegion("alba");
           });
       });
-  }, []);
+  }, [region]);
 
   // Trigger animation reset on month change
   useEffect(() => {
     setAnimationKey(prev => prev + 1);
   }, [currentMonth, selectedRegion]);
 
-  if (!climateData) return null;
-
-  const region = window.location.pathname.slice(1) || "piemonte";
-  const currentMonthData = climateData.months[currentMonth];
-  const currentWeather = currentMonthData[selectedRegion] as WeatherData;
-  const currentSeason = currentMonthData.season;
+  // Derived values - compute safely regardless of data state
+  const currentMonthData = climateData?.months[currentMonth];
+  const currentWeather = currentMonthData?.[selectedRegion] as WeatherData | undefined;
+  const currentSeason = currentMonthData?.season ?? "spring";
   
   // Select region-specific backgrounds
   const getSeasonalBackgrounds = () => {
@@ -201,15 +201,18 @@ export function ClimateSnapshot() {
   const seasonalBackgrounds = getSeasonalBackgrounds();
   const seasonalImages = getSeasonalImages();
 
-  // Animated weather values
+  // Animated weather values - MUST be called unconditionally (before any return)
   const animatedTempLow = useCountUp(currentWeather?.tempLow ?? 0);
   const animatedTempHigh = useCountUp(currentWeather?.tempHigh ?? 0);
   const animatedRainfall = useCountUp(currentWeather?.rainfall ?? 0);
   const animatedSunHours = useCountUp(currentWeather?.sunHours ?? 0);
 
-  // Narrative with typewriter effect
-  const narrativeText = (currentMonthData as any).narrative || currentMonthData.tooltip;
+  // Narrative with typewriter effect - MUST be called unconditionally
+  const narrativeText = (currentMonthData as any)?.narrative || currentMonthData?.tooltip || "";
   const { displayedText, isComplete } = useTypewriter(narrativeText, 15);
+
+  // Early return AFTER all hooks have been called
+  if (!climateData || !currentMonthData) return null;
 
   return (
     <section 
