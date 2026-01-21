@@ -14,3 +14,9 @@ verify_jwt = false
 
 [functions.generate-region-theme]
 verify_jwt = false
+
+[functions.research-region]
+verify_jwt = false
+
+[functions.generate-region-images]
+verify_jwt = false

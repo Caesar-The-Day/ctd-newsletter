@@ -136,7 +136,6 @@ export default function AdminRegions() {
       displayName: wizardData.regionName,
       issueNumber: wizardData.issueNumber,
       colorScheme: 'ai-generated',
-      // Extended data for enhanced scaffolding
       vibeDescription: wizardData.vibeDescription,
       generatedTheme: wizardData.generatedTheme,
       enabledSections: wizardData.enabledSections,
@@ -144,7 +143,55 @@ export default function AdminRegions() {
     });
 
     if (result.success && result.data) {
-      // Save the new region to the database
+      // Merge AI research into the scaffolded region data if available
+      let finalRegionData = result.data.regionData as Record<string, any>;
+      if (wizardData.research) {
+        const r = wizardData.research;
+        const region = finalRegionData.region || {};
+        const where = finalRegionData.where || {};
+        
+        finalRegionData = {
+          ...finalRegionData,
+          region: {
+            ...region,
+            title: r.region?.title || region.title,
+            tagline: r.region?.tagline || region.tagline,
+            intro: {
+              ...(region.intro || {}),
+              headline: r.editorialIntro?.headline || region.intro?.headline,
+              paragraphs: r.editorialIntro?.paragraphs || region.intro?.paragraphs,
+            },
+            hero: {
+              ...(region.hero || {}),
+              bannerImage: wizardData.generatedImages?.hero || region.hero?.bannerImage,
+            }
+          },
+          where: {
+            ...where,
+            map: {
+              ...(where.map || {}),
+              center: r.region?.coordinates ? [r.region.coordinates.lng, r.region.coordinates.lat] : where.map?.center,
+            }
+          },
+          towns: r.towns || finalRegionData.towns,
+          highlights: r.highlights || finalRegionData.highlights,
+          healthcare: r.healthcare ? {
+            ...(finalRegionData.healthcare || {}),
+            intro: { headline: 'Healthcare & Infrastructure', lead: r.healthcare.overview },
+            hospitals: r.healthcare.mainHospitals?.map((h: any) => ({ name: h.name, location: h.city, type: h.type })) || [],
+          } : finalRegionData.healthcare,
+          costOfLiving: r.costOfLiving ? {
+            ...(finalRegionData.costOfLiving || {}),
+            intro: { headline: 'Cost of Living', copy: r.costOfLiving.overview },
+            townPresets: [
+              { town: r.costOfLiving.capitalCity?.name, ...r.costOfLiving.capitalCity?.monthlyBudget },
+              { town: r.costOfLiving.smallTown?.name, ...r.costOfLiving.smallTown?.monthlyBudget },
+            ].filter((t: any) => t.town),
+          } : finalRegionData.costOfLiving,
+          prosCons: r.prosCons || finalRegionData.prosCons,
+        };
+      }
+
       const insertData = {
         slug: result.data.registryEntry.slug,
         display_name: result.data.registryEntry.displayName,
@@ -154,42 +201,25 @@ export default function AdminRegions() {
         version: result.data.registryEntry.version,
         color_scheme: result.data.registryEntry.colorScheme,
         issue_number: wizardData.issueNumber,
-        region_data: JSON.parse(JSON.stringify(result.data.regionData)),
+        region_data: JSON.parse(JSON.stringify(finalRegionData)),
         climate_data: JSON.parse(JSON.stringify(result.data.climateData)),
       };
-      const { data: insertedData, error: dbError } = await supabase.from('regions').insert([insertData]).select();
+      const { error: dbError } = await supabase.from('regions').insert([insertData]).select();
 
       setActionLoading(null);
 
       if (dbError) {
-        console.error('[AdminRegions] Failed to save region to database:', {
-          error: dbError,
-          code: dbError.code,
-          message: dbError.message,
-          details: dbError.details,
-          hint: dbError.hint,
-          insertData
-        });
+        console.error('[AdminRegions] Failed to save region to database:', dbError);
         toast({
           title: 'Database Error',
-          description: `Failed to save region: ${dbError.message}. Code: ${dbError.code}`,
+          description: `Failed to save region: ${dbError.message}`,
           variant: 'destructive',
         });
       } else {
-        setLastScaffoldResult({
-          ...result.data,
-          wizardData
-        });
+        setLastScaffoldResult({ ...result.data, wizardData });
         toast({
           title: 'Region Created Successfully!',
-          description: (
-            <div className="mt-2">
-              <p>{result.message}</p>
-              <p className="text-xs mt-2 text-muted-foreground">
-                AI-generated theme applied with {wizardData.enabledSections?.length || 0} sections enabled.
-              </p>
-            </div>
-          ),
+          description: `${wizardData.regionName} scaffolded with AI research, theme, and ${wizardData.enabledSections?.length || 0} sections.`,
         });
       }
 
