@@ -24,18 +24,30 @@ export function ClosingShare({
   shareUrl,
   socialMessages
 }: ClosingShareProps) {
-  const encodedUrl = encodeURIComponent(shareUrl);
+  const encodedUrl = encodeURIComponent(shareUrl || '');
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(shareUrl);
+    navigator.clipboard.writeText(shareUrl || '');
+  };
+
+  // Defensive defaults for incomplete scaffolded data
+  const safeMessages: SocialMessages = {
+    facebook: socialMessages?.facebook ?? '',
+    threads: socialMessages?.threads ?? '',
+    bluesky: socialMessages?.bluesky ?? '',
+    whatsapp: socialMessages?.whatsapp ?? '',
+    pinterest: {
+      title: socialMessages?.pinterest?.title ?? '',
+      description: socialMessages?.pinterest?.description ?? '',
+    },
   };
 
   // Social share URLs with custom messages
-  const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodeURIComponent(socialMessages.facebook + ' ' + shareUrl)}`;
-  const threadsShare = `https://threads.net/intent/post?text=${encodeURIComponent(socialMessages.threads + '\n' + shareUrl)}`;
-  const blueskyShare = `https://bsky.app/intent/compose?text=${encodeURIComponent(socialMessages.bluesky + '\n' + shareUrl)}`;
-  const whatsappShare = `https://wa.me/?text=${encodeURIComponent(socialMessages.whatsapp + ' ' + shareUrl)}`;
-  const pinterestShare = `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodeURIComponent(socialMessages.pinterest.description)}&media=${encodedUrl}`;
-  const emailShare = `mailto:?subject=${encodeURIComponent(socialMessages.pinterest.title)}&body=${encodeURIComponent(socialMessages.whatsapp + ' ' + shareUrl)}`;
+  const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodeURIComponent(safeMessages.facebook + ' ' + shareUrl)}`;
+  const threadsShare = `https://threads.net/intent/post?text=${encodeURIComponent(safeMessages.threads + '\n' + shareUrl)}`;
+  const blueskyShare = `https://bsky.app/intent/compose?text=${encodeURIComponent(safeMessages.bluesky + '\n' + shareUrl)}`;
+  const whatsappShare = `https://wa.me/?text=${encodeURIComponent(safeMessages.whatsapp + ' ' + shareUrl)}`;
+  const pinterestShare = `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodeURIComponent(safeMessages.pinterest.description)}&media=${encodedUrl}`;
+  const emailShare = `mailto:?subject=${encodeURIComponent(safeMessages.pinterest.title)}&body=${encodeURIComponent(safeMessages.whatsapp + ' ' + shareUrl)}`;
   return <section className="py-8 md:py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
