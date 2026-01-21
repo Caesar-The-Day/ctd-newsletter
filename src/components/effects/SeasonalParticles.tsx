@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 interface SeasonalParticlesProps {
   monthIndex: number; // 0-11
-  region?: string; // "piemonte" or "puglia"
+  region?: string; // "piemonte", "puglia", "umbria", etc.
 }
 
 interface Particle {
@@ -13,6 +13,7 @@ interface Particle {
   size: number;
   symbol: string;
   color?: string;
+  top?: number; // For positioned particles like mist
 }
 
 type SeasonType = "winter" | "spring" | "summer" | "autumn";
@@ -30,9 +31,120 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
 
   const seasonType = getSeasonType(monthIndex);
   const isPuglia = region === "puglia";
+  const isUmbria = region === "umbria";
 
   useEffect(() => {
     const currentSeasonType = getSeasonType(monthIndex);
+    
+    // Umbria-specific particle generation
+    if (isUmbria) {
+      // Winter: Valley mist + occasional snowflakes (Dec, Jan, Feb)
+      if (currentSeasonType === "winter") {
+        const mistCount = 12;
+        const snowCount = 15;
+        const mistParticles = Array.from({ length: mistCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          top: 60 + Math.random() * 30, // Bottom third of screen
+          delay: Math.random() * 8,
+          duration: 15 + Math.random() * 10,
+          size: 80 + Math.random() * 60,
+          symbol: "○",
+          color: "text-slate-300/20",
+        }));
+        const snowParticles = Array.from({ length: snowCount }, (_, i) => ({
+          id: i + mistCount,
+          left: Math.random() * 100,
+          delay: Math.random() * 10,
+          duration: 10 + Math.random() * 6,
+          size: 10 + Math.random() * 8,
+          symbol: "❄",
+          color: "text-blue-100/70",
+        }));
+        setParticles([...mistParticles, ...snowParticles]);
+        return;
+      }
+      
+      // Spring: Wildflower petals + pollen (Mar, Apr, May)
+      if (currentSeasonType === "spring") {
+        const petalCount = 25;
+        const pollenCount = 15;
+        const petalColors = ["text-pink-200/60", "text-white/50", "text-rose-200/50", "text-purple-200/50"];
+        const petals = Array.from({ length: petalCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 10,
+          duration: 12 + Math.random() * 8,
+          size: 10 + Math.random() * 8,
+          symbol: ["✿", "❀", "✾", "❁"][Math.floor(Math.random() * 4)],
+          color: petalColors[Math.floor(Math.random() * petalColors.length)],
+        }));
+        const pollen = Array.from({ length: pollenCount }, (_, i) => ({
+          id: i + petalCount,
+          left: Math.random() * 100,
+          delay: Math.random() * 8,
+          duration: 8 + Math.random() * 6,
+          size: 4 + Math.random() * 4,
+          symbol: "•",
+          color: "text-yellow-200/40",
+        }));
+        setParticles([...petals, ...pollen]);
+        return;
+      }
+      
+      // Summer: Cicadas + lens flare (Jun, Jul, Aug)
+      if (currentSeasonType === "summer") {
+        // Only cicadas in July-August (months 6-7)
+        if (monthIndex === 6 || monthIndex === 7) {
+          const cicadaCount = 6;
+          const cicadas = Array.from({ length: cicadaCount }, (_, i) => ({
+            id: i,
+            left: 15 + Math.random() * 70,
+            top: 20 + Math.random() * 40,
+            delay: Math.random() * 4,
+            duration: 2.5 + Math.random() * 1.5,
+            size: 18 + Math.random() * 6,
+            symbol: "♪",
+            color: "text-amber-400/30",
+          }));
+          setParticles(cicadas);
+          return;
+        }
+        // June: light heat shimmer only
+        setParticles([]);
+        return;
+      }
+      
+      // Autumn: Olive leaves + chestnut leaves + wood smoke wisps (Sep, Oct, Nov)
+      if (currentSeasonType === "autumn") {
+        const leafCount = 20;
+        const smokeCount = 8;
+        const leafColors = ["text-green-600/50", "text-amber-600/60", "text-orange-500/50", "text-yellow-700/50"];
+        const leaves = Array.from({ length: leafCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          delay: Math.random() * 12,
+          duration: 14 + Math.random() * 10,
+          size: 12 + Math.random() * 10,
+          symbol: ["🫒", "🍂", "🍁", "🍃"][Math.floor(Math.random() * 4)],
+          color: leafColors[Math.floor(Math.random() * leafColors.length)],
+        }));
+        const smoke = Array.from({ length: smokeCount }, (_, i) => ({
+          id: i + leafCount,
+          left: 20 + Math.random() * 60,
+          delay: Math.random() * 6,
+          duration: 8 + Math.random() * 6,
+          size: 30 + Math.random() * 20,
+          symbol: "〰",
+          color: "text-slate-400/20",
+        }));
+        setParticles([...leaves, ...smoke]);
+        return;
+      }
+      
+      setParticles([]);
+      return;
+    }
     
     // Puglia-specific particle generation
     if (isPuglia) {
@@ -163,7 +275,7 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
       };
     });
     setParticles(newParticles);
-  }, [monthIndex, isPuglia]);
+  }, [monthIndex, isPuglia, isUmbria]);
 
   const getParticleStyle = (type: SeasonType) => {
     switch (type) {
@@ -192,7 +304,30 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
   };
 
 
-  const getAnimationClass = (type: SeasonType) => {
+  const getAnimationClass = (type: SeasonType, particle?: Particle) => {
+    if (isUmbria) {
+      // Mist drifts horizontally in valley
+      if (type === "winter" && particle?.symbol === "○") {
+        return "animate-mist-drift";
+      }
+      // Snowflakes fall
+      if (type === "winter" && particle?.symbol === "❄") {
+        return "animate-snowflake-fall";
+      }
+      // Spring petals and pollen float
+      if (type === "spring") {
+        return particle?.symbol === "•" ? "animate-pollen-rise" : "animate-petal-float";
+      }
+      // Summer cicadas pulse
+      if (type === "summer") {
+        return "animate-cicada-pulse";
+      }
+      // Autumn leaves drift, smoke rises
+      if (type === "autumn") {
+        return particle?.symbol === "〰" ? "animate-smoke-rise" : "animate-leaf-drift";
+      }
+    }
+    
     if (isPuglia) {
       // Cicadas pulse in place
       if (monthIndex === 6 || monthIndex === 7) {
@@ -224,8 +359,8 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
     }
   };
 
-  // Summer heat distortion effect
-  if (seasonType === "summer") {
+  // Summer heat distortion effect (for Piemonte and Umbria)
+  if (seasonType === "summer" && !isPuglia && !(isUmbria && (monthIndex === 6 || monthIndex === 7))) {
     return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Heat distortion waves */}
@@ -250,10 +385,10 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className={`absolute ${particle.color || getParticleStyle(seasonType)} ${getAnimationClass(seasonType)}`}
+          className={`absolute ${particle.color || getParticleStyle(seasonType)} ${getAnimationClass(seasonType, particle)}`}
           style={{
             left: `${particle.left}%`,
-            top: "-20px",
+            top: particle.top !== undefined ? `${particle.top}%` : "-20px",
             fontSize: `${particle.size}px`,
             animationDelay: `${particle.delay}s`,
             animationDuration: `${particle.duration}s`,
