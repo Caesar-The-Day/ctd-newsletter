@@ -1,0 +1,204 @@
+{
+  "intro": {
+    "headline": "Climate Snapshot: Umbria",
+    "tagline": "Four real seasons, fewer coastal extremes, endless livability",
+    "paragraphs": [
+      "Umbria has a classic central-Italy continental-Mediterranean climate, with four real seasons and fewer coastal extremes. Summers are warm but generally drier and more breathable than the coast; winters are cooler, especially at elevation, with occasional frost and snow in hill towns.",
+      "What surprises most people is how variable Umbria feels within a short distance. Valleys can be hot and calm while hill towns stay breezy and cooler. This seasonal rhythm is one of Umbria's strengths: spring and fall are long, agricultural, and social; summer evenings belong to festivals and outdoor dining; winter pulls life inward without fully shutting it down."
+    ],
+    "hoverQuote": "A 15-minute drive can change the temperature by several degrees",
+    "ctaText": "Umbria's biggest climatic advantage is seasonal balance—it avoids coastal humidity, extreme Alpine winters, and southern Italy's relentless summer heat."
+  },
+  "regions": {
+    "perugia": {
+      "name": "Perugia",
+      "type": "central hill",
+      "palette": "terracotta"
+    },
+    "assisi": {
+      "name": "Assisi",
+      "type": "pilgrimage microclimate",
+      "palette": "sage"
+    },
+    "spoleto": {
+      "name": "Spoleto",
+      "type": "east-central corridor",
+      "palette": "olive"
+    },
+    "terni": {
+      "name": "Terni",
+      "type": "warmer plains",
+      "palette": "amber"
+    }
+  },
+  "months": [
+    {
+      "month": "January",
+      "index": 0,
+      "season": "winter",
+      "perugia": { "tempLow": 1, "tempHigh": 8, "rainfall": 55, "sunHours": 4 },
+      "assisi": { "tempLow": 0, "tempHigh": 7, "rainfall": 60, "sunHours": 4 },
+      "spoleto": { "tempLow": 1, "tempHigh": 9, "rainfall": 65, "sunHours": 4 },
+      "terni": { "tempLow": 2, "tempHigh": 10, "rainfall": 70, "sunHours": 4 },
+      "tooltip": "Coldest month, quiet introspection",
+      "narrative": "Coldest month. Daytime highs are modest, nights can dip near freezing, especially in Perugia and Assisi. Snow is possible but rarely paralyzing. This is an introspective month: quiet towns, winter menus, very little tourism. Epiphany celebrations and small local religious events dominate.",
+      "culturalEvent": "Epiphany / La Befana",
+      "culturalEventUrl": "https://www.italia.it/en/italy/things-to-do/epiphany",
+      "visualCue": "Valley mist, frosted rooftops"
+    },
+    {
+      "month": "February",
+      "index": 1,
+      "season": "winter",
+      "perugia": { "tempLow": 2, "tempHigh": 10, "rainfall": 50, "sunHours": 5 },
+      "assisi": { "tempLow": 1, "tempHigh": 9, "rainfall": 55, "sunHours": 5 },
+      "spoleto": { "tempLow": 2, "tempHigh": 11, "rainfall": 55, "sunHours": 5 },
+      "terni": { "tempLow": 3, "tempHigh": 12, "rainfall": 60, "sunHours": 5 },
+      "tooltip": "Light returns, almond hints",
+      "narrative": "Still winter, but daylight noticeably returns. Almond trees begin to hint at spring in warmer pockets near Terni. Carnival events pop up in towns across the region, often community-scale rather than spectacle-driven.",
+      "culturalEvent": "Carnevale celebrations",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/carnevale-in-umbria",
+      "visualCue": "Early light through bare branches"
+    },
+    {
+      "month": "March",
+      "index": 2,
+      "season": "spring",
+      "perugia": { "tempLow": 5, "tempHigh": 14, "rainfall": 60, "sunHours": 6 },
+      "assisi": { "tempLow": 4, "tempHigh": 13, "rainfall": 65, "sunHours": 6 },
+      "spoleto": { "tempLow": 5, "tempHigh": 15, "rainfall": 60, "sunHours": 6 },
+      "terni": { "tempLow": 6, "tempHigh": 16, "rainfall": 55, "sunHours": 6 },
+      "tooltip": "Unpredictable early spring",
+      "narrative": "Early spring, unpredictable. Sunny afternoons alternate with rain. Fields turn green fast. Hiking starts to reappear, though trails can be muddy. This is when Umbria wakes up agriculturally, even if cafés remain half-empty.",
+      "culturalEvent": "Spring nature events",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/spring-in-umbria",
+      "visualCue": "Green fields, rain-washed stone"
+    },
+    {
+      "month": "April",
+      "index": 3,
+      "season": "spring",
+      "perugia": { "tempLow": 8, "tempHigh": 17, "rainfall": 70, "sunHours": 7 },
+      "assisi": { "tempLow": 7, "tempHigh": 16, "rainfall": 75, "sunHours": 7 },
+      "spoleto": { "tempLow": 8, "tempHigh": 18, "rainfall": 70, "sunHours": 7 },
+      "terni": { "tempLow": 9, "tempHigh": 19, "rainfall": 65, "sunHours": 7 },
+      "tooltip": "Best month—mild, flowers everywhere",
+      "narrative": "One of the best months. Mild temperatures, flowers everywhere, long daylight. Easter celebrations are deeply felt here, especially in Assisi. Expect processions, markets, and a sudden return of Italian tourism without international crowds.",
+      "culturalEvent": "Calendimaggio di Assisi",
+      "culturalEventUrl": "https://www.calendimaggiodiassisi.com/en/",
+      "visualCue": "Wildflowers carpeting hillsides"
+    },
+    {
+      "month": "May",
+      "index": 4,
+      "season": "spring",
+      "perugia": { "tempLow": 12, "tempHigh": 22, "rainfall": 55, "sunHours": 8 },
+      "assisi": { "tempLow": 11, "tempHigh": 21, "rainfall": 60, "sunHours": 8 },
+      "spoleto": { "tempLow": 12, "tempHigh": 23, "rainfall": 50, "sunHours": 9 },
+      "terni": { "tempLow": 13, "tempHigh": 24, "rainfall": 45, "sunHours": 9 },
+      "tooltip": "Late spring perfection",
+      "narrative": "Late spring perfection. Warm days, cool nights, low humidity. Outdoor dining becomes standard. Cultural festivals begin in earnest, especially food and wine events tied to local products. This is prime \"why didn't we do this sooner\" weather.",
+      "culturalEvent": "Festa dei Ceri – Gubbio",
+      "culturalEventUrl": "https://www.ceri.it/",
+      "visualCue": "Sunlit vineyards, evening aperitivo"
+    },
+    {
+      "month": "June",
+      "index": 5,
+      "season": "summer",
+      "perugia": { "tempLow": 16, "tempHigh": 27, "rainfall": 40, "sunHours": 10 },
+      "assisi": { "tempLow": 15, "tempHigh": 26, "rainfall": 45, "sunHours": 10 },
+      "spoleto": { "tempLow": 16, "tempHigh": 28, "rainfall": 35, "sunHours": 10 },
+      "terni": { "tempLow": 17, "tempHigh": 29, "rainfall": 30, "sunHours": 11 },
+      "tooltip": "Early summer, comfortable evenings",
+      "narrative": "Early summer without the punishment. Days are warm, evenings comfortable. Festivals accelerate, including music and historical reenactments. Vineyards and olive groves are lush, not yet stressed by heat.",
+      "culturalEvent": "Festival dei Due Mondi – Spoleto",
+      "culturalEventUrl": "https://www.festivaldispoleto.com/en/",
+      "visualCue": "Golden light on medieval walls"
+    },
+    {
+      "month": "July",
+      "index": 6,
+      "season": "summer",
+      "perugia": { "tempLow": 18, "tempHigh": 31, "rainfall": 25, "sunHours": 11 },
+      "assisi": { "tempLow": 17, "tempHigh": 30, "rainfall": 30, "sunHours": 11 },
+      "spoleto": { "tempLow": 18, "tempHigh": 32, "rainfall": 20, "sunHours": 11 },
+      "terni": { "tempLow": 20, "tempHigh": 33, "rainfall": 15, "sunHours": 12 },
+      "tooltip": "Hot valleys, breezy hill towns",
+      "narrative": "Hotter, especially in valleys and around Terni. Hill towns remain manageable, particularly after sunset. Umbria leans hard into summer festivals, night concerts, and open-air events. Locals adapt; afternoons slow, nights stretch.",
+      "culturalEvent": "Umbria Jazz – Perugia",
+      "culturalEventUrl": "https://www.umbriajazz.it/en/umbria-jazz/",
+      "visualCue": "Evening piazzas, jazz in the air"
+    },
+    {
+      "month": "August",
+      "index": 7,
+      "season": "summer",
+      "perugia": { "tempLow": 18, "tempHigh": 31, "rainfall": 30, "sunHours": 10 },
+      "assisi": { "tempLow": 17, "tempHigh": 30, "rainfall": 35, "sunHours": 10 },
+      "spoleto": { "tempLow": 18, "tempHigh": 32, "rainfall": 30, "sunHours": 10 },
+      "terni": { "tempLow": 20, "tempHigh": 33, "rainfall": 25, "sunHours": 11 },
+      "tooltip": "Peak heat, peak tradition",
+      "narrative": "Peak heat and peak tradition. Ferragosto defines the rhythm. Many Italians vacation elsewhere, but Umbria paradoxically fills with visitors for village festivals, medieval pageants, and religious celebrations. Expect heat during the day, magic after dark.",
+      "culturalEvent": "Ferragosto traditions",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/ferragosto-in-umbria",
+      "visualCue": "Torchlit processions, starlit dinners"
+    },
+    {
+      "month": "September",
+      "index": 8,
+      "season": "autumn",
+      "perugia": { "tempLow": 14, "tempHigh": 26, "rainfall": 65, "sunHours": 8 },
+      "assisi": { "tempLow": 13, "tempHigh": 25, "rainfall": 70, "sunHours": 8 },
+      "spoleto": { "tempLow": 14, "tempHigh": 27, "rainfall": 60, "sunHours": 8 },
+      "terni": { "tempLow": 15, "tempHigh": 28, "rainfall": 55, "sunHours": 9 },
+      "tooltip": "The reward month—harvest energy",
+      "narrative": "The reward month. Warm days, cooler nights, harvest energy everywhere. Grape harvest begins in wine zones like Montefalco. This is one of the strongest months for long stays and scouting trips.",
+      "culturalEvent": "Vendemmia (Wine Harvest)",
+      "culturalEventUrl": "https://www.stradedelvino.umbria.it/en/",
+      "visualCue": "Vineyard workers, golden afternoons"
+    },
+    {
+      "month": "October",
+      "index": 9,
+      "season": "autumn",
+      "perugia": { "tempLow": 10, "tempHigh": 20, "rainfall": 85, "sunHours": 6 },
+      "assisi": { "tempLow": 9, "tempHigh": 19, "rainfall": 90, "sunHours": 6 },
+      "spoleto": { "tempLow": 10, "tempHigh": 21, "rainfall": 80, "sunHours": 6 },
+      "terni": { "tempLow": 11, "tempHigh": 22, "rainfall": 75, "sunHours": 7 },
+      "tooltip": "Golden, food-obsessed",
+      "narrative": "Cooler, golden, and food-obsessed. Olive harvest dominates rural life. This is when Umbria smells like pressed oil and wood smoke. Truffle events and food festivals anchor the calendar. Weather is crisp but rarely harsh.",
+      "culturalEvent": "Frantoi Aperti (Olive Oil Harvest)",
+      "culturalEventUrl": "https://www.frantoiaperti.net/",
+      "visualCue": "Olive groves, wood smoke rising"
+    },
+    {
+      "month": "November",
+      "index": 10,
+      "season": "autumn",
+      "perugia": { "tempLow": 5, "tempHigh": 13, "rainfall": 90, "sunHours": 4 },
+      "assisi": { "tempLow": 4, "tempHigh": 12, "rainfall": 95, "sunHours": 4 },
+      "spoleto": { "tempLow": 5, "tempHigh": 14, "rainfall": 85, "sunHours": 4 },
+      "terni": { "tempLow": 6, "tempHigh": 15, "rainfall": 80, "sunHours": 5 },
+      "tooltip": "Quiet, authentic, affordable",
+      "narrative": "Transitional and quieter. More rain, fewer tourists. Forests go bare. Town life pulls inward again. This is a realistic month, not Instagram Italy, but deeply authentic and affordable.",
+      "culturalEvent": "Truffle Season",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/truffle-season-in-umbria",
+      "visualCue": "Bare branches, truffle markets"
+    },
+    {
+      "month": "December",
+      "index": 11,
+      "season": "winter",
+      "perugia": { "tempLow": 2, "tempHigh": 9, "rainfall": 70, "sunHours": 4 },
+      "assisi": { "tempLow": 1, "tempHigh": 8, "rainfall": 75, "sunHours": 4 },
+      "spoleto": { "tempLow": 2, "tempHigh": 10, "rainfall": 70, "sunHours": 4 },
+      "terni": { "tempLow": 3, "tempHigh": 11, "rainfall": 65, "sunHours": 4 },
+      "tooltip": "Cold but festive",
+      "narrative": "Cold but festive. Christmas markets, presepe displays, and religious events fill town centers. Snow is possible in higher elevations but not guaranteed. Evenings are cozy rather than bleak.",
+      "culturalEvent": "Christmas Markets & Presepi",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/christmas-in-umbria",
+      "visualCue": "Nativity scenes, warm café light"
+    }
+  ]
+}

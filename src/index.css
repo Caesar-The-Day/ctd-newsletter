@@ -394,4 +394,248 @@ All colors MUST be HSL.
   .animate-leaf-drift {
     animation: leaf-drift ease-in-out infinite;
   }
+
+  /* Umbria-specific: Valley mist drifting horizontally */
+  @keyframes mist-drift {
+    0% {
+      transform: translateX(-20%) scale(1);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(120%) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  .animate-mist-drift {
+    animation: mist-drift linear infinite;
+  }
+
+  /* Umbria-specific: Petal floating down gently */
+  @keyframes petal-float {
+    0% {
+      transform: translateY(-20px) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    25% {
+      transform: translateY(25vh) translateX(15px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(50vh) translateX(-10px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(75vh) translateX(20px) rotate(270deg);
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh) translateX(5px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-petal-float {
+    animation: petal-float ease-in-out infinite;
+  }
+
+  /* Umbria-specific: Pollen rising gently */
+  @keyframes pollen-rise {
+    0% {
+      transform: translateY(100vh) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(50vh) translateX(10px);
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-20px) translateX(-5px);
+      opacity: 0;
+    }
+  }
+
+  .animate-pollen-rise {
+    animation: pollen-rise ease-in-out infinite;
+  }
+
+  /* Umbria-specific: Cicada pulse (stationary, pulsing) */
+  @keyframes cicada-pulse {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.15);
+    }
+  }
+
+  .animate-cicada-pulse {
+    animation: cicada-pulse ease-in-out infinite;
+  }
+
+  /* Umbria-specific: Wood smoke rising */
+  @keyframes smoke-rise {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-30vh) translateX(10px) scale(1.3);
+    }
+    80% {
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(-60vh) translateX(-5px) scale(1.6);
+      opacity: 0;
+    }
+  }
+
+  .animate-smoke-rise {
+    animation: smoke-rise ease-out infinite;
+  }
+
+  /* Puglia-specific: Wave drift */
+  @keyframes wave-drift {
+    0% {
+      transform: translateX(-10%) translateY(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(110%) translateY(10px);
+      opacity: 0;
+    }
+  }
+
+  .animate-wave-drift {
+    animation: wave-drift linear infinite;
+  }
+
+  /* Puglia-specific: Olive drift */
+  @keyframes olive-drift {
+    0% {
+      transform: translateY(-20px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh) rotate(180deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-olive-drift {
+    animation: olive-drift ease-in-out infinite;
+  }
+
+  /* Puglia-specific: Wildflower dance */
+  @keyframes wildflower-dance {
+    0% {
+      transform: translateY(-20px) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    30% {
+      transform: translateY(30vh) translateX(-20px) rotate(60deg);
+    }
+    60% {
+      transform: translateY(60vh) translateX(15px) rotate(-30deg);
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh) translateX(0) rotate(120deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-wildflower-dance {
+    animation: wildflower-dance ease-in-out infinite;
+  }
+
+  /* Count-up animation helper */
+  @keyframes count-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-count-in {
+    animation: count-in 0.4s ease-out forwards;
+  }
+
+  /* Typewriter cursor */
+  @keyframes cursor-blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+
+  .animate-cursor-blink {
+    animation: cursor-blink 1s step-end infinite;
+  }
+
+  /* Staggered card reveal */
+  .animate-card-reveal {
+    animation: scale-in 0.4s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-card-reveal-1 { animation-delay: 0ms; }
+  .animate-card-reveal-2 { animation-delay: 80ms; }
+  .animate-card-reveal-3 { animation-delay: 160ms; }
+  .animate-card-reveal-4 { animation-delay: 240ms; }
+  .animate-card-reveal-5 { animation-delay: 320ms; }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }

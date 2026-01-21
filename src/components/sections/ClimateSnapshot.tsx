@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
-import { Cloud, Droplets, Sun, Thermometer, CloudSun, ExternalLink } from "lucide-react";
+import { Cloud, Droplets, Sun, Thermometer, CloudSun, ExternalLink, MapPin, Calendar } from "lucide-react";
+import { SeasonalParticles } from "@/components/effects/SeasonalParticles";
 
 interface ClimateData {
   intro: {
@@ -25,11 +26,9 @@ interface MonthData {
   month: string;
   index: number;
   season: "winter" | "spring" | "summer" | "autumn";
-  torino: WeatherData;
-  alba: WeatherData;
-  verbania: WeatherData;
-  cuneo: WeatherData;
+  [key: string]: WeatherData | string | number; // Dynamic region keys
   tooltip: string;
+  narrative?: string; // Detailed monthly narrative
   culturalEvent: string;
   culturalEventUrl?: string;
   visualCue: string;
@@ -40,10 +39,70 @@ interface WeatherData {
   tempHigh: number;
   rainfall: number;
   sunHours: number;
-  lightQuality?: string; // Puglia-specific
+  lightQuality?: string;
 }
 
-type RegionKey = "torino" | "alba" | "verbania" | "cuneo" | "bari" | "lecce" | "ostuni" | "alberobello";
+type RegionKey = string;
+
+// Hook for animated count-up effect
+function useCountUp(target: number, duration: number = 400) {
+  const [current, setCurrent] = useState(target);
+  const prevTarget = useRef(target);
+  
+  useEffect(() => {
+    if (prevTarget.current === target) return;
+    
+    const startValue = prevTarget.current;
+    const startTime = Date.now();
+    const difference = target - startValue;
+    
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      
+      setCurrent(Math.round(startValue + difference * eased));
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        prevTarget.current = target;
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [target, duration]);
+  
+  return current;
+}
+
+// Typewriter effect hook
+function useTypewriter(text: string, speed: number = 20) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+  
+  useEffect(() => {
+    setDisplayedText("");
+    setIsComplete(false);
+    
+    if (!text) return;
+    
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        setDisplayedText(text.slice(0, index + 1));
+        index++;
+      } else {
+        setIsComplete(true);
+        clearInterval(interval);
+      }
+    }, speed);
+    
+    return () => clearInterval(interval);
+  }, [text, speed]);
+  
+  return { displayedText, isComplete };
+}
 
 const seasonalBackgroundsPuglia = {
   winter: "from-cyan-100/30 via-sky-50/20 to-blue-100/30 dark:from-cyan-950/30 dark:via-sky-900/20 dark:to-blue-950/30",
@@ -57,6 +116,13 @@ const seasonalBackgroundsPiemonte = {
   spring: "from-green-100/30 via-emerald-50/20 to-lime-100/30 dark:from-green-950/30 dark:via-emerald-900/20 dark:to-lime-950/30",
   summer: "from-yellow-100/30 via-amber-50/20 to-orange-100/30 dark:from-yellow-950/30 dark:via-amber-900/20 dark:to-orange-950/30",
   autumn: "from-orange-100/30 via-red-50/20 to-amber-100/30 dark:from-orange-950/30 dark:via-red-900/20 dark:to-amber-950/30",
+};
+
+const seasonalBackgroundsUmbria = {
+  winter: "from-slate-200/40 via-blue-100/30 to-gray-100/40 dark:from-slate-900/40 dark:via-blue-950/30 dark:to-gray-800/40",
+  spring: "from-green-100/40 via-emerald-50/30 to-yellow-100/40 dark:from-green-950/40 dark:via-emerald-900/30 dark:to-yellow-950/40",
+  summer: "from-amber-100/40 via-yellow-50/30 to-orange-100/40 dark:from-amber-950/40 dark:via-yellow-900/30 dark:to-orange-950/40",
+  autumn: "from-orange-100/40 via-amber-50/30 to-green-100/40 dark:from-orange-950/40 dark:via-amber-900/30 dark:to-green-950/40",
 };
 
 const seasonalImagesPuglia = {
@@ -73,10 +139,18 @@ const seasonalImagesPiemonte = {
   autumn: "/images/piemonte/seasonal-backgrounds/autumn-landscape.jpg",
 };
 
+const seasonalImagesUmbria = {
+  winter: "/images/umbria/seasonal-backgrounds/winter-landscape.jpg",
+  spring: "/images/umbria/seasonal-backgrounds/spring-landscape.jpg",
+  summer: "/images/umbria/seasonal-backgrounds/summer-landscape.jpg",
+  autumn: "/images/umbria/seasonal-backgrounds/autumn-landscape.jpg",
+};
+
 export function ClimateSnapshot() {
   const [climateData, setClimateData] = useState<ClimateData | null>(null);
   const [currentMonth, setCurrentMonth] = useState(0);
   const [selectedRegion, setSelectedRegion] = useState<RegionKey>("alba");
+  const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
     const region = window.location.pathname.slice(1) || "piemonte";
@@ -99,15 +173,43 @@ export function ClimateSnapshot() {
       });
   }, []);
 
+  // Trigger animation reset on month change
+  useEffect(() => {
+    setAnimationKey(prev => prev + 1);
+  }, [currentMonth, selectedRegion]);
+
   if (!climateData) return null;
 
   const region = window.location.pathname.slice(1) || "piemonte";
   const currentMonthData = climateData.months[currentMonth];
-  const currentWeather = currentMonthData[selectedRegion];
+  const currentWeather = currentMonthData[selectedRegion] as WeatherData;
   const currentSeason = currentMonthData.season;
   
-  const seasonalBackgrounds = region === "puglia" ? seasonalBackgroundsPuglia : seasonalBackgroundsPiemonte;
-  const seasonalImages = region === "puglia" ? seasonalImagesPuglia : seasonalImagesPiemonte;
+  // Select region-specific backgrounds
+  const getSeasonalBackgrounds = () => {
+    if (region === "puglia") return seasonalBackgroundsPuglia;
+    if (region === "umbria") return seasonalBackgroundsUmbria;
+    return seasonalBackgroundsPiemonte;
+  };
+  
+  const getSeasonalImages = () => {
+    if (region === "puglia") return seasonalImagesPuglia;
+    if (region === "umbria") return seasonalImagesUmbria;
+    return seasonalImagesPiemonte;
+  };
+  
+  const seasonalBackgrounds = getSeasonalBackgrounds();
+  const seasonalImages = getSeasonalImages();
+
+  // Animated weather values
+  const animatedTempLow = useCountUp(currentWeather?.tempLow ?? 0);
+  const animatedTempHigh = useCountUp(currentWeather?.tempHigh ?? 0);
+  const animatedRainfall = useCountUp(currentWeather?.rainfall ?? 0);
+  const animatedSunHours = useCountUp(currentWeather?.sunHours ?? 0);
+
+  // Narrative with typewriter effect
+  const narrativeText = (currentMonthData as any).narrative || currentMonthData.tooltip;
+  const { displayedText, isComplete } = useTypewriter(narrativeText, 15);
 
   return (
     <section 
@@ -116,7 +218,7 @@ export function ClimateSnapshot() {
     >
       {/* Seasonal background image */}
       <div 
-        key={currentSeason}
+        key={`bg-${currentSeason}`}
         className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
         style={{
           backgroundImage: `url(${seasonalImages[currentSeason]})`,
@@ -132,6 +234,9 @@ export function ClimateSnapshot() {
       <div 
         className={`absolute inset-0 bg-gradient-to-br ${seasonalBackgrounds[currentSeason]} transition-all duration-1000 ease-in-out`}
       />
+      
+      {/* Seasonal particles overlay */}
+      <SeasonalParticles monthIndex={currentMonth} region={region} />
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
         {/* Intro */}
@@ -157,32 +262,44 @@ export function ClimateSnapshot() {
           </p>
         </div>
 
-        {/* Regional Toggle */}
+        {/* Regional Toggle with enhanced styling */}
         <div className="flex justify-center gap-2 mb-8 flex-wrap">
           {(Object.keys(climateData.regions) as RegionKey[]).map((regionKey) => (
             <button
               key={regionKey}
               onClick={() => setSelectedRegion(regionKey)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                 selectedRegion === regionKey
-                  ? "bg-primary text-primary-foreground shadow-md scale-105"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                  : "bg-secondary/80 text-secondary-foreground hover:bg-secondary hover:scale-102"
               }`}
             >
+              <MapPin className="w-3 h-3" />
               {climateData.regions[regionKey].name}
+              <span className="text-xs opacity-70">
+                ({climateData.regions[regionKey].type})
+              </span>
             </button>
           ))}
         </div>
 
         {/* Main Interactive Card */}
-        <Card className="p-8 backdrop-blur-sm bg-card/95 shadow-xl">
+        <Card className="p-6 md:p-8 backdrop-blur-sm bg-card/95 shadow-xl border-0">
           {/* Month Slider */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-2xl font-bold text-foreground">
-                {currentMonthData.month}
-              </h3>
-              <span className="text-sm text-muted-foreground capitalize">
+              <div className="flex items-center gap-3">
+                <Calendar className="w-6 h-6 text-primary" />
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                  {currentMonthData.month}
+                </h3>
+              </div>
+              <span className={`px-4 py-1.5 rounded-full text-sm font-medium capitalize ${
+                currentSeason === 'winter' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
+                currentSeason === 'spring' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+                currentSeason === 'summer' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200' :
+                'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200'
+              }`}>
                 {currentSeason}
               </span>
             </div>
@@ -196,92 +313,118 @@ export function ClimateSnapshot() {
             />
             
             <div className="flex justify-between text-xs text-muted-foreground mt-2">
-              <span>Jan</span>
-              <span>Feb</span>
-              <span>Mar</span>
-              <span>Apr</span>
-              <span>May</span>
-              <span>Jun</span>
-              <span>Jul</span>
-              <span>Aug</span>
-              <span>Sep</span>
-              <span>Oct</span>
-              <span>Nov</span>
-              <span>Dec</span>
+              {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((m, i) => (
+                <span 
+                  key={m} 
+                  className={`transition-all duration-200 ${currentMonth === i ? 'text-primary font-bold scale-110' : ''}`}
+                >
+                  {m}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Weather Data Grid */}
-          <div className={`grid ${currentWeather.lightQuality ? 'grid-cols-2 md:grid-cols-5' : 'grid-cols-2 md:grid-cols-4'} gap-4 mb-6`}>
-            <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
+          {/* Weather Data Grid with animated values */}
+          <div 
+            key={animationKey}
+            className={`grid ${currentWeather?.lightQuality ? 'grid-cols-2 md:grid-cols-5' : 'grid-cols-2 md:grid-cols-4'} gap-3 md:gap-4 mb-6`}
+          >
+            <div className="flex flex-col items-center p-4 bg-background/50 rounded-xl animate-card-reveal animate-card-reveal-1 hover:bg-background/70 transition-colors">
               <Thermometer className="w-8 h-8 text-primary mb-2" />
-              <div className="text-2xl font-bold text-foreground">
-                {currentWeather.tempLow}–{currentWeather.tempHigh}°C
+              <div className="text-2xl md:text-3xl font-bold text-foreground tabular-nums">
+                {animatedTempLow}–{animatedTempHigh}°C
               </div>
-              <div className="text-xs text-muted-foreground">Temperature</div>
+              <div className="text-xs text-muted-foreground mt-1">Temperature</div>
             </div>
 
-            <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
+            <div className="flex flex-col items-center p-4 bg-background/50 rounded-xl animate-card-reveal animate-card-reveal-2 hover:bg-background/70 transition-colors">
               <Droplets className="w-8 h-8 text-blue-500 mb-2" />
-              <div className="text-2xl font-bold text-foreground">
-                {currentWeather.rainfall}mm
+              <div className="text-2xl md:text-3xl font-bold text-foreground tabular-nums">
+                {animatedRainfall}<span className="text-lg">mm</span>
               </div>
-              <div className="text-xs text-muted-foreground">Rainfall</div>
+              <div className="text-xs text-muted-foreground mt-1">Rainfall</div>
             </div>
 
-            <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
+            <div className="flex flex-col items-center p-4 bg-background/50 rounded-xl animate-card-reveal animate-card-reveal-3 hover:bg-background/70 transition-colors">
               <Sun className="w-8 h-8 text-yellow-500 mb-2" />
-              <div className="text-2xl font-bold text-foreground">
-                {currentWeather.sunHours}h
+              <div className="text-2xl md:text-3xl font-bold text-foreground tabular-nums">
+                {animatedSunHours}<span className="text-lg">h</span>
               </div>
-              <div className="text-xs text-muted-foreground">Sun Hours</div>
+              <div className="text-xs text-muted-foreground mt-1">Sun Hours</div>
             </div>
 
-            {currentWeather.lightQuality && (
-              <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
+            {currentWeather?.lightQuality && (
+              <div className="flex flex-col items-center p-4 bg-background/50 rounded-xl animate-card-reveal animate-card-reveal-4 hover:bg-background/70 transition-colors">
                 <Sun className="w-8 h-8 text-amber-400 mb-2" />
                 <div className="text-sm font-semibold text-foreground text-center">
                   {currentWeather.lightQuality}
                 </div>
-                <div className="text-xs text-muted-foreground">Light Quality</div>
+                <div className="text-xs text-muted-foreground mt-1">Light Quality</div>
               </div>
             )}
 
-            <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
+            <div className="flex flex-col items-center p-4 bg-background/50 rounded-xl animate-card-reveal animate-card-reveal-5 hover:bg-background/70 transition-colors col-span-2 md:col-span-1">
               <Cloud className="w-8 h-8 text-slate-400 mb-2" />
-              <div className="text-sm font-semibold text-foreground text-center">
+              <div className="text-sm font-semibold text-foreground text-center leading-tight">
                 {currentMonthData.tooltip}
               </div>
+              <div className="text-xs text-muted-foreground mt-1">Mood</div>
             </div>
           </div>
 
-          {/* Cultural Event */}
-          <div className="p-4 bg-secondary/50 rounded-lg">
-            <p className="text-sm text-muted-foreground mb-1">What's Happening:</p>
-            {currentMonthData.culturalEventUrl ? (
-              <a 
-                href={currentMonthData.culturalEventUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary underline decoration-2 decoration-primary/50 hover:decoration-primary transition-colors group"
-              >
-                {currentMonthData.culturalEvent}
-                <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            ) : (
-              <p className="text-foreground font-medium">{currentMonthData.culturalEvent}</p>
-            )}
+          {/* Life on the Ground - Narrative Panel */}
+          {(currentMonthData as any).narrative && (
+            <div className="mb-6 p-5 bg-secondary/30 rounded-xl border border-border/50">
+              <h4 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
+                Life on the Ground
+              </h4>
+              <p className="text-foreground leading-relaxed italic">
+                {displayedText}
+                {!isComplete && <span className="animate-cursor-blink ml-0.5">|</span>}
+              </p>
+              {currentMonthData.visualCue && (
+                <p className="text-xs text-muted-foreground mt-3 flex items-center gap-2">
+                  <span className="opacity-60">Visual:</span> 
+                  <span className="italic">{currentMonthData.visualCue}</span>
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Cultural Event - Enhanced card */}
+          <div className="p-5 bg-primary/5 rounded-xl border border-primary/20 hover:border-primary/40 transition-colors">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Calendar className="w-6 h-6 text-primary" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide">What's Happening</p>
+                {currentMonthData.culturalEventUrl ? (
+                  <a 
+                    href={currentMonthData.culturalEventUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-lg font-semibold text-foreground hover:text-primary underline decoration-2 decoration-primary/30 hover:decoration-primary transition-all group"
+                  >
+                    {currentMonthData.culturalEvent}
+                    <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  </a>
+                ) : (
+                  <p className="text-lg font-semibold text-foreground">{currentMonthData.culturalEvent}</p>
+                )}
+              </div>
+            </div>
           </div>
         </Card>
 
         {/* Bottom CTA */}
         <div className="text-center mt-8">
-          <p className="text-sm text-muted-foreground italic">
+          <p className="text-sm text-muted-foreground italic max-w-2xl mx-auto">
             {climateData.intro.ctaText}
           </p>
         </div>
 
-        {/* Microclimates Note */}
+        {/* Microclimates Note with elevation hint */}
         <div className="mt-6 text-center">
           <p className="text-xs text-muted-foreground italic">
             Microclimates matter here — each town tells its own weather story.
