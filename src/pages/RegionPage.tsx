@@ -39,6 +39,7 @@ import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
+import { UmbriaWineExplorer } from '@/components/sections/UmbriaWineExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -344,7 +345,11 @@ export default function RegionPage() {
 
       {config.show7PercentCTA && <SevenPercentCTA />}
 
-      <HighlightsShowcase highlights={regionData.highlights} />
+      {region === 'umbria' ? (
+        <UmbriaWineExplorer />
+      ) : (
+        <HighlightsShowcase highlights={regionData.highlights} />
+      )}
 
       {region === 'lombardia' && <LombardiaDishExplorer />}
 
