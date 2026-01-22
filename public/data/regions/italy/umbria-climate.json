@@ -9,6 +9,18 @@
     "hoverQuote": "A 15-minute drive can change the temperature by several degrees",
     "ctaText": "Umbria's biggest climatic advantage is seasonal balance—it avoids coastal humidity, extreme Alpine winters, and southern Italy's relentless summer heat."
   },
+  "bestMonths": {
+    "scouting": {
+      "months": [3, 4, 8, 9],
+      "label": "Best for Scouting",
+      "description": "Perfect weather for walking towns, locals are present (not on August vacation), lower tourist density, and all services fully operational."
+    },
+    "moving": {
+      "months": [4, 5, 9, 10],
+      "label": "Best for Moving",
+      "description": "Government offices operational, moving companies available, cooperative weather for logistics, avoids August shutdown and winter complications."
+    }
+  },
   "regions": {
     "perugia": {
       "name": "Perugia",

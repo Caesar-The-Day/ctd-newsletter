@@ -146,11 +146,20 @@ const seasonalImagesUmbria = {
   autumn: "/images/umbria/seasonal-backgrounds/autumn-landscape.jpg",
 };
 
+type BestMonthsView = "off" | "scouting" | "moving";
+
+interface BestMonthsData {
+  months: number[];
+  label: string;
+  description: string;
+}
+
 export function ClimateSnapshot() {
   const [climateData, setClimateData] = useState<ClimateData | null>(null);
   const [currentMonth, setCurrentMonth] = useState(0);
   const [selectedRegion, setSelectedRegion] = useState<RegionKey>("alba");
   const [animationKey, setAnimationKey] = useState(0);
+  const [bestMonthsView, setBestMonthsView] = useState<BestMonthsView>("off");
 
   // Get region from URL
   const region = window.location.pathname.slice(1) || "piemonte";
@@ -316,15 +325,66 @@ export function ClimateSnapshot() {
             />
             
             <div className="flex justify-between text-xs text-muted-foreground mt-2">
-              {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((m, i) => (
-                <span 
-                  key={m} 
-                  className={`transition-all duration-200 ${currentMonth === i ? 'text-primary font-bold scale-110' : ''}`}
-                >
-                  {m}
-                </span>
-              ))}
+              {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((m, i) => {
+                const bestMonths = (climateData as any)?.bestMonths?.[bestMonthsView] as BestMonthsData | undefined;
+                const isBestMonth = bestMonthsView !== "off" && bestMonths?.months?.includes(i);
+                
+                return (
+                  <span 
+                    key={m} 
+                    className={`transition-all duration-200 relative ${currentMonth === i ? 'text-primary font-bold scale-110' : ''}`}
+                  >
+                    {m}
+                    {isBestMonth && (
+                      <span className={`absolute -top-2.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
+                        bestMonthsView === "scouting" ? "bg-emerald-500" : "bg-blue-500"
+                      }`} />
+                    )}
+                  </span>
+                );
+              })}
             </div>
+            
+            {/* Best Months Toggle */}
+            {(climateData as any)?.bestMonths && (
+              <div className="flex justify-center gap-2 mt-4 flex-wrap">
+                <span className="text-xs text-muted-foreground mr-1 self-center">Best for:</span>
+                <button
+                  onClick={() => setBestMonthsView(bestMonthsView === "scouting" ? "off" : "scouting")}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                    bestMonthsView === "scouting" 
+                      ? "bg-emerald-500 text-white shadow-md" 
+                      : "bg-secondary text-secondary-foreground hover:bg-emerald-100 dark:hover:bg-emerald-900/30"
+                  }`}
+                >
+                  🔍 Scouting Trips
+                </button>
+                <button
+                  onClick={() => setBestMonthsView(bestMonthsView === "moving" ? "off" : "moving")}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                    bestMonthsView === "moving" 
+                      ? "bg-blue-500 text-white shadow-md" 
+                      : "bg-secondary text-secondary-foreground hover:bg-blue-100 dark:hover:bg-blue-900/30"
+                  }`}
+                >
+                  📦 Moving Logistics
+                </button>
+              </div>
+            )}
+            
+            {/* Best Month Banner */}
+            {bestMonthsView !== "off" && (climateData as any)?.bestMonths?.[bestMonthsView]?.months?.includes(currentMonth) && (
+              <div className={`mt-4 p-3 rounded-lg text-sm animate-fade-in ${
+                bestMonthsView === "scouting" 
+                  ? "bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800" 
+                  : "bg-blue-50 text-blue-800 border border-blue-200 dark:bg-blue-950/50 dark:text-blue-200 dark:border-blue-800"
+              }`}>
+                <span className="font-semibold">
+                  {bestMonthsView === "scouting" ? "🔍 Great for Scouting:" : "📦 Ideal for Moving:"}
+                </span>{" "}
+                {(climateData as any).bestMonths[bestMonthsView].description}
+              </div>
+            )}
           </div>
 
           {/* Weather Data Grid with animated values */}
