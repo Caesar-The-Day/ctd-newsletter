@@ -92,34 +92,34 @@ export function SevenPercentCTA() {
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="mb-6">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-                Find Your 7% Town
+                Find 7%-Eligible Towns in Umbria
               </h2>
-              {/* 7% Icon with slide-in animation */}
-              <div 
-                className={`transition-all duration-1000 delay-300 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-                }`}
-              >
-                  <img
-                    src="/images/7-percent-icon.png" 
-                    alt="7% Flat Tax Rate Icon - Italy's special tax advantage for new residents retiring in Southern Italy" 
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
-                  />
-              </div>
             </div>
             <div className="space-y-4 mb-8">
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                Southern Italy is full of towns offering the 7% flat tax — but most people only ever see the lists, not the logic. The Escape Map changes that. It turns hundreds of eligible towns into an interactive, personalized selector that shows you exactly where your life would fit best.
+                Umbria isn't classified as a Southern Italy region for the 7% flat-tax program.
+              </p>
+              
+              <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
+                But several Umbrian towns do qualify.
               </p>
               
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Search by what actually matters:</strong> walkability, coastline vs. countryside, population size, housing affordability, healthcare access, climate, infrastructure, airport distance, even overall vibe. See towns side-by-side, filter down to your must-haves, and build a short list that finally makes sense.
+                The challenge is figuring out which ones, and whether they actually make sense for how you want to live.
               </p>
               
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed italic">
-                It's not just a map. It's the smartest tool available for choosing your future home in Italy's 7% zone.
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                The <strong className="text-foreground">7% Escape Map</strong> shows every qualifying town in Umbria and nearby regions on an interactive map, so you can filter by what matters: walkability, countryside vs. lake, population size, housing costs, healthcare access, climate, airport distance, and overall vibe.
+              </p>
+              
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                See which Umbrian towns qualify, which border towns offer clearer eligibility, and decide if the tax benefit fits your lifestyle before you commit.
+              </p>
+              
+              <p className="text-lg md:text-xl text-foreground leading-relaxed font-semibold italic">
+                Clear options. No guesswork.
               </p>
             </div>
             <Button size="lg" asChild className="hover-lift shadow-xl">
@@ -135,18 +135,14 @@ export function SevenPercentCTA() {
           </div>
 
           {/* Right Column - Interactive Map */}
-          <div className={`transition-all duration-1000 delay-300 ${
+          <div className={`transition-all duration-1000 delay-300 flex items-center justify-center ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-border/20 bg-background/5 backdrop-blur-sm">
-              <iframe
-                src="https://api.maptiler.com/maps/01997db4-a344-7835-ae1a-eac04c4d8272/?key=S41LM8jeaS9EQcQkJCLr#6.0/40.74707/13.77413"
-                className="w-full h-[400px] md:h-[500px]"
-                title="Interactive Map of Italy's 7% Tax Towns"
-                loading="lazy"
-                allowFullScreen
-              />
-            </div>
+            <img
+              src="/images/shared/7percent-escape-map-logo.png"
+              alt="7% Escape Map by CaesarTheDay - Interactive tool for finding Italy's 7% flat-tax eligible towns"
+              className="w-full max-w-md md:max-w-lg drop-shadow-2xl"
+            />
           </div>
         </div>
       </div>
