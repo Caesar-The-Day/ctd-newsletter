@@ -92,9 +92,9 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
         return;
       }
       
-      // Summer: Cicadas + lens flare (Jun, Jul, Aug)
+      // Summer: Cicadas (Jul-Aug), Golden sparkles (Jun)
       if (currentSeasonType === "summer") {
-        // Only cicadas in July-August (months 6-7)
+        // July-August: Cicadas
         if (monthIndex === 6 || monthIndex === 7) {
           const cicadaCount = 6;
           const cicadas = Array.from({ length: cicadaCount }, (_, i) => ({
@@ -110,8 +110,20 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
           setParticles(cicadas);
           return;
         }
-        // June: light heat shimmer only
-        setParticles([]);
+        
+        // June: Golden light sparkles (softer summer start)
+        const sparkleCount = 12;
+        const sparkles = Array.from({ length: sparkleCount }, (_, i) => ({
+          id: i,
+          left: Math.random() * 100,
+          top: 10 + Math.random() * 50,
+          delay: Math.random() * 6,
+          duration: 4 + Math.random() * 3,
+          size: 8 + Math.random() * 6,
+          symbol: "✦",
+          color: "text-amber-200/40",
+        }));
+        setParticles(sparkles);
         return;
       }
       
@@ -318,9 +330,9 @@ export function SeasonalParticles({ monthIndex, region = "piemonte" }: SeasonalP
       if (type === "spring") {
         return particle?.symbol === "•" ? "animate-pollen-rise" : "animate-petal-float";
       }
-      // Summer cicadas pulse
+      // Summer: sparkles float for June, cicadas pulse for July-August
       if (type === "summer") {
-        return "animate-cicada-pulse";
+        return particle?.symbol === "✦" ? "animate-sparkle-float" : "animate-cicada-pulse";
       }
       // Autumn leaves drift, smoke rises
       if (type === "autumn") {
