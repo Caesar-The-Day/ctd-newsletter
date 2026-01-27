@@ -3,7 +3,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Heart, History, MapPin, ExternalLink, ChevronRight, Sparkles, Share2, X } from 'lucide-react';
 import baciImage from '@/assets/umbria/baci-chocolate.jpg';
-import eurochocolateImage from '@/assets/umbria/eurochocolate-festival.jpg';
 
 const timelineEvents = [
   { year: '1907', title: 'Perugina Founded', description: 'Four local entrepreneurs establish Perugina confectionery in Perugia.' },
@@ -392,7 +391,7 @@ export function UmbriaChocolateCity() {
           {/* Right: Hero Image */}
           <div className="relative">
             <img 
-              src={eurochocolateImage} 
+              src="https://www.poggiodegliolivi.com/wp-content/uploads/2021/09/4-1.jpg" 
               alt="Eurochocolate festival in Perugia" 
               className="rounded-2xl shadow-2xl w-full"
             />
