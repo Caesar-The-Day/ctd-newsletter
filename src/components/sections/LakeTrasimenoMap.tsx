@@ -44,18 +44,6 @@ const lakeTowns: LakeTown[] = [
   }
 ];
 
-// Simplified lake polygon outline
-const lakePolygon: [number, number][] = [
-  [43.14, 12.05],
-  [43.19, 12.08],
-  [43.21, 12.12],
-  [43.19, 12.18],
-  [43.14, 12.22],
-  [43.09, 12.20],
-  [43.08, 12.14],
-  [43.10, 12.08],
-  [43.14, 12.05]
-];
 
 export default function LakeTrasimenoMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -87,14 +75,6 @@ export default function LakeTrasimenoMap() {
       crossOrigin: true
     }).addTo(map);
 
-    // Add subtle lake polygon overlay
-    L.polygon(lakePolygon, {
-      fillColor: '#3b82f6',
-      fillOpacity: 0.15,
-      color: '#3b82f6',
-      weight: 2,
-      opacity: 0.4
-    }).addTo(map);
 
     // Add town markers
     lakeTowns.forEach((town) => {
