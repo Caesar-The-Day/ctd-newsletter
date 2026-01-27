@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Calendar, Music, Theater, Sparkles, Users, MapPin, ExternalLink, 
-  Leaf, Flower2, Guitar, UtensilsCrossed, Castle, Palette, Waves, BookOpen
+  Leaf, Flower2, Guitar, UtensilsCrossed, Castle, Palette, Waves, BookOpen,
+  Snowflake, Sun
 } from 'lucide-react';
 import umbriaJazzImage from '@/assets/umbria/umbria-jazz.jpg';
 import spoletoFestivalImage from '@/assets/umbria/spoleto-festival.jpg';
@@ -300,7 +301,12 @@ const foodSagre: Festival[] = [
   },
 ];
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const seasons = [
+  { name: 'Winter', months: [0, 1, 2], monthNames: 'Jan–Mar', icon: Snowflake, bgColor: 'bg-blue-50', borderColor: 'border-blue-200', iconColor: 'text-blue-500' },
+  { name: 'Spring', months: [3, 4, 5], monthNames: 'Apr–Jun', icon: Flower2, bgColor: 'bg-green-50', borderColor: 'border-green-200', iconColor: 'text-green-500' },
+  { name: 'Summer', months: [6, 7, 8], monthNames: 'Jul–Sep', icon: Sun, bgColor: 'bg-amber-50', borderColor: 'border-amber-200', iconColor: 'text-amber-500' },
+  { name: 'Autumn', months: [9, 10, 11], monthNames: 'Oct–Dec', icon: Leaf, bgColor: 'bg-orange-50', borderColor: 'border-orange-200', iconColor: 'text-orange-500' }
+];
 
 export function UmbriaFestivalCalendar() {
   const [selectedFestival, setSelectedFestival] = useState<Festival | null>(majorFestivals[8]); // Default to Umbria Jazz Summer
@@ -309,8 +315,19 @@ export function UmbriaFestivalCalendar() {
 
   const currentFestivals = category === 'major' ? majorFestivals : foodSagre;
 
-  const getFestivalsInMonth = useMemo(() => {
-    return (monthIdx: number) => currentFestivals.filter(f => f.monthIndices.includes(monthIdx));
+  const getFestivalsBySeason = useMemo(() => {
+    return (seasonMonths: number[]) => {
+      // Use a Set to avoid duplicates when a festival spans multiple months in the same season
+      const seen = new Set<string>();
+      return currentFestivals.filter(f => {
+        const isInSeason = f.monthIndices.some(idx => seasonMonths.includes(idx));
+        if (isInSeason && !seen.has(f.id)) {
+          seen.add(f.id);
+          return true;
+        }
+        return false;
+      });
+    };
   }, [currentFestivals]);
 
   return (
@@ -367,48 +384,55 @@ export function UmbriaFestivalCalendar() {
 
         {view === 'calendar' ? (
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Month Grid */}
+            {/* Seasonal Grid */}
             <div className="lg:col-span-2">
-              <div className="grid grid-cols-4 gap-2 md:gap-3">
-                {months.map((month, idx) => {
-                  const festivalsInMonth = getFestivalsInMonth(idx);
-                  const hasEvents = festivalsInMonth.length > 0;
+              <div className="grid md:grid-cols-2 gap-4">
+                {seasons.map(season => {
+                  const SeasonIcon = season.icon;
+                  const festivalsInSeason = getFestivalsBySeason(season.months);
                   
                   return (
-                    <div 
-                      key={month}
-                      className={`
-                        relative rounded-xl p-3 md:p-4 border transition-all cursor-pointer min-h-[100px]
-                        ${hasEvents ? 'bg-white hover:shadow-lg hover:scale-105' : 'bg-muted/30'}
-                      `}
-                      onClick={() => hasEvents && setSelectedFestival(festivalsInMonth[0])}
+                    <Card 
+                      key={season.name} 
+                      className={`${season.bgColor} ${season.borderColor} border-2 overflow-hidden`}
                     >
-                      <p className="text-xs font-medium text-muted-foreground mb-2">{month}</p>
-                      <div className="space-y-1">
-                        {festivalsInMonth.slice(0, 3).map(festival => (
-                          <div 
-                            key={festival.id}
-                            className={`
-                              text-xs px-2 py-1 rounded-full truncate cursor-pointer
-                              ${festival.color}
-                              ${selectedFestival?.id === festival.id ? 'ring-2 ring-offset-1 ring-primary' : ''}
-                            `}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedFestival(festival);
-                            }}
-                            title={festival.name}
-                          >
-                            {festival.name.split(' ')[0]}
-                          </div>
-                        ))}
-                        {festivalsInMonth.length > 3 && (
-                          <div className="text-xs text-muted-foreground pl-2">
-                            +{festivalsInMonth.length - 3} more
-                          </div>
-                        )}
+                      <div className="p-4 md:p-5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <SeasonIcon className={`h-5 w-5 ${season.iconColor}`} />
+                          <h4 className="font-bold text-lg">{season.name}</h4>
+                          <span className="text-xs text-muted-foreground ml-auto">{season.monthNames}</span>
+                        </div>
+                        <div className="space-y-2">
+                          {festivalsInSeason.length > 0 ? (
+                            festivalsInSeason.map(festival => (
+                              <button
+                                key={festival.id}
+                                onClick={() => setSelectedFestival(festival)}
+                                className={`
+                                  w-full text-left px-3 py-2.5 rounded-lg text-sm transition-all
+                                  ${festival.color} hover:scale-[1.02] hover:shadow-md
+                                  ${selectedFestival?.id === festival.id ? 'ring-2 ring-primary ring-offset-2' : ''}
+                                `}
+                              >
+                                <div className="flex items-center gap-2">
+                                  <festival.icon className="h-4 w-4 shrink-0" />
+                                  <span className="font-medium truncate">{festival.name}</span>
+                                </div>
+                                <div className="flex items-center gap-2 mt-1 text-xs opacity-75">
+                                  <MapPin className="h-3 w-3" />
+                                  <span className="truncate">{festival.location}</span>
+                                  <span className="ml-auto shrink-0">{festival.month}</span>
+                                </div>
+                              </button>
+                            ))
+                          ) : (
+                            <p className="text-sm text-muted-foreground italic py-4 text-center">
+                              No events this season
+                            </p>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    </Card>
                   );
                 })}
               </div>
