@@ -103,28 +103,28 @@ const cultureActivities: Activity[] = [
     description: 'Explore Castiglione del Lago with its Rocca del Leone fortress, the artistic village of Panicale, and vibrant Città della Pieve.',
     icon: Castle,
     location: 'Around the lake',
-    imageUrl: 'https://www.tenutedelcerro.it/wp-content/uploads/2025/03/Trasimeno-di-notte.jpg'
+    imageUrl: '/images/umbria/trasimeno/villages.jpg'
   },
   {
     name: 'Wine Tasting',
     description: 'Visit local wineries like Cantina Berioli for tastings of Umbrian wines paired with lake fish.',
     icon: Wine,
     location: 'Various wineries',
-    imageUrl: 'https://villagioiella.com/wp-content/uploads/2024/12/rsz_1umbria-torism-archive-lake-vineyard-vigneto-vino.webp'
+    imageUrl: '/images/umbria/trasimeno/winery.webp'
   },
   {
     name: 'Birdwatching',
     description: 'La Valle naturalistic oasis is a wetland paradise for bird enthusiasts, with hides and guided tours.',
     icon: Bird,
     location: 'La Valle Oasis',
-    imageUrl: 'https://www.lagotrasimeno.net/media/cache/fe_primary_image_small/uploads/images/activities/627d08d78b13a407729033.jpg'
+    imageUrl: '/images/umbria/trasimeno/birdwatching.jpg'
   },
   {
     name: 'Music Festivals',
     description: 'The Trasimeno Music Festival and Blues Festival bring world-class performances to lakeside venues.',
     icon: Music,
     location: 'Summer events',
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjIcRLSgd7Nc63HP-2G1Y7xzoKL-Ymq_GAYQ&s'
+    imageUrl: '/images/umbria/trasimeno/festival.jpg'
   }
 ];
 
