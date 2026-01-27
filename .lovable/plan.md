@@ -1,116 +1,24 @@
 
 
-# Use Uploaded Images for Lake Trasimeno Activities
+# Fix Missing Kayaking and Beaches Photos
 
-## Summary
-Copy the 10 uploaded images to the project and update the activity card image paths to use local files instead of blocked external URLs.
+## Problem
+The SUP & Kayaking and Beaches & Swimming cards are missing their photos. While the files `kayaking.jpg` and `beaches.jpg` exist in `public/images/umbria/trasimeno/`, the images are failing to load (triggering the `onError` handler). This likely means the replacement upload from `kayaking-2.jpg` and `beaches-2.jpg` didn't properly copy over.
 
-## Images to Copy
+## Solution
+Re-copy the uploaded images to overwrite the potentially corrupted files:
 
-Copy all uploaded images to `public/images/umbria/trasimeno/`:
-
-| Uploaded File | Destination Path | Activity |
-|---------------|------------------|----------|
-| `user-uploads://windsurfing.jpeg` | `public/images/umbria/trasimeno/windsurfing.jpeg` | Windsurfing & Kitesurfing |
-| `user-uploads://kayaking.jpg` | `public/images/umbria/trasimeno/kayaking.jpg` | SUP & Kayaking |
-| `user-uploads://sailing.jpg` | `public/images/umbria/trasimeno/sailing.jpg` | Sailing & Boating |
-| `user-uploads://beaches.jpg` | `public/images/umbria/trasimeno/beaches.jpg` | Beaches & Swimming |
-| `user-uploads://isola-maggiore.jpg` | `public/images/umbria/trasimeno/isola-maggiore.jpg` | Isola Maggiore |
-| `user-uploads://isola-polvese.jpg` | `public/images/umbria/trasimeno/isola-polvese.jpg` | Isola Polvese |
-| `user-uploads://cycling.jpeg` | `public/images/umbria/trasimeno/cycling.jpeg` | 58km Cycling Trail |
-| `user-uploads://hiking.jpeg` | `public/images/umbria/trasimeno/hiking.jpeg` | Hiking Trails |
-| `user-uploads://horseback.jpg` | `public/images/umbria/trasimeno/horseback.jpg` | Horseback Riding |
-| `user-uploads://golf.jpg` | `public/images/umbria/trasimeno/golf.jpg` | Golf |
-
-## Code Changes
-
-**File: `src/components/sections/UmbriaLakeTrasimeno.tsx`**
-
-Update the `imageUrl` property for each activity to use local paths:
-
-### Water Activities (lines 17-36)
-```tsx
-const waterActivities: Activity[] = [
-  {
-    name: 'Windsurfing & Kitesurfing',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/windsurfing.jpeg'
-  },
-  {
-    name: 'SUP & Kayaking',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/kayaking.jpg'
-  },
-  {
-    name: 'Sailing & Boating',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/sailing.jpg'
-  },
-  {
-    name: 'Beaches & Swimming',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/beaches.jpg'
-  }
-];
-```
-
-### Islands (lines 38-50)
-```tsx
-const islands: Activity[] = [
-  {
-    name: 'Isola Maggiore',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/isola-maggiore.jpg'
-  },
-  {
-    name: 'Isola Polvese',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/isola-polvese.jpg'
-  }
-];
-```
-
-### Land Activities (lines 52-76)
-```tsx
-const landActivities: Activity[] = [
-  {
-    name: '58km Cycling Trail',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/cycling.jpeg'
-  },
-  {
-    name: 'Hiking Trails',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/hiking.jpeg'
-  },
-  {
-    name: 'Horseback Riding',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/horseback.jpg'
-  },
-  {
-    name: 'Golf',
-    // ...
-    imageUrl: '/images/umbria/trasimeno/golf.jpg'
-  }
-];
-```
-
-### Culture Activities (lines 78-102)
-The remaining 4 activities (Medieval Villages, Wine Tasting, Birdwatching, Music Festivals) will keep the external URLs for now. Once you upload the remaining 4 images, I can update those as well.
+| Uploaded File | Destination |
+|---------------|-------------|
+| `user-uploads://kayaking-2.jpg` | `public/images/umbria/trasimeno/kayaking.jpg` |
+| `user-uploads://beaches-2.jpg` | `public/images/umbria/trasimeno/beaches.jpg` |
 
 ## Files to Modify
 
 | Action | Path |
 |--------|------|
-| Copy | 10 images to `public/images/umbria/trasimeno/` |
-| Edit | `src/components/sections/UmbriaLakeTrasimeno.tsx` - update 10 imageUrl values |
+| Copy (overwrite) | `user-uploads://kayaking-2.jpg` → `public/images/umbria/trasimeno/kayaking.jpg` |
+| Copy (overwrite) | `user-uploads://beaches-2.jpg` → `public/images/umbria/trasimeno/beaches.jpg` |
 
-## Waiting For
-
-Please upload the remaining 4 images for the Culture tab:
-- **Villages** - Medieval villages at night
-- **Winery** - Wine tasting
-- **Birdwatching** - La Valle oasis
-- **Festival** - Music festivals
+No code changes needed - the `imageUrl` paths in `UmbriaLakeTrasimeno.tsx` already point to the correct locations.
 
