@@ -1,175 +1,192 @@
 
-# Umbria Chocolate City Updates
+
+# Umbria Festival Calendar Expansion + Wine & Recipes Components
 
 ## Summary
-Three updates to the UmbriaChocolateCity component:
-1. Update Eurochocolate dates to November 13-22, 2026
-2. Replace Baci image with the italco.com product shot
-3. Add whimsical kiss/heart animations to the "Unwrap a Bacio" button
+This plan covers three major additions to the Umbria region page:
+1. **Expand UmbriaFestivalCalendar** with the complete 2026 festival list (13 major festivals + 7 food sagre)
+2. **Create UmbriaWineExplorer** component with style toggle and practicality slider
+3. **Create UmbriaRecipes** component with Rustic/Refined toggle for 4 signature dishes
 
 ---
 
-## 1. Update Eurochocolate Festival Dates
+## 1. Expand UmbriaFestivalCalendar
 
-**Current (line 203-207):**
-```text
-📅 Next Edition: October 18–27, 2025
-Free entry · 150+ exhibitors · Corso Vannucci & surrounding streets
-```
+### Current State
+The component has 6 festivals hardcoded. The user provided a comprehensive list of 13 major festivals and 7 food sagre for 2026.
 
-**Updated:**
-```text
-📅 Next Edition: November 13–22, 2026
-Free entry · 150+ exhibitors · Corso Vannucci & surrounding streets
-```
+### New Festival Data Structure
 
-Also update the intro description (line 198-200) to mention "November" instead of "October":
-```text
-Every November, Perugia transforms into chocolate heaven...
-```
+**Major Festivals (13):**
+
+| Festival | Location | Dates | Type |
+|----------|----------|-------|------|
+| Umbria Jazz Winter | Orvieto | Through Jan 3, 2026 | Music |
+| Holos Festival | Perugia (Rocca Paolina) | Mar 14-15, 2026 | Wellness |
+| Calendimaggio | Assisi | May 6-9, 2026 | Medieval |
+| Corsa dei Ceri | Gubbio | May 15, 2026 | Tradition |
+| Infiorata di Spello | Spello | Jun 6-7, 2026 | Art/Religious |
+| Chroma Festival | Bastia Umbra | Jun 11+, 2026 | Music |
+| Perugia 1416 | Perugia | Jun 12-14, 2026 | Medieval |
+| Festival dei Due Mondi | Spoleto | Late Jun - Mid Jul | Performing Arts |
+| Umbria Jazz Summer | Perugia | Jul 3-12, 2026 | Music |
+| Trasimeno Blues | Lake Trasimeno | Jul-Aug | Music |
+| Montelago Celtic | Colfiorito | Aug 6-9, 2026 | Cultural |
+| Festival del Medioevo | Gubbio | Late Sep | Cultural |
+| Eurochocolate | Perugia | Nov 20-29, 2026 | Food |
+
+**Food Sagre (7):**
+
+| Sagra | Location | Timing |
+|-------|----------|--------|
+| Sagra dell'Oca | Bettona | Jul 31 - Aug 9, 2026 |
+| Sagra del Pesce | Passignano sul Trasimeno | August |
+| Festa della Cipolla | Cannara | September |
+| Sagra della Polenta | Cannara | September |
+| I Primi d'Italia | Foligno | Late September |
+| Mostra Mercato del Tartufo | Gubbio/Citta di Castello | Oct-Nov |
+| November Food Celebrations | Assisi/Foligno/San Martino in Colle | November |
+
+### UI Enhancements
+- Add a **toggle between "Major Festivals" and "Food Sagre"** tabs
+- Update the month grid to handle all 12 months with events
+- Add new icon types: `Leaf` (wellness), `Flower2` (Infiorata), `Guitar` (Chroma/Celtic), `UtensilsCrossed` (Sagre)
+- Update Eurochocolate dates to **November 20-29, 2026** (per user's latest info)
 
 ---
 
-## 2. Replace Baci Image
+## 2. Create UmbriaWineExplorer Component
 
-**Action:** Download the Baci product image from italco.com and save it to `src/assets/umbria/baci-chocolate.jpg`, replacing the existing AI-generated image.
+### Concept
+A dedicated Umbrian wine section that acknowledges the region's "underdog" status while highlighting its genuine gems: Sagrantino di Montefalco and Orvieto Classico.
 
-The new image shows the iconic silver Baci Perugina packaging with stars, which is more recognizable than a generic chocolate photo.
+### Features
+
+**Binary Style Toggle:**
+- **Bold & Structured** → Highlights Montefalco Sagrantino DOCG, Rosso di Montefalco
+- **Light & Everyday** → Highlights Orvieto Classico, Grechetto, Trebbiano Spoletino
+
+**Practicality Slider (0-100):**
+- **0-30: Table Wine** → Daily drinkers, aperitivo wines
+- **40-60: Dinner Party** → Good bottles for guests
+- **70-100: Special Occasions** → Sagrantino Riserva, premium labels
+
+**Mini-Map Integration:**
+- Highlight specific DOCG/DOC zones when wines are selected:
+  - Montefalco (around Spoleto)
+  - Orvieto (western border with Lazio)
+  - Colli del Trasimeno (lake area)
+  - Torgiano DOCG (near Perugia)
+
+### Wine Cards (6 total)
+1. **Sagrantino di Montefalco DOCG** - Bold, tannic, world-class aging potential
+2. **Rosso di Montefalco DOC** - Sagrantino's approachable younger sibling
+3. **Orvieto Classico DOC** - Crisp white, great value, perfect with fish
+4. **Grechetto** - Umbria's native white, nutty and food-friendly
+5. **Trebbiano Spoletino** - Underrated white with complexity
+6. **Torgiano Rosso Riserva DOCG** - Rare gem, comparable to Brunello quality
+
+### Editorial Voice
+Frame it as "Umbria's wines aren't famous because Tuscany got there first. But serious wine people know: Sagrantino is Italy's biggest secret, and Orvieto punches above its weight class."
 
 ---
 
-## 3. Add Whimsical Kiss/Heart Animation to "Unwrap a Bacio"
+## 3. Create UmbriaRecipes Component
 
-This is the creative part. I'll add floating heart particles that burst out when the button is clicked, inspired by:
-- The Panettone Quiz's SnowParticles component style
-- The NorciaTable's seasonal emoji icons (🌸, ☀️, 🍂, ❄️)
+### Concept
+A Rustic/Refined toggle showing 4 Umbrian dishes - 2 rustic (hearth-cooking, peasant origins) and 2 refined (restaurant interpretations, seasonal ingredients).
 
-### Animation Concept: "Kiss Burst"
-When the user clicks "Unwrap a Bacio":
-1. **During unwrapping (1.5s):** A silver foil "shimmer" animation plays on the button
-2. **On reveal:** 12-15 floating heart particles burst outward in a radial pattern, then drift upward and fade
-3. **Love note appears:** With a gentle scale-in animation
+### Recipe Cards
 
-### New Keyframes (tailwind.config.ts)
-```typescript
-"kiss-burst": {
-  "0%": { transform: "scale(0) translateY(0)", opacity: "1" },
-  "50%": { transform: "scale(1.2) translateY(-20px)", opacity: "0.8" },
-  "100%": { transform: "scale(0.8) translateY(-60px)", opacity: "0" }
-},
-"foil-shimmer": {
-  "0%": { backgroundPosition: "-200% 0" },
-  "100%": { backgroundPosition: "200% 0" }
-}
-```
+**Rustic (2):**
 
-### Heart Symbols
-Using the Unicode heart variants that match the Butcher's Table icon style:
-- `💋` (kiss mark - the key one!)
-- `♥` (solid heart)
-- `💕` (two hearts)
-- `✨` (sparkle)
+1. **Strangozzi al Tartufo Nero**
+   - Hand-rolled pasta with black truffle
+   - Story: "Norcia's nuns supposedly invented this pasta. The name means 'little laces' or possibly 'priest-stranglers' - depending on who's telling the story."
+   - Wine pairing: Grechetto or Orvieto Classico
 
-### Component Changes (UmbriaChocolateCity.tsx)
-1. Add a new `KissParticles` component that renders 12-15 floating symbols
-2. Trigger particles when `isUnwrapping` becomes true
-3. Add silver shimmer gradient to button during unwrap state
-4. Hearts burst from button center, drift upward, and fade over 2 seconds
+2. **Torta al Testo con Salsiccia e Rapini**
+   - Flatbread with sausage and broccoli rabe
+   - Story: "The testo is a clay disc heated over fire. Every Umbrian family has one. This is festival food, picnic food, life food."
+   - Wine pairing: Rosso di Montefalco
 
-### Visual Effect
-```text
-      💋      ♥
-   ♥    ✨   💕
-     💋   ♥
-  ✨        💋
-   ♥   💕   ✨
-    [Unwrap a Bacio]
-```
+**Refined (2):**
+
+3. **Piccione alla Ghiotta**
+   - Umbrian-style squab with olives and wine sauce
+   - Story: "The ghiotta is the sauce - pan drippings, local olives, a splash of wine. Umbria's answer to French technique, done in cast iron."
+   - Wine pairing: Sagrantino di Montefalco
+
+4. **Umbricelli con Ragù d'Oca**
+   - Hand-rolled pasta with goose ragù
+   - Story: "Umbria raises geese the way other regions raise chickens. This ragù takes four hours but feeds a village."
+   - Wine pairing: Torgiano Rosso Riserva
+
+### Component Features
+- Reuse existing `RecipesInteractive` pattern with Rustic/Refined tabs
+- Add wine pairing callouts with links to the new WineExplorer section
+- Include origin story snippets that connect to Norcia/truffle culture
 
 ---
 
 ## Technical Implementation
 
-### Files to Modify
-| File | Changes |
+### New Files to Create
+| File | Purpose |
 |------|---------|
-| `tailwind.config.ts` | Add `kiss-burst` and `foil-shimmer` keyframes |
-| `src/assets/umbria/baci-chocolate.jpg` | Replace with italco.com product image |
-| `src/components/sections/UmbriaChocolateCity.tsx` | Add KissParticles, update dates, shimmer effect |
+| `src/components/sections/UmbriaWineExplorer.tsx` | Wine section with toggle, slider, and mini-map |
+| *Update* `src/components/sections/UmbriaFestivalCalendar.tsx` | Expand festival data and add sagre tab |
 
-### UmbriaChocolateCity Changes
-
-**New State:**
-```typescript
-const [showParticles, setShowParticles] = useState(false);
-```
-
-**New KissParticles Component:**
-```typescript
-const KissParticles = ({ isActive }: { isActive: boolean }) => {
-  const particles = useMemo(() => 
-    Array.from({ length: 15 }, (_, i) => ({
-      id: i,
-      symbol: ['💋', '♥', '💕', '✨'][Math.floor(Math.random() * 4)],
-      angle: (i / 15) * 360,
-      delay: Math.random() * 0.3,
-      distance: 40 + Math.random() * 60,
-    })), []
-  );
-
-  if (!isActive) return null;
-
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-visible">
-      {particles.map((p) => (
-        <span
-          key={p.id}
-          className="absolute left-1/2 top-1/2 animate-kiss-burst"
-          style={{
-            transform: `rotate(${p.angle}deg) translateY(-${p.distance}px)`,
-            animationDelay: `${p.delay}s`,
-            fontSize: '16px',
-          }}
-        >
-          {p.symbol}
-        </span>
-      ))}
-    </div>
-  );
-};
-```
-
-**Updated Button:**
+### RegionPage.tsx Integration
 ```tsx
-<Button 
-  onClick={unwrapBacio} 
-  disabled={isUnwrapping}
-  className={`
-    relative overflow-hidden
-    bg-gradient-to-r from-amber-600 to-rose-600 
-    hover:from-amber-700 hover:to-rose-700
-    ${isUnwrapping ? 'animate-shimmer' : ''}
-  `}
->
-  <KissParticles isActive={showParticles} />
-  {isUnwrapping ? (
-    <span className="animate-pulse">Unwrapping...</span>
-  ) : (
-    <>
-      <Heart className="h-4 w-4 mr-2" />
-      Unwrap a Bacio
-    </>
-  )}
-</Button>
+{region === 'umbria' && (
+  <>
+    <UmbriaChocolateCity />
+    <UmbriaFestivalCalendar />  {/* Already exists, will be expanded */}
+    <UmbriaNorciaTable />
+    <UmbriaWineExplorer />      {/* NEW */}
+  </>
+)}
+
+{/* Existing RecipesInteractive - will need Umbria data */}
+{regionData.recipes?.cards && regionData.recipes.cards.length > 0 && (
+  <RecipesInteractive ... />
+)}
 ```
+
+### Data Strategy
+Since Umbria currently has `null` for wine and recipes in the database, two options:
+1. **Hardcode in components** (like UmbriaChocolateCity) - faster, self-contained
+2. **Add to database** - follows project pattern for data-driven regions
+
+I recommend **Option 1** for the initial build since these are Umbria-specific and won't be reused. This matches the pattern used for UmbriaChocolateCity, UmbriaFestivalCalendar, and UmbriaNorciaTable.
+
+### Image Requirements
+Will need to generate/source images for:
+- Wine bottles/vineyards (Sagrantino, Orvieto)
+- Recipe dishes (Strangozzi, Torta al Testo, Piccione, Umbricelli)
+- Festival photos (Infiorata di Spello, Trasimeno Blues, Montelago Celtic)
+
+---
+
+## Section Order on Page
+
+The Umbria-specific culture sections will appear in this order:
+1. UmbriaChocolateCity (Perugia's chocolate story)
+2. UmbriaFestivalCalendar (expanded with sagre)
+3. UmbriaNorciaTable (butcher's table, truffles)
+4. UmbriaWineExplorer (NEW - wine toggle/slider)
+5. UmbriaRecipes (NEW - Rustic/Refined dishes)
+
+This creates a natural flow: Chocolate → Festivals → Food → Wine → Recipes
 
 ---
 
 ## Summary of Deliverables
 
-1. **Eurochocolate dates updated** to November 13-22, 2026 in both locations
-2. **Baci product photo** replaced with authentic packaging image
-3. **Kiss burst animation** with 15 floating heart/kiss particles on button click
-4. **Foil shimmer effect** on button during the 1.5s unwrap delay
-5. **Icon change** from Gift to Heart on button to match the "kiss" theme
+1. **UmbriaFestivalCalendar** expanded with 20 festivals/sagre, tabbed UI, corrected Eurochocolate dates
+2. **UmbriaWineExplorer** with style toggle, practicality slider, mini-map zones, 6 wine profiles
+3. **UmbriaRecipes** with 4 dishes (2 rustic, 2 refined), wine pairings, Rustic/Refined toggle
+4. **4-6 photorealistic images** for wine and recipes
+5. **RegionPage integration** to render new components for Umbria
 
