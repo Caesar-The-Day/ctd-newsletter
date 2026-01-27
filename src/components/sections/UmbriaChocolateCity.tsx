@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Heart, Gift, History, MapPin, ExternalLink, ChevronRight, Sparkles } from 'lucide-react';
+import { Heart, History, MapPin, ExternalLink, ChevronRight, Sparkles } from 'lucide-react';
 import baciImage from '@/assets/umbria/baci-chocolate.jpg';
 import eurochocolateImage from '@/assets/umbria/eurochocolate-festival.jpg';
 
@@ -25,18 +25,55 @@ const loveNotes = [
   "L'amore è il miglior condimento. — Love is the best seasoning.",
 ];
 
+// Kiss particles animation component
+const KissParticles = ({ isActive }: { isActive: boolean }) => {
+  const particles = useMemo(() => 
+    Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      symbol: ['💋', '♥', '💕', '✨'][Math.floor(Math.random() * 4)],
+      angle: (i / 15) * 360,
+      delay: Math.random() * 0.3,
+      distance: 40 + Math.random() * 60,
+    })), []
+  );
+
+  if (!isActive) return null;
+
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-visible z-10">
+      {particles.map((p) => (
+        <span
+          key={p.id}
+          className="absolute left-1/2 top-1/2 animate-kiss-burst"
+          style={{
+            transform: `translate(-50%, -50%) rotate(${p.angle}deg) translateY(-${p.distance}px)`,
+            animationDelay: `${p.delay}s`,
+            fontSize: '16px',
+          }}
+        >
+          {p.symbol}
+        </span>
+      ))}
+    </div>
+  );
+};
+
 export function UmbriaChocolateCity() {
   const [activeTab, setActiveTab] = useState<'story' | 'timeline' | 'visit'>('story');
   const [loveNote, setLoveNote] = useState<string | null>(null);
   const [isUnwrapping, setIsUnwrapping] = useState(false);
+  const [showParticles, setShowParticles] = useState(false);
 
   const unwrapBacio = () => {
     setIsUnwrapping(true);
+    setShowParticles(true);
     setTimeout(() => {
       const randomNote = loveNotes[Math.floor(Math.random() * loveNotes.length)];
       setLoveNote(randomNote);
       setIsUnwrapping(false);
     }, 1500);
+    // Reset particles after animation completes
+    setTimeout(() => setShowParticles(false), 2500);
   };
 
   return (
@@ -53,7 +90,7 @@ export function UmbriaChocolateCity() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Before there was Godiva, there was Perugina. Perugia has been crafting chocolate since 1907, 
-            and today hosts Europe's largest chocolate festival every October.
+            and today hosts Europe's largest chocolate festival every November.
           </p>
         </div>
 
@@ -105,27 +142,35 @@ export function UmbriaChocolateCity() {
                 {/* Love Note Generator */}
                 <Card className="bg-gradient-to-br from-rose-50 to-amber-50 border-rose-200">
                   <CardContent className="p-6 text-center">
-                    <Gift className="h-8 w-8 mx-auto mb-3 text-rose-500" />
+                    <Heart className="h-8 w-8 mx-auto mb-3 text-rose-500" />
                     <h4 className="font-bold mb-2">Unwrap Your Bacio</h4>
                     <p className="text-sm text-muted-foreground mb-4">
                       Click to reveal a classic Italian love note
                     </p>
-                    <Button 
-                      onClick={unwrapBacio} 
-                      disabled={isUnwrapping}
-                      className="bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-700 hover:to-rose-700"
-                    >
-                      {isUnwrapping ? (
-                        <span className="animate-pulse">Unwrapping...</span>
-                      ) : (
-                        <>
-                          <Gift className="h-4 w-4 mr-2" />
-                          Unwrap a Bacio
-                        </>
-                      )}
-                    </Button>
+                    <div className="relative inline-block">
+                      <Button 
+                        onClick={unwrapBacio} 
+                        disabled={isUnwrapping}
+                        className={`
+                          relative overflow-visible
+                          bg-gradient-to-r from-amber-600 to-rose-600 
+                          hover:from-amber-700 hover:to-rose-700
+                          ${isUnwrapping ? 'bg-[length:200%_100%] animate-foil-shimmer bg-gradient-to-r from-slate-300 via-white to-slate-300' : ''}
+                        `}
+                      >
+                        <KissParticles isActive={showParticles} />
+                        {isUnwrapping ? (
+                          <span className="animate-pulse">Unwrapping...</span>
+                        ) : (
+                          <>
+                            <Heart className="h-4 w-4 mr-2" />
+                            Unwrap a Bacio
+                          </>
+                        )}
+                      </Button>
+                    </div>
                     {loveNote && (
-                      <div className="mt-4 p-4 bg-white/80 rounded-lg border border-rose-200 animate-fade-in">
+                      <div className="mt-4 p-4 bg-white/80 rounded-lg border border-rose-200 animate-scale-in">
                         <p className="italic text-rose-800 font-medium">{loveNote}</p>
                       </div>
                     )}
@@ -196,12 +241,12 @@ export function UmbriaChocolateCity() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold mb-2">Eurochocolate Festival</h3>
                     <p className="text-sm text-muted-foreground mb-4">
-                      Every October, Perugia transforms into chocolate heaven. Over 1 million visitors descend 
+                      Every November, Perugia transforms into chocolate heaven. Over 1 million visitors descend 
                       for 10 days of tastings, sculptures, and workshops from artisan chocolatiers worldwide.
                     </p>
                     <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                       <p className="text-sm font-medium text-amber-800">
-                        📅 Next Edition: October 18–27, 2025
+                        📅 Next Edition: November 13–22, 2026
                       </p>
                       <p className="text-xs text-amber-600 mt-1">
                         Free entry · 150+ exhibitors · Corso Vannucci & surrounding streets
@@ -221,7 +266,7 @@ export function UmbriaChocolateCity() {
               className="rounded-2xl shadow-2xl w-full"
             />
             <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-4">
-              <p className="text-sm font-medium">Eurochocolate transforms Perugia's medieval streets each October</p>
+              <p className="text-sm font-medium">Eurochocolate transforms Perugia's medieval streets each November</p>
               <p className="text-xs text-muted-foreground">Europe's largest chocolate festival since 1993</p>
             </div>
           </div>
