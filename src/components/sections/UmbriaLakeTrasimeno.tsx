@@ -31,7 +31,7 @@ const waterActivities: Activity[] = [
     description: 'Calm, scenic waters perfect for stand-up paddleboarding and kayaking along the shoreline.',
     icon: PersonStanding,
     location: 'Multiple access points',
-    imageUrl: '/images/umbria/trasimeno/kayaking.jpg'
+    imageUrl: '/images/umbria/trasimeno/kayaking.jpg?v=2'
   },
   {
     name: 'Sailing & Boating',
@@ -45,7 +45,7 @@ const waterActivities: Activity[] = [
     description: 'Equipped beaches at Zocco Beach, Sualzo Beach, and San Feliciano. Warm shallow waters for swimming.',
     icon: Waves,
     location: 'Magione, San Feliciano',
-    imageUrl: '/images/umbria/trasimeno/beaches.jpg'
+    imageUrl: '/images/umbria/trasimeno/beaches.jpg?v=2'
   }
 ];
 
