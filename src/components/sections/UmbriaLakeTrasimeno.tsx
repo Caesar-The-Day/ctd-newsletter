@@ -24,28 +24,28 @@ const waterActivities: Activity[] = [
     description: 'The shallow, windy lake creates ideal conditions. Schools and rental outlets in Passignano and Castiglione del Lago.',
     icon: Waves,
     location: 'Passignano, Castiglione del Lago',
-    imageUrl: '/images/umbria/trasimeno/windsurfing.jpg'
+    imageUrl: 'https://www.umbriatourism.it/documents/20126/34101/sporttrasimeno%25283%25292.jpg/cf5af464-7ab4-fb64-bd0a-72a3ea24b09b?t=1583781669478&width=1080'
   },
   {
     name: 'SUP & Kayaking',
     description: 'Calm, scenic waters perfect for stand-up paddleboarding and kayaking along the shoreline.',
     icon: PersonStanding,
     location: 'Multiple access points',
-    imageUrl: '/images/umbria/trasimeno/kayaking.jpg'
+    imageUrl: 'https://www.experiencetrasimeno.it/wp-content/uploads/2022/04/canoaclub-montedellago.jpg'
   },
   {
     name: 'Sailing & Boating',
     description: 'Sailboat and motorboat rentals available at multiple marinas around the lake.',
     icon: Sailboat,
     location: 'Tuoro, Passignano',
-    imageUrl: '/images/umbria/trasimeno/sailing.jpg'
+    imageUrl: 'https://www.portodelsole.it/wp-content/uploads/2018/02/barca_vela-2.jpg'
   },
   {
     name: 'Beaches & Swimming',
     description: 'Equipped beaches at Zocco Beach, Sualzo Beach, and San Feliciano. Warm shallow waters for swimming.',
     icon: Waves,
     location: 'Magione, San Feliciano',
-    imageUrl: '/images/umbria/trasimeno/beaches.jpg'
+    imageUrl: 'https://www.italyreview.com/uploads/2/6/3/6/26365745/tuoro-sul-trasimeno-umbria-italy-1a_orig.jpg'
   }
 ];
 
@@ -55,14 +55,14 @@ const islands: Activity[] = [
     description: 'Inhabited island with a charming 15th-century fishing village, Romanesque church of San Salvatore, and the famous Lace Museum.',
     icon: Ship,
     location: 'Ferry from Passignano & Tuoro',
-    imageUrl: '/images/umbria/trasimeno/isola-maggiore.jpg'
+    imageUrl: 'https://www.bellaumbria.net/wp-content/uploads/2017/07/Lago-Trasimeno_Isola-Maggiore_dall-altro2.jpg'
   },
   {
     name: 'Isola Polvese',
     description: 'The largest island, now a nature reserve focused on educational, scientific, and recreational activities with beautiful hiking trails.',
     icon: TreePine,
     location: 'Ferry from San Feliciano',
-    imageUrl: '/images/umbria/trasimeno/isola-polvese.jpg'
+    imageUrl: 'https://www.bellaumbria.net/wp-content/uploads/2017/06/Trasimeno_Isola-Polvese_sentiero.jpg'
   }
 ];
 
@@ -72,28 +72,28 @@ const landActivities: Activity[] = [
     description: 'The Pista Ciclabile del Trasimeno circles the entire lake — a dedicated, mostly flat path perfect for all skill levels.',
     icon: Bike,
     location: 'Full lake circuit',
-    imageUrl: '/images/umbria/trasimeno/cycling.jpg'
+    imageUrl: 'https://www.umbriatourism.it/documents/20126/338198/BikeCastiglioneLago/6f8a6116-e1ae-d681-7140-a53987097e6d?width=780'
   },
   {
     name: 'Hiking Trails',
     description: 'La Via del Trasimeno and surrounding hill trails offer panoramic views of the lake and Umbrian countryside.',
     icon: Mountain,
     location: 'Various trailheads',
-    imageUrl: '/images/umbria/trasimeno/hiking.jpg'
+    imageUrl: 'https://www.umbriatourism.it/documents/20126/342208/laviadeltrasimeno%282%29.jpg/bd0561d8-c1de-eee5-2b0f-5633b81b6558?width=1200'
   },
   {
     name: 'Horseback Riding',
     description: 'Equestrian tours through olive groves and lakeside paths. Stables like Asd Bv Ranch offer guided excursions.',
     icon: PersonStanding,
     location: 'Local stables',
-    imageUrl: '/images/umbria/trasimeno/horseback.jpg'
+    imageUrl: 'https://www.lagotrasimeno.net/media/cache/fe_gallery_md/uploads/images/photos/6299dd39cdc32853353871.jpg'
   },
   {
     name: 'Golf',
     description: 'The 18-hole Lamborghini Golf Club offers a scenic course with lake views.',
     icon: TreePine,
     location: 'Near Castiglione del Lago',
-    imageUrl: '/images/umbria/trasimeno/golf.jpg'
+    imageUrl: 'https://www.lagotrasimeno.net/media/cache/fe_gallery_md/uploads/images/photos/63e3a4eb4a5a3394908521.jpg'
   }
 ];
 
@@ -103,28 +103,28 @@ const cultureActivities: Activity[] = [
     description: 'Explore Castiglione del Lago with its Rocca del Leone fortress, the artistic village of Panicale, and vibrant Città della Pieve.',
     icon: Castle,
     location: 'Around the lake',
-    imageUrl: '/images/umbria/trasimeno/villages.jpg'
+    imageUrl: 'https://www.tenutedelcerro.it/wp-content/uploads/2025/03/Trasimeno-di-notte.jpg'
   },
   {
     name: 'Wine Tasting',
     description: 'Visit local wineries like Cantina Berioli for tastings of Umbrian wines paired with lake fish.',
     icon: Wine,
     location: 'Various wineries',
-    imageUrl: '/images/umbria/trasimeno/winery.jpg'
+    imageUrl: 'https://villagioiella.com/wp-content/uploads/2024/12/rsz_1umbria-torism-archive-lake-vineyard-vigneto-vino.webp'
   },
   {
     name: 'Birdwatching',
     description: 'La Valle naturalistic oasis is a wetland paradise for bird enthusiasts, with hides and guided tours.',
     icon: Bird,
     location: 'La Valle Oasis',
-    imageUrl: '/images/umbria/trasimeno/birdwatching.jpg'
+    imageUrl: 'https://www.lagotrasimeno.net/media/cache/fe_primary_image_small/uploads/images/activities/627d08d78b13a407729033.jpg'
   },
   {
     name: 'Music Festivals',
     description: 'The Trasimeno Music Festival and Blues Festival bring world-class performances to lakeside venues.',
     icon: Music,
     location: 'Summer events',
-    imageUrl: '/images/umbria/trasimeno/festival.jpg'
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjIcRLSgd7Nc63HP-2G1Y7xzoKL-Ymq_GAYQ&s'
   }
 ];
 
