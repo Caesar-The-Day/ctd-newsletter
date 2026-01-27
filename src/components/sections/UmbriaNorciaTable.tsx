@@ -8,8 +8,6 @@ import truffleHuntingImage from '@/assets/umbria/truffle-hunting.jpg';
 // Individual specialty images
 import prosciuttoNorciaImage from '@/assets/umbria/prosciutto-norcia.jpg';
 import capocolloImage from '@/assets/umbria/capocollo-umbro.jpg';
-import blackTruffleImage from '@/assets/umbria/black-truffle.jpg';
-import summerTruffleImage from '@/assets/umbria/summer-truffle.jpg';
 import castelluccioLentilsImage from '@/assets/umbria/castelluccio-lentils.jpg';
 import strangozziNorcinaImage from '@/assets/umbria/strangozzi-norcina.jpg';
 
@@ -57,7 +55,7 @@ const specialties: Specialty[] = [
     season: 'November – March (peak: Dec–Feb)',
     funFact: 'Truffle dogs are so valuable they\'re often insured for €10,000+. Pigs were banned in the 1980s because they ate the truffles.',
     pairings: ['Fresh pasta', 'Scrambled eggs', 'Risotto'],
-    image: blackTruffleImage
+    image: 'https://chefsmandala.com/wp-content/uploads/2018/03/Black-Truffle.jpg'
   },
   {
     id: 'summer-truffle',
@@ -68,7 +66,7 @@ const specialties: Specialty[] = [
     season: 'May – September',
     funFact: 'At €200–400/kg (vs €2,000+ for winter black), this is how locals actually eat truffle regularly.',
     pairings: ['Grilled steak', 'Bruschetta', 'Fresh pasta'],
-    image: summerTruffleImage
+    image: 'https://matteo-truffles.com/cdn/shop/products/tuberaestivum_4032x.jpg?v=1639082876'
   },
   {
     id: 'lenticchie',
