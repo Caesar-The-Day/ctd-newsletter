@@ -15,6 +15,7 @@ const timelineEvents = [
 ];
 
 const loveNotes = [
+  // Classic Baci notes
   "L'amore vince sempre. — Love always wins.",
   "Un bacio vale più di mille parole. — A kiss is worth a thousand words.",
   "Dove c'è amore, c'è vita. — Where there is love, there is life.",
@@ -23,6 +24,25 @@ const loveNotes = [
   "L'amore non ha età. — Love has no age.",
   "Un cuore che ama non invecchia mai. — A heart that loves never grows old.",
   "L'amore è il miglior condimento. — Love is the best seasoning.",
+  // Literary and attributed quotes
+  "Nei sogni come nell'amore tutto è possibile. — In dreams as in love all is possible. — J. Arany",
+  "Ti ho amato a prima vista. E tu sorridi perché lo sai. — I loved you at first sight. And you smile because you know it.",
+  "Un bacio colpisce come un fulmine: l'amore passa come una tempesta. — A kiss strikes like lightning: love passes like a storm.",
+  "L'amore è come la fortuna: non ama essere inseguito. — Love is like luck: it doesn't like to be chased.",
+  "Essere amati profondamente da qualcuno ti dà forza; amare qualcuno profondamente ti dà coraggio. — Being deeply loved by someone gives you strength; loving someone deeply gives you courage.",
+  "Io capisco i tuoi baci e tu i miei. — I understand thy kisses and thou mine. — W. Shakespeare",
+  "Un vero amico sa tutto di te eppure ti vuole ancora bene. — A true friend knows all there is to know about you yet still likes you. — E. Hubbard",
+  "Gli amanti possono vivere di baci e acqua. — Lovers can live on kisses and water. — English proverb",
+  "Con i tuoi baci ho dipinto il mio cielo stellato. — With your kisses have I painted my starry sky.",
+  "Finché non amai, non vissi abbastanza. — Till I loved, I did not live enough. — E. Dickinson",
+  "La passione abbaglia gli amanti. L'amore li unisce per sempre. — Passion dazzles lovers. Love unites them forever.",
+  "Giorno dopo giorno e notte dopo notte eravamo insieme – tutto il resto è stato da tempo dimenticato. — Day by day and night by night we were together – all else has long been forgotten by me. — W. Whitman",
+  "Invecchia con me; il meglio deve ancora venire. — Grow old along with me; the best is yet to be. — G. Sand",
+  "Abbiamo parlato molto dell'amore. Ora proviamo ad ascoltarlo, che ne dici? — We've spoken a lot about love. Now let's try to listen to it, shall we?",
+  "La verità dell'amicizia è per me sacra quanto la santità del matrimonio eterno. — The truth of friendship is as sacred to me as the sanctity of lifelong marriage. — K. Mansfield",
+  "Il cuore non si può comprare né vendere, solo donare. — The heart cannot be bought or sold, but only given.",
+  "Le azioni più lodevoli sono quelle che restano nascoste. — The most praiseworthy deeds are those that remain hidden. — B. Pascal",
+  "Come dai è più importante di cosa dai. — How you give is more important than what you give. — P. Corneille",
 ];
 
 // Kiss particles animation component with radial spread
