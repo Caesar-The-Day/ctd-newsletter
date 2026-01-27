@@ -39,6 +39,9 @@ import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
+import UmbriaChocolateCity from '@/components/sections/UmbriaChocolateCity';
+import UmbriaFestivalCalendar from '@/components/sections/UmbriaFestivalCalendar';
+import UmbriaNorciaTable from '@/components/sections/UmbriaNorciaTable';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -344,7 +347,15 @@ export default function RegionPage() {
 
       {config.show7PercentCTA && <SevenPercentCTA />}
 
-      <HighlightsShowcase highlights={regionData.highlights} />
+      {region !== 'umbria' && <HighlightsShowcase highlights={regionData.highlights} />}
+
+      {region === 'umbria' && (
+        <>
+          <UmbriaChocolateCity />
+          <UmbriaFestivalCalendar />
+          <UmbriaNorciaTable />
+        </>
+      )}
 
       {region === 'lombardia' && <LombardiaDishExplorer />}
 
