@@ -1,148 +1,75 @@
 
-# Fix: Publish Region Doesn't Update Database
+# Fix: Add fb:app_id for Facebook Sharing
 
-## Problem Identified
+## The Issue
 
-When you click "Publish" in the admin panel, the `publish-region` edge function only **returns instructions** but doesn't actually update the database. This is why:
+Facebook's Sharing Debugger requires the `fb:app_id` property to be present in Open Graph metadata. This is currently missing from:
 
-1. **Database still shows**: `status: draft, locked: false` for Umbria
-2. **RegionPage.tsx** fetches status from the database via `getRegionRegistry()`
-3. **Draft banner** appears because `registryEntry.status === 'draft'`
-4. **Admin panel** shows "Draft" for the same reason
+1. **Vercel Edge Function** (`api/og.ts`) - serves OG data to social media crawlers
+2. **index.html** - fallback static OG tags
+3. **SEO.tsx** - React component for client-side meta tags
 
-## Root Cause
+## What is fb:app_id?
 
-The `supabase/functions/publish-region/index.ts` edge function returns a "success" response but doesn't execute any database UPDATE:
-
-```typescript
-// Current code just returns instructions
-return new Response(
-  JSON.stringify({
-    success: true,
-    message: `Region "${slug}" published successfully`,
-    data: { ... }  // Instructions only, no actual DB update
-  })
-);
-```
+The `fb:app_id` is a Facebook App ID that associates your website's shared content with a Facebook application. It enables:
+- Enhanced link debugging in Facebook tools
+- Access to Facebook Insights for shared links
+- Better attribution of shares
 
 ## Solution
 
-Update the `publish-region` edge function to:
+You'll need a **Facebook App ID** to add this property. If you don't have one:
+1. Go to [Facebook Developers](https://developers.facebook.com/)
+2. Create a new app or use an existing one
+3. Copy the App ID (a numeric string like `123456789012345`)
 
-1. Connect to Supabase with a service role client
-2. Execute an UPDATE on the `regions` table
-3. Set `status = 'live'`, `locked = true`, `published_date = today`
+Once you have the App ID, I'll update three locations:
 
----
+### 1. Vercel Edge Function (`api/og.ts`)
 
-## Implementation
+Add the `fb:app_id` meta tag to the generated HTML:
 
-### File to Modify
+```html
+<meta property="fb:app_id" content="YOUR_FB_APP_ID" />
+```
 
-| File | Change |
-|------|--------|
-| `supabase/functions/publish-region/index.ts` | Add Supabase client and UPDATE query |
+### 2. index.html
 
-### Updated Edge Function Code
+Add the tag to the static HTML head section:
 
-```typescript
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
+```html
+<meta property="fb:app_id" content="YOUR_FB_APP_ID" />
+```
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-};
+### 3. SEO.tsx Component
 
-interface PublishRequest {
-  slug: string;
-}
+Add the tag to the Helmet component for client-side rendering:
 
-serve(async (req) => {
-  if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders });
-  }
-
-  try {
-    const { slug } = await req.json() as PublishRequest;
-
-    console.log('[publish-region] Publishing region:', slug);
-
-    if (!slug) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required field: slug' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Create Supabase client with service role for database access
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-    const today = new Date().toISOString().split('T')[0];
-
-    // UPDATE the regions table to set status to 'live' and lock the region
-    const { data, error } = await supabase
-      .from('regions')
-      .update({
-        status: 'live',
-        locked: true,
-        published_date: today,
-        version: '1.0',
-      })
-      .eq('slug', slug)
-      .select()
-      .single();
-
-    if (error) {
-      console.error('[publish-region] Database update failed:', error);
-      return new Response(
-        JSON.stringify({ success: false, error: error.message }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    console.log('[publish-region] Successfully published:', data);
-
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: `Region "${slug}" published successfully`,
-        data: {
-          slug,
-          publishedDate: today,
-          status: 'live',
-          locked: true,
-        }
-      }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
-
-  } catch (error) {
-    console.error('[publish-region] Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
-  }
-});
+```tsx
+<meta property="fb:app_id" content="YOUR_FB_APP_ID" />
 ```
 
 ---
 
-## What This Fixes
+## File Changes Summary
 
-1. **Database Update**: Executes `UPDATE regions SET status='live', locked=true, published_date='2026-01-27' WHERE slug='umbria'`
-2. **Draft Banner Removed**: `RegionPage.tsx` will fetch `status: 'live'` and skip the draft banner
-3. **Admin Panel Correct**: Shows "LIVE" badge instead of "DRAFT"
-4. **Region Locked**: Prevents accidental modifications to published content
+| File | Change |
+|------|--------|
+| `api/og.ts` | Add `fb:app_id` meta tag in `generateHTML()` |
+| `index.html` | Add `fb:app_id` meta tag in head section |
+| `src/components/common/SEO.tsx` | Add `fb:app_id` meta tag in Helmet |
 
 ---
 
-## Post-Fix Action
+## Note on fb:app_id
 
-After deploying the updated edge function, you'll need to click "Publish" again in `/admin/regions` for Umbria to trigger the actual database update.
+While Facebook marks this as "required," links will still share without it — the debugger just warns about it. If you don't have or want a Facebook App ID, the warning can be safely ignored. However, adding it is recommended for:
+- Better analytics on shared links
+- Cleaner debugger output
+- Future Facebook features
 
-Alternatively, I can also execute a direct database UPDATE to fix Umbria immediately without re-publishing.
+---
+
+## Next Step
+
+Do you have a Facebook App ID to use? If so, share it and I'll implement the fix. If not, I can proceed without it (Facebook sharing will still work, just with the debugger warning).
