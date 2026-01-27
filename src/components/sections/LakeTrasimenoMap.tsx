@@ -38,7 +38,7 @@ const lakeTowns: LakeTown[] = [
   },
   {
     name: 'San Feliciano',
-    coords: [43.1081, 12.2167],
+    coords: [43.11817653490088, 12.16777389466359],
     description: 'Charming fishing village with ferry to Isola Polvese and the Fishing Museum.',
     activities: ['Ferry to Polvese', 'Fresh Lake Fish', 'Kayaking']
   }

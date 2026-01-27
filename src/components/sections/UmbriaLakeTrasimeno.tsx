@@ -239,7 +239,7 @@ export default function UmbriaLakeTrasimeno() {
         <div className="mt-10 text-center">
           <Button 
             variant="outline" 
-            className="border-blue-300 text-blue-700 hover:bg-blue-50"
+            className="border-blue-300 text-blue-700 hover:bg-blue-600 hover:text-white hover:border-blue-600"
             asChild
           >
             <a 
