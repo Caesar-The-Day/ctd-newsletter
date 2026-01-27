@@ -358,7 +358,6 @@ export default function RegionPage() {
           <UmbriaChocolateCity />
           <UmbriaFestivalCalendar />
           <UmbriaLakeTrasimeno />
-          <UmbriaRomeFlorenceCorridor />
           <UmbriaNorciaTable />
           <UmbriaWineExplorer />
           <UmbriaRecipes />
@@ -411,6 +410,8 @@ export default function RegionPage() {
               travelTimes: regionData.healthcare.travelTimes
             }} 
           />
+
+      {region === 'umbria' && <UmbriaRomeFlorenceCorridor />}
 
       <CostCalculator 
         townPresets={regionData.costOfLiving.townPresets} 
