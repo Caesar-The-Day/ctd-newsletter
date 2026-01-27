@@ -1,163 +1,175 @@
 
 
-# Add Lake Trasimeno Recreation Section for Umbria
+# Enhance Lake Trasimeno Section
 
-## Summary
-Create a new interactive section called `UmbriaLakeTrasimeno` that showcases Lake Trasimeno as a major recreation destination. The section will highlight water activities, island exploration, outdoor sports, and cultural attractions around Italy's fourth-largest lake.
+## Overview
+Improve the Lake Trasimeno recreation section by fixing the external link, replacing the static hero with an interactive map, and adding image placeholders to activity cards.
 
-## Content Strategy
+## Changes
 
-Lake Trasimeno is one of only three large lakes in central Italy, making it a significant draw for outdoorsy retirees. The section will be organized around **four activity categories**:
+### 1. Fix External Link
+Update the Official Lake Trasimeno Guide URL from the current Umbria tourism link to the dedicated lake website.
 
-1. **Water Activities** - Windsurfing, kitesurfing, sailing, SUP, kayaking, swimming, beaches
-2. **Island Exploration** - Isola Maggiore (fishing village, Lace Museum) and Isola Polvese (nature/education)
-3. **Land Sports** - 58km cycling trail, hiking (Via del Trasimeno), horseback riding, golf
-4. **Culture & Leisure** - Medieval villages, wineries, birdwatching, music festivals
+**Current**: `https://www.umbriatourism.it/en/lake-trasimeno`  
+**New**: `https://www.lagotrasimeno.net/en/`
 
-## Design Approach
+### 2. Replace Hero Image with Interactive Map
 
-Following the existing Umbria component patterns:
-- **Header badge** with lake/wave icon and "Central Italy's Hidden Lake" tagline
-- **Hero statement** emphasizing the rarity (one of only 3 large lakes in central Italy)
-- **Tabbed interface** for the four activity categories (similar to UmbriaChocolateCity)
-- **Activity cards** with icons, descriptions, and practical details
-- **Location badges** (Passignano, Castiglione del Lago, Tuoro, Magione, San Feliciano)
-- **CTA link** to official tourism website
+The town badges overlaying the hero image feel disconnected. Replace this with a small, focused Leaflet/MapTiler map showing Lake Trasimeno with clickable town pins.
 
-## Technical Implementation
+**Map Configuration:**
+- Center: Lake Trasimeno coordinates (~43.10, 12.10)
+- Zoom: ~11 (lake fills the view)
+- 5 Town Markers with popups:
+  - Passignano sul Trasimeno
+  - Castiglione del Lago
+  - Tuoro sul Trasimeno
+  - Magione
+  - San Feliciano
 
-### New File: `src/components/sections/UmbriaLakeTrasimeno.tsx`
+Each marker popup will show:
+- Town name
+- Brief description (water access type, notable feature)
+- Key activities available there
 
+**Technical approach:**
+- Create a smaller, focused map component specifically for Lake Trasimeno
+- Use the same Leaflet + MapTiler pattern from `InteractiveMap.tsx`
+- Render inline where the hero image currently sits
+- Add a subtle lake polygon overlay to highlight the water body
+
+### 3. Add Image Placeholders to Activity Cards
+
+Update the `Activity` interface and data to include an optional `imageUrl` field. Modify the card rendering to display the image at the top of each card.
+
+**Updated Activity Interface:**
 ```typescript
-// Structure outline
-import { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Waves, Sailboat, Bike, Castle, MapPin, 
-  ExternalLink, Ship, TreePine, Music
-} from 'lucide-react';
-
-// Activity category data
-const categories = [
-  { id: 'water', label: 'Water Sports', icon: Waves },
-  { id: 'islands', label: 'Islands', icon: Ship },
-  { id: 'land', label: 'Land Sports', icon: Bike },
-  { id: 'culture', label: 'Culture', icon: Castle }
-];
-
-// Detailed activities per category
-const waterActivities = [
-  { name: 'Windsurfing & Kitesurfing', description: 'Shallow, windy conditions ideal for...' },
-  { name: 'SUP & Kayaking', description: 'Explore calm scenic coast...' },
-  // ... beaches, sailing, motorboats
-];
-
-// ... islands, land activities, cultural activities
+interface Activity {
+  name: string;
+  description: string;
+  icon: React.ElementType;
+  location?: string;
+  imageUrl?: string;  // NEW
+}
 ```
 
-### Component Features
-
-1. **Hero Image**: Uses existing `/images/umbria/lake-trasimeno.jpg`
-2. **Interactive Tabs**: Four category tabs with animated transitions
-3. **Activity Cards**: Grid of 3-4 activities per category with icons
-4. **Town Badges**: Quick reference to access points (Passignano, Castiglione del Lago, etc.)
-5. **External Link**: Official Umbria tourism lake page
-
-### Integration in RegionPage.tsx
-
-Add the new component to the Umbria section block (around line 356):
-
-```tsx
-{region === 'umbria' && (
-  <>
-    <UmbriaChocolateCity />
-    <UmbriaFestivalCalendar />
-    <UmbriaLakeTrasimeno />  {/* NEW - after festivals, before Norcia */}
-    <UmbriaNorciaTable />
-    <UmbriaWineExplorer />
-    <UmbriaRecipes />
-  </>
-)}
+**Card Layout with Image:**
+```text
++---------------------------+
+|  [Activity Image]         |  <- New: 160px height, object-cover
+|  Full width, rounded top  |
++---------------------------+
+|  [Icon] Activity Name     |
+|  📍 Location              |
+|  Description text...      |
++---------------------------+
 ```
 
-## Content Details
+**Placeholder Images:**
+Using placeholder paths that you can later replace with real photos:
+- `/images/umbria/trasimeno/windsurfing.jpg`
+- `/images/umbria/trasimeno/kayaking.jpg`
+- `/images/umbria/trasimeno/sailing.jpg`
+- `/images/umbria/trasimeno/beaches.jpg`
+- `/images/umbria/trasimeno/isola-maggiore.jpg`
+- `/images/umbria/trasimeno/isola-polvese.jpg`
+- `/images/umbria/trasimeno/cycling.jpg`
+- `/images/umbria/trasimeno/hiking.jpg`
+- `/images/umbria/trasimeno/horseback.jpg`
+- `/images/umbria/trasimeno/golf.jpg`
+- `/images/umbria/trasimeno/villages.jpg`
+- `/images/umbria/trasimeno/winery.jpg`
+- `/images/umbria/trasimeno/birdwatching.jpg`
+- `/images/umbria/trasimeno/festival.jpg`
 
-### Water Activities Tab
-| Activity | Details |
-|----------|---------|
-| Windsurfing & Kitesurfing | Shallow, windy lake; schools in Passignano & Castiglione del Lago |
-| SUP & Kayaking | Calm waters perfect for beginners; scenic shoreline |
-| Sailing | Sailboat rentals; multiple marinas |
-| Beaches | Zocco Beach, Sualzo Beach, San Feliciano (Magione) |
-| Swimming | Warm shallow waters; designated swimming areas |
+Until you provide real images, we'll use a graceful fallback: cards without valid images will display the icon-only version (current design).
 
-### Islands Tab
-| Island | Highlights |
-|--------|------------|
-| Isola Maggiore | 15th-century fishing village, Romanesque church, Lace Museum, charming walks |
-| Isola Polvese | Nature reserve, educational programs, scientific activities, hiking trails |
-
-### Land Sports Tab
-| Activity | Details |
-|----------|---------|
-| Cycling | Pista ciclabile del Trasimeno - 58km dedicated shoreline trail |
-| Hiking | La Via del Trasimeno and surrounding hill trails |
-| Horseback Riding | Equestrian tours from local stables (Asd Bv Ranch) |
-| Golf | Lamborghini Golf Club - 18-hole course near the lake |
-
-### Culture Tab
-| Attraction | Description |
-|------------|-------------|
-| Medieval Villages | Castiglione del Lago (Rocca del Leone), Panicale, Città della Pieve |
-| Wine Tasting | Local wineries like Cantina Berioli |
-| Birdwatching | La Valle naturalistic oasis - wetlands wildlife |
-| Events | Trasimeno Music Festival, Blues Festival |
-
-## Visual Layout
+## Visual Layout After Changes
 
 ```text
 +------------------------------------------------------------------+
 |  [Wave Icon]  Central Italy's Hidden Lake                         |
 |                                                                   |
 |  Lake Trasimeno: Your Backyard Playground                         |
-|  One of only three large lakes in central Italy — and the most    |
-|  accessible for outdoor recreation, island hopping, and village   |
-|  life within Umbria.                                              |
+|  One of only three large lakes in central Italy...                |
++------------------------------------------------------------------+
+|                                                                   |
+|  +------------------------------------------------------------+  |
+|  |                                                            |  |
+|  |          [INTERACTIVE MAPTILER MAP]                        |  |
+|  |                                                            |  |
+|  |    📍 Passignano    📍 Castiglione del Lago               |  |
+|  |                                                            |  |
+|  |           📍 Tuoro                                         |  |
+|  |                     📍 Magione                             |  |
+|  |                           📍 San Feliciano                 |  |
+|  |                                                            |  |
+|  +------------------------------------------------------------+  |
+|                                                                   |
 +------------------------------------------------------------------+
 |                                                                   |
 |  [🌊 Water Sports] [🚢 Islands] [🚴 Land Sports] [🏰 Culture]      |
 |                                                                   |
 +------------------------------------------------------------------+
 |                                                                   |
-|  +-------------------+  +-------------------+  +------------------+|
-|  | 🏄 Windsurfing    |  | 🚣 SUP & Kayak   |  | ⛵ Sailing       ||
-|  | Shallow windy...  |  | Calm scenic...   |  | Rentals at...   ||
-|  +-------------------+  +-------------------+  +------------------+|
+|  +------------------+  +------------------+  +------------------+ |
+|  | [Windsurfing     |  | [Kayaking        |  | [Sailing         | |
+|  |  Photo]          |  |  Photo]          |  |  Photo]          | |
+|  |------------------|  |------------------|  |------------------| |
+|  | 🏄 Windsurfing   |  | 🚣 SUP & Kayak   |  | ⛵ Sailing       | |
+|  | Passignano...    |  | Multiple access  |  | Tuoro...         | |
+|  +------------------+  +------------------+  +------------------+ |
 |                                                                   |
-|  +-------------------+  +-------------------+                     |
-|  | 🏖️ Beaches        |  | 🏊 Swimming       |                     |
-|  | Zocco, Sualzo...  |  | Designated...    |                     |
-|  +-------------------+  +-------------------+                     |
-|                                                                   |
-|  Access Points: [Passignano] [Castiglione] [Tuoro] [Magione]      |
-|                                                                   |
-|  [Visit Official Lake Guide →]                                    |
 +------------------------------------------------------------------+
 ```
 
-## Files to Create/Modify
+## Files to Modify
 
-| File | Action |
-|------|--------|
-| `src/components/sections/UmbriaLakeTrasimeno.tsx` | Create new component |
-| `src/pages/RegionPage.tsx` | Add import and render in Umbria block |
+| File | Changes |
+|------|---------|
+| `src/components/sections/UmbriaLakeTrasimeno.tsx` | Update link, add imageUrl to data, create inline map, update card rendering |
 
-## Styling Notes
+## Town Marker Data
 
-- Background gradient: `bg-gradient-to-b from-blue-50/50 to-background` (lake theme)
-- Accent color: Blue palette (`text-blue-600`, `bg-blue-100`)
-- Card hover effects consistent with other Umbria sections
-- Responsive: Grid adjusts from 3 columns to 2 to 1 on smaller screens
+```typescript
+const lakeTowns = [
+  {
+    name: 'Passignano sul Trasimeno',
+    coords: [43.1872, 12.1352],
+    description: 'Main watersports hub with ferry terminal, beaches, and bustling lakefront promenade.',
+    activities: ['Windsurfing', 'Ferry to Islands', 'Swimming']
+  },
+  {
+    name: 'Castiglione del Lago',
+    coords: [43.1261, 12.0475],
+    description: 'Largest lakeside town with imposing Rocca del Leone fortress and vibrant piazza.',
+    activities: ['Medieval Castle', 'Wine Tasting', 'Kitesurfing']
+  },
+  {
+    name: 'Tuoro sul Trasimeno',
+    coords: [43.2091, 12.0708],
+    description: 'Historic site of Hannibal\'s famous battle. Now a quiet town with ferry access.',
+    activities: ['History Tours', 'Ferry to Isola Maggiore', 'Sailing']
+  },
+  {
+    name: 'Magione',
+    coords: [43.1392, 12.2047],
+    description: 'Inland town with easy access to eastern beaches and La Valle birdwatching oasis.',
+    activities: ['Birdwatching', 'Olive Oil Tasting', 'Cycling']
+  },
+  {
+    name: 'San Feliciano',
+    coords: [43.1081, 12.2167],
+    description: 'Charming fishing village with ferry to Isola Polvese and the Fishing Museum.',
+    activities: ['Ferry to Polvese', 'Fresh Lake Fish', 'Kayaking']
+  }
+];
+```
+
+## Implementation Notes
+
+- The map will use the same MapTiler API key already configured (`VITE_MAPTILER_KEY`)
+- Map will be non-scrollable by default to prevent accidental zoom while scrolling the page
+- Town markers will use the same styling patterns as InteractiveMap.tsx for consistency
+- Activity card images will have a fallback to show just the icon layout if the image fails to load
 
