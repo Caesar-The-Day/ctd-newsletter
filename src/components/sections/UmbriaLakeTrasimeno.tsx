@@ -8,12 +8,14 @@ import {
   ExternalLink, Ship, Sailboat, TreePine, 
   Music, Wine, Bird, Mountain, PersonStanding
 } from 'lucide-react';
+import LakeTrasimenoMap from './LakeTrasimenoMap';
 
 interface Activity {
   name: string;
   description: string;
   icon: React.ElementType;
   location?: string;
+  imageUrl?: string;
 }
 
 const waterActivities: Activity[] = [
@@ -21,25 +23,29 @@ const waterActivities: Activity[] = [
     name: 'Windsurfing & Kitesurfing',
     description: 'The shallow, windy lake creates ideal conditions. Schools and rental outlets in Passignano and Castiglione del Lago.',
     icon: Waves,
-    location: 'Passignano, Castiglione del Lago'
+    location: 'Passignano, Castiglione del Lago',
+    imageUrl: '/images/umbria/trasimeno/windsurfing.jpg'
   },
   {
     name: 'SUP & Kayaking',
     description: 'Calm, scenic waters perfect for stand-up paddleboarding and kayaking along the shoreline.',
     icon: PersonStanding,
-    location: 'Multiple access points'
+    location: 'Multiple access points',
+    imageUrl: '/images/umbria/trasimeno/kayaking.jpg'
   },
   {
     name: 'Sailing & Boating',
     description: 'Sailboat and motorboat rentals available at multiple marinas around the lake.',
     icon: Sailboat,
-    location: 'Tuoro, Passignano'
+    location: 'Tuoro, Passignano',
+    imageUrl: '/images/umbria/trasimeno/sailing.jpg'
   },
   {
     name: 'Beaches & Swimming',
     description: 'Equipped beaches at Zocco Beach, Sualzo Beach, and San Feliciano. Warm shallow waters for swimming.',
     icon: Waves,
-    location: 'Magione, San Feliciano'
+    location: 'Magione, San Feliciano',
+    imageUrl: '/images/umbria/trasimeno/beaches.jpg'
   }
 ];
 
@@ -48,13 +54,15 @@ const islands: Activity[] = [
     name: 'Isola Maggiore',
     description: 'Inhabited island with a charming 15th-century fishing village, Romanesque church of San Salvatore, and the famous Lace Museum.',
     icon: Ship,
-    location: 'Ferry from Passignano & Tuoro'
+    location: 'Ferry from Passignano & Tuoro',
+    imageUrl: '/images/umbria/trasimeno/isola-maggiore.jpg'
   },
   {
     name: 'Isola Polvese',
     description: 'The largest island, now a nature reserve focused on educational, scientific, and recreational activities with beautiful hiking trails.',
     icon: TreePine,
-    location: 'Ferry from San Feliciano'
+    location: 'Ferry from San Feliciano',
+    imageUrl: '/images/umbria/trasimeno/isola-polvese.jpg'
   }
 ];
 
@@ -63,25 +71,29 @@ const landActivities: Activity[] = [
     name: '58km Cycling Trail',
     description: 'The Pista Ciclabile del Trasimeno circles the entire lake — a dedicated, mostly flat path perfect for all skill levels.',
     icon: Bike,
-    location: 'Full lake circuit'
+    location: 'Full lake circuit',
+    imageUrl: '/images/umbria/trasimeno/cycling.jpg'
   },
   {
     name: 'Hiking Trails',
     description: 'La Via del Trasimeno and surrounding hill trails offer panoramic views of the lake and Umbrian countryside.',
     icon: Mountain,
-    location: 'Various trailheads'
+    location: 'Various trailheads',
+    imageUrl: '/images/umbria/trasimeno/hiking.jpg'
   },
   {
     name: 'Horseback Riding',
     description: 'Equestrian tours through olive groves and lakeside paths. Stables like Asd Bv Ranch offer guided excursions.',
     icon: PersonStanding,
-    location: 'Local stables'
+    location: 'Local stables',
+    imageUrl: '/images/umbria/trasimeno/horseback.jpg'
   },
   {
     name: 'Golf',
     description: 'The 18-hole Lamborghini Golf Club offers a scenic course with lake views.',
     icon: TreePine,
-    location: 'Near Castiglione del Lago'
+    location: 'Near Castiglione del Lago',
+    imageUrl: '/images/umbria/trasimeno/golf.jpg'
   }
 ];
 
@@ -90,34 +102,30 @@ const cultureActivities: Activity[] = [
     name: 'Medieval Villages',
     description: 'Explore Castiglione del Lago with its Rocca del Leone fortress, the artistic village of Panicale, and vibrant Città della Pieve.',
     icon: Castle,
-    location: 'Around the lake'
+    location: 'Around the lake',
+    imageUrl: '/images/umbria/trasimeno/villages.jpg'
   },
   {
     name: 'Wine Tasting',
     description: 'Visit local wineries like Cantina Berioli for tastings of Umbrian wines paired with lake fish.',
     icon: Wine,
-    location: 'Various wineries'
+    location: 'Various wineries',
+    imageUrl: '/images/umbria/trasimeno/winery.jpg'
   },
   {
     name: 'Birdwatching',
     description: 'La Valle naturalistic oasis is a wetland paradise for bird enthusiasts, with hides and guided tours.',
     icon: Bird,
-    location: 'La Valle Oasis'
+    location: 'La Valle Oasis',
+    imageUrl: '/images/umbria/trasimeno/birdwatching.jpg'
   },
   {
     name: 'Music Festivals',
     description: 'The Trasimeno Music Festival and Blues Festival bring world-class performances to lakeside venues.',
     icon: Music,
-    location: 'Summer events'
+    location: 'Summer events',
+    imageUrl: '/images/umbria/trasimeno/festival.jpg'
   }
-];
-
-const accessTowns = [
-  'Passignano sul Trasimeno',
-  'Castiglione del Lago',
-  'Tuoro sul Trasimeno',
-  'Magione',
-  'San Feliciano'
 ];
 
 const categories = [
@@ -126,6 +134,47 @@ const categories = [
   { id: 'land', label: 'Land Sports', icon: Bike, activities: landActivities },
   { id: 'culture', label: 'Culture', icon: Castle, activities: cultureActivities }
 ];
+
+function ActivityCard({ activity }: { activity: Activity }) {
+  const Icon = activity.icon;
+  const [imageError, setImageError] = useState(false);
+  const showImage = activity.imageUrl && !imageError;
+
+  return (
+    <Card className="group hover:shadow-lg transition-all duration-300 border-blue-100 hover:border-blue-300 overflow-hidden">
+      {showImage && (
+        <div className="relative h-40 overflow-hidden">
+          <img
+            src={activity.imageUrl}
+            alt={activity.name}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            onError={() => setImageError(true)}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      )}
+      <CardContent className={showImage ? 'p-4' : 'p-5'}>
+        <div className="flex items-start gap-3 mb-3">
+          <div className="p-2 rounded-lg bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+            <Icon className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="font-semibold text-foreground">{activity.name}</h4>
+            {activity.location && (
+              <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
+                <MapPin className="w-3 h-3" />
+                {activity.location}
+              </p>
+            )}
+          </div>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {activity.description}
+        </p>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function UmbriaLakeTrasimeno() {
   const [activeTab, setActiveTab] = useState('water');
@@ -151,22 +200,9 @@ export default function UmbriaLakeTrasimeno() {
           </p>
         </div>
 
-        {/* Hero Image */}
-        <div className="relative rounded-xl overflow-hidden mb-10 aspect-[21/9]">
-          <img 
-            src="/images/umbria/lake-trasimeno.jpg" 
-            alt="Lake Trasimeno panoramic view with medieval village"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-            {accessTowns.map((town) => (
-              <Badge key={town} variant="secondary" className="bg-white/90 text-foreground text-xs">
-                <MapPin className="w-3 h-3 mr-1" />
-                {town}
-              </Badge>
-            ))}
-          </div>
+        {/* Interactive Map */}
+        <div className="mb-10">
+          <LakeTrasimenoMap />
         </div>
 
         {/* Tabbed Content */}
@@ -191,35 +227,9 @@ export default function UmbriaLakeTrasimeno() {
           {categories.map((cat) => (
             <TabsContent key={cat.id} value={cat.id} className="mt-0">
               <div className={`grid gap-4 ${cat.activities.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-4'}`}>
-                {cat.activities.map((activity) => {
-                  const Icon = activity.icon;
-                  return (
-                    <Card 
-                      key={activity.name} 
-                      className="group hover:shadow-lg transition-all duration-300 border-blue-100 hover:border-blue-300"
-                    >
-                      <CardContent className="p-5">
-                        <div className="flex items-start gap-3 mb-3">
-                          <div className="p-2 rounded-lg bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <Icon className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">{activity.name}</h4>
-                            {activity.location && (
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
-                                <MapPin className="w-3 h-3" />
-                                {activity.location}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {activity.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+                {cat.activities.map((activity) => (
+                  <ActivityCard key={activity.name} activity={activity} />
+                ))}
               </div>
             </TabsContent>
           ))}
@@ -233,7 +243,7 @@ export default function UmbriaLakeTrasimeno() {
             asChild
           >
             <a 
-              href="https://www.umbriatourism.it/en/lake-trasimeno" 
+              href="https://www.lagotrasimeno.net/en/" 
               target="_blank" 
               rel="noopener noreferrer"
             >
