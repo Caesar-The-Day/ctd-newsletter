@@ -42,6 +42,8 @@ import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
 import UmbriaChocolateCity from '@/components/sections/UmbriaChocolateCity';
 import UmbriaFestivalCalendar from '@/components/sections/UmbriaFestivalCalendar';
 import UmbriaNorciaTable from '@/components/sections/UmbriaNorciaTable';
+import UmbriaWineExplorer from '@/components/sections/UmbriaWineExplorer';
+import UmbriaRecipes from '@/components/sections/UmbriaRecipes';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -354,6 +356,8 @@ export default function RegionPage() {
           <UmbriaChocolateCity />
           <UmbriaFestivalCalendar />
           <UmbriaNorciaTable />
+          <UmbriaWineExplorer />
+          <UmbriaRecipes />
         </>
       )}
 
