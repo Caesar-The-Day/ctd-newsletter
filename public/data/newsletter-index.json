@@ -5,17 +5,28 @@
     "backgroundImage": "/images/shared/italy-hero-landscape.jpg"
   },
   "featured": {
-    "slug": "lombardia",
-    "title": "Lombardia",
-    "subtitle": "Where Alps Meet Elegance",
-    "issueNumber": 9,
-    "date": "December 2025",
-    "description": "Lombardia is a different Italy altogether. Cooler, wealthier, more demanding. This is not the land of tax incentives or bargain retirements — it's the industrial, financial, and logistical heart of the country. What it offers is substance: Europe-class hospitals, high-speed rail, international airports, and infrastructure that feels closer to northern Europe. For the right person, it might be the most strategic place in Italy to land.",
-    "heroImage": "/images/lombardia/lake-como-hero.jpg",
-    "ctaText": "Explore Lombardia",
-    "ctaLink": "/lombardia"
+    "slug": "umbria",
+    "title": "Umbria",
+    "subtitle": "Italy's Green Heart",
+    "issueNumber": 10,
+    "date": "January 2026",
+    "description": "Umbria is central Italy's best-kept secret. Positioned perfectly between Rome and Florence, this landlocked region offers what Tuscany used to be — affordable medieval hill towns, world-class truffles, Sagrantino wine, and a slower pace of life. No coastline means fewer tourists and more authentic Italian living.",
+    "heroImage": "/images/umbria/umbria-hero.jpg",
+    "ctaText": "Explore Umbria",
+    "ctaLink": "/umbria"
   },
   "newsletters": [
+    {
+      "slug": "umbria",
+      "title": "Umbria",
+      "issueNumber": 10,
+      "date": "January 2026",
+      "status": "live",
+      "thumbnail": "/images/umbria/umbria-hero.jpg",
+      "description": "Italy's green heart between Rome and Florence: medieval hill towns, black truffles, Sagrantino wine, and affordable central Italian living without the Tuscan price tag.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/umbria"
+    },
     {
       "slug": "lombardia",
       "title": "Lombardia",
@@ -50,15 +61,15 @@
       "ctaLink": "/piemonte"
     },
     {
-      "slug": "umbria",
-      "title": "Umbria",
-      "issueNumber": 10,
-      "date": "January 2026",
+      "slug": "veneto",
+      "title": "Veneto",
+      "issueNumber": 11,
+      "date": "February 2026",
       "status": "coming-soon",
       "thumbnail": "/images/archive/umbria-thumbnail.jpg",
-      "description": "Italy's green heart: medieval hilltop towns, spiritual retreats, and why Umbria offers authentic Italian living without the Tuscan price tag. Coming soon.",
+      "description": "From Venice's lagoon to Prosecco hills and Verona's romance: retiring in northeastern Italy's most diverse region. Coming soon.",
       "ctaText": "Coming Soon",
-      "expectedDate": "January 2026"
+      "expectedDate": "February 2026"
     }
   ],
   "archive": [
