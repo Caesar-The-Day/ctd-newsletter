@@ -239,7 +239,7 @@ const recipes: Recipe[] = [
 
 export function UmbriaRecipes() {
   const [activeCategory, setActiveCategory] = useState<'rustic' | 'refined'>('rustic');
-  const [expandedRecipe, setExpandedRecipe] = useState<string | null>(null);
+  const [expandedRecipes, setExpandedRecipes] = useState<Set<string>>(new Set());
 
   const filteredRecipes = recipes.filter(r => r.category === activeCategory);
 
@@ -263,7 +263,7 @@ export function UmbriaRecipes() {
 
         {/* Category Toggle */}
         <div className="mb-8">
-          <Tabs value={activeCategory} onValueChange={(v) => { setActiveCategory(v as 'rustic' | 'refined'); setExpandedRecipe(null); }}>
+          <Tabs value={activeCategory} onValueChange={(v) => { setActiveCategory(v as 'rustic' | 'refined'); setExpandedRecipes(new Set()); }}>
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
               <TabsTrigger value="rustic" className="flex items-center gap-2">
                 <Flame className="h-4 w-4" />
@@ -330,12 +330,22 @@ export function UmbriaRecipes() {
                 
                 {/* Expandable Full Recipe */}
                 <Collapsible 
-                  open={expandedRecipe === recipe.id}
-                  onOpenChange={() => setExpandedRecipe(expandedRecipe === recipe.id ? null : recipe.id)}
+                  open={expandedRecipes.has(recipe.id)}
+                  onOpenChange={() => {
+                    setExpandedRecipes(prev => {
+                      const next = new Set(prev);
+                      if (next.has(recipe.id)) {
+                        next.delete(recipe.id);
+                      } else {
+                        next.add(recipe.id);
+                      }
+                      return next;
+                    });
+                  }}
                 >
                   <CollapsibleTrigger asChild>
                     <Button variant="outline" className="w-full">
-                      {expandedRecipe === recipe.id ? (
+                      {expandedRecipes.has(recipe.id) ? (
                         <>
                           <ChevronUp className="h-4 w-4 mr-2" />
                           Hide Full Recipe
