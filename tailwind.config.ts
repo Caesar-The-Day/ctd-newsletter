@@ -114,13 +114,26 @@ export default {
           "100%": { transform: "translateX(200vw)" },
         },
         "kiss-burst": {
-          "0%": { transform: "scale(0) translateY(0)", opacity: "1" },
-          "50%": { transform: "scale(1.2) translateY(-20px)", opacity: "0.8" },
-          "100%": { transform: "scale(0.8) translateY(-60px)", opacity: "0" },
+          "0%": { 
+            opacity: "1",
+            transform: "translate(-50%, -50%) scale(0)"
+          },
+          "30%": { 
+            opacity: "1",
+            transform: "translate(var(--tx), var(--ty)) scale(1.3)"
+          },
+          "100%": { 
+            opacity: "0",
+            transform: "translate(calc(var(--tx) * 1.5), calc(var(--ty) - 80px)) scale(0.6)"
+          },
         },
         "foil-shimmer": {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
+        },
+        "card-unwrap": {
+          "0%": { transform: "perspective(1000px) rotateY(0deg)", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" },
+          "100%": { transform: "perspective(1000px) rotateY(-5deg)", boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.15)" },
         },
       },
       animation: {
@@ -134,8 +147,9 @@ export default {
         "olive-drift": "olive-drift 20s linear infinite",
         "wildflower-dance": "wildflower-dance 12s ease-in-out infinite",
         "slide-train": "slide-train 20s linear infinite",
-        "kiss-burst": "kiss-burst 2s ease-out forwards",
+        "kiss-burst": "kiss-burst 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
         "foil-shimmer": "foil-shimmer 1.5s linear infinite",
+        "card-unwrap": "card-unwrap 0.3s ease-out forwards",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
