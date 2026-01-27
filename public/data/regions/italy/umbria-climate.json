@@ -69,7 +69,7 @@
       "tooltip": "Light returns, almond hints",
       "narrative": "Still winter, but daylight noticeably returns. Almond trees begin to hint at spring in warmer pockets near Terni. Carnival events pop up in towns across the region, often community-scale rather than spectacle-driven.",
       "culturalEvent": "Carnevale celebrations",
-      "culturalEventUrl": "https://www.umbriatourism.it/en/-/carnevale-in-umbria",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/carnevale-sant-eraclio-event",
       "visualCue": "Early light through bare branches"
     },
     {
@@ -153,7 +153,7 @@
       "tooltip": "Peak heat, peak tradition",
       "narrative": "Peak heat and peak tradition. Ferragosto defines the rhythm. Many Italians vacation elsewhere, but Umbria paradoxically fills with visitors for village festivals, medieval pageants, and religious celebrations. Expect heat during the day, magic after dark.",
       "culturalEvent": "Ferragosto traditions",
-      "culturalEventUrl": "https://www.umbriatourism.it/en/-/ferragosto-in-umbria",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/ferragosto-in-spoleto",
       "visualCue": "Torchlit processions, starlit dinners"
     },
     {
@@ -167,7 +167,7 @@
       "tooltip": "The reward month—harvest energy",
       "narrative": "The reward month. Warm days, cooler nights, harvest energy everywhere. Grape harvest begins in wine zones like Montefalco. This is one of the strongest months for long stays and scouting trips.",
       "culturalEvent": "Vendemmia (Wine Harvest)",
-      "culturalEventUrl": "https://www.stradedelvino.umbria.it/en/",
+      "culturalEventUrl": "https://umbriahospitality.com/2025/09/the-magic-of-vendemmia-italys-grape-harvest-season-how-we-celebrate-it-in-raleigh/",
       "visualCue": "Vineyard workers, golden afternoons"
     },
     {
@@ -195,7 +195,7 @@
       "tooltip": "Quiet, authentic, affordable",
       "narrative": "Transitional and quieter. More rain, fewer tourists. Forests go bare. Town life pulls inward again. This is a realistic month, not Instagram Italy, but deeply authentic and affordable.",
       "culturalEvent": "Truffle Season",
-      "culturalEventUrl": "https://www.umbriatourism.it/en/-/truffle-season-in-umbria",
+      "culturalEventUrl": "https://www.umbrianculture.com/truffle-hunting-in-umbria/",
       "visualCue": "Bare branches, truffle markets"
     },
     {
@@ -209,7 +209,7 @@
       "tooltip": "Cold but festive",
       "narrative": "Cold but festive. Christmas markets, presepe displays, and religious events fill town centers. Snow is possible in higher elevations but not guaranteed. Evenings are cozy rather than bleak.",
       "culturalEvent": "Christmas Markets & Presepi",
-      "culturalEventUrl": "https://www.umbriatourism.it/en/-/christmas-in-umbria",
+      "culturalEventUrl": "https://www.umbriatourism.it/en/-/christmas-events-in-umbria",
       "visualCue": "Nativity scenes, warm café light"
     }
   ]
