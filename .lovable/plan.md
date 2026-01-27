@@ -1,170 +1,163 @@
 
-# Redesign: Umbria Festival Calendar Layout
 
-## Problems Identified
+# Add Lake Trasimeno Recreation Section for Umbria
 
-1. **Truncated Names**: Line 402 uses `festival.name.split(' ')[0]` which shows only the first word ("Umbria" instead of "Umbria Jazz Winter", "Sagra" for all sagre)
+## Summary
+Create a new interactive section called `UmbriaLakeTrasimeno` that showcases Lake Trasimeno as a major recreation destination. The section will highlight water activities, island exploration, outdoor sports, and cultural attractions around Italy's fourth-largest lake.
 
-2. **Count Discrepancy**: The calendar shows duplicate entries because festivals spanning multiple months (e.g., "Festival dei Due Mondi" has `monthIndices: [5, 6]`) appear in each month. This inflates the visual count vs. the actual array length.
+## Content Strategy
 
-3. **"+N more" not clickable**: Users can't access hidden festivals in months with 4+ events
+Lake Trasimeno is one of only three large lakes in central Italy, making it a significant draw for outdoorsy retirees. The section will be organized around **four activity categories**:
 
-4. **Space Constraints**: 4-column grid with small boxes can't display full names
+1. **Water Activities** - Windsurfing, kitesurfing, sailing, SUP, kayaking, swimming, beaches
+2. **Island Exploration** - Isola Maggiore (fishing village, Lace Museum) and Isola Polvese (nature/education)
+3. **Land Sports** - 58km cycling trail, hiking (Via del Trasimeno), horseback riding, golf
+4. **Culture & Leisure** - Medieval villages, wineries, birdwatching, music festivals
 
-## Solution: Redesigned Timeline Layout
+## Design Approach
 
-Replace the cramped month grid with a **vertical timeline layout** that:
-- Shows full festival names
-- Groups festivals by quarter/season
-- Eliminates duplicate counting confusion
-- Makes all festivals accessible
+Following the existing Umbria component patterns:
+- **Header badge** with lake/wave icon and "Central Italy's Hidden Lake" tagline
+- **Hero statement** emphasizing the rarity (one of only 3 large lakes in central Italy)
+- **Tabbed interface** for the four activity categories (similar to UmbriaChocolateCity)
+- **Activity cards** with icons, descriptions, and practical details
+- **Location badges** (Passignano, Castiglione del Lago, Tuoro, Magione, San Feliciano)
+- **CTA link** to official tourism website
 
-## Technical Changes
+## Technical Implementation
 
-### File: `src/components/sections/UmbriaFestivalCalendar.tsx`
+### New File: `src/components/sections/UmbriaLakeTrasimeno.tsx`
 
-**1. Replace Month Grid with Seasonal Timeline (lines 368-465)**
-
-Current cramped 4-column grid becomes a 2-column seasonal layout:
-
-```text
-+------------------+------------------+
-| WINTER           | SPRING           |
-| Jan-Mar          | Apr-Jun          |
-| - Festival 1     | - Festival 3     |
-| - Festival 2     | - Festival 4     |
-+------------------+------------------+
-| SUMMER           | AUTUMN           |
-| Jul-Sep          | Oct-Dec          |
-| - Festival 5     | - Festival 7     |
-| - Festival 6     | - Festival 8     |
-+------------------+------------------+
-```
-
-**2. Fix Festival Name Display**
-
-Remove the truncation logic:
 ```typescript
-// Before (line 402):
-{festival.name.split(' ')[0]}
+// Structure outline
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { 
+  Waves, Sailboat, Bike, Castle, MapPin, 
+  ExternalLink, Ship, TreePine, Music
+} from 'lucide-react';
 
-// After:
-{festival.name}
-```
-
-**3. Add Season Grouping Logic**
-
-Create a helper to group festivals by season:
-```typescript
-const seasons = [
-  { name: 'Winter', months: [0, 1, 2], color: 'blue' },
-  { name: 'Spring', months: [3, 4, 5], color: 'green' },
-  { name: 'Summer', months: [6, 7, 8], color: 'amber' },
-  { name: 'Autumn', months: [9, 10, 11], color: 'orange' }
+// Activity category data
+const categories = [
+  { id: 'water', label: 'Water Sports', icon: Waves },
+  { id: 'islands', label: 'Islands', icon: Ship },
+  { id: 'land', label: 'Land Sports', icon: Bike },
+  { id: 'culture', label: 'Culture', icon: Castle }
 ];
 
-const getFestivalsBySeason = (seasonMonths: number[]) => {
-  return currentFestivals.filter(f => 
-    f.monthIndices.some(idx => seasonMonths.includes(idx))
-  );
-};
+// Detailed activities per category
+const waterActivities = [
+  { name: 'Windsurfing & Kitesurfing', description: 'Shallow, windy conditions ideal for...' },
+  { name: 'SUP & Kayaking', description: 'Explore calm scenic coast...' },
+  // ... beaches, sailing, motorboats
+];
+
+// ... islands, land activities, cultural activities
 ```
 
-**4. New Seasonal Card Component**
+### Component Features
 
-Each season displays in a card with:
-- Season name header with icon
-- List of all festivals in that season (no truncation)
-- Click any festival to see details in sidebar
-- Badge showing primary month for multi-month festivals
+1. **Hero Image**: Uses existing `/images/umbria/lake-trasimeno.jpg`
+2. **Interactive Tabs**: Four category tabs with animated transitions
+3. **Activity Cards**: Grid of 3-4 activities per category with icons
+4. **Town Badges**: Quick reference to access points (Passignano, Castiglione del Lago, etc.)
+5. **External Link**: Official Umbria tourism lake page
+
+### Integration in RegionPage.tsx
+
+Add the new component to the Umbria section block (around line 356):
 
 ```tsx
-<div className="grid md:grid-cols-2 gap-4">
-  {seasons.map(season => {
-    const festivalsInSeason = getFestivalsBySeason(season.months);
-    return (
-      <Card key={season.name} className="p-4">
-        <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
-          <SeasonIcon />
-          {season.name}
-        </h4>
-        <div className="space-y-2">
-          {festivalsInSeason.map(festival => (
-            <button
-              key={festival.id}
-              onClick={() => setSelectedFestival(festival)}
-              className={`w-full text-left px-3 py-2 rounded-lg text-sm ${festival.color} 
-                ${selectedFestival?.id === festival.id ? 'ring-2 ring-primary' : ''}`}
-            >
-              <span className="font-medium">{festival.name}</span>
-              <span className="text-xs opacity-70 ml-2">{festival.month}</span>
-            </button>
-          ))}
-          {festivalsInSeason.length === 0 && (
-            <p className="text-sm text-muted-foreground italic">No events this season</p>
-          )}
-        </div>
-      </Card>
-    );
-  })}
-</div>
+{region === 'umbria' && (
+  <>
+    <UmbriaChocolateCity />
+    <UmbriaFestivalCalendar />
+    <UmbriaLakeTrasimeno />  {/* NEW - after festivals, before Norcia */}
+    <UmbriaNorciaTable />
+    <UmbriaWineExplorer />
+    <UmbriaRecipes />
+  </>
+)}
 ```
 
-**5. Keep Detail Sidebar (lines 417-463)**
+## Content Details
 
-The right-side detail panel remains unchanged - it already works well.
+### Water Activities Tab
+| Activity | Details |
+|----------|---------|
+| Windsurfing & Kitesurfing | Shallow, windy lake; schools in Passignano & Castiglione del Lago |
+| SUP & Kayaking | Calm waters perfect for beginners; scenic shoreline |
+| Sailing | Sailboat rentals; multiple marinas |
+| Beaches | Zocco Beach, Sualzo Beach, San Feliciano (Magione) |
+| Swimming | Warm shallow waters; designated swimming areas |
 
-**6. Accurate Counts**
+### Islands Tab
+| Island | Highlights |
+|--------|------------|
+| Isola Maggiore | 15th-century fishing village, Romanesque church, Lace Museum, charming walks |
+| Isola Polvese | Nature reserve, educational programs, scientific activities, hiking trails |
 
-The tab counts already show correct numbers:
-- `Major Festivals ({majorFestivals.length})` = 13
-- `Food Sagre ({foodSagre.length})` = 7
+### Land Sports Tab
+| Activity | Details |
+|----------|---------|
+| Cycling | Pista ciclabile del Trasimeno - 58km dedicated shoreline trail |
+| Hiking | La Via del Trasimeno and surrounding hill trails |
+| Horseback Riding | Equestrian tours from local stables (Asd Bv Ranch) |
+| Golf | Lamborghini Golf Club - 18-hole course near the lake |
 
-This matches the list view. The redesign eliminates visual confusion.
+### Culture Tab
+| Attraction | Description |
+|------------|-------------|
+| Medieval Villages | Castiglione del Lago (Rocca del Leone), Panicale, Città della Pieve |
+| Wine Tasting | Local wineries like Cantina Berioli |
+| Birdwatching | La Valle naturalistic oasis - wetlands wildlife |
+| Events | Trasimeno Music Festival, Blues Festival |
 
 ## Visual Layout
 
 ```text
-+-----------------------------------------------+------------------+
-|  CALENDAR VIEW                                |  DETAIL PANEL    |
-|                                               |                  |
-|  +-------------------+  +-------------------+ |  [Festival Image]|
-|  | ❄️ WINTER         |  | 🌷 SPRING         | |                  |
-|  | Jan–Mar           |  | Apr–Jun           | |  Festival Name   |
-|  |                   |  |                   | |  Location · Date |
-|  | [Umbria Jazz Win] |  | [Calendimaggio  ] | |                  |
-|  |                   |  | [Corsa dei Ceri ] | |  Description...  |
-|  |                   |  | [Infiorata      ] | |                  |
-|  |                   |  | [Chroma Festival] | |  "Why Go" quote  |
-|  |                   |  | [Perugia 1416   ] | |                  |
-|  +-------------------+  | [Spoleto        ] | |  [Website Link]  |
-|                         +-------------------+ |                  |
-|  +-------------------+  +-------------------+ |                  |
-|  | ☀️ SUMMER         |  | 🍂 AUTUMN         | |                  |
-|  | Jul–Sep           |  | Oct–Dec           | |                  |
-|  |                   |  |                   | |                  |
-|  | [Umbria Jazz Sum] |  | [Truffle Market ] | |                  |
-|  | [Trasimeno Blues] |  | [Eurochocolate  ] | |                  |
-|  | [Montelago Celtic]|  |                   | |                  |
-|  | [Festival Medioev]|  |                   | |                  |
-|  +-------------------+  +-------------------+ |                  |
-+-----------------------------------------------+------------------+
++------------------------------------------------------------------+
+|  [Wave Icon]  Central Italy's Hidden Lake                         |
+|                                                                   |
+|  Lake Trasimeno: Your Backyard Playground                         |
+|  One of only three large lakes in central Italy — and the most    |
+|  accessible for outdoor recreation, island hopping, and village   |
+|  life within Umbria.                                              |
++------------------------------------------------------------------+
+|                                                                   |
+|  [🌊 Water Sports] [🚢 Islands] [🚴 Land Sports] [🏰 Culture]      |
+|                                                                   |
++------------------------------------------------------------------+
+|                                                                   |
+|  +-------------------+  +-------------------+  +------------------+|
+|  | 🏄 Windsurfing    |  | 🚣 SUP & Kayak   |  | ⛵ Sailing       ||
+|  | Shallow windy...  |  | Calm scenic...   |  | Rentals at...   ||
+|  +-------------------+  +-------------------+  +------------------+|
+|                                                                   |
+|  +-------------------+  +-------------------+                     |
+|  | 🏖️ Beaches        |  | 🏊 Swimming       |                     |
+|  | Zocco, Sualzo...  |  | Designated...    |                     |
+|  +-------------------+  +-------------------+                     |
+|                                                                   |
+|  Access Points: [Passignano] [Castiglione] [Tuoro] [Magione]      |
+|                                                                   |
+|  [Visit Official Lake Guide →]                                    |
++------------------------------------------------------------------+
 ```
 
-## Benefits
+## Files to Create/Modify
 
-1. **Full names visible** - No more truncation
-2. **Accurate counts** - Each festival appears once per season, matching list view
-3. **All festivals accessible** - No hidden "+N more" items
-4. **Cleaner visual hierarchy** - Seasons group logically
-5. **Mobile-friendly** - Stacks to single column naturally
-6. **Click any festival** - All events are interactive buttons
+| File | Action |
+|------|--------|
+| `src/components/sections/UmbriaLakeTrasimeno.tsx` | Create new component |
+| `src/pages/RegionPage.tsx` | Add import and render in Umbria block |
 
-## Alternative: Compact Pills with Tooltip
+## Styling Notes
 
-If the user prefers keeping a month-based view, we could:
-- Use 2-letter abbreviations with full name in tooltip
-- Show festival icons instead of text
-- Add a hover popover for quick preview
+- Background gradient: `bg-gradient-to-b from-blue-50/50 to-background` (lake theme)
+- Accent color: Blue palette (`text-blue-600`, `bg-blue-100`)
+- Card hover effects consistent with other Umbria sections
+- Responsive: Grid adjusts from 3 columns to 2 to 1 on smaller screens
 
-But the seasonal redesign is recommended for clarity.
