@@ -39,6 +39,11 @@ interface InfrastructureSubsection {
   closing?: string;
 }
 
+interface AirportRoute {
+  airline: string;
+  destinations: string[];
+}
+
 interface InfrastructureSection {
   title: string;
   paragraphs?: string[];
@@ -84,6 +89,9 @@ interface HealthcareInfrastructureProps {
       mapLink?: string;
       mapUrl?: string;
       description?: string;
+      perugiaAirport?: boolean;
+      winterRoutes?: AirportRoute[];
+      summerRoutes?: AirportRoute[];
     }>;
     trains?: {
       header: string;
@@ -123,6 +131,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
   const [travelMode, setTravelMode] = useState<'withinPuglia' | 'toMajorCities'>('withinPuglia');
   const [origin, setOrigin] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
+  const [airportSeason, setAirportSeason] = useState<'winter' | 'summer'>('summer');
   
   const trains = healthcare.trains;
   const travelTime = origin && destination && trains
@@ -163,7 +172,11 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
   };
 
   const isLombardia = region === 'lombardia';
+  const isUmbria = region === 'umbria';
   const hasInfrastructure = healthcare.infrastructure;
+  
+  // Determine tab count: Lombardia = 2 (Hospitals/Infrastructure), Umbria = 2 (Hospitals/Airports), Others = 3
+  const useTwoTabs = isLombardia || isUmbria;
   
   return (
     <section className="py-16 bg-muted/30">
@@ -185,12 +198,14 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
           )}
         </div>
 
-        {/* Tabs - Lombardia gets 2 tabs, others get 3 */}
+        {/* Tabs - Lombardia gets 2 tabs (Hospitals/Infrastructure), Umbria gets 2 tabs (Hospitals/Airports), others get 3 */}
         <Tabs defaultValue="hospitals" className="mb-16">
-          <TabsList className={`grid w-full max-w-2xl mx-auto ${isLombardia ? 'grid-cols-2' : 'grid-cols-3'} mb-8`}>
+          <TabsList className={`grid w-full max-w-2xl mx-auto ${useTwoTabs ? 'grid-cols-2' : 'grid-cols-3'} mb-8`}>
             <TabsTrigger value="hospitals">Hospitals</TabsTrigger>
             {isLombardia ? (
               <TabsTrigger value="infrastructure">Infrastructure</TabsTrigger>
+            ) : isUmbria ? (
+              <TabsTrigger value="airports">Airports</TabsTrigger>
             ) : (
               <>
                 <TabsTrigger value="airports">Airports</TabsTrigger>
@@ -344,22 +359,24 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
 
           <TabsContent value="airports">
             {healthcare.airports && healthcare.airports.length > 0 && (
-              <div className="grid md:grid-cols-3 gap-6">
-                {healthcare.airports.map((airport, idx) => (
-                  <Card key={idx} className="hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <Plane className="w-8 h-8 text-primary flex-shrink-0" />
-                        <div className="flex-1">
-                          <h4 className="font-bold text-base mb-1">{airport.name}</h4>
-                          {airport.code && (
-                            <p className="text-xs text-primary font-mono mb-2">{airport.code}</p>
-                          )}
-                          {airport.description && (
-                            <p className="text-sm text-muted-foreground mb-3">{airport.description}</p>
-                          )}
-                          
-                          <div className="flex gap-2 flex-wrap">
+              <div className="space-y-6">
+                {/* Featured Perugia Airport with routes */}
+                {healthcare.airports.filter(a => a.perugiaAirport).map((airport, idx) => (
+                  <Card key={`featured-${idx}`} className="border-2 border-primary/20">
+                    <CardContent className="p-0">
+                      <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 border-b border-border">
+                        <div className="flex items-start gap-4">
+                          <Plane className="w-10 h-10 text-primary flex-shrink-0" />
+                          <div className="flex-1">
+                            <h4 className="font-bold text-xl mb-1">{airport.name}</h4>
+                            {airport.code && (
+                              <p className="text-sm text-primary font-mono mb-2">{airport.code}</p>
+                            )}
+                            {airport.description && (
+                              <p className="text-muted-foreground">{airport.description}</p>
+                            )}
+                          </div>
+                          <div className="flex gap-2 flex-shrink-0">
                             {(airport.website || airport.link) && (
                               <Button size="sm" variant="outline" asChild>
                                 <a href={airport.website || airport.link} target="_blank" rel="noopener noreferrer">
@@ -379,9 +396,102 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                           </div>
                         </div>
                       </div>
+                      
+                      {/* Seasonal Routes */}
+                      {(airport.winterRoutes || airport.summerRoutes) && (
+                        <div className="p-6">
+                          <Tabs value={airportSeason} onValueChange={(v) => setAirportSeason(v as 'winter' | 'summer')}>
+                            <TabsList className="mb-6">
+                              <TabsTrigger value="winter" className="gap-2">
+                                <span>❄️</span> Winter 2025-26
+                              </TabsTrigger>
+                              <TabsTrigger value="summer" className="gap-2">
+                                <span>☀️</span> Summer 2026
+                              </TabsTrigger>
+                            </TabsList>
+                            
+                            <TabsContent value="winter">
+                              <p className="text-sm text-muted-foreground mb-4">Oct 26 – Mar 28</p>
+                              <div className="space-y-4">
+                                {airport.winterRoutes?.map((route, routeIdx) => (
+                                  <div key={routeIdx}>
+                                    <p className="font-semibold text-foreground mb-2">{route.airline}</p>
+                                    <div className="flex flex-wrap gap-2">
+                                      {route.destinations.map((dest) => (
+                                        <Badge key={dest} variant="secondary" className="text-sm">
+                                          {dest}
+                                        </Badge>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </TabsContent>
+                            
+                            <TabsContent value="summer">
+                              <p className="text-sm text-muted-foreground mb-4">Mar 29 – Oct 24</p>
+                              <div className="space-y-4">
+                                {airport.summerRoutes?.map((route, routeIdx) => (
+                                  <div key={routeIdx}>
+                                    <p className="font-semibold text-foreground mb-2">{route.airline}</p>
+                                    <div className="flex flex-wrap gap-2">
+                                      {route.destinations.map((dest) => (
+                                        <Badge key={dest} variant="secondary" className="text-sm">
+                                          {dest}
+                                        </Badge>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </TabsContent>
+                          </Tabs>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
+                
+                {/* Other airports grid */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {healthcare.airports.filter(a => !a.perugiaAirport).map((airport, idx) => (
+                    <Card key={idx} className="hover:shadow-lg transition-shadow">
+                      <CardContent className="p-6">
+                        <div className="flex items-start gap-4">
+                          <Plane className="w-8 h-8 text-primary flex-shrink-0" />
+                          <div className="flex-1">
+                            <h4 className="font-bold text-base mb-1">{airport.name}</h4>
+                            {airport.code && (
+                              <p className="text-xs text-primary font-mono mb-2">{airport.code}</p>
+                            )}
+                            {airport.description && (
+                              <p className="text-sm text-muted-foreground mb-3">{airport.description}</p>
+                            )}
+                            
+                            <div className="flex gap-2 flex-wrap">
+                              {(airport.website || airport.link) && (
+                                <Button size="sm" variant="outline" asChild>
+                                  <a href={airport.website || airport.link} target="_blank" rel="noopener noreferrer">
+                                    <ExternalLink className="w-3 h-3 mr-1" />
+                                    Website
+                                  </a>
+                                </Button>
+                              )}
+                              {(airport.mapLink || airport.mapUrl) && (
+                                <Button size="sm" variant="outline" asChild>
+                                  <a href={airport.mapLink || airport.mapUrl} target="_blank" rel="noopener noreferrer">
+                                    <MapPin className="w-3 h-3 mr-1" />
+                                    Map
+                                  </a>
+                                </Button>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
             )}
           </TabsContent>

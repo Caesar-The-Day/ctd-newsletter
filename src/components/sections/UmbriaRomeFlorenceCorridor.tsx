@@ -1,12 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Train, Car, Plane, Building2, Clock, MapPin, ExternalLink } from 'lucide-react';
-import { MapContainer, TileLayer, CircleMarker, Polyline, Popup, Marker } from 'react-leaflet';
-import L from 'leaflet';
+import { Train, Car, Building2, MapPin } from 'lucide-react';
+import { MapContainer, TileLayer, CircleMarker, Polyline, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 // Anchor cities
 const ROME_COORDS: [number, number] = [41.9028, 12.4964];
@@ -107,47 +104,8 @@ const railSpine: [number, number][] = [
   FLORENCE_COORDS
 ];
 
-// Perugia Airport data
-const airportData = {
-  name: 'San Francesco d\'Assisi Airport',
-  code: 'PEG',
-  location: 'Perugia',
-  website: 'https://www.airport.umbria.it',
-  seasons: {
-    winter: {
-      period: 'Oct 26 – Mar 28',
-      label: 'Winter 2025-26',
-      airlines: [
-        { name: 'Ryanair', destinations: ['Cagliari', 'Catania', 'London Stansted', 'Palermo'] },
-        { name: 'Wizz Air', destinations: ['Tirana'] }
-      ]
-    },
-    summer: {
-      period: 'Mar 29 – Oct 24',
-      label: 'Summer 2026',
-      airlines: [
-        { name: 'Ryanair', destinations: ['Cagliari', 'Catania', 'London Stansted', 'Palermo', 'Barcelona (El Prat)', 'Brindisi', 'Brussels Charleroi', 'Bucharest', 'Krakow', 'Malta'] },
-        { name: 'Aeroitalia', destinations: ['Lamezia T.', 'Olbia'] },
-        { name: 'British Airways', destinations: ['London Heathrow'] },
-        { name: 'Transavia', destinations: ['Rotterdam'] },
-        { name: 'Wizz Air', destinations: ['Tirana'] },
-        { name: 'Hello Fly', destinations: ['Lampedusa', 'Pantelleria'] }
-      ]
-    }
-  }
-};
-
-// Custom anchor city icon
-const createAnchorIcon = (label: string) => L.divIcon({
-  className: 'anchor-city-marker',
-  html: `<div class="flex items-center justify-center w-10 h-10 rounded-full bg-foreground text-background font-bold text-xs shadow-lg border-2 border-background">${label}</div>`,
-  iconSize: [40, 40],
-  iconAnchor: [20, 20]
-});
-
 export default function UmbriaRomeFlorenceCorridor() {
   const [selectedTown, setSelectedTown] = useState<CorridorTown>(corridorTowns[0]);
-  const [airportSeason, setAirportSeason] = useState<'winter' | 'summer'>('summer');
 
   const getMarkerColor = (town: CorridorTown) => {
     // Color by closest capital
@@ -158,10 +116,6 @@ export default function UmbriaRomeFlorenceCorridor() {
     if (toFlorenceMinutes < toRomeMinutes) return '#7c3aed'; // Purple for Florence-closer
     return '#059669'; // Green for equidistant
   };
-
-  const totalSummerDestinations = useMemo(() => {
-    return airportData.seasons.summer.airlines.reduce((acc, airline) => acc + airline.destinations.length, 0);
-  }, []);
 
   return (
     <section className="py-16 md:py-24 bg-muted/30">
@@ -376,82 +330,6 @@ export default function UmbriaRomeFlorenceCorridor() {
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Perugia Airport Section */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-background rounded-xl border border-border shadow-sm overflow-hidden">
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 border-b border-border">
-              <div className="flex items-center gap-3 mb-2">
-                <Plane className="w-6 h-6 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">{airportData.name}</h3>
-              </div>
-              <p className="text-muted-foreground">
-                <span className="font-mono text-sm bg-muted px-2 py-0.5 rounded mr-2">{airportData.code}</span>
-                {airportData.location} • <span className="font-semibold">{totalSummerDestinations} destinations</span> in summer
-              </p>
-            </div>
-            
-            <div className="p-6">
-              <Tabs value={airportSeason} onValueChange={(v) => setAirportSeason(v as 'winter' | 'summer')}>
-                <TabsList className="mb-6">
-                  <TabsTrigger value="winter" className="gap-2">
-                    <span>❄️</span> Winter 2025-26
-                  </TabsTrigger>
-                  <TabsTrigger value="summer" className="gap-2">
-                    <span>☀️</span> Summer 2026
-                  </TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="winter">
-                  <p className="text-sm text-muted-foreground mb-4">{airportData.seasons.winter.period}</p>
-                  <div className="space-y-4">
-                    {airportData.seasons.winter.airlines.map((airline) => (
-                      <div key={airline.name}>
-                        <p className="font-semibold text-foreground mb-2">{airline.name}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {airline.destinations.map((dest) => (
-                            <Badge key={dest} variant="secondary" className="text-sm">
-                              {dest}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="summer">
-                  <p className="text-sm text-muted-foreground mb-4">{airportData.seasons.summer.period}</p>
-                  <div className="space-y-4">
-                    {airportData.seasons.summer.airlines.map((airline) => (
-                      <div key={airline.name}>
-                        <p className="font-semibold text-foreground mb-2">{airline.name}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {airline.destinations.map((dest) => (
-                            <Badge key={dest} variant="secondary" className="text-sm">
-                              {dest}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-              </Tabs>
-              
-              <div className="mt-6 pt-4 border-t border-border">
-                <a
-                  href={airportData.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
-                >
-                  Visit airport website <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Closing text */}
