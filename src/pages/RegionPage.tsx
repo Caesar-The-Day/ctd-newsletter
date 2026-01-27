@@ -215,6 +215,13 @@ export default function RegionPage() {
       keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
       ogImage: 'https://news.caesartheday.com/puglia-og-2.jpg',
       ogDescription: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
+    },
+    umbria: {
+      title: 'Retiring in Umbria | Veni. Vidi. Vici. Region Guide',
+      description: 'Discover Umbria — Italy\'s green heart between Rome and Florence. From medieval hill towns and black truffles to Sagrantino wine and affordable living, explore everything you need to retire in central Italy\'s best-kept secret.',
+      keywords: ['retire in Umbria', 'Umbria cost of living', 'central Italy retirement', 'Perugia living', 'Assisi retirement', 'Rome Florence corridor', 'Italian regions guide', 'retiring in Italy', 'Umbria wine regions'],
+      ogImage: 'https://news.caesartheday.com/images/umbria-og.jpg',
+      ogDescription: 'Italy\'s green heart — positioned between Rome and Florence. Your guide to retiring in Umbria: medieval towns, truffles, wine, and affordable central Italian living.',
     }
   };
 
