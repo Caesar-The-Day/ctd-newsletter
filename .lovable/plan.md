@@ -1,44 +1,116 @@
 
 
-# Fix San Feliciano Pin & CTA Hover Contrast
+# Use Uploaded Images for Lake Trasimeno Activities
 
 ## Summary
-Two quick fixes: correct the map pin coordinates for San Feliciano and improve the hover contrast on the Official Lake Trasimeno Guide button.
+Copy the 10 uploaded images to the project and update the activity card image paths to use local files instead of blocked external URLs.
 
-## Changes
+## Images to Copy
 
-### 1. Fix San Feliciano Coordinates
+Copy all uploaded images to `public/images/umbria/trasimeno/`:
 
-**File: `src/components/sections/LakeTrasimenoMap.tsx`**
+| Uploaded File | Destination Path | Activity |
+|---------------|------------------|----------|
+| `user-uploads://windsurfing.jpeg` | `public/images/umbria/trasimeno/windsurfing.jpeg` | Windsurfing & Kitesurfing |
+| `user-uploads://kayaking.jpg` | `public/images/umbria/trasimeno/kayaking.jpg` | SUP & Kayaking |
+| `user-uploads://sailing.jpg` | `public/images/umbria/trasimeno/sailing.jpg` | Sailing & Boating |
+| `user-uploads://beaches.jpg` | `public/images/umbria/trasimeno/beaches.jpg` | Beaches & Swimming |
+| `user-uploads://isola-maggiore.jpg` | `public/images/umbria/trasimeno/isola-maggiore.jpg` | Isola Maggiore |
+| `user-uploads://isola-polvese.jpg` | `public/images/umbria/trasimeno/isola-polvese.jpg` | Isola Polvese |
+| `user-uploads://cycling.jpeg` | `public/images/umbria/trasimeno/cycling.jpeg` | 58km Cycling Trail |
+| `user-uploads://hiking.jpeg` | `public/images/umbria/trasimeno/hiking.jpeg` | Hiking Trails |
+| `user-uploads://horseback.jpg` | `public/images/umbria/trasimeno/horseback.jpg` | Horseback Riding |
+| `user-uploads://golf.jpg` | `public/images/umbria/trasimeno/golf.jpg` | Golf |
 
-Update line 41 with the correct coordinates:
-
-| Property | Current | New |
-|----------|---------|-----|
-| coords | `[43.1081, 12.2167]` | `[43.11817653490088, 12.16777389466359]` |
-
-### 2. Fix CTA Hover Contrast
+## Code Changes
 
 **File: `src/components/sections/UmbriaLakeTrasimeno.tsx`**
 
-The current button styling on line 242:
+Update the `imageUrl` property for each activity to use local paths:
+
+### Water Activities (lines 17-36)
 ```tsx
-className="border-blue-300 text-blue-700 hover:bg-blue-50"
+const waterActivities: Activity[] = [
+  {
+    name: 'Windsurfing & Kitesurfing',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/windsurfing.jpeg'
+  },
+  {
+    name: 'SUP & Kayaking',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/kayaking.jpg'
+  },
+  {
+    name: 'Sailing & Boating',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/sailing.jpg'
+  },
+  {
+    name: 'Beaches & Swimming',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/beaches.jpg'
+  }
+];
 ```
 
-The issue is that `hover:bg-blue-50` (very light blue background) combined with `text-blue-700` creates poor contrast when hovering. The fix is to add explicit hover text color for better contrast:
-
-**Updated styling:**
+### Islands (lines 38-50)
 ```tsx
-className="border-blue-300 text-blue-700 hover:bg-blue-600 hover:text-white hover:border-blue-600"
+const islands: Activity[] = [
+  {
+    name: 'Isola Maggiore',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/isola-maggiore.jpg'
+  },
+  {
+    name: 'Isola Polvese',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/isola-polvese.jpg'
+  }
+];
 ```
 
-This changes the hover state to a solid blue background with white text, matching the active tab styling for visual consistency.
+### Land Activities (lines 52-76)
+```tsx
+const landActivities: Activity[] = [
+  {
+    name: '58km Cycling Trail',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/cycling.jpeg'
+  },
+  {
+    name: 'Hiking Trails',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/hiking.jpeg'
+  },
+  {
+    name: 'Horseback Riding',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/horseback.jpg'
+  },
+  {
+    name: 'Golf',
+    // ...
+    imageUrl: '/images/umbria/trasimeno/golf.jpg'
+  }
+];
+```
+
+### Culture Activities (lines 78-102)
+The remaining 4 activities (Medieval Villages, Wine Tasting, Birdwatching, Music Festivals) will keep the external URLs for now. Once you upload the remaining 4 images, I can update those as well.
 
 ## Files to Modify
 
-| File | Line | Change |
-|------|------|--------|
-| `src/components/sections/LakeTrasimenoMap.tsx` | 41 | Update coords to `[43.11817653490088, 12.16777389466359]` |
-| `src/components/sections/UmbriaLakeTrasimeno.tsx` | 242 | Change hover classes to `hover:bg-blue-600 hover:text-white hover:border-blue-600` |
+| Action | Path |
+|--------|------|
+| Copy | 10 images to `public/images/umbria/trasimeno/` |
+| Edit | `src/components/sections/UmbriaLakeTrasimeno.tsx` - update 10 imageUrl values |
+
+## Waiting For
+
+Please upload the remaining 4 images for the Culture tab:
+- **Villages** - Medieval villages at night
+- **Winery** - Wine tasting
+- **Birdwatching** - La Valle oasis
+- **Festival** - Music festivals
 
