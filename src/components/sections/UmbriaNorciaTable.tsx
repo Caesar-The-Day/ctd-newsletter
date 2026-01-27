@@ -3,8 +3,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { MapPin, Calendar, ChevronRight, Sparkles, Search, ExternalLink } from 'lucide-react';
-import norciaSalumiImage from '@/assets/umbria/norcia-salumi.jpg';
 import truffleHuntingImage from '@/assets/umbria/truffle-hunting.jpg';
+
+// Individual specialty images
+import prosciuttoNorciaImage from '@/assets/umbria/prosciutto-norcia.jpg';
+import capocolloImage from '@/assets/umbria/capocollo-umbro.jpg';
+import blackTruffleImage from '@/assets/umbria/black-truffle.jpg';
+import summerTruffleImage from '@/assets/umbria/summer-truffle.jpg';
+import castelluccioLentilsImage from '@/assets/umbria/castelluccio-lentils.jpg';
+import strangozziNorcinaImage from '@/assets/umbria/strangozzi-norcina.jpg';
 
 interface Specialty {
   id: string;
@@ -15,6 +22,7 @@ interface Specialty {
   season?: string;
   funFact: string;
   pairings: string[];
+  image: string;
 }
 
 const specialties: Specialty[] = [
@@ -26,7 +34,8 @@ const specialties: Specialty[] = [
     origin: 'Norcia',
     season: 'Year-round (best November–March)',
     funFact: 'Norcino (pork butcher) became a protected profession — the town literally invented the craft.',
-    pairings: ['Sagrantino wine', 'Local pecorino', 'Farro bread']
+    pairings: ['Sagrantino wine', 'Local pecorino', 'Farro bread'],
+    image: prosciuttoNorciaImage
   },
   {
     id: 'capocollo',
@@ -36,7 +45,8 @@ const specialties: Specialty[] = [
     origin: 'Norcia / Valnerina',
     season: 'Year-round',
     funFact: 'Each norcino family has a secret spice blend passed down for generations.',
-    pairings: ['Rosso di Montefalco', 'Grilled polenta']
+    pairings: ['Rosso di Montefalco', 'Grilled polenta'],
+    image: capocolloImage
   },
   {
     id: 'black-truffle',
@@ -46,7 +56,8 @@ const specialties: Specialty[] = [
     origin: 'Valnerina / Spoleto',
     season: 'November – March (peak: Dec–Feb)',
     funFact: 'Truffle dogs are so valuable they\'re often insured for €10,000+. Pigs were banned in the 1980s because they ate the truffles.',
-    pairings: ['Fresh pasta', 'Scrambled eggs', 'Risotto']
+    pairings: ['Fresh pasta', 'Scrambled eggs', 'Risotto'],
+    image: blackTruffleImage
   },
   {
     id: 'summer-truffle',
@@ -56,7 +67,8 @@ const specialties: Specialty[] = [
     origin: 'Throughout Umbria',
     season: 'May – September',
     funFact: 'At €200–400/kg (vs €2,000+ for winter black), this is how locals actually eat truffle regularly.',
-    pairings: ['Grilled steak', 'Bruschetta', 'Fresh pasta']
+    pairings: ['Grilled steak', 'Bruschetta', 'Fresh pasta'],
+    image: summerTruffleImage
   },
   {
     id: 'lenticchie',
@@ -66,7 +78,8 @@ const specialties: Specialty[] = [
     origin: 'Castelluccio di Norcia',
     season: 'Harvest: August (available year-round)',
     funFact: 'The flowering fields in June–July create Italy\'s most photographed landscape — the "fiorita."',
-    pairings: ['Cotechino sausage', 'Extra virgin olive oil', 'New Year\'s Eve tradition']
+    pairings: ['Cotechino sausage', 'Extra virgin olive oil', 'New Year\'s Eve tradition'],
+    image: castelluccioLentilsImage
   },
   {
     id: 'strangozzi',
@@ -76,7 +89,8 @@ const specialties: Specialty[] = [
     origin: 'Spoleto / Norcia',
     season: 'Year-round',
     funFact: 'Name comes from "strangle" — allegedly used by Umbrians to strangle corrupt papal tax collectors.',
-    pairings: ['Black truffle', 'Sausage ragù', 'Grated pecorino']
+    pairings: ['Black truffle', 'Sausage ragù', 'Grated pecorino'],
+    image: strangozziNorcinaImage
   }
 ];
 
@@ -143,8 +157,8 @@ export function UmbriaNorciaTable() {
               <div className="lg:col-span-2">
                 <Card className="overflow-hidden">
                   <img 
-                    src={norciaSalumiImage} 
-                    alt="Traditional Norcia salumeria" 
+                    src={selectedSpecialty.image} 
+                    alt={selectedSpecialty.name} 
                     className="w-full h-64 object-cover"
                   />
                   <CardContent className="p-6">
