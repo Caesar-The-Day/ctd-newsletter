@@ -1,5 +1,5 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -11,7 +11,6 @@ interface PublishRequest {
 }
 
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
@@ -21,7 +20,6 @@ serve(async (req) => {
 
     console.log('[publish-region] Publishing region:', slug);
 
-    // Validate required fields
     if (!slug) {
       return new Response(
         JSON.stringify({ success: false, error: 'Missing required field: slug' }),
@@ -29,9 +27,36 @@ serve(async (req) => {
       );
     }
 
+    // Create Supabase client with service role for database access
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
     const today = new Date().toISOString().split('T')[0];
 
-    // Return instructions for publishing
+    // UPDATE the regions table to set status to 'live' and lock the region
+    const { data, error } = await supabase
+      .from('regions')
+      .update({
+        status: 'live',
+        locked: true,
+        published_date: today,
+        version: '1.0',
+      })
+      .eq('slug', slug)
+      .select()
+      .single();
+
+    if (error) {
+      console.error('[publish-region] Database update failed:', error);
+      return new Response(
+        JSON.stringify({ success: false, error: error.message }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    console.log('[publish-region] Successfully published:', data);
+
     return new Response(
       JSON.stringify({
         success: true,
@@ -39,22 +64,8 @@ serve(async (req) => {
         data: {
           slug,
           publishedDate: today,
-          registryUpdate: {
-            status: 'live',
-            locked: true,
-            publishedDate: today,
-            version: '1.0'
-          },
-          newsletterUpdate: {
-            status: 'live',
-            ctaText: 'Read Now',
-            ctaLink: `/${slug}`
-          },
-          aiInstructionsUpdate: {
-            activeRegion: null,
-            addToLockedRegions: slug,
-            lastUpdated: today
-          }
+          status: 'live',
+          locked: true,
         }
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
