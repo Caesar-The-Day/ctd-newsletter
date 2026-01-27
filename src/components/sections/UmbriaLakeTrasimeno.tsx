@@ -24,28 +24,28 @@ const waterActivities: Activity[] = [
     description: 'The shallow, windy lake creates ideal conditions. Schools and rental outlets in Passignano and Castiglione del Lago.',
     icon: Waves,
     location: 'Passignano, Castiglione del Lago',
-    imageUrl: 'https://www.umbriatourism.it/documents/20126/34101/sporttrasimeno%25283%25292.jpg/cf5af464-7ab4-fb64-bd0a-72a3ea24b09b?t=1583781669478&width=1080'
+    imageUrl: '/images/umbria/trasimeno/windsurfing.jpeg'
   },
   {
     name: 'SUP & Kayaking',
     description: 'Calm, scenic waters perfect for stand-up paddleboarding and kayaking along the shoreline.',
     icon: PersonStanding,
     location: 'Multiple access points',
-    imageUrl: 'https://www.experiencetrasimeno.it/wp-content/uploads/2022/04/canoaclub-montedellago.jpg'
+    imageUrl: '/images/umbria/trasimeno/kayaking.jpg'
   },
   {
     name: 'Sailing & Boating',
     description: 'Sailboat and motorboat rentals available at multiple marinas around the lake.',
     icon: Sailboat,
     location: 'Tuoro, Passignano',
-    imageUrl: 'https://www.portodelsole.it/wp-content/uploads/2018/02/barca_vela-2.jpg'
+    imageUrl: '/images/umbria/trasimeno/sailing.jpg'
   },
   {
     name: 'Beaches & Swimming',
     description: 'Equipped beaches at Zocco Beach, Sualzo Beach, and San Feliciano. Warm shallow waters for swimming.',
     icon: Waves,
     location: 'Magione, San Feliciano',
-    imageUrl: 'https://www.italyreview.com/uploads/2/6/3/6/26365745/tuoro-sul-trasimeno-umbria-italy-1a_orig.jpg'
+    imageUrl: '/images/umbria/trasimeno/beaches.jpg'
   }
 ];
 
@@ -55,14 +55,14 @@ const islands: Activity[] = [
     description: 'Inhabited island with a charming 15th-century fishing village, Romanesque church of San Salvatore, and the famous Lace Museum.',
     icon: Ship,
     location: 'Ferry from Passignano & Tuoro',
-    imageUrl: 'https://www.bellaumbria.net/wp-content/uploads/2017/07/Lago-Trasimeno_Isola-Maggiore_dall-altro2.jpg'
+    imageUrl: '/images/umbria/trasimeno/isola-maggiore.jpg'
   },
   {
     name: 'Isola Polvese',
     description: 'The largest island, now a nature reserve focused on educational, scientific, and recreational activities with beautiful hiking trails.',
     icon: TreePine,
     location: 'Ferry from San Feliciano',
-    imageUrl: 'https://www.bellaumbria.net/wp-content/uploads/2017/06/Trasimeno_Isola-Polvese_sentiero.jpg'
+    imageUrl: '/images/umbria/trasimeno/isola-polvese.jpg'
   }
 ];
 
@@ -72,28 +72,28 @@ const landActivities: Activity[] = [
     description: 'The Pista Ciclabile del Trasimeno circles the entire lake — a dedicated, mostly flat path perfect for all skill levels.',
     icon: Bike,
     location: 'Full lake circuit',
-    imageUrl: 'https://www.umbriatourism.it/documents/20126/338198/BikeCastiglioneLago/6f8a6116-e1ae-d681-7140-a53987097e6d?width=780'
+    imageUrl: '/images/umbria/trasimeno/cycling.jpeg'
   },
   {
     name: 'Hiking Trails',
     description: 'La Via del Trasimeno and surrounding hill trails offer panoramic views of the lake and Umbrian countryside.',
     icon: Mountain,
     location: 'Various trailheads',
-    imageUrl: 'https://www.umbriatourism.it/documents/20126/342208/laviadeltrasimeno%282%29.jpg/bd0561d8-c1de-eee5-2b0f-5633b81b6558?width=1200'
+    imageUrl: '/images/umbria/trasimeno/hiking.jpeg'
   },
   {
     name: 'Horseback Riding',
     description: 'Equestrian tours through olive groves and lakeside paths. Stables like Asd Bv Ranch offer guided excursions.',
     icon: PersonStanding,
     location: 'Local stables',
-    imageUrl: 'https://www.lagotrasimeno.net/media/cache/fe_gallery_md/uploads/images/photos/6299dd39cdc32853353871.jpg'
+    imageUrl: '/images/umbria/trasimeno/horseback.jpg'
   },
   {
     name: 'Golf',
     description: 'The 18-hole Lamborghini Golf Club offers a scenic course with lake views.',
     icon: TreePine,
     location: 'Near Castiglione del Lago',
-    imageUrl: 'https://www.lagotrasimeno.net/media/cache/fe_gallery_md/uploads/images/photos/63e3a4eb4a5a3394908521.jpg'
+    imageUrl: '/images/umbria/trasimeno/golf.jpg'
   }
 ];
 
