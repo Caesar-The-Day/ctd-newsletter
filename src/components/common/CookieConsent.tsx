@@ -49,7 +49,7 @@ export function CookieConsent() {
       const path = window.location.pathname || '';
 
       // 1. REGION VIEW EVENT
-      const regionMatch = path.match(/^\/(puglia|piemonte|liguria|tuscany|abruzzo|umbria|sicily)/i);
+      const regionMatch = path.match(/^\/(puglia|piemonte|lombardia|liguria|tuscany|abruzzo|umbria|sicily)/i);
       if (regionMatch) {
         const regionName = regionMatch[1].toLowerCase();
         window.trackEvent?.('region_view', { region: regionName });

@@ -26,7 +26,11 @@
       "dest": "/api/og?path=/"
     },
     {
-      "src": "/((?!newsletters/|data/|images/|assets/|.*\\.).*)",
+      "src": "^/sitemap\\.xml$",
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/((?!newsletters/|data/|images/|assets/|sitemap\\.xml|.*\\.).*)",
       "dest": "/index.html"
     }
   ]
