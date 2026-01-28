@@ -41,10 +41,12 @@ export function SEO({
       <meta property="og:description" content={ogDescription || description} />
       <meta property="og:url" content={ogUrl || canonical} />
       <meta property="og:type" content={ogType} />
+      <meta property="og:site_name" content="Caesar the Day" />
       {ogImage && <meta property="og:image" content={ogImage} />}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@caesartheday" />
       <meta name="twitter:title" content={ogTitle || title} />
       <meta name="twitter:description" content={ogDescription || description} />
       {ogImage && <meta name="twitter:image" content={ogImage} />}
