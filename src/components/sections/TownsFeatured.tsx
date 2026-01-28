@@ -29,9 +29,10 @@ interface FeaturedTown {
 
 interface TownsFeaturedProps {
   towns: FeaturedTown[];
+  region?: string;
 }
 
-export function TownsFeatured({ towns }: TownsFeaturedProps) {
+export function TownsFeatured({ towns, region }: TownsFeaturedProps) {
   const [galleryIndices, setGalleryIndices] = useState<Record<string, number>>({});
 
   const nextImage = (townId: string, maxIndex: number) => {
@@ -54,7 +55,7 @@ export function TownsFeatured({ towns }: TownsFeaturedProps) {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Towns</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The soul of Puglia—towns that balance beauty, culture, and real life
+            The soul of {region || 'Italy'}—towns that balance beauty, culture, and real life
           </p>
         </div>
 
