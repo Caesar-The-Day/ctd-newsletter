@@ -650,7 +650,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                         
                         <TabsContent value="towns" className="mt-3 max-h-48 overflow-y-auto">
                           <div className="space-y-2">
-                            {research.towns.featured.map(town => (
+                            {(research.towns?.featured || []).map(town => (
                               <div key={town.name} className="p-2 bg-muted/50 rounded">
                                 <span className="font-medium">{town.name}</span>
                                 <span className="text-xs text-muted-foreground ml-2">— {town.bestFor}</span>
@@ -664,7 +664,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                             <div>
                               <span className="font-medium">Wine:</span>
                               <ul className="mt-1 space-y-1">
-                                {research.highlights.wine.cards.map(w => (
+                                {(research.highlights?.wine?.cards || []).map(w => (
                                   <li key={w.title} className="text-muted-foreground">{w.title}</li>
                                 ))}
                               </ul>
@@ -672,7 +672,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                             <div>
                               <span className="font-medium">Food:</span>
                               <ul className="mt-1 space-y-1">
-                                {research.highlights.food.cards.map(f => (
+                                {(research.highlights?.food?.cards || []).map(f => (
                                   <li key={f.title} className="text-muted-foreground">{f.title}</li>
                                 ))}
                               </ul>
@@ -680,7 +680,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                             <div>
                               <span className="font-medium">Culture:</span>
                               <ul className="mt-1 space-y-1">
-                                {research.highlights.culture.cards.map(c => (
+                                {(research.highlights?.culture?.cards || []).map(c => (
                                   <li key={c.title} className="text-muted-foreground">{c.title}</li>
                                 ))}
                               </ul>
@@ -689,28 +689,44 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                         </TabsContent>
                         
                         <TabsContent value="healthcare" className="mt-3 max-h-48 overflow-y-auto">
-                          <p className="text-sm text-muted-foreground mb-2">{research.healthcare.overview}</p>
+                          <p className="text-sm text-muted-foreground mb-2">{research.healthcare?.overview}</p>
                           <div className="space-y-1">
-                            {research.healthcare.mainHospitals.map(h => (
-                              <div key={h.name} className="text-sm">{h.name} ({h.city})</div>
+                            {((research.healthcare as any)?.mainHospitals || (research.healthcare as any)?.hospitals || []).map((h: any) => (
+                              <div key={h.name} className="text-sm">{h.name} ({h.city || h.location})</div>
                             ))}
                           </div>
                         </TabsContent>
                         
                         <TabsContent value="costs" className="mt-3 max-h-48 overflow-y-auto">
                           <div className="grid grid-cols-2 gap-4 text-sm">
-                            <div>
-                              <span className="font-medium">{research.costOfLiving.capitalCity.name}</span>
-                              <div className="text-muted-foreground">
-                                €{research.costOfLiving.capitalCity.monthlyBudget.modest} - €{research.costOfLiving.capitalCity.monthlyBudget.premium}/mo
+                            {research.costOfLiving?.capitalCity && (
+                              <div>
+                                <span className="font-medium">{research.costOfLiving.capitalCity.name}</span>
+                                <div className="text-muted-foreground">
+                                  €{research.costOfLiving.capitalCity.monthlyBudget?.modest} - €{research.costOfLiving.capitalCity.monthlyBudget?.premium}/mo
+                                </div>
                               </div>
-                            </div>
-                            <div>
-                              <span className="font-medium">{research.costOfLiving.smallTown.name}</span>
-                              <div className="text-muted-foreground">
-                                €{research.costOfLiving.smallTown.monthlyBudget.modest} - €{research.costOfLiving.smallTown.monthlyBudget.premium}/mo
+                            )}
+                            {research.costOfLiving?.smallTown && (
+                              <div>
+                                <span className="font-medium">{research.costOfLiving.smallTown.name}</span>
+                                <div className="text-muted-foreground">
+                                  €{research.costOfLiving.smallTown.monthlyBudget?.modest} - €{research.costOfLiving.smallTown.monthlyBudget?.premium}/mo
+                                </div>
                               </div>
-                            </div>
+                            )}
+                            {(research.costOfLiving as any)?.towns && (
+                              <div className="col-span-2 space-y-2">
+                                {((research.costOfLiving as any).towns as any[]).map((t: any) => (
+                                  <div key={t.name}>
+                                    <span className="font-medium">{t.name}</span>
+                                    <span className="text-muted-foreground ml-2">
+                                      €{t.modest?.rent ? String(Object.values(t.modest as Record<string, number>).reduce((a, b) => a + (Number(b) || 0), 0)) : '?'}/mo modest
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         </TabsContent>
                         
@@ -720,7 +736,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                               <div className="flex items-center gap-1 font-medium text-green-600 mb-1">
                                 <ThumbsUp className="h-3 w-3" /> Pros
                               </div>
-                              {research.prosCons.pros.map(p => (
+                              {(research.prosCons?.pros || []).map((p: any) => (
                                 <div key={p.title} className="text-muted-foreground">• {p.title}</div>
                               ))}
                             </div>
@@ -728,7 +744,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                               <div className="flex items-center gap-1 font-medium text-red-600 mb-1">
                                 <ThumbsDown className="h-3 w-3" /> Cons
                               </div>
-                              {research.prosCons.cons.map(c => (
+                              {(research.prosCons?.cons || []).map((c: any) => (
                                 <div key={c.title} className="text-muted-foreground">• {c.title}</div>
                               ))}
                             </div>
@@ -736,7 +752,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                         </TabsContent>
                       </Tabs>
 
-                      {research.specialComponents.suggested.length > 0 && (
+                      {(research.specialComponents?.suggested?.length ?? 0) > 0 && (
                         <Alert>
                           <Lightbulb className="h-4 w-4" />
                           <AlertDescription>
