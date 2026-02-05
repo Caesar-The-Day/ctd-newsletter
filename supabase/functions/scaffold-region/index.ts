@@ -14,7 +14,6 @@ interface ScaffoldRequest {
 }
 
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
@@ -24,7 +23,6 @@ serve(async (req) => {
 
     console.log('[scaffold-region] Scaffolding new region:', { slug, displayName, issueNumber, colorScheme });
 
-    // Validate required fields
     if (!slug || !displayName) {
       return new Response(
         JSON.stringify({ success: false, error: 'Missing required fields: slug and displayName' }),
@@ -32,7 +30,6 @@ serve(async (req) => {
       );
     }
 
-    // Validate slug format
     if (!/^[a-z0-9-]+$/.test(slug)) {
       return new Response(
         JSON.stringify({ success: false, error: 'Slug must be lowercase alphanumeric with hyphens only' }),
@@ -43,7 +40,6 @@ serve(async (req) => {
     const today = new Date().toISOString().split('T')[0];
     const currentMonth = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-    // Generate the new region entry for registry
     const newRegistryEntry = {
       status: 'draft',
       locked: false,
@@ -54,7 +50,6 @@ serve(async (req) => {
       displayName
     };
 
-    // Generate the new newsletter entry
     const newNewsletterEntry = {
       slug,
       title: displayName,
@@ -67,133 +62,16 @@ serve(async (req) => {
       ctaLink: `/${slug}`
     };
 
-    // Generate template region data
-    const regionData = {
-      _comment: `CAESAR THE DAY - ${displayName} Newsletter`,
-      _version: '1.0',
-      _status: 'draft',
-      region: {
-        slug,
-        issueNumber: issueNumber || 1,
-        date: currentMonth,
-        title: `${displayName}: Your Subtitle Here`,
-        tagline: 'Add your region tagline here',
-        hero: {
-          bannerImage: `/images/${slug}/hero.jpg`,
-          ambientAudio: `/images/${slug}/ambient.mp3`,
-          credit: `Photo: ${displayName} © CaesarTheDay`
-        },
-        intro: {
-          headline: 'Bentornati',
-          byline: '— Cesare',
-          paragraphs: [
-            `Welcome to ${displayName}! This is your introduction paragraph. Edit this to describe what makes this region special.`,
-            'Add sensory descriptions of the region - sights, sounds, and seasonal context.',
-            'Describe the character and culture - what makes this region distinct.',
-            'Explain why retirees should care - practical benefits and lifestyle fit.',
-            'Close with an invitation to explore the content that follows.'
-          ],
-          portrait: '/images/shared/cesare-boat.jpg',
-          signature: '/images/shared/cesare-signature.png'
-        }
-      },
-      where: {
-        map: {
-          center: [12.5, 42.0],
-          zoom: 7,
-          markers: [],
-          externalMapUrl: `https://maps.google.com/?q=${encodeURIComponent(displayName)}+Italy`
-        },
-        tabs: [
-          { id: 'geography', title: 'Geography', content: 'Add geography description...' },
-          { id: 'access', title: 'Getting There', content: 'Add access information...' },
-          { id: 'transport', title: 'Local Transport', content: 'Add transport details...' }
-        ]
-      },
-      towns: {
-        featured: [],
-        grid: []
-      },
-      highlights: {
-        wine: { title: 'WINE — Regional Wines', intro: 'Add wine introduction...', cards: [] },
-        food: { title: 'FOOD — Regional Cuisine', intro: 'Add food introduction...', cards: [] },
-        culture: { title: 'CULTURE — Regional Culture', intro: 'Add culture introduction...', cards: [] }
-      },
-      healthcare: {
-        intro: { headline: 'Healthcare & Infrastructure', lead: 'Add healthcare overview...' },
-        hospitals: [],
-        airports: [],
-        railways: [],
-        highways: [],
-        parks: [],
-        travelTimes: [],
-        quickInfo: {
-          emergencyNumbers: ['118 – Medical Emergency', '112 – Police', '115 – Fire'],
-          healthcare: { title: 'Register for Healthcare', description: 'Add info...', link: '#' },
-          transport: { title: 'Transport Info', description: 'Add info...', link: '#' }
-        },
-        closing: 'Add closing paragraph...'
-      },
-      costOfLiving: {
-        intro: { headline: 'Cost of Living', copy: 'Add cost overview...' },
-        townPresets: [],
-        lifestyles: [],
-        notes: []
-      },
-      prosCons: { pros: [], cons: [] },
-      closing: {
-        header: `Until Next Time from ${displayName}`,
-        subtitle: 'Share this newsletter with fellow Italy dreamers',
-        message: 'Add closing message...',
-        shareUrl: `https://caesartheday.com/${slug}`,
-        socialMessages: {
-          x: `Discover ${displayName} with Caesar the Day!`,
-          facebook: `Planning retirement in Italy? Check out ${displayName}!`,
-          linkedin: `Exploring ${displayName} for retirement - great insights here.`,
-          email: `I thought you might enjoy this guide to ${displayName}, Italy.`
-        }
-      }
-    };
+    const regionData = buildRegionTemplate(slug, displayName, issueNumber, currentMonth);
+    const climateData = buildClimateTemplate(displayName);
 
-    // Generate climate template
-    const climateData = {
-      intro: {
-        headline: `Climate Snapshot: A Year in ${displayName}`,
-        lead: `Understanding ${displayName}'s climate is essential for planning your life there.`
-      },
-      regions: {},
-      months: [
-        { name: 'January', avgHigh: 10, avgLow: 2, precipitation: 60, sunnyDays: 4 },
-        { name: 'February', avgHigh: 12, avgLow: 3, precipitation: 55, sunnyDays: 5 },
-        { name: 'March', avgHigh: 15, avgLow: 6, precipitation: 50, sunnyDays: 7 },
-        { name: 'April', avgHigh: 18, avgLow: 9, precipitation: 60, sunnyDays: 8 },
-        { name: 'May', avgHigh: 23, avgLow: 13, precipitation: 55, sunnyDays: 10 },
-        { name: 'June', avgHigh: 27, avgLow: 17, precipitation: 40, sunnyDays: 12 },
-        { name: 'July', avgHigh: 30, avgLow: 20, precipitation: 25, sunnyDays: 14 },
-        { name: 'August', avgHigh: 30, avgLow: 20, precipitation: 30, sunnyDays: 13 },
-        { name: 'September', avgHigh: 26, avgLow: 16, precipitation: 50, sunnyDays: 10 },
-        { name: 'October', avgHigh: 20, avgLow: 12, precipitation: 80, sunnyDays: 7 },
-        { name: 'November', avgHigh: 14, avgLow: 7, precipitation: 90, sunnyDays: 5 },
-        { name: 'December', avgHigh: 10, avgLow: 3, precipitation: 70, sunnyDays: 4 }
-      ]
-    };
-
-    // Updated AI instructions
     const aiInstructions = {
       activeRegion: slug,
       lockedRegions: ['piemonte', 'puglia'],
-      instruction: `CRITICAL: The following regions are LOCKED and cannot be modified: piemonte, puglia. These regions are live and published. Do NOT make any changes to their data files, components, or configurations unless explicitly unlocked. The ACTIVE region for work is: ${slug}. Focus all content work on this region only.`,
+      instruction: `CRITICAL: The following regions are LOCKED and cannot be modified: piemonte, puglia. The ACTIVE region for work is: ${slug}.`,
       lastUpdated: today
     };
 
-    console.log('[scaffold-region] Generated data structures:', {
-      registryEntry: newRegistryEntry,
-      newsletterEntry: newNewsletterEntry,
-      regionDataKeys: Object.keys(regionData),
-      climateDataKeys: Object.keys(climateData)
-    });
-
-    // Return the generated data for the frontend to handle
     return new Response(
       JSON.stringify({
         success: true,
@@ -227,3 +105,140 @@ serve(async (req) => {
     );
   }
 });
+
+/**
+ * Build a region template with correctly-shaped empty arrays and
+ * sensible defaults that won't crash any React component.
+ */
+function buildRegionTemplate(slug: string, displayName: string, issueNumber: number, currentMonth: string) {
+  return {
+    _comment: `CAESAR THE DAY - ${displayName} Newsletter`,
+    _version: '1.0',
+    _status: 'draft',
+    region: {
+      slug,
+      issueNumber: issueNumber || 1,
+      date: currentMonth,
+      title: `${displayName}: Your Subtitle Here`,
+      tagline: 'Add your region tagline here',
+      hero: {
+        bannerImage: `/images/${slug}/hero.jpg`,
+        ambientAudio: '',
+        credit: `Photo: ${displayName} © CaesarTheDay`
+      },
+      intro: {
+        headline: 'Bentornati',
+        byline: '— Cesare',
+        paragraphs: [],
+        portrait: '/images/shared/cesare-boat.jpg',
+        signature: '/images/shared/cesare-signature.png'
+      }
+    },
+    where: {
+      map: {
+        center: [42.0, 12.5] as [number, number],
+        zoom: 7,
+        markers: [],
+        externalMapUrl: `https://maps.google.com/?q=${encodeURIComponent(displayName)}+Italy`
+      },
+      tabs: [
+        { id: 'geography', title: 'Geography', content: '' },
+        { id: 'access', title: 'Getting There', content: '' },
+        { id: 'transport', title: 'Local Transport', content: '' }
+      ]
+    },
+    towns: {
+      featured: [],
+      grid: []
+    },
+    highlights: {
+      wine: { title: 'WINE — Regional Wines', intro: '', backgroundImage: '', cards: [] },
+      food: { title: 'FOOD — Regional Cuisine', intro: '', backgroundImage: '', cards: [] },
+      culture: { title: 'CULTURE — Regional Heritage', intro: '', backgroundImage: '', cards: [] }
+    },
+    wine: {
+      quiz: {
+        profiles: []
+      }
+    },
+    recipes: {
+      header: {
+        title: 'Regional Recipes',
+        subtitle: `Authentic flavours from ${displayName}`
+      },
+      cards: [],
+      modes: ['Rustic', 'Refined']
+    },
+    healthcare: {
+      intro: { headline: 'Healthcare & Infrastructure', lead: '' },
+      hospitals: [],
+      airports: [],
+      railways: [],
+      highways: [],
+      parks: [],
+      travelTimes: [],
+      quickInfo: {
+        emergencyNumbers: ['118 – Medical Emergency', '112 – Police', '115 – Fire'],
+        healthcare: { title: 'Register for Healthcare', description: 'Enroll in the SSN at your local ASL office.', link: '#' },
+        transport: { title: 'Transport Info', description: 'Regional transport information.', link: '#' }
+      },
+      closing: ''
+    },
+    costOfLiving: {
+      intro: { headline: 'Cost of Living', lead: '', realityCheck: '', whyItWorks: '' },
+      townPresets: [],
+      lifestyles: ['Modest', 'Average', 'High-End'],
+      notes: {
+        reference: 'Estimates based on 2025 data for a retired couple.',
+        sources: ['Numbeo', 'ISTAT', 'Local expat communities'],
+        links: {}
+      }
+    },
+    prosCons: {
+      intro: { headline: '', lead: '', tradeoff: '' },
+      pros: [],
+      cons: [],
+      finalTake: { headline: '', text: '', conclusion: '' }
+    },
+    closing: {
+      header: `Until Next Time from ${displayName}`,
+      subtitle: 'Share this newsletter with fellow Italy dreamers',
+      message: `That's a wrap on ${displayName}. Until next time — Cesare`,
+      shareUrl: `https://news.caesartheday.com/${slug}`,
+      socialMessages: {
+        facebook: `Discover ${displayName} with Caesar the Day!`,
+        threads: `Exploring ${displayName} for retirement.`,
+        bluesky: `Check out this deep dive into ${displayName}, Italy 🇮🇹`,
+        whatsapp: `I thought you'd enjoy this guide to ${displayName}, Italy.`,
+        pinterest: {
+          title: `${displayName} Retirement Guide`,
+          description: `Everything you need to know about retiring in ${displayName}, Italy.`
+        }
+      }
+    }
+  };
+}
+
+function buildClimateTemplate(displayName: string) {
+  return {
+    intro: {
+      headline: `Climate Snapshot: A Year in ${displayName}`,
+      lead: `Understanding ${displayName}'s climate is essential for planning your life there.`
+    },
+    regions: {},
+    months: [
+      { name: 'January', avgHigh: 10, avgLow: 2, precipitation: 60, sunnyDays: 4 },
+      { name: 'February', avgHigh: 12, avgLow: 3, precipitation: 55, sunnyDays: 5 },
+      { name: 'March', avgHigh: 15, avgLow: 6, precipitation: 50, sunnyDays: 7 },
+      { name: 'April', avgHigh: 18, avgLow: 9, precipitation: 60, sunnyDays: 8 },
+      { name: 'May', avgHigh: 23, avgLow: 13, precipitation: 55, sunnyDays: 10 },
+      { name: 'June', avgHigh: 27, avgLow: 17, precipitation: 40, sunnyDays: 12 },
+      { name: 'July', avgHigh: 30, avgLow: 20, precipitation: 25, sunnyDays: 14 },
+      { name: 'August', avgHigh: 30, avgLow: 20, precipitation: 30, sunnyDays: 13 },
+      { name: 'September', avgHigh: 26, avgLow: 16, precipitation: 50, sunnyDays: 10 },
+      { name: 'October', avgHigh: 20, avgLow: 12, precipitation: 80, sunnyDays: 7 },
+      { name: 'November', avgHigh: 14, avgLow: 7, precipitation: 90, sunnyDays: 5 },
+      { name: 'December', avgHigh: 10, avgLow: 3, precipitation: 70, sunnyDays: 4 }
+    ]
+  };
+}

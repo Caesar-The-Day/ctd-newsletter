@@ -12,6 +12,7 @@ import {
   clearPendingOperations,
   archiveRegion
 } from '@/utils/regionManagement';
+import { mergeResearchIntoRegionData } from '@/utils/mergeResearchData';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -143,75 +144,18 @@ export default function AdminRegions() {
     });
 
     if (result.success && result.data) {
-      // Merge AI research into the scaffolded region data if available
-      let finalRegionData = result.data.regionData as Record<string, any>;
-      if (wizardData.research) {
-        const r = wizardData.research;
-        const region = finalRegionData.region || {};
-        const where = finalRegionData.where || {};
-        
-        finalRegionData = {
-          ...finalRegionData,
-          region: {
-            ...region,
-            title: r.region?.title || region.title,
-            tagline: r.region?.tagline || region.tagline,
-            intro: {
-              ...(region.intro || {}),
-              headline: r.editorialIntro?.headline || region.intro?.headline,
-              paragraphs: r.editorialIntro?.paragraphs || region.intro?.paragraphs,
-            },
-            hero: {
-              ...(region.hero || {}),
-              bannerImage: wizardData.generatedImages?.hero || region.hero?.bannerImage,
-            }
-          },
-          where: {
-            ...where,
-            map: {
-              ...(where.map || {}),
-              // CRITICAL: Leaflet uses [lat, lng] order (opposite of GeoJSON [lng, lat])
-              center: r.region?.coordinates 
-                ? [r.region.coordinates.lat, r.region.coordinates.lng] 
-                : where.map?.center,
-              markers: [
-                ...(r.towns?.featured?.map((town: any) => ({
-                  id: town.name.toLowerCase().replace(/\s+/g, '-'),
-                  name: town.name,
-                  // CRITICAL: Leaflet [lat, lng] order
-                  coords: [town.coordinates.lat, town.coordinates.lng],
-                  photo: `/images/${wizardData.slug}/${town.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
-                  blurb: town.summary || town.fullDescription?.substring(0, 150),
-                  type: 'anchor',
-                })) || []),
-                ...(r.towns?.grid?.map((town: any) => ({
-                  id: town.name.toLowerCase().replace(/\s+/g, '-'),
-                  name: town.name,
-                  // CRITICAL: Leaflet [lat, lng] order
-                  coords: [town.coordinates.lat, town.coordinates.lng],
-                  photo: `/images/${wizardData.slug}/${town.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
-                  blurb: town.blurb,
-                  type: 'secondary',
-                })) || []),
-              ],
-            }
-          },
-          towns: r.towns || finalRegionData.towns,
-          highlights: r.highlights || finalRegionData.highlights,
-          healthcare: r.healthcare ? {
-            ...(finalRegionData.healthcare || {}),
-            intro: { headline: 'Healthcare & Infrastructure', lead: r.healthcare.overview },
-            hospitals: r.healthcare.mainHospitals?.map((h: any) => ({ name: h.name, location: h.city, type: h.type })) || [],
-          } : finalRegionData.healthcare,
-          costOfLiving: r.costOfLiving ? {
-            ...(finalRegionData.costOfLiving || {}),
-            intro: { headline: 'Cost of Living', copy: r.costOfLiving.overview },
-            townPresets: [
-              { town: r.costOfLiving.capitalCity?.name, ...r.costOfLiving.capitalCity?.monthlyBudget },
-              { town: r.costOfLiving.smallTown?.name, ...r.costOfLiving.smallTown?.monthlyBudget },
-            ].filter((t: any) => t.town),
-          } : finalRegionData.costOfLiving,
-          prosCons: r.prosCons || finalRegionData.prosCons,
+      // Use the dedicated merge utility to transform AI research into component-ready shapes
+      const finalRegionData = mergeResearchIntoRegionData(
+        result.data.regionData as Record<string, any>,
+        wizardData
+      );
+
+      // Merge AI climate data if available
+      let finalClimateData = result.data.climateData;
+      if (wizardData.research?.climate?.cities?.[0]?.months) {
+        finalClimateData = {
+          ...finalClimateData,
+          months: wizardData.research.climate.cities[0].months,
         };
       }
 
@@ -224,12 +168,8 @@ export default function AdminRegions() {
         version: result.data.registryEntry.version,
         color_scheme: result.data.registryEntry.colorScheme,
         issue_number: wizardData.issueNumber,
-        region_data: JSON.parse(JSON.stringify({
-          ...finalRegionData,
-          // CRITICAL: Store AI-generated theme for dynamic CSS injection in RegionPage
-          generatedTheme: wizardData.generatedTheme,
-        })),
-        climate_data: JSON.parse(JSON.stringify(result.data.climateData)),
+        region_data: JSON.parse(JSON.stringify(finalRegionData)),
+        climate_data: JSON.parse(JSON.stringify(finalClimateData)),
       };
       const { error: dbError } = await supabase.from('regions').insert([insertData]).select();
 
