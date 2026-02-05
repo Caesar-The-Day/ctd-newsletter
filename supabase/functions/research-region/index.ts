@@ -231,11 +231,12 @@ Remember: All data must be REAL and VERIFIABLE. No made-up towns, wines, or attr
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.5-pro', // Use Pro for research quality
+        model: 'google/gemini-2.5-pro',
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
         ],
+        response_format: { type: 'json_object' },
       }),
     });
 
@@ -271,14 +272,19 @@ Remember: All data must be REAL and VERIFIABLE. No made-up towns, wines, or attr
     // Parse the JSON from the AI response
     let research;
     try {
-      const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+      // Strip markdown code fences if present (e.g. ```json ... ```)
+      let cleaned = aiResponse.trim();
+      cleaned = cleaned.replace(/^```(?:json)?\s*\n?/i, '').replace(/\n?```\s*$/i, '');
+      
+      const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
       if (!jsonMatch) {
         throw new Error('No JSON found in AI response');
       }
       research = JSON.parse(jsonMatch[0]);
     } catch (parseError) {
       console.error('[research-region] Failed to parse AI response:', parseError);
-      console.error('[research-region] Raw response:', aiResponse.substring(0, 500));
+      console.error('[research-region] Raw response (first 500):', aiResponse.substring(0, 500));
+      console.error('[research-region] Raw response (last 200):', aiResponse.substring(aiResponse.length - 200));
       throw new Error('Failed to parse research from AI response');
     }
 
