@@ -1,6 +1,4 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -24,7 +22,6 @@ interface ImageRequest {
 interface GeneratedImage {
   type: 'hero' | 'spring' | 'summer' | 'autumn' | 'winter' | 'town';
   name?: string;
-  base64: string;
   storagePath: string;
 }
 
@@ -57,20 +54,18 @@ serve(async (req) => {
       throw new Error('LOVABLE_API_KEY is not configured');
     }
 
-    // Initialize Supabase client for storage
+    // Use Supabase REST API directly for storage (avoids heavy SDK import)
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-    const supabase = createClient(supabaseUrl, supabaseKey);
 
     const generatedImages: GeneratedImage[] = [];
     const errors: string[] = [];
 
-    // Helper function to generate a single image
-    async function generateImage(prompt: string, dimensions: { width: number; height: number }): Promise<string | null> {
+    // Helper: generate a single image via AI
+    async function generateImage(prompt: string): Promise<string | null> {
       try {
         const enhancedPrompt = `${prompt}. Ultra high resolution, professional photography quality, cinematic lighting, 16:9 aspect ratio.`;
-        
-        console.log('[generate-region-images] Generating image with prompt:', enhancedPrompt.substring(0, 100));
+        console.log('[generate-region-images] Generating image:', enhancedPrompt.substring(0, 100));
         
         const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
           method: 'POST',
@@ -92,13 +87,11 @@ serve(async (req) => {
 
         const data = await response.json();
         const imageUrl = data.choices?.[0]?.message?.images?.[0]?.image_url?.url;
-        
         if (!imageUrl) {
           console.error('[generate-region-images] No image in response');
           return null;
         }
 
-        // Extract base64 from data URL
         const base64Match = imageUrl.match(/base64,(.+)/);
         return base64Match ? base64Match[1] : null;
       } catch (error) {
@@ -107,87 +100,67 @@ serve(async (req) => {
       }
     }
 
-    // Helper to upload image to storage
+    // Helper: upload image to Supabase storage via REST API
     async function uploadToStorage(base64: string, path: string): Promise<string | null> {
       try {
-        // Decode base64 to binary
         const binaryStr = atob(base64);
         const bytes = new Uint8Array(binaryStr.length);
         for (let i = 0; i < binaryStr.length; i++) {
           bytes[i] = binaryStr.charCodeAt(i);
         }
 
-        // Check if bucket exists, create if not
-        const { data: buckets } = await supabase.storage.listBuckets();
-        const bucketExists = buckets?.some(b => b.name === 'region-images');
-        
-        if (!bucketExists) {
-          await supabase.storage.createBucket('region-images', { public: true });
-        }
+        // Upload via REST API
+        const uploadUrl = `${supabaseUrl}/storage/v1/object/region-images/${path}`;
+        const res = await fetch(uploadUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Content-Type': 'image/png',
+            'x-upsert': 'true',
+          },
+          body: bytes,
+        });
 
-        // Upload to storage
-        const { data, error } = await supabase.storage
-          .from('region-images')
-          .upload(path, bytes, {
-            contentType: 'image/png',
-            upsert: true
-          });
-
-        if (error) {
-          console.error('[generate-region-images] Storage upload error:', error);
+        if (!res.ok) {
+          const errText = await res.text();
+          console.error('[generate-region-images] Storage upload error:', errText);
           return null;
         }
 
-        // Get public URL
-        const { data: urlData } = supabase.storage
-          .from('region-images')
-          .getPublicUrl(path);
-
-        return urlData.publicUrl;
+        return `${supabaseUrl}/storage/v1/object/public/region-images/${path}`;
       } catch (error) {
         console.error('[generate-region-images] Upload error:', error);
         return null;
       }
     }
 
-    // Generate hero image (priority)
+    // Generate hero image
     console.log('[generate-region-images] Generating hero image...');
-    const heroBase64 = await generateImage(heroPrompt, { width: 1920, height: 1080 });
+    const heroBase64 = await generateImage(heroPrompt);
     
     if (heroBase64) {
       const heroPath = `${regionSlug}/hero.png`;
       const heroUrl = await uploadToStorage(heroBase64, heroPath);
-      
       if (heroUrl) {
-        generatedImages.push({
-          type: 'hero',
-          base64: heroBase64.substring(0, 50) + '...', // Truncate for response
-          storagePath: heroUrl
-        });
+        generatedImages.push({ type: 'hero', storagePath: heroUrl });
         console.log('[generate-region-images] Hero image uploaded:', heroUrl);
       }
     } else {
       errors.push('Failed to generate hero image');
     }
 
-    // Generate seasonal backgrounds if prompts provided
+    // Generate seasonal backgrounds
     const seasons = ['spring', 'summer', 'autumn', 'winter'] as const;
     for (const season of seasons) {
       const prompt = seasonalPrompts[season];
       if (prompt) {
         console.log(`[generate-region-images] Generating ${season} background...`);
-        const base64 = await generateImage(prompt, { width: 1920, height: 1080 });
-        
+        const base64 = await generateImage(prompt);
         if (base64) {
           const path = `${regionSlug}/seasonal-backgrounds/${season}-landscape.png`;
           const url = await uploadToStorage(base64, path);
-          
           if (url) {
-            generatedImages.push({
-              type: season,
-              base64: base64.substring(0, 50) + '...',
-              storagePath: url
-            });
+            generatedImages.push({ type: season, storagePath: url });
             console.log(`[generate-region-images] ${season} image uploaded:`, url);
           }
         } else {
@@ -196,26 +169,18 @@ serve(async (req) => {
       }
     }
 
-    // Generate town thumbnails if requested
+    // Generate town thumbnails
     if (generateTownThumbnails && towns.length > 0) {
-      for (const town of towns.slice(0, 3)) { // Limit to 3 for speed
+      for (const town of towns.slice(0, 3)) {
         const townPrompt = town.prompt || `Beautiful aerial view of ${town.name}, Italy, showing historic center, Italian architecture, warm Mediterranean light`;
         console.log(`[generate-region-images] Generating thumbnail for ${town.name}...`);
-        
-        const base64 = await generateImage(townPrompt, { width: 800, height: 600 });
-        
+        const base64 = await generateImage(townPrompt);
         if (base64) {
           const slug = town.name.toLowerCase().replace(/\s+/g, '-');
           const path = `${regionSlug}/towns/${slug}.png`;
           const url = await uploadToStorage(base64, path);
-          
           if (url) {
-            generatedImages.push({
-              type: 'town',
-              name: town.name,
-              base64: base64.substring(0, 50) + '...',
-              storagePath: url
-            });
+            generatedImages.push({ type: 'town', name: town.name, storagePath: url });
             console.log(`[generate-region-images] Town image for ${town.name} uploaded:`, url);
           }
         } else {
