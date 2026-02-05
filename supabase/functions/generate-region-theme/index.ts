@@ -118,6 +118,7 @@ Create a cohesive color palette that captures this region's unique character.`;
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
         ],
+        response_format: { type: 'json_object' },
       }),
     });
 
@@ -153,14 +154,19 @@ Create a cohesive color palette that captures this region's unique character.`;
     // Parse the JSON from the AI response
     let generatedTheme: GeneratedTheme;
     try {
-      // Try to extract JSON from the response (might be wrapped in markdown code blocks)
-      const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+      // Strip markdown code fences if present (e.g. ```json ... ```)
+      let cleaned = aiResponse.trim();
+      cleaned = cleaned.replace(/^```(?:json)?\s*\n?/i, '').replace(/\n?```\s*$/i, '');
+
+      const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
       if (!jsonMatch) {
         throw new Error('No JSON found in AI response');
       }
       generatedTheme = JSON.parse(jsonMatch[0]);
     } catch (parseError) {
       console.error('[generate-region-theme] Failed to parse AI response:', parseError);
+      console.error('[generate-region-theme] Raw response (first 500):', aiResponse.substring(0, 500));
+      console.error('[generate-region-theme] Raw response (last 200):', aiResponse.substring(aiResponse.length - 200));
       throw new Error('Failed to parse theme from AI response');
     }
 
