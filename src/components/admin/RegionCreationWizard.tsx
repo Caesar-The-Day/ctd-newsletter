@@ -10,10 +10,11 @@ import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { 
   Loader2, Sparkles, Check, ArrowRight, ArrowLeft, Palette, Calendar, MapPin, 
   Wand2, Image, FileText, Wine, UtensilsCrossed, Church, Building2, 
-  ThumbsUp, ThumbsDown, Lightbulb, RefreshCw
+  ThumbsUp, ThumbsDown, Lightbulb, RefreshCw, ChevronDown
 } from 'lucide-react';
 import { ThemePreview } from './ThemePreview';
 import { SectionSelector } from './SectionSelector';
@@ -194,9 +195,13 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
 
   // Step 3: Theme
   const [generatedTheme, setGeneratedTheme] = useState<GeneratedTheme | null>(null);
+  const [originalAiTheme, setOriginalAiTheme] = useState<GeneratedTheme | null>(null);
 
   // Step 4: Images
   const [generatedImages, setGeneratedImages] = useState<GeneratedImages | null>(null);
+  const [heroImagePrompt, setHeroImagePrompt] = useState('');
+  const [seasonalImagePrompts, setSeasonalImagePrompts] = useState<{ spring: string; summer: string; autumn: string; winter: string }>({ spring: '', summer: '', autumn: '', winter: '' });
+  const [seasonalPromptsOpen, setSeasonalPromptsOpen] = useState(false);
 
   // Step 5: Sections
   const [enabledSections, setEnabledSections] = useState<string[]>(
@@ -215,7 +220,11 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
       setFocusAreas([]);
       setResearch(null);
       setGeneratedTheme(null);
+      setOriginalAiTheme(null);
       setGeneratedImages(null);
+      setHeroImagePrompt('');
+      setSeasonalImagePrompts({ spring: '', summer: '', autumn: '', winter: '' });
+      setSeasonalPromptsOpen(false);
       setEnabledSections(ALL_SECTIONS.filter(s => s.default).map(s => s.id));
       setResearchProgress(0);
       setImageProgress(0);
@@ -282,6 +291,19 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
           setVibeDescription(autoVibe);
         }
 
+        // Auto-populate image prompts from research if currently empty
+        if (!heroImagePrompt && data.research.heroImagePrompt) {
+          setHeroImagePrompt(data.research.heroImagePrompt);
+        }
+        if (data.research.seasonalImagePrompts) {
+          setSeasonalImagePrompts(prev => ({
+            spring: prev.spring || data.research.seasonalImagePrompts?.spring || '',
+            summer: prev.summer || data.research.seasonalImagePrompts?.summer || '',
+            autumn: prev.autumn || data.research.seasonalImagePrompts?.autumn || '',
+            winter: prev.winter || data.research.seasonalImagePrompts?.winter || '',
+          }));
+        }
+
         toast({
           title: 'Research complete!',
           description: `AI has analyzed ${regionName} and generated comprehensive content.`,
@@ -319,6 +341,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
 
       if (data?.success && data?.theme) {
         setGeneratedTheme(data.theme);
+        setOriginalAiTheme(data.theme);
         
         // Auto-apply AI section suggestions
         if (data.theme.suggestedSections?.length > 0) {
@@ -342,8 +365,8 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
 
   // Step 4: Generate images
   const handleGenerateImages = async () => {
-    if (!research?.heroImagePrompt) {
-      toast({ title: 'Research first', description: 'Please complete the research step first.', variant: 'destructive' });
+    if (!heroImagePrompt.trim()) {
+      toast({ title: 'Missing hero prompt', description: 'Please enter a hero image prompt.', variant: 'destructive' });
       return;
     }
 
@@ -359,10 +382,10 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
         body: {
           regionSlug: slug,
           regionName,
-          heroPrompt: research.heroImagePrompt,
-          seasonalPrompts: research.seasonalImagePrompts,
-          generateTownThumbnails: true,
-          towns: research.towns.featured.map(t => ({ name: t.name }))
+          heroPrompt: heroImagePrompt,
+          seasonalPrompts: seasonalImagePrompts,
+          generateTownThumbnails: !!research?.towns?.featured?.length,
+          towns: research?.towns?.featured?.map(t => ({ name: t.name })) || []
         }
       });
 
@@ -778,7 +801,12 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                 </Button>
 
                 {generatedTheme && (
-                  <ThemePreview theme={generatedTheme} regionName={regionName} />
+                  <ThemePreview
+                    theme={generatedTheme}
+                    regionName={regionName}
+                    onThemeChange={setGeneratedTheme}
+                    originalTheme={originalAiTheme}
+                  />
                 )}
               </div>
             </div>
@@ -791,18 +819,57 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
                 <Image className="h-6 w-6 text-primary" />
                 <div>
                   <h3 className="font-semibold">Visual Assets</h3>
-                  <p className="text-sm text-muted-foreground">Auto-generate hero and seasonal images</p>
+                  <p className="text-sm text-muted-foreground">Write or edit prompts, then generate images</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                {research?.heroImagePrompt && (
-                  <Alert>
-                    <AlertDescription>
-                      <strong>Hero prompt:</strong> {research.heroImagePrompt.substring(0, 150)}...
-                    </AlertDescription>
-                  </Alert>
-                )}
+                {/* Hero image prompt */}
+                <div className="space-y-2">
+                  <Label htmlFor="heroImagePrompt">Hero Image Prompt *</Label>
+                  <Textarea
+                    id="heroImagePrompt"
+                    placeholder="Describe the hero banner image, e.g. 'Panoramic view of rolling Umbrian hills at golden hour, with medieval hilltop towns and cypress trees...'"
+                    value={heroImagePrompt}
+                    onChange={(e) => setHeroImagePrompt(e.target.value)}
+                    className="min-h-[80px]"
+                  />
+                  {research?.heroImagePrompt && heroImagePrompt !== research.heroImagePrompt && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-xs"
+                      onClick={() => setHeroImagePrompt(research.heroImagePrompt)}
+                    >
+                      Reset to AI-suggested prompt
+                    </Button>
+                  )}
+                </div>
+
+                {/* Seasonal prompts (collapsible) */}
+                <Collapsible open={seasonalPromptsOpen} onOpenChange={setSeasonalPromptsOpen}>
+                  <CollapsibleTrigger asChild>
+                    <Button variant="ghost" size="sm" className="w-full justify-between text-sm">
+                      Seasonal Background Prompts (optional)
+                      <ChevronDown className={`h-4 w-4 transition-transform ${seasonalPromptsOpen ? 'rotate-180' : ''}`} />
+                    </Button>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="space-y-3 pt-2">
+                    {(['spring', 'summer', 'autumn', 'winter'] as const).map((season) => (
+                      <div key={season} className="space-y-1">
+                        <Label className="text-xs capitalize">{season}</Label>
+                        <Textarea
+                          placeholder={`Describe the ${season} landscape for ${regionName}...`}
+                          value={seasonalImagePrompts[season]}
+                          onChange={(e) =>
+                            setSeasonalImagePrompts((prev) => ({ ...prev, [season]: e.target.value }))
+                          }
+                          className="min-h-[60px] text-sm"
+                        />
+                      </div>
+                    ))}
+                  </CollapsibleContent>
+                </Collapsible>
 
                 {isGeneratingImages && (
                   <div className="space-y-2">
@@ -819,7 +886,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
 
                 <Button
                   onClick={handleGenerateImages}
-                  disabled={isGeneratingImages || !research}
+                  disabled={isGeneratingImages || !heroImagePrompt.trim()}
                   className="w-full"
                   variant={generatedImages ? 'outline' : 'default'}
                   size="lg"
