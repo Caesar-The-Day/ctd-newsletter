@@ -1,0 +1,216 @@
+{
+  "intro": {
+    "headline": "Four Climates, One Region",
+    "tagline": "Sea, Valley, Foothills, Alps — All Within an Hour",
+    "paragraphs": [
+      "Veneto doesn't have a climate. It has four. Cortina d'Ampezzo sits at 1,224 meters in the Dolomites, where January mornings hit -8°C and ski season runs five months. Jesolo, two hours south, is a sun-bleached Adriatic beach town where the same January morning is a mild 9°C walk along the shore.",
+      "Between them: the Po Valley — Padua, Treviso, Vicenza — where fog rolls in November and doesn't fully lift until March, but summer evenings are warm, sociable, and endlessly long. And Verona, sheltered by Lake Garda's microclimate, sits a few degrees warmer than its valley neighbors year-round.",
+      "This isn't a region you experience in one note. It's a region you tune to your preference — altitude by altitude, season by season."
+    ],
+    "hoverQuote": "In Veneto, you don't check the weather. You choose your altitude.",
+    "ctaText": "Slide through the seasons and feel what life is actually like, month by month."
+  },
+  "regions": {
+    "cortina": {
+      "name": "Cortina d'Ampezzo",
+      "type": "alpine",
+      "palette": "alpine"
+    },
+    "jesolo": {
+      "name": "Jesolo",
+      "type": "coastal",
+      "palette": "coastal"
+    },
+    "padua": {
+      "name": "Padua",
+      "type": "city",
+      "palette": "urban"
+    },
+    "verona": {
+      "name": "Verona",
+      "type": "lakeside",
+      "palette": "lakeside"
+    }
+  },
+  "months": [
+    {
+      "month": "January",
+      "index": 0,
+      "season": "winter",
+      "cortina": { "tempLow": -8, "tempHigh": 2, "rainfall": 55, "sunHours": 4, "lightQuality": "Alpine glare off fresh snow" },
+      "jesolo": { "tempLow": 2, "tempHigh": 9, "rainfall": 50, "sunHours": 4, "lightQuality": "Flat grey, occasional Adriatic silver" },
+      "padua": { "tempLow": -1, "tempHigh": 7, "rainfall": 60, "sunHours": 3, "lightQuality": "Foggy diffusion, streetlamp halos" },
+      "verona": { "tempLow": 0, "tempHigh": 8, "rainfall": 50, "sunHours": 3, "lightQuality": "Misty morning, crisp afternoon breaks" },
+      "tooltip": "Cozy. Alpine. Fireplace energy.",
+      "narrative": "Ski season in full swing in Cortina d'Ampezzo and the Dolomiti Bellunesi. Post-holiday quiet in Venice — locals reclaim their city. Saldi (winter sales) across the region. Prosecco country dinners: hearty, truffle-heavy menus.",
+      "culturalEvent": "Ski season peaks in Cortina d'Ampezzo",
+      "culturalEventUrl": "https://www.dolomitisuperski.com/en",
+      "visualCue": "Snow-capped Dolomites, fog sitting in the valley below"
+    },
+    {
+      "month": "February",
+      "index": 1,
+      "season": "winter",
+      "cortina": { "tempLow": -7, "tempHigh": 3, "rainfall": 45, "sunHours": 5, "lightQuality": "Blinding snow reflections at altitude" },
+      "jesolo": { "tempLow": 3, "tempHigh": 10, "rainfall": 45, "sunHours": 5, "lightQuality": "Pale coastal light, lengthening days" },
+      "padua": { "tempLow": 0, "tempHigh": 9, "rainfall": 50, "sunHours": 4, "lightQuality": "Still foggy, but hints of warmth" },
+      "verona": { "tempLow": 1, "tempHigh": 10, "rainfall": 45, "sunHours": 4, "lightQuality": "Theatrical winter light through arena arches" },
+      "tooltip": "Dramatic. Theatrical. Photogenic chaos.",
+      "narrative": "🎭 Carnevale di Venezia — masked balls, regattas, costumed parades. Carnevale in Verona and small-town parades across the mainland. Peak ski season continues. Opera winter programming at Teatro La Fenice.",
+      "culturalEvent": "Carnevale di Venezia",
+      "culturalEventUrl": "https://www.carnevale.venezia.it/en/",
+      "visualCue": "Masked figures in mist on the Grand Canal"
+    },
+    {
+      "month": "March",
+      "index": 2,
+      "season": "spring",
+      "cortina": { "tempLow": -4, "tempHigh": 6, "rainfall": 50, "sunHours": 6, "lightQuality": "Spring snow melt, sharper shadows" },
+      "jesolo": { "tempLow": 5, "tempHigh": 13, "rainfall": 55, "sunHours": 6, "lightQuality": "Brightening coast, sea turning turquoise" },
+      "padua": { "tempLow": 4, "tempHigh": 14, "rainfall": 60, "sunHours": 5, "lightQuality": "Fog lifting, first clear mornings" },
+      "verona": { "tempLow": 5, "tempHigh": 15, "rainfall": 55, "sunHours": 6, "lightQuality": "Warming stone walls, early café terrace light" },
+      "tooltip": "Quiet reset. Locals emerging.",
+      "narrative": "First vineyard pruning in Valpolicella. Early spring markets in Padua and Vicenza. Easter markets and religious processions (dates vary). Fewer tourists, rising light levels.",
+      "culturalEvent": "Vineyard pruning in Valpolicella",
+      "culturalEventUrl": "https://www.visitvalpolicella.it/en/",
+      "visualCue": "Budding vines against limestone walls"
+    },
+    {
+      "month": "April",
+      "index": 3,
+      "season": "spring",
+      "cortina": { "tempLow": -1, "tempHigh": 10, "rainfall": 65, "sunHours": 7, "lightQuality": "Last snow on peaks, wildflowers below" },
+      "jesolo": { "tempLow": 9, "tempHigh": 17, "rainfall": 65, "sunHours": 7, "lightQuality": "Warm and clear, beach walks begin" },
+      "padua": { "tempLow": 8, "tempHigh": 18, "rainfall": 70, "sunHours": 6, "lightQuality": "Green explosion, golden afternoon light" },
+      "verona": { "tempLow": 9, "tempHigh": 19, "rainfall": 65, "sunHours": 7, "lightQuality": "Garda breeze carries warm light inland" },
+      "tooltip": "Lively but not overrun.",
+      "narrative": "Vinitaly in Verona — massive international wine expo. Easter processions across Veneto towns. Prosecco hills come alive. Hiking season begins in Lessinia and Colli Euganei.",
+      "culturalEvent": "Vinitaly — Verona Wine Expo",
+      "culturalEventUrl": "https://www.vinitaly.com/en/",
+      "visualCue": "Prosecco hills glowing green under spring sun"
+    },
+    {
+      "month": "May",
+      "index": 4,
+      "season": "spring",
+      "cortina": { "tempLow": 3, "tempHigh": 14, "rainfall": 80, "sunHours": 8, "lightQuality": "Alpine meadow light, long golden hours" },
+      "jesolo": { "tempLow": 13, "tempHigh": 22, "rainfall": 70, "sunHours": 8, "lightQuality": "Beach-ready, warm and bright" },
+      "padua": { "tempLow": 12, "tempHigh": 23, "rainfall": 75, "sunHours": 7, "lightQuality": "Lush and luminous, perfect café light" },
+      "verona": { "tempLow": 13, "tempHigh": 24, "rainfall": 70, "sunHours": 8, "lightQuality": "Lake shimmer reaching the city at dusk" },
+      "tooltip": "Balanced. This is prime livability.",
+      "narrative": "Festa della Sensa in Venice — symbolic 'marriage to the sea.' Outdoor markets and food festivals everywhere. Cycling events in the Dolomites. Opera season prep in Verona.",
+      "culturalEvent": "Festa della Sensa — Venice",
+      "culturalEventUrl": "https://www.veneziaunica.it/en/content/festa-della-sensa",
+      "visualCue": "Gondola ceremony on sparkling lagoon water"
+    },
+    {
+      "month": "June",
+      "index": 5,
+      "season": "summer",
+      "cortina": { "tempLow": 7, "tempHigh": 18, "rainfall": 90, "sunHours": 9, "lightQuality": "Long alpine twilight, cool mountain air" },
+      "jesolo": { "tempLow": 17, "tempHigh": 27, "rainfall": 65, "sunHours": 9, "lightQuality": "Full beach light, Adriatic glitter" },
+      "padua": { "tempLow": 16, "tempHigh": 28, "rainfall": 70, "sunHours": 8, "lightQuality": "Warm stone glow, aperitivo hour light" },
+      "verona": { "tempLow": 17, "tempHigh": 29, "rainfall": 65, "sunHours": 9, "lightQuality": "Arena lit by sunset, then by stage lights" },
+      "tooltip": "Sociable. Expansive. Mediterranean without suffocation.",
+      "narrative": "Verona Opera Festival begins in the Roman Arena. Beach season opens in Jesolo and Caorle. Prosecco and Amarone tastings ramp up. Cortina summer hiking season begins.",
+      "culturalEvent": "Verona Opera Festival opens",
+      "culturalEventUrl": "https://www.arena.it/en",
+      "visualCue": "Opera stage glowing inside the ancient Arena at dusk"
+    },
+    {
+      "month": "July",
+      "index": 6,
+      "season": "summer",
+      "cortina": { "tempLow": 9, "tempHigh": 21, "rainfall": 85, "sunHours": 10, "lightQuality": "Crystal clear Dolomite air, electric blue sky" },
+      "jesolo": { "tempLow": 20, "tempHigh": 30, "rainfall": 55, "sunHours": 10, "lightQuality": "Blazing beach sun, sea breeze relief" },
+      "padua": { "tempLow": 18, "tempHigh": 31, "rainfall": 60, "sunHours": 9, "lightQuality": "Hazy heat shimmer over terracotta" },
+      "verona": { "tempLow": 19, "tempHigh": 31, "rainfall": 55, "sunHours": 10, "lightQuality": "Late golden hour stretches past 9pm" },
+      "tooltip": "Long dinners. Late sunsets. Aperol at 9:30pm.",
+      "narrative": "Peak Verona Opera Festival. Beach clubs on the Adriatic. Village sagre (local food festivals). Evening piazza life in Treviso, Padua, Vicenza.",
+      "culturalEvent": "Peak Verona Opera Festival",
+      "culturalEventUrl": "https://www.arena.it/en",
+      "visualCue": "Candlelit Arena performance under the stars"
+    },
+    {
+      "month": "August",
+      "index": 7,
+      "season": "summer",
+      "cortina": { "tempLow": 9, "tempHigh": 20, "rainfall": 90, "sunHours": 9, "lightQuality": "Mountain afternoon thunderstorms, morning clarity" },
+      "jesolo": { "tempLow": 20, "tempHigh": 30, "rainfall": 60, "sunHours": 9, "lightQuality": "Peak beach season, relentless sun" },
+      "padua": { "tempLow": 18, "tempHigh": 30, "rainfall": 65, "sunHours": 8, "lightQuality": "Urban heat, locals disappeared" },
+      "verona": { "tempLow": 19, "tempHigh": 30, "rainfall": 60, "sunHours": 9, "lightQuality": "Hot stone, evening breeze from the lake" },
+      "tooltip": "Holiday mode. Slower commerce.",
+      "narrative": "Ferragosto (August 15) celebrations. Cortina at full summer prestige. Lake Garda and mountain refugios packed. Venice noticeably emptier mid-month.",
+      "culturalEvent": "Ferragosto celebrations",
+      "visualCue": "Empty piazza at noon, life returns at sundown"
+    },
+    {
+      "month": "September",
+      "index": 8,
+      "season": "autumn",
+      "cortina": { "tempLow": 5, "tempHigh": 16, "rainfall": 70, "sunHours": 7, "lightQuality": "First autumn gold on larch trees" },
+      "jesolo": { "tempLow": 16, "tempHigh": 25, "rainfall": 65, "sunHours": 7, "lightQuality": "Warm sea, softer light, fewer crowds" },
+      "padua": { "tempLow": 14, "tempHigh": 24, "rainfall": 70, "sunHours": 7, "lightQuality": "Golden hour starts earlier, perfect dining light" },
+      "verona": { "tempLow": 15, "tempHigh": 25, "rainfall": 65, "sunHours": 7, "lightQuality": "Harvest light, amber through vineyard rows" },
+      "tooltip": "This is why people move here.",
+      "narrative": "Grape harvest in Valpolicella and Prosecco DOCG hills. Festa dell'Uva in many towns. Mild temperatures, golden light. Outdoor dining without heat stress.",
+      "culturalEvent": "Grape harvest — Valpolicella & Prosecco hills",
+      "culturalEventUrl": "https://www.visitvalpolicella.it/en/",
+      "visualCue": "Grape-laden vines in amber September light"
+    },
+    {
+      "month": "October",
+      "index": 9,
+      "season": "autumn",
+      "cortina": { "tempLow": 1, "tempHigh": 11, "rainfall": 75, "sunHours": 5, "lightQuality": "Fiery larch forests, dramatic Dolomite contrast" },
+      "jesolo": { "tempLow": 11, "tempHigh": 19, "rainfall": 70, "sunHours": 5, "lightQuality": "Muted coast, silvery sea" },
+      "padua": { "tempLow": 9, "tempHigh": 18, "rainfall": 80, "sunHours": 5, "lightQuality": "First fog tendrils, warm afternoon pockets" },
+      "verona": { "tempLow": 10, "tempHigh": 19, "rainfall": 75, "sunHours": 5, "lightQuality": "Autumn warmth lingers near Lake Garda" },
+      "tooltip": "Intellectual. Earthy. Refined.",
+      "narrative": "Amarone harvest wrap-ups. Truffle festivals in Lessinia and foothill towns. Chestnut festivals (Castagnate). Cultural season relaunch in theaters.",
+      "culturalEvent": "Truffle & Chestnut Festivals",
+      "culturalEventUrl": "https://www.lessiniablog.it/",
+      "visualCue": "Chestnut roasters in a medieval piazza"
+    },
+    {
+      "month": "November",
+      "index": 10,
+      "season": "autumn",
+      "cortina": { "tempLow": -3, "tempHigh": 5, "rainfall": 65, "sunHours": 4, "lightQuality": "First heavy snow, ski prep begins" },
+      "jesolo": { "tempLow": 6, "tempHigh": 13, "rainfall": 65, "sunHours": 4, "lightQuality": "Grey Adriatic, moody and quiet" },
+      "padua": { "tempLow": 4, "tempHigh": 11, "rainfall": 75, "sunHours": 3, "lightQuality": "Deep fog season, streetlights at 4pm" },
+      "verona": { "tempLow": 5, "tempHigh": 12, "rainfall": 70, "sunHours": 3, "lightQuality": "Arena in mist, theatre marquee glow" },
+      "tooltip": "Reflective. Quiet. Local life.",
+      "narrative": "Festa della Salute in Venice (November 21). Olive oil pressing in some southern areas. Fewer tourists, museum season. Ski prep in the Dolomites.",
+      "culturalEvent": "Festa della Salute — Venice",
+      "culturalEventUrl": "https://www.veneziaunica.it/en/content/festa-della-salute",
+      "visualCue": "Votive candles on the Grand Canal, fog wrapping around churches"
+    },
+    {
+      "month": "December",
+      "index": 11,
+      "season": "winter",
+      "cortina": { "tempLow": -7, "tempHigh": 2, "rainfall": 50, "sunHours": 4, "lightQuality": "Crisp alpine starlight, fresh powder glow" },
+      "jesolo": { "tempLow": 3, "tempHigh": 9, "rainfall": 50, "sunHours": 3, "lightQuality": "Quiet coast, holiday lights on the lungomare" },
+      "padua": { "tempLow": 0, "tempHigh": 7, "rainfall": 60, "sunHours": 2, "lightQuality": "Fog and fairy lights, Prato della Valle aglow" },
+      "verona": { "tempLow": 1, "tempHigh": 8, "rainfall": 55, "sunHours": 3, "lightQuality": "Christmas market glow inside the Arena walls" },
+      "tooltip": "Elegant. Old-world festive.",
+      "narrative": "Christmas markets in Verona and mountain towns. La Fenice winter opera. Alpine ski season reopens. Venice holiday lights without peak crowds.",
+      "culturalEvent": "Christmas Markets & La Fenice Opera",
+      "culturalEventUrl": "https://www.teatrolafenice.it/en/",
+      "visualCue": "Verona Arena rimmed with Christmas lights, snow on distant peaks"
+    }
+  ],
+  "bestMonths": {
+    "scouting": {
+      "label": "Scouting Trips",
+      "months": [3, 4, 8, 9],
+      "description": "April, May, September, October — best weather, events to experience, not overrun with tourists"
+    },
+    "moving": {
+      "label": "Moving Logistics",
+      "months": [2, 3, 8],
+      "description": "March, April, September — mild weather, bureaucracy offices fully open, rental market most active"
+    }
+  }
+}
