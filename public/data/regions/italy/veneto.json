@@ -157,6 +157,13 @@
               "description": "Light reds and crisp whites from the Veronese shore of Lake Garda. Perfect aperitivo wines.",
               "color": "#e88a8a",
               "coords": [[45.40, 10.60], [45.40, 10.80], [45.55, 10.80], [45.55, 10.60], [45.40, 10.60]]
+            },
+            {
+              "type": "zone",
+              "name": "Colli Euganei DOC",
+              "description": "Volcanic terroir south of Padua producing distinctive reds and whites. Ancient viticultural tradition with thermal spa culture.",
+              "color": "#9f1239",
+              "coords": [[45.35, 11.60], [45.35, 11.82], [45.22, 11.82], [45.22, 11.60], [45.35, 11.60]]
             }
           ]
         },
@@ -217,35 +224,39 @@
           "description": "From Dolomite peaks to Po Delta wetlands",
           "features": [
             {
-              "type": "marker",
+              "type": "zone",
               "name": "Parco Nazionale Dolomiti Bellunesi",
-              "timeCapsule": "Dramatic Alpine peaks, hiking, skiing. Italy's most spectacular mountain scenery.",
-              "coords": [46.20, 12.05]
+              "description": "Dramatic Alpine peaks, hiking, skiing. Italy's most spectacular mountain scenery.",
+              "color": "#166534",
+              "coords": [[46.35, 11.80], [46.35, 12.30], [46.10, 12.30], [46.10, 11.80], [46.35, 11.80]]
             },
             {
-              "type": "marker",
+              "type": "zone",
               "name": "Parco Regionale del Delta del Po",
-              "timeCapsule": "Wetland paradise for birdwatching. Where the Po River meets the Adriatic.",
-              "coords": [44.96, 12.33]
+              "description": "Wetland paradise for birdwatching. Where the Po River meets the Adriatic.",
+              "color": "#0d9488",
+              "coords": [[45.05, 12.05], [45.05, 12.55], [44.85, 12.55], [44.85, 12.05], [45.05, 12.05]]
             },
             {
-              "type": "marker",
+              "type": "zone",
               "name": "Colli Euganei Regional Park",
-              "timeCapsule": "Volcanic hills south of Padua. Thermal spas, hiking, and wine.",
-              "coords": [45.30, 11.72]
+              "description": "Volcanic hills south of Padua. Thermal spas, hiking, and wine.",
+              "color": "#4d7c0f",
+              "coords": [[45.35, 11.60], [45.35, 11.82], [45.22, 11.82], [45.22, 11.60], [45.35, 11.60]]
             },
             {
-              "type": "marker",
+              "type": "zone",
               "name": "Lessinia Regional Park",
-              "timeCapsule": "Pre-Alpine plateau north of Verona. Truffle country and gentle hiking.",
-              "coords": [45.62, 11.05]
+              "description": "Pre-Alpine plateau north of Verona. Truffle country and gentle hiking.",
+              "color": "#65a30d",
+              "coords": [[45.72, 10.90], [45.72, 11.20], [45.55, 11.20], [45.55, 10.90], [45.72, 10.90]]
             }
           ]
         },
         {
           "id": "livability",
           "name": "Livability Cities",
-          "icon": "Home",
+          "icon": "MapPin",
           "description": "Where retirees actually settle — and why",
           "features": [
             {
@@ -277,26 +288,35 @@
         {
           "id": "strategic-reach",
           "name": "Strategic Reach",
-          "icon": "Target",
-          "description": "Padua as mobility hub — what's within 60–90 minutes",
+          "icon": "Globe",
+          "description": "Padua as mobility hub — 1, 2, and 3-hour reach",
           "features": [
             {
-              "type": "radius",
-              "name": "60-Minute Reach from Padua",
+              "type": "circle",
+              "name": "3-Hour Reach from Padua",
               "center": [45.4064, 11.8768],
-              "radiusKm": 80,
-              "color": "#3b82f6",
-              "opacity": 0.15,
-              "description": "Venice, Verona, Vicenza, Treviso, Bassano, Adriatic beaches, Colli Euganei — all within an hour by car or train."
+              "radius": 200000,
+              "color": "#a855f7",
+              "opacity": 0.08,
+              "description": "Austria, Munich, Bologna, Milan, Florence — Veneto's full European reach within 3 hours."
             },
             {
-              "type": "radius",
-              "name": "90-Minute Reach from Padua",
+              "type": "circle",
+              "name": "2-Hour Reach from Padua",
               "center": [45.4064, 11.8768],
-              "radiusKm": 120,
+              "radius": 120000,
               "color": "#8b5cf6",
-              "opacity": 0.10,
+              "opacity": 0.12,
               "description": "Cortina d'Ampezzo, Lake Garda, Prosecco DOCG hills, Bologna, Ferrara — extended reach for weekend trips."
+            },
+            {
+              "type": "circle",
+              "name": "1-Hour Reach from Padua",
+              "center": [45.4064, 11.8768],
+              "radius": 80000,
+              "color": "#3b82f6",
+              "opacity": 0.18,
+              "description": "Venice, Verona, Vicenza, Treviso, Bassano, Adriatic beaches, Colli Euganei — all within an hour by car or train."
             }
           ]
         }
@@ -305,19 +325,29 @@
     },
     "tabs": [
       {
-        "id": "geography",
-        "title": "Geography",
-        "content": "Veneto spans from the Dolomite peaks in the north to the Adriatic coastline in the east and the Po Valley plains in the south. The region is framed by Lake Garda on its western border and the Venetian Lagoon to the east. Between the mountains and the sea lies a fertile belt of foothills, vineyards, and historic cities — Verona, Vicenza, Padua, and Treviso — that form one of Italy's most connected urban corridors. Venice sits at the eastern edge, unique and incomparable, while the hinterland provides the substance that sustains it."
+        "id": "position",
+        "title": "Where Is Veneto?",
+        "content": "Veneto sits in Italy's northeast corner, but don't mistake that for \"out of the way.\" This region is plugged in."
       },
       {
-        "id": "access",
-        "title": "Getting There",
-        "content": "Venice Marco Polo (VCE) is the primary international airport with intercontinental connections. Treviso Canova (TSF) serves budget carriers with extensive European reach. Verona Catullo (VRN) covers the western region and Lake Garda access. High-speed trains connect Venice to Milan (2.5 hrs), Rome (3.5 hrs), Florence (2 hrs), and Bologna (1.5 hrs). The Brenner Pass rail corridor links Verona directly to Innsbruck and Munich, making Veneto a genuine gateway to Central Europe."
+        "id": "borders",
+        "title": "Borders & Crossroads",
+        "content": "To the north, the Dolomites rise fast and dramatic, forming a natural border with Austria. To the east, the Adriatic stretches toward Slovenia and Croatia. Lombardy and Lake Garda anchor the west. Emilia-Romagna and the Po River basin sit to the south. In other words, you're positioned at a European crossroads."
       },
       {
-        "id": "transport",
-        "title": "Local Transport",
-        "content": "Veneto's internal rail network is dense and reliable. Regional trains connect the major cities every 15-30 minutes — Padua to Venice in 25 minutes, Padua to Verona in 50, Vicenza to Venice in 45. The A4 autostrada runs east-west linking the entire corridor. ACTV operates Venice's vaporetto water bus network. Local buses serve smaller towns effectively. Cycling infrastructure is growing, particularly in Padua (Italy's cycling capital) and along lake and river routes. Car ownership is useful for hill towns and countryside but unnecessary for city life."
+        "id": "mobility",
+        "title": "Mobility",
+        "content": "From Verona or Padua, Milan is a high-speed train ride away. Venice's Marco Polo Airport connects you across the continent. Austria is a few hours by car. Munich is closer than Rome. If you're thinking about retirement in terms of mobility, Veneto makes geographic sense."
+      },
+      {
+        "id": "diversity",
+        "title": "Diversity",
+        "content": "And within the region itself, the diversity is almost unfair. Sea. Alps. Wine hills. Renaissance cities. UNESCO sites. Industrial hubs. Sleepy walled towns. You can live in one Veneto and visit five others before dinner."
+      },
+      {
+        "id": "map-intro",
+        "title": "On the Map",
+        "content": "Let's look at what that actually means on a map."
       }
     ]
   },
