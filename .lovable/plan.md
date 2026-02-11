@@ -1,90 +1,56 @@
 
-## Add Veneto-Specific Seasonal Background Images
 
-### Current State
-The `ClimateSnapshot.tsx` component loads seasonal background images from region-specific paths:
-- Piemonte: `/images/piemonte/seasonal-backgrounds/{season}-landscape.jpg`
-- Puglia: `/images/puglia/seasonal-backgrounds/{season}-landscape.jpg`
-- Umbria: `/images/umbria/seasonal-backgrounds/{season}-landscape.jpg`
+## Fix: Veneto Page Not Rendering
 
-When the component loads the Veneto region, it falls back to Piemonte backgrounds because there's no `getSeasonalBackgrounds()` or `getSeasonalImages()` handling for "veneto". The `public/images/veneto/` directory currently only contains hero images, not seasonal backgrounds.
+### Root Cause
+The `/veneto` page crashes because there is no content data for the region. The loading chain:
+1. Database `region_data` for veneto is `null`
+2. Static file `/data/regions/italy/veneto.json` does not exist
+3. Vite returns `index.html` (status 200) as its SPA fallback
+4. `response.json()` fails on HTML content, throwing a SyntaxError
+5. The error handler redirects to `/404`
 
-### What Needs to Happen
-1. **Create Veneto seasonal background directory**: `public/images/veneto/seasonal-backgrounds/`
-2. **Generate 4 seasonal images** matching Veneto's climate diversity:
-   - **Winter**: Snow-capped Dolomites with fog in valleys (matches Cortina alpine + Po Valley fog narrative)
-   - **Spring**: Budding Prosecco vineyards with fresh green (matches vineyard pruning and Valpolicella themes)
-   - **Summer**: Warm Adriatic coast or lake with mountains in distance (matches beach season + alpine backdrop)
-   - **Autumn**: Grape harvest vineyards in golden light with possible larch tree colors (matches "grape harvest in Valpolicella and Prosecco DOCG hills")
+### Fix 1: Harden `getRegionData.ts` (defensive fix)
 
-3. **Update `ClimateSnapshot.tsx`** to handle Veneto:
-   - Add a `seasonalBackgroundsVeneto` constant with Veneto's palette (cooler alpine tones + warm valley tones)
-   - Add a `seasonalImagesVeneto` constant pointing to the new image paths
-   - Update `getSeasonalBackgrounds()` to return Veneto palette when region === "veneto"
-   - Update `getSeasonalImages()` to return Veneto images when region === "veneto"
+Add a content-type check before calling `.json()` on the fetch response. This prevents the misleading "Unexpected token '<'" error and gives a clear "Failed to load region" message instead.
 
-### Image Generation Strategy
-Using the Lovable AI image generation API (google/gemini-3-pro-image-preview for higher quality), we'll generate 4 images that visually represent the Veneto climate data and narrative:
-
-**Winter** (Cortina -8/2°C, Padua -1/7°C):
-Prompt: "Snow-covered Dolomite peaks with sharp alpine light, fog sitting thick in the Po Valley below, creating a stark altitude contrast. Cold, crisp mountain air. Professional landscape photography, 16:9, ultra high resolution."
-
-**Spring** (March/April, vineyard season):
-Prompt: "Fresh green Prosecco vineyards in early spring with budding vines, limestone hills of Valdobbiadene in the background, warm afternoon light breaking through occasional clouds, professional landscape photography, 16:9, ultra high resolution."
-
-**Summer** (Warm, sociable):
-Prompt: "Warm Adriatic beach at Jesolo or similar, with sunlit sand and turquoise water, Dolomite peaks visible in distant haze, late golden hour light, beach umbrellas and Mediterranean warmth, professional landscape photography, 16:9, ultra high resolution."
-
-**Autumn** (Harvest season):
-Prompt: "Golden-hour vineyard landscape during grape harvest in Valpolicella, vines heavy with purple grapes, warm amber light on terracotta soil, Lessinia foothills in background with hints of larch tree colors, professional landscape photography, 16:9, ultra high resolution."
-
-### Files to Change
-- **Create**: `public/images/veneto/seasonal-backgrounds/winter-landscape.jpg`
-- **Create**: `public/images/veneto/seasonal-backgrounds/spring-landscape.jpg`
-- **Create**: `public/images/veneto/seasonal-backgrounds/summer-landscape.jpg`
-- **Create**: `public/images/veneto/seasonal-backgrounds/autumn-landscape.jpg`
-- **Modify**: `src/components/sections/ClimateSnapshot.tsx` (add ~30 lines for Veneto handling)
-
-### Technical Details
-
-**New constants in ClimateSnapshot.tsx:**
 ```typescript
-const seasonalBackgroundsVeneto = {
-  winter: "from-slate-100/40 via-blue-50/30 to-cyan-100/40 dark:from-slate-900/40 dark:via-blue-950/30 dark:to-cyan-900/40",
-  spring: "from-green-50/40 via-emerald-50/30 to-lime-100/40 dark:from-green-950/40 dark:via-emerald-950/30 dark:to-lime-950/40",
-  summer: "from-amber-50/40 via-yellow-50/30 to-orange-100/40 dark:from-amber-950/40 dark:via-yellow-950/30 dark:to-orange-950/40",
-  autumn: "from-orange-50/40 via-amber-50/30 to-yellow-100/40 dark:from-orange-950/40 dark:via-amber-950/30 dark:to-yellow-950/40",
-};
-
-const seasonalImagesVeneto = {
-  winter: "/images/veneto/seasonal-backgrounds/winter-landscape.jpg",
-  spring: "/images/veneto/seasonal-backgrounds/spring-landscape.jpg",
-  summer: "/images/veneto/seasonal-backgrounds/summer-landscape.jpg",
-  autumn: "/images/veneto/seasonal-backgrounds/autumn-landscape.jpg",
-};
+// Before parsing, verify the response is actually JSON
+const contentType = response.headers.get('content-type') || '';
+if (!contentType.includes('application/json')) {
+  throw new Error(`Failed to load region: ${slug} (received HTML instead of JSON)`);
+}
 ```
 
-**Updated `getSeasonalBackgrounds()` function:**
-```typescript
-const getSeasonalBackgrounds = () => {
-  if (region === "puglia") return seasonalBackgroundsPuglia;
-  if (region === "umbria") return seasonalBackgroundsUmbria;
-  if (region === "veneto") return seasonalBackgroundsVeneto;
-  return seasonalBackgroundsPiemonte;
-};
+This applies to both the nested path (`/data/regions/italy/{slug}.json`) and the flat path (`/data/{slug}.json`) fallback.
 
-const getSeasonalImages = () => {
-  if (region === "puglia") return seasonalImagesPuglia;
-  if (region === "umbria") return seasonalImagesUmbria;
-  if (region === "veneto") return seasonalImagesVeneto;
-  return seasonalImagesPiemonte;
-};
-```
+### Fix 2: Create `public/data/regions/italy/veneto.json`
+
+Create the main region data file following the same structure as piemonte.json, lombardia.json, and puglia.json. This file powers every section on the page: hero, editorial intro, map, towns, wine quiz, recipes, healthcare, cost of living, pros/cons, and closing.
+
+The file will include:
+- **region**: Title "Veneto", tagline, issue number 11, date "February 2026", hero image, intro paragraphs
+- **where**: Map centered on Veneto with markers for key cities (Venice, Verona, Padua, Vicenza, Treviso, Cortina), geography tabs, and overlays
+- **towns.featured**: 4-5 featured towns with images, descriptions, highlights (e.g., Verona, Padua, Venice surrounds, Treviso, Cortina)
+- **towns.grid**: 10-15 grid towns covering the breadth of the region
+- **wine.quiz**: Veneto wine profiles (Amarone, Prosecco, Valpolicella, Soave, etc.)
+- **recipes**: 3-4 Veneto recipes (risotto, baccala, tiramisu, bigoli)
+- **healthcare**: Hospitals, infrastructure, airports, railways, travel times
+- **costOfLiving**: Town presets with rent/utilities/groceries/dining/transport for modest and comfortable lifestyles
+- **highlights**: Wine, food, and culture categories with cards
+- **prosCons**: Balanced pros and cons of retiring in Veneto
+- **closing**: Closing message and social share links
+- **collaborator**: Partner/service feature section
+
+This is a large data file (~800-1000 lines) that will be populated with factually accurate, editorial-quality content matching the established tone and depth of the existing regions.
+
+### Files Changed
+- **Modified**: `src/utils/getRegionData.ts` -- add content-type guard (~5 lines)
+- **Created**: `public/data/regions/italy/veneto.json` -- full region data (~900 lines)
 
 ### Verification
-Navigate to `/veneto` and scroll to the Climate Snapshot section:
-- As you slide through the months (January → February → ... → December), the background image should shift through winter snow, spring vineyards, summer warmth, and autumn golden light
-- The seasonal gradient overlay should match the image mood (cooler in winter, warmer in summer)
-- Seasonal particles (snow in winter, floating leaves in autumn) should align with the visual
-- The "Life on the Ground" narrative should feel reinforced by the background imagery
+- Navigate to `/veneto` -- page renders with hero, editorial intro, map, climate snapshot, towns, and all sections
+- No JSON parse errors in console
+- Climate Snapshot shows the 4-city Veneto data with seasonal backgrounds
+- All section components render without crashes (defensive null checks already in place from prior work)
 
