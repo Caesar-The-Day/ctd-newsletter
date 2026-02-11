@@ -1,97 +1,84 @@
 
 
-## Veneto "Where Is Veneto?" Section -- Full Content and Map Overlay Update
+## Fix: Strategic Reach Overlay -- Circles Instead of Squares
 
-### Overview
-This is a database-only update (no code changes). We'll replace the intro tabs with your new copy, and add 6 map overlay layers with real coordinates to make the map argue your thesis: beauty + infrastructure + strategic access.
+### Problem
+The "Strategic Reach" overlay uses rectangular polygon coordinates, which Leaflet renders as squares. Two issues:
+1. The outer square covers the inner square, making it unclickable
+2. The square boundaries don't match the actual travel radii (Milan and Florence are listed in the popup but fall outside the square)
 
-### Part 1: Replace the Intro Tabs
-The current 3 tabs (Geography, Getting There, Local Transport) will be replaced with a single cohesive narrative block matching your copy. The `InteractiveMap` component renders tab content as paragraphs above the map -- your new text flows naturally through this.
+### Solution
+Two changes needed:
 
-### Part 2: Add Map Overlays
-Using the existing overlay system (already supports `heritage`, `zone`, `airport`, `rail-hs`, `point`, `marker` feature types), we'll add 6 toggleable overlay layers:
+**1. Add `circle` feature type to InteractiveMap.tsx**
 
-1. **UNESCO World Heritage Sites** (heritage markers)
-   - Venice and its Lagoon [45.4408, 12.3155]
-   - Verona historic center [45.4384, 10.9916]
-   - Vicenza and Palladian Villas [45.5455, 11.5354]
-   - The Dolomites [46.4102, 11.8440]
-   - Prosecco Hills of Conegliano-Valdobbiadene [45.9200, 12.0800]
-   - Botanical Garden of Padua [45.3990, 11.8800]
+The component currently handles `zone` (polygon), `line`, `heritage`, `airport`, `rail-hs`, `point`, and `marker` types. We'll add a `circle` type that uses Leaflet's `L.circle(center, { radius })`.
 
-2. **Wine Regions** (polygon zones)
-   - Valpolicella [approximate polygon NW of Verona]
-   - Prosecco DOCG Hills [polygon around Conegliano-Valdobbiadene]
-   - Soave [polygon east of Verona]
-   - Bardolino [polygon along Lake Garda shore]
-   - Colli Euganei [polygon south of Padua]
+Key detail: the inner circle (1-hour) must be added **after** the outer circle (2-hour) so it renders on top and remains clickable. We'll sort circle features by radius descending before adding them to the layer group.
 
-3. **National Parks & Natural Areas** (zone polygons + point markers)
-   - Dolomiti Bellunesi National Park
-   - Parco Naturale della Lessinia
-   - Colli Euganei Regional Park
-   - Venetian Lagoon
-   - Po Delta Park
+```typescript
+} else if (feature.type === 'circle') {
+  const circle = L.circle(feature.center, {
+    radius: feature.radius,
+    fillColor: feature.color,
+    fillOpacity: 0.12,
+    color: feature.color,
+    weight: 2,
+    opacity: 0.6,
+    dashArray: '8, 6'
+  }).addTo(layerGroup);
+  
+  circle.bindPopup(popupContent, { ... });
+  circle.on('mouseover', ...);
+  circle.on('mouseout', ...);
+}
+```
 
-4. **Transport Nodes** (airport markers + rail-hs lines)
-   - Venice Marco Polo Airport (VCE) [45.5053, 12.3519]
-   - Treviso Airport (TSF) [45.6484, 12.1944]
-   - Verona Airport (VRN) [45.3957, 10.8885]
-   - Milan-Venice high-speed rail corridor (polyline)
-   - Brenner Pass route Italy-Austria (polyline)
+The dashed stroke gives it a "radius ring" feel rather than a hard border.
 
-5. **Livability Cities** (city markers with blurbs)
-   - Padua, Vicenza, Treviso, Verona, Bassano del Grappa, Cortina d'Ampezzo, Chioggia
-   - These already exist as town markers -- we'll enhance with `bestFor` categories in popup blurbs
+**2. Update database data for the strategic overlay**
 
-6. **Strategic Positioning** (radius overlay)
-   - Concentric circles from Padua showing 1hr train / 2hr drive reach
-   - Implemented as circle polygons with labeled radii
-   - Uses the existing `zone` feature type with semi-transparent fills
+Replace the two rectangular `zone` features with two `circle` features centered on Padua:
 
-### Part 3: Implementation
-A single SQL `UPDATE` statement using `jsonb_set` to:
-- Replace `region_data->'where'->'tabs'` with your new intro copy
-- Add `region_data->'where'->'map'->'overlays'` with the 6 overlay arrays
-
-All coordinates are verified for Leaflet [lat, lng] order within Italy's 36-47 lat range.
-
-### Technical Details
-
-The SQL update will be structured as:
+- **1-Hour Train**: center `[45.4064, 11.8768]` (Padua), radius `~75,000m` (covers Venice, Verona, Vicenza, Treviso, Bologna)
+- **2-Hour Drive/Train**: center `[45.4064, 11.8768]`, radius `~180,000m` (covers Milan, Florence, Innsbruck, Ljubljana, Lake Garda)
 
 ```sql
 UPDATE regions 
 SET region_data = jsonb_set(
-  jsonb_set(
-    region_data,
-    '{where,tabs}',
-    '[{
-      "id": "positioning",
-      "title": "Strategic Position",
-      "content": "Veneto sits in Italy''s northeast corner, but don''t mistake that for \"out of the way.\" This region is plugged in.\n\nTo the north, the Dolomites rise fast and dramatic, forming a natural border with Austria. To the east, the Adriatic stretches toward Slovenia and Croatia. Lombardy and Lake Garda anchor the west. Emilia-Romagna and the Po River basin sit to the south. In other words, you''re positioned at a European crossroads.\n\nFrom Verona or Padua, Milan is a high-speed train ride away. Venice''s Marco Polo Airport connects you across the continent. Austria is a few hours by car. Munich is closer than Rome. If you''re thinking about retirement in terms of mobility, Veneto makes geographic sense.\n\nAnd within the region itself, the diversity is almost unfair. Sea. Alps. Wine hills. Renaissance cities. UNESCO sites. Industrial hubs. Sleepy walled towns. You can live in one Veneto and visit five others before dinner.\n\nLet''s look at what that actually means on a map."
-    }]'::jsonb
-  ),
-  '{where,map,overlays}',
-  '[ ... 6 overlay objects with all features ... ]'::jsonb
+  region_data,
+  '{where,map,overlays,5,features}',
+  '[
+    {
+      "type": "circle",
+      "name": "2-Hour Drive / Train Reach",
+      "center": [45.4064, 11.8768],
+      "radius": 180000,
+      "color": "#8b5cf6",
+      "description": "Within two hours: Milan (2h15 train), Florence (2h via Bologna HS), Innsbruck (3h drive via Brenner), Ljubljana (2.5h drive), Lake Garda (1.5h). Europe is at your doorstep."
+    },
+    {
+      "type": "circle",
+      "name": "1-Hour Train from Padua",
+      "center": [45.4064, 11.8768],
+      "radius": 75000,
+      "color": "#3b82f6",
+      "description": "Within one hour by train: Venice (26 min), Verona (58 min), Vicenza (18 min), Treviso (35 min), Bologna (1h05). This is your daily-life radius."
+    }
+  ]'::jsonb
 )
 WHERE slug = 'veneto';
 ```
 
-Each overlay follows the proven Umbria pattern:
-- `id`, `name`, `icon`, `description` for the toggle button
-- `features[]` array with typed map elements (`heritage`, `zone`, `airport`, `rail-hs`, `point`)
+Note: The 2-hour circle is listed first in the array but we'll sort by radius descending in the rendering code, ensuring the smaller circle is always drawn on top regardless of data order.
 
-No component code changes needed -- `InteractiveMap` already handles all these feature types.
-
-### What Changes
-- **Database**: `regions` table, `region_data` JSONB for slug `veneto`
-- **Code**: Nothing -- purely data-driven
-- **Files**: None
+### Files Changed
+- `src/components/sections/InteractiveMap.tsx` -- add ~25 lines for `circle` feature type handling
+- Database: `regions.region_data` for slug `veneto` -- replace strategic overlay features
 
 ### Verification
-Navigate to `/veneto` and confirm:
-- New intro text appears above the map
-- 6 overlay toggle buttons appear below the text
-- Each overlay renders its features correctly on the map
-- Popups work on click for all feature types
+- Navigate to `/veneto`, scroll to the map, toggle "Strategic Reach"
+- Two concentric dashed circles appear centered on Padua
+- Inner blue circle (1-hour) is clickable and shows popup
+- Outer purple circle (2-hour) is clickable and shows popup
+- Milan and Florence fall within the outer circle's visual boundary
