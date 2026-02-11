@@ -137,64 +137,100 @@
     ],
     "grid": [
       {
+        "id": "verona",
         "name": "Verona",
-        "thumbnail": "/images/veneto/vicenza-featured.jpg",
-        "description": "Opera city where Lake Garda's warmth meets Romeo's balcony. Cultural hub with excellent healthcare and a blend of sophistication and livability."
+        "bestFor": "Opera, Lake Garda access, culture",
+        "photo": "/images/veneto/vicenza-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Verona+Italy",
+        "blurb": "Opera city where Lake Garda's warmth meets Romeo's balcony. Cultural hub with excellent healthcare and a blend of sophistication and livability."
       },
       {
+        "id": "asolo",
         "name": "Asolo",
-        "thumbnail": "/images/veneto/vicenza-featured.jpg",
-        "description": "Hilltop town in the Prosecco region. Smaller scale, artistic community, excellent quality of life for those seeking village-level intimacy."
+        "bestFor": "Prosecco hills, artistic village life",
+        "photo": "/images/veneto/vicenza-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Asolo+Italy",
+        "blurb": "Hilltop town in the Prosecco region. Smaller scale, artistic community, excellent quality of life for those seeking village-level intimacy."
       },
       {
+        "id": "bassano-del-grappa",
         "name": "Bassano del Grappa",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Charming Astico River town. Design and craft heritage, covered bridge, gateway to the Dolomites. More accessible than mountain towns, still rooted in tradition."
+        "bestFor": "Craft heritage, Dolomite gateway",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Bassano+del+Grappa+Italy",
+        "blurb": "Charming Astico River town. Design and craft heritage, covered bridge, gateway to the Dolomites. More accessible than mountain towns, still rooted in tradition."
       },
       {
+        "id": "feltre",
         "name": "Feltre",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Mountain town north of Treviso. Lower costs, stunning Dolomite backdrop, quieter pace. Better for active retirees seeking altitude without extreme isolation."
+        "bestFor": "Mountain living, lower costs",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Feltre+Italy",
+        "blurb": "Mountain town north of Treviso. Lower costs, stunning Dolomite backdrop, quieter pace. Better for active retirees seeking altitude without extreme isolation."
       },
       {
+        "id": "cittadella",
         "name": "Cittadella",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Medieval walled town between Padua and Treviso. Historic walls intact, walkable center, emerging food and wine culture. Affordable and authentic."
+        "bestFor": "Medieval walls, affordable living",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cittadella+Italy",
+        "blurb": "Medieval walled town between Padua and Treviso. Historic walls intact, walkable center, emerging food and wine culture. Affordable and authentic."
       },
       {
+        "id": "castelfranco-veneto",
         "name": "Castelfranco Veneto",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Small fortified city with Giorgione art legacy. On the Prosecco wine route, flat terrain, quiet sophistication. Good bridge between countryside and urban access."
+        "bestFor": "Prosecco route, quiet sophistication",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Castelfranco+Veneto+Italy",
+        "blurb": "Small fortified city with Giorgione art legacy. On the Prosecco wine route, flat terrain, quiet sophistication. Good bridge between countryside and urban access."
       },
       {
+        "id": "marostica",
         "name": "Marostica",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Tile-roofed hilltown famous for its medieval chessboard plaza. Artistic community, hiking access to Asiago highlands. More character than Padua, less pretense than Vicenza."
+        "bestFor": "Hill town character, hiking access",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Marostica+Italy",
+        "blurb": "Tile-roofed hilltown famous for its medieval chessboard plaza. Artistic community, hiking access to Asiago highlands. More character than Padua, less pretense than Vicenza."
       },
       {
+        "id": "montagnana",
         "name": "Montagnana",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Perfectly preserved walled town south of Padua. Renaissance architecture, genuine local community (not overtouristed). Good food reputation, lower costs."
+        "bestFor": "Preserved walls, genuine community",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Montagnana+Italy",
+        "blurb": "Perfectly preserved walled town south of Padua. Renaissance architecture, genuine local community (not overtouristed). Good food reputation, lower costs."
       },
       {
+        "id": "san-fermo",
         "name": "San Fermo",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Tiny Prosecco hill village. Winery access, church-centered piazza, car required but utterly peaceful. For those seeking village immersion over urban convenience."
+        "bestFor": "Village immersion, winery access",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=San+Fermo+Veneto+Italy",
+        "blurb": "Tiny Prosecco hill village. Winery access, church-centered piazza, car required but utterly peaceful. For those seeking village immersion over urban convenience."
       },
       {
+        "id": "oderzo",
         "name": "Oderzo",
-        "thumbnail": "/images/veneto/treviso-featured.jpg",
-        "description": "Roman trading post town east of Treviso. Less touristy than bigger names, waterfront walks along the Livenza, emerging food scene. Good value, quieter vibe."
+        "bestFor": "Roman heritage, quiet value",
+        "photo": "/images/veneto/treviso-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Oderzo+Italy",
+        "blurb": "Roman trading post town east of Treviso. Less touristy than bigger names, waterfront walks along the Livenza, emerging food scene. Good value, quieter vibe."
       },
       {
+        "id": "concordia-sagittaria",
         "name": "Concordia Sagittaria",
-        "thumbnail": "/images/veneto/treviso-featured.jpg",
-        "description": "Archaeological gem north of Venice. Ancient Roman and early Christian sites, quiet, authentic. For culturally curious retirees seeking depth over looks."
+        "bestFor": "Archaeological depth, authenticity",
+        "photo": "/images/veneto/treviso-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Concordia+Sagittaria+Italy",
+        "blurb": "Archaeological gem north of Venice. Ancient Roman and early Christian sites, quiet, authentic. For culturally curious retirees seeking depth over looks."
       },
       {
+        "id": "cortina-d-ampezzo",
         "name": "Cortina d'Ampezzo",
-        "thumbnail": "/images/veneto/padua-featured.jpg",
-        "description": "Alpine resort town in the Dolomites. Winter sports, mountain trails, clear four seasons. Higher costs, elevation (1,224m), but unmatched natural beauty and healthcare access."
+        "bestFor": "Alpine resort, mountain beauty",
+        "photo": "/images/veneto/padua-featured.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cortina+d+Ampezzo+Italy",
+        "blurb": "Alpine resort town in the Dolomites. Winter sports, mountain trails, clear four seasons. Higher costs, elevation (1,224m), but unmatched natural beauty and healthcare access."
       }
     ]
   },
