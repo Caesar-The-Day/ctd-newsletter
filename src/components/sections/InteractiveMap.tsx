@@ -53,6 +53,7 @@ const iconMap: Record<string, any> = {
   Waves,
   Globe,
   Plane,
+  MapPin,
 };
 
 export function InteractiveMap({ regionTitle = "Piemonte", whereData }: InteractiveMapProps) {
