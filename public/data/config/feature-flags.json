@@ -29,5 +29,15 @@
     "showRetirementBlueprintCTA": true,
     "enableAmbientAudio": true,
     "enableSeasonalParticles": true
+  },
+  "veneto": {
+    "showWineQuiz": true,
+    "showBeerFeature": false,
+    "show7PercentCTA": true,
+    "showCollaborator": true,
+    "showBookCTA": true,
+    "showRetirementBlueprintCTA": true,
+    "enableAmbientAudio": false,
+    "enableSeasonalParticles": true
   }
 }

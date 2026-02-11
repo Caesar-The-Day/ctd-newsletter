@@ -1,0 +1,1206 @@
+{
+  "region": {
+    "slug": "veneto",
+    "issueNumber": 11,
+    "date": "February 2026",
+    "title": "Veneto: The European Crossroads",
+    "tagline": "Where beauty meets infrastructure and the world comes to visit — but the smart ones stay.",
+    "hero": {
+      "bannerImage": "/images/veneto/veneto-hero.jpg",
+      "credit": "Photo: Veneto Landscape © CaesarTheDay"
+    },
+    "intro": {
+      "headline": "Veneto: Where the Smart Money Quietly Lands",
+      "byline": "— Cesare",
+      "paragraphs": [
+        "Veneto is the region everyone visits but almost nobody thinks to live in. That's the opportunity.",
+        "Sixty million tourists a year flood Venice, photograph Verona's arena, sip Prosecco in the hills, and leave. They never see the real Veneto — the one where a retired couple in Bassano del Grappa walks to the market every Thursday, catches a train to Padua for a specialist appointment, and is home by lunch. The one where a former architect from London buys a villa near Asolo for less than a flat in Zone 2 and spends autumn watching the Prosecco harvest from her terrace.",
+        "This is the Italy that works. Not in the Lombard sense of corporate efficiency, but in the deeper sense of a place that has been organizing itself for a thousand years. Venice didn't build a maritime empire by accident. The Veneto hinterland — Padua, Vicenza, Treviso, Verona — inherited that competence and applied it to industry, agriculture, healthcare, and infrastructure.",
+        "The result is a region where the trains actually run, the hospitals are excellent, the airports connect you to everywhere, and the cost of living — outside Venice itself — is surprisingly moderate. Add UNESCO sites in every direction, the Dolomites an hour north, the Adriatic an hour east, and Lake Garda on the western border, and you have what might be Italy's most strategically complete region for retirement.",
+        "Veneto doesn't seduce you with postcard charm. It convinces you with substance. And once you see the numbers, the access, and the quality of daily life, the seduction happens anyway — quietly, over a spritz in a piazza you didn't know existed."
+      ],
+      "portrait": "/images/shared/cesare-portrait.jpg",
+      "signature": "/images/shared/cesare-signature.png"
+    }
+  },
+
+  "where": {
+    "map": {
+      "center": [45.6, 11.8],
+      "zoom": 8,
+      "markers": [
+        {
+          "id": "venezia",
+          "name": "Venezia",
+          "coords": [45.4408, 12.3155],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "The world's most improbable city. Cultural capital, tourism magnet, and gateway to the lagoon — but rarely where retirees actually live."
+        },
+        {
+          "id": "verona",
+          "name": "Verona",
+          "coords": [45.4384, 10.9916],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "Roman arena, Shakespearean romance, and a thriving wine culture. Lake Garda influence keeps the climate mild."
+        },
+        {
+          "id": "padova",
+          "name": "Padova",
+          "coords": [45.4064, 11.8768],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "University city with one of Europe's oldest botanical gardens. The intellectual heart of the Veneto, with excellent healthcare."
+        },
+        {
+          "id": "vicenza",
+          "name": "Vicenza",
+          "coords": [45.5455, 11.5354],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "Palladio's city. UNESCO World Heritage architecture and a quiet, refined lifestyle that rewards the discerning."
+        },
+        {
+          "id": "treviso",
+          "name": "Treviso",
+          "coords": [45.6669, 12.2430],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "Prosecco capital with medieval canals. Often called 'Little Venice' but with none of the crowds and all of the charm."
+        },
+        {
+          "id": "bassano",
+          "name": "Bassano del Grappa",
+          "coords": [45.7660, 11.7356],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "Alpine foothills town famous for grappa, its covered bridge, and a pace of life that makes you forget your watch."
+        },
+        {
+          "id": "cortina",
+          "name": "Cortina d'Ampezzo",
+          "coords": [46.5369, 12.1356],
+          "photo": "/images/veneto/hero.jpg",
+          "blurb": "Queen of the Dolomites. Premium Alpine destination and Milano-Cortina 2026 Olympic host."
+        }
+      ],
+      "overlays": [
+        {
+          "id": "unesco",
+          "name": "UNESCO World Heritage",
+          "icon": "Landmark",
+          "description": "Veneto has more UNESCO sites than most countries",
+          "features": [
+            {
+              "type": "marker",
+              "name": "Venice and its Lagoon",
+              "timeCapsule": "1,000 years of maritime republic, built on water, preserved in stone.",
+              "coords": [45.4408, 12.3155]
+            },
+            {
+              "type": "marker",
+              "name": "Verona — City of Romeo and Juliet",
+              "timeCapsule": "Roman arena, medieval towers, and the world's most famous balcony.",
+              "coords": [45.4384, 10.9916]
+            },
+            {
+              "type": "marker",
+              "name": "Vicenza — City of Palladio",
+              "timeCapsule": "Andrea Palladio's architectural masterworks dot the city and surrounding villas.",
+              "coords": [45.5455, 11.5354]
+            },
+            {
+              "type": "marker",
+              "name": "Dolomites",
+              "timeCapsule": "Dramatic Alpine peaks — shared with Trentino and South Tyrol.",
+              "coords": [46.41, 11.84]
+            },
+            {
+              "type": "marker",
+              "name": "Prosecco Hills of Conegliano and Valdobbiadene",
+              "timeCapsule": "Steep vineyard terraces producing the world's favorite sparkling wine.",
+              "coords": [45.92, 12.07]
+            },
+            {
+              "type": "marker",
+              "name": "Padua's Botanical Garden",
+              "timeCapsule": "The world's oldest academic botanical garden, founded in 1545.",
+              "coords": [45.3990, 11.8803]
+            }
+          ]
+        },
+        {
+          "id": "wine-regions",
+          "name": "Wine Regions",
+          "icon": "Wine",
+          "description": "From Prosecco hills to Amarone valleys — Veneto is Italy's largest wine producer",
+          "features": [
+            {
+              "type": "zone",
+              "name": "Valpolicella (Amarone)",
+              "description": "Home of Amarone and Ripasso. Rich, dried-grape reds from hillside vineyards northwest of Verona.",
+              "color": "#722f37",
+              "coords": [[45.45, 10.80], [45.45, 11.10], [45.60, 11.10], [45.60, 10.80], [45.45, 10.80]]
+            },
+            {
+              "type": "zone",
+              "name": "Prosecco DOCG (Conegliano-Valdobbiadene)",
+              "description": "UNESCO-listed steep hills producing the finest Prosecco. Glera grapes on dramatic terraces.",
+              "color": "#d4a843",
+              "coords": [[45.85, 11.85], [45.85, 12.15], [46.00, 12.15], [46.00, 11.85], [45.85, 11.85]]
+            },
+            {
+              "type": "zone",
+              "name": "Soave DOC",
+              "description": "Elegant Garganega-based whites from volcanic soils east of Verona. Mineral, fresh, underrated.",
+              "color": "#c9b458",
+              "coords": [[45.35, 11.15], [45.35, 11.35], [45.50, 11.35], [45.50, 11.15], [45.35, 11.15]]
+            },
+            {
+              "type": "zone",
+              "name": "Bardolino & Custoza (Lake Garda)",
+              "description": "Light reds and crisp whites from the Veronese shore of Lake Garda. Perfect aperitivo wines.",
+              "color": "#e88a8a",
+              "coords": [[45.40, 10.60], [45.40, 10.80], [45.55, 10.80], [45.55, 10.60], [45.40, 10.60]]
+            }
+          ]
+        },
+        {
+          "id": "transport",
+          "name": "Transport Network",
+          "icon": "Train",
+          "description": "Three airports, high-speed rail, and the Alpine corridor",
+          "features": [
+            {
+              "type": "airport",
+              "name": "Venice Marco Polo (VCE)",
+              "coords": [45.5053, 12.3519],
+              "code": "VCE",
+              "description": "Primary international hub. Intercontinental and European connections."
+            },
+            {
+              "type": "airport",
+              "name": "Treviso Canova (TSF)",
+              "coords": [45.6484, 12.1944],
+              "code": "TSF",
+              "description": "Budget carrier hub. Ryanair and low-cost European routes."
+            },
+            {
+              "type": "airport",
+              "name": "Verona Catullo (VRN)",
+              "coords": [45.3957, 10.8885],
+              "code": "VRN",
+              "description": "Western Veneto gateway. European routes and Lake Garda access."
+            },
+            {
+              "type": "rail-hs",
+              "name": "Venice ↔ Milan (2.5 hrs)",
+              "coords": [[45.44, 12.32], [45.46, 9.19]],
+              "color": "#ef4444",
+              "description": "High-speed Frecciarossa via Verona and Padova."
+            },
+            {
+              "type": "rail-hs",
+              "name": "Venice ↔ Rome (3.5 hrs)",
+              "coords": [[45.44, 12.32], [41.90, 12.50]],
+              "color": "#ef4444",
+              "description": "High-speed connection via Bologna and Florence."
+            },
+            {
+              "type": "rail-hs",
+              "name": "Verona ↔ Brenner Pass (Austria)",
+              "coords": [[45.44, 10.99], [47.00, 11.51]],
+              "color": "#f97316",
+              "description": "Direct rail to Innsbruck and Munich. Alpine gateway to Central Europe."
+            }
+          ]
+        },
+        {
+          "id": "nature",
+          "name": "Natural Areas",
+          "icon": "Mountain",
+          "description": "From Dolomite peaks to Po Delta wetlands",
+          "features": [
+            {
+              "type": "marker",
+              "name": "Parco Nazionale Dolomiti Bellunesi",
+              "timeCapsule": "Dramatic Alpine peaks, hiking, skiing. Italy's most spectacular mountain scenery.",
+              "coords": [46.20, 12.05]
+            },
+            {
+              "type": "marker",
+              "name": "Parco Regionale del Delta del Po",
+              "timeCapsule": "Wetland paradise for birdwatching. Where the Po River meets the Adriatic.",
+              "coords": [44.96, 12.33]
+            },
+            {
+              "type": "marker",
+              "name": "Colli Euganei Regional Park",
+              "timeCapsule": "Volcanic hills south of Padua. Thermal spas, hiking, and wine.",
+              "coords": [45.30, 11.72]
+            },
+            {
+              "type": "marker",
+              "name": "Lessinia Regional Park",
+              "timeCapsule": "Pre-Alpine plateau north of Verona. Truffle country and gentle hiking.",
+              "coords": [45.62, 11.05]
+            }
+          ]
+        },
+        {
+          "id": "livability",
+          "name": "Livability Cities",
+          "icon": "Home",
+          "description": "Where retirees actually settle — and why",
+          "features": [
+            {
+              "type": "marker",
+              "name": "Bassano del Grappa",
+              "timeCapsule": "Alpine foothills charm. Famous covered bridge, grappa tradition, and a walkable historic center.",
+              "coords": [45.7660, 11.7356]
+            },
+            {
+              "type": "marker",
+              "name": "Asolo",
+              "timeCapsule": "\"City of a Hundred Horizons.\" Hill town with panoramic views and refined cultural life.",
+              "coords": [45.7990, 11.9130]
+            },
+            {
+              "type": "marker",
+              "name": "Chioggia",
+              "timeCapsule": "\"Little Venice\" on the southern lagoon. Working fishing port with authentic character.",
+              "coords": [45.2190, 12.2780]
+            },
+            {
+              "type": "marker",
+              "name": "Conegliano",
+              "timeCapsule": "Gateway to Prosecco hills. Wine school, castle views, and genuine small-town life.",
+              "coords": [45.8870, 12.2970]
+            }
+          ]
+        },
+        {
+          "id": "strategic-reach",
+          "name": "Strategic Reach",
+          "icon": "Target",
+          "description": "Padua as mobility hub — what's within 60–90 minutes",
+          "features": [
+            {
+              "type": "radius",
+              "name": "60-Minute Reach from Padua",
+              "center": [45.4064, 11.8768],
+              "radiusKm": 80,
+              "color": "#3b82f6",
+              "opacity": 0.15,
+              "description": "Venice, Verona, Vicenza, Treviso, Bassano, Adriatic beaches, Colli Euganei — all within an hour by car or train."
+            },
+            {
+              "type": "radius",
+              "name": "90-Minute Reach from Padua",
+              "center": [45.4064, 11.8768],
+              "radiusKm": 120,
+              "color": "#8b5cf6",
+              "opacity": 0.10,
+              "description": "Cortina d'Ampezzo, Lake Garda, Prosecco DOCG hills, Bologna, Ferrara — extended reach for weekend trips."
+            }
+          ]
+        }
+      ],
+      "externalMapUrl": "https://maps.google.com/?q=Veneto+Italy"
+    },
+    "tabs": [
+      {
+        "id": "geography",
+        "title": "Geography",
+        "content": "Veneto spans from the Dolomite peaks in the north to the Adriatic coastline in the east and the Po Valley plains in the south. The region is framed by Lake Garda on its western border and the Venetian Lagoon to the east. Between the mountains and the sea lies a fertile belt of foothills, vineyards, and historic cities — Verona, Vicenza, Padua, and Treviso — that form one of Italy's most connected urban corridors. Venice sits at the eastern edge, unique and incomparable, while the hinterland provides the substance that sustains it."
+      },
+      {
+        "id": "access",
+        "title": "Getting There",
+        "content": "Venice Marco Polo (VCE) is the primary international airport with intercontinental connections. Treviso Canova (TSF) serves budget carriers with extensive European reach. Verona Catullo (VRN) covers the western region and Lake Garda access. High-speed trains connect Venice to Milan (2.5 hrs), Rome (3.5 hrs), Florence (2 hrs), and Bologna (1.5 hrs). The Brenner Pass rail corridor links Verona directly to Innsbruck and Munich, making Veneto a genuine gateway to Central Europe."
+      },
+      {
+        "id": "transport",
+        "title": "Local Transport",
+        "content": "Veneto's internal rail network is dense and reliable. Regional trains connect the major cities every 15-30 minutes — Padua to Venice in 25 minutes, Padua to Verona in 50, Vicenza to Venice in 45. The A4 autostrada runs east-west linking the entire corridor. ACTV operates Venice's vaporetto water bus network. Local buses serve smaller towns effectively. Cycling infrastructure is growing, particularly in Padua (Italy's cycling capital) and along lake and river routes. Car ownership is useful for hill towns and countryside but unnecessary for city life."
+      }
+    ]
+  },
+
+  "character": {
+    "slides": [
+      {
+        "image": "/images/veneto/hero.jpg",
+        "caption": "Veneto's diverse landscape",
+        "copy": "Veneto is the region that refuses to be pinned down. Alpine in the north, maritime in the east, agricultural in the south, urban in the middle. The culture matches this complexity — pragmatic but passionate, worldly but rooted, sophisticated but never pretentious."
+      },
+      {
+        "image": "/images/veneto/hero.jpg",
+        "caption": "Piazza life in the Veneto",
+        "copy": "The Venetians invented the aperitivo. The spritz was born here, and the ritual of evening drinks in the piazza is a daily religion. But don't mistake sociability for softness — this is a region that built a maritime empire and then quietly became one of Italy's industrial powerhouses."
+      },
+      {
+        "image": "/images/veneto/hero.jpg",
+        "caption": "Market culture",
+        "copy": "Weekly markets are serious business. Padua's Piazza delle Erbe has been trading since medieval times. Verona's produce markets rival any in Italy. The food culture here is distinctive — less olive oil, more butter in the mountains; risotto rather than pasta; radicchio, asparagus, and polenta as regional staples."
+      }
+    ]
+  },
+
+  "climate": {
+    "modes": [
+      {
+        "id": "alpine",
+        "label": "Dolomites (Cortina d'Ampezzo)",
+        "avgWinterTempC": -3,
+        "avgSummerTempC": 18,
+        "notes": "True Alpine climate. Heavy snow in winter, cool summers. Ski season November-April. Dramatic temperature swings."
+      },
+      {
+        "id": "coastal",
+        "label": "Adriatic Coast (Jesolo, Chioggia)",
+        "avgWinterTempC": 4,
+        "avgSummerTempC": 27,
+        "notes": "Maritime influence moderates extremes. Mild winters, warm summers. Sea breezes keep July bearable."
+      },
+      {
+        "id": "valley",
+        "label": "Po Valley (Padova)",
+        "avgWinterTempC": 2,
+        "avgSummerTempC": 28,
+        "notes": "Fog in winter, humid in summer. This is the climate most retirees will actually live in. Four real seasons."
+      },
+      {
+        "id": "foothills",
+        "label": "Foothills & Lakes (Verona)",
+        "avgWinterTempC": 3,
+        "avgSummerTempC": 27,
+        "notes": "Lake Garda influence softens extremes. Warmer than Padua in winter. Opera under the stars in summer."
+      }
+    ]
+  },
+
+  "towns": {
+    "subtitle": "Three Cities That Define Veneto",
+    "featured": [
+      {
+        "id": "padova",
+        "name": "Padova",
+        "bestFor": "The Brain",
+        "photo": "/images/veneto/hero.jpg",
+        "summary": "Padova is Veneto's intellectual engine — home to one of the world's oldest universities, Giotto's Scrovegni Chapel, and a healthcare system that rivals anything in the north. It's affordable, walkable, and connected to everywhere.",
+        "fullDescription": "Padova is the city that Veneto runs on. While Venice gets the postcards and Verona gets the romance, Padova quietly does the work. Its university — founded in 1222 — has produced Galileo and Copernicus. Its hospital system is among Italy's strongest. Its rail connections put Venice 25 minutes away and Milan under 2.5 hours.\n\nFor retirees, Padova offers something rare: genuine urban life without the premium price tag. The historic center is compact, beautiful, and walkable. Markets fill the piazzas daily. Cultural life is rich year-round, driven by the university rather than tourism.\n\nThe city's greatest asset is its position. Padua sits at the exact center of Veneto's urban corridor, making it the natural base for anyone who wants to access everything without living in the tourist zone. Venice for culture, Verona for opera, the Dolomites for weekends, the Adriatic for summer — all within easy reach.\n\nPadova doesn't perform for visitors. It functions for residents. And that's precisely why it works so well for retirement.",
+        "mapUrl": "https://maps.google.com/?q=Padova+Italy",
+        "gallery": [],
+        "links": [
+          { "label": "Visit Padova", "href": "https://www.turismopadova.it/en/" }
+        ]
+      },
+      {
+        "id": "verona",
+        "name": "Verona",
+        "bestFor": "The Stage",
+        "photo": "/images/veneto/hero.jpg",
+        "summary": "Verona is where culture meets livability. Roman ruins, world-class opera, and a thriving wine scene — all in a city that feels genuinely lived-in rather than staged for tourists.",
+        "fullDescription": "Verona occupies a rare position: internationally famous yet genuinely functional as a place to live. The Roman arena hosts one of the world's great opera festivals. The Adige River curves through a historic center that's been continuously inhabited for two millennia. Yet beyond the tourist zone, Verona is a prosperous, well-organized city with excellent services.\n\nThe Lake Garda influence gives Verona a milder climate than the rest of the Po Valley. Winters are cold but manageable; summers are warm but tempered by proximity to water. The wine culture — Valpolicella, Soave, Bardolino — is woven into daily life rather than being a tourist attraction.\n\nVerona's healthcare is strong, with good hospitals and specialist care. Rail connections are excellent: Milan in 1 hour, Venice in 1 hour, the Brenner Pass to Austria in 1.5 hours. The airport serves European routes effectively.\n\nFor retirees who want cultural richness without Venice's impracticality, Verona delivers. It's a city where you can attend world-class opera, walk to an excellent trattoria, and be home before midnight — every night if you want.",
+        "mapUrl": "https://maps.google.com/?q=Verona+Italy",
+        "gallery": [],
+        "links": [
+          { "label": "Visit Verona", "href": "https://www.visitverona.it/en/" }
+        ]
+      },
+      {
+        "id": "treviso",
+        "name": "Treviso",
+        "bestFor": "The Surprise",
+        "photo": "/images/veneto/hero.jpg",
+        "summary": "Treviso is the Veneto town that insiders recommend and tourists overlook. Medieval canals, Prosecco country, and a quality of life that consistently ranks among Italy's highest.",
+        "fullDescription": "Treviso is what happens when a town gets everything right without anyone noticing. Medieval walls surround a center threaded with canals and porticoed streets. Fish markets still operate on their original island. Prosecco country starts at the city limits.\n\nThe town is compact, wealthy, and quietly proud. It lacks the grandeur of Verona or the intellectual heft of Padua, but it compensates with livability. Streets are clean, services work, food is excellent, and the pace allows you to breathe.\n\nTreviso's proximity to the Prosecco DOCG hills makes it a natural base for wine culture. The Canova airport nearby offers budget flights across Europe. Venice is 30 minutes by train. The Dolomites are 90 minutes north.\n\nFor retirees who want charm without chaos, Treviso is the answer no one's asking about yet. It's a town that rewards daily life rather than weekend visits — the kind of place where your favorite café knows your order and the market stall saves you the good radicchio.",
+        "mapUrl": "https://maps.google.com/?q=Treviso+Italy",
+        "gallery": [],
+        "links": [
+          { "label": "Visit Treviso", "href": "https://www.visittreviso.it/en/" }
+        ]
+      }
+    ],
+    "grid": [
+      {
+        "id": "vicenza",
+        "name": "Vicenza",
+        "bestFor": "Palladian architecture, refined living",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Vicenza+Italy",
+        "blurb": "Palladio's masterpiece city — UNESCO-listed architecture, a prosperous gold industry, and a cultured civic life that flies under the radar. Vicenza suits retirees who value beauty, order, and quiet sophistication."
+      },
+      {
+        "id": "bassano-del-grappa",
+        "name": "Bassano del Grappa",
+        "bestFor": "Alpine foothills, grappa, covered bridge",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Bassano+del+Grappa+Italy",
+        "blurb": "A town where the mountains meet the plains. Famous for its Ponte degli Alpini, grappa distilleries, and a walkable center that makes daily errands feel like a stroll through a painting."
+      },
+      {
+        "id": "asolo",
+        "name": "Asolo",
+        "bestFor": "Hilltop views, literary history",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Asolo+Italy",
+        "blurb": "The 'City of a Hundred Horizons.' A hilltop jewel where Robert Browning lived and Eleonora Duse retreated. Panoramic views, refined restaurants, and a pace of life that whispers rather than shouts."
+      },
+      {
+        "id": "conegliano",
+        "name": "Conegliano",
+        "bestFor": "Prosecco gateway, wine school",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Conegliano+Italy",
+        "blurb": "Gateway to the Prosecco DOCG hills and home to Italy's oldest wine school. Castle views, authentic small-town life, and easy access to Treviso and Venice by rail."
+      },
+      {
+        "id": "chioggia",
+        "name": "Chioggia",
+        "bestFor": "Fishing port, affordable coast",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Chioggia+Italy",
+        "blurb": "Called 'Little Venice' for its canals and bridges, but with a working-class fishing port character entirely its own. More affordable than anywhere on the lagoon, with genuine maritime soul."
+      },
+      {
+        "id": "cortina-dampezzo",
+        "name": "Cortina d'Ampezzo",
+        "bestFor": "Premium Alpine, Olympics 2026",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cortina+d%27Ampezzo+Italy",
+        "blurb": "Queen of the Dolomites. World-class skiing, hiking, and the 2026 Winter Olympics. Premium pricing but unmatched mountain lifestyle for those who can afford it."
+      }
+    ]
+  },
+
+  "highlights": {
+    "wine": {
+      "title": "WINE — Italy's Largest Producer, Smallest Ego",
+      "intro": "Veneto produces more wine than any other Italian region, yet its best bottles remain undervalued. From the dried-grape intensity of Amarone to the UNESCO-listed Prosecco hills, Veneto's wine culture is both ancient and surprisingly accessible.",
+      "backgroundImage": "/images/veneto/hero.jpg",
+      "cards": [
+        {
+          "id": "amarone",
+          "title": "Amarone della Valpolicella",
+          "subtitle": "Italy's boldest red",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Made from partially dried grapes (appassimento), Amarone is rich, complex, and powerful. A single bottle can age for decades. This is Veneto's claim to world-class winemaking.",
+          "links": [
+            { "label": "Consorzio Valpolicella", "href": "https://www.consorziovalpolicella.it/en/" }
+          ]
+        },
+        {
+          "id": "prosecco",
+          "title": "Prosecco DOCG",
+          "subtitle": "The world's favorite sparkle",
+          "image": "/images/veneto/hero.jpg",
+          "description": "From the steep UNESCO-listed hills of Conegliano-Valdobbiadene. The best Prosecco is nothing like the supermarket version — mineral, complex, and genuinely delicious.",
+          "links": [
+            { "label": "Prosecco DOCG Consortium", "href": "https://www.prosecco.it/en/" }
+          ]
+        },
+        {
+          "id": "soave",
+          "title": "Soave Classico",
+          "subtitle": "The underrated white",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Garganega-based whites from volcanic soils east of Verona. At its best, Soave is mineral, elegant, and criminally underpriced. Italy's most overlooked great white wine.",
+          "links": [
+            { "label": "Consorzio Soave", "href": "https://www.ilsoave.com/en/" }
+          ]
+        }
+      ]
+    },
+    "food": {
+      "title": "FOOD — From Risotto to Radicchio",
+      "intro": "Veneto's cuisine defies the Italian stereotype. Less olive oil, more butter. Risotto over pasta. Polenta as a staple. Radicchio as religion. This is northern Italian cooking at its most distinctive — shaped by rivers, mountains, and a seafaring past.",
+      "backgroundImage": "/images/veneto/hero.jpg",
+      "cards": [
+        {
+          "id": "risotto-radicchio",
+          "title": "Risotto al Radicchio",
+          "subtitle": "Bitter elegance",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Treviso's famous radicchio — bitter, beautiful, and brilliant in risotto. A dish that captures Veneto's preference for flavors that make you think rather than just please.",
+          "links": []
+        },
+        {
+          "id": "baccala",
+          "title": "Baccalà alla Vicentina",
+          "subtitle": "500 years of tradition",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Dried cod slow-cooked in milk, onions, and Parmesan. Vicenza's signature dish, with a confraternity dedicated to its preservation. This is food as cultural heritage.",
+          "links": []
+        },
+        {
+          "id": "sarde-in-saor",
+          "title": "Sarde in Saor",
+          "subtitle": "Venice's sweet-sour masterpiece",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Fried sardines marinated with onions, raisins, pine nuts, and vinegar. Born as a way to preserve fish on long voyages, now a cicchetti bar essential across the Veneto.",
+          "links": []
+        }
+      ]
+    },
+    "culture": {
+      "title": "CULTURE — A Thousand Years of Civilization",
+      "intro": "Veneto's cultural depth is staggering. Venice alone would fill a lifetime. But add Verona's Roman arena, Padua's Giotto frescoes, Vicenza's Palladian villas, and the Dolomites' Alpine traditions, and you have one of Europe's richest cultural landscapes.",
+      "backgroundImage": "/images/veneto/hero.jpg",
+      "cards": [
+        {
+          "id": "arena-verona",
+          "title": "Arena di Verona Opera Festival",
+          "subtitle": "Opera under the stars",
+          "image": "/images/veneto/hero.jpg",
+          "description": "The world's largest open-air opera venue. Summer performances in a 2,000-year-old Roman amphitheater. An experience that transcends music into something elemental.",
+          "links": [
+            { "label": "Arena di Verona", "href": "https://www.arena.it/en" }
+          ]
+        },
+        {
+          "id": "scrovegni",
+          "title": "Scrovegni Chapel",
+          "subtitle": "Giotto's masterwork",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Giotto's frescoes in Padua's Scrovegni Chapel changed the course of Western art. Intimate, overwhelming, and available by timed reservation.",
+          "links": [
+            { "label": "Cappella degli Scrovegni", "href": "https://www.cappelladegliscrovegni.it/index.php/en/" }
+          ]
+        },
+        {
+          "id": "la-fenice",
+          "title": "Teatro La Fenice",
+          "subtitle": "Venice's legendary opera house",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Burned and rebuilt twice — like the phoenix it's named after. One of the world's most beautiful opera houses, with year-round programming.",
+          "links": [
+            { "label": "La Fenice", "href": "https://www.teatrolafenice.it/" }
+          ]
+        }
+      ]
+    }
+  },
+
+  "collaborator": {
+    "heading": "Speak Italian Like You Belong",
+    "paragraphs": [
+      "You can learn Italian from a book, but it won't teach you how to order a spritz in Treviso without sounding like a tourist. That's where my friend Luca comes in.",
+      "Luca is a native Italian teacher and founder of the Italian Conversation Club, where lessons feel more like catching up with a friend than sitting through class. His approach is simple: real conversations, cultural insight, and the confidence to connect with locals from day one.",
+      "Each one-to-one session is completely tailored to you — your level, your goals, your life. Whether you're preparing for a move to Italy, want to feel comfortable chatting at the market, or just wish you could express yourself naturally, Luca helps you do exactly that.",
+      "His students say the same thing: they stopped translating in their heads and started thinking in Italian.",
+      "The first session is free. Try it and see how quickly Italian starts to feel like yours."
+    ],
+    "ctaText": "Try a Free Lesson with Luca",
+    "ctaLink": "https://italiando.aqulas.me/?fbclid=PAb21jcANYu8xleHRuA2FlbQIxMQABp-AAQrUNhnXXhrBTY_8w8RMtjDouyRS2egmduL1HHvyjvdskKaEOICPWdDrW_aem_Xi-i2ozen-XC30YQMhECJw",
+    "backgroundImage": "/images/shared/cafe-table-sepia.jpg"
+  },
+
+  "wine": {
+    "quiz": {
+      "title": "Which Veneto Wine Are You?",
+      "subtitle": "Your personality says more about your wine preferences than any sommelier ever will.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Your perfect afternoon in Veneto looks like:",
+          "answers": [
+            { "text": "Wandering Verona's backstreets with no plan.", "wine": "amarone" },
+            { "text": "A long lunch in a Prosecco hill trattoria.", "wine": "prosecco" },
+            { "text": "Cycling along the Brenta Canal.", "wine": "soave" },
+            { "text": "Browsing cicchetti bars in Venice.", "wine": "ripasso" }
+          ]
+        },
+        {
+          "id": "q2",
+          "text": "When someone cancels plans, you:",
+          "answers": [
+            { "text": "Celebrate the unexpected free time.", "wine": "amarone" },
+            { "text": "Call someone else — the night is young.", "wine": "prosecco" },
+            { "text": "Enjoy the quiet evening at home.", "wine": "soave" },
+            { "text": "Shrug and pour yourself a glass.", "wine": "ripasso" }
+          ]
+        },
+        {
+          "id": "q3",
+          "text": "Pick a Veneto home base:",
+          "answers": [
+            { "text": "A stone house in Valpolicella.", "wine": "amarone" },
+            { "text": "A hilltop villa near Asolo.", "wine": "prosecco" },
+            { "text": "A quiet apartment in Padua.", "wine": "soave" },
+            { "text": "A canal-side flat in Treviso.", "wine": "ripasso" }
+          ]
+        },
+        {
+          "id": "q4",
+          "text": "What's your relationship with food?",
+          "answers": [
+            { "text": "Rich, complex, worth the wait.", "wine": "amarone" },
+            { "text": "Light, celebratory, shared with friends.", "wine": "prosecco" },
+            { "text": "Simple, seasonal, perfectly balanced.", "wine": "soave" },
+            { "text": "Familiar but never boring.", "wine": "ripasso" }
+          ]
+        },
+        {
+          "id": "q5",
+          "text": "Choose a soundtrack for your trip:",
+          "answers": [
+            { "text": "Something deep and cinematic.", "wine": "amarone" },
+            { "text": "Upbeat and effervescent.", "wine": "prosecco" },
+            { "text": "Acoustic and understated.", "wine": "soave" },
+            { "text": "Jazz — familiar melodies, new interpretations.", "wine": "ripasso" }
+          ]
+        }
+      ],
+      "profiles": [
+        {
+          "id": "amarone",
+          "name": "Amarone della Valpolicella",
+          "title": "Bold, Patient, Unforgettable",
+          "description": "You don't rush. You don't need to impress. Like Amarone, you're the result of careful attention and time — complex, rewarding, and absolutely worth the wait.",
+          "image": "/images/veneto/hero.jpg",
+          "tastingNotes": "Rich and velvety. Dried cherry, dark chocolate, leather, and warm spice. Full-bodied with soft tannins and a finish that lingers for minutes. This is wine as meditation."
+        },
+        {
+          "id": "prosecco",
+          "name": "Prosecco Superiore DOCG",
+          "title": "Bright, Social, Irresistible",
+          "description": "You light up every room. Like the best Prosecco, you're more complex than people expect — beneath the sparkle lies real substance and terroir.",
+          "image": "/images/veneto/hero.jpg",
+          "tastingNotes": "Fine, persistent bubbles. Green apple, white peach, acacia flowers, and a mineral backbone from the steep hills. Dry, elegant, and absolutely nothing like the supermarket version."
+        },
+        {
+          "id": "soave",
+          "name": "Soave Classico",
+          "title": "Elegant, Understated, Pure",
+          "description": "You don't need volume to be heard. Like Soave at its best, you're precise, mineral, and quietly captivating — the kind of presence that grows on people.",
+          "image": "/images/veneto/hero.jpg",
+          "tastingNotes": "Mineral and fresh. Citrus, almond, chamomile, and a volcanic edge from ancient soils. Medium-bodied with beautiful acidity. Italy's most underrated great white wine."
+        },
+        {
+          "id": "ripasso",
+          "name": "Valpolicella Ripasso",
+          "title": "The Best of Both Worlds",
+          "description": "You take the familiar and make it extraordinary. Like Ripasso — Valpolicella refermented on Amarone grape skins — you add depth to everything you touch without losing your essential character.",
+          "image": "/images/veneto/hero.jpg",
+          "tastingNotes": "Medium to full-bodied. Ripe cherry, plum, vanilla, and a hint of dried fruit from the Amarone contact. Rounder and richer than standard Valpolicella, but more approachable than Amarone. The sweet spot."
+        }
+      ]
+    }
+  },
+
+  "recipes": {
+    "header": {
+      "title": "Veneto Recipes — From Lagoon to Mountain",
+      "subtitle": "Where seafaring tradition meets Alpine comfort"
+    },
+    "cards": [
+      {
+        "id": "risotto-radicchio",
+        "title": "Risotto al Radicchio di Treviso",
+        "mode": "Refined",
+        "image": "/images/veneto/hero.jpg",
+        "story": "Treviso's late-harvest radicchio — forced in spring water to intensify its bitterness — meets Vialone Nano rice in a dish that's pure Veneto: understated, sophisticated, and completely addictive.",
+        "whyRefined": "The interplay of bitter radicchio, creamy rice, and the precise mantecatura technique creates a dish of deceptive simplicity.",
+        "ingredients": [
+          "320 g Vialone Nano rice",
+          "2 heads Radicchio di Treviso, shredded",
+          "1 small onion, finely diced",
+          "100 ml dry red wine",
+          "1 L hot vegetable stock",
+          "50 g unsalted butter",
+          "50 g Parmigiano-Reggiano",
+          "Olive oil",
+          "Salt"
+        ],
+        "steps": [
+          "Sauté onion in olive oil until soft.",
+          "Add radicchio, cook until wilted.",
+          "Add rice, toast for 2 minutes.",
+          "Deglaze with red wine.",
+          "Add stock gradually, stirring, for 16–18 minutes.",
+          "Off heat, add butter and Parmigiano (mantecatura).",
+          "Rest 1 minute. Serve immediately."
+        ],
+        "pairWithWineProfile": "ripasso",
+        "winePairing": "Valpolicella Ripasso — the wine's gentle fruit rounds out the radicchio's bitterness."
+      },
+      {
+        "id": "baccala-vicentina",
+        "title": "Baccalà alla Vicentina",
+        "mode": "Rustic",
+        "image": "/images/veneto/hero.jpg",
+        "story": "Vicenza's signature dish: dried cod slow-cooked in milk with onions, anchovies, and Parmesan until it becomes a silky, deeply savory ragù. A confraternity exists solely to protect this recipe.",
+        "ingredients": [
+          "500 g dried stockfish (soaked 3 days)",
+          "2 large onions, thinly sliced",
+          "3 anchovy fillets",
+          "500 ml whole milk",
+          "Parmesan, grated",
+          "Flour for dredging",
+          "Olive oil",
+          "Parsley",
+          "Salt & pepper"
+        ],
+        "steps": [
+          "Slice soaked stockfish into portions, dredge lightly in flour.",
+          "Layer in a heavy pot: onions, fish, anchovies, Parmesan, parsley.",
+          "Pour over milk and olive oil.",
+          "Cook on very low heat for 4–5 hours without stirring.",
+          "The fish should become creamy and almost fall apart.",
+          "Serve with grilled polenta."
+        ],
+        "pairWithWineProfile": "soave",
+        "winePairing": "Soave Classico — the wine's mineral acidity cuts through the richness perfectly."
+      },
+      {
+        "id": "sarde-in-saor",
+        "title": "Sarde in Saor",
+        "mode": "Rustic",
+        "image": "/images/veneto/hero.jpg",
+        "story": "Venice's sweet-sour sardine dish — originally a way to preserve fish for long sea voyages. Fried sardines layered with slow-cooked onions, raisins, pine nuts, and white wine vinegar. Time makes it better.",
+        "ingredients": [
+          "500 g fresh sardines, cleaned",
+          "3 large white onions, thinly sliced",
+          "100 ml white wine vinegar",
+          "50 g raisins, soaked",
+          "30 g pine nuts, toasted",
+          "Flour for dredging",
+          "Olive oil",
+          "Bay leaves",
+          "Salt"
+        ],
+        "steps": [
+          "Dredge sardines in flour, fry until golden. Drain on paper.",
+          "In the same oil, cook onions slowly until very soft (30+ minutes).",
+          "Add vinegar, raisins, pine nuts, bay leaves. Cook 5 minutes.",
+          "Layer sardines and onion mixture in a dish.",
+          "Cover and refrigerate at least 24 hours before serving.",
+          "Serve at room temperature. Better after 2–3 days."
+        ],
+        "pairWithWineProfile": "prosecco",
+        "winePairing": "Prosecco DOCG — the bubbles and acidity cut through the sweet-sour richness."
+      },
+      {
+        "id": "risi-e-bisi",
+        "title": "Risi e Bisi",
+        "mode": "Refined",
+        "image": "/images/veneto/hero.jpg",
+        "story": "Venice's most famous dish — a cross between risotto and soup, traditionally served to the Doge on the feast of San Marco (April 25). Spring peas, pancetta, and rice in a celebration of the season.",
+        "whyRefined": "Deceptively simple, risi e bisi demands perfect timing and the best spring peas. Too thick and it's risotto; too thin and it's soup. The balance is everything.",
+        "ingredients": [
+          "300 g Vialone Nano rice",
+          "500 g fresh spring peas (in pod)",
+          "100 g pancetta, diced",
+          "1 small onion, finely diced",
+          "1.2 L light stock",
+          "50 g butter",
+          "50 g Parmigiano-Reggiano",
+          "Parsley",
+          "Salt"
+        ],
+        "steps": [
+          "Make a broth from the pea pods for extra flavor.",
+          "Sauté pancetta and onion in butter.",
+          "Add peas, cook briefly.",
+          "Add rice, stir to coat.",
+          "Add stock gradually, keeping it slightly soupier than risotto.",
+          "Cook 16–18 minutes. Finish with Parmigiano and parsley.",
+          "Serve in bowls — it should flow, not hold its shape."
+        ],
+        "pairWithWineProfile": "soave",
+        "winePairing": "Soave Classico — spring peas and mineral white wine are a natural match."
+      }
+    ],
+    "modes": ["Rustic", "Refined"]
+  },
+
+  "healthcare": {
+    "sectionTitle": "Healthcare & Infrastructure",
+    "sectionSubtitle": "Where competence is the default, not the exception",
+    "hospitalsIntro": "Veneto's healthcare system consistently ranks among Italy's top three regions. The network is organized, responsive, and genuinely accessible — even for newcomers navigating the system for the first time.",
+    "hospitalGroups": [
+      {
+        "title": "Major Teaching Hospitals",
+        "hospitals": [
+          {
+            "name": "Azienda Ospedaliera di Padova",
+            "location": "Padova",
+            "description": "One of Italy's top university hospitals. Strong across all specialties, particularly cardiology, oncology, and neurology. Research-intensive and internationally connected.",
+            "link": "https://www.aopd.veneto.it/",
+            "mapLink": "https://maps.google.com/?q=Azienda+Ospedaliera+di+Padova"
+          },
+          {
+            "name": "Azienda Ospedaliera Universitaria Integrata di Verona",
+            "location": "Verona",
+            "description": "Major university hospital serving western Veneto. Excellent emergency services and specialist care. Well-connected to the Garda and foothill communities.",
+            "link": "https://www.aovr.veneto.it/",
+            "mapLink": "https://maps.google.com/?q=Ospedale+Universitario+Verona"
+          }
+        ]
+      },
+      {
+        "title": "Regional Hospitals",
+        "hospitals": [
+          {
+            "name": "Ca' Foncello Hospital",
+            "location": "Treviso",
+            "description": "Modern, well-equipped regional hospital serving the Prosecco country and northern Veneto. Strong emergency department and good specialist services.",
+            "link": "https://www.aulss2.veneto.it/",
+            "mapLink": "https://maps.google.com/?q=Ospedale+Ca+Foncello+Treviso"
+          },
+          {
+            "name": "Ospedale San Bortolo",
+            "location": "Vicenza",
+            "description": "Reliable regional hospital with good general services. Serves the Palladian city and surrounding foothill communities.",
+            "link": "https://www.aulss8.veneto.it/",
+            "mapLink": "https://maps.google.com/?q=Ospedale+San+Bortolo+Vicenza"
+          }
+        ]
+      }
+    ],
+    "howCareWorks": {
+      "title": "How Care Works in Veneto",
+      "paragraphs": [
+        "Veneto's healthcare is organized regionally but connected professionally. Family doctors and local clinics handle routine care. When specialist treatment is needed, referral pathways to Padua and Verona's university hospitals are well-established and efficient.",
+        "The system works because Veneto invests in it consistently. Wait times are among Italy's shortest, and the quality gap between city and provincial hospitals is smaller here than in most regions."
+      ],
+      "anchor": "Veneto doesn't just have hospitals. It has a system."
+    },
+    "whyItMatters": {
+      "title": "Why This Matters for Retirees",
+      "paragraphs": [
+        "You don't need to live next to a university hospital. You need to live in a region where getting to one — quickly, reliably, without drama — is how the system is designed to work.",
+        "Veneto delivers that. Consistently."
+      ]
+    },
+    "infrastructure": {
+      "intro": "Veneto's infrastructure reflects a region that has been a crossroads for centuries. Roman roads, Venetian trade routes, and modern autostrade all converge here — creating a connectivity advantage that few Italian regions can match.",
+      "sections": [
+        {
+          "title": "Transportation & Access",
+          "subsections": [
+            {
+              "title": "Rail",
+              "paragraphs": [
+                "Veneto sits on Italy's main east-west rail axis. High-speed trains connect Venice to Milan (2.5 hrs), Rome (3.5 hrs), and Florence (2 hrs). Regional trains link the corridor cities every 15-30 minutes.",
+                "The Brenner Pass rail corridor from Verona connects directly to Innsbruck and Munich, making Veneto a genuine gateway to Central Europe."
+              ]
+            },
+            {
+              "title": "Airports",
+              "intro": "Three airports serve different purposes and price points:",
+              "airports": [
+                {
+                  "name": "Venice Marco Polo (VCE)",
+                  "description": "Primary international hub with intercontinental connections.",
+                  "link": "https://www.veneziaairport.it/en/",
+                  "mapUrl": "https://maps.google.com/?q=Venice+Marco+Polo+Airport"
+                },
+                {
+                  "name": "Treviso Canova (TSF)",
+                  "description": "Budget carrier hub — Ryanair and low-cost European routes.",
+                  "link": "https://www.trevisoareport.it/en/",
+                  "mapUrl": "https://maps.google.com/?q=Treviso+Airport"
+                },
+                {
+                  "name": "Verona Catullo (VRN)",
+                  "description": "Western Veneto and Lake Garda. European routes and charter flights.",
+                  "link": "https://www.aeroportoverona.it/en/",
+                  "mapUrl": "https://maps.google.com/?q=Verona+Airport"
+                }
+              ],
+              "closing": "Three airports within a 90-minute corridor. If one doesn't fly your route, another likely will."
+            }
+          ]
+        },
+        {
+          "title": "Access to Nature & Recreation",
+          "paragraphs": [
+            "Veneto's geography means nature is never far away. The Dolomites are 90 minutes from Padua. The Adriatic beaches are 45 minutes east. Lake Garda is an hour west. The Colli Euganei thermal spa district is 20 minutes south of Padua.",
+            "This is not wilderness — it's managed access to extraordinary landscapes."
+          ],
+          "features": [
+            "Dolomiti Bellunesi National Park for Alpine hiking and skiing",
+            "Po Delta Regional Park for birdwatching and cycling",
+            "Colli Euganei for thermal spas and gentle hiking",
+            "Lessinia for truffle hunting and pre-Alpine trails",
+            "Adriatic coast for beach access and maritime activities"
+          ]
+        }
+      ]
+    },
+    "airports": [
+      {
+        "name": "Venice Marco Polo (VCE)",
+        "coords": [45.5053, 12.3519],
+        "description": "Primary international hub",
+        "link": "https://www.veneziaairport.it/en/",
+        "mapUrl": "https://maps.google.com/?q=Venice+Marco+Polo+Airport"
+      },
+      {
+        "name": "Treviso Canova (TSF)",
+        "coords": [45.6484, 12.1944],
+        "description": "Budget carrier hub",
+        "link": "https://www.trevisoareport.it/en/",
+        "mapUrl": "https://maps.google.com/?q=Treviso+Airport"
+      },
+      {
+        "name": "Verona Catullo (VRN)",
+        "coords": [45.3957, 10.8885],
+        "description": "Western Veneto gateway",
+        "link": "https://www.aeroportoverona.it/en/",
+        "mapUrl": "https://maps.google.com/?q=Verona+Airport"
+      }
+    ],
+    "railways": [
+      {
+        "name": "Trenitalia High-Speed (Frecce)",
+        "description": "Venice-Milan, Venice-Rome, Venice-Florence high-speed connections.",
+        "link": "https://www.trenitalia.com/"
+      },
+      {
+        "name": "Trenitalia Regional",
+        "description": "Dense network connecting Veneto's corridor cities every 15-30 minutes.",
+        "link": "https://www.trenitalia.com/"
+      }
+    ],
+    "highways": [
+      {
+        "name": "A4 Autostrada (Turin-Trieste)",
+        "description": "Northern Italy's main east-west artery running through the heart of Veneto.",
+        "link": "https://www.autostrade.it/"
+      },
+      {
+        "name": "A22 Brennero (Verona-Austria)",
+        "description": "Alpine corridor connecting Verona to Innsbruck and Munich.",
+        "link": "https://www.autobrennero.it/"
+      }
+    ],
+    "parks": [
+      {
+        "name": "Parco Nazionale Dolomiti Bellunesi",
+        "coords": [46.20, 12.05],
+        "description": "Dramatic Alpine peaks, hiking, and skiing.",
+        "link": "https://www.dolomitipark.it/",
+        "mapUrl": "https://maps.google.com/?q=Parco+Nazionale+Dolomiti+Bellunesi"
+      },
+      {
+        "name": "Parco Regionale Delta del Po",
+        "coords": [44.96, 12.33],
+        "description": "Wetland paradise for birdwatching.",
+        "link": "https://www.parcodeltapo.org/",
+        "mapUrl": "https://maps.google.com/?q=Parco+Delta+del+Po+Veneto"
+      }
+    ],
+    "travelTimes": [
+      {
+        "from": "Padova",
+        "to": [
+          { "destination": "Venezia", "time": "25 min" },
+          { "destination": "Verona", "time": "50 min" },
+          { "destination": "Vicenza", "time": "20 min" },
+          { "destination": "Treviso", "time": "30 min" },
+          { "destination": "Bologna", "time": "1 hr 15 min" },
+          { "destination": "Milano", "time": "2 hr 15 min" }
+        ],
+        "nearestAirport": {
+          "name": "Venice Marco Polo",
+          "code": "VCE",
+          "time": "45 min",
+          "distance": "45 km",
+          "connectivity": "Intercontinental and European",
+          "link": "https://www.veneziaairport.it/en/"
+        }
+      },
+      {
+        "from": "Verona",
+        "to": [
+          { "destination": "Padova", "time": "50 min" },
+          { "destination": "Venezia", "time": "1 hr 10 min" },
+          { "destination": "Milano", "time": "1 hr" },
+          { "destination": "Innsbruck", "time": "2 hr" },
+          { "destination": "Bologna", "time": "1 hr" }
+        ],
+        "nearestAirport": {
+          "name": "Verona Catullo",
+          "code": "VRN",
+          "time": "15 min",
+          "distance": "12 km",
+          "connectivity": "European routes",
+          "link": "https://www.aeroportoverona.it/en/"
+        }
+      }
+    ],
+    "quickInfo": {
+      "emergencyNumbers": ["112 (General Emergency)", "118 (Medical Emergency)"],
+      "healthcare": {
+        "title": "Healthcare System",
+        "description": "Veneto's SSN (Servizio Sanitario Nazionale) is among Italy's best-performing regional systems.",
+        "link": "https://www.regione.veneto.it/web/sanita"
+      },
+      "transport": {
+        "title": "Transport Network",
+        "description": "Integrated rail, bus, and water transport across the region.",
+        "link": "https://www.trenitalia.com/"
+      }
+    },
+    "closing": "Veneto's infrastructure doesn't just exist — it connects. And for retirees, that connectivity is the difference between living somewhere beautiful and living somewhere that actually works."
+  },
+
+  "costOfLiving": {
+    "intro": {
+      "headline": "Cost of Living — The Veneto Value Equation",
+      "lead": "Veneto sits in the middle of Italy's cost spectrum — more affordable than Lombardia, pricier than the deep south, and offering arguably the best value-for-money in the country when you factor in infrastructure, healthcare, and quality of life.",
+      "realityCheck": "Venice is expensive. Everyone knows that. But step off the lagoon and costs normalize quickly. Padua, Treviso, and Vicenza offer genuine mid-range European living with first-class services. The real surprise is how much you get for your money in the secondary towns.",
+      "whyItWorks": "What makes Veneto work financially isn't just the monthly cost — it's what you don't pay for separately. Healthcare that functions, trains that run, and a level of daily infrastructure that eliminates the hidden costs of living in less organized regions."
+    },
+    "townPresets": [
+      {
+        "id": "venezia",
+        "label": "Venezia (Historic Center)",
+        "modest": { "rent": 1100, "utilities": 160, "groceries": 420, "dining": 250, "transport": 80 },
+        "normal": { "rent": 1700, "utilities": 200, "groceries": 520, "dining": 400, "transport": 100 },
+        "highEnd": { "rent": 2800, "utilities": 280, "groceries": 700, "dining": 600, "transport": 150 }
+      },
+      {
+        "id": "padova",
+        "label": "Padova (Best Value)",
+        "modest": { "rent": 600, "utilities": 120, "groceries": 320, "dining": 180, "transport": 40 },
+        "normal": { "rent": 900, "utilities": 150, "groceries": 400, "dining": 280, "transport": 60 },
+        "highEnd": { "rent": 1400, "utilities": 200, "groceries": 550, "dining": 420, "transport": 90 }
+      },
+      {
+        "id": "verona",
+        "label": "Verona (Cultural Hub)",
+        "modest": { "rent": 650, "utilities": 125, "groceries": 330, "dining": 190, "transport": 45 },
+        "normal": { "rent": 1000, "utilities": 155, "groceries": 420, "dining": 300, "transport": 70 },
+        "highEnd": { "rent": 1600, "utilities": 210, "groceries": 580, "dining": 450, "transport": 100 }
+      },
+      {
+        "id": "treviso",
+        "label": "Treviso (Prosecco Country)",
+        "modest": { "rent": 550, "utilities": 115, "groceries": 310, "dining": 170, "transport": 40 },
+        "normal": { "rent": 850, "utilities": 145, "groceries": 390, "dining": 260, "transport": 60 },
+        "highEnd": { "rent": 1300, "utilities": 190, "groceries": 530, "dining": 400, "transport": 90 }
+      }
+    ],
+    "lifestyles": ["Modest", "Average", "High-End"],
+    "notes": {
+      "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
+      "sources": [
+        "Numbeo.com",
+        "LivingCost.org",
+        "Regional data extrapolations (2025-2026)"
+      ],
+      "links": {
+        "padova": "https://www.numbeo.com/cost-of-living/in/Padua",
+        "verona": "https://www.numbeo.com/cost-of-living/in/Verona"
+      }
+    }
+  },
+
+  "prosCons": {
+    "intro": {
+      "headline": "Pros & Cons: Veneto Without the Tourist Goggles",
+      "lead": "Veneto is the region that has everything — UNESCO sites, world-class wine, excellent healthcare, Alpine mountains, Adriatic beaches, and a cost of living that won't destroy your savings. The catch? Everyone else has noticed too.",
+      "tradeoff": "The best part? Extraordinary diversity within a compact geography. Mountains, sea, wine country, and historic cities all within 90 minutes. The tradeoff? The Po Valley fog is real, Venice's tourist pressure is relentless, and summer humidity in the lowlands will test your patience."
+    },
+    "pros": [
+      {
+        "title": "Strategic Position",
+        "points": [
+          "Central to northern Italy's urban corridor — Venice, Milan, Bologna all accessible.",
+          "Three airports covering international, budget, and regional routes.",
+          "Brenner Pass rail connection to Austria, Germany, and Central Europe."
+        ]
+      },
+      {
+        "title": "Healthcare Excellence",
+        "points": [
+          "Consistently ranked among Italy's top 3 regional healthcare systems.",
+          "University hospitals in Padua and Verona with specialist care.",
+          "Shorter wait times than most Italian regions."
+        ]
+      },
+      {
+        "title": "Cultural Richness",
+        "points": [
+          "More UNESCO World Heritage sites than most countries.",
+          "Verona Opera Festival, La Fenice, Scrovegni Chapel — all within the region.",
+          "Palladio's architecture, Venice's art, Dolomite traditions."
+        ]
+      },
+      {
+        "title": "Wine & Food Culture",
+        "points": [
+          "Italy's largest wine-producing region — Amarone, Prosecco, Soave.",
+          "Distinctive cuisine: risotto, baccalà, radicchio, cicchetti.",
+          "Wine country experiences without Tuscany's prices."
+        ]
+      },
+      {
+        "title": "Geographic Diversity",
+        "points": [
+          "Dolomites for skiing and hiking, 90 minutes from the coast.",
+          "Adriatic beaches for summer, thermal spas year-round.",
+          "Lake Garda's microclimate on the western border."
+        ]
+      }
+    ],
+    "cons": [
+      {
+        "title": "Po Valley Climate",
+        "points": [
+          "Winter fog in the lowlands can be dense and persistent.",
+          "Summer humidity in Padua and the plains is uncomfortable.",
+          "Less sunshine than southern regions — not for sun-chasers."
+        ]
+      },
+      {
+        "title": "Venice Tourist Pressure",
+        "points": [
+          "60 million annual visitors create congestion beyond the city itself.",
+          "Surrounding areas feel the overspill, especially in summer.",
+          "Day-trip crowds on Verona and Padua are growing."
+        ]
+      },
+      {
+        "title": "Cost Variance",
+        "points": [
+          "Venice is genuinely expensive — lagoon living commands a premium.",
+          "Lake Garda shore prices rival Como.",
+          "Even 'affordable' towns are pricier than southern Italy."
+        ]
+      },
+      {
+        "title": "Complexity for Newcomers",
+        "points": [
+          "Multiple overlapping transport systems require learning.",
+          "Bureaucracy varies by commune — some efficient, some Kafkaesque.",
+          "Italian language more essential here than in heavily tourist areas."
+        ]
+      }
+    ],
+    "finalTake": {
+      "headline": "Final Take: Is Veneto Right for You?",
+      "text": "Veneto is for retirees who want substance over spectacle — people who'd rather live near Venice than in it, who value a hospital that works over a view that dazzles, and who understand that the best Italian life happens in the places tourists drive past on their way to somewhere famous.",
+      "conclusion": "If you want Italy that delivers on every metric — culture, healthcare, connectivity, wine, food, nature — without requiring you to choose between them, Veneto might be the smartest move you make. Just pack a fog-resistant attitude for November."
+    }
+  },
+
+  "ctas": ["book", "retirement-blueprint"],
+
+  "closing": {
+    "header": "Share This Guide",
+    "subtitle": "Know someone dreaming of Italian retirement?",
+    "message": "Grazie for reading Issue #11.",
+    "shareUrl": "https://news.caesartheday.com/veneto",
+    "socialMessages": {
+      "facebook": "Veneto: where world-class wine meets UNESCO sites and healthcare that actually works. My comprehensive retirement guide to Italy's most strategically complete region.",
+      "threads": "Mountains. Sea. Prosecco hills. World-class hospitals. Veneto is Italy for people who want everything — and it actually delivers. CaesarTheDay's new guide shows what life there really looks like.",
+      "bluesky": "Interactive guide to retiring in Veneto — where Dolomite peaks meet Adriatic shores, Prosecco flows, and the trains actually run. Smart, beautiful work from CaesarTheDay.",
+      "whatsapp": "I just read this interactive guide to retiring in Veneto — it's actually useful and gorgeous. Thought you'd enjoy it too. 👉",
+      "pinterest": {
+        "title": "Retire in Veneto: Mountains, Sea & Italian Excellence",
+        "description": "CaesarTheDay's interactive guide to living in Italy's Veneto region — where Prosecco hills meet Dolomite peaks and everything actually works."
+      }
+    }
+  }
+}
