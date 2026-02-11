@@ -191,7 +191,12 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       mapData.overlays.forEach(overlay => {
         const layerGroup = L.layerGroup();
         
-        overlay.features.forEach(feature => {
+        // Sort features so circles render largest first (smallest on top for clickability)
+        const sortedFeatures = [...overlay.features].sort((a, b) => {
+          if (a.type === 'circle' && b.type === 'circle') return (b.radius || 0) - (a.radius || 0);
+          return 0;
+        });
+        sortedFeatures.forEach(feature => {
           if (feature.type === 'zone') {
             // Polygon zones (wine regions, olive oil areas, parks)
             const polygon = L.polygon(feature.coords, {
@@ -572,6 +577,33 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
                 ` : ''}
               </div>
             `, { className: 'custom-popup', maxWidth: 320 });
+          } else if (feature.type === 'circle') {
+            // Circle radius overlay (e.g., strategic reach rings)
+            // Sort circles by radius descending so smaller circles render on top
+            // This is handled by processing all circle features after sorting
+            const circle = L.circle(feature.center, {
+              radius: feature.radius,
+              fillColor: feature.color || '#3b82f6',
+              fillOpacity: 0.12,
+              color: feature.color || '#3b82f6',
+              weight: 2,
+              opacity: 0.6,
+              dashArray: '8, 6'
+            }).addTo(layerGroup);
+
+            circle.bindPopup(`
+              <div class="zone-popup">
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+              </div>
+            `, { className: 'custom-popup', maxWidth: 320, closeButton: true });
+
+            circle.on('mouseover', function () {
+              this.setStyle({ fillOpacity: 0.25, weight: 3 });
+            });
+            circle.on('mouseout', function () {
+              this.setStyle({ fillOpacity: 0.12, weight: 2 });
+            });
           } else if (feature.type === 'hospital') {
             // Hospital/medical facility marker
             const hospitalIcon = L.divIcon({
