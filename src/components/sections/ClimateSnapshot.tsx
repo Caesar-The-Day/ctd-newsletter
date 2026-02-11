@@ -146,20 +146,6 @@ const seasonalImagesUmbria = {
   autumn: "/images/umbria/seasonal-backgrounds/autumn-landscape.jpg",
 };
 
-const seasonalBackgroundsVeneto = {
-  winter: "from-slate-100/40 via-blue-50/30 to-cyan-100/40 dark:from-slate-900/40 dark:via-blue-950/30 dark:to-cyan-900/40",
-  spring: "from-green-50/40 via-emerald-50/30 to-lime-100/40 dark:from-green-950/40 dark:via-emerald-950/30 dark:to-lime-950/40",
-  summer: "from-amber-50/40 via-yellow-50/30 to-orange-100/40 dark:from-amber-950/40 dark:via-yellow-950/30 dark:to-orange-950/40",
-  autumn: "from-orange-50/40 via-amber-50/30 to-yellow-100/40 dark:from-orange-950/40 dark:via-amber-950/30 dark:to-yellow-950/40",
-};
-
-const seasonalImagesVeneto = {
-  winter: "/images/veneto/seasonal-backgrounds/winter-landscape.jpg",
-  spring: "/images/veneto/seasonal-backgrounds/spring-landscape.jpg",
-  summer: "/images/veneto/seasonal-backgrounds/summer-landscape.jpg",
-  autumn: "/images/veneto/seasonal-backgrounds/autumn-landscape.jpg",
-};
-
 type BestMonthsView = "off" | "scouting" | "moving";
 
 interface BestMonthsData {
@@ -212,14 +198,12 @@ export function ClimateSnapshot() {
   const getSeasonalBackgrounds = () => {
     if (region === "puglia") return seasonalBackgroundsPuglia;
     if (region === "umbria") return seasonalBackgroundsUmbria;
-    if (region === "veneto") return seasonalBackgroundsVeneto;
     return seasonalBackgroundsPiemonte;
   };
   
   const getSeasonalImages = () => {
     if (region === "puglia") return seasonalImagesPuglia;
     if (region === "umbria") return seasonalImagesUmbria;
-    if (region === "veneto") return seasonalImagesVeneto;
     return seasonalImagesPiemonte;
   };
   

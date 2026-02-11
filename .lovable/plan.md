@@ -1,56 +1,75 @@
 
 
-## Fix: Veneto Page Not Rendering
+## Create Veneto Climate Snapshot
 
-### Root Cause
-The `/veneto` page crashes because there is no content data for the region. The loading chain:
-1. Database `region_data` for veneto is `null`
-2. Static file `/data/regions/italy/veneto.json` does not exist
-3. Vite returns `index.html` (status 200) as its SPA fallback
-4. `response.json()` fails on HTML content, throwing a SyntaxError
-5. The error handler redirects to `/404`
+### What We're Building
+A full `veneto-climate.json` file following the proven Puglia/Piemonte pattern, with 4 climatically diverse cities and all 12 months of rich narrative content from your copy.
 
-### Fix 1: Harden `getRegionData.ts` (defensive fix)
+### The 4 Cities (Climate Diversity)
 
-Add a content-type check before calling `.json()` on the fetch response. This prevents the misleading "Unexpected token '<'" error and gives a clear "Failed to load region" message instead.
+| City | Type | Why |
+|------|------|-----|
+| **Cortina d'Ampezzo** | Alpine/Dolomites | Mountain premium lifestyle, ski culture, dramatic temperature swings |
+| **Jesolo** | Adriatic coast | Beach town, maritime influence, milder winters |
+| **Padua** | Po Valley inland | Fog, humidity, represents the "real" Veneto climate most retirees experience |
+| **Verona** | Western foothills | Lake Garda influence, opera city, slightly warmer than Padua |
 
-```typescript
-// Before parsing, verify the response is actually JSON
-const contentType = response.headers.get('content-type') || '';
-if (!contentType.includes('application/json')) {
-  throw new Error(`Failed to load region: ${slug} (received HTML instead of JSON)`);
-}
-```
+### Data Structure
+Each month includes:
+- Per-city weather: `tempLow`, `tempHigh`, `rainfall`, `sunHours`, `lightQuality`
+- `tooltip` -- the mood line (e.g., "Cozy. Alpine. Fireplace energy.")
+- `narrative` -- the "Life on the Ground" typewriter text from your copy
+- `culturalEvent` -- the headline event with URL
+- `visualCue` -- atmospheric image prompt
+- `season` -- drives background colors and particle effects
 
-This applies to both the nested path (`/data/regions/italy/{slug}.json`) and the flat path (`/data/{slug}.json`) fallback.
+### Intro Copy
+- **Headline**: "Four Climates, One Region"
+- **Tagline**: "Sea, Valley, Foothills, Alps -- All Within an Hour"
+- **Paragraphs**: Editorial copy about Veneto's climate diversity -- how Cortina and Jesolo exist in the same region but feel like different countries
+- **hoverQuote**: "In Veneto, you don't check the weather. You choose your altitude."
+- **ctaText**: "Slide through the seasons and feel what life is actually like, month by month."
 
-### Fix 2: Create `public/data/regions/italy/veneto.json`
+### Implementation
+1. **Create file**: `public/data/regions/italy/veneto-climate.json` with all 12 months, 4 cities, intro, and best months data
+2. **No code changes needed** -- the `ClimateSnapshot` component already:
+   - Loads from `/data/regions/italy/{region}-climate.json`
+   - Renders dynamic city toggle buttons from `regions` object
+   - Shows narrative typewriter panel
+   - Displays cultural events with links
+   - Handles seasonal backgrounds (falls back to Piemonte palette for unknown regions)
 
-Create the main region data file following the same structure as piemonte.json, lombardia.json, and puglia.json. This file powers every section on the page: hero, editorial intro, map, towns, wine quiz, recipes, healthcare, cost of living, pros/cons, and closing.
+### Monthly Data Highlights
 
-The file will include:
-- **region**: Title "Veneto", tagline, issue number 11, date "February 2026", hero image, intro paragraphs
-- **where**: Map centered on Veneto with markers for key cities (Venice, Verona, Padua, Vicenza, Treviso, Cortina), geography tabs, and overlays
-- **towns.featured**: 4-5 featured towns with images, descriptions, highlights (e.g., Verona, Padua, Venice surrounds, Treviso, Cortina)
-- **towns.grid**: 10-15 grid towns covering the breadth of the region
-- **wine.quiz**: Veneto wine profiles (Amarone, Prosecco, Valpolicella, Soave, etc.)
-- **recipes**: 3-4 Veneto recipes (risotto, baccala, tiramisu, bigoli)
-- **healthcare**: Hospitals, infrastructure, airports, railways, travel times
-- **costOfLiving**: Town presets with rent/utilities/groceries/dining/transport for modest and comfortable lifestyles
-- **highlights**: Wine, food, and culture categories with cards
-- **prosCons**: Balanced pros and cons of retiring in Veneto
-- **closing**: Closing message and social share links
-- **collaborator**: Partner/service feature section
+Each month maps your copy into the structured format:
 
-This is a large data file (~800-1000 lines) that will be populated with factually accurate, editorial-quality content matching the established tone and depth of the existing regions.
+- **January**: Cortina -8/2C (alpine cold), Jesolo 2/9C (mild coast), narrative about ski season and post-holiday Venice
+- **February**: Carnevale di Venezia as headline event, "Dramatic. Theatrical. Photogenic chaos."
+- **March**: Transitional, vineyard pruning in Valpolicella
+- **April**: Vinitaly in Verona headline, hiking season begins
+- **May**: "Balanced. This is prime livability." -- Festa della Sensa
+- **June**: Verona Opera Festival opens, beach season
+- **July**: Peak opera, "Long dinners. Late sunsets. Aperol at 9:30pm."
+- **August**: Ferragosto, "Holiday mode. Slower commerce."
+- **September**: "The Veneto sweet spot." -- grape harvest
+- **October**: Truffle and chestnut festivals, "Intellectual. Earthy. Refined."
+- **November**: Foggy Po Valley, Festa della Salute
+- **December**: Christmas markets, La Fenice opera, "Elegant. Old-world festive."
+
+### Best Months Data
+Will include scouting and moving recommendations:
+- **Scouting**: April, May, September, October (best weather, events to experience, not overrun)
+- **Moving**: March, April, September (mild weather, bureaucracy offices open, rental market active)
 
 ### Files Changed
-- **Modified**: `src/utils/getRegionData.ts` -- add content-type guard (~5 lines)
-- **Created**: `public/data/regions/italy/veneto.json` -- full region data (~900 lines)
+- **Created**: `public/data/regions/italy/veneto-climate.json` (new file, ~250 lines)
+- **Code**: No changes -- purely data-driven
 
 ### Verification
-- Navigate to `/veneto` -- page renders with hero, editorial intro, map, climate snapshot, towns, and all sections
-- No JSON parse errors in console
-- Climate Snapshot shows the 4-city Veneto data with seasonal backgrounds
-- All section components render without crashes (defensive null checks already in place from prior work)
-
+Navigate to `/veneto`, scroll to Climate Snapshot section:
+- 4 city toggle buttons appear (Cortina, Jesolo, Padua, Verona)
+- Monthly slider works with animated temperature counts
+- "Life on the Ground" narrative panel shows typewriter text for each month
+- Cultural events display with clickable links
+- Seasonal background colors shift as you slide through months
+- Best Months toggle highlights recommended months

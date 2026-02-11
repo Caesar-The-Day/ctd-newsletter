@@ -42,12 +42,6 @@ export async function getRegionData(slug: string): Promise<RegionData> {
     console.error('[getRegionData] Failed to load region:', slug);
     throw new Error(`Failed to load region: ${slug}`);
   }
-  // Guard against SPA fallback returning HTML instead of JSON
-  const contentType = response.headers.get('content-type') || '';
-  if (!contentType.includes('application/json')) {
-    console.error('[getRegionData] Received non-JSON response for:', slug);
-    throw new Error(`Failed to load region: ${slug} (received HTML instead of JSON)`);
-  }
   console.log('[getRegionData] Loaded from static JSON:', slug);
   return response.json() as Promise<RegionData>;
 }
