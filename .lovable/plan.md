@@ -1,75 +1,90 @@
 
+## Add Veneto-Specific Seasonal Background Images
 
-## Create Veneto Climate Snapshot
+### Current State
+The `ClimateSnapshot.tsx` component loads seasonal background images from region-specific paths:
+- Piemonte: `/images/piemonte/seasonal-backgrounds/{season}-landscape.jpg`
+- Puglia: `/images/puglia/seasonal-backgrounds/{season}-landscape.jpg`
+- Umbria: `/images/umbria/seasonal-backgrounds/{season}-landscape.jpg`
 
-### What We're Building
-A full `veneto-climate.json` file following the proven Puglia/Piemonte pattern, with 4 climatically diverse cities and all 12 months of rich narrative content from your copy.
+When the component loads the Veneto region, it falls back to Piemonte backgrounds because there's no `getSeasonalBackgrounds()` or `getSeasonalImages()` handling for "veneto". The `public/images/veneto/` directory currently only contains hero images, not seasonal backgrounds.
 
-### The 4 Cities (Climate Diversity)
+### What Needs to Happen
+1. **Create Veneto seasonal background directory**: `public/images/veneto/seasonal-backgrounds/`
+2. **Generate 4 seasonal images** matching Veneto's climate diversity:
+   - **Winter**: Snow-capped Dolomites with fog in valleys (matches Cortina alpine + Po Valley fog narrative)
+   - **Spring**: Budding Prosecco vineyards with fresh green (matches vineyard pruning and Valpolicella themes)
+   - **Summer**: Warm Adriatic coast or lake with mountains in distance (matches beach season + alpine backdrop)
+   - **Autumn**: Grape harvest vineyards in golden light with possible larch tree colors (matches "grape harvest in Valpolicella and Prosecco DOCG hills")
 
-| City | Type | Why |
-|------|------|-----|
-| **Cortina d'Ampezzo** | Alpine/Dolomites | Mountain premium lifestyle, ski culture, dramatic temperature swings |
-| **Jesolo** | Adriatic coast | Beach town, maritime influence, milder winters |
-| **Padua** | Po Valley inland | Fog, humidity, represents the "real" Veneto climate most retirees experience |
-| **Verona** | Western foothills | Lake Garda influence, opera city, slightly warmer than Padua |
+3. **Update `ClimateSnapshot.tsx`** to handle Veneto:
+   - Add a `seasonalBackgroundsVeneto` constant with Veneto's palette (cooler alpine tones + warm valley tones)
+   - Add a `seasonalImagesVeneto` constant pointing to the new image paths
+   - Update `getSeasonalBackgrounds()` to return Veneto palette when region === "veneto"
+   - Update `getSeasonalImages()` to return Veneto images when region === "veneto"
 
-### Data Structure
-Each month includes:
-- Per-city weather: `tempLow`, `tempHigh`, `rainfall`, `sunHours`, `lightQuality`
-- `tooltip` -- the mood line (e.g., "Cozy. Alpine. Fireplace energy.")
-- `narrative` -- the "Life on the Ground" typewriter text from your copy
-- `culturalEvent` -- the headline event with URL
-- `visualCue` -- atmospheric image prompt
-- `season` -- drives background colors and particle effects
+### Image Generation Strategy
+Using the Lovable AI image generation API (google/gemini-3-pro-image-preview for higher quality), we'll generate 4 images that visually represent the Veneto climate data and narrative:
 
-### Intro Copy
-- **Headline**: "Four Climates, One Region"
-- **Tagline**: "Sea, Valley, Foothills, Alps -- All Within an Hour"
-- **Paragraphs**: Editorial copy about Veneto's climate diversity -- how Cortina and Jesolo exist in the same region but feel like different countries
-- **hoverQuote**: "In Veneto, you don't check the weather. You choose your altitude."
-- **ctaText**: "Slide through the seasons and feel what life is actually like, month by month."
+**Winter** (Cortina -8/2°C, Padua -1/7°C):
+Prompt: "Snow-covered Dolomite peaks with sharp alpine light, fog sitting thick in the Po Valley below, creating a stark altitude contrast. Cold, crisp mountain air. Professional landscape photography, 16:9, ultra high resolution."
 
-### Implementation
-1. **Create file**: `public/data/regions/italy/veneto-climate.json` with all 12 months, 4 cities, intro, and best months data
-2. **No code changes needed** -- the `ClimateSnapshot` component already:
-   - Loads from `/data/regions/italy/{region}-climate.json`
-   - Renders dynamic city toggle buttons from `regions` object
-   - Shows narrative typewriter panel
-   - Displays cultural events with links
-   - Handles seasonal backgrounds (falls back to Piemonte palette for unknown regions)
+**Spring** (March/April, vineyard season):
+Prompt: "Fresh green Prosecco vineyards in early spring with budding vines, limestone hills of Valdobbiadene in the background, warm afternoon light breaking through occasional clouds, professional landscape photography, 16:9, ultra high resolution."
 
-### Monthly Data Highlights
+**Summer** (Warm, sociable):
+Prompt: "Warm Adriatic beach at Jesolo or similar, with sunlit sand and turquoise water, Dolomite peaks visible in distant haze, late golden hour light, beach umbrellas and Mediterranean warmth, professional landscape photography, 16:9, ultra high resolution."
 
-Each month maps your copy into the structured format:
+**Autumn** (Harvest season):
+Prompt: "Golden-hour vineyard landscape during grape harvest in Valpolicella, vines heavy with purple grapes, warm amber light on terracotta soil, Lessinia foothills in background with hints of larch tree colors, professional landscape photography, 16:9, ultra high resolution."
 
-- **January**: Cortina -8/2C (alpine cold), Jesolo 2/9C (mild coast), narrative about ski season and post-holiday Venice
-- **February**: Carnevale di Venezia as headline event, "Dramatic. Theatrical. Photogenic chaos."
-- **March**: Transitional, vineyard pruning in Valpolicella
-- **April**: Vinitaly in Verona headline, hiking season begins
-- **May**: "Balanced. This is prime livability." -- Festa della Sensa
-- **June**: Verona Opera Festival opens, beach season
-- **July**: Peak opera, "Long dinners. Late sunsets. Aperol at 9:30pm."
-- **August**: Ferragosto, "Holiday mode. Slower commerce."
-- **September**: "The Veneto sweet spot." -- grape harvest
-- **October**: Truffle and chestnut festivals, "Intellectual. Earthy. Refined."
-- **November**: Foggy Po Valley, Festa della Salute
-- **December**: Christmas markets, La Fenice opera, "Elegant. Old-world festive."
+### Files to Change
+- **Create**: `public/images/veneto/seasonal-backgrounds/winter-landscape.jpg`
+- **Create**: `public/images/veneto/seasonal-backgrounds/spring-landscape.jpg`
+- **Create**: `public/images/veneto/seasonal-backgrounds/summer-landscape.jpg`
+- **Create**: `public/images/veneto/seasonal-backgrounds/autumn-landscape.jpg`
+- **Modify**: `src/components/sections/ClimateSnapshot.tsx` (add ~30 lines for Veneto handling)
 
-### Best Months Data
-Will include scouting and moving recommendations:
-- **Scouting**: April, May, September, October (best weather, events to experience, not overrun)
-- **Moving**: March, April, September (mild weather, bureaucracy offices open, rental market active)
+### Technical Details
 
-### Files Changed
-- **Created**: `public/data/regions/italy/veneto-climate.json` (new file, ~250 lines)
-- **Code**: No changes -- purely data-driven
+**New constants in ClimateSnapshot.tsx:**
+```typescript
+const seasonalBackgroundsVeneto = {
+  winter: "from-slate-100/40 via-blue-50/30 to-cyan-100/40 dark:from-slate-900/40 dark:via-blue-950/30 dark:to-cyan-900/40",
+  spring: "from-green-50/40 via-emerald-50/30 to-lime-100/40 dark:from-green-950/40 dark:via-emerald-950/30 dark:to-lime-950/40",
+  summer: "from-amber-50/40 via-yellow-50/30 to-orange-100/40 dark:from-amber-950/40 dark:via-yellow-950/30 dark:to-orange-950/40",
+  autumn: "from-orange-50/40 via-amber-50/30 to-yellow-100/40 dark:from-orange-950/40 dark:via-amber-950/30 dark:to-yellow-950/40",
+};
+
+const seasonalImagesVeneto = {
+  winter: "/images/veneto/seasonal-backgrounds/winter-landscape.jpg",
+  spring: "/images/veneto/seasonal-backgrounds/spring-landscape.jpg",
+  summer: "/images/veneto/seasonal-backgrounds/summer-landscape.jpg",
+  autumn: "/images/veneto/seasonal-backgrounds/autumn-landscape.jpg",
+};
+```
+
+**Updated `getSeasonalBackgrounds()` function:**
+```typescript
+const getSeasonalBackgrounds = () => {
+  if (region === "puglia") return seasonalBackgroundsPuglia;
+  if (region === "umbria") return seasonalBackgroundsUmbria;
+  if (region === "veneto") return seasonalBackgroundsVeneto;
+  return seasonalBackgroundsPiemonte;
+};
+
+const getSeasonalImages = () => {
+  if (region === "puglia") return seasonalImagesPuglia;
+  if (region === "umbria") return seasonalImagesUmbria;
+  if (region === "veneto") return seasonalImagesVeneto;
+  return seasonalImagesPiemonte;
+};
+```
 
 ### Verification
-Navigate to `/veneto`, scroll to Climate Snapshot section:
-- 4 city toggle buttons appear (Cortina, Jesolo, Padua, Verona)
-- Monthly slider works with animated temperature counts
-- "Life on the Ground" narrative panel shows typewriter text for each month
-- Cultural events display with clickable links
-- Seasonal background colors shift as you slide through months
-- Best Months toggle highlights recommended months
+Navigate to `/veneto` and scroll to the Climate Snapshot section:
+- As you slide through the months (January → February → ... → December), the background image should shift through winter snow, spring vineyards, summer warmth, and autumn golden light
+- The seasonal gradient overlay should match the image mood (cooler in winter, warmer in summer)
+- Seasonal particles (snow in winter, floating leaves in autumn) should align with the visual
+- The "Life on the Ground" narrative should feel reinforced by the background imagery
+
