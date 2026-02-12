@@ -409,43 +409,34 @@
     "subtitle": "Three Cities That Define Veneto",
     "featured": [
       {
-        "id": "padova",
-        "name": "Padova",
-        "bestFor": "The Brain",
+        "id": "padua",
+        "name": "Padua",
+        "bestFor": "The Grown-Up Choice",
         "photo": "/images/veneto/hero.jpg",
-        "summary": "Padova is Veneto's intellectual engine — home to one of the world's oldest universities, Giotto's Scrovegni Chapel, and a healthcare system that rivals anything in the north. It's affordable, walkable, and connected to everywhere.",
-        "fullDescription": "Padova is the city that Veneto runs on. While Venice gets the postcards and Verona gets the romance, Padova quietly does the work. Its university — founded in 1222 — has produced Galileo and Copernicus. Its hospital system is among Italy's strongest. Its rail connections put Venice 25 minutes away and Milan under 2.5 hours.\n\nFor retirees, Padova offers something rare: genuine urban life without the premium price tag. The historic center is compact, beautiful, and walkable. Markets fill the piazzas daily. Cultural life is rich year-round, driven by the university rather than tourism.\n\nThe city's greatest asset is its position. Padua sits at the exact center of Veneto's urban corridor, making it the natural base for anyone who wants to access everything without living in the tourist zone. Venice for culture, Verona for opera, the Dolomites for weekends, the Adriatic for summer — all within easy reach.\n\nPadova doesn't perform for visitors. It functions for residents. And that's precisely why it works so well for retirement.",
-        "mapUrl": "https://maps.google.com/?q=Padova+Italy",
-        "gallery": [],
-        "links": [
-          { "label": "Visit Padova", "href": "https://www.turismopadova.it/en/" }
-        ]
+        "summary": "One of Italy's oldest university cities — intellectual depth, hospitals that function, and steady young energy. The historic center is walkable, arcades protect you from weather, real neighborhoods outside the core.",
+        "fullDescription": "Padua is the grown-up choice.\n\nIt doesn't scream for attention. It doesn't need to. This is one of Italy's oldest university cities, which means it has intellectual depth, hospitals that actually function, and a steady stream of young energy that keeps it from fossilizing.\n\nThe historic center is dense and walkable. Arcades protect you from rain and summer sun. Cafés spill into piazzas that feel lived in, not staged. Outside the medieval core, you'll find real neighborhoods — residential blocks, supermarkets, pharmacies, hardware stores. Not souvenir shops.\n\nWhat works:\n\nOne of the strongest healthcare systems in northern Italy\nMajor hospital hub (University of Padua medical complex)\nHigh-speed rail stop between Milan and Venice\nFlat terrain — good for aging knees\nVenice airport within easy reach\n\nThe vibe:\nPractical elegance. Educated. Efficient. Not flashy.\n\nThe realities:\nPo Valley humidity in summer. Fog in winter. This is real northern Italy weather, not cinematic Tuscany. And while it's cheaper than Venice, prices reflect its quality.\n\nPadua makes sense if you want culture and infrastructure, not just scenery.",
+        "mapUrl": "https://maps.google.com/?q=Padua+Italy",
+        "gallery": []
       },
       {
-        "id": "verona",
-        "name": "Verona",
-        "bestFor": "The Stage",
+        "id": "vicenza",
+        "name": "Vicenza",
+        "bestFor": "Palladio & Proportion",
         "photo": "/images/veneto/hero.jpg",
-        "summary": "Verona is where culture meets livability. Roman ruins, world-class opera, and a thriving wine scene — all in a city that feels genuinely lived-in rather than staged for tourists.",
-        "fullDescription": "Verona occupies a rare position: internationally famous yet genuinely functional as a place to live. The Roman arena hosts one of the world's great opera festivals. The Adige River curves through a historic center that's been continuously inhabited for two millennia. Yet beyond the tourist zone, Verona is a prosperous, well-organized city with excellent services.\n\nThe Lake Garda influence gives Verona a milder climate than the rest of the Po Valley. Winters are cold but manageable; summers are warm but tempered by proximity to water. The wine culture — Valpolicella, Soave, Bardolino — is woven into daily life rather than being a tourist attraction.\n\nVerona's healthcare is strong, with good hospitals and specialist care. Rail connections are excellent: Milan in 1 hour, Venice in 1 hour, the Brenner Pass to Austria in 1.5 hours. The airport serves European routes effectively.\n\nFor retirees who want cultural richness without Venice's impracticality, Verona delivers. It's a city where you can attend world-class opera, walk to an excellent trattoria, and be home before midnight — every night if you want.",
-        "mapUrl": "https://maps.google.com/?q=Verona+Italy",
-        "gallery": [],
-        "links": [
-          { "label": "Visit Verona", "href": "https://www.visitverona.it/en/" }
-        ]
+        "summary": "Curated but not artificial. Palladio's architecture defines a prosperous, wealthy city with maintained streets, strong services, and refined understatement. Walkable, direct rail connections, strong local economy.",
+        "fullDescription": "Vicenza feels curated, but not artificial.\n\nThis is Palladio country. Symmetry, proportion, restraint. The architecture is almost unnervingly beautiful, yet daily life continues underneath it without drama.\n\nIt's wealthy. That matters. Wealth means maintained streets, active commerce, and strong services. It also means you're not moving into a fading town hoping revival will arrive someday.\n\nWhat works:\n\nCompact historic center — very walkable\nDirect rail to Milan, Venice, and Verona\nStrong local economy (manufacturing, design, export industries)\nGood hospital access\nManageable size without feeling small\n\nThe vibe:\nRefined. Understated. Confident.\n\nThe realities:\nHousing in the center isn't cheap. It's not buzzing with nightlife — this isn't Bologna. Social integration requires effort. Venetians are cordial but reserved.\n\nVicenza works if you appreciate structure, proportion, and a town that takes itself seriously.",
+        "mapUrl": "https://maps.google.com/?q=Vicenza+Italy",
+        "gallery": []
       },
       {
         "id": "treviso",
         "name": "Treviso",
-        "bestFor": "The Surprise",
+        "bestFor": "Prosecco & Authenticity",
         "photo": "/images/veneto/hero.jpg",
-        "summary": "Treviso is the Veneto town that insiders recommend and tourists overlook. Medieval canals, Prosecco country, and a quality of life that consistently ranks among Italy's highest.",
-        "fullDescription": "Treviso is what happens when a town gets everything right without anyone noticing. Medieval walls surround a center threaded with canals and porticoed streets. Fish markets still operate on their original island. Prosecco country starts at the city limits.\n\nThe town is compact, wealthy, and quietly proud. It lacks the grandeur of Verona or the intellectual heft of Padua, but it compensates with livability. Streets are clean, services work, food is excellent, and the pace allows you to breathe.\n\nTreviso's proximity to the Prosecco DOCG hills makes it a natural base for wine culture. The Canova airport nearby offers budget flights across Europe. Venice is 30 minutes by train. The Dolomites are 90 minutes north.\n\nFor retirees who want charm without chaos, Treviso is the answer no one's asking about yet. It's a town that rewards daily life rather than weekend visits — the kind of place where your favorite café knows your order and the market stall saves you the good radicchio.",
+        "summary": "Venice's authentic sister. Medieval canals, brick arcades at dusk, aperitivo culture without crowds. 30 minutes to Venice by train, close to airport, flat and walkable with strong middle-class economy.",
+        "fullDescription": "Treviso is what people imagine Venice might be — before cruise ships and bachelor parties.\n\nCanals run through a compact historic center. Brick arcades glow at dusk. Aperitivo culture feels effortless rather than performative. And unlike Venice, this is a functioning residential city.\n\nWhat works:\n\n30 minutes by train to Venice\nClose to Treviso Airport\nFlat, extremely walkable\nStrong middle-class economic base\nProsecco hills on your doorstep\n\nThe vibe:\nStylish but grounded. Social. Clean. Slightly polished.\n\nThe realities:\nMore expensive than smaller Veneto towns. Some suburban sprawl outside the historic core. Summers are humid.\n\nTreviso makes sense if you want beauty, proximity to Venice, and a city that still belongs to its residents.",
         "mapUrl": "https://maps.google.com/?q=Treviso+Italy",
-        "gallery": [],
-        "links": [
-          { "label": "Visit Treviso", "href": "https://www.visittreviso.it/en/" }
-        ]
+        "gallery": []
       }
     ],
     "grid": [
