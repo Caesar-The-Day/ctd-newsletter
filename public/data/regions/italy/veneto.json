@@ -441,52 +441,112 @@
     ],
     "grid": [
       {
-        "id": "vicenza",
-        "name": "Vicenza",
-        "bestFor": "Palladian architecture, refined living",
-        "photo": "/images/veneto/hero.jpg",
-        "mapUrl": "https://maps.google.com/?q=Vicenza+Italy",
-        "blurb": "Palladio's masterpiece city — UNESCO-listed architecture, a prosperous gold industry, and a cultured civic life that flies under the radar. Vicenza suits retirees who value beauty, order, and quiet sophistication."
-      },
-      {
         "id": "bassano-del-grappa",
         "name": "Bassano del Grappa",
         "bestFor": "Alpine foothills, grappa, covered bridge",
         "photo": "/images/veneto/hero.jpg",
         "mapUrl": "https://maps.google.com/?q=Bassano+del+Grappa+Italy",
-        "blurb": "A town where the mountains meet the plains. Famous for its Ponte degli Alpini, grappa distilleries, and a walkable center that makes daily errands feel like a stroll through a painting."
-      },
-      {
-        "id": "asolo",
-        "name": "Asolo",
-        "bestFor": "Hilltop views, literary history",
-        "photo": "/images/veneto/hero.jpg",
-        "mapUrl": "https://maps.google.com/?q=Asolo+Italy",
-        "blurb": "The 'City of a Hundred Horizons.' A hilltop jewel where Robert Browning lived and Eleonora Duse retreated. Panoramic views, refined restaurants, and a pace of life that whispers rather than shouts."
+        "blurb": "At the edge of the foothills where the Alps begin — visually striking with the Ponte degli Alpini and Brenta River, but a functioning economic center with year-round life.",
+        "fullDescription": "Bassano sits at the edge of the foothills where the Alps begin to rise. It's visually striking — the Ponte degli Alpini, the Brenta River, the mountains hovering in the background — but it isn't a resort town pretending to be real. It's a functioning economic center with industry, schools, and year-round life.\n\nWhat makes Bassano compelling for retirees is its balance. You get access to hiking and mountain air without committing to alpine isolation. Winters are cooler than the Po Valley but not brutal. Summers are warm but often breezier than Padua.\n\nHealthcare access is solid, and Vicenza is close for expanded services. The train network connects you south and west. This is a good fit for active retirees who want scenery, culture, and infrastructure without tourist overload.\n\nIt feels grounded. Lived in. Independent."
       },
       {
         "id": "conegliano",
         "name": "Conegliano",
-        "bestFor": "Prosecco gateway, wine school",
+        "bestFor": "Prosecco gateway, rail access",
         "photo": "/images/veneto/hero.jpg",
         "mapUrl": "https://maps.google.com/?q=Conegliano+Italy",
-        "blurb": "Gateway to the Prosecco DOCG hills and home to Italy's oldest wine school. Castle views, authentic small-town life, and easy access to Treviso and Venice by rail."
+        "blurb": "The quieter half of the Prosecco hills story — rail access, real services, and an economy rooted in wine and education, not just weekend tastings.",
+        "fullDescription": "Conegliano is the quieter half of the Prosecco hills story. It has rail access, real services, and an economy rooted in wine and education — not just weekend tastings.\n\nThe historic center climbs gently uphill with views toward Valdobbiadene. Outside the center, you'll find practical neighborhoods and daily-life infrastructure. This isn't a postcard village that empties out in winter.\n\nThe appeal here is understated prosperity. You live in wine country, but you're not trapped in a rural bubble. Venice and Treviso are accessible. Healthcare in the broader Treviso network is strong.\n\nConegliano makes sense if you want vineyard views with train access and a community that functions year-round."
+      },
+      {
+        "id": "montebelluna",
+        "name": "Montebelluna",
+        "bestFor": "Industrial stability, affordability",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Montebelluna+Italy",
+        "blurb": "One of Italy's industrial success stories — money circulates, streets are maintained, commerce is steady. Not romantic, but stable.",
+        "fullDescription": "Montebelluna rarely makes relocation lists. That's precisely why it deserves attention.\n\nThis is one of Italy's industrial success stories, especially in technical sportswear and alpine equipment manufacturing. Translation: money circulates here. Streets are maintained. Commerce is steady. It's not romantic — it's stable.\n\nYou're near the Prosecco hills and within reach of Treviso and Venice, but you're not paying vineyard-premium prices. The town itself is clean, orderly, and middle-class.\n\nFor retirees who value functionality over fantasy, Montebelluna offers a quiet, affluent base with excellent regional access."
+      },
+      {
+        "id": "cittadella",
+        "name": "Cittadella",
+        "bestFor": "Medieval walls, strategic location",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Cittadella+Italy",
+        "blurb": "Wrapped in fully intact medieval walls you can walk along — yet inside, life moves normally with markets, cafés, and services.",
+        "fullDescription": "Cittadella is wrapped in fully intact medieval walls you can walk along. It looks theatrical — but it's not frozen in time.\n\nInside those walls, life moves normally. Markets. Cafés. Schools. Services. Outside the walls, residential zones expand in practical fashion.\n\nIt sits between Padua, Vicenza, and Treviso with rail links that make mobility simple. That's the strategic advantage here. You can live in a small, beautiful historic center while plugging into larger cities for hospitals or specialized services.\n\nCittadella is ideal if you want charm at a human scale — without giving up access."
+      },
+      {
+        "id": "castelfranco-veneto",
+        "name": "Castelfranco Veneto",
+        "bestFor": "Rail hub, car-free living",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Castelfranco+Veneto+Italy",
+        "blurb": "A rail hub disguised as a small city — connect to Padua, Vicenza, Treviso, and Venice without friction. Strategic, not flashy.",
+        "fullDescription": "Castelfranco is a rail hub disguised as a small city.\n\nFrom here, you connect to Padua, Vicenza, Treviso, and Venice without friction. That matters more than people realize — especially if you plan to live car-light or car-free.\n\nThe historic core is compact and attractive. The surrounding neighborhoods are residential and functional. Prices are generally more moderate than Treviso or Padua.\n\nCastelfranco appeals to the retiree who thinks in terms of logistics. It's not flashy. It's strategic."
+      },
+      {
+        "id": "este",
+        "name": "Este",
+        "bestFor": "Colli Euganei, thermal springs",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Este+Italy",
+        "blurb": "At the base of the Colli Euganei — gentle hills, thermal waters, vineyards, and olive groves. Closer to countryside rhythms without being cut off.",
+        "fullDescription": "Este sits at the base of the Colli Euganei, one of Veneto's quiet treasures. Gentle hills. Thermal waters nearby. Vineyards. Olive groves.\n\nThe pace here slows slightly compared to Padua. There's still infrastructure — supermarkets, services, bus connections — but you feel closer to countryside rhythms.\n\nAbano Terme and Montegrotto Terme are nearby for spa culture and medical facilities. Padua's hospital network is within reach.\n\nEste works for those who want green hills, local markets, and a softer lifestyle without being cut off."
       },
       {
         "id": "chioggia",
         "name": "Chioggia",
-        "bestFor": "Fishing port, affordable coast",
+        "bestFor": "Working fishing port, lagoon life",
         "photo": "/images/veneto/hero.jpg",
         "mapUrl": "https://maps.google.com/?q=Chioggia+Italy",
-        "blurb": "Called 'Little Venice' for its canals and bridges, but with a working-class fishing port character entirely its own. More affordable than anywhere on the lagoon, with genuine maritime soul."
+        "blurb": "A working fishing town with grit and character — boats unload fresh catch in the morning, markets buzz. Not manicured for tourism.",
+        "fullDescription": "Chioggia is often called \"Little Venice,\" which misses the point.\n\nThis is a working fishing town with grit and character. Boats unload fresh catch in the morning. Markets buzz. The lagoon shapes daily life. It's not manicured for tourism the way Venice is.\n\nPrices are more approachable than Venice. The salt air is real. The sea is accessible. Summers can be lively, but winter brings authenticity.\n\nFor retirees who want water without spectacle — and who appreciate a bit of roughness around the edges — Chioggia delivers."
       },
       {
-        "id": "cortina-dampezzo",
-        "name": "Cortina d'Ampezzo",
-        "bestFor": "Premium Alpine, Olympics 2026",
+        "id": "arzignano",
+        "name": "Arzignano",
+        "bestFor": "Affordable, industrial stability",
         "photo": "/images/veneto/hero.jpg",
-        "mapUrl": "https://maps.google.com/?q=Cortina+d%27Ampezzo+Italy",
-        "blurb": "Queen of the Dolomites. World-class skiing, hiking, and the 2026 Winter Olympics. Premium pricing but unmatched mountain lifestyle for those who can afford it."
+        "mapUrl": "https://maps.google.com/?q=Arzignano+Italy",
+        "blurb": "Unapologetically industrial — economically powerful with consistent employment and maintained infrastructure. Near Vicenza without Vicenza prices.",
+        "fullDescription": "Arzignano is unapologetically industrial. It's known for leather production and manufacturing.\n\nThat might not sound romantic. It is, however, economically powerful. The town benefits from consistent employment and maintained infrastructure. It sits near Vicenza, giving you access to larger-city services without paying Vicenza prices.\n\nYou won't move here for Renaissance views. You move here for stability, affordability, and proximity.\n\nFor retirees focused on budget discipline and practicality, Arzignano is a serious option."
+      },
+      {
+        "id": "schio",
+        "name": "Schio",
+        "bestFor": "Mountain proximity, modernizing",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Schio+Italy",
+        "blurb": "North of Vicenza at the base of the mountains — historically industrial, now reinventing itself with cultural initiatives and green spaces.",
+        "fullDescription": "Schio sits north of Vicenza at the base of the mountains. Historically industrial, it has reinvented itself with cultural initiatives and green spaces.\n\nThe foothill position means cooler evenings in summer and quick access to hiking trails. It's well connected by road and rail to Vicenza's hospitals and services.\n\nIt feels industrious but evolving. Not glamorous, but increasingly livable.\n\nSchio is well suited for retirees who want proximity to mountains and a town that's quietly modernizing."
+      },
+      {
+        "id": "feltre",
+        "name": "Feltre",
+        "bestFor": "Pre-Dolomite, alpine atmosphere",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Feltre+Italy",
+        "blurb": "Edges into the pre-Dolomite landscape — beautiful, cooler in summer, distinctly alpine. Mountain culture without Cortina pricing.",
+        "fullDescription": "Feltre edges into the pre-Dolomite landscape. It's beautiful, cooler in summer, and distinctly alpine in atmosphere.\n\nThis is not suburban Veneto. Winters are real. Snow happens. Life slows.\n\nBut for those who want mountain culture without Cortina pricing, Feltre is compelling. There are schools, healthcare facilities, and daily services. You are not isolated — just elevated.\n\nFeltre is best for retirees who value altitude, quiet, and dramatic scenery over constant urban stimulation."
+      },
+      {
+        "id": "abano-terme",
+        "name": "Abano Terme",
+        "bestFor": "Thermal wellness, healthcare access",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Abano+Terme+Italy",
+        "blurb": "Built around thermal water — spa hotels, wellness centers, rehabilitation clinics. Minutes from Padua's medical network. Healthcare is baked into the town's identity.",
+        "fullDescription": "Abano Terme is built around thermal water. Spa hotels, wellness centers, rehabilitation clinics — health is baked into the town's identity.\n\nIt sits minutes from Padua, which means you're tied into one of northern Italy's strongest medical networks. The terrain is flat. Walkable. Manageable.\n\nThe demographic skews older. That's not a flaw — it's part of the ecosystem.\n\nAbano Terme makes sense if you want healthcare access, spa culture, and proximity to a university city without living in its center."
+      },
+      {
+        "id": "soave",
+        "name": "Soave",
+        "bestFor": "Walled wine town, vineyard views",
+        "photo": "/images/veneto/hero.jpg",
+        "mapUrl": "https://maps.google.com/?q=Soave+Italy",
+        "blurb": "Small, walled, and visually striking — vineyards stretch beyond the medieval gates. Globally recognized wine. Romantic in a controlled way.",
+        "fullDescription": "Soave is small, walled, and visually striking. Vineyards stretch beyond the medieval gates. The wine is globally recognized.\n\nBut let's be honest: this is not a large city. Services are present but limited. Verona is the gravity center nearby for expanded healthcare and transport.\n\nSoave works for retirees comfortable in a smaller community, ideally with a car. It's scenic. It's contained. It's romantic in a controlled way.\n\nIf you want daily vineyard views and are comfortable supplementing locally with nearby Verona, Soave can be a deeply satisfying choice."
       }
     ]
   },
