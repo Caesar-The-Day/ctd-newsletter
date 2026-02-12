@@ -33,8 +33,8 @@
   "veneto": {
     "showWineQuiz": true,
     "showBeerFeature": false,
-    "show7PercentCTA": true,
-    "showCollaborator": true,
+    "show7PercentCTA": false,
+    "showCollaborator": false,
     "showBookCTA": true,
     "showRetirementBlueprintCTA": true,
     "enableAmbientAudio": false,
