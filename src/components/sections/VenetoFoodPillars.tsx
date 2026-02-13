@@ -134,8 +134,9 @@ interface FoodPillar {
   colorAccent: string;
   cardBorder: string;
   geoIndicator: string;
+  image: string;
   story: string;
-  dishes: { name: string; desc: string }[];
+  dishes: { name: string; desc: string; link?: string }[];
   towns: { name: string; why: string }[];
 }
 
@@ -149,12 +150,13 @@ const pillars: FoodPillar[] = [
     colorAccent: 'text-cyan-600',
     cardBorder: 'border-cyan-200/60 hover:border-cyan-400',
     geoIndicator: 'Dolomites & Pre-Alps',
+    image: '/images/veneto/polenta-alpine.jpg',
     story: "Before pasta conquered Italy, the mountains ate polenta. Not the soft, creamy stuff you get at fancy restaurants — dense, firm polenta cooked in copper pots over wood fires, sliced with a thread and eaten with whatever the mountains offered: venison, wild mushrooms, smoked sausages, melted cheese.\n\nThis is cooperative cuisine. Asiago cheese still comes from communal dairies where farmers pool milk. Summer pasture migrations (transumanza) still happen. The food tastes like altitude and patience.",
     dishes: [
-      { name: 'Polenta e Schiz', desc: 'Firm polenta with fried fresh cheese — the Belluno breakfast of champions' },
-      { name: 'Pastìn', desc: 'Spiced pork sausage unique to Belluno province, crumbled over polenta or grilled' },
-      { name: 'Casunziei', desc: 'Beetroot-filled ravioli from Cortina, dressed in butter and poppy seeds' },
-      { name: 'Asiago Stravecchio', desc: 'Aged mountain cheese with crystalline texture — the Parmigiano of the Alps' }
+      { name: 'Polenta e Schiz', desc: 'Firm polenta with fried fresh cheese — the Belluno breakfast of champions', link: 'https://www.concagordina.it/en/experience/gusto/polenta-and-schiz/' },
+      { name: 'Pastìn', desc: 'Spiced pork sausage unique to Belluno province, crumbled over polenta or grilled', link: 'https://pastin.it/en/pastin/' },
+      { name: 'Casunziei', desc: 'Beetroot-filled ravioli from Cortina, dressed in butter and poppy seeds', link: 'https://www.ninaspastaproject.com/blog/casunziei-allampezzana' },
+      { name: 'Asiago Stravecchio', desc: 'Aged mountain cheese with crystalline texture — the Parmigiano of the Alps', link: 'https://www.gourm.it/en/1785-pdo-aged-stravecchio-asiago/' }
     ],
     towns: [
       { name: 'Belluno', why: 'The gateway to the Dolomites where polenta isn\'t a side dish — it\'s the main event' },
@@ -171,12 +173,13 @@ const pillars: FoodPillar[] = [
     colorAccent: 'text-blue-600',
     cardBorder: 'border-blue-200/60 hover:border-blue-400',
     geoIndicator: 'Venice & the Lagoon',
+    image: '/images/veneto/risotto-lagoon.jpg',
     story: "Venice's kitchen is unlike anywhere else in Italy. A thousand years of maritime trade means your plate carries echoes of Constantinople, Alexandria, and the Spice Route. Sarde in saor — sardines in sweet-sour onion marinade — was invented so sailors could eat preserved fish on long voyages. Risotto al nero di seppia gets its dramatic black color from cuttlefish ink.\n\nThis is food shaped by water, commerce, and survival. Every dish has a story about trade routes, preservation, or the lagoon's fragile ecosystem. The Rialto fish market at dawn is still the best show in town.",
     dishes: [
-      { name: 'Risotto al Nero di Seppia', desc: 'Black cuttlefish ink risotto — dramatic, briny, and unmistakably Venetian' },
-      { name: 'Sarde in Saor', desc: 'Sweet-sour sardines with onions, raisins, pine nuts — a sailor\'s preservation trick turned delicacy' },
-      { name: 'Baccalà Mantecato', desc: 'Whipped salt cod on grilled polenta — the city\'s most perfect cicchetto' },
-      { name: 'Moleche', desc: 'Soft-shell crabs from the lagoon, dipped in egg and fried — seasonal, fleeting, unforgettable' }
+      { name: 'Risotto al Nero di Seppia', desc: 'Black cuttlefish ink risotto — dramatic, briny, and unmistakably Venetian', link: 'https://food52.com/recipes/27060-squid-ink-risotto-risotto-al-nero-di-seppia' },
+      { name: 'Sarde in Saor', desc: 'Sweet-sour sardines with onions, raisins, pine nuts — a sailor\'s preservation trick turned delicacy', link: 'https://www.lacucinaitaliana.com/italian-food/italian-dishes/sarde-in-saor-recipe-all-the-flavor-of-venice-in-one-dish' },
+      { name: 'Baccalà Mantecato', desc: 'Whipped salt cod on grilled polenta — the city\'s most perfect cicchetto', link: 'https://food52.com/recipes/23919-baccala-mantecato' },
+      { name: 'Moleche', desc: 'Soft-shell crabs from the lagoon, dipped in egg and fried — seasonal, fleeting, unforgettable', link: 'https://italianfoodforever.com/2017/07/moleche-fried-soft-shell-crabs/' }
     ],
     towns: [
       { name: 'Venice', why: 'Skip the tourist traps. Head to Cannaregio or Castello for bacari that haven\'t changed in 50 years' },
@@ -193,12 +196,13 @@ const pillars: FoodPillar[] = [
     colorAccent: 'text-amber-600',
     cardBorder: 'border-amber-200/60 hover:border-amber-400',
     geoIndicator: 'Padua, Treviso & Vicenza',
+    image: '/images/veneto/bigoli-mainland.jpg',
     story: "The mainland is where Veneto actually lives. Three university cities — Padua, Treviso, Vicenza — each with distinct food identities shaped by rivers, plains, and obstinate local pride. Treviso has radicchio the way Modena has balsamic: it's an identity, not an ingredient. Padua's contribution is bigoli — thick, rough-textured bronze-extruded pasta that grabs sauce like nothing else.\n\nThis is Sunday lunch food. Bigoli with duck ragù. Pumpkin tortelli in sage butter. Radicchio grilled over coals and drizzled with olive oil. It's not flashy. It's just deeply, profoundly good — the kind of food that makes you stop talking mid-sentence.",
     dishes: [
-      { name: 'Bigoli in Salsa', desc: 'Thick spaghetti in anchovy-onion sauce — a Lenten tradition that transcends its simplicity' },
-      { name: 'Bigoli con Ragù d\'Anatra', desc: 'The Sunday dish: slow-cooked duck ragù on hand-pressed pasta' },
-      { name: 'Radicchio di Treviso alla Griglia', desc: 'Late-harvest radicchio, charred and dressed — bitter, sweet, smoky perfection' },
-      { name: 'Baccalà alla Vicentina', desc: 'Vicenza\'s obsession: salt cod braised in milk and olive oil for 4+ hours. Wars have been fought over recipes.' }
+      { name: 'Bigoli in Salsa', desc: 'Thick spaghetti in anchovy-onion sauce — a Lenten tradition that transcends its simplicity', link: 'https://www.greatitalianchefs.com/recipes/bigoli-in-salsa-recipe' },
+      { name: 'Bigoli con Ragù d\'Anatra', desc: 'The Sunday dish: slow-cooked duck ragù on hand-pressed pasta', link: 'https://www.lacucinaitaliana.it/ricetta/primi/bigoli-con-ragu-danitra/' },
+      { name: 'Radicchio di Treviso alla Griglia', desc: 'Late-harvest radicchio, charred and dressed — bitter, sweet, smoky perfection', link: 'https://blog.giallozafferano.it/cucinoperpassione/radicchio-trevigiano-grigliato/' },
+      { name: 'Baccalà alla Vicentina', desc: 'Vicenza\'s obsession: salt cod braised in milk and olive oil for 4+ hours. Wars have been fought over recipes.', link: 'https://baccalaallavicentina.it/la-ricetta/?doing_wp_cron=1771009418.5164940357208251953125' }
     ],
     towns: [
       { name: 'Padua', why: 'University town energy, the oldest botanical garden in Europe, and bigoli in every trattoria' },
@@ -248,34 +252,46 @@ export default function VenetoFoodPillars() {
                 key={pillar.id}
                 onClick={() => setExpanded(isExpanded ? null : pillar.id)}
                 className={cn(
-                  "relative rounded-xl border-2 p-6 text-left transition-all duration-500 bg-white/80 overflow-hidden group",
+                  "relative rounded-xl border-2 text-left transition-all duration-500 bg-white/80 overflow-hidden group",
                   pillar.cardBorder,
                   isExpanded ? 'ring-2 ring-amber-300/50 scale-[1.01] shadow-md' : expanded ? 'opacity-50 hover:opacity-80' : 'hover:scale-[1.02] hover:shadow-md'
                 )}
               >
-                {/* Large themed illustration — swaying, filled */}
-                {WatermarkSvg && (
-                  <WatermarkSvg className={cn(
-                    "absolute bottom-1 right-1 w-24 h-20 opacity-[0.12] group-hover:opacity-[0.22] transition-opacity duration-500 animate-[svg-sway_8s_ease-in-out_infinite] motion-reduce:animate-none",
-                    pillar.colorAccent
-                  )} />
-                )}
-
-                {/* Icon + geo indicator */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
-                    <Icon className={cn("h-5 w-5", pillar.colorAccent)} />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
-                    {pillar.geoIndicator}
-                  </span>
+                {/* Pillar photo */}
+                <div className="w-full h-32 overflow-hidden">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
                 </div>
 
-                <p className={cn("text-xs font-bold uppercase tracking-widest mb-1", pillar.colorAccent)}>
-                  {pillar.subtitle}
-                </p>
-                <h3 className="text-lg font-bold text-foreground mb-2">{pillar.title}</h3>
-                <p className="text-xs text-muted-foreground italic">{pillar.personality}</p>
+                <div className="p-6 relative">
+                  {/* Large themed illustration — swaying, filled */}
+                  {WatermarkSvg && (
+                    <WatermarkSvg className={cn(
+                      "absolute bottom-1 right-1 w-24 h-20 opacity-[0.12] group-hover:opacity-[0.22] transition-opacity duration-500 animate-[svg-sway_8s_ease-in-out_infinite] motion-reduce:animate-none",
+                      pillar.colorAccent
+                    )} />
+                  )}
+
+                  {/* Icon + geo indicator */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                      <Icon className={cn("h-5 w-5", pillar.colorAccent)} />
+                    </div>
+                    <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
+                      {pillar.geoIndicator}
+                    </span>
+                  </div>
+
+                  <p className={cn("text-xs font-bold uppercase tracking-widest mb-1", pillar.colorAccent)}>
+                    {pillar.subtitle}
+                  </p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{pillar.title}</h3>
+                  <p className="text-xs text-muted-foreground italic">{pillar.personality}</p>
+                </div>
               </button>
             );
           })}
@@ -315,7 +331,11 @@ export default function VenetoFoodPillars() {
                       <div className="space-y-3">
                         {pillar.dishes.map(d => (
                           <div key={d.name} className="bg-muted/50 rounded-lg p-3 border border-border">
-                            <p className="text-sm font-semibold text-foreground">{d.name}</p>
+                            {d.link ? (
+                              <a href={d.link} target="_blank" rel="noopener noreferrer" className={cn("text-sm font-semibold hover:underline", pillar.colorAccent)}>{d.name} ↗</a>
+                            ) : (
+                              <p className="text-sm font-semibold text-foreground">{d.name}</p>
+                            )}
                             <p className="text-xs text-muted-foreground">{d.desc}</p>
                           </div>
                         ))}
