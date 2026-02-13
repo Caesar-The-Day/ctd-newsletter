@@ -360,6 +360,8 @@ export default function RegionPage() {
 
       {region === 'lombardia' && <MilanProximityTool />}
 
+      {region === 'veneto' && <VeniceSerenissima />}
+
       {config.show7PercentCTA && <SevenPercentCTA />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
@@ -369,7 +371,6 @@ export default function RegionPage() {
           <VenetoWinePourSelector />
           <VenetoFoodPillars />
           <VenetoCultureAlive />
-          <VeniceSerenissima />
         </>
       )}
 
