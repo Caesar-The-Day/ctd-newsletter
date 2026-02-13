@@ -18,7 +18,6 @@ interface Tier {
   label: string;
   icon: typeof Crown;
   color: string;
-  bgGradient: string;
   borderColor: string;
   badgeBg: string;
   items: CultureItem[];
@@ -60,7 +59,7 @@ function CarnevaleSelector() {
 
   return (
     <div className="mt-4">
-      <p className="text-xs font-bold uppercase tracking-widest text-amber-400/80 mb-3">Choose Your Carnevale</p>
+      <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Choose Your Carnevale</p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4">
         {options.map(opt => (
           <button
@@ -69,13 +68,13 @@ function CarnevaleSelector() {
             className={cn(
               "rounded-lg border p-3 text-left transition-all duration-300 text-xs",
               carnevale === opt.id
-                ? 'border-amber-500/50 bg-amber-900/30 ring-1 ring-amber-500/20'
-                : 'border-white/10 bg-white/5 hover:bg-white/10'
+                ? 'border-amber-400 bg-amber-50 ring-1 ring-amber-300/50'
+                : 'border-border bg-white/80 hover:bg-amber-50/50'
             )}
           >
             <span className="text-lg">{opt.emoji}</span>
-            <p className="font-semibold text-white mt-1 text-xs leading-tight">{opt.label}</p>
-            <p className="text-white/40 text-[10px] mt-0.5">{opt.tone}</p>
+            <p className="font-semibold text-foreground mt-1 text-xs leading-tight">{opt.label}</p>
+            <p className="text-muted-foreground text-[10px] mt-0.5">{opt.tone}</p>
           </button>
         ))}
       </div>
@@ -83,29 +82,29 @@ function CarnevaleSelector() {
       {carnevale && (() => {
         const opt = options.find(o => o.id === carnevale)!;
         return (
-          <div className="bg-white/5 rounded-lg p-4 border border-white/10 space-y-2 animate-in fade-in duration-300">
+          <div className="bg-amber-50/60 rounded-lg p-4 border border-amber-200/40 space-y-2 animate-in fade-in duration-300">
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <p className="text-[10px] font-bold uppercase text-amber-400/70">Crowd Level</p>
-                <p className="text-xs text-white/70">{opt.crowd}</p>
+                <p className="text-[10px] font-bold uppercase text-amber-600">Crowd Level</p>
+                <p className="text-xs text-muted-foreground">{opt.crowd}</p>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase text-amber-400/70">What Locals Attend</p>
-                <p className="text-xs text-white/70">{opt.locals}</p>
+                <p className="text-[10px] font-bold uppercase text-amber-600">What Locals Attend</p>
+                <p className="text-xs text-muted-foreground">{opt.locals}</p>
               </div>
             </div>
             <div>
-              <p className="text-[10px] font-bold uppercase text-amber-400/70">As a Resident, You'd...</p>
-              <p className="text-xs text-white/60 leading-relaxed">{opt.resident}</p>
+              <p className="text-[10px] font-bold uppercase text-amber-600">As a Resident, You'd...</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{opt.resident}</p>
             </div>
           </div>
         );
       })()}
 
       {/* Mask or No Mask? Cultural subtext */}
-      <div className="mt-4 bg-gradient-to-r from-amber-950/40 to-transparent rounded-lg p-4 border-l-2 border-amber-500/30">
-        <p className="text-xs font-bold text-amber-300 mb-1">Mask or No Mask?</p>
-        <p className="text-xs text-white/50 leading-relaxed">
+      <div className="mt-4 bg-slate-50 rounded-lg p-4 border-l-2 border-slate-300">
+        <p className="text-xs font-bold text-slate-700 mb-1">Mask or No Mask?</p>
+        <p className="text-xs text-muted-foreground leading-relaxed">
           In Venice, anonymity was once political power. Masks erased class distinctions — nobility and merchants mingled, 
           social boundaries blurred, and for a few weeks a year, the Republic's rigid hierarchy dissolved into theater. 
           The bauta mask wasn't costume — it was a democratic technology. That's not tourism trivia. That's identity.
@@ -120,10 +119,9 @@ const tiers: Tier[] = [
     id: 'grand',
     label: 'Grand Stage',
     icon: Crown,
-    color: 'text-amber-300',
-    bgGradient: 'from-amber-950/30 to-yellow-950/10',
-    borderColor: 'border-amber-700/40',
-    badgeBg: 'bg-amber-900/50 text-amber-200',
+    color: 'text-amber-600',
+    borderColor: 'border-amber-200/60',
+    badgeBg: 'bg-amber-100 text-amber-700 border border-amber-200',
     items: [
       {
         id: 'arena',
@@ -145,10 +143,9 @@ const tiers: Tier[] = [
     id: 'living',
     label: 'Living Traditions',
     icon: Flame,
-    color: 'text-orange-300',
-    bgGradient: 'from-orange-950/30 to-red-950/10',
-    borderColor: 'border-orange-700/40',
-    badgeBg: 'bg-orange-900/50 text-orange-200',
+    color: 'text-orange-600',
+    borderColor: 'border-orange-200/60',
+    badgeBg: 'bg-orange-100 text-orange-700 border border-orange-200',
     items: [
       {
         id: 'carnevale',
@@ -165,12 +162,12 @@ const tiers: Tier[] = [
         icon: Swords,
         content: "In the second weekend of September (even years), Marostica's main piazza transforms into a giant chessboard. Living actors in Renaissance costume play an actual chess game, recreating a 1454 match between two noblemen who competed for the hand of the castellan's daughter. Instead of a duel, they played chess. Instead of blood, they got spectacle.\n\n500+ performers. Renaissance costumes sewn by the town. Fire-breathers, flag-throwers, processions. The entire town participates — this isn't a tourist attraction, it's a community ritual that happens to be spectacular.\n\nMarostica is also the cherry capital of Veneto. If you visit in late May/early June, the cherry festival overlaps with the chess game rehearsals. It's a very specific kind of wonderful.",
         extra: (
-          <div className="mt-4 bg-white/5 rounded-lg p-4 border border-white/10">
+          <div className="mt-4 bg-amber-50 rounded-lg p-4 border border-amber-200">
             <div className="flex items-center gap-2 mb-1">
-              <Lightbulb className="h-3.5 w-3.5 text-orange-300" />
-              <p className="text-xs font-bold text-white">Did You Know?</p>
+              <Lightbulb className="h-3.5 w-3.5 text-amber-600" />
+              <p className="text-xs font-bold text-foreground">Did You Know?</p>
             </div>
-            <p className="text-xs text-white/50">
+            <p className="text-xs text-muted-foreground">
               The chess moves played in each performance are different — the game is choreographed fresh each time by a chess master. The actors learn their positions through months of rehearsal. Marostica also hosts a miniature version for children in the off-years.
             </p>
           </div>
@@ -182,10 +179,9 @@ const tiers: Tier[] = [
     id: 'everyday',
     label: 'Everyday Culture',
     icon: Coffee,
-    color: 'text-stone-300',
-    bgGradient: 'from-stone-900/30 to-neutral-950/10',
-    borderColor: 'border-stone-600/40',
-    badgeBg: 'bg-stone-800/50 text-stone-200',
+    color: 'text-stone-600',
+    borderColor: 'border-stone-200/60',
+    badgeBg: 'bg-stone-100 text-stone-700 border border-stone-200',
     items: [
       {
         id: 'vivaldi',
@@ -210,18 +206,18 @@ export default function VenetoCultureAlive() {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-[hsl(230,25%,10%)] to-[hsl(35,20%,8%)]">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-blue-50/30">
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-900/30 text-amber-200 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-amber-700/30">
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-blue-200">
             <Theater className="h-4 w-4" />
             Culture
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
-            Not Just Pretty. <span className="text-amber-300">Alive.</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            Not Just Pretty. <span className="text-blue-600">Alive.</span>
           </h2>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Veneto's culture isn't in museums — it's in amphitheaters still hosting opera, 
             piazzas still playing chess, and bacari still pouring spritz at 6 PM sharp.
           </p>
@@ -235,9 +231,8 @@ export default function VenetoCultureAlive() {
 
             return (
               <div key={tier.id} className={cn(
-                "rounded-xl border transition-all duration-500",
-                tier.borderColor,
-                `bg-gradient-to-br ${tier.bgGradient}`
+                "rounded-xl border transition-all duration-500 bg-white/80",
+                tier.borderColor
               )}>
                 {/* Tier header */}
                 <button
@@ -249,12 +244,12 @@ export default function VenetoCultureAlive() {
                       <TierIcon className="h-3.5 w-3.5 inline mr-1.5" />
                       {tier.label}
                     </div>
-                    <span className="text-white/40 text-sm">
+                    <span className="text-muted-foreground text-sm">
                       {tier.items.length} {tier.items.length === 1 ? 'experience' : 'experiences'}
                     </span>
                   </div>
                   <ChevronDown className={cn(
-                    "h-5 w-5 text-white/40 transition-transform duration-300",
+                    "h-5 w-5 text-muted-foreground transition-transform duration-300",
                     isOpen && 'rotate-180'
                   )} />
                 </button>
@@ -270,7 +265,7 @@ export default function VenetoCultureAlive() {
                       const isItemOpen = expandedItem === item.id;
 
                       return (
-                        <div key={item.id} className="rounded-lg border border-white/10 bg-white/5 overflow-hidden">
+                        <div key={item.id} className="rounded-lg border border-border bg-white/80 overflow-hidden">
                           <button
                             onClick={() => setExpandedItem(isItemOpen ? null : item.id)}
                             className="w-full flex items-start justify-between p-4 text-left"
@@ -278,12 +273,12 @@ export default function VenetoCultureAlive() {
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
                                 <ItemIcon className={cn("h-4 w-4", tier.color)} />
-                                <h4 className="font-bold text-white text-sm">{item.title}</h4>
+                                <h4 className="font-bold text-foreground text-sm">{item.title}</h4>
                               </div>
-                              <p className="text-xs text-white/40">{item.subtitle}</p>
+                              <p className="text-xs text-muted-foreground">{item.subtitle}</p>
                             </div>
                             <ChevronDown className={cn(
-                              "h-4 w-4 text-white/30 transition-transform duration-300 shrink-0 mt-1",
+                              "h-4 w-4 text-muted-foreground transition-transform duration-300 shrink-0 mt-1",
                               isItemOpen && 'rotate-180'
                             )} />
                           </button>
@@ -294,7 +289,7 @@ export default function VenetoCultureAlive() {
                           )}>
                             <div className="px-4 pb-4">
                               {item.content.split('\n\n').map((p, i) => (
-                                <p key={i} className="text-white/55 text-sm leading-relaxed mb-3">{p}</p>
+                                <p key={i} className="text-muted-foreground text-sm leading-relaxed mb-3">{p}</p>
                               ))}
                               {item.extra}
                             </div>
