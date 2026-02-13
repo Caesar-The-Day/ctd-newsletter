@@ -562,17 +562,17 @@
           "id": "amarone",
           "title": "Amarone della Valpolicella",
           "subtitle": "Big, Structured, Contemplative",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/amarone-wine.jpg",
           "description": "Amarone is not a casual wine. It's made from grapes dried for months on wooden racks (appassimento), concentrating everything — sugar, tannin, complexity — into something that demands your full attention. Dark cherry, leather, chocolate, warm spice. Full-bodied with a finish that lingers for minutes.\n\nIt comes from the hills northwest of Verona, in Valpolicella — a landscape of terraced vineyards and stone farmhouses where the pace rewards patience. A single bottle can age for decades. The best vintages appreciate in value.\n\nThe town vibe it pairs with: Verona. Deep, patient, layered. Roman ruins under Renaissance palazzi under modern life. A city that doesn't rush because it knows what it has.\n\nIf you choose Amarone, you're not looking for excitement. You're looking for substance.",
           "links": [
-            { "label": "Consorzio Valpolicella", "href": "https://www.consorziovalpolicella.it/en/" }
+            { "label": "Consorzio Valpolicella", "href": "https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/" }
           ]
         },
         {
           "id": "prosecco",
           "title": "Prosecco Superiore DOCG",
           "subtitle": "Bright, Social, Celebratory",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/prosecco-wine.jpg",
           "description": "Forget the supermarket version. Real Prosecco comes from the steep, UNESCO-listed hills between Conegliano and Valdobbiadene — terraces so vertical that harvesting is done by hand, often with ropes. The Glera grape grown here produces something entirely different: fine persistent bubbles, green apple, white peach, acacia flowers, and a mineral backbone you won't find in a mass-produced bottle.\n\nThe distinction matters. Prosecco DOC (lowercase, from the plains) is industrial. Prosecco DOCG Superiore (uppercase, from these hills) is artisanal. The terroir is dramatic — hills that rise sharply from the Piave River plain, catching morning fog and afternoon sun.\n\nThe town vibe it pairs with: Treviso. Social, stylish, effervescent. Medieval canals, aperitivo culture, and a community that celebrates the ordinary Tuesday as much as the festival Saturday.\n\nIf you choose Prosecco Superiore, you believe the best things in life are shared.",
           "links": [
             { "label": "Prosecco DOCG Consortium", "href": "https://www.prosecco.it/en/" }
@@ -582,7 +582,7 @@
           "id": "soave",
           "title": "Soave Classico",
           "subtitle": "Crisp, Restrained, Elegant",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/soave-wine.jpg",
           "description": "Soave is Italy's most underrated great white wine. Made primarily from Garganega grapes grown on ancient volcanic soils east of Verona, the best examples are mineral, precise, and quietly captivating. Citrus, almond, chamomile, and a volcanic edge that speaks of deep geological time.\n\nThe volcanic terroir is key. These soils — remnants of eruptions 40 million years ago — give Soave a mineral complexity that sets it apart from any other Italian white. It's not showy. It doesn't announce itself. It reveals itself slowly, rewarding attention.\n\nThe town vibe it pairs with: Vicenza. Understated refinement. Palladian proportion. A city that doesn't need to prove anything because Palladio already did.\n\nIf you choose Soave, you value precision over performance.",
           "links": [
             { "label": "Consorzio Soave", "href": "https://www.ilsoave.com/en/" }
@@ -592,9 +592,11 @@
           "id": "bardolino",
           "title": "Bardolino",
           "subtitle": "Light, Easygoing, Lakeside",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/bardolino-wine.jpg",
           "description": "Bardolino is the wine you drink without overthinking it. Light, fresh, cherry-forward — a red that behaves almost like a white, best served slightly chilled on a warm evening by Lake Garda. Made from the same Corvina and Rondinella grapes as Amarone, but treated gently, without the drama of dried grapes or extended aging.\n\nIt comes from the eastern shore of Lake Garda, where the microclimate is almost Mediterranean — olive trees, lemon groves, mild winters. The wine reflects the landscape: relaxed, unpretentious, built for pleasure rather than prestige.\n\nThe town vibe it pairs with: the Garda lakeside towns. Lazise, Bardolino, Peschiera. Aperitivo on the waterfront. Sunset over the lake. A pace of life that believes tomorrow will take care of itself.\n\nIf you choose Bardolino, you've already figured out what matters.",
-          "links": []
+          "links": [
+            { "label": "Consorzio Bardolino", "href": "https://consorziobardolino.it/en/homepage/" }
+          ]
         }
       ]
     },
