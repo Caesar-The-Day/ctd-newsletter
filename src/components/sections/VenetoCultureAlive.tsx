@@ -150,6 +150,8 @@ interface CultureItem {
   subtitle: string;
   icon: typeof Crown;
   content: string;
+  image?: string;
+  link?: string;
   extra?: React.ReactNode;
   decorSvg?: React.ReactNode;
 }
@@ -177,6 +179,8 @@ function CarnevaleSelector() {
       crowd: 'Enormous (3 million visitors over 2 weeks)',
       locals: 'Private balls, neighborhood campo parties, not Piazza San Marco',
       resident: 'You\'d attend a private dinner in a palazzo, wearing a bauta mask. The public spectacle is for tourists. The real Carnevale happens behind closed doors — concerts in churches, theatrical performances in candlelit salons, meals that last until dawn.',
+      image: '/images/veneto/venice-carnival.jpg',
+      link: 'https://carnevale.venezia.it/en/',
     },
     {
       id: 'verona',
@@ -186,6 +190,8 @@ function CarnevaleSelector() {
       crowd: 'Moderate (mostly locals and regional visitors)',
       locals: 'Everyone. This is Verona\'s Carnevale, not a tourist event.',
       resident: 'You\'d follow the parade led by Papà del Gnoco — a giant dumpling king who throws gnocchi into the crowd. Every neighborhood has its own float. Families cook together for weeks. It\'s joyful and slightly absurd in exactly the right way.',
+      image: '/images/veneto/verona-carnival.jpg',
+      link: 'https://www.visitverona.it/en/big-events/the-history-of-bacanal-del-gnoco',
     },
     {
       id: 'small',
@@ -195,6 +201,7 @@ function CarnevaleSelector() {
       crowd: 'Small (your neighbors, basically)',
       locals: 'Everyone participates — there\'s no audience, only participants.',
       resident: 'Marostica, Noale, Cittadella — each builds its own floats in garages, sews costumes over wine, and parades through medieval streets. Kids ride on the floats. Grandparents judge the costumes. Nobody posts it on Instagram. That\'s the point.',
+      image: '/images/veneto/small-town-carnival.webp',
     }
   ];
 
@@ -207,12 +214,15 @@ function CarnevaleSelector() {
             key={opt.id}
             onClick={(e) => { e.stopPropagation(); setCarnevale(carnevale === opt.id ? null : opt.id); }}
             className={cn(
-              "rounded-lg border p-3 text-left transition-all duration-300 text-xs",
+              "rounded-lg border p-3 text-left transition-all duration-300 text-xs overflow-hidden",
               carnevale === opt.id
                 ? 'border-amber-400 bg-amber-50 ring-1 ring-amber-300/50'
                 : 'border-border bg-white/80 hover:bg-amber-50/50'
             )}
           >
+            {opt.image && (
+              <img src={opt.image} alt={opt.label} className="w-full h-20 object-cover rounded-md mb-2" loading="lazy" />
+            )}
             <span className="text-lg">{opt.emoji}</span>
             <p className="font-semibold text-foreground mt-1 text-xs leading-tight">{opt.label}</p>
             <p className="text-muted-foreground text-[10px] mt-0.5">{opt.tone}</p>
@@ -238,6 +248,11 @@ function CarnevaleSelector() {
               <p className="text-[10px] font-bold uppercase text-amber-600">As a Resident, You'd...</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{opt.resident}</p>
             </div>
+            {opt.link && (
+              <a href={opt.link} target="_blank" rel="noopener noreferrer" className="inline-block text-xs font-semibold text-amber-700 hover:underline mt-1">
+                Learn more ↗
+              </a>
+            )}
           </div>
         );
       })()}
@@ -271,6 +286,8 @@ const tiers: Tier[] = [
         title: 'Arena di Verona & Open-Air Opera',
         subtitle: '2,000 years. 15,000 seats. No microphones needed.',
         icon: Theater,
+        image: '/images/veneto/verona-opera-festival.jpg',
+        link: 'https://www.arteconcerto.com/arena-di-verona',
         content: "Built 30 years before the Colosseum, the Arena is not a ruin — it's a working theater. Every summer, the world's greatest voices fill a Roman amphitheater with Verdi and Puccini under open skies. No amplification. No screens. Just human voices bouncing off 2,000-year-old stone.\n\nAs a resident, you'd buy a season pass. You'd bring a cushion and a bottle of wine. You'd watch the sunset paint the arches gold while the orchestra tunes up. By the third year, you'd have a favorite seat, a pre-show restaurant, and strong opinions about which soprano handles Aida's tomb scene best.\n\nPractical note: Season runs June–September. Unreserved stone seats (gradinata) cost €30-35. That's world-class opera for the price of a pizza dinner."
       },
       {
@@ -278,6 +295,8 @@ const tiers: Tier[] = [
         title: 'Scrovegni Chapel & Giotto',
         subtitle: 'The frescoes that changed Western art. 15 minutes at a time.',
         icon: Crown,
+        image: '/images/veneto/scrovegni-chapel.jpg',
+        link: 'https://www.cappelladegliscrovegni.it/index.php/en/',
         content: "In 1305, Giotto painted the interior of a small chapel in Padua and accidentally invented modern art. Before him, paintings were flat, symbolic, Byzantine. After him, human figures had weight, emotion, space. Art historians argue about who matters more — Giotto or Michelangelo — and it's not a settled question.\n\nYou enter in groups of 25, after 15 minutes in a dehumidification chamber. You get exactly 15 minutes inside. It sounds restrictive, but that limitation creates intensity — you look at these frescoes with the attention they deserve, not the glazed museum shuffle.\n\nAs a resident of Padua, you'd visit multiple times across different seasons. The light changes everything. January morning light on the Lamentation scene is a completely different experience from June afternoon light on the Last Judgment."
       }
     ]
@@ -304,6 +323,8 @@ const tiers: Tier[] = [
         title: 'Marostica Living Chess Game',
         subtitle: 'Every two years, the piazza becomes a chessboard. Humans are the pieces.',
         icon: Swords,
+        image: '/images/veneto/marostica-chess.jpg',
+        link: 'https://www.marosticascacchi.it/en',
         content: "In the second weekend of September (even years), Marostica's main piazza transforms into a giant chessboard. Living actors in Renaissance costume play an actual chess game, recreating a 1454 match between two noblemen who competed for the hand of the castellan's daughter. Instead of a duel, they played chess. Instead of blood, they got spectacle.\n\n500+ performers. Renaissance costumes sewn by the town. Fire-breathers, flag-throwers, processions. The entire town participates — this isn't a tourist attraction, it's a community ritual that happens to be spectacular.\n\nMarostica is also the cherry capital of Veneto. If you visit in late May/early June, the cherry festival overlaps with the chess game rehearsals. It's a very specific kind of wonderful.",
         extra: (
           <div className="mt-4 bg-amber-50 rounded-lg p-4 border border-amber-200 relative overflow-hidden">
@@ -335,6 +356,8 @@ const tiers: Tier[] = [
         title: 'Venetian Music Heritage',
         subtitle: 'Vivaldi\'s orphan musicians, La Fenice\'s rebirth, and why Venice still sounds different.',
         icon: Music,
+        image: '/images/veneto/teatro-la-fenice.jpg',
+        link: 'https://www.teatrolafenice.it/en/',
         content: "Venice's four Ospedali — charitable institutions for orphaned girls — produced the finest musicians in 18th-century Europe. Vivaldi taught at the Ospedale della Pietà for decades, composing specifically for these young women whose talent drew audiences from across the continent. Royalty attended their concerts. Goethe wept.\n\nThis is wildly under-discussed. An all-female orchestra in the 1720s, performing at the highest level in Europe, trained by the most innovative composer alive. The music wasn't incidental — it was the institution's funding mechanism. The girls' virtuosity attracted donations that kept the orphanage running.\n\nLa Fenice — Venice's opera house — has burned down twice (1774, 1996) and been rebuilt both times, each time more beautiful. 'La Fenice' means 'The Phoenix.' The name was prophetic. Today it hosts world-class opera and symphony seasons. Resident tip: standing tickets are €15-20.",
         decorSvg: <MusicalNotesSvg className="w-9 h-7 text-stone-500 opacity-[0.45] inline-block ml-2 -mt-0.5" />
       },
@@ -343,6 +366,7 @@ const tiers: Tier[] = [
         title: 'Aperitivo & Passeggiata',
         subtitle: 'The daily rituals that actually define life in Veneto.',
         icon: Coffee,
+        image: '/images/veneto/aperitivo-spritz.jpg',
         content: "The spritz was born in Veneto — not as a trend, but as a habit. Austrian soldiers in the 19th century asked bartenders to 'spritz' (spray) their wine with water. Venetians added Aperol or Select, and a ritual was born. By 6 PM every day, the bacari fill up, cicchetti appear on counters, and the entire social fabric of Veneto life activates.\n\nThe passeggiata — the evening walk — is the other daily ritual no one explains to foreigners. Between 5-7 PM, entire towns empty onto their main streets. Families, couples, teenagers, elderly — everyone walks. You see people, you're seen, you stop and talk. It's not exercise. It's society operating as designed.\n\nIn Padua, the passeggiata route follows Prato della Valle to Via Roma. In Verona, it loops around Piazza Bra. In Treviso, it follows the canals. Learning your town's passeggiata route is the first step to becoming a local. The second step is having opinions about where to stop for your spritz.",
         decorSvg: <SpritzGlassSvg className="w-6 h-9 text-stone-500 opacity-[0.45] inline-block ml-2 -mt-1" />
       }
@@ -451,9 +475,17 @@ export default function VenetoCultureAlive() {
                             isItemOpen ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
                           )}>
                             <div className="px-4 pb-4">
+                              {item.image && (
+                                <img src={item.image} alt={item.title} className="w-full h-48 md:h-64 object-cover rounded-lg mb-4" loading="lazy" />
+                              )}
                               {item.content.split('\n\n').map((p, i) => (
                                 <p key={i} className="text-muted-foreground text-sm leading-relaxed mb-3">{p}</p>
                               ))}
+                              {item.link && (
+                                <a href={item.link} target="_blank" rel="noopener noreferrer" className={cn("inline-block text-xs font-semibold hover:underline mb-3", tier.color)}>
+                                  Visit official site ↗
+                                </a>
+                              )}
                               {item.extra}
                             </div>
                           </div>
