@@ -1012,7 +1012,7 @@
                 {
                   "name": "Treviso Canova (TSF)",
                   "description": "Budget carrier hub — Ryanair and low-cost European routes.",
-                  "link": "https://www.trevisoareport.it/en/",
+                  "link": "https://www.trevisoairport.it/en_us/",
                   "mapUrl": "https://maps.google.com/?q=Treviso+Airport"
                 },
                 {
@@ -1075,7 +1075,7 @@
         "name": "Treviso Canova (TSF)",
         "coords": [45.6484, 12.1944],
         "description": "Budget carrier hub",
-        "link": "https://www.trevisoareport.it/en/",
+        "link": "https://www.trevisoairport.it/en_us/",
         "mapUrl": "https://maps.google.com/?q=Treviso+Airport"
       },
       {
