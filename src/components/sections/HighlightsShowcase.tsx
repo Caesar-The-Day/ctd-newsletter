@@ -97,7 +97,11 @@ function HighlightCard({ card }: any) {
 
         <CollapsibleContent>
           <CardContent className="p-4 md:p-6">
-            <p className="text-muted-foreground mb-4">{card.description}</p>
+            <div className="space-y-3 mb-4">
+              {card.description.split('\n\n').map((paragraph: string, idx: number) => (
+                <p key={idx} className="text-muted-foreground">{paragraph}</p>
+              ))}
+            </div>
             {card.links?.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {card.links.map((link: any) => (
