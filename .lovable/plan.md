@@ -1,70 +1,82 @@
 
 
-## Add Decorative SVG Graphics to Veneto Components
+## Level Up Veneto SVG Graphics: From Invisible to Impactful
 
-### Vision
-Add hand-drawn-style inline SVG illustrations as subtle decorative accents to each of the three Veneto components. These are lightweight, infinitely scalable, and require zero external dependencies or image hosting. They'll be embedded directly in the components as CSS background patterns and decorative SVG elements.
+### The Problem
+The current SVG decorations are ghost-level subtle: 5-8% opacity, tiny sizes, barely-visible background patterns. They add zero visual personality. Meanwhile Umbria's components use real images, particle animations, and interactive effects that give them visual punch.
 
-### Approach: Inline SVGs + CSS Patterns
-No external image sourcing needed. We'll craft simple, elegant SVG shapes directly in the code:
+### The Fix: Three Strategies
 
-- **Wine glasses** and **grape clusters** for the Wine section
-- **Steaming bowls** and **wheat/herb motifs** for the Food section  
-- **Venetian masks**, **chess pieces**, and **musical notes** for the Culture section
-
-Plus subtle **repeating SVG background patterns** (like Umbria's cross pattern in the Chocolate City component) to add texture.
+Instead of invisible watermarks, we go bold with:
+1. **Visible, colored illustration panels** -- SVGs at 20-40% opacity with gradient fills, not invisible outlines
+2. **CSS-animated SVGs** -- gentle floating, swaying, and filling effects that bring static drawings to life
+3. **Prominent placement** -- section dividers, card hero illustrations, and full-width decorative borders instead of hidden corner watermarks
 
 ---
 
 ### Component 1: VenetoWinePourSelector
 
-**Decorative additions:**
-- A faint **grape vine SVG pattern** as a repeating background texture (similar to Umbria's `data:image/svg+xml` cross pattern), applied at low opacity behind the header area
-- Each wine card gets a small **decorative grape cluster SVG** in the top-right corner (absolute positioned, low opacity) that becomes more visible on hover
-- The expanded detail panel gets a subtle **wine glass silhouette SVG** watermark in the background corner
-- The "Insider Take" footer gets a small **corkscrew SVG accent** next to the heading
+**What changes:**
+- Replace the barely-visible grape vine background pattern with a **prominent decorative vine border** along the top of the section: a full-width SVG vine with leaves and grape clusters at ~20% opacity, using the rose palette with gradient fills (not just strokes)
+- Each wine card gets a **larger, filled grape cluster illustration** (not outline) in the card background at 12-15% opacity, with a **CSS float animation** (gentle up-down bob, 6s infinite)
+- The expanded detail panel gets a **large wine glass SVG** (not a corner watermark) that acts as a visual anchor on the left side of the panel at 10-12% opacity, with a **pour animation** -- the "wine level" path inside the glass fills up via CSS animation when the panel opens
+- The Insider Take footer gets a **full-width decorative grape vine divider SVG** above it -- a horizontal illustrated border instead of just a plain line
+- The background pattern gets increased from near-invisible to a recognizable texture (~15% opacity)
+
+**New CSS animations added to tailwind.config.ts:**
+- `float` keyframe: gentle 8px vertical bob over 6 seconds
+- `wine-pour` keyframe: clipPath or transform that reveals wine inside a glass over 1.5s on mount
 
 ### Component 2: VenetoFoodPillars
 
-**Decorative additions:**
-- A faint **wheat stalk repeating pattern** as background texture behind the section
-- Each pillar card gets a **themed SVG watermark** in its background:
-  - Alpine: mountain peak outline with steam wisps
-  - Lagoon: wave pattern with a stylized fish
-  - Heartland: wheat sheaf silhouette
-- The editorial footer gets a **steaming pot SVG accent**
-- Town callout areas get small **map pin with fork SVG** decorations
+**What changes:**
+- Each pillar card gets a **much larger themed illustration** (40x40 px instead of 16x12) that serves as a visual identity marker, not a hidden watermark:
+  - Alpine: mountain range with snow-capped peaks, filled with a cool blue-to-white gradient at 15% opacity
+  - Lagoon: wave pattern with a prominent stylized fish, filled with blue tones at 15% opacity  
+  - Heartland: full wheat sheaf with golden fill at 15% opacity
+- These illustrations **sway gently** using a CSS `sway` animation (subtle 3-degree rotation oscillation, 8s)
+- The wheat background pattern gets boosted to ~18% opacity and uses amber-600 fill (not just stroke) for the wheat heads
+- The expanded detail section gets a **full-width illustrated divider** matching the selected pillar's theme (mountains/waves/wheat)
+- The steaming pot in the footer gets **animated steam** -- the steam wisps use a CSS `rise-fade` animation (translate up + fade out, staggered)
 
 ### Component 3: VenetoCultureAlive
 
-**Decorative additions:**
-- A **Venetian mask SVG** as a large, faint watermark behind the section header (absolute positioned, ~5% opacity)
-- Grand Stage tier: **opera curtain drape SVG** accents on the tier header borders
-- Living Traditions tier: 
-  - Carnevale item gets a small **comedy/tragedy mask SVG pair** next to the title
-  - Marostica chess item gets a **chess knight piece SVG** next to the title
-- Everyday Culture tier: **musical note cluster SVG** for the Vivaldi item, **spritz glass SVG** for the Aperitivo item
-- The "Mask or No Mask?" callout block gets a **bauta mask silhouette SVG** as a side accent
-- The "Did You Know?" block gets a **chess rook SVG** accent
+**What changes:**
+- The header Venetian mask becomes a **hero illustration**: 300px wide, centered above the heading, at 8-10% opacity with a **subtle breathe animation** (gentle scale pulse 1.0 to 1.02, 4s infinite). The mask gets gradient fills in blue tones instead of just outlines
+- The mask background pattern opacity increases to ~10% and masks get a slight fill
+- The comedy/tragedy mask pair (Carnevale) becomes **larger and prominently placed** next to the title at 40-50% opacity -- an actual visible icon, not a ghost
+- The chess knight (Marostica) gets the same treatment: visible, colored, with a **chess-move animation** (translate right 8px and back, 4s, like a knight hop)
+- Musical notes (Vivaldi) get an **animated bounce** -- each note bounces at staggered intervals like they're being played
+- The spritz glass gets a **bubble animation** -- tiny circles rising inside the glass via CSS
+- The Bauta mask accent in the "Mask or No Mask?" block becomes a **side illustration** at 25-30% opacity instead of a tiny corner ghost, with subtle shadow
 
-### SVG Style Guidelines
-- All SVGs use `currentColor` or muted accent colors matching each component's palette (rose, amber, blue)
-- Decorative watermarks at 5-8% opacity so they add texture without competing with content
-- Simple line-art style (2px stroke, no fill) for consistency
-- Hover effects on some elements: opacity increases from 8% to 15% on card hover
-- All SVGs are inline (no external files), keeping bundle size minimal
+### Shared: New CSS Animations
+
+Added to `tailwind.config.ts`:
+
+```text
+float:       translateY(-8px) -> translateY(0px) -> translateY(-8px), 6s ease-in-out infinite
+sway:        rotate(-3deg) -> rotate(3deg) -> rotate(-3deg), 8s ease-in-out infinite
+breathe:     scale(1) -> scale(1.03) -> scale(1), 4s ease-in-out infinite
+bounce-note: translateY(0) -> translateY(-6px) -> translateY(0), 1.2s ease-in-out infinite
+rise-fade:   translateY(0), opacity(0.6) -> translateY(-12px), opacity(0), 2s ease-out infinite
+knight-hop:  translateX(0) -> translateX(8px) -> translateX(0), 3s ease-in-out infinite
+```
+
+All animations respect `prefers-reduced-motion` via existing Tailwind patterns.
 
 ---
 
 ### Files Changed
-- `src/components/sections/VenetoWinePourSelector.tsx` -- Add grape vine pattern, grape cluster accents, wine glass watermark
-- `src/components/sections/VenetoFoodPillars.tsx` -- Add wheat pattern, themed pillar watermarks, pot accent
-- `src/components/sections/VenetoCultureAlive.tsx` -- Add Venetian mask watermark, chess piece SVGs, musical note accents, mask pair icons
+- `tailwind.config.ts` -- Add 6 new keyframe animations and their animation utility classes
+- `src/components/sections/VenetoWinePourSelector.tsx` -- Larger filled SVGs, vine border, pour animation, boosted pattern opacity
+- `src/components/sections/VenetoFoodPillars.tsx` -- Larger filled pillar illustrations with sway, animated steam, boosted wheat pattern
+- `src/components/sections/VenetoCultureAlive.tsx` -- Hero-size mask, visible icon accents, chess hop/note bounce/bubble animations
 
 ### What This Preserves
 - All interactive mechanics unchanged
 - All editorial content unchanged
-- All color schemes unchanged (decorative elements use the existing palettes)
-- Other regions completely unaffected
-- No new dependencies, no external images to host
+- Color palettes unchanged (just using them more boldly)
+- Reduced motion accessibility maintained
+- No external images or new dependencies
 
