@@ -8,9 +8,8 @@ interface FoodPillar {
   subtitle: string;
   icon: typeof Mountain;
   personality: string;
-  colorBg: string;
   colorAccent: string;
-  colorBorder: string;
+  cardBorder: string;
   geoIndicator: string;
   story: string;
   dishes: { name: string; desc: string }[];
@@ -24,9 +23,8 @@ const pillars: FoodPillar[] = [
     subtitle: 'Alpine Roots',
     icon: Mountain,
     personality: 'Hearty, smoky, communal',
-    colorBg: 'from-cyan-950/30 to-slate-900/20',
-    colorAccent: 'text-cyan-300',
-    colorBorder: 'border-cyan-700/40 hover:border-cyan-500/60',
+    colorAccent: 'text-cyan-600',
+    cardBorder: 'border-cyan-200/60 hover:border-cyan-400',
     geoIndicator: 'Dolomites & Pre-Alps',
     story: "Before pasta conquered Italy, the mountains ate polenta. Not the soft, creamy stuff you get at fancy restaurants — dense, firm polenta cooked in copper pots over wood fires, sliced with a thread and eaten with whatever the mountains offered: venison, wild mushrooms, smoked sausages, melted cheese.\n\nThis is cooperative cuisine. Asiago cheese still comes from communal dairies where farmers pool milk. Summer pasture migrations (transumanza) still happen. The food tastes like altitude and patience.",
     dishes: [
@@ -47,9 +45,8 @@ const pillars: FoodPillar[] = [
     subtitle: 'Seafaring Traditions',
     icon: Waves,
     personality: 'Briny, inventive, theatrical',
-    colorBg: 'from-blue-950/30 to-slate-900/20',
-    colorAccent: 'text-blue-300',
-    colorBorder: 'border-blue-700/40 hover:border-blue-500/60',
+    colorAccent: 'text-blue-600',
+    cardBorder: 'border-blue-200/60 hover:border-blue-400',
     geoIndicator: 'Venice & the Lagoon',
     story: "Venice's kitchen is unlike anywhere else in Italy. A thousand years of maritime trade means your plate carries echoes of Constantinople, Alexandria, and the Spice Route. Sarde in saor — sardines in sweet-sour onion marinade — was invented so sailors could eat preserved fish on long voyages. Risotto al nero di seppia gets its dramatic black color from cuttlefish ink.\n\nThis is food shaped by water, commerce, and survival. Every dish has a story about trade routes, preservation, or the lagoon's fragile ecosystem. The Rialto fish market at dawn is still the best show in town.",
     dishes: [
@@ -70,9 +67,8 @@ const pillars: FoodPillar[] = [
     subtitle: 'The Veneto Heartland',
     icon: Wheat,
     personality: 'Generous, seasonal, rooted',
-    colorBg: 'from-amber-950/30 to-stone-900/20',
-    colorAccent: 'text-amber-300',
-    colorBorder: 'border-amber-700/40 hover:border-amber-500/60',
+    colorAccent: 'text-amber-600',
+    cardBorder: 'border-amber-200/60 hover:border-amber-400',
     geoIndicator: 'Padua, Treviso & Vicenza',
     story: "The mainland is where Veneto actually lives. Three university cities — Padua, Treviso, Vicenza — each with distinct food identities shaped by rivers, plains, and obstinate local pride. Treviso has radicchio the way Modena has balsamic: it's an identity, not an ingredient. Padua's contribution is bigoli — thick, rough-textured bronze-extruded pasta that grabs sauce like nothing else.\n\nThis is Sunday lunch food. Bigoli with duck ragù. Pumpkin tortelli in sage butter. Radicchio grilled over coals and drizzled with olive oil. It's not flashy. It's just deeply, profoundly good — the kind of food that makes you stop talking mid-sentence.",
     dishes: [
@@ -93,18 +89,18 @@ export default function VenetoFoodPillars() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-[hsl(30,20%,10%)] to-[hsl(25,18%,7%)]">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-amber-50/40">
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-900/40 text-amber-200 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-amber-800/30">
+          <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-amber-200">
             <ChefHat className="h-4 w-4" />
             Food as Geography
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
-            Polenta, Risotto, or <span className="text-amber-300">Bigoli?</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            Polenta, Risotto, or <span className="text-amber-600">Bigoli?</span>
           </h2>
-          <p className="text-lg text-amber-100/60 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Three culinary traditions. Three landscapes. Three ways Veneto feeds you — 
             all within an hour's drive of each other.
           </p>
@@ -121,18 +117,17 @@ export default function VenetoFoodPillars() {
                 key={pillar.id}
                 onClick={() => setExpanded(isExpanded ? null : pillar.id)}
                 className={cn(
-                  "rounded-xl border-2 p-6 text-left transition-all duration-500",
-                  pillar.colorBorder,
-                  `bg-gradient-to-br ${pillar.colorBg}`,
-                  isExpanded ? 'ring-2 ring-white/15 scale-[1.01]' : expanded ? 'opacity-50 hover:opacity-80' : 'hover:scale-[1.02]'
+                  "rounded-xl border-2 p-6 text-left transition-all duration-500 bg-white/80",
+                  pillar.cardBorder,
+                  isExpanded ? 'ring-2 ring-amber-300/50 scale-[1.01] shadow-md' : expanded ? 'opacity-50 hover:opacity-80' : 'hover:scale-[1.02] hover:shadow-md'
                 )}
               >
                 {/* Icon + geo indicator */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={cn("w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center")}>
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
                     <Icon className={cn("h-5 w-5", pillar.colorAccent)} />
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-white/40 font-medium">
+                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
                     {pillar.geoIndicator}
                   </span>
                 </div>
@@ -140,8 +135,8 @@ export default function VenetoFoodPillars() {
                 <p className={cn("text-xs font-bold uppercase tracking-widest mb-1", pillar.colorAccent)}>
                   {pillar.subtitle}
                 </p>
-                <h3 className="text-lg font-bold text-white mb-2">{pillar.title}</h3>
-                <p className="text-xs text-white/50 italic">{pillar.personality}</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">{pillar.title}</h3>
+                <p className="text-xs text-muted-foreground italic">{pillar.personality}</p>
               </button>
             );
           })}
@@ -156,16 +151,16 @@ export default function VenetoFoodPillars() {
             const pillar = pillars.find(p => p.id === expanded)!;
             const Icon = pillar.icon;
             return (
-              <div className={cn("rounded-2xl border border-white/10 p-6 md:p-8 bg-gradient-to-br", pillar.colorBg)}>
+              <div className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-lg">
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Story */}
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <Icon className={cn("h-5 w-5", pillar.colorAccent)} />
-                      <h3 className="text-xl font-bold text-white">{pillar.title}</h3>
+                      <h3 className="text-xl font-bold text-foreground">{pillar.title}</h3>
                     </div>
                     {pillar.story.split('\n\n').map((p, i) => (
-                      <p key={i} className="text-white/60 mb-4 leading-relaxed text-sm">{p}</p>
+                      <p key={i} className="text-muted-foreground mb-4 leading-relaxed text-sm">{p}</p>
                     ))}
                   </div>
 
@@ -173,12 +168,12 @@ export default function VenetoFoodPillars() {
                   <div className="space-y-6">
                     {/* Key Dishes */}
                     <div>
-                      <h4 className="text-sm font-bold text-white mb-3">Key Dishes</h4>
+                      <h4 className="text-sm font-bold text-foreground mb-3">Key Dishes</h4>
                       <div className="space-y-3">
                         {pillar.dishes.map(d => (
-                          <div key={d.name} className="bg-white/5 rounded-lg p-3 border border-white/5">
-                            <p className="text-sm font-semibold text-white">{d.name}</p>
-                            <p className="text-xs text-white/50">{d.desc}</p>
+                          <div key={d.name} className="bg-muted/50 rounded-lg p-3 border border-border">
+                            <p className="text-sm font-semibold text-foreground">{d.name}</p>
+                            <p className="text-xs text-muted-foreground">{d.desc}</p>
                           </div>
                         ))}
                       </div>
@@ -186,7 +181,7 @@ export default function VenetoFoodPillars() {
 
                     {/* Where You'll Feel This Most */}
                     <div>
-                      <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-1.5">
+                      <h4 className="text-sm font-bold text-foreground mb-3 flex items-center gap-1.5">
                         <MapPin className={cn("h-3.5 w-3.5", pillar.colorAccent)} />
                         Where You'll Feel This Most
                       </h4>
@@ -194,7 +189,7 @@ export default function VenetoFoodPillars() {
                         {pillar.towns.map(t => (
                           <div key={t.name} className="flex gap-2">
                             <span className={cn("text-sm font-bold shrink-0", pillar.colorAccent)}>{t.name}:</span>
-                            <span className="text-xs text-white/50">{t.why}</span>
+                            <span className="text-xs text-muted-foreground">{t.why}</span>
                           </div>
                         ))}
                       </div>
@@ -207,13 +202,13 @@ export default function VenetoFoodPillars() {
         </div>
 
         {/* Editorial Footer */}
-        <div className="mt-10 bg-gradient-to-r from-amber-950/30 to-stone-950/20 rounded-2xl p-6 md:p-8 border border-amber-800/20">
-          <h4 className="font-bold mb-2 flex items-center gap-2 text-white">
-            <ChefHat className="h-5 w-5 text-amber-300" />
+        <div className="mt-10 bg-amber-50/60 rounded-2xl p-6 md:p-8 border border-amber-200/40">
+          <h4 className="font-bold mb-2 flex items-center gap-2 text-foreground">
+            <ChefHat className="h-5 w-5 text-amber-600" />
             The Veneto Table
           </h4>
-          <p className="text-amber-100/60 text-sm leading-relaxed">
-            <strong className="text-white">Here's what no one tells you:</strong> you can eat polenta with venison stew for lunch in Belluno, drive an hour south to Treviso for grilled radicchio and bigoli at dinner, and the next morning be eating baccalà mantecato on a crostino at a bacaro in Venice. Three completely different food cultures, three completely different landscapes — one region. That's Veneto's quiet superpower. It's not Italy's most famous food region, but it might be its most versatile.
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            <strong className="text-foreground">Here's what no one tells you:</strong> you can eat polenta with venison stew for lunch in Belluno, drive an hour south to Treviso for grilled radicchio and bigoli at dinner, and the next morning be eating baccalà mantecato on a crostino at a bacaro in Venice. Three completely different food cultures, three completely different landscapes — one region. That's Veneto's quiet superpower. It's not Italy's most famous food region, but it might be its most versatile.
           </p>
         </div>
       </div>
