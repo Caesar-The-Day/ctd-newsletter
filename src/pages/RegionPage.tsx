@@ -49,6 +49,7 @@ import UmbriaRomeFlorenceCorridor from '@/components/sections/UmbriaRomeFlorence
 import VenetoWinePourSelector from '@/components/sections/VenetoWinePourSelector';
 import VenetoFoodPillars from '@/components/sections/VenetoFoodPillars';
 import VenetoCultureAlive from '@/components/sections/VenetoCultureAlive';
+import VeniceSerenissima from '@/components/sections/VeniceSerenissima';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -368,6 +369,7 @@ export default function RegionPage() {
           <VenetoWinePourSelector />
           <VenetoFoodPillars />
           <VenetoCultureAlive />
+          <VeniceSerenissima />
         </>
       )}
 
