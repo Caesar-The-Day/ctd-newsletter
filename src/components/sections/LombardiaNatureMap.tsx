@@ -5,7 +5,7 @@ import { MapPin, Mountain, Trees, Snowflake, Waves } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
 
 interface NatureFeature {
-  type: 'lake' | 'park' | 'ski' | 'hub';
+  type: 'lake' | 'park' | 'ski' | 'hub' | 'beach';
   name: string;
   coords: [number, number];
   description: string;
@@ -15,6 +15,8 @@ interface NatureFeature {
 
 interface LombardiaNatureMapProps {
   features?: NatureFeature[];
+  center?: [number, number];
+  zoom?: number;
 }
 
 // Default features if not provided via props
@@ -156,7 +158,7 @@ const defaultFeatures: NatureFeature[] = [
   }
 ];
 
-export function LombardiaNatureMap({ features = defaultFeatures }: LombardiaNatureMapProps) {
+export function LombardiaNatureMap({ features = defaultFeatures, center = [46.0, 9.5], zoom = 8 }: LombardiaNatureMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
 
@@ -171,8 +173,8 @@ export function LombardiaNatureMap({ features = defaultFeatures }: LombardiaNatu
 
     // Initialize map centered on Lombardia, extended north to show Swiss areas
     const map = L.map(mapRef.current, {
-      center: [46.0, 9.5],
-      zoom: 8,
+      center: center,
+      zoom: zoom,
       scrollWheelZoom: false,
       zoomControl: true
     });
@@ -296,6 +298,33 @@ export function LombardiaNatureMap({ features = defaultFeatures }: LombardiaNatu
         `, { className: 'custom-popup', maxWidth: 280 });
     });
 
+    // Add beach markers
+    const beaches = features.filter(f => f.type === 'beach');
+    beaches.forEach(beach => {
+      const beachIconHtml = renderToString(<Waves className="w-4 h-4 text-amber-600" />);
+      const beachIcon = L.divIcon({
+        html: `
+          <div class="beach-marker group cursor-pointer">
+            <div class="marker-icon bg-amber-100 dark:bg-amber-900/50 p-1.5 rounded-full border-2 border-amber-500 transition-all duration-200 group-hover:scale-110">
+              ${beachIconHtml}
+            </div>
+          </div>
+        `,
+        className: 'custom-marker',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+
+      L.marker(beach.coords, { icon: beachIcon })
+        .addTo(map)
+        .bindPopup(`
+          <div class="zone-popup">
+            <h3 class="font-bold text-base mb-2 text-foreground">🏖️ ${beach.name}</h3>
+            <p class="text-sm text-muted-foreground">${beach.description}</p>
+          </div>
+        `, { className: 'custom-popup', maxWidth: 280 });
+    });
+
     mapInstance.current = map;
 
     return () => {
@@ -315,22 +344,36 @@ export function LombardiaNatureMap({ features = defaultFeatures }: LombardiaNatu
       <div className="absolute bottom-4 left-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-border">
         <h4 className="font-semibold text-sm text-foreground mb-3">Legend</h4>
         <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <MapPin className="w-4 h-4 text-primary" />
-            <span>Milan (Reference)</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Waves className="w-4 h-4 text-blue-500" />
-            <span>Lakes</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Trees className="w-4 h-4 text-green-600" />
-            <span>Parks & Reserves</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Snowflake className="w-4 h-4 text-sky-600" />
-            <span>Ski Areas</span>
-          </div>
+          {features.some(f => f.type === 'hub') && (
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <MapPin className="w-4 h-4 text-primary" />
+              <span>{features.find(f => f.type === 'hub')?.name} (Reference)</span>
+            </div>
+          )}
+          {features.some(f => f.type === 'lake') && (
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Waves className="w-4 h-4 text-blue-500" />
+              <span>Lakes</span>
+            </div>
+          )}
+          {features.some(f => f.type === 'park') && (
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Trees className="w-4 h-4 text-green-600" />
+              <span>Parks & Reserves</span>
+            </div>
+          )}
+          {features.some(f => f.type === 'ski') && (
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Snowflake className="w-4 h-4 text-sky-600" />
+              <span>Ski Areas</span>
+            </div>
+          )}
+          {features.some(f => f.type === 'beach') && (
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Waves className="w-4 h-4 text-amber-500" />
+              <span>Beaches</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

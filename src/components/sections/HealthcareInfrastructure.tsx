@@ -173,6 +173,30 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
 
   const isLombardia = region === 'lombardia';
   const isUmbria = region === 'umbria';
+
+  const venetoNatureFeatures = [
+    { type: 'hub' as const, name: 'Padova', coords: [45.41, 11.88] as [number, number], description: 'Geographic center of Veneto\'s livability corridor. University city with excellent rail connections to all corners of the region.' },
+    // Parks
+    { type: 'park' as const, name: 'Dolomiti Bellunesi National Park', coords: [46.20, 12.05] as [number, number], description: 'Alpine wilderness and UNESCO World Heritage site. Dramatic peaks, pristine valleys, and serious hiking.' },
+    { type: 'park' as const, name: 'Parco Regionale dei Colli Euganei', coords: [45.30, 11.72] as [number, number], description: 'Thermal hills with gentle hiking trails and ancient spa culture. Volcanic origins, medieval villages.' },
+    { type: 'park' as const, name: 'Parco del Delta del Po', coords: [44.95, 12.30] as [number, number], description: 'Vast wetlands for birdwatching and cycling. Pink flamingos, rice paddies, and river-mouth ecology.' },
+    { type: 'park' as const, name: 'Parco Naturale della Lessinia', coords: [45.60, 11.05] as [number, number], description: 'Pre-Alpine plateau above Verona. Truffle country, stone bridges, and pastoral high meadows.' },
+    // Ski Areas
+    { type: 'ski' as const, name: 'Cortina d\'Ampezzo', coords: [46.54, 12.14] as [number, number], description: '2026 Winter Olympics host. World-class skiing, stunning Dolomite scenery, and glamorous après-ski.' },
+    { type: 'ski' as const, name: 'Arabba / Marmolada', coords: [46.50, 11.87] as [number, number], description: 'Gateway to the Marmolada glacier — the highest Dolomite peak. Serious skiing for serious skiers.' },
+    { type: 'ski' as const, name: 'Alleghe / Civetta', coords: [46.41, 12.02] as [number, number], description: 'Family-friendly resort beneath dramatic cliff scenery. The north face of Monte Civetta is unforgettable.' },
+    { type: 'ski' as const, name: 'Falcade / San Pellegrino', coords: [46.35, 11.87] as [number, number], description: 'Quieter alternative with excellent snow record. Connected to the Dolomiti Superski circuit.' },
+    { type: 'ski' as const, name: 'Asiago Plateau', coords: [45.88, 11.51] as [number, number], description: 'Accessible from Vicenza. Cross-country skiing, snowshoeing, and a WWI history landscape.' },
+    // Lakes
+    { type: 'lake' as const, name: 'Lake Garda (Veneto shore)', coords: [45.58, 10.65] as [number, number], description: 'Italy\'s largest lake. The eastern shore belongs to Veneto — Bardolino, Lazise, Peschiera, and wine country.' },
+    { type: 'lake' as const, name: 'Lake Santa Croce', coords: [46.10, 12.33] as [number, number], description: 'Windsurfing and kitesurfing in a pre-Alpine setting. Consistent afternoon thermals.' },
+    { type: 'lake' as const, name: 'Lake Misurina', coords: [46.58, 12.25] as [number, number], description: 'High-altitude Dolomite lake at 1,754m. Crystal clear, famous for its clean air and Tre Cime views.' },
+    // Beaches
+    { type: 'beach' as const, name: 'Lido di Venezia', coords: [45.38, 12.36] as [number, number], description: 'Venice\'s beach island. Home of the Venice Film Festival, art nouveau architecture, and golden sand.' },
+    { type: 'beach' as const, name: 'Jesolo', coords: [45.50, 12.64] as [number, number], description: 'Family resort strip with 15km of fine sand. Lively boardwalk, water parks, and easy access from Venice.' },
+    { type: 'beach' as const, name: 'Caorle', coords: [45.60, 12.88] as [number, number], description: 'Fishing village charm with a long sandy beach. Colorful old town, fresh seafood, and a laid-back vibe.' },
+    { type: 'beach' as const, name: 'Sottomarina / Chioggia', coords: [45.22, 12.30] as [number, number], description: 'Wide sandy beaches, less touristic than Jesolo. Chioggia is "Little Venice" — canals, markets, and character.' },
+  ];
   const hasInfrastructure = healthcare.infrastructure;
   
   // Determine tab count: regions with infrastructure data or Umbria = 2 tabs, others = 3
@@ -534,10 +558,14 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                       </ul>
                     )}
 
-                    {/* Nature & Recreation Map for Lombardia */}
+                    {/* Nature & Recreation Map */}
                     {section.title === 'Access to Nature & Recreation' && (
                       <div className="mt-8">
-                        <LombardiaNatureMap />
+                        <LombardiaNatureMap 
+                          features={region === 'veneto' ? venetoNatureFeatures : undefined}
+                          center={region === 'veneto' ? [45.7, 11.8] : undefined}
+                          zoom={region === 'veneto' ? 8 : undefined}
+                        />
                       </div>
                     )}
 
