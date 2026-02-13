@@ -1,74 +1,60 @@
 
 
-## Enhance Veneto Healthcare & Infrastructure Section
+## Replace Nature Map Markers for Veneto
 
 ### Problem
 
-The current Veneto section uses a 3-tab layout (Hospitals / Airports / Connectivity) where the Connectivity tab has a hardcoded "Piemonte's strategic location" paragraph. The airports and connectivity are split into separate, thin tabs. Meanwhile, Veneto has rich infrastructure data already defined (rail, airports, nature) plus an untapped opportunity: Adriatic ferry services.
+The "Access to Nature & Recreation" section renders `<LombardiaNatureMap />` with no props for every region that has infrastructure data. This means Veneto shows Lombardia's lakes (Como, Iseo, Maggiore), Lombardia's ski areas (Bormio, Livigno), and Milan as the hub -- all wrong for Veneto.
 
 ### Solution
 
-Switch Veneto to use the Lombardia-style **2-tab layout** (Hospitals / Infrastructure) since it already has the `infrastructure` data structure. This consolidates airports, rail, ferries, and nature into a single rich Infrastructure tab. Then add a **new "Adriatic & Ferry Connections" subsection** with Venice's maritime routes to Croatia and beyond.
-
----
+Pass Veneto-specific nature features to the existing `LombardiaNatureMap` component. The component already supports a `features` prop -- it just needs the right data. Additionally, add a `beach` feature type for the Adriatic coast.
 
 ### Changes
 
-**1. Component: `src/components/sections/HealthcareInfrastructure.tsx`**
+**1. `src/components/sections/HealthcareInfrastructure.tsx`**
 
-- Update the tab logic so Veneto also uses 2 tabs (Hospitals / Infrastructure) instead of 3, since it has `healthcare.infrastructure` data just like Lombardia
-- Change the `useTwoTabs` condition from `isLombardia || isUmbria` to check `hasInfrastructure || isUmbria`
-- Update the Infrastructure tab rendering to not be Lombardia-exclusive (remove the `isLombardia &&` guard on the `TabsContent value="infrastructure"`)
-- Fix the hardcoded "Piemonte's strategic location" text on line 799 to use a generic region-aware string (this is a fallback path, but it should not mention any specific region)
-- Update the closing statement to not reference specific regions — make it data-driven or generic
+- Where `<LombardiaNatureMap />` is rendered (line 540), make it region-aware by passing Veneto features when the region slug is `veneto`
+- Define a `venetoNatureFeatures` array with geographically accurate coordinates for Veneto's nature assets
 
-**2. Data: `public/data/regions/italy/veneto.json`**
+**2. `src/components/sections/LombardiaNatureMap.tsx`**
 
-Add a new subsection inside `healthcare.infrastructure.sections[0].subsections` for ferry services:
+- Add `beach` to the feature type union (`'lake' | 'park' | 'ski' | 'hub' | 'beach'`)
+- Add a beach marker style (using the existing `Waves` icon in a sandy/amber color scheme)
+- Add beach icon to the legend
+- Rename the component export to something generic (e.g., `NatureRecreationMap`) or keep the name but it works for any region via props
 
-```text
-Title: "Adriatic Ferries"
+### Veneto Nature Features
 
-Content:
-- Venice is the historic gateway to the Adriatic — and ferry services still run
-- Routes to Croatia: Pula (3.5 hrs), Rovinj (3 hrs), Poreč (2.5 hrs) via high-speed catamaran (seasonal, Kompas/Venezia Lines)
-- Routes to Greece: Igoumenitsa (22 hrs), Patras (30 hrs) via Anek/Minoan Lines — overnight car ferries
-- Slovenia: Piran accessible via Trieste connection (1 hr from Venice by train, then local ferry)
-- Year-round vs seasonal distinction (Croatia routes run May-Oct; Greece routes year-round)
-- Pro tip: "A weekend in Rovinj from your base in Veneto costs less than a train to Naples."
-```
+**Hub:** Padova (geographic center of Veneto's livability corridor)
 
-Also add a new infrastructure section for **"The Crossroads Advantage"** — a quick editorial on Veneto's unique position:
-- Brenner Pass to Austria/Germany (road + rail)
-- A4 corridor across Northern Italy
-- Adriatic maritime access
-- Three airports serving different price points and geographies
+**Parks (green tree markers):**
+- Dolomiti Bellunesi National Park [46.20, 12.05] -- Alpine wilderness, UNESCO World Heritage
+- Parco Regionale dei Colli Euganei [45.30, 11.72] -- Thermal hills, gentle hiking, spa culture
+- Parco Regionale del Delta del Po [44.95, 12.30] -- Wetlands, birdwatching, cycling paths
+- Parco Naturale della Lessinia [45.60, 11.05] -- Pre-Alpine plateau, truffle country
 
-### Section Flow (Infrastructure tab)
+**Ski Areas (blue snowflake markers):**
+- Cortina d'Ampezzo [46.54, 12.14] -- 2026 Olympics, world-class skiing
+- Arabba / Marmolada [46.50, 11.87] -- Highest Dolomite peak, glacier skiing
+- Alleghe / Civetta [46.41, 12.02] -- Family-friendly, dramatic cliff scenery
+- Falcade / San Pellegrino [46.35, 11.87] -- Quieter, excellent snow record
+- Asiago Plateau [45.88, 11.51] -- Accessible from Vicenza, cross-country skiing
 
-```text
-Infrastructure Tab:
-  |
-  Intro paragraph (already exists)
-  |
-  Transportation & Access
-    -> Rail (already exists)
-    -> Airports (already exists - 3 airports with closing line)
-    -> NEW: Adriatic Ferries (Venice to Croatia, Greece, etc.)
-  |
-  Access to Nature & Recreation (already exists)
-  |
-  NEW: The Crossroads Advantage (editorial closing block)
-```
+**Lakes (blue polygon markers):**
+- Lake Garda (western shore) [45.58, 10.65] -- Italy's largest lake, shared with Lombardia
+- Lake Santa Croce [46.10, 12.33] -- Windsurfing and pre-Alpine setting
+- Lake Misurina [46.58, 12.25] -- High-altitude Dolomite lake
 
-### Technical Details
+**Beaches (amber/sand markers - NEW type):**
+- Lido di Venezia [45.38, 12.36] -- Venice's beach island, film festival
+- Jesolo [45.50, 12.64] -- Family resort strip, 15km of sand
+- Caorle [45.60, 12.88] -- Fishing village charm with long beach
+- Sottomarina / Chioggia [45.22, 12.30] -- Wide sandy beaches, less touristic
 
-- The Lombardia Infrastructure tab renderer (lines 500-613) already handles `subsections` with `paragraphs`, `airports`, `intro`, and `closing` — the ferry data slots into this exact structure
-- A new subsection type for ferries will reuse the existing subsection card layout with a `Ship` icon (already imported)
-- The "Crossroads Advantage" section will be a new entry in `infrastructure.sections` with paragraphs and features (same pattern as "Access to Nature")
-- No new components or dependencies needed — everything fits the existing data-driven structure
+**Map center:** [45.7, 11.8] at zoom 8 (to capture Dolomites to Adriatic)
 
-### Bug Fixes
+### No new dependencies or files needed
 
-- Line 799: Remove hardcoded "Piemonte's strategic location" — replace with a generic fallback
-- Lines 869-872: The closing statement checks for `puglia` specifically — update to use region-aware text from data or a generic message that works for all regions
+The `LombardiaNatureMap` component already has the Leaflet + MapTiler setup, legend, and interaction patterns. Adding `beach` is one new marker style and one legend entry.
+
