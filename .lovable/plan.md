@@ -1,68 +1,70 @@
 
 
-## Fix Veneto Component Color Schemes
+## Add Decorative SVG Graphics to Veneto Components
 
-### Problem
-All three Veneto bespoke components use hardcoded near-black backgrounds (`hsl(345,30%,12%)`, `hsl(30,20%,10%)`, `hsl(220,30%,10%)`) that look jarring against the rest of the Veneto page. Umbria's bespoke components integrate smoothly by using the page's `background` CSS variable with soft tinted gradients (`from-background to-purple-50/30`).
+### Vision
+Add hand-drawn-style inline SVG illustrations as subtle decorative accents to each of the three Veneto components. These are lightweight, infinitely scalable, and require zero external dependencies or image hosting. They'll be embedded directly in the components as CSS background patterns and decorative SVG elements.
 
-### Solution
-Shift all three components from dark hardcoded backgrounds to **light, tinted gradients** that flow with the page theme — same approach Umbria uses. Update all internal text, badges, borders, and cards to work on light backgrounds.
+### Approach: Inline SVGs + CSS Patterns
+No external image sourcing needed. We'll craft simple, elegant SVG shapes directly in the code:
+
+- **Wine glasses** and **grape clusters** for the Wine section
+- **Steaming bowls** and **wheat/herb motifs** for the Food section  
+- **Venetian masks**, **chess pieces**, and **musical notes** for the Culture section
+
+Plus subtle **repeating SVG background patterns** (like Umbria's cross pattern in the Chocolate City component) to add texture.
 
 ---
 
 ### Component 1: VenetoWinePourSelector
 
-**Background:** `from-[hsl(345,30%,12%)]` --> `from-background to-rose-50/40`
-
-**Color rework:**
-- Section text: white --> `text-foreground` / `text-muted-foreground`
-- Badge pill: `bg-red-900/40 text-red-200` --> `bg-rose-100 text-rose-700 border-rose-200`
-- Heading accent: `text-red-300` --> `text-rose-600`
-- Wine cards: dark glass backgrounds --> `bg-white/80 border border-rose-200/60` with `hover:shadow-md`
-- Wine glass circle colors stay (they're the identity markers)
-- Personality text: `text-red-300/80` --> `text-rose-600`
-- Card wine name: `text-white` --> `text-foreground`
-- Type/classification badges: rework for light bg contrast
-- Expanded detail panel: dark overlay --> `bg-white border border-border shadow-lg`
-- All detail panel text: white/red tones --> foreground/muted-foreground with rose accents
-- Insider Take footer: dark gradient --> `bg-rose-50/60 border-rose-200/40`
+**Decorative additions:**
+- A faint **grape vine SVG pattern** as a repeating background texture (similar to Umbria's `data:image/svg+xml` cross pattern), applied at low opacity behind the header area
+- Each wine card gets a small **decorative grape cluster SVG** in the top-right corner (absolute positioned, low opacity) that becomes more visible on hover
+- The expanded detail panel gets a subtle **wine glass silhouette SVG** watermark in the background corner
+- The "Insider Take" footer gets a small **corkscrew SVG accent** next to the heading
 
 ### Component 2: VenetoFoodPillars
 
-**Background:** `from-[hsl(30,20%,10%)]` --> `from-background to-amber-50/40`
-
-**Color rework:**
-- Section text: white/amber tones --> `text-foreground` / `text-muted-foreground`
-- Badge pill: `bg-amber-900/40` --> `bg-amber-100 text-amber-700 border-amber-200`
-- Heading accent: `text-amber-300` --> `text-amber-600`
-- Pillar cards: dark overlays --> `bg-white/80 border` with pillar-specific accent borders (blue-200 for lagoon, green-200 for alpine, amber-200 for heartland)
-- Expanded content: dark backgrounds --> white/light with colored accent borders
-- Town callout pills: dark --> `bg-amber-50 text-amber-800`
-- Editorial footer: dark gradient --> `bg-amber-50/60 border-amber-200/40`
+**Decorative additions:**
+- A faint **wheat stalk repeating pattern** as background texture behind the section
+- Each pillar card gets a **themed SVG watermark** in its background:
+  - Alpine: mountain peak outline with steam wisps
+  - Lagoon: wave pattern with a stylized fish
+  - Heartland: wheat sheaf silhouette
+- The editorial footer gets a **steaming pot SVG accent**
+- Town callout areas get small **map pin with fork SVG** decorations
 
 ### Component 3: VenetoCultureAlive
 
-**Background:** `from-[hsl(220,30%,10%)]` --> `from-background to-blue-50/30`
+**Decorative additions:**
+- A **Venetian mask SVG** as a large, faint watermark behind the section header (absolute positioned, ~5% opacity)
+- Grand Stage tier: **opera curtain drape SVG** accents on the tier header borders
+- Living Traditions tier: 
+  - Carnevale item gets a small **comedy/tragedy mask SVG pair** next to the title
+  - Marostica chess item gets a **chess knight piece SVG** next to the title
+- Everyday Culture tier: **musical note cluster SVG** for the Vivaldi item, **spritz glass SVG** for the Aperitivo item
+- The "Mask or No Mask?" callout block gets a **bauta mask silhouette SVG** as a side accent
+- The "Did You Know?" block gets a **chess rook SVG** accent
 
-**Color rework:**
-- Section text: white/gold tones --> `text-foreground` / `text-muted-foreground`
-- Tier tabs: dark backgrounds --> light with colored borders (amber for Grand Stage, orange for Living, warm neutral for Everyday)
-- Expandable items: dark overlays --> `bg-white/80 border border-border`
-- Carnevale sub-selector: dark cards --> light cards with distinct accent colors
-- "Mask or No Mask?" block: dark --> `bg-slate-50 border-slate-200`
-- "Did You Know?" block: dark --> `bg-amber-50 border-amber-200`
-- Content text: white --> foreground/muted-foreground
+### SVG Style Guidelines
+- All SVGs use `currentColor` or muted accent colors matching each component's palette (rose, amber, blue)
+- Decorative watermarks at 5-8% opacity so they add texture without competing with content
+- Simple line-art style (2px stroke, no fill) for consistency
+- Hover effects on some elements: opacity increases from 8% to 15% on card hover
+- All SVGs are inline (no external files), keeping bundle size minimal
 
 ---
 
 ### Files Changed
-- `src/components/sections/VenetoWinePourSelector.tsx` -- remap all colors from dark to light theme
-- `src/components/sections/VenetoFoodPillars.tsx` -- remap all colors from dark to light theme
-- `src/components/sections/VenetoCultureAlive.tsx` -- remap all colors from dark to light theme
+- `src/components/sections/VenetoWinePourSelector.tsx` -- Add grape vine pattern, grape cluster accents, wine glass watermark
+- `src/components/sections/VenetoFoodPillars.tsx` -- Add wheat pattern, themed pillar watermarks, pot accent
+- `src/components/sections/VenetoCultureAlive.tsx` -- Add Venetian mask watermark, chess piece SVGs, musical note accents, mask pair icons
 
 ### What This Preserves
-- All interactive mechanics (click, expand, select) unchanged
+- All interactive mechanics unchanged
 - All editorial content unchanged
-- Wine-color identity markers on glass circles preserved
-- Pillar color temperature distinctions preserved (just lighter)
+- All color schemes unchanged (decorative elements use the existing palettes)
 - Other regions completely unaffected
+- No new dependencies, no external images to host
+
