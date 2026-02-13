@@ -46,6 +46,9 @@ import UmbriaWineExplorer from '@/components/sections/UmbriaWineExplorer';
 import UmbriaRecipes from '@/components/sections/UmbriaRecipes';
 import UmbriaLakeTrasimeno from '@/components/sections/UmbriaLakeTrasimeno';
 import UmbriaRomeFlorenceCorridor from '@/components/sections/UmbriaRomeFlorenceCorridor';
+import VenetoWinePourSelector from '@/components/sections/VenetoWinePourSelector';
+import VenetoFoodPillars from '@/components/sections/VenetoFoodPillars';
+import VenetoCultureAlive from '@/components/sections/VenetoCultureAlive';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -358,7 +361,15 @@ export default function RegionPage() {
 
       {config.show7PercentCTA && <SevenPercentCTA />}
 
-      {region !== 'umbria' && <HighlightsShowcase highlights={regionData.highlights} />}
+      {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
+
+      {region === 'veneto' && (
+        <>
+          <VenetoWinePourSelector />
+          <VenetoFoodPillars />
+          <VenetoCultureAlive />
+        </>
+      )}
 
       {region === 'umbria' && (
         <>

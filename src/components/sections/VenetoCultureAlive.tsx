@@ -1,0 +1,314 @@
+import { useState } from 'react';
+import { Crown, Flame, Coffee, ChevronDown, Theater, Music, Users, Swords, Lightbulb } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+type TierId = 'grand' | 'living' | 'everyday';
+
+interface CultureItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: typeof Crown;
+  content: string;
+  extra?: React.ReactNode;
+}
+
+interface Tier {
+  id: TierId;
+  label: string;
+  icon: typeof Crown;
+  color: string;
+  bgGradient: string;
+  borderColor: string;
+  badgeBg: string;
+  items: CultureItem[];
+}
+
+// Carnevale sub-selector component
+function CarnevaleSelector() {
+  const [carnevale, setCarnevale] = useState<string | null>(null);
+
+  const options = [
+    {
+      id: 'venice',
+      emoji: '🖤',
+      label: 'Venice — The Masked Republic',
+      tone: 'Elegant. Ritualistic. Historical.',
+      crowd: 'Enormous (3 million visitors over 2 weeks)',
+      locals: 'Private balls, neighborhood campo parties, not Piazza San Marco',
+      resident: 'You\'d attend a private dinner in a palazzo, wearing a bauta mask. The public spectacle is for tourists. The real Carnevale happens behind closed doors — concerts in churches, theatrical performances in candlelit salons, meals that last until dawn.',
+    },
+    {
+      id: 'verona',
+      emoji: '🤡',
+      label: 'Verona — Bacanal del Gnoco',
+      tone: 'Playful. Parades. Communal feasting.',
+      crowd: 'Moderate (mostly locals and regional visitors)',
+      locals: 'Everyone. This is Verona\'s Carnevale, not a tourist event.',
+      resident: 'You\'d follow the parade led by Papà del Gnoco — a giant dumpling king who throws gnocchi into the crowd. Every neighborhood has its own float. Families cook together for weeks. It\'s joyful and slightly absurd in exactly the right way.',
+    },
+    {
+      id: 'small',
+      emoji: '🧒',
+      label: 'Small-Town Carnevale',
+      tone: 'Community-built floats. Family energy. Zero pretension.',
+      crowd: 'Small (your neighbors, basically)',
+      locals: 'Everyone participates — there\'s no audience, only participants.',
+      resident: 'Marostica, Noale, Cittadella — each builds its own floats in garages, sews costumes over wine, and parades through medieval streets. Kids ride on the floats. Grandparents judge the costumes. Nobody posts it on Instagram. That\'s the point.',
+    }
+  ];
+
+  return (
+    <div className="mt-4">
+      <p className="text-xs font-bold uppercase tracking-widest text-amber-400/80 mb-3">Choose Your Carnevale</p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4">
+        {options.map(opt => (
+          <button
+            key={opt.id}
+            onClick={(e) => { e.stopPropagation(); setCarnevale(carnevale === opt.id ? null : opt.id); }}
+            className={cn(
+              "rounded-lg border p-3 text-left transition-all duration-300 text-xs",
+              carnevale === opt.id
+                ? 'border-amber-500/50 bg-amber-900/30 ring-1 ring-amber-500/20'
+                : 'border-white/10 bg-white/5 hover:bg-white/10'
+            )}
+          >
+            <span className="text-lg">{opt.emoji}</span>
+            <p className="font-semibold text-white mt-1 text-xs leading-tight">{opt.label}</p>
+            <p className="text-white/40 text-[10px] mt-0.5">{opt.tone}</p>
+          </button>
+        ))}
+      </div>
+
+      {carnevale && (() => {
+        const opt = options.find(o => o.id === carnevale)!;
+        return (
+          <div className="bg-white/5 rounded-lg p-4 border border-white/10 space-y-2 animate-in fade-in duration-300">
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <p className="text-[10px] font-bold uppercase text-amber-400/70">Crowd Level</p>
+                <p className="text-xs text-white/70">{opt.crowd}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase text-amber-400/70">What Locals Attend</p>
+                <p className="text-xs text-white/70">{opt.locals}</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase text-amber-400/70">As a Resident, You'd...</p>
+              <p className="text-xs text-white/60 leading-relaxed">{opt.resident}</p>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Mask or No Mask? Cultural subtext */}
+      <div className="mt-4 bg-gradient-to-r from-amber-950/40 to-transparent rounded-lg p-4 border-l-2 border-amber-500/30">
+        <p className="text-xs font-bold text-amber-300 mb-1">Mask or No Mask?</p>
+        <p className="text-xs text-white/50 leading-relaxed">
+          In Venice, anonymity was once political power. Masks erased class distinctions — nobility and merchants mingled, 
+          social boundaries blurred, and for a few weeks a year, the Republic's rigid hierarchy dissolved into theater. 
+          The bauta mask wasn't costume — it was a democratic technology. That's not tourism trivia. That's identity.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+const tiers: Tier[] = [
+  {
+    id: 'grand',
+    label: 'Grand Stage',
+    icon: Crown,
+    color: 'text-amber-300',
+    bgGradient: 'from-amber-950/30 to-yellow-950/10',
+    borderColor: 'border-amber-700/40',
+    badgeBg: 'bg-amber-900/50 text-amber-200',
+    items: [
+      {
+        id: 'arena',
+        title: 'Arena di Verona & Open-Air Opera',
+        subtitle: '2,000 years. 15,000 seats. No microphones needed.',
+        icon: Theater,
+        content: "Built 30 years before the Colosseum, the Arena is not a ruin — it's a working theater. Every summer, the world's greatest voices fill a Roman amphitheater with Verdi and Puccini under open skies. No amplification. No screens. Just human voices bouncing off 2,000-year-old stone.\n\nAs a resident, you'd buy a season pass. You'd bring a cushion and a bottle of wine. You'd watch the sunset paint the arches gold while the orchestra tunes up. By the third year, you'd have a favorite seat, a pre-show restaurant, and strong opinions about which soprano handles Aida's tomb scene best.\n\nPractical note: Season runs June–September. Unreserved stone seats (gradinata) cost €30-35. That's world-class opera for the price of a pizza dinner."
+      },
+      {
+        id: 'scrovegni',
+        title: 'Scrovegni Chapel & Giotto',
+        subtitle: 'The frescoes that changed Western art. 15 minutes at a time.',
+        icon: Crown,
+        content: "In 1305, Giotto painted the interior of a small chapel in Padua and accidentally invented modern art. Before him, paintings were flat, symbolic, Byzantine. After him, human figures had weight, emotion, space. Art historians argue about who matters more — Giotto or Michelangelo — and it's not a settled question.\n\nYou enter in groups of 25, after 15 minutes in a dehumidification chamber. You get exactly 15 minutes inside. It sounds restrictive, but that limitation creates intensity — you look at these frescoes with the attention they deserve, not the glazed museum shuffle.\n\nAs a resident of Padua, you'd visit multiple times across different seasons. The light changes everything. January morning light on the Lamentation scene is a completely different experience from June afternoon light on the Last Judgment."
+      }
+    ]
+  },
+  {
+    id: 'living',
+    label: 'Living Traditions',
+    icon: Flame,
+    color: 'text-orange-300',
+    bgGradient: 'from-orange-950/30 to-red-950/10',
+    borderColor: 'border-orange-700/40',
+    badgeBg: 'bg-orange-900/50 text-orange-200',
+    items: [
+      {
+        id: 'carnevale',
+        title: 'Carnevale in Veneto',
+        subtitle: 'Three versions. Three vibes. One is for you.',
+        icon: Users,
+        content: "Everyone knows Venice Carnevale. But Veneto actually has dozens of carnevali — each with completely different energy, crowd levels, and cultural DNA. The choice you make says something about who you are.",
+        extra: <CarnevaleSelector />
+      },
+      {
+        id: 'marostica',
+        title: 'Marostica Living Chess Game',
+        subtitle: 'Every two years, the piazza becomes a chessboard. Humans are the pieces.',
+        icon: Swords,
+        content: "In the second weekend of September (even years), Marostica's main piazza transforms into a giant chessboard. Living actors in Renaissance costume play an actual chess game, recreating a 1454 match between two noblemen who competed for the hand of the castellan's daughter. Instead of a duel, they played chess. Instead of blood, they got spectacle.\n\n500+ performers. Renaissance costumes sewn by the town. Fire-breathers, flag-throwers, processions. The entire town participates — this isn't a tourist attraction, it's a community ritual that happens to be spectacular.\n\nMarostica is also the cherry capital of Veneto. If you visit in late May/early June, the cherry festival overlaps with the chess game rehearsals. It's a very specific kind of wonderful.",
+        extra: (
+          <div className="mt-4 bg-white/5 rounded-lg p-4 border border-white/10">
+            <div className="flex items-center gap-2 mb-1">
+              <Lightbulb className="h-3.5 w-3.5 text-orange-300" />
+              <p className="text-xs font-bold text-white">Did You Know?</p>
+            </div>
+            <p className="text-xs text-white/50">
+              The chess moves played in each performance are different — the game is choreographed fresh each time by a chess master. The actors learn their positions through months of rehearsal. Marostica also hosts a miniature version for children in the off-years.
+            </p>
+          </div>
+        )
+      }
+    ]
+  },
+  {
+    id: 'everyday',
+    label: 'Everyday Culture',
+    icon: Coffee,
+    color: 'text-stone-300',
+    bgGradient: 'from-stone-900/30 to-neutral-950/10',
+    borderColor: 'border-stone-600/40',
+    badgeBg: 'bg-stone-800/50 text-stone-200',
+    items: [
+      {
+        id: 'vivaldi',
+        title: 'Venetian Music Heritage',
+        subtitle: 'Vivaldi\'s orphan musicians, La Fenice\'s rebirth, and why Venice still sounds different.',
+        icon: Music,
+        content: "Venice's four Ospedali — charitable institutions for orphaned girls — produced the finest musicians in 18th-century Europe. Vivaldi taught at the Ospedale della Pietà for decades, composing specifically for these young women whose talent drew audiences from across the continent. Royalty attended their concerts. Goethe wept.\n\nThis is wildly under-discussed. An all-female orchestra in the 1720s, performing at the highest level in Europe, trained by the most innovative composer alive. The music wasn't incidental — it was the institution's funding mechanism. The girls' virtuosity attracted donations that kept the orphanage running.\n\nLa Fenice — Venice's opera house — has burned down twice (1774, 1996) and been rebuilt both times, each time more beautiful. 'La Fenice' means 'The Phoenix.' The name was prophetic. Today it hosts world-class opera and symphony seasons. Resident tip: standing tickets are €15-20."
+      },
+      {
+        id: 'aperitivo',
+        title: 'Aperitivo & Passeggiata',
+        subtitle: 'The daily rituals that actually define life in Veneto.',
+        icon: Coffee,
+        content: "The spritz was born in Veneto — not as a trend, but as a habit. Austrian soldiers in the 19th century asked bartenders to 'spritz' (spray) their wine with water. Venetians added Aperol or Select, and a ritual was born. By 6 PM every day, the bacari fill up, cicchetti appear on counters, and the entire social fabric of Veneto life activates.\n\nThe passeggiata — the evening walk — is the other daily ritual no one explains to foreigners. Between 5-7 PM, entire towns empty onto their main streets. Families, couples, teenagers, elderly — everyone walks. You see people, you're seen, you stop and talk. It's not exercise. It's society operating as designed.\n\nIn Padua, the passeggiata route follows Prato della Valle to Via Roma. In Verona, it loops around Piazza Bra. In Treviso, it follows the canals. Learning your town's passeggiata route is the first step to becoming a local. The second step is having opinions about where to stop for your spritz."
+      }
+    ]
+  }
+];
+
+export default function VenetoCultureAlive() {
+  const [expandedTier, setExpandedTier] = useState<TierId | null>(null);
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
+
+  return (
+    <section className="py-16 md:py-24 bg-gradient-to-b from-[hsl(230,25%,10%)] to-[hsl(35,20%,8%)]">
+      <div className="container max-w-6xl mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-amber-900/30 text-amber-200 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-amber-700/30">
+            <Theater className="h-4 w-4" />
+            Culture
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+            Not Just Pretty. <span className="text-amber-300">Alive.</span>
+          </h2>
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+            Veneto's culture isn't in museums — it's in amphitheaters still hosting opera, 
+            piazzas still playing chess, and bacari still pouring spritz at 6 PM sharp.
+          </p>
+        </div>
+
+        {/* Three Tiers */}
+        <div className="space-y-4">
+          {tiers.map(tier => {
+            const TierIcon = tier.icon;
+            const isOpen = expandedTier === tier.id;
+
+            return (
+              <div key={tier.id} className={cn(
+                "rounded-xl border transition-all duration-500",
+                tier.borderColor,
+                `bg-gradient-to-br ${tier.bgGradient}`
+              )}>
+                {/* Tier header */}
+                <button
+                  onClick={() => setExpandedTier(isOpen ? null : tier.id)}
+                  className="w-full flex items-center justify-between p-5 text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={cn("px-3 py-1 rounded-full text-xs font-bold", tier.badgeBg)}>
+                      <TierIcon className="h-3.5 w-3.5 inline mr-1.5" />
+                      {tier.label}
+                    </div>
+                    <span className="text-white/40 text-sm">
+                      {tier.items.length} {tier.items.length === 1 ? 'experience' : 'experiences'}
+                    </span>
+                  </div>
+                  <ChevronDown className={cn(
+                    "h-5 w-5 text-white/40 transition-transform duration-300",
+                    isOpen && 'rotate-180'
+                  )} />
+                </button>
+
+                {/* Tier content */}
+                <div className={cn(
+                  "overflow-hidden transition-all duration-500",
+                  isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                )}>
+                  <div className="px-5 pb-5 space-y-3">
+                    {tier.items.map(item => {
+                      const ItemIcon = item.icon;
+                      const isItemOpen = expandedItem === item.id;
+
+                      return (
+                        <div key={item.id} className="rounded-lg border border-white/10 bg-white/5 overflow-hidden">
+                          <button
+                            onClick={() => setExpandedItem(isItemOpen ? null : item.id)}
+                            className="w-full flex items-start justify-between p-4 text-left"
+                          >
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <ItemIcon className={cn("h-4 w-4", tier.color)} />
+                                <h4 className="font-bold text-white text-sm">{item.title}</h4>
+                              </div>
+                              <p className="text-xs text-white/40">{item.subtitle}</p>
+                            </div>
+                            <ChevronDown className={cn(
+                              "h-4 w-4 text-white/30 transition-transform duration-300 shrink-0 mt-1",
+                              isItemOpen && 'rotate-180'
+                            )} />
+                          </button>
+
+                          <div className={cn(
+                            "overflow-hidden transition-all duration-400",
+                            isItemOpen ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'
+                          )}>
+                            <div className="px-4 pb-4">
+                              {item.content.split('\n\n').map((p, i) => (
+                                <p key={i} className="text-white/55 text-sm leading-relaxed mb-3">{p}</p>
+                              ))}
+                              {item.extra}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
