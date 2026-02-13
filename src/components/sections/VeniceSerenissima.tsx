@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useCountUp } from '@/hooks/use-count-up';
 import { cn } from '@/lib/utils';
 import { MapPin, Compass } from 'lucide-react';
+import SestiereSVGMap from './venice/SestiereSVGMap';
+import GettingAroundVenice from './venice/GettingAroundVenice';
 
 /* ── Sestieri Data ── */
 interface Sestiere {
@@ -239,6 +241,9 @@ export default function VeniceSerenissima() {
             </p>
           </div>
 
+          {/* Interactive SVG Map */}
+          <SestiereSVGMap activeSestiere={activeSestiere} onSelect={setActiveSestiere} />
+
           {/* Grid of sestiere cards */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
             {sestieri.map((s, i) => (
@@ -270,6 +275,9 @@ export default function VeniceSerenissima() {
             </div>
           </div>
         </div>
+
+        {/* ── Getting Around Venice ── */}
+        <GettingAroundVenice />
 
         {/* ── Closing Pull Quote ── */}
         <div className={cn(
