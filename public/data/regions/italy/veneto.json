@@ -770,7 +770,7 @@
           "name": "Amarone della Valpolicella",
           "title": "Bold, Patient, Unforgettable",
           "description": "You don't rush. You don't need to impress. Like Amarone, you're the result of careful attention and time — complex, rewarding, and absolutely worth the wait.",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/amarone-wine.jpg",
           "tastingNotes": "Rich and velvety. Dried cherry, dark chocolate, leather, and warm spice. Full-bodied with soft tannins and a finish that lingers for minutes. This is wine as meditation."
         },
         {
@@ -778,7 +778,7 @@
           "name": "Prosecco Superiore DOCG",
           "title": "Bright, Social, Irresistible",
           "description": "You light up every room. Like the best Prosecco, you're more complex than people expect — beneath the sparkle lies real substance and terroir.",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/prosecco-wine.jpg",
           "tastingNotes": "Fine, persistent bubbles. Green apple, white peach, acacia flowers, and a mineral backbone from the steep hills. Dry, elegant, and absolutely nothing like the supermarket version."
         },
         {
@@ -786,7 +786,7 @@
           "name": "Soave Classico",
           "title": "Elegant, Understated, Pure",
           "description": "You don't need volume to be heard. Like Soave at its best, you're precise, mineral, and quietly captivating — the kind of presence that grows on people.",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/soave-wine.jpg",
           "tastingNotes": "Mineral and fresh. Citrus, almond, chamomile, and a volcanic edge from ancient soils. Medium-bodied with beautiful acidity. Italy's most underrated great white wine."
         },
         {
@@ -794,7 +794,7 @@
           "name": "Valpolicella Ripasso",
           "title": "The Best of Both Worlds",
           "description": "You take the familiar and make it extraordinary. Like Ripasso — Valpolicella refermented on Amarone grape skins — you add depth to everything you touch without losing your essential character.",
-          "image": "/images/veneto/hero.jpg",
+          "image": "/images/veneto/bardolino-wine.jpg",
           "tastingNotes": "Medium to full-bodied. Ripe cherry, plum, vanilla, and a hint of dried fruit from the Amarone contact. Rounder and richer than standard Valpolicella, but more approachable than Amarone. The sweet spot."
         }
       ]
