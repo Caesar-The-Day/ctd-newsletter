@@ -1,89 +1,51 @@
 
 
-## Enhance Venice Section: Interactive Map + Getting Around Guide
+## Replace Venice Sestieri Map with Accurate Geographic SVG
 
-Two new sub-sections will be added inside the existing `VeniceSerenissima.tsx` component, keeping everything self-contained.
+The current hand-drawn SVG map will be replaced with geographically accurate paths traced from the Wikimedia Commons "Sestieri di Venezia" reference map, styled to match the project's Mediterranean color palette.
 
----
+### What Changes
 
-### 1. Interactive SVG Sestieri Map
+**File modified: `src/components/sections/venice/SestiereSVGMap.tsx`**
 
-A hand-drawn-style SVG map of Venice's six districts replaces the current grid-only navigation. Each sestiere is a clickable polygon region that:
+The entire SVG map will be redrawn with:
 
-- Highlights on hover with the sestiere's signature color
-- Shows the district name as a tooltip/label
-- Clicking a sestiere scrolls to and activates the detail panel below (same `setActiveSestiere` state)
-- The currently active sestiere stays highlighted
-- Placed **above** the existing card grid, giving users two ways to navigate (map or cards)
+1. **Accurate district polygons** traced from the Wikimedia Commons reference (462x273 viewBox), reflecting Venice's true fish-shaped silhouette with realistic canal boundaries between districts
+2. **Grand Canal** rendered as a visible waterway separating the northern sestieri (Cannaregio, San Polo, Santa Croce) from the southern ones (San Marco, Dorsoduro), with Castello wrapping the east
+3. **Giudecca island** shown to the south (part of Dorsoduro administratively)
+4. **Water/lagoon background** in a soft blue matching the site's Mediterranean palette
+5. **Surrounding islands** (San Giorgio Maggiore, etc.) as subtle context shapes
 
-The SVG will use simplified polygon shapes representing Venice's iconic fish-like silhouette, divided into the six sestieri with the Grand Canal as the dividing line. Each polygon gets a `data-index` attribute tied to the sestieri array.
+### Color Palette
 
-On mobile, the map scales responsively and remains tappable.
+Instead of the current random Tailwind colors (amber, rose, orange, teal, emerald, indigo), the districts will use muted, elegant tones derived from the project's CSS variables:
 
-### 2. "Getting Around Venice" Practical Guide
-
-A new tabbed section placed **after** the Sestieri Explorer and **before** the closing pull-quote. Three tabs:
-
-**Tab: Vaporetto (Water Bus)**
-- Key routes explained in plain language:
-  - Line 1: The "local" — every stop down the Grand Canal (slow, scenic)
-  - Line 2: The "express" — San Marco to Rialto to Tronchetto fast
-  - Line 5.1/5.2: The circular — around the outside, hits Murano
-  - Line 12: Murano, Burano, Torcello island hop
-- Pricing: 9.50 EUR single / 25 EUR 24hr / 35 EUR 48hr / 45 EUR 72hr / 65 EUR 7-day
-- Pro tip: "Never buy a single ticket. The 72-hour pass pays for itself by trip 5."
-
-**Tab: Water Taxis & Gondolas**
-- Water taxi: 70-120 EUR flat rate (airport transfer ~120 EUR)
-- Gondola: 80 EUR for 30 min (100 EUR after 7pm), max 6 people
-- Traghetto: 2 EUR to cross Grand Canal standing in a gondola — "the 2-euro gondola ride nobody knows about"
-
-**Tab: Where to Stay**
-A lifestyle-based recommendation selector (click to reveal):
-| Lifestyle | Neighborhood | Why |
+| District | Current Color | New Color |
 |---|---|---|
-| Culture vulture | Dorsoduro | Walking distance to Guggenheim, Accademia, and university bars |
-| Foodie | San Polo | Steps from Rialto market and the best bacari |
-| Peace & quiet | Castello | Residential, green, real neighborhood feel |
-| First-timer | San Marco area | Close to everything, easy orientation |
-| Budget-conscious | Cannaregio | Lower prices, local restaurants, near train station |
-| Romantic escape | Giudecca | Across the water, views back at Venice, feels private |
+| San Marco | amber-500 | Primary blue (hsl 210 85% 35%) at 40% opacity |
+| Dorsoduro | rose-500 | Warm terracotta (hsl 15 60% 55%) at 40% |
+| San Polo | orange-500 | Sage green (hsl 150 30% 50%) at 40% |
+| Cannaregio | teal-500 | Dusty rose (hsl 350 40% 60%) at 40% |
+| Castello | emerald-500 | Muted gold (hsl 45 50% 55%) at 40% |
+| Santa Croce | indigo-500 | Soft lavender (hsl 270 30% 60%) at 40% |
 
-Each option expands with a 2-sentence description and a "best for" tag.
+Active state: 70% opacity with a subtle ring/glow. Hover state: 50% opacity. Inactive: 30% opacity.
 
----
+All colors will be defined as inline HSL values in the SVG `fill` attributes (since Tailwind classes inside SVG can be unreliable), keeping text labels using the existing `fill-foreground` pattern.
 
-### Technical Implementation
+### Interaction
 
-**Modified file: `src/components/sections/VeniceSerenissima.tsx`**
+- Same click-to-select behavior wired to `activeSestiere` state (no logic changes)
+- Hover highlights with smooth CSS transitions
+- District name labels positioned at the centroid of each polygon
+- "Click a district to explore" helper text retained
 
-Changes:
-- Add sestieri coordinate data (simplified SVG polygon points for each district)
-- New `SestiereSVGMap` sub-component rendering the interactive map
-- New `GettingAroundVenice` sub-component with tab state for the three transport/stay categories
-- Wire map clicks to the existing `activeSestiere` state
-- Add `Ship`, `Anchor`, `Hotel` icons from lucide-react
-- No new files needed -- everything stays in the single component file
-- No new images needed -- the map is pure SVG, the guide is text-based
+### Technical Notes
 
-**No changes to RegionPage.tsx** -- the component is already rendered in the correct position.
-
-### Section Flow (updated)
-
-```text
-Hero Image
-  |
-Editorial Essay
-  |
-Venice by the Numbers (animated counters)
-  |
-Sestieri Explorer:
-  -> NEW: Interactive SVG Map (click district to select)
-  -> Existing: Card grid (click card to select)
-  -> Existing: Detail panel with Caesar's Pick
-  |
-NEW: Getting Around Venice (3 tabs: Vaporetto / Taxis & Gondolas / Where to Stay)
-  |
-Closing Pull Quote
-```
+- The viewBox will change from `20 50 430 250` to `0 0 462 273` to match the Wikimedia reference dimensions
+- All paths will be `<path d="...">` elements with accurate coordinates
+- The Grand Canal will be a stroke-only path (no fill) in a lighter blue
+- Giudecca shown as a simple outline shape south of the main island
+- The compass rose will be repositioned to fit the new layout
+- No new dependencies or files needed -- this is a drop-in replacement of the SVG content within the existing component
 
