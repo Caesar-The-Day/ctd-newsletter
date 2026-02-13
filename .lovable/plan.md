@@ -1,118 +1,122 @@
 
 
-## Elevate the Wine, Food & Culture Section for Veneto
+## Plan: Build Three Dedicated Interactive Components for Veneto
 
-### Vision
-Transform the current placeholder-level HighlightsShowcase into a rich, editorial experience that teaches geography through wine, food, and culture — without breaking any other region's page.
+### The Problem
+Veneto's Wine, Food & Culture section currently uses the generic `HighlightsShowcase` component — collapsible cards in tabs. It's functional but flat. Umbria got **bespoke components** (Chocolate City with unwrap animations, Festival Calendar with seasonal filtering, Norcia Table with specialty explorer, Wine Explorer with personality cards). Lombardia got a Dish Explorer with map integration. Veneto deserves the same treatment.
 
-### Current State
-- The HighlightsShowcase component renders 3 tabs (Wine, Food, Culture) with collapsible cards
-- Each card has: image, title, subtitle, description, and optional links
-- Veneto currently has 3 wine cards, 3 food cards, 3 culture cards — all using placeholder `/images/veneto/hero.jpg`
-- The data structure is fixed: `{ title, intro, backgroundImage, cards[] }`
-- Each card: `{ id, title, subtitle, image, description, links[] }`
-
-### Strategy
-We can deliver ~80% of the user's vision through **data changes alone** (richer descriptions, more cards, better structure) and a **small component enhancement** to support multi-paragraph descriptions. The remaining 20% (Carnevale interactive toggle, ambient soundscape) would require new Veneto-specific components — we'll save those for a follow-up.
+### The Approach
+Replace the generic `HighlightsShowcase` for Veneto with **three custom components**, each with distinct interactive mechanics that reinforce the region's identity as a place where wine is identity, food is geography, and culture is alive.
 
 ---
 
-### Changes
+### Component 1: `VenetoWinePourSelector`
 
-#### 1. Component Enhancement: Multi-paragraph descriptions in HighlightCard
+**Concept:** "What's Your Veneto Pour?" — a personality-driven wine selector where clicking a wine reveals not just tasting notes, but the **kind of life** it pairs with.
 
-**File: `src/components/sections/HighlightsShowcase.tsx`**
+**Interactive Mechanics:**
+- 4 large clickable cards arranged in a 2x2 grid (Amarone, Prosecco Superiore, Soave Classico, Bardolino)
+- Each card has a **mood state** — unselected cards show a wine glass silhouette with a one-word personality (e.g., "Contemplative," "Celebratory," "Elegant," "Easygoing")
+- Clicking a card **expands it** into a detailed panel (pushes others aside or overlays) revealing:
+  - Flavor profile with visual descriptors
+  - "Where it's made" — town name with a one-line geographic anchor
+  - "The town vibe it pairs with" — connecting wine personality to actual Veneto towns
+  - Classification badge (DOCG/DOC), type badge (Red/White/Rose)
+  - Price range and food pairing
+  - External link to consorzio or wine trail
+- An editorial footer: "The Insider Take" — opinionated guidance similar to Umbria's wine component
 
-Currently line 100 renders `card.description` as a single `<p>` tag. Change it to split on `\n\n` and render multiple paragraphs — same pattern used by TownsFeatured and TownsGrid. This is backward-compatible since descriptions without `\n\n` still render as one paragraph.
+**Visual Identity:**
+- Deep burgundy/wine gradient background
+- Cards use wine-color coding (deep red for Amarone, gold for Prosecco, pale green for Soave, light cherry for Bardolino)
 
-```tsx
-// Before (line 100):
-<p className="text-muted-foreground mb-4">{card.description}</p>
+**Data:** Hardcoded in the component (same pattern as UmbriaWineExplorer), pulling from the editorial content already written
 
-// After:
-<div className="space-y-3 mb-4">
-  {card.description.split('\n\n').map((paragraph, idx) => (
-    <p key={idx} className="text-muted-foreground">{paragraph}</p>
-  ))}
-</div>
+---
+
+### Component 2: `VenetoFoodPillars`
+
+**Concept:** "Polenta, Risotto, or Bigoli?" — three culinary pillars representing Alpine, Lagoon, and Mainland traditions. Food as geography.
+
+**Interactive Mechanics:**
+- 3 tall pillar cards side by side, each representing a culinary tradition:
+  - **Polenta & Mountain Cuisine** (Alpine icon, cool blue-green tones)
+  - **Risotto & Lagoon Influence** (Wave icon, sea-blue tones)  
+  - **Bigoli & Mainland Comfort** (Wheat icon, warm amber tones)
+- Hover/click on a pillar to reveal:
+  - A 30-second cultural story (why this food exists here)
+  - Key dishes with one-line descriptions
+  - "Where You'll Feel This Most" — 2-3 town callouts connecting food to geography
+  - A signature recipe link
+- Each pillar has a small **geographic indicator** (mountains / coast / plains) reinforcing the spatial lesson
+- An editorial footer: "The Veneto Table" — a paragraph about how these three traditions coexist within an hour's drive
+
+**Visual Identity:**
+- Warm, earthy gradient background
+- Three distinct color temperatures (cool alpine, ocean blue, warm heartland)
+
+---
+
+### Component 3: `VenetoCultureAlive`
+
+**Concept:** "Not Just Pretty. Alive." — culture organized into three tiers: Grand Stage, Living Traditions, Everyday Culture.
+
+**Interactive Mechanics:**
+- Three-tier layout with expandable sections:
+  - **Grand Stage** (2 items): Arena di Verona, Scrovegni Chapel
+    - Click reveals: what it is, what it feels like as a resident (not a tourist), practical tips
+  - **Living Traditions** (2 items): Carnevale "Choose Your Carnevale" and Marostica Living Chess
+    - **Carnevale** gets special treatment: three clickable sub-options (Venice Masked Republic / Verona Bacanal del Gnoco / Small-Town Carnevale) each revealing crowd levels, what locals attend, and what you'd experience as a resident
+    - Includes the "Mask or No Mask?" cultural subtext block about anonymity as political power
+  - **Everyday Culture** (2 items): Venetian Music Heritage (Vivaldi/Ospedali), Aperitivo & Passeggiata
+    - These expand with cultural depth — the Vivaldi section covers the orphanage musicians, La Fenice's role
+- Each tier has a distinct visual treatment (gold for Grand Stage, terracotta for Living Traditions, warm neutral for Everyday)
+- A "Did You Know?" expandable tile for the Marostica chess game
+
+**Visual Identity:**
+- Theatrical gradient (deep navy to warm gold)
+- Tier badges distinguish the three levels
+
+---
+
+### Integration in RegionPage.tsx
+
+**Change:** Add a Veneto-specific conditional block (same pattern as Umbria's), replacing the generic HighlightsShowcase:
+
+```
+{region === 'veneto' && (
+  <>
+    <VenetoWinePourSelector />
+    <VenetoFoodPillars />
+    <VenetoCultureAlive />
+  </>
+)}
 ```
 
-#### 2. Update Section Intro
-
-**File: `public/data/regions/italy/veneto.json`**
-
-Add a `sectionIntro` field to the highlights object:
-
-> "Veneto doesn't separate wine, food, and culture into neat categories. They bleed into each other — a glass of Amarone is architecture, a plate of baccala is history, and Carnevale is philosophy wearing a mask. Here's what that actually looks like."
-
-#### 3. Wine Tab: "What's Your Veneto Pour?"
-
-Replace generic wine cards with **4 personality-driven wine cards** that frame each wine as an identity choice:
-
-| Card | Title | Subtitle | Description Approach |
-|------|-------|----------|---------------------|
-| Amarone della Valpolicella | "Big, Structured, Contemplative" | Valpolicella's crown jewel | Flavor profile, where it's produced, the kind of town vibe it pairs with (Verona — deep, patient, layered) |
-| Prosecco Superiore DOCG | "Bright, Social, Celebratory" | Conegliano-Valdobbiadene hills | UNESCO hillside terroir, the real thing vs supermarket, pairs with Treviso lifestyle |
-| Soave Classico | "Crisp, Restrained, Elegant" | Volcanic whites east of Verona | Mineral Garganega from ancient volcanic soils, pairs with Vicenza's understated refinement |
-| Bardolino | "Light, Easygoing, Lakeside" | Lake Garda's casual pour | Fresh cherry reds for aperitivo, pairs with the relaxed Garda lifestyle |
-
-Update the tab title to: **"WINE — What's Your Veneto Pour?"**
-Update the intro to frame wine as identity, not just tasting notes.
-
-#### 4. Food Tab: "Polenta, Risotto, or Bigoli?"
-
-Replace generic food cards with **3 culinary pillar cards**, each representing a geographic/cultural food tradition:
-
-| Card | Title | Subtitle | Description Approach |
-|------|-------|----------|---------------------|
-| Polenta & Mountain Cuisine | "Alpine Roots" | Game meats, Asiago, alpine traditions | Cultural story about mountain cooperatives, summer pasture migrations, "Where You'll Feel This Most: Belluno, Feltre, Bassano" |
-| Risotto & Lagoon Influence | "Seafaring Traditions" | Cuttlefish ink, Venetian trade routes | Story of Venice's maritime kitchen, sarde in saor as sailor's preservation, "Where You'll Feel This Most: Venice, Chioggia, the Lagoon" |
-| Bigoli & Mainland Comfort | "The Veneto Heartland" | Thick pasta, duck ragu, radicchio, pumpkin | Treviso's radicchio religion, bigoli with duck as Sunday tradition, "Where You'll Feel This Most: Padua, Treviso, Vicenza" |
-
-Update the tab title to: **"FOOD — Polenta, Risotto, or Bigoli?"**
-Update the intro to frame food as geography.
-
-#### 5. Culture Tab: "Not Just Pretty. Alive."
-
-Replace generic culture cards with **6 cards** organized around the user's three tiers:
-
-**Grand Stage (2 cards):**
-- Arena di Verona & Opera — open-air opera in a 2,000-year-old amphitheater
-- Scrovegni Chapel & Giotto — the frescoes that changed Western art
-
-**Living Traditions (2 cards):**
-- Carnevale in Veneto — "Choose Your Carnevale" comparing Venice (masked republic, ritualistic), Verona Bacanal del Gnoco (playful, parades), and small-town versions (community floats, family energy). Includes the "Mask or No Mask?" cultural subtext about anonymity as political power.
-- Marostica Living Chess Game — the human chess match in the piazza, plus Palladian villa trail context
-
-**Everyday Culture (2 cards):**
-- Venetian Music Heritage — Vivaldi, the Ospedali orphanages that trained female musicians, La Fenice
-- Aperitivo & Passeggiata — the daily rituals that define Veneto life, spritz culture born in Padua/Venice, market days
-
-Update the tab title to: **"CULTURE — Not Just Pretty. Alive."**
-Update the intro to frame culture as lived experience, not museum visits.
+**Update the existing conditional** on line 361 from:
+```tsx
+{region !== 'umbria' && <HighlightsShowcase ... />}
+```
+to:
+```tsx
+{region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase ... />}
+```
 
 ---
 
-### What This Achieves
-- Wine becomes identity (personality-driven, ties to town vibes)
-- Food teaches geography (three culinary pillars map to regions)
-- Culture has depth (Carnevale subtext, Vivaldi's orphanages, living chess)
-- Multi-paragraph descriptions give editorial breathing room
-- All changes are backward-compatible (other regions unaffected)
-- No new components needed — pure data + 1 small rendering tweak
+### Files to Create
+- `src/components/sections/VenetoWinePourSelector.tsx` — Wine personality selector (~200 lines)
+- `src/components/sections/VenetoFoodPillars.tsx` — Three culinary pillar explorer (~180 lines)
+- `src/components/sections/VenetoCultureAlive.tsx` — Three-tier culture section (~250 lines)
 
-### What This Does NOT Do (Future Follow-ups)
-- No ambient audio soundscape (would need a new component)
-- No map highlight toggle from wine cards (would need InteractiveMap integration)
-- No Palladian Architecture Trail map overlay (separate map feature)
-- No Serenissima naval history explainer (could be a standalone section)
+### Files to Modify
+- `src/pages/RegionPage.tsx` — Import 3 new components, add Veneto conditional block, exclude Veneto from generic HighlightsShowcase
 
-### Files Changed
-- **`src/components/sections/HighlightsShowcase.tsx`** — Split description on `\n\n` for multi-paragraph rendering (3 lines changed)
-- **`public/data/regions/italy/veneto.json`** — Complete rewrite of the `highlights` object with richer editorial content (wine: 4 cards, food: 3 cards, culture: 6 cards)
+### What This Does NOT Touch
+- No changes to the generic HighlightsShowcase component (other regions unaffected)
+- No changes to veneto.json highlights data (components are self-contained with hardcoded data, same as Umbria's approach)
+- No changes to any other region's page
 
-### Testing
-- Navigate to `/veneto` and scroll to the Food, Wine & Culture section
-- Click through all 3 tabs and expand every card
-- Verify multi-paragraph descriptions render correctly
-- Check that `/piemonte`, `/puglia`, `/lombardia` highlights still render correctly (backward compatibility)
+### Image Strategy
+All three components will use `/images/veneto/hero.jpg` as placeholder initially. They're designed to work well even without images (using gradient backgrounds and icons as primary visual elements, with images as enhancement).
+
