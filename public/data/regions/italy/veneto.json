@@ -552,27 +552,28 @@
   },
 
   "highlights": {
+    "sectionIntro": "Veneto doesn't separate wine, food, and culture into neat categories. They bleed into each other — a glass of Amarone is architecture, a plate of baccalà is history, and Carnevale is philosophy wearing a mask. Here's what that actually looks like.",
     "wine": {
-      "title": "WINE — Italy's Largest Producer, Smallest Ego",
-      "intro": "Veneto produces more wine than any other Italian region, yet its best bottles remain undervalued. From the dried-grape intensity of Amarone to the UNESCO-listed Prosecco hills, Veneto's wine culture is both ancient and surprisingly accessible.",
+      "title": "WINE — What's Your Veneto Pour?",
+      "intro": "In Veneto, wine isn't a beverage — it's a personality test. The wine you drink tells people which part of the region shaped you. Pick your pour and discover the town vibe that comes with it.",
       "backgroundImage": "/images/veneto/hero.jpg",
       "cards": [
         {
           "id": "amarone",
           "title": "Amarone della Valpolicella",
-          "subtitle": "Italy's boldest red",
+          "subtitle": "Big, Structured, Contemplative",
           "image": "/images/veneto/hero.jpg",
-          "description": "Made from partially dried grapes (appassimento), Amarone is rich, complex, and powerful. A single bottle can age for decades. This is Veneto's claim to world-class winemaking.",
+          "description": "Amarone is not a casual wine. It's made from grapes dried for months on wooden racks (appassimento), concentrating everything — sugar, tannin, complexity — into something that demands your full attention. Dark cherry, leather, chocolate, warm spice. Full-bodied with a finish that lingers for minutes.\n\nIt comes from the hills northwest of Verona, in Valpolicella — a landscape of terraced vineyards and stone farmhouses where the pace rewards patience. A single bottle can age for decades. The best vintages appreciate in value.\n\nThe town vibe it pairs with: Verona. Deep, patient, layered. Roman ruins under Renaissance palazzi under modern life. A city that doesn't rush because it knows what it has.\n\nIf you choose Amarone, you're not looking for excitement. You're looking for substance.",
           "links": [
             { "label": "Consorzio Valpolicella", "href": "https://www.consorziovalpolicella.it/en/" }
           ]
         },
         {
           "id": "prosecco",
-          "title": "Prosecco DOCG",
-          "subtitle": "The world's favorite sparkle",
+          "title": "Prosecco Superiore DOCG",
+          "subtitle": "Bright, Social, Celebratory",
           "image": "/images/veneto/hero.jpg",
-          "description": "From the steep UNESCO-listed hills of Conegliano-Valdobbiadene. The best Prosecco is nothing like the supermarket version — mineral, complex, and genuinely delicious.",
+          "description": "Forget the supermarket version. Real Prosecco comes from the steep, UNESCO-listed hills between Conegliano and Valdobbiadene — terraces so vertical that harvesting is done by hand, often with ropes. The Glera grape grown here produces something entirely different: fine persistent bubbles, green apple, white peach, acacia flowers, and a mineral backbone you won't find in a mass-produced bottle.\n\nThe distinction matters. Prosecco DOC (lowercase, from the plains) is industrial. Prosecco DOCG Superiore (uppercase, from these hills) is artisanal. The terroir is dramatic — hills that rise sharply from the Piave River plain, catching morning fog and afternoon sun.\n\nThe town vibe it pairs with: Treviso. Social, stylish, effervescent. Medieval canals, aperitivo culture, and a community that celebrates the ordinary Tuesday as much as the festival Saturday.\n\nIf you choose Prosecco Superiore, you believe the best things in life are shared.",
           "links": [
             { "label": "Prosecco DOCG Consortium", "href": "https://www.prosecco.it/en/" }
           ]
@@ -580,80 +581,112 @@
         {
           "id": "soave",
           "title": "Soave Classico",
-          "subtitle": "The underrated white",
+          "subtitle": "Crisp, Restrained, Elegant",
           "image": "/images/veneto/hero.jpg",
-          "description": "Garganega-based whites from volcanic soils east of Verona. At its best, Soave is mineral, elegant, and criminally underpriced. Italy's most overlooked great white wine.",
+          "description": "Soave is Italy's most underrated great white wine. Made primarily from Garganega grapes grown on ancient volcanic soils east of Verona, the best examples are mineral, precise, and quietly captivating. Citrus, almond, chamomile, and a volcanic edge that speaks of deep geological time.\n\nThe volcanic terroir is key. These soils — remnants of eruptions 40 million years ago — give Soave a mineral complexity that sets it apart from any other Italian white. It's not showy. It doesn't announce itself. It reveals itself slowly, rewarding attention.\n\nThe town vibe it pairs with: Vicenza. Understated refinement. Palladian proportion. A city that doesn't need to prove anything because Palladio already did.\n\nIf you choose Soave, you value precision over performance.",
           "links": [
             { "label": "Consorzio Soave", "href": "https://www.ilsoave.com/en/" }
           ]
+        },
+        {
+          "id": "bardolino",
+          "title": "Bardolino",
+          "subtitle": "Light, Easygoing, Lakeside",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Bardolino is the wine you drink without overthinking it. Light, fresh, cherry-forward — a red that behaves almost like a white, best served slightly chilled on a warm evening by Lake Garda. Made from the same Corvina and Rondinella grapes as Amarone, but treated gently, without the drama of dried grapes or extended aging.\n\nIt comes from the eastern shore of Lake Garda, where the microclimate is almost Mediterranean — olive trees, lemon groves, mild winters. The wine reflects the landscape: relaxed, unpretentious, built for pleasure rather than prestige.\n\nThe town vibe it pairs with: the Garda lakeside towns. Lazise, Bardolino, Peschiera. Aperitivo on the waterfront. Sunset over the lake. A pace of life that believes tomorrow will take care of itself.\n\nIf you choose Bardolino, you've already figured out what matters.",
+          "links": []
         }
       ]
     },
     "food": {
-      "title": "FOOD — From Risotto to Radicchio",
-      "intro": "Veneto's cuisine defies the Italian stereotype. Less olive oil, more butter. Risotto over pasta. Polenta as a staple. Radicchio as religion. This is northern Italian cooking at its most distinctive — shaped by rivers, mountains, and a seafaring past.",
+      "title": "FOOD — Polenta, Risotto, or Bigoli?",
+      "intro": "Veneto's cuisine maps to its geography. The mountains eat differently from the lagoon, and the mainland has its own dialect of comfort. Tell me what's on your plate, and I'll tell you where you are.",
       "backgroundImage": "/images/veneto/hero.jpg",
       "cards": [
         {
-          "id": "risotto-radicchio",
-          "title": "Risotto al Radicchio",
-          "subtitle": "Bitter elegance",
+          "id": "polenta-mountain",
+          "title": "Polenta & Mountain Cuisine",
+          "subtitle": "Alpine Roots",
           "image": "/images/veneto/hero.jpg",
-          "description": "Treviso's famous radicchio — bitter, beautiful, and brilliant in risotto. A dish that captures Veneto's preference for flavors that make you think rather than just please.",
+          "description": "In the northern reaches of Veneto — the Dolomites, the pre-Alpine foothills, the Asiago plateau — polenta isn't a side dish. It's the foundation. Cornmeal cooked slowly in copper pots, served with venison, wild mushrooms, or melted mountain cheese. In winter, it's fuel. In summer, it's tradition.\n\nThe food culture here is shaped by altitude and cooperation. Mountain dairy cooperatives (malghe) have operated for centuries, moving herds to summer pastures (transumanza) and producing Asiago cheese in ways that haven't fundamentally changed since the Middle Ages. Game meats — deer, wild boar, chamois — appear on menus as markers of season and terrain, not exoticism.\n\nThis is peasant food elevated by purity of ingredients. No complexity for its own sake. No fusion. Just what the mountain gives, prepared with respect.\n\nWhere you'll feel this most: Belluno, Feltre, Bassano del Grappa, the Asiago plateau.",
           "links": []
         },
         {
-          "id": "baccala",
-          "title": "Baccalà alla Vicentina",
-          "subtitle": "500 years of tradition",
+          "id": "risotto-lagoon",
+          "title": "Risotto & Lagoon Influence",
+          "subtitle": "Seafaring Traditions",
           "image": "/images/veneto/hero.jpg",
-          "description": "Dried cod slow-cooked in milk, onions, and Parmesan. Vicenza's signature dish, with a confraternity dedicated to its preservation. This is food as cultural heritage.",
+          "description": "Venice didn't just build a maritime empire — it ate one. The lagoon kitchen is a archive of trade routes: spices from Constantinople, dried cod from Norway (baccalà), sweet-sour flavor combinations borrowed from the Arab world (saor). Cuttlefish ink risotto isn't theatrical — it's the actual color of the lagoon at night.\n\nSarde in saor — fried sardines layered with slow-cooked onions, raisins, pine nuts, and vinegar — was originally a preservation technique for long sea voyages. Sailors needed food that would last weeks. What they created was a masterpiece of balance: sweet, sour, savory, rich.\n\nRisi e bisi (rice and peas) was served to the Doge every April 25th. It walks the line between risotto and soup — too thick for a bowl, too liquid for a plate. Getting the consistency right is the entire skill.\n\nWhere you'll feel this most: Venice, Chioggia, the lagoon islands, the Adriatic coast.",
           "links": []
         },
         {
-          "id": "sarde-in-saor",
-          "title": "Sarde in Saor",
-          "subtitle": "Venice's sweet-sour masterpiece",
+          "id": "bigoli-mainland",
+          "title": "Bigoli & Mainland Comfort",
+          "subtitle": "The Veneto Heartland",
           "image": "/images/veneto/hero.jpg",
-          "description": "Fried sardines marinated with onions, raisins, pine nuts, and vinegar. Born as a way to preserve fish on long voyages, now a cicchetti bar essential across the Veneto.",
+          "description": "Between the mountains and the lagoon lies the Veneto heartland — the Po Valley plains, the gentle Euganean Hills, the prosperous cities of Padua, Treviso, and Vicenza. Here, the food is comfort engineered by centuries of agricultural abundance.\n\nBigoli — thick, rough-textured wheat pasta extruded through a bronze die called a torchio — is the regional shape. Served with duck ragù (bigoli con l'anatra) on Sundays, or with anchovy and onion sauce (bigoli in salsa) on lean days. The texture catches sauce the way smooth pasta never can.\n\nTreviso's relationship with radicchio borders on religious. The late-harvest variety (Radicchio Tardivo di Treviso IGP) is forced in dark rooms with spring water — a process that intensifies its bitterness and crunch. It appears grilled, in risotto, and in salads where it's the star, not the supporting actor.\n\nAnd then there's pumpkin. Veneto's autumn tables are orange with zucca — in gnocchi, in risotto, in tortelli, in everything.\n\nWhere you'll feel this most: Padua, Treviso, Vicenza, Castelfranco Veneto.",
           "links": []
         }
       ]
     },
     "culture": {
-      "title": "CULTURE — A Thousand Years of Civilization",
-      "intro": "Veneto's cultural depth is staggering. Venice alone would fill a lifetime. But add Verona's Roman arena, Padua's Giotto frescoes, Vicenza's Palladian villas, and the Dolomites' Alpine traditions, and you have one of Europe's richest cultural landscapes.",
+      "title": "CULTURE — Not Just Pretty. Alive.",
+      "intro": "Veneto's culture isn't behind glass. The opera still plays in a 2,000-year-old arena. The chess game still uses humans. The masks still carry political weight. And the aperitivo still happens every evening at six, in every piazza, without an Instagram strategy.",
       "backgroundImage": "/images/veneto/hero.jpg",
       "cards": [
         {
           "id": "arena-verona",
-          "title": "Arena di Verona Opera Festival",
-          "subtitle": "Opera under the stars",
+          "title": "Arena di Verona & Opera Season",
+          "subtitle": "Grand Stage — 2,000 years of performance",
           "image": "/images/veneto/hero.jpg",
-          "description": "The world's largest open-air opera venue. Summer performances in a 2,000-year-old Roman amphitheater. An experience that transcends music into something elemental.",
+          "description": "The Arena di Verona is the world's largest open-air opera venue — a Roman amphitheater built in the 1st century AD that seats 22,000 people and still hosts a full summer opera season. No microphones. No amplification. Just human voices filling a space designed for exactly this purpose two millennia ago.\n\nThe experience is elemental. You sit on stone steps that Roman citizens sat on. The stage is the size of a football pitch. When Aida enters with elephants and the sun sets behind Verona's rooftops, the line between spectacle and transcendence blurs completely.\n\nWhat residents know: bring a cushion. The stone is brutal on your back after three hours. Buy the unreserved stone seats (gradinata) — they're cheap, and the acoustic is actually better higher up. Arrive early for the ritual of lighting candles at dusk.",
           "links": [
             { "label": "Arena di Verona", "href": "https://www.arena.it/en" }
           ]
         },
         {
           "id": "scrovegni",
-          "title": "Scrovegni Chapel",
-          "subtitle": "Giotto's masterwork",
+          "title": "Scrovegni Chapel & Giotto",
+          "subtitle": "Grand Stage — The frescoes that changed Western art",
           "image": "/images/veneto/hero.jpg",
-          "description": "Giotto's frescoes in Padua's Scrovegni Chapel changed the course of Western art. Intimate, overwhelming, and available by timed reservation.",
+          "description": "In 1305, Giotto painted the interior of a small chapel in Padua and accidentally invented modern art. Before these frescoes, painting was flat, symbolic, Byzantine. After them, figures had weight, emotion, and three-dimensional space. Art historians mark the Scrovegni Chapel as the moment the Renaissance became inevitable.\n\nThe chapel is tiny. Visits are limited to 25 people for 15 minutes, after a dehumidification chamber adjusts your body's moisture to protect the paint. It sounds clinical. It's actually the most intimate encounter with genius you'll ever have.\n\nThe narrative cycle tells the life of Christ and the Virgin, but what you notice is the humanity — the tenderness of the kiss of Judas, the grief in the Lamentation, the quiet joy of the Meeting at the Golden Gate. Seven hundred years later, it still works.",
           "links": [
             { "label": "Cappella degli Scrovegni", "href": "https://www.cappelladegliscrovegni.it/index.php/en/" }
           ]
         },
         {
-          "id": "la-fenice",
-          "title": "Teatro La Fenice",
-          "subtitle": "Venice's legendary opera house",
+          "id": "carnevale",
+          "title": "Carnevale in Veneto",
+          "subtitle": "Living Traditions — Choose your Carnevale",
           "image": "/images/veneto/hero.jpg",
-          "description": "Burned and rebuilt twice — like the phoenix it's named after. One of the world's most beautiful opera houses, with year-round programming.",
+          "description": "Most guides show you pretty masks and move on. But Carnevale in Veneto isn't one thing — it's at least three, and the one you choose says something about you.\n\n🖤 Venice — The Masked Republic. Elegant. Ritualistic. Historical. Private balls in crumbling palazzi. Elaborate costumes that cost thousands. The official events are spectacular but heavily touristed — locals attend the smaller, invitation-only gatherings in private homes and campi. This is Carnevale as theater, where anonymity was once political power.\n\n🤡 Verona — Bacanal del Gnoco. Playful. Irreverent. Rooted. Verona's Carnevale is presided over by the Papà del Gnoco — a jolly king riding a giant fork with a potato dumpling. Parades, food stalls, neighborhood competitions. Less spectacle, more community. This is the Carnevale locals actually attend with their families.\n\n🧒 Small-Town Carnevale — Marostica, Noale, Casale. Community-built floats. Kids in costumes. The entire town in the piazza. No luxury brands. No Instagram influencers. This is Carnevale at its most authentic — messy, joyful, and entirely local.\n\nThe cultural subtext matters: In Venice, masks originally erased class distinctions. Nobility and merchants mingled anonymously. Social boundaries blurred. Anonymity was political power — the right to speak, gamble, and intrigue without consequence. That history echoes in every mask today.",
+          "links": []
+        },
+        {
+          "id": "marostica-chess",
+          "title": "Marostica Living Chess Game",
+          "subtitle": "Living Traditions — Humans as chess pieces",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Every two years in September, the piazza of Marostica transforms into a giant chessboard. The pieces are real people — knights on horseback, bishops in robes, pawns in period costume — playing a game that reenacts a 1454 match between two noblemen competing for a lady's hand.\n\nThe story is likely embellished. The spectacle is entirely real. The entire town participates — 550 performers in medieval costume, weeks of rehearsal, an event that defines Marostica's identity. It's the kind of thing that only survives in a culture where civic pride isn't performative but structural.\n\nBeyond chess, Marostica sits at the start of the Palladian villa trail. Andrea Palladio scattered his architectural masterworks through the Veneto countryside — not just Vicenza's Teatro Olimpico, but dozens of villas that redefined how Europe understood classical proportion. You can drive a circuit from Marostica through Thiene, Lonedo, and Lugo and encounter five UNESCO-listed villas in an afternoon.\n\nThe next Partita a Scacchi is scheduled for September 2026.",
+          "links": []
+        },
+        {
+          "id": "music-heritage",
+          "title": "Venetian Music Heritage",
+          "subtitle": "Everyday Culture — Vivaldi's orphans and La Fenice",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Venice didn't just produce Vivaldi — it produced the system that made Vivaldi possible. The Ospedali were charitable institutions for orphaned and abandoned girls, and four of them became Europe's most prestigious music conservatories. The Ospedale della Pietà, where Vivaldi taught for decades, trained female musicians who performed behind iron grilles to audiences that included kings and emperors.\n\nThese women — anonymous by design, extraordinary by talent — played concertos, sang operas, and composed works that rivaled anything in Europe. They were celebrities without faces. The Ospedali concerts were Venice's hottest tickets for over a century.\n\nThat tradition flows into Teatro La Fenice — Venice's legendary opera house, burned and rebuilt twice (like the phoenix it's named after). The current incarnation, restored in 2003, hosts year-round programming from opera to symphonic concerts. The New Year's Concert from La Fenice is broadcast across Europe.\n\nWhat residents know: La Fenice offers heavily discounted last-minute tickets. Show up an hour before curtain.",
           "links": [
             { "label": "La Fenice", "href": "https://www.teatrolafenice.it/" }
           ]
+        },
+        {
+          "id": "aperitivo-passeggiata",
+          "title": "Aperitivo & Passeggiata",
+          "subtitle": "Everyday Culture — The rituals that define daily life",
+          "image": "/images/veneto/hero.jpg",
+          "description": "Every evening around six, Veneto's piazzas fill with people doing absolutely nothing productive — and that's the point. The passeggiata (evening stroll) and aperitivo (pre-dinner drinks) are not events. They're infrastructure. They're how a community maintains itself.\n\nThe spritz was born here. Not the bright orange Aperol version that conquered the world, but the original — white wine diluted with a splash of sparkling water, invented by Austrian soldiers in the 19th century who found Veneto wines too strong. The Venetian Select spritz (with Select bitter) is the local order. In Padua, it's Aperol. In Venice, it's whatever costs €8 at a canal-side bar.\n\nMarket days punctuate the week like church bells. Padua's Piazza delle Erbe and Piazza della Frutta have hosted markets since the Middle Ages — and they're not tourist performances. Nonne (grandmothers) arguing over artichoke prices is the real Veneto.\n\nThe sagra (local food festival) calendar runs from April to October. Every town celebrates something — cherries in Marostica, asparagus in Bassano, radicchio in Treviso. These are community events with long tables, local wine, and the kind of socializing that no app can replicate.\n\nThis is what retirement in Veneto actually looks like. Not monuments. Rituals.",
+          "links": []
         }
       ]
     }
