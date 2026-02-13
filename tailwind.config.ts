@@ -135,6 +135,34 @@ export default {
           "0%": { transform: "perspective(1000px) rotateY(0deg)", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" },
           "100%": { transform: "perspective(1000px) rotateY(-5deg)", boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.15)" },
         },
+        "svg-float": {
+          "0%, 100%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(0px)" },
+        },
+        "svg-sway": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "svg-breathe": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.03)" },
+        },
+        "svg-bounce-note": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        "svg-rise-fade": {
+          "0%": { transform: "translateY(0)", opacity: "0.6" },
+          "100%": { transform: "translateY(-12px)", opacity: "0" },
+        },
+        "svg-knight-hop": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(8px)" },
+        },
+        "svg-wine-pour": {
+          "0%": { clipPath: "inset(100% 0 0 0)" },
+          "100%": { clipPath: "inset(0% 0 0 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.3s ease-out",
@@ -150,6 +178,12 @@ export default {
         "kiss-burst": "kiss-burst 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
         "foil-shimmer": "foil-shimmer 1.5s linear infinite",
         "card-unwrap": "card-unwrap 0.3s ease-out forwards",
+        "svg-float": "svg-float 6s ease-in-out infinite",
+        "svg-sway": "svg-sway 8s ease-in-out infinite",
+        "svg-breathe": "svg-breathe 4s ease-in-out infinite",
+        "svg-bounce-note": "svg-bounce-note 1.2s ease-in-out infinite",
+        "svg-rise-fade": "svg-rise-fade 2s ease-out infinite",
+        "svg-knight-hop": "svg-knight-hop 3s ease-in-out infinite",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

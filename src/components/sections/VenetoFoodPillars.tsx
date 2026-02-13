@@ -2,66 +2,127 @@ import { useState } from 'react';
 import { Mountain, Waves, Wheat, MapPin, ChefHat } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// --- Decorative SVG Components ---
+// --- Decorative SVG Components (Bold, Filled, Animated) ---
 
 const MountainSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 80 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 55 L25 15 L35 30 L45 10 L65 55" />
-    <path d="M45 10 Q48 8 52 12 L55 18" />
+  <svg className={className} viewBox="0 0 100 70" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="mtn-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="60%" stopColor="currentColor" stopOpacity="0.08" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.02" />
+      </linearGradient>
+    </defs>
+    <path d="M5 65 L30 15 L45 35 L55 10 L80 55 L95 65 Z" fill="url(#mtn-fill)" stroke="currentColor" strokeWidth="1.5" />
+    {/* Snow caps */}
+    <path d="M55 10 L50 20 L55 18 L60 22 L55 10Z" fill="currentColor" opacity="0.15" />
+    <path d="M30 15 L26 24 L30 22 L34 26 L30 15Z" fill="currentColor" opacity="0.12" />
     {/* Steam wisps */}
-    <path d="M30 25 Q32 20 30 15" opacity="0.6" />
-    <path d="M33 28 Q35 22 33 17" opacity="0.4" />
+    <path d="M38 28 Q40 22 37 16" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.3" />
+    <path d="M42 30 Q44 24 41 18" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.2" />
   </svg>
 );
 
 const WavesFishSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 80 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 25 Q15 15 25 25 Q35 35 45 25 Q55 15 65 25 Q75 35 80 30" />
-    <path d="M5 35 Q15 25 25 35 Q35 45 45 35 Q55 25 65 35" opacity="0.5" />
+  <svg className={className} viewBox="0 0 100 70" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="wave-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
+      </linearGradient>
+    </defs>
+    {/* Filled waves */}
+    <path d="M0 30 Q15 15 30 30 Q45 45 60 30 Q75 15 90 30 L100 30 L100 65 L0 65 Z" fill="url(#wave-fill)" />
+    <path d="M0 30 Q15 15 30 30 Q45 45 60 30 Q75 15 90 30" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.4" />
+    <path d="M0 42 Q15 32 30 42 Q45 52 60 42 Q75 32 90 42" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.2" />
     {/* Stylized fish */}
-    <path d="M35 42 Q42 38 50 42 Q42 46 35 42" />
-    <path d="M50 42 L55 38 L55 46 Z" />
-    <circle cx="38" cy="42" r="1" />
+    <path d="M40 52 Q50 46 62 52 Q50 58 40 52" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1" />
+    <path d="M62 52 L68 46 L68 58 Z" fill="currentColor" opacity="0.12" />
+    <circle cx="45" cy="52" r="1.5" fill="currentColor" opacity="0.25" />
   </svg>
 );
 
 const WheatSheafSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 60 80" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M30 75 V35" />
-    <path d="M25 75 Q25 50 30 35" />
-    <path d="M35 75 Q35 50 30 35" />
-    {/* Wheat heads */}
-    <path d="M30 35 Q25 28 30 20" />
-    <path d="M30 30 Q22 25 25 18" />
-    <path d="M30 30 Q38 25 35 18" />
-    <path d="M30 25 Q20 22 22 14" />
-    <path d="M30 25 Q40 22 38 14" />
-    <path d="M30 20 Q24 15 26 8" />
-    <path d="M30 20 Q36 15 34 8" />
-    <path d="M30 15 Q28 10 30 5" />
+  <svg className={className} viewBox="0 0 80 100" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="wheat-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
+    {/* Stalks */}
+    <path d="M40 90 V40" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.3" />
+    <path d="M32 90 Q33 60 40 40" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.25" />
+    <path d="M48 90 Q47 60 40 40" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.25" />
+    {/* Wheat heads — filled */}
+    <path d="M40 40 Q34 32 38 22 Q40 18 42 22 Q46 32 40 40Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M36 38 Q28 32 30 20 Q32 16 34 20 Q38 28 36 38Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M44 38 Q52 32 50 20 Q48 16 46 20 Q42 28 44 38Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M33 30 Q24 26 26 14 Q28 10 30 14 Q34 22 33 30Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M47 30 Q56 26 54 14 Q52 10 50 14 Q46 22 47 30Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M38 26 Q32 18 36 8 Q38 4 40 8 Q42 18 38 26Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M42 26 Q48 18 44 8 Q42 4 40 8 Q38 18 42 26Z" fill="url(#wheat-fill)" stroke="currentColor" strokeWidth="0.8" />
   </svg>
 );
 
 const SteamingPotSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <ellipse cx="20" cy="22" rx="14" ry="5" />
-    <path d="M6 22 V30 Q6 36 20 36 Q34 36 34 30 V22" />
-    <path d="M4 22 H36" />
-    {/* Steam */}
-    <path d="M14 18 Q15 14 13 10" opacity="0.6" />
-    <path d="M20 16 Q21 12 19 8" opacity="0.5" />
-    <path d="M26 18 Q27 14 25 10" opacity="0.6" />
+  <svg className={className} viewBox="0 0 50 50" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="pot-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.1" />
+      </linearGradient>
+    </defs>
+    {/* Pot body */}
+    <ellipse cx="25" cy="28" rx="16" ry="5" fill="url(#pot-fill)" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M9 28 V37 Q9 44 25 44 Q41 44 41 37 V28" stroke="currentColor" strokeWidth="1.5" fill="url(#pot-fill)" />
+    <path d="M7 28 H43" stroke="currentColor" strokeWidth="1.5" />
+    {/* Animated steam wisps */}
+    <path d="M17 22 Q18 17 16 12" stroke="currentColor" strokeWidth="1.2" fill="none" className="animate-[svg-rise-fade_2s_ease-out_infinite] motion-reduce:animate-none" opacity="0.5" />
+    <path d="M25 20 Q26 15 24 10" stroke="currentColor" strokeWidth="1.2" fill="none" className="animate-[svg-rise-fade_2s_ease-out_0.4s_infinite] motion-reduce:animate-none" opacity="0.4" />
+    <path d="M33 22 Q34 17 32 12" stroke="currentColor" strokeWidth="1.2" fill="none" className="animate-[svg-rise-fade_2s_ease-out_0.8s_infinite] motion-reduce:animate-none" opacity="0.5" />
   </svg>
 );
 
-// Wheat stalk repeating background pattern
-const wheatPattern = `url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 V25' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M25 30 Q20 26 22 20' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M25 30 Q30 26 28 20' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M25 25 Q22 20 24 14' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.07'/%3E%3Cpath d='M25 25 Q28 20 26 14' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.07'/%3E%3Cpath d='M25 20 Q24 16 25 10' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.06'/%3E%3C/svg%3E")`;
+// Pillar-themed divider SVGs
+const MountainDivider = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 600 20" preserveAspectRatio="none" fill="none">
+    <path d="M0 18 L50 5 L80 12 L120 2 L160 14 L200 6 L240 16 L300 3 L360 16 L400 6 L440 14 L480 2 L520 12 L550 5 L600 18" stroke="currentColor" strokeWidth="1.5" opacity="0.2" />
+  </svg>
+);
+
+const WaveDivider = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 600 20" preserveAspectRatio="none" fill="none">
+    <path d="M0 10 Q50 0 100 10 Q150 20 200 10 Q250 0 300 10 Q350 20 400 10 Q450 0 500 10 Q550 20 600 10" stroke="currentColor" strokeWidth="1.5" opacity="0.2" />
+  </svg>
+);
+
+const WheatDivider = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 600 20" preserveAspectRatio="none" fill="none">
+    {[0, 60, 120, 180, 240, 300, 360, 420, 480, 540].map(x => (
+      <g key={x}>
+        <path d={`M${x + 30} 18 V8`} stroke="currentColor" strokeWidth="1" opacity="0.15" />
+        <path d={`M${x + 30} 10 Q${x + 26} 6 ${x + 28} 2`} stroke="currentColor" strokeWidth="0.8" opacity="0.12" />
+        <path d={`M${x + 30} 10 Q${x + 34} 6 ${x + 32} 2`} stroke="currentColor" strokeWidth="0.8" opacity="0.12" />
+      </g>
+    ))}
+  </svg>
+);
+
+// Wheat stalk repeating background pattern (boosted opacity, filled heads)
+const wheatPattern = `url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 V25' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.14'/%3E%3Cpath d='M25 30 Q20 26 22 20' stroke='%23d97706' stroke-width='0.6' fill='%23d97706' fill-opacity='0.04' opacity='0.14'/%3E%3Cpath d='M25 30 Q30 26 28 20' stroke='%23d97706' stroke-width='0.6' fill='%23d97706' fill-opacity='0.04' opacity='0.14'/%3E%3Cpath d='M25 25 Q22 20 24 14' stroke='%23d97706' stroke-width='0.6' fill='%23d97706' fill-opacity='0.03' opacity='0.12'/%3E%3Cpath d='M25 25 Q28 20 26 14' stroke='%23d97706' stroke-width='0.6' fill='%23d97706' fill-opacity='0.03' opacity='0.12'/%3E%3Cpath d='M25 20 Q24 16 25 10' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.1'/%3E%3C/svg%3E")`;
 
 // Map pillar ID to its watermark SVG
 const pillarWatermarks: Record<string, typeof MountainSvg> = {
   alpine: MountainSvg,
   lagoon: WavesFishSvg,
   mainland: WheatSheafSvg,
+};
+
+const pillarDividers: Record<string, typeof MountainDivider> = {
+  alpine: MountainDivider,
+  lagoon: WaveDivider,
+  mainland: WheatDivider,
 };
 
 interface FoodPillar {
@@ -152,7 +213,7 @@ export default function VenetoFoodPillars() {
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background to-amber-50/40 relative overflow-hidden">
-      {/* Wheat stalk repeating background pattern */}
+      {/* Wheat stalk repeating background pattern (boosted) */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ backgroundImage: wheatPattern, backgroundSize: '50px 50px' }}
@@ -192,10 +253,10 @@ export default function VenetoFoodPillars() {
                   isExpanded ? 'ring-2 ring-amber-300/50 scale-[1.01] shadow-md' : expanded ? 'opacity-50 hover:opacity-80' : 'hover:scale-[1.02] hover:shadow-md'
                 )}
               >
-                {/* Themed SVG watermark */}
+                {/* Large themed illustration — swaying, filled */}
                 {WatermarkSvg && (
                   <WatermarkSvg className={cn(
-                    "absolute bottom-2 right-2 w-16 h-12 opacity-[0.06] group-hover:opacity-[0.14] transition-opacity duration-500",
+                    "absolute bottom-1 right-1 w-24 h-20 opacity-[0.12] group-hover:opacity-[0.22] transition-opacity duration-500 animate-[svg-sway_8s_ease-in-out_infinite] motion-reduce:animate-none",
                     pillar.colorAccent
                   )} />
                 )}
@@ -228,8 +289,12 @@ export default function VenetoFoodPillars() {
           {expanded && (() => {
             const pillar = pillars.find(p => p.id === expanded)!;
             const Icon = pillar.icon;
+            const DividerSvg = pillarDividers[pillar.id];
             return (
               <div className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-lg">
+                {/* Themed divider at top of expanded panel */}
+                {DividerSvg && <DividerSvg className={cn("w-full h-5 mb-4", pillar.colorAccent)} />}
+
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Story */}
                   <div>
@@ -280,11 +345,11 @@ export default function VenetoFoodPillars() {
         </div>
 
         {/* Editorial Footer */}
-        <div className="mt-10 bg-amber-50/60 rounded-2xl p-6 md:p-8 border border-amber-200/40">
+        <div className="mt-10 bg-amber-50/60 rounded-2xl p-6 md:p-8 border border-amber-200/40 relative overflow-hidden">
           <h4 className="font-bold mb-2 flex items-center gap-2 text-foreground">
             <ChefHat className="h-5 w-5 text-amber-600" />
             The Veneto Table
-            <SteamingPotSvg className="h-6 w-6 text-amber-500 opacity-40" />
+            <SteamingPotSvg className="h-8 w-8 text-amber-500 opacity-60" />
           </h4>
           <p className="text-muted-foreground text-sm leading-relaxed">
             <strong className="text-foreground">Here's what no one tells you:</strong> you can eat polenta with venison stew for lunch in Belluno, drive an hour south to Treviso for grilled radicchio and bigoli at dinner, and the next morning be eating baccalà mantecato on a crostino at a bacaro in Venice. Three completely different food cultures, three completely different landscapes — one region. That's Veneto's quiet superpower. It's not Italy's most famous food region, but it might be its most versatile.

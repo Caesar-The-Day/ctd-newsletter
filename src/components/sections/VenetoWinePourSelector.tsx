@@ -3,46 +3,115 @@ import { Wine, ExternalLink, Grape, MapPin, UtensilsCrossed } from 'lucide-react
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-// --- Decorative SVG Components ---
+// --- Decorative SVG Components (Bold, Filled Style) ---
 
 const GrapeClusterSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 40 50" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="15" cy="20" r="5" />
-    <circle cx="25" cy="20" r="5" />
-    <circle cx="20" cy="28" r="5" />
-    <circle cx="10" cy="28" r="5" />
-    <circle cx="30" cy="28" r="5" />
-    <circle cx="15" cy="36" r="5" />
-    <circle cx="25" cy="36" r="5" />
-    <circle cx="20" cy="44" r="5" />
-    <path d="M20 4 Q22 10 20 16" />
-    <path d="M20 4 Q16 2 12 4" />
-    <path d="M20 4 Q24 2 28 4" />
+  <svg className={className} viewBox="0 0 40 50" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="grape-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.3" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
+      </linearGradient>
+    </defs>
+    <circle cx="15" cy="20" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="25" cy="20" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="20" cy="28" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="10" cy="28" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="30" cy="28" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="15" cy="36" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="25" cy="36" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="20" cy="44" r="5" fill="url(#grape-fill)" stroke="currentColor" strokeWidth="1" />
+    <path d="M20 4 Q22 10 20 16" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M20 4 Q14 1 8 5" stroke="currentColor" strokeWidth="1.2" fill="none" />
+    <path d="M20 4 Q26 1 32 5" stroke="currentColor" strokeWidth="1.2" fill="none" />
+    {/* Leaves */}
+    <path d="M8 5 Q5 2 4 6 Q6 8 8 5" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M32 5 Q35 2 36 6 Q34 8 32 5" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="0.8" />
   </svg>
 );
 
-const WineGlassSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 60 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M15 5 H45" />
-    <path d="M15 5 Q14 35 20 45 Q25 50 30 55" />
-    <path d="M45 5 Q46 35 40 45 Q35 50 30 55" />
-    <path d="M30 55 V85" />
-    <path d="M18 85 H42" />
-    <path d="M16 20 Q30 28 44 20" />
+const WineGlassSvg = ({ className, showPour }: { className?: string; showPour?: boolean }) => (
+  <svg className={className} viewBox="0 0 60 100" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="wine-liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.25" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.1" />
+      </linearGradient>
+    </defs>
+    {/* Wine liquid inside glass */}
+    <path
+      d="M17 20 Q30 28 43 20 Q42 35 38 42 Q34 47 30 52 Q26 47 22 42 Q18 35 17 20Z"
+      fill="url(#wine-liquid)"
+      className={showPour ? 'animate-[svg-wine-pour_1.5s_ease-out_forwards]' : ''}
+    />
+    {/* Glass outline */}
+    <path d="M15 5 H45" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M15 5 Q14 35 20 45 Q25 50 30 55" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M45 5 Q46 35 40 45 Q35 50 30 55" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M30 55 V85" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M18 85 H42" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M16 20 Q30 28 44 20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
   </svg>
 );
 
-const CorkscrewSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 2 H16" />
-    <path d="M12 2 V10" />
-    <path d="M8 10 H16" />
-    <path d="M12 10 Q15 14 9 18 Q15 22 9 26 Q15 30 9 34 Q12 38 12 38" />
+// Full-width decorative vine border SVG
+const VineBorderSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 800 60" preserveAspectRatio="none" fill="none">
+    <defs>
+      <linearGradient id="vine-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+        <stop offset="20%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="50%" stopColor="currentColor" stopOpacity="0.25" />
+        <stop offset="80%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+    {/* Main vine */}
+    <path d="M0 30 Q100 10 200 30 Q300 50 400 30 Q500 10 600 30 Q700 50 800 30" stroke="url(#vine-grad)" strokeWidth="2" />
+    {/* Leaves along the vine */}
+    <path d="M100 20 Q95 12 102 10 Q108 14 100 20" fill="currentColor" opacity="0.15" />
+    <path d="M200 35 Q195 42 202 45 Q208 40 200 35" fill="currentColor" opacity="0.12" />
+    <path d="M300 22 Q295 14 302 12 Q308 16 300 22" fill="currentColor" opacity="0.15" />
+    <path d="M500 20 Q495 12 502 10 Q508 14 500 20" fill="currentColor" opacity="0.15" />
+    <path d="M600 38 Q595 45 602 48 Q608 42 600 38" fill="currentColor" opacity="0.12" />
+    <path d="M700 22 Q695 14 702 12 Q708 16 700 22" fill="currentColor" opacity="0.15" />
+    {/* Small grape clusters */}
+    <circle cx="150" cy="15" r="3" fill="currentColor" opacity="0.1" />
+    <circle cx="155" cy="18" r="3" fill="currentColor" opacity="0.08" />
+    <circle cx="145" cy="18" r="3" fill="currentColor" opacity="0.08" />
+    <circle cx="400" cy="40" r="3" fill="currentColor" opacity="0.1" />
+    <circle cx="405" cy="43" r="3" fill="currentColor" opacity="0.08" />
+    <circle cx="395" cy="43" r="3" fill="currentColor" opacity="0.08" />
+    <circle cx="650" cy="15" r="3" fill="currentColor" opacity="0.1" />
+    <circle cx="655" cy="18" r="3" fill="currentColor" opacity="0.08" />
+    <circle cx="645" cy="18" r="3" fill="currentColor" opacity="0.08" />
   </svg>
 );
 
-// Grape vine repeating background pattern (SVG data URI)
-const grapeVinePattern = `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5 Q20 0 25 5 Q30 10 25 15' stroke='%23be123c' stroke-width='0.8' fill='none' opacity='0.12'/%3E%3Ccircle cx='28' cy='18' r='3' stroke='%23be123c' stroke-width='0.6' fill='none' opacity='0.1'/%3E%3Ccircle cx='22' cy='20' r='3' stroke='%23be123c' stroke-width='0.6' fill='none' opacity='0.1'/%3E%3Ccircle cx='25' cy='25' r='3' stroke='%23be123c' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M45 35 Q50 30 55 35 Q60 40 55 45' stroke='%23be123c' stroke-width='0.8' fill='none' opacity='0.12'/%3E%3Ccircle cx='52' cy='48' r='3' stroke='%23be123c' stroke-width='0.6' fill='none' opacity='0.1'/%3E%3Ccircle cx='48' cy='50' r='3' stroke='%23be123c' stroke-width='0.6' fill='none' opacity='0.1'/%3E%3C/svg%3E")`;
+// Grape vine divider for footer
+const VineDividerSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 600 30" preserveAspectRatio="none" fill="none">
+    <defs>
+      <linearGradient id="divider-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+        <stop offset="30%" stopColor="currentColor" stopOpacity="0.3" />
+        <stop offset="50%" stopColor="currentColor" stopOpacity="0.35" />
+        <stop offset="70%" stopColor="currentColor" stopOpacity="0.3" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+    <path d="M0 15 Q75 5 150 15 Q225 25 300 15 Q375 5 450 15 Q525 25 600 15" stroke="url(#divider-grad)" strokeWidth="1.5" />
+    <circle cx="200" cy="10" r="2.5" fill="currentColor" opacity="0.15" />
+    <circle cx="205" cy="13" r="2.5" fill="currentColor" opacity="0.12" />
+    <circle cx="300" cy="18" r="2.5" fill="currentColor" opacity="0.15" />
+    <circle cx="295" cy="21" r="2.5" fill="currentColor" opacity="0.12" />
+    <circle cx="400" cy="10" r="2.5" fill="currentColor" opacity="0.15" />
+    <circle cx="405" cy="13" r="2.5" fill="currentColor" opacity="0.12" />
+  </svg>
+);
+
+// Grape vine repeating background pattern (boosted opacity)
+const grapeVinePattern = `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5 Q20 0 25 5 Q30 10 25 15' stroke='%23be123c' stroke-width='0.8' fill='none' opacity='0.18'/%3E%3Ccircle cx='28' cy='18' r='3' stroke='%23be123c' stroke-width='0.6' fill='%23be123c' fill-opacity='0.06' opacity='0.15'/%3E%3Ccircle cx='22' cy='20' r='3' stroke='%23be123c' stroke-width='0.6' fill='%23be123c' fill-opacity='0.06' opacity='0.15'/%3E%3Ccircle cx='25' cy='25' r='3' stroke='%23be123c' stroke-width='0.6' fill='%23be123c' fill-opacity='0.06' opacity='0.12'/%3E%3Cpath d='M45 35 Q50 30 55 35 Q60 40 55 45' stroke='%23be123c' stroke-width='0.8' fill='none' opacity='0.18'/%3E%3Ccircle cx='52' cy='48' r='3' stroke='%23be123c' stroke-width='0.6' fill='%23be123c' fill-opacity='0.06' opacity='0.15'/%3E%3Ccircle cx='48' cy='50' r='3' stroke='%23be123c' stroke-width='0.6' fill='%23be123c' fill-opacity='0.06' opacity='0.15'/%3E%3C/svg%3E")`;
 
 interface WineProfile {
   id: string;
@@ -155,12 +224,15 @@ export default function VenetoWinePourSelector() {
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background to-rose-50/40 relative overflow-hidden">
-      {/* Grape vine repeating background pattern */}
+      {/* Grape vine repeating background pattern (boosted) */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ backgroundImage: grapeVinePattern, backgroundSize: '60px 60px' }}
         aria-hidden="true"
       />
+
+      {/* Decorative vine border across top */}
+      <VineBorderSvg className="absolute top-0 left-0 w-full h-16 text-rose-500 pointer-events-none motion-reduce:hidden" />
 
       <div className="container max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
@@ -194,8 +266,8 @@ export default function VenetoWinePourSelector() {
                     : 'hover:scale-[1.02] hover:shadow-md'
               )}
             >
-              {/* Decorative grape cluster watermark */}
-              <GrapeClusterSvg className="absolute top-2 right-2 w-10 h-12 text-rose-400 opacity-[0.07] group-hover:opacity-[0.15] transition-opacity duration-500" />
+              {/* Floating grape cluster — larger, filled, animated */}
+              <GrapeClusterSvg className="absolute top-1 right-1 w-14 h-16 text-rose-400 opacity-[0.12] group-hover:opacity-[0.22] transition-opacity duration-500 animate-[svg-float_6s_ease-in-out_infinite] motion-reduce:animate-none" />
 
               {/* Wine glass icon */}
               <div className={cn(
@@ -238,8 +310,11 @@ export default function VenetoWinePourSelector() {
         )}>
           {selectedWine && (
             <div className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-lg relative overflow-hidden">
-              {/* Wine glass watermark in detail panel */}
-              <WineGlassSvg className="absolute bottom-4 right-4 w-24 h-40 text-rose-300 opacity-[0.06] pointer-events-none" />
+              {/* Large wine glass with pour animation — visual anchor on left */}
+              <WineGlassSvg
+                className="absolute -left-4 bottom-0 w-36 h-60 text-rose-400 opacity-[0.1] pointer-events-none"
+                showPour
+              />
 
               <div className="grid md:grid-cols-2 gap-8 relative z-10">
                 {/* Left: Story */}
@@ -312,16 +387,20 @@ export default function VenetoWinePourSelector() {
           )}
         </div>
 
-        {/* Editorial Footer */}
-        <div className="mt-10 bg-rose-50/60 rounded-2xl p-6 md:p-8 border border-rose-200/40">
-          <h4 className="font-bold mb-2 flex items-center gap-2 text-foreground">
-            <Grape className="h-5 w-5 text-rose-600" />
-            The Insider Take
-            <CorkscrewSvg className="h-6 w-4 text-rose-400 opacity-40" />
-          </h4>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            <strong className="text-foreground">The secret fourth move:</strong> order a Valpolicella Ripasso. It uses the same dried-grape skins from Amarone production to re-ferment a lighter Valpolicella — giving you 70% of Amarone's complexity at a third of the price. Every local knows this. Most tourists don't. Also: Bardolino Chiaretto is having a moment as one of Italy's best rosés. At €8-10 a bottle, it's absurdly underpriced for what you get.
-          </p>
+        {/* Editorial Footer with vine divider */}
+        <div className="mt-10 relative">
+          {/* Vine divider above footer */}
+          <VineDividerSvg className="w-full h-6 text-rose-400 mb-4" />
+
+          <div className="bg-rose-50/60 rounded-2xl p-6 md:p-8 border border-rose-200/40">
+            <h4 className="font-bold mb-2 flex items-center gap-2 text-foreground">
+              <Grape className="h-5 w-5 text-rose-600" />
+              The Insider Take
+            </h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              <strong className="text-foreground">The secret fourth move:</strong> order a Valpolicella Ripasso. It uses the same dried-grape skins from Amarone production to re-ferment a lighter Valpolicella — giving you 70% of Amarone's complexity at a third of the price. Every local knows this. Most tourists don't. Also: Bardolino Chiaretto is having a moment as one of Italy's best rosés. At €8-10 a bottle, it's absurdly underpriced for what you get.
+            </p>
+          </div>
         </div>
       </div>
     </section>

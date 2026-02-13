@@ -2,93 +2,145 @@ import { useState } from 'react';
 import { Crown, Flame, Coffee, ChevronDown, Theater, Music, Users, Swords, Lightbulb } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// --- Decorative SVG Components ---
+// --- Decorative SVG Components (Bold, Filled, Animated) ---
 
 const VenetianMaskSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 120 80" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M60 10 Q20 10 10 35 Q5 50 15 60 Q25 70 40 65 Q50 62 60 55 Q70 62 80 65 Q95 70 105 60 Q115 50 110 35 Q100 10 60 10Z" />
+  <svg className={className} viewBox="0 0 120 80" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="mask-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.12" />
+        <stop offset="50%" stopColor="currentColor" stopOpacity="0.06" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.1" />
+      </linearGradient>
+    </defs>
+    <path d="M60 10 Q20 10 10 35 Q5 50 15 60 Q25 70 40 65 Q50 62 60 55 Q70 62 80 65 Q95 70 105 60 Q115 50 110 35 Q100 10 60 10Z" fill="url(#mask-fill)" stroke="currentColor" strokeWidth="1.5" />
     {/* Eye holes */}
-    <ellipse cx="38" cy="35" rx="12" ry="8" />
-    <ellipse cx="82" cy="35" rx="12" ry="8" />
+    <ellipse cx="38" cy="35" rx="12" ry="8" fill="none" stroke="currentColor" strokeWidth="1.2" />
+    <ellipse cx="82" cy="35" rx="12" ry="8" fill="none" stroke="currentColor" strokeWidth="1.2" />
     {/* Nose ridge */}
-    <path d="M60 30 Q58 42 60 50" />
-    {/* Decorative forehead */}
-    <path d="M45 18 Q60 12 75 18" />
-    <path d="M50 14 Q60 8 70 14" />
+    <path d="M60 30 Q58 42 60 50" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
+    {/* Decorative forehead flourish */}
+    <path d="M40 18 Q60 8 80 18" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.4" />
+    <path d="M45 14 Q60 4 75 14" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.3" />
+    <path d="M50 11 Q60 2 70 11" stroke="currentColor" strokeWidth="0.6" fill="none" opacity="0.2" />
+    {/* Decorative cheek details */}
+    <path d="M25 45 Q30 42 35 45" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.25" />
+    <path d="M85 45 Q90 42 95 45" stroke="currentColor" strokeWidth="0.8" fill="none" opacity="0.25" />
   </svg>
 );
 
 const ChessKnightSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 30 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 36 H22 V33 H8 Z" />
-    <path d="M10 33 V28 Q10 20 14 16 Q10 14 8 10 Q8 5 14 4 Q16 4 18 6 Q22 10 22 16 Q22 22 20 26 V33" />
-    <circle cx="14" cy="10" r="1.5" />
-    <path d="M10 16 Q12 15 14 16" />
+  <svg className={className} viewBox="0 0 30 40" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="knight-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
+    <path d="M8 36 H22 V33 H8 Z" fill="url(#knight-fill)" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M10 33 V28 Q10 20 14 16 Q10 14 8 10 Q8 5 14 4 Q16 4 18 6 Q22 10 22 16 Q22 22 20 26 V33" fill="url(#knight-fill)" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="14" cy="10" r="1.5" fill="currentColor" opacity="0.4" />
+    <path d="M10 16 Q12 15 14 16" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
   </svg>
 );
 
 const ChessRookSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 28 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M6 36 H22 V33 H6 Z" />
-    <path d="M8 33 V12 H20 V33" />
-    <path d="M6 12 H22" />
-    <path d="M6 8 H10 V4 H12 V8 H16 V4 H18 V8 H22 V12 H6 Z" />
+  <svg className={className} viewBox="0 0 28 40" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="rook-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
+    <path d="M6 36 H22 V33 H6 Z" fill="url(#rook-fill)" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M8 33 V12 H20 V33" fill="url(#rook-fill)" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M6 12 H22" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M6 8 H10 V4 H12 V8 H16 V4 H18 V8 H22 V12 H6 Z" fill="url(#rook-fill)" stroke="currentColor" strokeWidth="1.5" />
   </svg>
 );
 
 const MaskPairSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 50 30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg className={className} viewBox="0 0 50 30" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="happy-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
     {/* Happy mask */}
-    <circle cx="14" cy="14" r="10" />
-    <circle cx="10" cy="12" r="2" />
-    <circle cx="18" cy="12" r="2" />
-    <path d="M9 18 Q14 22 19 18" />
+    <circle cx="14" cy="14" r="10" fill="url(#happy-fill)" stroke="currentColor" strokeWidth="1.2" />
+    <circle cx="10" cy="12" r="2" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="0.8" />
+    <circle cx="18" cy="12" r="2" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M9 18 Q14 22 19 18" stroke="currentColor" strokeWidth="1.2" fill="none" />
     {/* Sad mask */}
-    <circle cx="36" cy="14" r="10" />
-    <circle cx="32" cy="12" r="2" />
-    <circle cx="40" cy="12" r="2" />
-    <path d="M31 20 Q36 16 41 20" />
+    <circle cx="36" cy="14" r="10" fill="url(#happy-fill)" stroke="currentColor" strokeWidth="1.2" />
+    <circle cx="32" cy="12" r="2" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="0.8" />
+    <circle cx="40" cy="12" r="2" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="0.8" />
+    <path d="M31 20 Q36 16 41 20" stroke="currentColor" strokeWidth="1.2" fill="none" />
   </svg>
 );
 
 const MusicalNotesSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 40 30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <ellipse cx="8" cy="24" rx="4" ry="3" />
-    <path d="M12 24 V6" />
-    <path d="M12 6 H28 V18" />
-    <ellipse cx="24" cy="21" rx="4" ry="3" />
-    <path d="M28 21 V9" />
-    {/* Eighth note flag */}
-    <path d="M12 6 Q18 4 20 8" />
+  <svg className={className} viewBox="0 0 50 35" strokeLinecap="round" strokeLinejoin="round">
+    {/* Note 1 */}
+    <g className="animate-[svg-bounce-note_1.2s_ease-in-out_infinite] motion-reduce:animate-none">
+      <ellipse cx="10" cy="27" rx="5" ry="3.5" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M15 27 V8" stroke="currentColor" strokeWidth="1.5" />
+    </g>
+    {/* Beam */}
+    <path d="M15 8 H40 V13" stroke="currentColor" strokeWidth="2" />
+    {/* Note 2 */}
+    <g className="animate-[svg-bounce-note_1.2s_ease-in-out_0.3s_infinite] motion-reduce:animate-none">
+      <ellipse cx="35" cy="24" rx="5" ry="3.5" fill="currentColor" opacity="0.2" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M40 24 V11" stroke="currentColor" strokeWidth="1.5" />
+    </g>
+    {/* Flag */}
+    <path d="M15 8 Q22 5 26 10" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.5" />
   </svg>
 );
 
 const SpritzGlassSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 30 45" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 5 L10 28" />
-    <path d="M22 5 L20 28" />
-    <path d="M8 5 H22" />
-    <ellipse cx="15" cy="28" rx="5" ry="2" />
-    <path d="M15 30 V38" />
-    <path d="M10 38 H20" />
-    {/* Ice + orange slice */}
-    <path d="M12 14 H18" />
-    <circle cx="20" cy="10" r="4" />
-    <path d="M20 6 V14" />
+  <svg className={className} viewBox="0 0 30 45" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="spritz-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
+    {/* Glass body */}
+    <path d="M8 5 L10 28 L20 28 L22 5 Z" fill="url(#spritz-fill)" stroke="currentColor" strokeWidth="1.2" />
+    <path d="M8 5 H22" stroke="currentColor" strokeWidth="1.5" />
+    <ellipse cx="15" cy="28" rx="5" ry="2" stroke="currentColor" strokeWidth="1" fill="none" />
+    <path d="M15 30 V38" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M10 38 H20" stroke="currentColor" strokeWidth="1.5" />
+    {/* Orange slice */}
+    <circle cx="20" cy="10" r="4" fill="currentColor" opacity="0.15" stroke="currentColor" strokeWidth="1" />
+    <path d="M20 6 V14" stroke="currentColor" strokeWidth="0.8" opacity="0.3" />
+    <path d="M16 10 H24" stroke="currentColor" strokeWidth="0.8" opacity="0.3" />
+    {/* Bubbles rising */}
+    <circle cx="13" cy="22" r="1" fill="currentColor" opacity="0.15" className="animate-[svg-rise-fade_2s_ease-out_infinite] motion-reduce:animate-none" />
+    <circle cx="16" cy="20" r="0.8" fill="currentColor" opacity="0.12" className="animate-[svg-rise-fade_2s_ease-out_0.5s_infinite] motion-reduce:animate-none" />
+    <circle cx="14" cy="18" r="1.2" fill="currentColor" opacity="0.1" className="animate-[svg-rise-fade_2s_ease-out_1s_infinite] motion-reduce:animate-none" />
   </svg>
 );
 
 const BautaMaskSvg = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 40 50" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 5 Q5 8 3 22 Q2 32 8 38 L20 45 L32 38 Q38 32 37 22 Q35 8 20 5Z" />
-    <ellipse cx="13" cy="20" rx="5" ry="4" />
-    <ellipse cx="27" cy="20" rx="5" ry="4" />
-    <path d="M20 24 V32 L17 35" />
+  <svg className={className} viewBox="0 0 40 50" strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <linearGradient id="bauta-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
+      </linearGradient>
+    </defs>
+    <path d="M20 5 Q5 8 3 22 Q2 32 8 38 L20 45 L32 38 Q38 32 37 22 Q35 8 20 5Z" fill="url(#bauta-fill)" stroke="currentColor" strokeWidth="1.5" />
+    <ellipse cx="13" cy="20" rx="5" ry="4" fill="none" stroke="currentColor" strokeWidth="1" />
+    <ellipse cx="27" cy="20" rx="5" ry="4" fill="none" stroke="currentColor" strokeWidth="1" />
+    <path d="M20 24 V32 L17 35" stroke="currentColor" strokeWidth="1.2" fill="none" />
   </svg>
 );
 
-// Venetian mask repeating background pattern
-const maskPattern = `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 20 Q25 20 20 30 Q18 35 22 40 Q28 45 35 42 Q38 41 40 38 Q42 41 45 42 Q52 45 58 40 Q62 35 60 30 Q55 20 40 20Z' stroke='%232563eb' stroke-width='0.6' fill='none' opacity='0.06'/%3E%3Cellipse cx='33' cy='30' rx='5' ry='3' stroke='%232563eb' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3Cellipse cx='47' cy='30' rx='5' ry='3' stroke='%232563eb' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3C/svg%3E")`;
+// Venetian mask repeating background pattern (boosted opacity with fill)
+const maskPattern = `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 20 Q25 20 20 30 Q18 35 22 40 Q28 45 35 42 Q38 41 40 38 Q42 41 45 42 Q52 45 58 40 Q62 35 60 30 Q55 20 40 20Z' stroke='%232563eb' stroke-width='0.6' fill='%232563eb' fill-opacity='0.03' opacity='0.1'/%3E%3Cellipse cx='33' cy='30' rx='5' ry='3' stroke='%232563eb' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3Cellipse cx='47' cy='30' rx='5' ry='3' stroke='%232563eb' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3C/svg%3E")`;
 
 type TierId = 'grand' | 'living' | 'everyday';
 
@@ -192,10 +244,10 @@ function CarnevaleSelector() {
 
       {/* Mask or No Mask? Cultural subtext */}
       <div className="mt-4 bg-slate-50 rounded-lg p-4 border-l-2 border-slate-300 relative overflow-hidden">
-        {/* Bauta mask accent */}
-        <BautaMaskSvg className="absolute top-2 right-2 w-8 h-10 text-slate-400 opacity-[0.12]" />
+        {/* Bauta mask — side illustration, larger, more visible */}
+        <BautaMaskSvg className="absolute -right-2 top-1/2 -translate-y-1/2 w-16 h-20 text-slate-500 opacity-[0.25] pointer-events-none" />
         <p className="text-xs font-bold text-slate-700 mb-1">Mask or No Mask?</p>
-        <p className="text-xs text-muted-foreground leading-relaxed pr-10">
+        <p className="text-xs text-muted-foreground leading-relaxed pr-14">
           In Venice, anonymity was once political power. Masks erased class distinctions — nobility and merchants mingled, 
           social boundaries blurred, and for a few weeks a year, the Republic's rigid hierarchy dissolved into theater. 
           The bauta mask wasn't costume — it was a democratic technology. That's not tourism trivia. That's identity.
@@ -245,7 +297,7 @@ const tiers: Tier[] = [
         icon: Users,
         content: "Everyone knows Venice Carnevale. But Veneto actually has dozens of carnevali — each with completely different energy, crowd levels, and cultural DNA. The choice you make says something about who you are.",
         extra: <CarnevaleSelector />,
-        decorSvg: <MaskPairSvg className="w-6 h-4 text-orange-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
+        decorSvg: <MaskPairSvg className="w-8 h-5 text-orange-500 opacity-[0.45] inline-block ml-2 -mt-0.5" />
       },
       {
         id: 'marostica',
@@ -255,18 +307,18 @@ const tiers: Tier[] = [
         content: "In the second weekend of September (even years), Marostica's main piazza transforms into a giant chessboard. Living actors in Renaissance costume play an actual chess game, recreating a 1454 match between two noblemen who competed for the hand of the castellan's daughter. Instead of a duel, they played chess. Instead of blood, they got spectacle.\n\n500+ performers. Renaissance costumes sewn by the town. Fire-breathers, flag-throwers, processions. The entire town participates — this isn't a tourist attraction, it's a community ritual that happens to be spectacular.\n\nMarostica is also the cherry capital of Veneto. If you visit in late May/early June, the cherry festival overlaps with the chess game rehearsals. It's a very specific kind of wonderful.",
         extra: (
           <div className="mt-4 bg-amber-50 rounded-lg p-4 border border-amber-200 relative overflow-hidden">
-            {/* Chess rook accent */}
-            <ChessRookSvg className="absolute top-2 right-2 w-5 h-7 text-amber-500 opacity-[0.18]" />
+            {/* Chess rook accent — larger, filled */}
+            <ChessRookSvg className="absolute top-2 right-2 w-7 h-10 text-amber-500 opacity-[0.25]" />
             <div className="flex items-center gap-2 mb-1">
               <Lightbulb className="h-3.5 w-3.5 text-amber-600" />
               <p className="text-xs font-bold text-foreground">Did You Know?</p>
             </div>
-            <p className="text-xs text-muted-foreground pr-6">
+            <p className="text-xs text-muted-foreground pr-8">
               The chess moves played in each performance are different — the game is choreographed fresh each time by a chess master. The actors learn their positions through months of rehearsal. Marostica also hosts a miniature version for children in the off-years.
             </p>
           </div>
         ),
-        decorSvg: <ChessKnightSvg className="w-5 h-6 text-orange-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
+        decorSvg: <ChessKnightSvg className="w-6 h-8 text-orange-500 opacity-[0.45] inline-block ml-2 -mt-0.5 animate-[svg-knight-hop_3s_ease-in-out_infinite] motion-reduce:animate-none" />
       }
     ]
   },
@@ -284,7 +336,7 @@ const tiers: Tier[] = [
         subtitle: 'Vivaldi\'s orphan musicians, La Fenice\'s rebirth, and why Venice still sounds different.',
         icon: Music,
         content: "Venice's four Ospedali — charitable institutions for orphaned girls — produced the finest musicians in 18th-century Europe. Vivaldi taught at the Ospedale della Pietà for decades, composing specifically for these young women whose talent drew audiences from across the continent. Royalty attended their concerts. Goethe wept.\n\nThis is wildly under-discussed. An all-female orchestra in the 1720s, performing at the highest level in Europe, trained by the most innovative composer alive. The music wasn't incidental — it was the institution's funding mechanism. The girls' virtuosity attracted donations that kept the orphanage running.\n\nLa Fenice — Venice's opera house — has burned down twice (1774, 1996) and been rebuilt both times, each time more beautiful. 'La Fenice' means 'The Phoenix.' The name was prophetic. Today it hosts world-class opera and symphony seasons. Resident tip: standing tickets are €15-20.",
-        decorSvg: <MusicalNotesSvg className="w-7 h-5 text-stone-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
+        decorSvg: <MusicalNotesSvg className="w-9 h-7 text-stone-500 opacity-[0.45] inline-block ml-2 -mt-0.5" />
       },
       {
         id: 'aperitivo',
@@ -292,7 +344,7 @@ const tiers: Tier[] = [
         subtitle: 'The daily rituals that actually define life in Veneto.',
         icon: Coffee,
         content: "The spritz was born in Veneto — not as a trend, but as a habit. Austrian soldiers in the 19th century asked bartenders to 'spritz' (spray) their wine with water. Venetians added Aperol or Select, and a ritual was born. By 6 PM every day, the bacari fill up, cicchetti appear on counters, and the entire social fabric of Veneto life activates.\n\nThe passeggiata — the evening walk — is the other daily ritual no one explains to foreigners. Between 5-7 PM, entire towns empty onto their main streets. Families, couples, teenagers, elderly — everyone walks. You see people, you're seen, you stop and talk. It's not exercise. It's society operating as designed.\n\nIn Padua, the passeggiata route follows Prato della Valle to Via Roma. In Verona, it loops around Piazza Bra. In Treviso, it follows the canals. Learning your town's passeggiata route is the first step to becoming a local. The second step is having opinions about where to stop for your spritz.",
-        decorSvg: <SpritzGlassSvg className="w-5 h-7 text-stone-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
+        decorSvg: <SpritzGlassSvg className="w-6 h-9 text-stone-500 opacity-[0.45] inline-block ml-2 -mt-1" />
       }
     ]
   }
@@ -304,7 +356,7 @@ export default function VenetoCultureAlive() {
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background to-blue-50/30 relative overflow-hidden">
-      {/* Venetian mask repeating background pattern */}
+      {/* Venetian mask repeating background pattern (boosted) */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ backgroundImage: maskPattern, backgroundSize: '80px 80px' }}
@@ -312,10 +364,10 @@ export default function VenetoCultureAlive() {
       />
 
       <div className="container max-w-6xl mx-auto px-4 relative z-10">
-        {/* Header */}
+        {/* Header with hero-size mask */}
         <div className="text-center mb-12 relative">
-          {/* Large Venetian mask watermark behind header */}
-          <VenetianMaskSvg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-44 text-blue-400 opacity-[0.05] pointer-events-none" />
+          {/* Hero Venetian mask — large, centered, breathing animation */}
+          <VenetianMaskSvg className="mx-auto w-48 md:w-72 h-auto text-blue-400 opacity-[0.09] pointer-events-none mb-2 animate-[svg-breathe_4s_ease-in-out_infinite] motion-reduce:animate-none" />
 
           <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-blue-200 relative">
             <Theater className="h-4 w-4" />
