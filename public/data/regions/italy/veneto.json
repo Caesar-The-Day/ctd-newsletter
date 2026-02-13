@@ -408,31 +408,31 @@
   "towns": {
     "subtitle": "Three Cities That Define Veneto",
     "featured": [
-      {
-        "id": "padua",
-        "name": "Padua",
-        "bestFor": "The Grown-Up Choice",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "padova",
+         "name": "Padova",
+         "bestFor": "The Grown-Up Choice",
+         "photo": "/images/veneto/padova-featured.jpg",
         "summary": "One of Italy's oldest university cities — intellectual depth, hospitals that function, and steady young energy. The historic center is walkable, arcades protect you from weather, real neighborhoods outside the core.",
         "fullDescription": "Padua is the grown-up choice.\n\nIt doesn't scream for attention. It doesn't need to. This is one of Italy's oldest university cities, which means it has intellectual depth, hospitals that actually function, and a steady stream of young energy that keeps it from fossilizing.\n\nThe historic center is dense and walkable. Arcades protect you from rain and summer sun. Cafés spill into piazzas that feel lived in, not staged. Outside the medieval core, you'll find real neighborhoods — residential blocks, supermarkets, pharmacies, hardware stores. Not souvenir shops.\n\nWhat works:\n\nOne of the strongest healthcare systems in northern Italy\nMajor hospital hub (University of Padua medical complex)\nHigh-speed rail stop between Milan and Venice\nFlat terrain — good for aging knees\nVenice airport within easy reach\n\nThe vibe:\nPractical elegance. Educated. Efficient. Not flashy.\n\nThe realities:\nPo Valley humidity in summer. Fog in winter. This is real northern Italy weather, not cinematic Tuscany. And while it's cheaper than Venice, prices reflect its quality.\n\nPadua makes sense if you want culture and infrastructure, not just scenery.",
         "mapUrl": "https://maps.google.com/?q=Padua+Italy",
         "gallery": []
       },
-      {
-        "id": "vicenza",
-        "name": "Vicenza",
-        "bestFor": "Palladio & Proportion",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "vicenza",
+         "name": "Vicenza",
+         "bestFor": "Palladio & Proportion",
+         "photo": "/images/veneto/vicenza-featured.jpg",
         "summary": "Curated but not artificial. Palladio's architecture defines a prosperous, wealthy city with maintained streets, strong services, and refined understatement. Walkable, direct rail connections, strong local economy.",
         "fullDescription": "Vicenza feels curated, but not artificial.\n\nThis is Palladio country. Symmetry, proportion, restraint. The architecture is almost unnervingly beautiful, yet daily life continues underneath it without drama.\n\nIt's wealthy. That matters. Wealth means maintained streets, active commerce, and strong services. It also means you're not moving into a fading town hoping revival will arrive someday.\n\nWhat works:\n\nCompact historic center — very walkable\nDirect rail to Milan, Venice, and Verona\nStrong local economy (manufacturing, design, export industries)\nGood hospital access\nManageable size without feeling small\n\nThe vibe:\nRefined. Understated. Confident.\n\nThe realities:\nHousing in the center isn't cheap. It's not buzzing with nightlife — this isn't Bologna. Social integration requires effort. Venetians are cordial but reserved.\n\nVicenza works if you appreciate structure, proportion, and a town that takes itself seriously.",
         "mapUrl": "https://maps.google.com/?q=Vicenza+Italy",
         "gallery": []
       },
-      {
-        "id": "treviso",
-        "name": "Treviso",
-        "bestFor": "Prosecco & Authenticity",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "treviso",
+         "name": "Treviso",
+         "bestFor": "Prosecco & Authenticity",
+         "photo": "/images/veneto/treviso-featured.jpg",
         "summary": "Venice's authentic sister. Medieval canals, brick arcades at dusk, aperitivo culture without crowds. 30 minutes to Venice by train, close to airport, flat and walkable with strong middle-class economy.",
         "fullDescription": "Treviso is what people imagine Venice might be — before cruise ships and bachelor parties.\n\nCanals run through a compact historic center. Brick arcades glow at dusk. Aperitivo culture feels effortless rather than performative. And unlike Venice, this is a functioning residential city.\n\nWhat works:\n\n30 minutes by train to Venice\nClose to Treviso Airport\nFlat, extremely walkable\nStrong middle-class economic base\nProsecco hills on your doorstep\n\nThe vibe:\nStylish but grounded. Social. Clean. Slightly polished.\n\nThe realities:\nMore expensive than smaller Veneto towns. Some suburban sprawl outside the historic core. Summers are humid.\n\nTreviso makes sense if you want beauty, proximity to Venice, and a city that still belongs to its residents.",
         "mapUrl": "https://maps.google.com/?q=Treviso+Italy",
