@@ -811,7 +811,7 @@
         "id": "risotto-radicchio",
         "title": "Risotto al Radicchio di Treviso",
         "mode": "Refined",
-        "image": "/images/veneto/hero.jpg",
+        "image": "/images/veneto/risotto-radicchio-treviso.jpg",
         "story": "Treviso's late-harvest radicchio — forced in spring water to intensify its bitterness — meets Vialone Nano rice in a dish that's pure Veneto: understated, sophisticated, and completely addictive.",
         "whyRefined": "The interplay of bitter radicchio, creamy rice, and the precise mantecatura technique creates a dish of deceptive simplicity.",
         "ingredients": [
@@ -841,7 +841,7 @@
         "id": "baccala-vicentina",
         "title": "Baccalà alla Vicentina",
         "mode": "Rustic",
-        "image": "/images/veneto/hero.jpg",
+        "image": "/images/veneto/baccala-vicentina.jpg",
         "story": "Vicenza's signature dish: dried cod slow-cooked in milk with onions, anchovies, and Parmesan until it becomes a silky, deeply savory ragù. A confraternity exists solely to protect this recipe.",
         "ingredients": [
           "500 g dried stockfish (soaked 3 days)",
@@ -869,7 +869,7 @@
         "id": "sarde-in-saor",
         "title": "Sarde in Saor",
         "mode": "Rustic",
-        "image": "/images/veneto/hero.jpg",
+        "image": "/images/veneto/sarde-in-saor.jpg",
         "story": "Venice's sweet-sour sardine dish — originally a way to preserve fish for long sea voyages. Fried sardines layered with slow-cooked onions, raisins, pine nuts, and white wine vinegar. Time makes it better.",
         "ingredients": [
           "500 g fresh sardines, cleaned",
@@ -897,7 +897,7 @@
         "id": "risi-e-bisi",
         "title": "Risi e Bisi",
         "mode": "Refined",
-        "image": "/images/veneto/hero.jpg",
+        "image": "/images/veneto/risi-e-bisi.webp",
         "story": "Venice's most famous dish — a cross between risotto and soup, traditionally served to the Doge on the feast of San Marco (April 25). Spring peas, pancetta, and rice in a celebration of the season.",
         "whyRefined": "Deceptively simple, risi e bisi demands perfect timing and the best spring peas. Too thick and it's risotto; too thin and it's soup. The balance is everything.",
         "ingredients": [
