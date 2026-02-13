@@ -116,6 +116,7 @@ const grapeVinePattern = `url("data:image/svg+xml,%3Csvg width='60' height='60' 
 interface WineProfile {
   id: string;
   name: string;
+  image: string;
   personality: string;
   classification: 'DOCG' | 'DOC';
   type: 'Red' | 'White' | 'Rosé';
@@ -138,6 +139,7 @@ const wines: WineProfile[] = [
   {
     id: 'amarone',
     name: 'Amarone della Valpolicella',
+    image: '/images/veneto/amarone-wine.jpg',
     personality: 'Contemplative',
     classification: 'DOCG',
     type: 'Red',
@@ -152,12 +154,13 @@ const wines: WineProfile[] = [
     townVibeDesc: 'Deep, patient, layered — a city that reveals itself over years, not weekends. The Arena, the river bends, the quiet osterie in Veronetta. Amarone people.',
     priceRange: '€30–€120',
     foodPairing: 'Aged Monte Veronese, brasato, risotto all\'Amarone',
-    link: 'https://www.consorziovalpolicella.it/en/',
+    link: 'https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/',
     linkLabel: 'Consorzio Valpolicella'
   },
   {
     id: 'prosecco',
     name: 'Prosecco Superiore DOCG',
+    image: '/images/veneto/prosecco-wine.jpg',
     personality: 'Celebratory',
     classification: 'DOCG',
     type: 'White',
@@ -178,6 +181,7 @@ const wines: WineProfile[] = [
   {
     id: 'soave',
     name: 'Soave Classico',
+    image: '/images/veneto/soave-wine.jpg',
     personality: 'Elegant',
     classification: 'DOC',
     type: 'White',
@@ -198,6 +202,7 @@ const wines: WineProfile[] = [
   {
     id: 'bardolino',
     name: 'Bardolino',
+    image: '/images/veneto/bardolino-wine.jpg',
     personality: 'Easygoing',
     classification: 'DOC',
     type: 'Red',
@@ -212,7 +217,7 @@ const wines: WineProfile[] = [
     townVibeDesc: 'Relaxed, outdoor, unpretentious — sailing in the morning, aperitivo at sunset, dinner with friends that lasts until midnight. No agenda, no rush. Bardolino people.',
     priceRange: '€7–€14',
     foodPairing: 'Grilled lake fish, pizza, charcuterie, summer salads',
-    link: 'https://www.winebardolino.it/',
+    link: 'https://consorziobardolino.it/en/homepage/',
     linkLabel: 'Consorzio Bardolino'
   }
 ];
@@ -269,12 +274,19 @@ export default function VenetoWinePourSelector() {
               {/* Floating grape cluster — larger, filled, animated */}
               <GrapeClusterSvg className="absolute top-1 right-1 w-14 h-16 text-rose-400 opacity-[0.12] group-hover:opacity-[0.22] transition-opacity duration-500 animate-[svg-float_6s_ease-in-out_infinite] motion-reduce:animate-none" />
 
-              {/* Wine glass icon */}
-              <div className={cn(
-                "w-12 h-12 rounded-full bg-gradient-to-br flex items-center justify-center mb-4",
-                wine.color
-              )}>
-                <Wine className="h-6 w-6 text-white" />
+              {/* Wine photo thumbnail */}
+              <div className="relative w-14 h-14 rounded-full mb-4 overflow-hidden border-2 border-rose-200/60 shadow-sm">
+                <img
+                  src={wine.image}
+                  alt={wine.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className={cn(
+                  "absolute inset-0 bg-gradient-to-br opacity-20",
+                  wine.color
+                )} />
+                <Wine className="absolute bottom-0.5 right-0.5 h-3.5 w-3.5 text-white drop-shadow-md" />
               </div>
               
               {/* Personality word */}
@@ -317,8 +329,16 @@ export default function VenetoWinePourSelector() {
               />
 
               <div className="grid md:grid-cols-2 gap-8 relative z-10">
-                {/* Left: Story */}
+                {/* Left: Image + Story */}
                 <div>
+                  {/* Large wine image */}
+                  <div className="rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-md">
+                    <img
+                      src={selectedWine.image}
+                      alt={selectedWine.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-2">
                     {selectedWine.personality}
                   </p>
