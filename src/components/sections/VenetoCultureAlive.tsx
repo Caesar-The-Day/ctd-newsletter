@@ -2,6 +2,94 @@ import { useState } from 'react';
 import { Crown, Flame, Coffee, ChevronDown, Theater, Music, Users, Swords, Lightbulb } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// --- Decorative SVG Components ---
+
+const VenetianMaskSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 80" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M60 10 Q20 10 10 35 Q5 50 15 60 Q25 70 40 65 Q50 62 60 55 Q70 62 80 65 Q95 70 105 60 Q115 50 110 35 Q100 10 60 10Z" />
+    {/* Eye holes */}
+    <ellipse cx="38" cy="35" rx="12" ry="8" />
+    <ellipse cx="82" cy="35" rx="12" ry="8" />
+    {/* Nose ridge */}
+    <path d="M60 30 Q58 42 60 50" />
+    {/* Decorative forehead */}
+    <path d="M45 18 Q60 12 75 18" />
+    <path d="M50 14 Q60 8 70 14" />
+  </svg>
+);
+
+const ChessKnightSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 30 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 36 H22 V33 H8 Z" />
+    <path d="M10 33 V28 Q10 20 14 16 Q10 14 8 10 Q8 5 14 4 Q16 4 18 6 Q22 10 22 16 Q22 22 20 26 V33" />
+    <circle cx="14" cy="10" r="1.5" />
+    <path d="M10 16 Q12 15 14 16" />
+  </svg>
+);
+
+const ChessRookSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 28 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 36 H22 V33 H6 Z" />
+    <path d="M8 33 V12 H20 V33" />
+    <path d="M6 12 H22" />
+    <path d="M6 8 H10 V4 H12 V8 H16 V4 H18 V8 H22 V12 H6 Z" />
+  </svg>
+);
+
+const MaskPairSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 50 30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    {/* Happy mask */}
+    <circle cx="14" cy="14" r="10" />
+    <circle cx="10" cy="12" r="2" />
+    <circle cx="18" cy="12" r="2" />
+    <path d="M9 18 Q14 22 19 18" />
+    {/* Sad mask */}
+    <circle cx="36" cy="14" r="10" />
+    <circle cx="32" cy="12" r="2" />
+    <circle cx="40" cy="12" r="2" />
+    <path d="M31 20 Q36 16 41 20" />
+  </svg>
+);
+
+const MusicalNotesSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 40 30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="8" cy="24" rx="4" ry="3" />
+    <path d="M12 24 V6" />
+    <path d="M12 6 H28 V18" />
+    <ellipse cx="24" cy="21" rx="4" ry="3" />
+    <path d="M28 21 V9" />
+    {/* Eighth note flag */}
+    <path d="M12 6 Q18 4 20 8" />
+  </svg>
+);
+
+const SpritzGlassSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 30 45" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 5 L10 28" />
+    <path d="M22 5 L20 28" />
+    <path d="M8 5 H22" />
+    <ellipse cx="15" cy="28" rx="5" ry="2" />
+    <path d="M15 30 V38" />
+    <path d="M10 38 H20" />
+    {/* Ice + orange slice */}
+    <path d="M12 14 H18" />
+    <circle cx="20" cy="10" r="4" />
+    <path d="M20 6 V14" />
+  </svg>
+);
+
+const BautaMaskSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 40 50" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 5 Q5 8 3 22 Q2 32 8 38 L20 45 L32 38 Q38 32 37 22 Q35 8 20 5Z" />
+    <ellipse cx="13" cy="20" rx="5" ry="4" />
+    <ellipse cx="27" cy="20" rx="5" ry="4" />
+    <path d="M20 24 V32 L17 35" />
+  </svg>
+);
+
+// Venetian mask repeating background pattern
+const maskPattern = `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 20 Q25 20 20 30 Q18 35 22 40 Q28 45 35 42 Q38 41 40 38 Q42 41 45 42 Q52 45 58 40 Q62 35 60 30 Q55 20 40 20Z' stroke='%232563eb' stroke-width='0.6' fill='none' opacity='0.06'/%3E%3Cellipse cx='33' cy='30' rx='5' ry='3' stroke='%232563eb' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3Cellipse cx='47' cy='30' rx='5' ry='3' stroke='%232563eb' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3C/svg%3E")`;
+
 type TierId = 'grand' | 'living' | 'everyday';
 
 interface CultureItem {
@@ -11,6 +99,7 @@ interface CultureItem {
   icon: typeof Crown;
   content: string;
   extra?: React.ReactNode;
+  decorSvg?: React.ReactNode;
 }
 
 interface Tier {
@@ -102,9 +191,11 @@ function CarnevaleSelector() {
       })()}
 
       {/* Mask or No Mask? Cultural subtext */}
-      <div className="mt-4 bg-slate-50 rounded-lg p-4 border-l-2 border-slate-300">
+      <div className="mt-4 bg-slate-50 rounded-lg p-4 border-l-2 border-slate-300 relative overflow-hidden">
+        {/* Bauta mask accent */}
+        <BautaMaskSvg className="absolute top-2 right-2 w-8 h-10 text-slate-400 opacity-[0.12]" />
         <p className="text-xs font-bold text-slate-700 mb-1">Mask or No Mask?</p>
-        <p className="text-xs text-muted-foreground leading-relaxed">
+        <p className="text-xs text-muted-foreground leading-relaxed pr-10">
           In Venice, anonymity was once political power. Masks erased class distinctions — nobility and merchants mingled, 
           social boundaries blurred, and for a few weeks a year, the Republic's rigid hierarchy dissolved into theater. 
           The bauta mask wasn't costume — it was a democratic technology. That's not tourism trivia. That's identity.
@@ -153,7 +244,8 @@ const tiers: Tier[] = [
         subtitle: 'Three versions. Three vibes. One is for you.',
         icon: Users,
         content: "Everyone knows Venice Carnevale. But Veneto actually has dozens of carnevali — each with completely different energy, crowd levels, and cultural DNA. The choice you make says something about who you are.",
-        extra: <CarnevaleSelector />
+        extra: <CarnevaleSelector />,
+        decorSvg: <MaskPairSvg className="w-6 h-4 text-orange-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
       },
       {
         id: 'marostica',
@@ -162,16 +254,19 @@ const tiers: Tier[] = [
         icon: Swords,
         content: "In the second weekend of September (even years), Marostica's main piazza transforms into a giant chessboard. Living actors in Renaissance costume play an actual chess game, recreating a 1454 match between two noblemen who competed for the hand of the castellan's daughter. Instead of a duel, they played chess. Instead of blood, they got spectacle.\n\n500+ performers. Renaissance costumes sewn by the town. Fire-breathers, flag-throwers, processions. The entire town participates — this isn't a tourist attraction, it's a community ritual that happens to be spectacular.\n\nMarostica is also the cherry capital of Veneto. If you visit in late May/early June, the cherry festival overlaps with the chess game rehearsals. It's a very specific kind of wonderful.",
         extra: (
-          <div className="mt-4 bg-amber-50 rounded-lg p-4 border border-amber-200">
+          <div className="mt-4 bg-amber-50 rounded-lg p-4 border border-amber-200 relative overflow-hidden">
+            {/* Chess rook accent */}
+            <ChessRookSvg className="absolute top-2 right-2 w-5 h-7 text-amber-500 opacity-[0.18]" />
             <div className="flex items-center gap-2 mb-1">
               <Lightbulb className="h-3.5 w-3.5 text-amber-600" />
               <p className="text-xs font-bold text-foreground">Did You Know?</p>
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground pr-6">
               The chess moves played in each performance are different — the game is choreographed fresh each time by a chess master. The actors learn their positions through months of rehearsal. Marostica also hosts a miniature version for children in the off-years.
             </p>
           </div>
-        )
+        ),
+        decorSvg: <ChessKnightSvg className="w-5 h-6 text-orange-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
       }
     ]
   },
@@ -188,14 +283,16 @@ const tiers: Tier[] = [
         title: 'Venetian Music Heritage',
         subtitle: 'Vivaldi\'s orphan musicians, La Fenice\'s rebirth, and why Venice still sounds different.',
         icon: Music,
-        content: "Venice's four Ospedali — charitable institutions for orphaned girls — produced the finest musicians in 18th-century Europe. Vivaldi taught at the Ospedale della Pietà for decades, composing specifically for these young women whose talent drew audiences from across the continent. Royalty attended their concerts. Goethe wept.\n\nThis is wildly under-discussed. An all-female orchestra in the 1720s, performing at the highest level in Europe, trained by the most innovative composer alive. The music wasn't incidental — it was the institution's funding mechanism. The girls' virtuosity attracted donations that kept the orphanage running.\n\nLa Fenice — Venice's opera house — has burned down twice (1774, 1996) and been rebuilt both times, each time more beautiful. 'La Fenice' means 'The Phoenix.' The name was prophetic. Today it hosts world-class opera and symphony seasons. Resident tip: standing tickets are €15-20."
+        content: "Venice's four Ospedali — charitable institutions for orphaned girls — produced the finest musicians in 18th-century Europe. Vivaldi taught at the Ospedale della Pietà for decades, composing specifically for these young women whose talent drew audiences from across the continent. Royalty attended their concerts. Goethe wept.\n\nThis is wildly under-discussed. An all-female orchestra in the 1720s, performing at the highest level in Europe, trained by the most innovative composer alive. The music wasn't incidental — it was the institution's funding mechanism. The girls' virtuosity attracted donations that kept the orphanage running.\n\nLa Fenice — Venice's opera house — has burned down twice (1774, 1996) and been rebuilt both times, each time more beautiful. 'La Fenice' means 'The Phoenix.' The name was prophetic. Today it hosts world-class opera and symphony seasons. Resident tip: standing tickets are €15-20.",
+        decorSvg: <MusicalNotesSvg className="w-7 h-5 text-stone-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
       },
       {
         id: 'aperitivo',
         title: 'Aperitivo & Passeggiata',
         subtitle: 'The daily rituals that actually define life in Veneto.',
         icon: Coffee,
-        content: "The spritz was born in Veneto — not as a trend, but as a habit. Austrian soldiers in the 19th century asked bartenders to 'spritz' (spray) their wine with water. Venetians added Aperol or Select, and a ritual was born. By 6 PM every day, the bacari fill up, cicchetti appear on counters, and the entire social fabric of Veneto life activates.\n\nThe passeggiata — the evening walk — is the other daily ritual no one explains to foreigners. Between 5-7 PM, entire towns empty onto their main streets. Families, couples, teenagers, elderly — everyone walks. You see people, you're seen, you stop and talk. It's not exercise. It's society operating as designed.\n\nIn Padua, the passeggiata route follows Prato della Valle to Via Roma. In Verona, it loops around Piazza Bra. In Treviso, it follows the canals. Learning your town's passeggiata route is the first step to becoming a local. The second step is having opinions about where to stop for your spritz."
+        content: "The spritz was born in Veneto — not as a trend, but as a habit. Austrian soldiers in the 19th century asked bartenders to 'spritz' (spray) their wine with water. Venetians added Aperol or Select, and a ritual was born. By 6 PM every day, the bacari fill up, cicchetti appear on counters, and the entire social fabric of Veneto life activates.\n\nThe passeggiata — the evening walk — is the other daily ritual no one explains to foreigners. Between 5-7 PM, entire towns empty onto their main streets. Families, couples, teenagers, elderly — everyone walks. You see people, you're seen, you stop and talk. It's not exercise. It's society operating as designed.\n\nIn Padua, the passeggiata route follows Prato della Valle to Via Roma. In Verona, it loops around Piazza Bra. In Treviso, it follows the canals. Learning your town's passeggiata route is the first step to becoming a local. The second step is having opinions about where to stop for your spritz.",
+        decorSvg: <SpritzGlassSvg className="w-5 h-7 text-stone-400 opacity-50 inline-block ml-1.5 -mt-0.5" />
       }
     ]
   }
@@ -206,18 +303,28 @@ export default function VenetoCultureAlive() {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-blue-50/30">
-      <div className="container max-w-6xl mx-auto px-4">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-blue-50/30 relative overflow-hidden">
+      {/* Venetian mask repeating background pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ backgroundImage: maskPattern, backgroundSize: '80px 80px' }}
+        aria-hidden="true"
+      />
+
+      <div className="container max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-blue-200">
+        <div className="text-center mb-12 relative">
+          {/* Large Venetian mask watermark behind header */}
+          <VenetianMaskSvg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-44 text-blue-400 opacity-[0.05] pointer-events-none" />
+
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-blue-200 relative">
             <Theater className="h-4 w-4" />
             Culture
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground relative">
             Not Just Pretty. <span className="text-blue-600">Alive.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto relative">
             Veneto's culture isn't in museums — it's in amphitheaters still hosting opera, 
             piazzas still playing chess, and bacari still pouring spritz at 6 PM sharp.
           </p>
@@ -273,7 +380,11 @@ export default function VenetoCultureAlive() {
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
                                 <ItemIcon className={cn("h-4 w-4", tier.color)} />
-                                <h4 className="font-bold text-foreground text-sm">{item.title}</h4>
+                                <h4 className="font-bold text-foreground text-sm">
+                                  {item.title}
+                                  {/* Inline decorative SVG next to title */}
+                                  {item.decorSvg}
+                                </h4>
                               </div>
                               <p className="text-xs text-muted-foreground">{item.subtitle}</p>
                             </div>

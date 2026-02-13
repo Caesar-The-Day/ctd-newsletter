@@ -2,6 +2,68 @@ import { useState } from 'react';
 import { Mountain, Waves, Wheat, MapPin, ChefHat } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// --- Decorative SVG Components ---
+
+const MountainSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 80 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 55 L25 15 L35 30 L45 10 L65 55" />
+    <path d="M45 10 Q48 8 52 12 L55 18" />
+    {/* Steam wisps */}
+    <path d="M30 25 Q32 20 30 15" opacity="0.6" />
+    <path d="M33 28 Q35 22 33 17" opacity="0.4" />
+  </svg>
+);
+
+const WavesFishSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 80 60" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 25 Q15 15 25 25 Q35 35 45 25 Q55 15 65 25 Q75 35 80 30" />
+    <path d="M5 35 Q15 25 25 35 Q35 45 45 35 Q55 25 65 35" opacity="0.5" />
+    {/* Stylized fish */}
+    <path d="M35 42 Q42 38 50 42 Q42 46 35 42" />
+    <path d="M50 42 L55 38 L55 46 Z" />
+    <circle cx="38" cy="42" r="1" />
+  </svg>
+);
+
+const WheatSheafSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 60 80" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M30 75 V35" />
+    <path d="M25 75 Q25 50 30 35" />
+    <path d="M35 75 Q35 50 30 35" />
+    {/* Wheat heads */}
+    <path d="M30 35 Q25 28 30 20" />
+    <path d="M30 30 Q22 25 25 18" />
+    <path d="M30 30 Q38 25 35 18" />
+    <path d="M30 25 Q20 22 22 14" />
+    <path d="M30 25 Q40 22 38 14" />
+    <path d="M30 20 Q24 15 26 8" />
+    <path d="M30 20 Q36 15 34 8" />
+    <path d="M30 15 Q28 10 30 5" />
+  </svg>
+);
+
+const SteamingPotSvg = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="20" cy="22" rx="14" ry="5" />
+    <path d="M6 22 V30 Q6 36 20 36 Q34 36 34 30 V22" />
+    <path d="M4 22 H36" />
+    {/* Steam */}
+    <path d="M14 18 Q15 14 13 10" opacity="0.6" />
+    <path d="M20 16 Q21 12 19 8" opacity="0.5" />
+    <path d="M26 18 Q27 14 25 10" opacity="0.6" />
+  </svg>
+);
+
+// Wheat stalk repeating background pattern
+const wheatPattern = `url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 45 V25' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M25 30 Q20 26 22 20' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M25 30 Q30 26 28 20' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.08'/%3E%3Cpath d='M25 25 Q22 20 24 14' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.07'/%3E%3Cpath d='M25 25 Q28 20 26 14' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.07'/%3E%3Cpath d='M25 20 Q24 16 25 10' stroke='%23d97706' stroke-width='0.6' fill='none' opacity='0.06'/%3E%3C/svg%3E")`;
+
+// Map pillar ID to its watermark SVG
+const pillarWatermarks: Record<string, typeof MountainSvg> = {
+  alpine: MountainSvg,
+  lagoon: WavesFishSvg,
+  mainland: WheatSheafSvg,
+};
+
 interface FoodPillar {
   id: string;
   title: string;
@@ -89,8 +151,15 @@ export default function VenetoFoodPillars() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-amber-50/40">
-      <div className="container max-w-6xl mx-auto px-4">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-amber-50/40 relative overflow-hidden">
+      {/* Wheat stalk repeating background pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ backgroundImage: wheatPattern, backgroundSize: '50px 50px' }}
+        aria-hidden="true"
+      />
+
+      <div className="container max-w-6xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-amber-200">
@@ -111,17 +180,26 @@ export default function VenetoFoodPillars() {
           {pillars.map(pillar => {
             const Icon = pillar.icon;
             const isExpanded = expanded === pillar.id;
+            const WatermarkSvg = pillarWatermarks[pillar.id];
             
             return (
               <button
                 key={pillar.id}
                 onClick={() => setExpanded(isExpanded ? null : pillar.id)}
                 className={cn(
-                  "rounded-xl border-2 p-6 text-left transition-all duration-500 bg-white/80",
+                  "relative rounded-xl border-2 p-6 text-left transition-all duration-500 bg-white/80 overflow-hidden group",
                   pillar.cardBorder,
                   isExpanded ? 'ring-2 ring-amber-300/50 scale-[1.01] shadow-md' : expanded ? 'opacity-50 hover:opacity-80' : 'hover:scale-[1.02] hover:shadow-md'
                 )}
               >
+                {/* Themed SVG watermark */}
+                {WatermarkSvg && (
+                  <WatermarkSvg className={cn(
+                    "absolute bottom-2 right-2 w-16 h-12 opacity-[0.06] group-hover:opacity-[0.14] transition-opacity duration-500",
+                    pillar.colorAccent
+                  )} />
+                )}
+
                 {/* Icon + geo indicator */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
@@ -206,6 +284,7 @@ export default function VenetoFoodPillars() {
           <h4 className="font-bold mb-2 flex items-center gap-2 text-foreground">
             <ChefHat className="h-5 w-5 text-amber-600" />
             The Veneto Table
+            <SteamingPotSvg className="h-6 w-6 text-amber-500 opacity-40" />
           </h4>
           <p className="text-muted-foreground text-sm leading-relaxed">
             <strong className="text-foreground">Here's what no one tells you:</strong> you can eat polenta with venison stew for lunch in Belluno, drive an hour south to Treviso for grilled radicchio and bigoli at dinner, and the next morning be eating baccalà mantecato on a crostino at a bacaro in Venice. Three completely different food cultures, three completely different landscapes — one region. That's Veneto's quiet superpower. It's not Italy's most famous food region, but it might be its most versatile.
