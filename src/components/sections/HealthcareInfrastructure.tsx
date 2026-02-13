@@ -175,8 +175,8 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
   const isUmbria = region === 'umbria';
   const hasInfrastructure = healthcare.infrastructure;
   
-  // Determine tab count: Lombardia = 2 (Hospitals/Infrastructure), Umbria = 2 (Hospitals/Airports), Others = 3
-  const useTwoTabs = isLombardia || isUmbria;
+  // Determine tab count: regions with infrastructure data or Umbria = 2 tabs, others = 3
+  const useTwoTabs = !!hasInfrastructure || isUmbria;
   
   return (
     <section className="py-16 bg-muted/30">
@@ -202,7 +202,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
         <Tabs defaultValue="hospitals" className="mb-16">
           <TabsList className={`grid w-full max-w-2xl mx-auto ${useTwoTabs ? 'grid-cols-2' : 'grid-cols-3'} mb-8`}>
             <TabsTrigger value="hospitals">Hospitals</TabsTrigger>
-            {isLombardia ? (
+            {hasInfrastructure ? (
               <TabsTrigger value="infrastructure">Infrastructure</TabsTrigger>
             ) : isUmbria ? (
               <TabsTrigger value="airports">Airports</TabsTrigger>
@@ -496,8 +496,8 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
             )}
           </TabsContent>
 
-          {/* Lombardia Infrastructure Tab */}
-          {isLombardia && hasInfrastructure && (
+          {/* Infrastructure Tab (Lombardia, Veneto, etc.) */}
+          {hasInfrastructure && (
             <TabsContent value="infrastructure">
               <div className="space-y-12">
                 {/* Section Intro */}
@@ -547,8 +547,9 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
                         {section.subsections.map((subsection, subIdx) => (
                           <div key={subIdx} className="bg-card border border-border rounded-lg p-6">
                             <h4 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                              {subsection.title === 'Rail' && <TrainFront className="w-5 h-5 text-primary" />}
+                {subsection.title === 'Rail' && <TrainFront className="w-5 h-5 text-primary" />}
                               {subsection.title === 'Airports' && <Plane className="w-5 h-5 text-primary" />}
+                              {subsection.title === 'Adriatic Ferries' && <Waves className="w-5 h-5 text-primary" />}
                               {subsection.title}
                             </h4>
                             
@@ -796,7 +797,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
               // Piemonte: Connectivity content
               <div className="space-y-6">
                 <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">
-                  Piemonte's strategic location offers excellent connectivity to major Italian and European destinations.
+                  Strategic location offers excellent connectivity to major Italian and European destinations.
                 </p>
                 <div className="grid gap-6 md:grid-cols-2">
                   {healthcare.travelTimes.map((location, idx) => (
@@ -866,10 +867,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
         {region !== 'lombardia' && (
           <div className="text-center max-w-2xl mx-auto mt-16">
             <p className="text-muted-foreground leading-relaxed">
-              {region === 'puglia' 
-                ? 'Infrastructure in Puglia is designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
-                : 'Healthcare and infrastructure are designed to support comfortable, connected living — whether you\'re here seasonally or year-round.'
-              }
+              Healthcare and infrastructure are designed to support comfortable, connected living — whether you're here seasonally or year-round.
             </p>
           </div>
         )}

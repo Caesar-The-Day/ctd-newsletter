@@ -1023,6 +1023,14 @@
                 }
               ],
               "closing": "Three airports within a 90-minute corridor. If one doesn't fly your route, another likely will."
+            },
+            {
+              "title": "Adriatic Ferries",
+              "paragraphs": [
+                "Venice is the historic gateway to the Adriatic — and ferry services still run. High-speed catamarans connect Venice to Croatia's Istrian coast: Rovinj (3 hrs), Pula (3.5 hrs), and Poreč (2.5 hrs) via Kompas and Venezia Lines, operating seasonally from May to October.",
+                "Year-round overnight car ferries from Venice reach Greece — Igoumenitsa (22 hrs) and Patras (30 hrs) via Anek and Minoan Lines. For Slovenia, Piran is accessible via Trieste (1 hour from Venice by train, then a short local ferry).",
+                "Pro tip: a weekend in Rovinj from your base in Veneto costs less than a train to Naples — and you'll eat better."
+              ]
             }
           ]
         },
@@ -1038,6 +1046,19 @@
             "Colli Euganei for thermal spas and gentle hiking",
             "Lessinia for truffle hunting and pre-Alpine trails",
             "Adriatic coast for beach access and maritime activities"
+          ]
+        },
+        {
+          "title": "The Crossroads Advantage",
+          "paragraphs": [
+            "Few regions in Europe can match Veneto's strategic connectivity. The Brenner Pass carries road and rail traffic to Austria and Germany. The A4 autostrada links Turin to Trieste across northern Italy's industrial heartland. The Adriatic opens maritime routes to Croatia, Greece, and beyond. And three airports — at different price points and geographies — mean you're never more than 90 minutes from a flight.",
+            "This isn't just convenience. It's the reason Veneto has attracted settlers, traders, and empire-builders for two millennia — and why it still makes more sense as a base than almost anywhere else in Italy."
+          ],
+          "features": [
+            "Brenner Pass: direct road and rail to Innsbruck, Munich, and Vienna",
+            "A4 corridor: east-west spine across northern Italy, from Turin to Trieste",
+            "Adriatic maritime access: seasonal ferries to Croatia, year-round to Greece",
+            "Three airports (VCE, TSF, VRN) serving intercontinental, budget, and regional routes"
           ]
         }
       ]
