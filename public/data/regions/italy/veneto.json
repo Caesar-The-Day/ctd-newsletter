@@ -494,56 +494,56 @@
         "blurb": "At the base of the Colli Euganei — gentle hills, thermal waters, vineyards, and olive groves. Closer to countryside rhythms without being cut off.",
         "fullDescription": "Este sits at the base of the Colli Euganei, one of Veneto's quiet treasures. Gentle hills. Thermal waters nearby. Vineyards. Olive groves.\n\nThe pace here slows slightly compared to Padua. There's still infrastructure — supermarkets, services, bus connections — but you feel closer to countryside rhythms.\n\nAbano Terme and Montegrotto Terme are nearby for spa culture and medical facilities. Padua's hospital network is within reach.\n\nEste works for those who want green hills, local markets, and a softer lifestyle without being cut off."
       },
-      {
-        "id": "chioggia",
-        "name": "Chioggia",
-        "bestFor": "Working fishing port, lagoon life",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "chioggia",
+         "name": "Chioggia",
+         "bestFor": "Working fishing port, lagoon life",
+         "photo": "/images/veneto/chioggia.webp",
         "mapUrl": "https://maps.google.com/?q=Chioggia+Italy",
         "blurb": "A working fishing town with grit and character — boats unload fresh catch in the morning, markets buzz. Not manicured for tourism.",
         "fullDescription": "Chioggia is often called \"Little Venice,\" which misses the point.\n\nThis is a working fishing town with grit and character. Boats unload fresh catch in the morning. Markets buzz. The lagoon shapes daily life. It's not manicured for tourism the way Venice is.\n\nPrices are more approachable than Venice. The salt air is real. The sea is accessible. Summers can be lively, but winter brings authenticity.\n\nFor retirees who want water without spectacle — and who appreciate a bit of roughness around the edges — Chioggia delivers."
       },
-      {
-        "id": "arzignano",
-        "name": "Arzignano",
-        "bestFor": "Affordable, industrial stability",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "arzignano",
+         "name": "Arzignano",
+         "bestFor": "Affordable, industrial stability",
+         "photo": "/images/veneto/arzignano.webp",
         "mapUrl": "https://maps.google.com/?q=Arzignano+Italy",
         "blurb": "Unapologetically industrial — economically powerful with consistent employment and maintained infrastructure. Near Vicenza without Vicenza prices.",
         "fullDescription": "Arzignano is unapologetically industrial. It's known for leather production and manufacturing.\n\nThat might not sound romantic. It is, however, economically powerful. The town benefits from consistent employment and maintained infrastructure. It sits near Vicenza, giving you access to larger-city services without paying Vicenza prices.\n\nYou won't move here for Renaissance views. You move here for stability, affordability, and proximity.\n\nFor retirees focused on budget discipline and practicality, Arzignano is a serious option."
       },
-      {
-        "id": "schio",
-        "name": "Schio",
-        "bestFor": "Mountain proximity, modernizing",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "schio",
+         "name": "Schio",
+         "bestFor": "Mountain proximity, modernizing",
+         "photo": "/images/veneto/schio.jpg",
         "mapUrl": "https://maps.google.com/?q=Schio+Italy",
         "blurb": "North of Vicenza at the base of the mountains — historically industrial, now reinventing itself with cultural initiatives and green spaces.",
         "fullDescription": "Schio sits north of Vicenza at the base of the mountains. Historically industrial, it has reinvented itself with cultural initiatives and green spaces.\n\nThe foothill position means cooler evenings in summer and quick access to hiking trails. It's well connected by road and rail to Vicenza's hospitals and services.\n\nIt feels industrious but evolving. Not glamorous, but increasingly livable.\n\nSchio is well suited for retirees who want proximity to mountains and a town that's quietly modernizing."
       },
-      {
-        "id": "feltre",
-        "name": "Feltre",
-        "bestFor": "Pre-Dolomite, alpine atmosphere",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "feltre",
+         "name": "Feltre",
+         "bestFor": "Pre-Dolomite, alpine atmosphere",
+         "photo": "/images/veneto/feltre.jpg",
         "mapUrl": "https://maps.google.com/?q=Feltre+Italy",
         "blurb": "Edges into the pre-Dolomite landscape — beautiful, cooler in summer, distinctly alpine. Mountain culture without Cortina pricing.",
         "fullDescription": "Feltre edges into the pre-Dolomite landscape. It's beautiful, cooler in summer, and distinctly alpine in atmosphere.\n\nThis is not suburban Veneto. Winters are real. Snow happens. Life slows.\n\nBut for those who want mountain culture without Cortina pricing, Feltre is compelling. There are schools, healthcare facilities, and daily services. You are not isolated — just elevated.\n\nFeltre is best for retirees who value altitude, quiet, and dramatic scenery over constant urban stimulation."
       },
-      {
-        "id": "abano-terme",
-        "name": "Abano Terme",
-        "bestFor": "Thermal wellness, healthcare access",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "abano-terme",
+         "name": "Abano Terme",
+         "bestFor": "Thermal wellness, healthcare access",
+         "photo": "/images/veneto/abano-terme.webp",
         "mapUrl": "https://maps.google.com/?q=Abano+Terme+Italy",
         "blurb": "Built around thermal water — spa hotels, wellness centers, rehabilitation clinics. Minutes from Padua's medical network. Healthcare is baked into the town's identity.",
         "fullDescription": "Abano Terme is built around thermal water. Spa hotels, wellness centers, rehabilitation clinics — health is baked into the town's identity.\n\nIt sits minutes from Padua, which means you're tied into one of northern Italy's strongest medical networks. The terrain is flat. Walkable. Manageable.\n\nThe demographic skews older. That's not a flaw — it's part of the ecosystem.\n\nAbano Terme makes sense if you want healthcare access, spa culture, and proximity to a university city without living in its center."
       },
-      {
-        "id": "soave",
-        "name": "Soave",
-        "bestFor": "Walled wine town, vineyard views",
-        "photo": "/images/veneto/hero.jpg",
+       {
+         "id": "soave",
+         "name": "Soave",
+         "bestFor": "Walled wine town, vineyard views",
+         "photo": "/images/veneto/soave.jpg",
         "mapUrl": "https://maps.google.com/?q=Soave+Italy",
         "blurb": "Small, walled, and visually striking — vineyards stretch beyond the medieval gates. Globally recognized wine. Romantic in a controlled way.",
         "fullDescription": "Soave is small, walled, and visually striking. Vineyards stretch beyond the medieval gates. The wine is globally recognized.\n\nBut let's be honest: this is not a large city. Services are present but limited. Verona is the gravity center nearby for expanded healthcare and transport.\n\nSoave works for retirees comfortable in a smaller community, ideally with a car. It's scenic. It's contained. It's romantic in a controlled way.\n\nIf you want daily vineyard views and are comfortable supplementing locally with nearby Verona, Soave can be a deeply satisfying choice."
