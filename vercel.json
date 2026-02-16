@@ -4,7 +4,7 @@
   "outputDirectory": "dist",
   "routes": [
     {
-      "src": "^/(piemonte|lombardia|puglia|umbria)(?:/)?$",
+      "src": "^/(piemonte|lombardia|puglia|umbria|veneto)(?:/)?$",
       "has": [
         {
           "type": "header",
