@@ -72,7 +72,7 @@
       "tooltip": "Quiet reset. Locals emerging.",
       "narrative": "First vineyard pruning in Valpolicella. Early spring markets in Padua and Vicenza. Easter markets and religious processions (dates vary). Fewer tourists, rising light levels.",
       "culturalEvent": "Vineyard pruning in Valpolicella",
-      "culturalEventUrl": "https://www.visitvalpolicella.it/en/",
+      "culturalEventUrl": "https://www.infovalpolicella.it/eng/home",
       "visualCue": "Budding vines against limestone walls"
     },
     {
@@ -155,7 +155,7 @@
       "tooltip": "This is why people move here.",
       "narrative": "Grape harvest in Valpolicella and Prosecco DOCG hills. Festa dell'Uva in many towns. Mild temperatures, golden light. Outdoor dining without heat stress.",
       "culturalEvent": "Grape harvest — Valpolicella & Prosecco hills",
-      "culturalEventUrl": "https://www.visitvalpolicella.it/en/",
+      "culturalEventUrl": "https://www.prosecco.it/en/",
       "visualCue": "Grape-laden vines in amber September light"
     },
     {
@@ -169,7 +169,7 @@
       "tooltip": "Intellectual. Earthy. Refined.",
       "narrative": "Amarone harvest wrap-ups. Truffle festivals in Lessinia and foothill towns. Chestnut festivals (Castagnate). Cultural season relaunch in theaters.",
       "culturalEvent": "Truffle & Chestnut Festivals",
-      "culturalEventUrl": "https://www.lessiniablog.it/",
+      "culturalEventUrl": "https://magictowns.it/the-ultimate-guide-to-venetos-sagre/",
       "visualCue": "Chestnut roasters in a medieval piazza"
     },
     {
@@ -183,7 +183,7 @@
       "tooltip": "Reflective. Quiet. Local life.",
       "narrative": "Festa della Salute in Venice (November 21). Olive oil pressing in some southern areas. Fewer tourists, museum season. Ski prep in the Dolomites.",
       "culturalEvent": "Festa della Salute — Venice",
-      "culturalEventUrl": "https://www.veneziaunica.it/en/content/festa-della-salute",
+      "culturalEventUrl": "https://www.venicewelcome.com/info/events_of_venice/festa_madonna_della_salute.htm",
       "visualCue": "Votive candles on the Grand Canal, fog wrapping around churches"
     },
     {
