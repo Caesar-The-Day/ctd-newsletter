@@ -1,60 +1,84 @@
 
 
-## Replace Nature Map Markers for Veneto
+## Fix the Publish Feature to Actually Update the Landing Page and Map
 
-### Problem
+### The Problem
 
-The "Access to Nature & Recreation" section renders `<LombardiaNatureMap />` with no props for every region that has infrastructure data. This means Veneto shows Lombardia's lakes (Como, Iseo, Maggiore), Lombardia's ski areas (Bormio, Livigno), and Milan as the hub -- all wrong for Veneto.
+When you click "Publish" in the admin panel, the edge function only updates the **database** (sets status to "live", locked to true). But the landing page (`/`) reads its data from a **static JSON file** (`newsletter-index.json`) which never gets updated. So after publishing Veneto:
 
-### Solution
+- The database says Veneto is "live" (correct)
+- The landing page still shows Veneto as "Coming Soon" and Umbria as the featured issue (wrong)
+- The map still treats Veneto as a "coming-soon" region with no link (wrong)
 
-Pass Veneto-specific nature features to the existing `LombardiaNatureMap` component. The component already supports a `features` prop -- it just needs the right data. Additionally, add a `beach` feature type for the Adriatic coast.
+### The Solution
+
+Make the landing page dynamically build its newsletter list from the **database** (which the admin already manages), instead of relying on the static `newsletter-index.json` file. This way, when you publish a region, the landing page immediately reflects the change.
 
 ### Changes
 
-**1. `src/components/sections/HealthcareInfrastructure.tsx`**
+**1. Update `src/utils/getRegionData.ts` -- New function `getNewsletterIndexData`**
 
-- Where `<LombardiaNatureMap />` is rendered (line 540), make it region-aware by passing Veneto features when the region slug is `veneto`
-- Define a `venetoNatureFeatures` array with geographically accurate coordinates for Veneto's nature assets
+Replace the current implementation (which just fetches `newsletter-index.json`) with one that:
 
-**2. `src/components/sections/LombardiaNatureMap.tsx`**
+- Queries the `regions` table for all regions with status "live" or "draft"
+- Builds the newsletters array from database rows (slug, display_name, status, issue_number, published_date)
+- Sets the newest published region as the "featured" issue
+- Falls back to the static JSON if the database query fails (safety net)
+- Still loads the archive section from the static JSON (PDF downloads are not in the database)
 
-- Add `beach` to the feature type union (`'lake' | 'park' | 'ski' | 'hub' | 'beach'`)
-- Add a beach marker style (using the existing `Waves` icon in a sandy/amber color scheme)
-- Add beach icon to the legend
-- Rename the component export to something generic (e.g., `NatureRecreationMap`) or keep the name but it works for any region via props
+**2. Map thumbnails and descriptions**
 
-### Veneto Nature Features
+The database `regions` table doesn't store thumbnails or descriptions for the newsletter index cards. Two options:
 
-**Hub:** Padova (geographic center of Veneto's livability corridor)
+- Use convention-based paths: thumbnail = `/images/{slug}/{slug}-hero.jpg` or similar known images
+- Add a small lookup map in `getNewsletterIndexData` that maps slugs to their hero images and short descriptions (derived from the existing static JSON data that's already proven)
 
-**Parks (green tree markers):**
-- Dolomiti Bellunesi National Park [46.20, 12.05] -- Alpine wilderness, UNESCO World Heritage
-- Parco Regionale dei Colli Euganei [45.30, 11.72] -- Thermal hills, gentle hiking, spa culture
-- Parco Regionale del Delta del Po [44.95, 12.30] -- Wetlands, birdwatching, cycling paths
-- Parco Naturale della Lessinia [45.60, 11.05] -- Pre-Alpine plateau, truffle country
+The plan uses a **hybrid approach**: read the static `newsletter-index.json` once for its archive data and metadata (thumbnails, descriptions), then override the newsletters list and featured section with live database state. This means:
 
-**Ski Areas (blue snowflake markers):**
-- Cortina d'Ampezzo [46.54, 12.14] -- 2026 Olympics, world-class skiing
-- Arabba / Marmolada [46.50, 11.87] -- Highest Dolomite peak, glacier skiing
-- Alleghe / Civetta [46.41, 12.02] -- Family-friendly, dramatic cliff scenery
-- Falcade / San Pellegrino [46.35, 11.87] -- Quieter, excellent snow record
-- Asiago Plateau [45.88, 11.51] -- Accessible from Vicenza, cross-country skiing
+- Any region that's "live" in the database gets a card with a link
+- The newest published region becomes the featured hero card
+- "Draft" regions show as "Coming Soon"
+- Archive PDFs continue working from the static file
+- The map receives the correct status for each region
 
-**Lakes (blue polygon markers):**
-- Lake Garda (western shore) [45.58, 10.65] -- Italy's largest lake, shared with Lombardia
-- Lake Santa Croce [46.10, 12.33] -- Windsurfing and pre-Alpine setting
-- Lake Misurina [46.58, 12.25] -- High-altitude Dolomite lake
+**3. Update `ItalyMapInteractive` component**
 
-**Beaches (amber/sand markers - NEW type):**
-- Lido di Venezia [45.38, 12.36] -- Venice's beach island, film festival
-- Jesolo [45.50, 12.64] -- Family resort strip, 15km of sand
-- Caorle [45.60, 12.88] -- Fishing village charm with long beach
-- Sottomarina / Chioggia [45.22, 12.30] -- Wide sandy beaches, less touristic
+The map component already handles "live" vs "coming-soon" status correctly from the data it receives. No map code changes needed -- it just needs to receive the correct status for Veneto (which will happen once the data source is fixed).
 
-**Map center:** [45.7, 11.8] at zoom 8 (to capture Dolomites to Adriatic)
+### Technical Details
 
-### No new dependencies or files needed
+```text
+Current flow:
+  Landing Page -> fetch newsletter-index.json (static) -> render cards + map
+  
+New flow:
+  Landing Page -> fetch newsletter-index.json (for archive + metadata)
+                -> query regions table (for live status)
+                -> merge: DB status overrides static status
+                -> newest published = featured
+                -> render cards + map
+```
 
-The `LombardiaNatureMap` component already has the Leaflet + MapTiler setup, legend, and interaction patterns. Adding `beach` is one new marker style and one legend entry.
+The key merge logic:
+- For each region in the database with status "live", find or create its newsletter entry with `ctaLink: /{slug}` and `ctaText: "Read Newsletter"`
+- For regions in "draft" status, set `status: "coming-soon"` and `ctaText: "Coming Soon"`
+- Sort newsletters by issue_number descending
+- The region with the highest issue_number and status "live" becomes the featured card
+
+**4. Update `ai-instructions.json` via the publish edge function (optional but recommended)**
+
+Currently `ai-instructions.json` is also stale (doesn't include Umbria or Veneto in lockedRegions). This is a secondary concern since it's an internal tool, but the edge function could also update this. However, since edge functions can't write to static files in the repo, this would need a separate approach (like also reading locked regions from the DB). For now, the priority is fixing the user-facing landing page.
+
+### Files Modified
+
+1. `src/utils/getRegionData.ts` -- Rewrite `getNewsletterIndexData()` to merge DB state with static JSON
+2. No edge function changes needed
+3. No component changes needed (the components already handle the data correctly)
+
+### What This Fixes
+
+- Publishing a region immediately updates the landing page cards
+- The map immediately shows the region as "Live" with a working link
+- The featured hero section automatically switches to the newest published issue
+- No manual JSON editing required after publishing
 
