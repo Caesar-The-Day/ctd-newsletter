@@ -63,13 +63,14 @@
     {
       "slug": "veneto",
       "title": "Veneto",
+      "subtitle": "The European Crossroads",
       "issueNumber": 11,
       "date": "February 2026",
-      "status": "coming-soon",
-      "thumbnail": "/images/archive/umbria-thumbnail.jpg",
-      "description": "From Venice's lagoon to Prosecco hills and Verona's romance: retiring in northeastern Italy's most diverse region. Coming soon.",
-      "ctaText": "Coming Soon",
-      "expectedDate": "February 2026"
+      "status": "live",
+      "thumbnail": "/images/veneto/veneto-venice-dolomites.jpg",
+      "description": "Italy's economic engine hiding in plain sight: Venice draws sixty million tourists a year, but the smart ones look past the lagoon to Padova's world-class hospitals, Vicenza's Palladian elegance, and Treviso's quiet residential charm. Prosecco hills, Dolomite ski runs, Adriatic beaches, and a high-speed rail network that puts Munich closer than Rome. This is the region that works.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/veneto"
     }
   ],
   "archive": [
