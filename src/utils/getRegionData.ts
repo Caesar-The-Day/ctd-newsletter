@@ -47,9 +47,77 @@ export async function getRegionData(slug: string): Promise<RegionData> {
 }
 
 export async function getNewsletterIndexData() {
+  // Always load static JSON for archive data, thumbnails, descriptions
   const response = await fetch('/data/newsletter-index.json');
   if (!response.ok) throw new Error('Failed to load newsletter index');
-  return response.json();
+  const staticData = await response.json();
+
+  // Try to merge with live database state
+  try {
+    const { data: dbRegions, error } = await supabase
+      .from('regions')
+      .select('slug, display_name, status, issue_number, published_date')
+      .order('published_date', { ascending: false });
+
+    if (error || !dbRegions?.length) {
+      console.warn('[getNewsletterIndexData] DB fetch failed, using static JSON');
+      return staticData;
+    }
+
+    // Build a lookup from static newsletters for metadata (thumbnails, descriptions)
+    const staticLookup: Record<string, any> = {};
+    for (const nl of staticData.newsletters || []) {
+      staticLookup[nl.slug] = nl;
+    }
+
+    // Build merged newsletters list from DB state
+    const newsletters = dbRegions.map((dbRow) => {
+      const existing = staticLookup[dbRow.slug];
+      const isLive = dbRow.status === 'live';
+
+      return {
+        slug: dbRow.slug,
+        title: existing?.title || dbRow.display_name,
+        issueNumber: dbRow.issue_number ?? existing?.issueNumber ?? 0,
+        date: existing?.date || (dbRow.published_date ? new Date(dbRow.published_date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : ''),
+        status: isLive ? 'live' as const : 'coming-soon' as const,
+        thumbnail: existing?.thumbnail || `/images/${dbRow.slug}/${dbRow.slug}-hero.jpg`,
+        description: existing?.description || `Explore ${dbRow.display_name} — your guide to retiring in this Italian region.`,
+        ctaText: isLive ? 'Read Newsletter' : 'Coming Soon',
+        ctaLink: isLive ? `/${dbRow.slug}` : undefined,
+        expectedDate: !isLive ? existing?.expectedDate : undefined,
+      };
+    });
+
+    // Sort by issue_number descending
+    newsletters.sort((a: any, b: any) => (b.issueNumber || 0) - (a.issueNumber || 0));
+
+    // Featured = newest live region
+    const newestLive = newsletters.find((n: any) => n.status === 'live');
+    const featured = newestLive
+      ? {
+          slug: newestLive.slug,
+          title: newestLive.title,
+          subtitle: staticLookup[newestLive.slug]?.subtitle || newestLive.title,
+          issueNumber: newestLive.issueNumber,
+          date: newestLive.date,
+          description: newestLive.description,
+          heroImage: newestLive.thumbnail,
+          ctaText: 'Explore ' + newestLive.title,
+          ctaLink: `/${newestLive.slug}`,
+        }
+      : staticData.featured;
+
+    return {
+      hero: staticData.hero,
+      featured,
+      newsletters,
+      archive: staticData.archive || [],
+    };
+  } catch (err) {
+    console.warn('[getNewsletterIndexData] DB merge failed, using static JSON:', err);
+    return staticData;
+  }
 }
 
 export interface FeatureFlags {
