@@ -1,33 +1,32 @@
 
 
-## Fix Facebook OG Debugger for /veneto
+## Make Social Bot Routing Automatic for Future Regions
 
-### Root Cause
+### Problem
+Every time a new region is added to the OG Image Manager, someone must manually update the `vercel.json` regex to include the new slug. This was just forgotten for Veneto and will happen again.
 
-The Vercel routing rule that intercepts social media crawlers only matches four regions:
+### Solution
+Replace the hardcoded region list in the `vercel.json` bot-detection route with a generic pattern that matches any valid region slug. The `api/og.ts` edge function already handles unknown slugs gracefully (returns site-wide defaults), so there is zero risk from broadening the match.
 
-```
-^/(piemonte|lombardia|puglia|umbria)(?:/)?$
-```
-
-Veneto is missing from this list. When Facebook's crawler visits `/veneto`, it bypasses the OG edge function entirely and receives the generic SPA shell (`index.html`) -- which has no Veneto-specific metadata.
-
-### Fix
+### Change
 
 **File: `vercel.json` (line 7)**
 
-Add `veneto` to the bot-detection route regex:
-
+Replace:
 ```
-^/(piemonte|lombardia|puglia|umbria|veneto)(?:/)?$
+"src": "^/(piemonte|lombardia|puglia|umbria|veneto)(?:/)?$"
 ```
 
-This single change ensures Facebook, Twitter, LinkedIn, WhatsApp, and all other social crawlers get routed to the `/api/og` edge function, which already knows how to fetch Veneto's metadata from the database.
+With:
+```
+"src": "^/([a-z][a-z0-9-]+)(?:/)?$"
+```
 
-### Verification
+This matches any lowercase slug (e.g., `/toscana`, `/sardegna`, `/le-marche`) and routes social bots to the OG edge function automatically. Regular browser users are unaffected -- only requests with a social bot user-agent header are intercepted.
 
-After deploying, re-run the Facebook Sharing Debugger at:
-`https://developers.facebook.com/tools/debug/?q=https://news.caesartheday.com/veneto`
+No other files need to change. The `api/og.ts` function already queries the database by slug and falls back to site-wide defaults for any slug that does not have an entry yet.
 
-It should now show the correct title, description, and OG image.
-
+### Why This Is Safe
+- The route rule requires the social bot user-agent header, so normal visitors always get the SPA
+- Unknown slugs return the generic "Veni. Vidi. Vici." OG metadata -- no errors
+- Static asset paths (`/images/`, `/data/`, `/newsletters/`, files with extensions) are excluded by the later catch-all rule and never match this pattern
