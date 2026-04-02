@@ -391,7 +391,7 @@ export function UmbriaChocolateCity() {
           {/* Right: Hero Image */}
           <div className="relative">
             <img 
-              src="https://www.poggiodegliolivi.com/wp-content/uploads/2021/09/4-1.jpg" 
+              src="/images/umbria/eurochocolate.jpg" 
               alt="Eurochocolate festival in Perugia" 
               className="rounded-2xl shadow-2xl w-full"
             />
