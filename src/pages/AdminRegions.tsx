@@ -150,9 +150,16 @@ export default function AdminRegions() {
         wizardData
       );
 
-      // Merge AI climate data if available
+      // Merge AI climate data if available. The AI now returns a rich
+      // `climateSnapshot` block matching the ClimateSnapshot component's
+      // schema (intro paragraphs, per-city `regions` map, 12 months with
+      // city sub-objects). When present, it fully replaces the stub.
+      // Legacy `climate.cities[0].months` shape is still handled as a
+      // fallback for backward compatibility.
       let finalClimateData = result.data.climateData;
-      if (wizardData.research?.climate?.cities?.[0]?.months) {
+      if (wizardData.research?.climateSnapshot) {
+        finalClimateData = wizardData.research.climateSnapshot;
+      } else if (wizardData.research?.climate?.cities?.[0]?.months) {
         finalClimateData = {
           ...finalClimateData,
           months: wizardData.research.climate.cities[0].months,

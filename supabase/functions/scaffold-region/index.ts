@@ -220,25 +220,41 @@ function buildRegionTemplate(slug: string, displayName: string, issueNumber: num
 }
 
 function buildClimateTemplate(displayName: string) {
+  // Stub matches the shape ClimateSnapshot.tsx expects so the row stays
+  // valid even before AI research populates city-level data. The wizard
+  // overwrites this with `research.climateSnapshot` when available.
+  const monthMeta = [
+    { month: "January", index: 0, season: "winter" },
+    { month: "February", index: 1, season: "winter" },
+    { month: "March", index: 2, season: "spring" },
+    { month: "April", index: 3, season: "spring" },
+    { month: "May", index: 4, season: "spring" },
+    { month: "June", index: 5, season: "summer" },
+    { month: "July", index: 6, season: "summer" },
+    { month: "August", index: 7, season: "summer" },
+    { month: "September", index: 8, season: "autumn" },
+    { month: "October", index: 9, season: "autumn" },
+    { month: "November", index: 10, season: "autumn" },
+    { month: "December", index: 11, season: "winter" },
+  ] as const;
+
   return {
     intro: {
       headline: `Climate Snapshot: A Year in ${displayName}`,
-      lead: `Understanding ${displayName}'s climate is essential for planning your life there.`
+      tagline: `A year in ${displayName}, season by season.`,
+      paragraphs: [
+        `Understanding ${displayName}'s climate is essential for planning your life there.`,
+      ],
+      hoverQuote: "",
+      ctaText: "Slide through the seasons →",
     },
     regions: {},
-    months: [
-      { name: 'January', avgHigh: 10, avgLow: 2, precipitation: 60, sunnyDays: 4 },
-      { name: 'February', avgHigh: 12, avgLow: 3, precipitation: 55, sunnyDays: 5 },
-      { name: 'March', avgHigh: 15, avgLow: 6, precipitation: 50, sunnyDays: 7 },
-      { name: 'April', avgHigh: 18, avgLow: 9, precipitation: 60, sunnyDays: 8 },
-      { name: 'May', avgHigh: 23, avgLow: 13, precipitation: 55, sunnyDays: 10 },
-      { name: 'June', avgHigh: 27, avgLow: 17, precipitation: 40, sunnyDays: 12 },
-      { name: 'July', avgHigh: 30, avgLow: 20, precipitation: 25, sunnyDays: 14 },
-      { name: 'August', avgHigh: 30, avgLow: 20, precipitation: 30, sunnyDays: 13 },
-      { name: 'September', avgHigh: 26, avgLow: 16, precipitation: 50, sunnyDays: 10 },
-      { name: 'October', avgHigh: 20, avgLow: 12, precipitation: 80, sunnyDays: 7 },
-      { name: 'November', avgHigh: 14, avgLow: 7, precipitation: 90, sunnyDays: 5 },
-      { name: 'December', avgHigh: 10, avgLow: 3, precipitation: 70, sunnyDays: 4 }
-    ]
+    months: monthMeta.map((m) => ({
+      ...m,
+      tooltip: "",
+      culturalEvent: "",
+      culturalEventUrl: "",
+      visualCue: "",
+    })),
   };
 }

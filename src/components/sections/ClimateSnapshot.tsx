@@ -3,6 +3,7 @@ import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
 import { Cloud, Droplets, Sun, Thermometer, CloudSun, ExternalLink, MapPin, Calendar } from "lucide-react";
 import { SeasonalParticles } from "@/components/effects/SeasonalParticles";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ClimateData {
   intro: {
@@ -146,6 +147,31 @@ const seasonalImagesUmbria = {
   autumn: "/images/umbria/seasonal-backgrounds/autumn-landscape.jpg",
 };
 
+// Neutral default gradient palette used when a region doesn't ship custom backgrounds.
+const seasonalBackgroundsDefault = {
+  winter: "from-slate-200/30 via-blue-100/20 to-slate-100/30 dark:from-slate-900/30 dark:via-blue-950/20 dark:to-slate-800/30",
+  spring: "from-green-100/30 via-emerald-50/20 to-lime-100/30 dark:from-green-950/30 dark:via-emerald-900/20 dark:to-lime-950/30",
+  summer: "from-amber-100/30 via-yellow-50/20 to-orange-100/30 dark:from-amber-950/30 dark:via-yellow-900/20 dark:to-orange-950/30",
+  autumn: "from-orange-100/30 via-red-50/20 to-amber-100/30 dark:from-orange-950/30 dark:via-red-900/20 dark:to-amber-950/30",
+};
+
+// Type guard: does the payload have the rich shape ClimateSnapshot needs?
+function isRichClimatePayload(data: any): data is ClimateData {
+  return (
+    !!data &&
+    typeof data === "object" &&
+    !!data.intro?.headline &&
+    Array.isArray(data.intro?.paragraphs) &&
+    !!data.regions &&
+    typeof data.regions === "object" &&
+    Object.keys(data.regions).length > 0 &&
+    Array.isArray(data.months) &&
+    data.months.length === 12 &&
+    !!data.months[0]?.month &&
+    !!data.months[0]?.season
+  );
+}
+
 type BestMonthsView = "off" | "scouting" | "moving";
 
 interface BestMonthsData {
@@ -165,23 +191,59 @@ export function ClimateSnapshot() {
   const region = window.location.pathname.slice(1) || "piemonte";
 
   useEffect(() => {
-    fetch(`/data/regions/italy/${region}-climate.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        setClimateData(data);
-        // Set default region based on location
-        const firstRegionKey = Object.keys(data.regions)[0] as RegionKey;
-        setSelectedRegion(firstRegionKey);
-      })
-      .catch(() => {
-        // Fallback to piemonte if region climate data not found
-        fetch("/data/piemonte-climate.json")
-          .then((res) => res.json())
-          .then((data) => {
-            setClimateData(data);
-            setSelectedRegion("alba");
-          });
-      });
+    let cancelled = false;
+
+    const applyData = (data: any) => {
+      if (cancelled || !isRichClimatePayload(data)) return false;
+      setClimateData(data);
+      const firstRegionKey = Object.keys(data.regions)[0] as RegionKey;
+      setSelectedRegion(firstRegionKey);
+      return true;
+    };
+
+    const loadFromStaticFiles = async () => {
+      try {
+        const res = await fetch(`/data/regions/italy/${region}-climate.json`);
+        if (res.ok) {
+          const data = await res.json();
+          if (applyData(data)) return;
+        }
+      } catch {
+        // ignore — fall through to last-ditch fallback
+      }
+      // Last-ditch fallback: Piemonte (preserves prior behavior).
+      try {
+        const res = await fetch("/data/piemonte-climate.json");
+        if (res.ok) {
+          const data = await res.json();
+          applyData(data);
+        }
+      } catch {
+        // give up silently — section will render null
+      }
+    };
+
+    (async () => {
+      // 1. Try the database first (source of truth for AI-scaffolded regions).
+      try {
+        const { data: dbRow, error } = await supabase
+          .from("regions")
+          .select("climate_data")
+          .eq("slug", region)
+          .maybeSingle();
+        if (!error && dbRow?.climate_data && applyData(dbRow.climate_data)) {
+          return;
+        }
+      } catch {
+        // ignore — fall through to static files
+      }
+      // 2. Fall back to static JSON files.
+      await loadFromStaticFiles();
+    })();
+
+    return () => {
+      cancelled = true;
+    };
   }, [region]);
 
   // Trigger animation reset on month change
@@ -194,19 +256,31 @@ export function ClimateSnapshot() {
   const currentWeather = currentMonthData?.[selectedRegion] as WeatherData | undefined;
   const currentSeason = currentMonthData?.season ?? "spring";
   
-  // Select region-specific backgrounds
+  // Select region-specific backgrounds. Hand-tuned palettes exist only for the
+  // pioneer regions; every other region uses the neutral default gradient and
+  // attempts a region-specific seasonal photo at the conventional path.
   const getSeasonalBackgrounds = () => {
+    if (region === "piemonte") return seasonalBackgroundsPiemonte;
     if (region === "puglia") return seasonalBackgroundsPuglia;
     if (region === "umbria") return seasonalBackgroundsUmbria;
-    return seasonalBackgroundsPiemonte;
+    return seasonalBackgroundsDefault;
   };
-  
+
   const getSeasonalImages = () => {
+    if (region === "piemonte") return seasonalImagesPiemonte;
     if (region === "puglia") return seasonalImagesPuglia;
     if (region === "umbria") return seasonalImagesUmbria;
-    return seasonalImagesPiemonte;
+    // Convention: image-generation pipeline writes to this path. If a file
+    // doesn't exist, the <div> simply shows no background image (the gradient
+    // overlay still renders, so the section never falls back to Piemonte art).
+    return {
+      winter: `/images/${region}/seasonal-backgrounds/winter-landscape.jpg`,
+      spring: `/images/${region}/seasonal-backgrounds/spring-landscape.jpg`,
+      summer: `/images/${region}/seasonal-backgrounds/summer-landscape.jpg`,
+      autumn: `/images/${region}/seasonal-backgrounds/autumn-landscape.jpg`,
+    };
   };
-  
+
   const seasonalBackgrounds = getSeasonalBackgrounds();
   const seasonalImages = getSeasonalImages();
 
