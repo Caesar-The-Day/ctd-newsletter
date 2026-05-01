@@ -56,7 +56,14 @@ serve(async (req) => {
 
     // Use Supabase REST API directly for storage (avoids heavy SDK import)
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY') || Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    // MUST use the service-role JWT — the publishable/anon key in this project is
+    // not a JWT and the Storage REST API rejects it with "Invalid Compact JWS".
+    // Service role also bypasses RLS, which is what we want for an admin-only
+    // server-side upload.
+    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    if (!supabaseKey) {
+      throw new Error('SUPABASE_SERVICE_ROLE_KEY is not configured');
+    }
 
     const generatedImages: GeneratedImage[] = [];
     const errors: string[] = [];
@@ -190,6 +197,20 @@ serve(async (req) => {
     }
 
     console.log('[generate-region-images] Complete. Generated:', generatedImages.length, 'images');
+
+    // If we generated nothing at all, surface that as a real failure so the
+    // wizard does not silently store a broken default image path.
+    if (generatedImages.length === 0) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'No images were generated successfully',
+          errors,
+          regionSlug,
+        }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
 
     return new Response(
       JSON.stringify({
