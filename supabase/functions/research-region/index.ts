@@ -453,12 +453,12 @@ Provide comprehensive, ACCURATE research including:
 3. 3 geography tabs: terrain description, how to get there, local transport - each with 2-3 real paragraphs
 
 ## Climate
-4. A rich `climateSnapshot` block (NOT a single-city summary):
+4. A rich 'climateSnapshot' block (NOT a single-city summary):
    - 3–4 page editorial intro paragraphs in Cesare's first-person voice, specific to this region's climatic character.
-   - Pick 3–4 climatically DISTINCT featured towns from the towns list above (e.g. coastal vs inland, capital vs beach town, mountain vs lowland). Use lowercase slug keys for them in `regions` and in each month entry.
+   - Pick 3–4 climatically DISTINCT featured towns from the towns list above (e.g. coastal vs inland, capital vs beach town, mountain vs lowland). Use lowercase slug keys for them in 'regions' and in each month entry.
    - Provide all 12 months in calendar order (index 0–11) with realistic Celsius tempLow/tempHigh, rainfall in mm, and average daily sunHours for EACH of the chosen towns.
-   - Each month must include a real cultural event or seasonal note (festival, harvest, religious feast). Only include `culturalEventUrl` if you know the real URL — otherwise empty string.
-   - Add a short `tooltip` (mood) and `visualCue` (season visual) per month.
+   - Each month must include a real cultural event or seasonal note (festival, harvest, religious feast). Only include 'culturalEventUrl' if you know the real URL — otherwise empty string.
+   - Add a short 'tooltip' (mood) and 'visualCue' (season visual) per month.
 
 ## Food, Wine & Culture
 5. 4-5 real wines produced in the region with grape varieties and tasting descriptions
