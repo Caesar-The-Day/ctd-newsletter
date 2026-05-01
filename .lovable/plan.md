@@ -1,53 +1,98 @@
-## Fix Calabria Hero Image + Repair Image Generation Workflow
 
-### Root Cause
+## Problem
 
-The Region Creation Wizard's image step **silently fails** for every region. Edge function logs for the Calabria run show 8 consecutive uploads rejected:
+`ClimateSnapshot` only ever reads from `/data/regions/italy/{slug}-climate.json`. There is no Calabria file, so the component falls back to **`/data/piemonte-climate.json`** — that's why Calabria currently shows Piemonte's headline, paragraphs, hover quote, Turin/Alba/Verbania/Cuneo toggles, and Piemonte cultural events.
 
+Three structural gaps make this happen on every new region:
+
+1. **ClimateSnapshot never queries the database.** The wizard does write a `climate_data` JSONB row, but the component ignores it.
+2. **The schema written by the wizard is wrong.** `scaffold-region` builds a stub like `{ intro:{headline,lead}, months:[{name,avgHigh,avgLow,...}] }`, but the component expects `{ intro:{headline,tagline,paragraphs[],hoverQuote,ctaText}, regions:{key:{name,type,palette}}, months:[{month,index,season,<regionKey>:{tempLow,tempHigh,rainfall,sunHours},tooltip,culturalEvent,visualCue}] }`. Even when merged, the data can't drive the UI.
+3. **`research-region` only returns one city's flat monthly highs/lows.** It doesn't produce the per-city / per-month matrix, intro narrative, cultural events, or toggleable city set the component needs.
+
+## Solution
+
+Make Climate Snapshot a fully region-driven module by (a) fixing the AI research output, (b) writing the correct schema into the DB, (c) having the component read it from the DB with static JSON as fallback, and (d) backfilling Calabria so it works today.
+
+### 1. Expand `research-region` AI output for climate
+
+In `supabase/functions/research-region/index.ts`, replace the current `climate.cities[].months[]` schema with a `climateSnapshot` block matching what the component actually consumes:
+
+```json
+"climateSnapshot": {
+  "intro": {
+    "headline": "Climate Snapshot: A Year in <Region>",
+    "tagline": "<one-line poetic hook>",
+    "paragraphs": ["...", "...", "..."],
+    "hoverQuote": "<short editorial line>",
+    "ctaText": "Slide through the seasons →"
+  },
+  "regions": {
+    "<slug1>": { "name": "<City>", "type": "city|coastal|mountain|...", "palette": "urban|coastal|alpine|vineyard" },
+    "<slug2>": { ... },
+    "<slug3>": { ... },
+    "<slug4>": { ... }
+  },
+  "months": [
+    {
+      "month": "January", "index": 0, "season": "winter",
+      "<slug1>": { "tempLow": 5, "tempHigh": 12, "rainfall": 110, "sunHours": 4 },
+      "<slug2>": { ... }, "<slug3>": { ... }, "<slug4>": { ... },
+      "tooltip": "<short month feel>",
+      "culturalEvent": "<real event>",
+      "culturalEventUrl": "<optional url>",
+      "visualCue": "<short visual descriptor>"
+    },
+    ... 12 entries
+  ]
+}
 ```
-ERROR Storage upload error: {"statusCode":"403","error":"Unauthorized","message":"Invalid Compact JWS"}
-```
 
-In `supabase/functions/generate-region-images/index.ts` the upload uses:
+Prompt instructs the model to: pick **3–4 climatically distinct featured towns from the region's actual featured/grid list** (e.g. for Calabria: Cosenza, Reggio Calabria, Tropea, Catanzaro), give realistic monthly numbers per town, and write Cesare-voiced intro paragraphs specific to the region.
 
+### 2. Write the correct schema in `scaffold-region`
+
+In `supabase/functions/scaffold-region/index.ts`, replace `buildClimateTemplate` so the stub already matches the component's shape (empty `regions:{}`, 12 months with `month/index/season/tooltip/culturalEvent/visualCue` and no city keys yet). Stub keeps the row valid even before research populates it.
+
+### 3. Merge AI climate properly in `AdminRegions.tsx`
+
+Replace the current narrow merge (lines 153–160) with:
 ```ts
-const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY') || Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+const finalClimateData = wizardData.research?.climateSnapshot
+  ? wizardData.research.climateSnapshot
+  : result.data.climateData;
 ```
+So the AI-generated rich snapshot fully replaces the stub when present.
 
-`SUPABASE_ANON_KEY` in this project is the new **publishable key** (`sb_publishable_...`), which the Storage REST API rejects because it is not a JWT. The service-role JWT is required for server-side uploads anyway (RLS on `storage.objects` would block anon writes even if the key parsed).
+### 4. Make `ClimateSnapshot` read from the database
 
-Worse, the function still returned `{ success: true, images: [] }` with an `errors` array nobody surfaced, so the wizard happily showed "Images generated!" — and `mergeResearchData.ts` fell back to the scaffold default `/images/calabria/hero.jpg`, a path that does not exist on disk or in storage. That is exactly what the database now contains:
+In `src/components/sections/ClimateSnapshot.tsx`, change the data load to:
+1. Query `regions.climate_data` for the current slug from Supabase.
+2. If present and has `regions` + `months`, use it.
+3. Else fall back to `/data/regions/italy/{slug}-climate.json`.
+4. Else fall back to `/data/piemonte-climate.json` (existing behavior, preserved as last-ditch).
 
-```
-hero.bannerImage = "/images/calabria/hero.jpg"     ← file missing
-storage.objects (region-images, calabria/*) = empty
-```
+This means future regions never need a static climate JSON file — the DB row is the source of truth.
 
-So Calabria's hero is broken, and the same will happen to every future region until the edge function is fixed.
+### 5. Generalize seasonal background palette/images
 
-### Fix
+The component currently hard-codes `seasonalBackgroundsPiemonte/Puglia/Umbria` and `seasonalImagesPiemonte/Puglia/Umbria`, so any new region falls back to Piemonte's palette and Piemonte's seasonal photos. Change selection logic to:
+- Build the palette from the region's generated theme (already stored in `regions.region_data` as `seasonalBackgrounds`) when available, else use a neutral default gradient set.
+- Use `/images/{slug}/seasonal-backgrounds/{season}-landscape.jpg` if those files exist (the image generation pipeline already targets that path); otherwise omit the photo layer and rely on the gradient. No more silent Piemonte fallback.
 
-**1. `supabase/functions/generate-region-images/index.ts`**
-- Switch storage auth to `SUPABASE_SERVICE_ROLE_KEY` (a real JWT, bypasses RLS — correct for a server-side admin task).
-- Treat zero successful uploads as a failure: return `success: false` with the collected errors and an HTTP 500, so the wizard surfaces the real problem instead of a green toast.
-- Keep current per-image error collection so partial successes still return their URLs.
+### 6. Backfill Calabria today
 
-**2. `src/components/admin/RegionCreationWizard.tsx`**
-- After invoking `generate-region-images`, check `data.success` and `data.images.length`. On failure, show an error toast with `data.errors` and do not advance the step. This prevents future "wizard said it worked but nothing exists" incidents.
+Run the updated `research-region` (or generate inline) to produce a Calabria `climateSnapshot` with 4 featured towns (Cosenza — inland hills, Reggio Calabria — Strait coast, Tropea — Tyrrhenian beach, Catanzaro — capital), 12 months of realistic data, real cultural events (e.g. Tarantella festivals, Madonna della Montagna, Estate Tropeana), and Cesare-voiced intro. Write it into `regions.climate_data` for `slug='calabria'` via the insert tool.
 
-**3. Regenerate Calabria's hero (and seasonal + town thumbnails) now that uploads work.**
-   - Re-invoke the fixed edge function for `regionSlug: "calabria"` using the original prompts. The function will upload to `region-images/calabria/hero.png` and return the public URL `https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/calabria/hero.png`.
+### Files to modify
 
-**4. Patch the existing Calabria row in the `regions` table** so `region_data.region.hero.bannerImage` points at the real storage URL returned in step 3 (currently the broken `/images/calabria/hero.jpg`). Done via a SQL migration scoped to `WHERE slug = 'calabria'`.
+- `supabase/functions/research-region/index.ts` — expand prompt + JSON schema with `climateSnapshot`
+- `supabase/functions/scaffold-region/index.ts` — fix `buildClimateTemplate` shape
+- `src/pages/AdminRegions.tsx` — merge full `climateSnapshot` into `climate_data`
+- `src/components/sections/ClimateSnapshot.tsx` — DB-first loader, generalized seasonal palette/images
+- DB row for `slug='calabria'` — backfill `climate_data` with rich Calabria snapshot
 
-### Files Modified
+### Why this is safe
 
-- `supabase/functions/generate-region-images/index.ts` — service-role auth + correct success/failure semantics
-- `src/components/admin/RegionCreationWizard.tsx` — surface real errors from the image step
-- New migration — update `regions.region_data` for Calabria with the new hero URL
-
-### Verification
-
-- Re-run the function for Calabria and confirm rows appear under `storage.objects` for `region-images/calabria/*`.
-- Reload `/calabria` — `HeroParallax` should render the new banner.
-- Future region creations: if anything fails in the image step, the wizard will now show a red toast instead of silently storing a broken local path.
+- Static JSON files (`piemonte-climate.json`, `puglia-climate.json`, `umbria-climate.json`, `veneto-climate.json`, `lombardia-climate.json`) remain untouched and are still used as fallback for those regions.
+- The DB-first loader reads `regions.climate_data` only when it has the new shape (`regions` keys + `months` with city sub-objects); otherwise it falls back, so Lombardia/Piemonte/Puglia (which have `false` or wrong-shape DB climate) still work via static JSON.
+- Component-level changes are additive; no shared section component changes signature.
