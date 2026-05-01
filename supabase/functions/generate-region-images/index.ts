@@ -121,6 +121,11 @@ serve(async (req) => {
         const res = await fetch(uploadUrl, {
           method: 'POST',
           headers: {
+            // Supabase Storage accepts the secret key in either header. Sending
+            // it as `apikey` works for both JWT-style service-role keys and the
+            // newer `sb_secret_...` non-JWT keys (which fail JWS parsing when
+            // sent as a Bearer token, producing "Invalid Compact JWS").
+            'apikey': supabaseKey,
             'Authorization': `Bearer ${supabaseKey}`,
             'Content-Type': 'image/png',
             'x-upsert': 'true',
