@@ -1,98 +1,50 @@
+## Add Calabria Map Layers
 
-## Problem
+Add four toggleable overlays to the Calabria map. The `InteractiveMap` component already supports all the required feature types (`zone`, `heritage`, `airport`, `ferry`) and auto-renders toggle buttons for any `overlays` array on `region_data.where.map`. So this is a pure data update — no component changes required.
 
-`ClimateSnapshot` only ever reads from `/data/regions/italy/{slug}-climate.json`. There is no Calabria file, so the component falls back to **`/data/piemonte-climate.json`** — that's why Calabria currently shows Piemonte's headline, paragraphs, hover quote, Turin/Alba/Verbania/Cuneo toggles, and Piemonte cultural events.
+### What gets added (single SQL update on `regions.region_data` for Calabria)
 
-Three structural gaps make this happen on every new region:
+Append a `where.map.overlays` array with four entries:
 
-1. **ClimateSnapshot never queries the database.** The wizard does write a `climate_data` JSONB row, but the component ignores it.
-2. **The schema written by the wizard is wrong.** `scaffold-region` builds a stub like `{ intro:{headline,lead}, months:[{name,avgHigh,avgLow,...}] }`, but the component expects `{ intro:{headline,tagline,paragraphs[],hoverQuote,ctaText}, regions:{key:{name,type,palette}}, months:[{month,index,season,<regionKey>:{tempLow,tempHigh,rainfall,sunHours},tooltip,culturalEvent,visualCue}] }`. Even when merged, the data can't drive the UI.
-3. **`research-region` only returns one city's flat monthly highs/lows.** It doesn't produce the per-city / per-month matrix, intro narrative, cultural events, or toggleable city set the component needs.
+**1. National Parks** (icon: `Mountain`)
+Three `type: "zone"` polygon features with realistic boundary outlines (forest-green fill):
+- **Sila National Park** — central plateau, lakes & forests, cool summer escape
+- **Aspromonte National Park** — wild southern interior massif above Reggio
+- **Pollino National Park** — Italy's largest, straddling the Calabria/Basilicata border in the north
 
-## Solution
+Each polygon gets a `name`, `description` (with retiree-relevant context like elevation/summer-cooling) and `photo` from `/images/calabria/`.
 
-Make Climate Snapshot a fully region-driven module by (a) fixing the AI research output, (b) writing the correct schema into the DB, (c) having the component read it from the DB with static JSON as fallback, and (d) backfilling Calabria so it works today.
+**2. Historic & Cultural Sites** (icon: `Landmark`)
+`type: "heritage"` markers (gold ring styling) for:
+- **Cattolica di Stilo** — 9th-century Byzantine church
+- **National Archaeological Museum of Reggio Calabria** — home of the Riace Bronzes
+- **Archaeological Park of Sybaris** — Magna Graecia ruins
+- **Capo Colonna (Crotone)** — surviving Doric column of the Temple of Hera Lacinia
+- **Rossano Cathedral & Codex Purpureus** — UNESCO Memory of the World manuscript
+- **Gerace Cathedral** — Norman/Romanesque, largest in Calabria
+- **Le Castella (Isola di Capo Rizzuto)** — Aragonese sea castle
 
-### 1. Expand `research-region` AI output for climate
+Each marker has `name`, `timeCapsule` (one-line evocative description), and `website` where a real URL is known.
 
-In `supabase/functions/research-region/index.ts`, replace the current `climate.cities[].months[]` schema with a `climateSnapshot` block matching what the component actually consumes:
+**3. Airports** (icon: `Plane`)
+`type: "airport"` markers with IATA code badges:
+- **Lamezia Terme (SUF)** — main international hub, central coast
+- **Reggio Calabria (REG)** — southern tip, mostly domestic
+- **Crotone Sant'Anna (CRV)** — small Ionian airport, seasonal
 
-```json
-"climateSnapshot": {
-  "intro": {
-    "headline": "Climate Snapshot: A Year in <Region>",
-    "tagline": "<one-line poetic hook>",
-    "paragraphs": ["...", "...", "..."],
-    "hoverQuote": "<short editorial line>",
-    "ctaText": "Slide through the seasons →"
-  },
-  "regions": {
-    "<slug1>": { "name": "<City>", "type": "city|coastal|mountain|...", "palette": "urban|coastal|alpine|vineyard" },
-    "<slug2>": { ... },
-    "<slug3>": { ... },
-    "<slug4>": { ... }
-  },
-  "months": [
-    {
-      "month": "January", "index": 0, "season": "winter",
-      "<slug1>": { "tempLow": 5, "tempHigh": 12, "rainfall": 110, "sunHours": 4 },
-      "<slug2>": { ... }, "<slug3>": { ... }, "<slug4>": { ... },
-      "tooltip": "<short month feel>",
-      "culturalEvent": "<real event>",
-      "culturalEventUrl": "<optional url>",
-      "visualCue": "<short visual descriptor>"
-    },
-    ... 12 entries
-  ]
-}
-```
+**4. Ferry & Sicily Connectivity** (icon: `Anchor`)
+`type: "ferry"` animated dashed routes plus port markers:
+- Villa San Giovanni ⇄ Messina (Sicily) — every ~20 min, the workhorse
+- Reggio Calabria ⇄ Messina — passenger ferry / aliscafo
+- Tropea/Vibo Marina ⇄ Aeolian Islands (seasonal)
+- Reggio Calabria ⇄ Salerno / Naples (summer GNV/Caremar coastal hops)
 
-Prompt instructs the model to: pick **3–4 climatically distinct featured towns from the region's actual featured/grid list** (e.g. for Calabria: Cosenza, Reggio Calabria, Tropea, Catanzaro), give realistic monthly numbers per town, and write Cesare-voiced intro paragraphs specific to the region.
+Each ferry feature gets `coords` (origin → destination polyline) and a `description` covering frequency, duration, and operator where known.
 
-### 2. Write the correct schema in `scaffold-region`
+### Files Modified
+- One SQL `UPDATE` on the `regions` row where `slug = 'calabria'`, merging the new `overlays` array into `region_data.where.map` (preserving the existing markers, center, zoom, and externalMapUrl).
 
-In `supabase/functions/scaffold-region/index.ts`, replace `buildClimateTemplate` so the stub already matches the component's shape (empty `regions:{}`, 12 months with `month/index/season/tooltip/culturalEvent/visualCue` and no city keys yet). Stub keeps the row valid even before research populates it.
+No code changes — no migration, no edge function changes. The toggle UI, popups, and layer rendering are already wired up generically in `InteractiveMap.tsx`.
 
-### 3. Merge AI climate properly in `AdminRegions.tsx`
-
-Replace the current narrow merge (lines 153–160) with:
-```ts
-const finalClimateData = wizardData.research?.climateSnapshot
-  ? wizardData.research.climateSnapshot
-  : result.data.climateData;
-```
-So the AI-generated rich snapshot fully replaces the stub when present.
-
-### 4. Make `ClimateSnapshot` read from the database
-
-In `src/components/sections/ClimateSnapshot.tsx`, change the data load to:
-1. Query `regions.climate_data` for the current slug from Supabase.
-2. If present and has `regions` + `months`, use it.
-3. Else fall back to `/data/regions/italy/{slug}-climate.json`.
-4. Else fall back to `/data/piemonte-climate.json` (existing behavior, preserved as last-ditch).
-
-This means future regions never need a static climate JSON file — the DB row is the source of truth.
-
-### 5. Generalize seasonal background palette/images
-
-The component currently hard-codes `seasonalBackgroundsPiemonte/Puglia/Umbria` and `seasonalImagesPiemonte/Puglia/Umbria`, so any new region falls back to Piemonte's palette and Piemonte's seasonal photos. Change selection logic to:
-- Build the palette from the region's generated theme (already stored in `regions.region_data` as `seasonalBackgrounds`) when available, else use a neutral default gradient set.
-- Use `/images/{slug}/seasonal-backgrounds/{season}-landscape.jpg` if those files exist (the image generation pipeline already targets that path); otherwise omit the photo layer and rely on the gradient. No more silent Piemonte fallback.
-
-### 6. Backfill Calabria today
-
-Run the updated `research-region` (or generate inline) to produce a Calabria `climateSnapshot` with 4 featured towns (Cosenza — inland hills, Reggio Calabria — Strait coast, Tropea — Tyrrhenian beach, Catanzaro — capital), 12 months of realistic data, real cultural events (e.g. Tarantella festivals, Madonna della Montagna, Estate Tropeana), and Cesare-voiced intro. Write it into `regions.climate_data` for `slug='calabria'` via the insert tool.
-
-### Files to modify
-
-- `supabase/functions/research-region/index.ts` — expand prompt + JSON schema with `climateSnapshot`
-- `supabase/functions/scaffold-region/index.ts` — fix `buildClimateTemplate` shape
-- `src/pages/AdminRegions.tsx` — merge full `climateSnapshot` into `climate_data`
-- `src/components/sections/ClimateSnapshot.tsx` — DB-first loader, generalized seasonal palette/images
-- DB row for `slug='calabria'` — backfill `climate_data` with rich Calabria snapshot
-
-### Why this is safe
-
-- Static JSON files (`piemonte-climate.json`, `puglia-climate.json`, `umbria-climate.json`, `veneto-climate.json`, `lombardia-climate.json`) remain untouched and are still used as fallback for those regions.
-- The DB-first loader reads `regions.climate_data` only when it has the new shape (`regions` keys + `months` with city sub-objects); otherwise it falls back, so Lombardia/Piemonte/Puglia (which have `false` or wrong-shape DB climate) still work via static JSON.
-- Component-level changes are additive; no shared section component changes signature.
+### Note on future regions
+A separate follow-up (not part of this plan) would be to update `supabase/functions/research-region/index.ts` so the AI generates an `overlays` array automatically for new regions. We can tackle that next if you want — but for now, this fix gets Calabria's map fully layered without touching the wizard pipeline.
