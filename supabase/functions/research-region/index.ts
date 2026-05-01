@@ -188,25 +188,40 @@ Respond with ONLY valid JSON matching this EXACT structure:
       "content": "2-3 paragraphs about getting around within the region: regional train lines, bus networks, whether a car is necessary, cycling infrastructure, parking in hill towns."
     }
   ],
-  "climate": {
-    "cities": [
+  "climateSnapshot": {
+    "intro": {
+      "headline": "string - e.g. 'Climate Snapshot: A Year in <Region>'",
+      "tagline": "string - one short poetic line about the region's climate character",
+      "paragraphs": [
+        "Paragraph 1 (3-4 sentences) - set the climatic stage: terrain, dominant weather influences, signature contrasts. First-person Cesare voice.",
+        "Paragraph 2 (3-4 sentences) - sensory shifts through the year: light, smells, sounds, the feeling of summer vs winter.",
+        "Paragraph 3 (2-3 sentences) - what this means practically for someone living here (altitude choices, riposo, seasonal rhythms)."
+      ],
+      "hoverQuote": "string - short editorial line, under 15 words",
+      "ctaText": "Slide through the seasons →"
+    },
+    "regions": {
+      "<lowercase-slug-1>": { "name": "City Name", "type": "coastal|inland|mountain|hilltop|beach|urban|lakeside|alpine|vineyard", "palette": "coastal|urban|alpine|vineyard|lakeside" },
+      "<lowercase-slug-2>": { "name": "City Name", "type": "...", "palette": "..." },
+      "<lowercase-slug-3>": { "name": "City Name", "type": "...", "palette": "..." },
+      "<lowercase-slug-4>": { "name": "City Name", "type": "...", "palette": "..." }
+    },
+    "months": [
       {
-        "name": "string - capital or major city",
-        "months": [
-          { "name": "January", "avgHigh": 10, "avgLow": 2, "precipitation": 60, "sunnyDays": 4 },
-          { "name": "February", "avgHigh": 12, "avgLow": 3, "precipitation": 55, "sunnyDays": 5 },
-          { "name": "March", "avgHigh": 15, "avgLow": 6, "precipitation": 50, "sunnyDays": 7 },
-          { "name": "April", "avgHigh": 18, "avgLow": 9, "precipitation": 60, "sunnyDays": 8 },
-          { "name": "May", "avgHigh": 23, "avgLow": 13, "precipitation": 55, "sunnyDays": 10 },
-          { "name": "June", "avgHigh": 27, "avgLow": 17, "precipitation": 40, "sunnyDays": 12 },
-          { "name": "July", "avgHigh": 30, "avgLow": 20, "precipitation": 25, "sunnyDays": 14 },
-          { "name": "August", "avgHigh": 30, "avgLow": 20, "precipitation": 30, "sunnyDays": 13 },
-          { "name": "September", "avgHigh": 26, "avgLow": 16, "precipitation": 50, "sunnyDays": 10 },
-          { "name": "October", "avgHigh": 20, "avgLow": 12, "precipitation": 80, "sunnyDays": 7 },
-          { "name": "November", "avgHigh": 14, "avgLow": 7, "precipitation": 90, "sunnyDays": 5 },
-          { "name": "December", "avgHigh": 10, "avgLow": 3, "precipitation": 70, "sunnyDays": 4 }
-        ]
+        "month": "January", "index": 0, "season": "winter",
+        "<slug-1>": { "tempLow": 3, "tempHigh": 12, "rainfall": 90, "sunHours": 4 },
+        "<slug-2>": { "tempLow": 7, "tempHigh": 14, "rainfall": 100, "sunHours": 4 },
+        "<slug-3>": { "tempLow": 8, "tempHigh": 14, "rainfall": 110, "sunHours": 4 },
+        "<slug-4>": { "tempLow": 6, "tempHigh": 13, "rainfall": 130, "sunHours": 4 },
+        "tooltip": "string - short month feel, max 6 words",
+        "culturalEvent": "string - REAL cultural event or seasonal note for this region in this month",
+        "culturalEventUrl": "string - real URL or empty string (NEVER invent URLs)",
+        "visualCue": "string - short visual descriptor for the season"
       }
+      // ... continue for all 12 months in calendar order, indexes 0-11.
+      // Every month MUST include all 4 town keys with tempLow/tempHigh/rainfall/sunHours.
+      // tempLow/tempHigh in Celsius; rainfall in mm; sunHours = avg daily sun hours.
+      // Seasons: Dec/Jan/Feb=winter, Mar/Apr/May=spring, Jun/Jul/Aug=summer, Sep/Oct/Nov=autumn.
     ]
   },
   "towns": {
@@ -438,7 +453,12 @@ Provide comprehensive, ACCURATE research including:
 3. 3 geography tabs: terrain description, how to get there, local transport - each with 2-3 real paragraphs
 
 ## Climate
-4. Monthly climate data for the regional capital (all 12 months with real avgHigh, avgLow, precipitation mm, sunnyDays)
+4. A rich 'climateSnapshot' block (NOT a single-city summary):
+   - 3–4 page editorial intro paragraphs in Cesare's first-person voice, specific to this region's climatic character.
+   - Pick 3–4 climatically DISTINCT featured towns from the towns list above (e.g. coastal vs inland, capital vs beach town, mountain vs lowland). Use lowercase slug keys for them in 'regions' and in each month entry.
+   - Provide all 12 months in calendar order (index 0–11) with realistic Celsius tempLow/tempHigh, rainfall in mm, and average daily sunHours for EACH of the chosen towns.
+   - Each month must include a real cultural event or seasonal note (festival, harvest, religious feast). Only include 'culturalEventUrl' if you know the real URL — otherwise empty string.
+   - Add a short 'tooltip' (mood) and 'visualCue' (season visual) per month.
 
 ## Food, Wine & Culture
 5. 4-5 real wines produced in the region with grape varieties and tasting descriptions
