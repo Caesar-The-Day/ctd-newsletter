@@ -394,7 +394,7 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
 
       if (error) throw error;
 
-      if (data?.success && data?.images) {
+      if (data?.success && data?.images?.length) {
         const images: GeneratedImages = {};
         for (const img of data.images) {
           if (img.type === 'hero') images.hero = img.storagePath;
@@ -410,6 +410,18 @@ export function RegionCreationWizard({ open, onOpenChange, onComplete, nextIssue
           title: 'Images generated!',
           description: `Created ${data.images.length} images for ${regionName}.`,
         });
+        if (!images.hero) {
+          toast({
+            title: 'Hero image missing',
+            description: 'The hero image upload did not succeed. Re-run the image step before continuing.',
+            variant: 'destructive',
+          });
+        }
+      } else {
+        const detail = Array.isArray(data?.errors) && data.errors.length
+          ? data.errors.join('; ')
+          : (data?.error || 'No images were returned by the server.');
+        throw new Error(detail);
       }
     } catch (error) {
       toast({
