@@ -780,9 +780,20 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           </div>
 
           {/* Overlay Toggle Controls */}
-          {mapData?.overlays && mapData.overlays.length > 0 && (
+          {mapData?.markers && mapData.markers.length > 0 && (
             <div className="flex flex-wrap gap-2 justify-center mb-6">
-              {mapData.overlays.map(overlay => {
+              <Button
+                key={CITIES_LAYER_ID}
+                variant={activeOverlays.has(CITIES_LAYER_ID) ? "default" : "secondary"}
+                size="sm"
+                onClick={() => toggleOverlay(CITIES_LAYER_ID)}
+                className="gap-2"
+                title="Toggle town pins. Turn off to click parks and zones underneath."
+              >
+                <MapPin className="w-4 h-4" />
+                Cities & Towns
+              </Button>
+              {mapData?.overlays?.map(overlay => {
                 const IconComponent = iconMap[overlay.icon] || Wine;
                 return (
                   <Button
