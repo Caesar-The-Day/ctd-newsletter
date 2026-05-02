@@ -60,7 +60,8 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
   const overlayLayersRef = useRef<Record<string, L.LayerGroup>>({}); 
-  const [activeOverlays, setActiveOverlays] = useState<Set<string>>(new Set());
+  const CITIES_LAYER_ID = '__cities__';
+  const [activeOverlays, setActiveOverlays] = useState<Set<string>>(new Set([CITIES_LAYER_ID]));
 
   const mapData = whereData?.map;
 
@@ -103,7 +104,10 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
       crossOrigin: true
     }).addTo(map);
 
-    // Add city/town markers with special styling for hubs and Olympic cities
+    // Build city/town markers into a dedicated LayerGroup so they can be toggled
+    // independently. This lets users hide town pins to fully interact with park
+    // polygons or other overlays underneath.
+    const citiesLayer = L.layerGroup();
     mapData.markers?.forEach(marker => {
       const isPortCity = ['Bari', 'Brindisi', 'Otranto'].includes(marker.name);
       const isHub = (marker as any).isHub;
@@ -166,7 +170,10 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
         iconAnchor: isHub ? [20, 40] : [16, 32]
       });
       
-      const markerInstance = L.marker(marker.coords, { icon: customIcon }).addTo(map);
+      const markerInstance = L.marker(marker.coords, {
+        icon: customIcon,
+        zIndexOffset: 2000  // Sit above overlay markers/polygons when active
+      }).addTo(citiesLayer);
 
       const popupContent = `
         <div class="city-popup">
@@ -186,6 +193,9 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
         closeButton: true
       });
     });
+    overlayLayersRef.current[CITIES_LAYER_ID] = citiesLayer;
+    // Add the cities layer to the map by default (matches initial activeOverlays state)
+    citiesLayer.addTo(map);
 
     // Create overlay layers
     if (mapData.overlays) {
