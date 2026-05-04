@@ -103,7 +103,7 @@ export function SevenPercentCTA() {
               </p>
 
               <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
-                Most Calabrian towns under 20,000 residents qualify.
+                Most Calabrian towns under 30,000 residents qualify.
               </p>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
