@@ -94,30 +94,30 @@ export function SevenPercentCTA() {
           }`}>
             <div className="mb-6">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-                Find 7%-Eligible Towns in Umbria
+                Find 7%-Eligible Towns in Calabria
               </h2>
             </div>
             <div className="space-y-4 mb-8">
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                Umbria isn't classified as a Southern Italy region for the 7% flat-tax program.
+                Calabria is one of the regions fully covered by Italy's 7% flat-tax program for foreign retirees.
               </p>
-              
+
               <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
-                But several Umbrian towns do qualify.
+                Most Calabrian towns under 20,000 residents qualify.
               </p>
-              
+
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                The challenge is figuring out which ones, and whether they actually make sense for how you want to live.
+                The challenge isn't finding a town that qualifies — it's finding one that actually fits how you want to live.
               </p>
-              
+
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                The <strong className="text-foreground">7% Escape Map</strong> shows every qualifying town in Umbria and nearby regions on an interactive map, so you can filter by what matters: walkability, countryside vs. lake, population size, housing costs, healthcare access, climate, airport distance, and overall vibe.
+                The <strong className="text-foreground">7% Escape Map</strong> plots every qualifying town in Calabria on an interactive map, so you can filter by what matters: coast vs. interior, Tyrrhenian vs. Ionian side, walkability, population size, housing costs, healthcare access, climate, and airport distance.
               </p>
-              
+
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                See which Umbrian towns qualify, which border towns offer clearer eligibility, and decide if the tax benefit fits your lifestyle before you commit.
+                Compare hill towns in the Sila, beach towns on the Tyrrhenian, and Byzantine villages on the Ionian side — then decide which trade-offs you're willing to make before you commit.
               </p>
-              
+
               <p className="text-lg md:text-xl text-foreground leading-relaxed font-semibold italic">
                 Clear options. No guesswork.
               </p>
