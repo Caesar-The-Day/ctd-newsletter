@@ -24,7 +24,7 @@
  
              <ul className="space-y-3 mb-8">
                {[
-                 'You must move your tax residency to a qualifying town in Southern Italy with fewer than 20,000 residents (or specific earthquake-affected areas).',
+                'You must move your tax residency to a qualifying town in Southern Italy with fewer than 30,000 residents (threshold raised from 20,000 in April 2026), or to specific earthquake-affected areas.',
                  'You cannot have been an Italian tax resident in the previous 5 years.',
                  'Your pension must come from a foreign source—public, private, or both.',
                  'The 7% replaces IRPEF, regional and municipal surcharges, plus IVIE/IVAFE on foreign assets.',
