@@ -1,39 +1,28 @@
-## Make Cities & Towns a Toggleable Map Layer
+## Add 2 towns to Calabria "More Towns to Consider" grid
 
-Right now, the city/town pins on the Calabria map are added **directly** to the map and stay on permanently. National Park polygons (Sila, Aspromonte, Pollino) sit underneath them but, because polygons capture clicks across their entire area, they end up "swallowing" clicks meant for the town pins — and conversely, when you do try to click a park, town pins block parts of it.
+Currently the Calabria grid has 10 towns — display renders as 3x3 + 1 orphan. Add 2 to reach 12 (3x4 symmetrical).
 
-The fix is to give cities their own toggle, exactly like the other overlays.
+### Current 10 towns
+Pizzo, Morano Calabro, Altomonte, Stilo, Diamante, Santa Severina, Soverato, Civita, Amantea, Reggio Calabria
 
-### What changes
+### Proposed additions
 
-**Single file: `src/components/sections/InteractiveMap.tsx`**
+**1. Cosenza** — interior, historic university city
+- Best for: "Lively interior city with old-town charm"
+- Blurb: Calabria's intellectual heart. A pedestrianised Centro Storico above the Crati river, a thriving cafe scene driven by University of Calabria students, and easy A2 motorway access. Cooler than the coast in summer; more services than any hill town.
+- Coords: 39.2983, 16.2536
 
-1. **Move city/town markers into their own `LayerGroup`** (instead of adding directly to the map). Register it in `overlayLayersRef` under a synthetic id like `__cities__`.
+**2. Rossano (Corigliano-Rossano)** — Ionian side, Byzantine heritage
+- Best for: "Byzantine heritage on the Ionian side"
+- Blurb: Home of the Codex Purpureus Rossanensis (UNESCO Memory of the World) and a dense network of Byzantine churches. Hilltop old town with sea views, plus a lower modern town with a train station and beach access. Underrated and inexpensive.
+- Coords: 39.5764, 16.6353
 
-2. **Add "Cities & Towns" as the first toggle button** in the overlay control row (using the `MapPin` icon). It defaults to **ON** so the map looks the same on first load.
+Both fill genuine gaps: Cosenza covers "real city living inland," Rossano covers the Ionian/Byzantine angle absent from the current set.
 
-3. **Initialize `activeOverlays` with `__cities__`** plus any default-on overlays, so the city layer is active by default.
+### Implementation
 
-4. **Render order / click priority**:
-   - When the cities layer is active, call `bringToFront()` on each marker and use a high `zIndexOffset` (e.g. 2000) so town pins always sit above park polygons and are clickable.
-   - When the user wants to explore a park, they can toggle "Cities & Towns" off, leaving the polygons fully clickable.
-   - Polygons (zones) are also given a slightly lower pane priority so they don't intercept clicks meant for any markers layered above them.
+Single SQL migration: `jsonb_set` on `regions.region_data` for `slug='calabria'`, appending two town objects to `{towns,grid}` matching the existing schema (id, name, bestFor, photo, mapUrl, blurb, fullDescription, eligible7Percent).
 
-5. **Keep heritage / airport / ferry overlays unchanged** — they already use `zIndexOffset: 1000` and work fine.
+Photo paths will follow the existing `/images/calabria/{slug}.jpg` convention. Since no images exist yet, they'll fall back to broken images until generated — same behavior as other grid entries until image generation runs. (Optional: trigger image generation for these two after the migration.)
 
-### UX result
-
-Above the map, the toggle row will read:
-
-```text
-[● Cities & Towns]  [ National Parks ]  [ Historic & Cultural Sites ]  [ Airports ]  [ Ferries & Sicily Link ]
-```
-
-- Default state: Cities ON, all others OFF — same as today.
-- Turn on **National Parks** + leave Cities ON → both visible, town pins clickable on top.
-- Turn **Cities OFF** → park polygons become fully clickable across their entire area, including over Cosenza, Catanzaro, etc.
-
-### Files Modified
-- `src/components/sections/InteractiveMap.tsx` — wrap markers in a LayerGroup, add cities toggle, adjust z-index.
-
-No database changes, no other components touched. Works for every region (Piemonte, Puglia, Veneto, etc.) since the logic is generic — they just gain a "Cities & Towns" toggle too.
+No component changes needed — `TownsGrid.tsx` already handles arbitrary counts in a `lg:grid-cols-3` layout.
