@@ -35,6 +35,7 @@ import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
 import { BookCTA } from '@/components/sections/BookCTA';
 import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprintCTA';
 import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
+import { SevenPercentExplainer } from '@/components/sections/SevenPercentExplainer';
 import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
@@ -361,6 +362,8 @@ export default function RegionPage() {
       {region === 'lombardia' && <MilanProximityTool />}
 
       {region === 'veneto' && <VeniceSerenissima />}
+
+      {region === 'calabria' && <SevenPercentExplainer />}
 
       {config.show7PercentCTA && <SevenPercentCTA />}
 
