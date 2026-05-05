@@ -1,28 +1,63 @@
-## Add 2 towns to Calabria "More Towns to Consider" grid
+## Calabria Pizzaz — Three New Components
 
-Currently the Calabria grid has 10 towns — display renders as 3x3 + 1 orphan. Add 2 to reach 12 (3x4 symmetrical).
+Building the three highest-impact picks for the Calabria guide. Each is a self-contained section component, slotted into `RegionPage.tsx` behind a `region === 'calabria'` check, following the Puglia/Veneto/Umbria pattern.
 
-### Current 10 towns
-Pizzo, Morano Calabro, Altomonte, Stilo, Diamante, Santa Severina, Soverato, Civita, Amantea, Reggio Calabria
+### 1. Two Coasts Selector (`CalabriaTwoCoastsSelector.tsx`)
 
-### Proposed additions
+Side-by-side comparison of the Tyrrhenian (west) and Ionian (east) coasts — Calabria's defining geographic split.
 
-**1. Cosenza** — interior, historic university city
-- Best for: "Lively interior city with old-town charm"
-- Blurb: Calabria's intellectual heart. A pedestrianised Centro Storico above the Crati river, a thriving cafe scene driven by University of Calabria students, and easy A2 motorway access. Cooler than the coast in summer; more services than any hill town.
-- Coords: 39.2983, 16.2536
+- **Layout**: Desktop split-view (two large image cards side-by-side); mobile tab toggle.
+- **Each coast card shows**: signature image, vibe sentence, water character (clarity, temp, sand vs pebble), sunset/sunrise orientation, signature towns (Tropea, Scilla, Pizzo for Tyrrhenian; Soverato, Roccella, Capo Rizzuto for Ionian), summer crowd level, best-for persona ("lively & dramatic" vs "quiet & swimmable").
+- **Bottom comparison strip**: water temp, beach type, accessibility, August vibe — at-a-glance row.
+- Generates 2 hero images (one per coast).
 
-**2. Rossano (Corigliano-Rossano)** — Ionian side, Byzantine heritage
-- Best for: "Byzantine heritage on the Ionian side"
-- Blurb: Home of the Codex Purpureus Rossanensis (UNESCO Memory of the World) and a dense network of Byzantine churches. Hilltop old town with sea views, plus a lower modern town with a train station and beach access. Underrated and inexpensive.
-- Coords: 39.5764, 16.6353
+### 2. Sila & Aspromonte — The Mountain Escape (`CalabriaMountainEscape.tsx`)
 
-Both fill genuine gaps: Cosenza covers "real city living inland," Rossano covers the Ionian/Byzantine angle absent from the current set.
+Counters the "just beaches" stereotype. Shows Calabria's two mountain ranges as a retirement asset (cool summers, pine forests, lakes, lower property prices).
 
-### Implementation
+- **Layout**: Two-park comparison cards (Sila National Park, Aspromonte National Park) plus a temperature-comparison visual.
+- **Each park card**: elevation range, summer high temp vs nearest coast town (e.g. Camigliatello 22°C vs Crotone 35°C in August), signature features (Sila's lakes, wolves, beech forests; Aspromonte's wild canyons, Greek-speaking villages), nearest hilltop towns, drive time to coast.
+- **Visual element**: Simple horizontal "elevation slider" graphic showing sea level → 1,900m with town pins.
+- Generates 2 hero images (Sila lake + forest, Aspromonte ridge).
 
-Single SQL migration: `jsonb_set` on `regions.region_data` for `slug='calabria'`, appending two town objects to `{towns,grid}` matching the existing schema (id, name, bestFor, photo, mapUrl, blurb, fullDescription, eligible7Percent).
+### 3. Reality Check — Southern Italy Logistics (`CalabriaRealityCheck.tsx`)
 
-Photo paths will follow the existing `/images/calabria/{slug}.jpg` convention. Since no images exist yet, they'll fall back to broken images until generated — same behavior as other grid entries until image generation runs. (Optional: trigger image generation for these two after the migration.)
+The pragmatic-honesty panel. Six honest cards addressing real retiree concerns — no postcard escapism.
 
-No component changes needed — `TownsGrid.tsx` already handles arbitrary counts in a `lg:grid-cols-3` layout.
+- **Card layout**: 3×2 grid on desktop, single column on mobile. Each card has icon, headline, plain-English answer, and a "what this means for you" line.
+- **Topics**:
+  1. **Healthcare reach** — drive times from major coastal towns to specialist hospitals (Catanzaro, Cosenza, Reggio).
+  2. **Flight connectivity** — Lamezia Terme (LMC) and Reggio (REG) direct routes; honest note on winter schedule cuts.
+  3. **Internet & fiber** — coverage reality by zone (coast vs interior).
+  4. **Seismic awareness** — Calabria is a seismic zone; what modern construction standards mean.
+  5. **Summer water** — which coastal towns ration, which don't.
+  6. **English & expat density** — honest assessment (lower than Puglia/Tuscany).
+
+- Tone matches the existing "retiree honesty" mandate from project memory.
+
+### Placement in `RegionPage.tsx`
+
+Slot all three behind `{region === 'calabria' && ...}` blocks, in this order:
+
+```text
+TownsGrid
+  └─ CalabriaTwoCoastsSelector       (geographic context)
+  └─ CalabriaMountainEscape          (counter-stereotype)
+HighlightsShowcase
+RecipesInteractive
+  └─ CalabriaRealityCheck            (pragmatic close, before ProsCons)
+ProsCons
+```
+
+### Technical Notes
+
+- All three components are self-contained with hardcoded Calabria-specific data inside the component (matching the Puglia/Veneto pattern — not pulled from `region_data` JSON).
+- Generate 4 new images via Nano Banana Pro: `coast-tyrrhenian.jpg`, `coast-ionian.jpg`, `sila-lake.jpg`, `aspromonte-ridge.jpg` — all saved to `public/images/calabria/`.
+- Use existing semantic tokens (`text-primary`, `bg-muted`, etc.); no new color classes.
+- Use `lucide-react` icons (Waves, Mountain, Stethoscope, Plane, Wifi, Activity, Droplet, MessageSquare).
+- No DB migration needed — content lives in the components.
+- No new dependencies.
+
+### Out of scope (deferred for later rounds)
+
+Bergamot Coast story, Heritage Mosaic, 'Nduja Heat Lab, Festival Calendar, Borgo dei Briganti map, Riviera dei Cedri citron trail, Mare-Monti day plan builder. Happy to build these in follow-up passes once the first three land.
