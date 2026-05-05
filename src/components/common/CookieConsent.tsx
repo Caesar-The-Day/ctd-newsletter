@@ -31,7 +31,7 @@ export function CookieConsent() {
     gtag('js', new Date());
     gtag('config', 'G-6NPM83DF0C', {
       'linker': {
-        'domains': ['caesartheday.com', 'news.caesartheday.com', 'italy7percent.com']
+        'domains': ['caesartheday.com', 'italy.caesartheday.com', 'italy7percent.com']
       }
     });
 

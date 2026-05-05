@@ -539,7 +539,7 @@
     "message": "Grazie for reading Issue #X.",
     "header": "Personalized closing message with subscribe CTA (2-3 sentences).",
     "subtitle": "Supporting message about sharing (1-2 sentences).",
-    "shareUrl": "https://news.caesartheday.com/{region-slug}",
+    "shareUrl": "https://italy.caesartheday.com/{region-slug}",
     "_shareUrl_note": "REQUIRED. Canonical URL for this newsletter issue.",
     
     "socialMessages": {
