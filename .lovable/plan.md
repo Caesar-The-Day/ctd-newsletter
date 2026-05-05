@@ -1,22 +1,68 @@
-## Problem
+# Calabria Connectivity Map
 
-In the Food / Wine / Culture section on `/calabria`, clicking the external link buttons does nothing. The buttons render but navigate to `undefined`.
+Add a rich, interactive map to the **Infrastructure → Connectivity** tab of the Calabria page, replacing/augmenting the current text-only Travel Times cards.
 
-**Root cause:** Calabria's `region_data.highlights.{food,wine,culture}.cards[].links[]` entries store the URL under the key `url`, but `src/components/sections/HighlightsShowcase.tsx` reads `link.href`. So `<a href={undefined}>` is rendered and nothing happens on click.
+## What it shows
 
-Other regions (Umbria, Veneto, etc.) use `href`, which is why the bug is Calabria-specific.
+A Leaflet map of Calabria (centered ~Lamezia, the geographic pivot) with layered visual data:
 
-## Fix
+```text
+        ✈ Lamezia (SUF)
+       ●───────────●         concentric rings:
+      ●  30 / 60 / 120 min  ●   drive-time bands
+       ●───────────●
+   ✈ Reggio (REG)        ⚓ Villa S.G. → Messina ferry
+      ⚓ Vibo Marina        ⚓ Tropea (seasonal Aeolian)
+      ▬▬▬ Tyrrhenian rail line (Salerno ↔ Reggio)
+      ▬▬▬ Ionian rail line (Taranto ↔ Reggio, slower)
+```
 
-Single small change in `src/components/sections/HighlightsShowcase.tsx`:
+### Map layers (toggleable)
+1. **Hubs** — Lamezia, Cosenza, Catanzaro, Reggio Calabria
+2. **Drive-time rings** — concentric circles around Lamezia at 30 / 60 / 120 minutes (≈ 30 / 60 / 110 km)
+3. **Airports** — Lamezia (SUF), Reggio (REG), with seasonal route notes; nearest external hubs (Naples NAP, Bari BRI) shown as off-map chips
+4. **Ferry ports** — Villa San Giovanni (24/7 Messina shuttle), Reggio (Messina/Aeolian), Vibo Marina, Tropea (seasonal Aeolian Islands)
+5. **Rail lines** — Tyrrhenian high-speed corridor (Frecce/Intercity) vs Ionian regional line, plus key stations
+6. **A2 / SS106 highways** — Salerno–Reggio autostrada and the Ionian SS106
 
-- In `HighlightCard`, accept either shape by resolving `const href = link.href ?? link.url` and use that on the `<a>` tag.
-- Skip rendering the button if neither is present (defensive).
+### Travel-time panel (right side / below map on mobile)
+Click any hub → side panel shows times to:
+- **Rome** (train + drive + fly)
+- **Naples** (train + drive)
+- **Florence** (train + fly)
+- **Milan** (fly + train)
+- Plus Sicily access (ferry + drive Messina/Catania/Palermo)
 
-This avoids touching the database (locked region content) and also keeps backward compatibility with both data shapes going forward.
+Format per row: mode icon · duration · operator/notes (e.g. "Frecciargento · 4h 40m · direct").
 
-## Verification
+### Suggested useful additions
+- **"From here" selector** — pick origin town (Tropea, Cosenza, Reggio, Catanzaro, Scilla) and rings + matrix recompute relative to that town
+- **Mode filter chips** — Plane / Train / Ferry / Car toggles to declutter
+- **Reality-check callouts** — small info pins on known pain points (e.g. SS106 single-carriageway stretches, Ionian line slowness, winter Aeolian ferry gaps)
+- **Border crossings to Sicily** — animated dashed line across the Strait showing 20-min ferry frequency
+- **Legend with frequency badges** — "hourly", "daily", "seasonal" so users grasp practical reliability, not just existence
+- **Distance scale + retiree-friendly footnote** — e.g. "Lamezia airport sits within a 1-hour drive of ~70% of Calabrian coastal towns"
 
-After the fix, on `/calabria`:
-- Open Food / Wine / Culture, expand a card (e.g. 'Nduja di Spilinga, Cipolla Rossa di Tropea, Cirò Marina).
-- Each link button should open the correct external URL in a new tab.
+## Technical changes
+
+1. **New component** `src/components/sections/CalabriaConnectivityMap.tsx`
+   - Uses `react-leaflet` patterns already in `PugliaCityReachMap.tsx` (Leaflet is already a dependency)
+   - Concentric circles via `L.circle` (reuse pattern from `MilanProximityTool` / map-concentric-circle-logic memory: sort largest→smallest, render with decreasing opacity so smaller rings stay clickable)
+   - Custom `divIcon` markers for airport ✈, ferry ⚓, train 🚆, hub ●
+   - Polylines for rail corridors (Tyrrhenian solid, Ionian dashed)
+   - Local data file inside the component (cities, airports, ferries, rail nodes, travel matrix) — no DB schema change needed
+
+2. **Wire into page** in `src/components/sections/HealthcareInfrastructure.tsx`
+   - In the `connectivity` `TabsContent`, when `region === 'calabria'`, render `<CalabriaConnectivityMap />` above the existing `travelTimes` cards (keep the cards as a textual fallback / detail layer)
+
+3. **Data**
+   - All travel times, ferry routes, airport route notes hard-coded in the new component (same approach as `PugliaCityReachMap`). No migration / no `region_data` edits required.
+
+4. **Styling**
+   - Use existing semantic tokens (`primary`, `accent`, `muted`) so the Calabria generated theme (terracotta / sea-blue / peperoncino / bergamot) flows through naturally
+   - Respect retiree-honesty editorial tone in callouts (functional realities, not romance)
+
+## Out of scope
+- No changes to other regions' connectivity tabs
+- No new database tables or migrations
+- No changes to the shared `travelTimes` data shape
