@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PugliaCityReachMap } from './PugliaCityReachMap';
 import { PugliaRailNetworkMap } from './PugliaRailNetworkMap';
+import { CalabriaConnectivityMap } from './CalabriaConnectivityMap';
 import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface Hospital {
@@ -824,6 +825,7 @@ export function HealthcareInfrastructure({ region, healthcare }: HealthcareInfra
             ) : healthcare.travelTimes ? (
               // Piemonte: Connectivity content
               <div className="space-y-6">
+                {region === 'calabria' && <CalabriaConnectivityMap />}
                 <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">
                   Strategic location offers excellent connectivity to major Italian and European destinations.
                 </p>
