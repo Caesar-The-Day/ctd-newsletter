@@ -104,8 +104,11 @@ function HighlightCard({ card }: any) {
             </div>
             {card.links?.length > 0 && (
               <div className="flex flex-col gap-2">
-                {card.links.map((link: any) => (
-                  <Button
+                {card.links.map((link: any) => {
+                  const href = link.href ?? link.url;
+                  if (!href) return null;
+                  return (
+                    <Button
                     key={link.label}
                     variant="outline"
                     size="sm"
@@ -113,7 +116,7 @@ function HighlightCard({ card }: any) {
                     className="w-full justify-start h-auto py-2 px-3"
                   >
                     <a
-                      href={link.href}
+                      href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 min-w-0"
@@ -122,8 +125,9 @@ function HighlightCard({ card }: any) {
                       <ExternalLink className="w-3 h-3 flex-shrink-0" />
                       <span className="truncate text-xs">{link.label}</span>
                     </a>
-                  </Button>
-                ))}
+                    </Button>
+                  );
+                })}
               </div>
             )}
           </CardContent>
