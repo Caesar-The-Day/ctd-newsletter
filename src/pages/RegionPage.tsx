@@ -37,6 +37,9 @@ import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprin
 import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import { SevenPercentExplainer } from '@/components/sections/SevenPercentExplainer';
 import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
+import { CalabriaTwoCoastsSelector } from '@/components/sections/CalabriaTwoCoastsSelector';
+import { CalabriaMountainEscape } from '@/components/sections/CalabriaMountainEscape';
+import { CalabriaRealityCheck } from '@/components/sections/CalabriaRealityCheck';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
@@ -359,6 +362,13 @@ export default function RegionPage() {
 
       {region === 'puglia' && <PugliaCoastSelector />}
 
+      {region === 'calabria' && (
+        <>
+          <CalabriaTwoCoastsSelector />
+          <CalabriaMountainEscape />
+        </>
+      )}
+
       {region === 'lombardia' && <MilanProximityTool />}
 
       {region === 'veneto' && <VeniceSerenissima />}
@@ -445,6 +455,8 @@ export default function RegionPage() {
       />
 
       <ProsConsInteractive prosCons={regionData.prosCons} />
+
+      {region === 'calabria' && <CalabriaRealityCheck />}
 
       <ClosingShare
         message={regionData.closing.message}
