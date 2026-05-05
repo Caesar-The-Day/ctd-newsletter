@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://news.caesartheday.com/sitemap.xml
+Sitemap: https://italy.caesartheday.com/sitemap.xml
