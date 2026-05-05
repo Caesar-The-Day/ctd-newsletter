@@ -60,8 +60,8 @@ const elevationPins = [
   { label: 'Reggio', height: 31, x: 10 },
   { label: 'Cosenza', height: 238, x: 20 },
   { label: 'Bova', height: 820, x: 45 },
-  { label: 'Camigliatello', height: 1290, x: 70 },
-  { label: 'Gambarie', height: 1310, x: 73 },
+  { label: 'Camigliatello', height: 1290, x: 62 },
+  { label: 'Gambarie', height: 1310, x: 80 },
   { label: 'Botte Donato', height: 1928, x: 98 },
 ];
 
