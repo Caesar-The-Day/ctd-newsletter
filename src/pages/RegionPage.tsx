@@ -335,6 +335,7 @@ export default function RegionPage() {
         brandTitle={globals.brand.heroTitle}
         brandSubtitle={globals.brand.heroSubtitle}
         brandByline={globals.brand.heroByline}
+        cinematic={region === 'calabria'}
       />
 
       <EditorialIntro
