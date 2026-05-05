@@ -89,12 +89,23 @@ serve(async (req) => {
     try {
       let cleaned = aiResponse.trim();
       cleaned = cleaned.replace(/^```(?:json)?\s*\n?/i, '').replace(/\n?```\s*$/i, '');
-      
-      const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) {
+
+      const start = cleaned.indexOf('{');
+      const end = cleaned.lastIndexOf('}');
+      if (start === -1 || end === -1) {
         throw new Error('No JSON found in AI response');
       }
-      research = JSON.parse(jsonMatch[0]);
+      let jsonStr = cleaned.substring(start, end + 1);
+      try {
+        research = JSON.parse(jsonStr);
+      } catch {
+        // Repair common issues: trailing commas, control chars
+        jsonStr = jsonStr
+          .replace(/,\s*}/g, '}')
+          .replace(/,\s*]/g, ']')
+          .replace(/[\x00-\x1F\x7F]/g, ' ');
+        research = JSON.parse(jsonStr);
+      }
     } catch (parseError) {
       console.error('[research-region] Failed to parse AI response:', parseError);
       console.error('[research-region] Raw response (first 500):', aiResponse.substring(0, 500));
