@@ -51,6 +51,7 @@ async function fetchOGMetadata(regionSlug: string): Promise<RegionOG> {
 function generateHTML(og: RegionOG, canonicalUrl: string): string {
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
   const imageUrl = og.image_url || DEFAULT_OG.image_url;
+  const imageType = imageUrl?.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -66,6 +67,11 @@ function generateHTML(og: RegionOG, canonicalUrl: string): string {
   <meta property="og:description" content="${esc(og.description)}" />
   <meta property="og:url" content="${esc(canonicalUrl)}" />
   <meta property="og:image" content="${esc(imageUrl || '')}" />
+  <meta property="og:image:secure_url" content="${esc(imageUrl || '')}" />
+  <meta property="og:image:type" content="${imageType}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="${esc(og.title)}" />
   <meta property="og:site_name" content="Caesar the Day" />
 
   <meta name="twitter:card" content="summary_large_image" />
