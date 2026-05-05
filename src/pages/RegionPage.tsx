@@ -381,6 +381,7 @@ export default function RegionPage() {
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
 
       {region === 'veneto' && (
+        <>
           <VenetoWinePourSelector />
           <VenetoFoodPillars />
           <VenetoCultureAlive />
