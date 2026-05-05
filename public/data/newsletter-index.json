@@ -5,17 +5,29 @@
     "backgroundImage": "/images/shared/italy-hero-landscape.jpg"
   },
   "featured": {
-    "slug": "umbria",
-    "title": "Umbria",
-    "subtitle": "Italy's Green Heart",
-    "issueNumber": 10,
-    "date": "January 2026",
-    "description": "Umbria is central Italy's best-kept secret. Positioned perfectly between Rome and Florence, this landlocked region offers what Tuscany used to be — affordable medieval hill towns, world-class truffles, Sagrantino wine, and a slower pace of life. No coastline means fewer tourists and more authentic Italian living.",
-    "heroImage": "/images/umbria/umbria-hero.jpg",
-    "ctaText": "Explore Umbria",
-    "ctaLink": "/umbria"
+    "slug": "calabria",
+    "title": "Calabria",
+    "subtitle": "Where Two Seas Meet the Mountains",
+    "issueNumber": 12,
+    "date": "May 2026",
+    "description": "Italy's rugged toe, where the Tyrrhenian and Ionian coasts frame Sila and Aspromonte highlands. Tropea's cliffs, Reggio's bronzes, Arbereshe villages, and the 7% flat-tax towns that make Calabria one of Europe's most overlooked retirement frontiers.",
+    "heroImage": "/images/calabria/tropea-cliffs-sunset.jpg",
+    "ctaText": "Explore Calabria",
+    "ctaLink": "/calabria"
   },
   "newsletters": [
+    {
+      "slug": "calabria",
+      "title": "Calabria",
+      "subtitle": "Where Two Seas Meet the Mountains",
+      "issueNumber": 12,
+      "date": "May 2026",
+      "status": "live",
+      "thumbnail": "/images/calabria/tropea-cliffs-sunset.jpg",
+      "description": "Italy's rugged toe, where the Tyrrhenian and Ionian coasts frame Sila and Aspromonte highlands. Tropea's cliffs, Reggio's bronzes, Arbereshe villages, and the 7% flat-tax towns that make Calabria one of Europe's most overlooked retirement frontiers.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/calabria"
+    },
     {
       "slug": "umbria",
       "title": "Umbria",
