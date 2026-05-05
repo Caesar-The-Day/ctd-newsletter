@@ -204,7 +204,7 @@ function buildRegionTemplate(slug: string, displayName: string, issueNumber: num
       header: `Until Next Time from ${displayName}`,
       subtitle: 'Share this newsletter with fellow Italy dreamers',
       message: `That's a wrap on ${displayName}. Until next time — Cesare`,
-      shareUrl: `https://news.caesartheday.com/${slug}`,
+      shareUrl: `https://italy.caesartheday.com/${slug}`,
       socialMessages: {
         facebook: `Discover ${displayName} with Caesar the Day!`,
         threads: `Exploring ${displayName} for retirement.`,

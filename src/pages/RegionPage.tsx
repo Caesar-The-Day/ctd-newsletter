@@ -207,28 +207,28 @@ export default function RegionPage() {
       title: 'Retiring in Piemonte | Veni. Vidi. Vici. Region Guide',
       description: 'Discover Piemonte through an immersive, data-rich regional guide for smart retirees: best towns to live in, cost of living, healthcare access, wine culture, infrastructure, and interactive tools to plan your Italian chapter with confidence.',
       keywords: ['retire in Piemonte', 'best towns in Piemonte', 'Northern Italy retirement', 'Piemonte cost of living', 'Piemonte wine regions', 'retiring in Italy', 'Italian regions guide'],
-      ogImage: 'https://news.caesartheday.com/images/piemonte-og.jpg',
+      ogImage: 'https://italy.caesartheday.com/images/piemonte-og.jpg',
       ogDescription: 'Explore Piemonte like a local — from walkable towns and cost-of-living insights to healthcare, wine culture, and interactive planning tools. A smart retiree\'s guide to Northern Italy.',
     },
     lombardia: {
       title: 'Retiring in Lombardia | Veni. Vidi. Vici. Region Guide',
       description: 'Discover Lombardia — Northern sophistication with mountain soul. From the lakes of Como and Iseo to Milan\'s cultural riches, explore cost of living, best towns, healthcare, and everything you need to retire in Italy\'s most dynamic region.',
       keywords: ['retire in Lombardia', 'Lake Como retirement', 'Milan region living', 'Lombardy cost of living', 'Northern Italy retirement', 'retiring in Italy', 'Italian regions guide', 'Lake Iseo', 'Bergamo'],
-      ogImage: 'https://news.caesartheday.com/images/lombardia-og.jpg',
+      ogImage: 'https://italy.caesartheday.com/images/lombardia-og.jpg',
       ogDescription: 'Northern sophistication with mountain soul. Your guide to retiring in Lombardia — lakes, culture, cost of living, and the best towns to call home.',
     },
     puglia: {
       title: 'Retiring in Puglia | Veni. Vidi. Vici. Region Guide',
       description: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
       keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
-      ogImage: 'https://news.caesartheday.com/puglia-og-2.jpg',
+      ogImage: 'https://italy.caesartheday.com/puglia-og-2.jpg',
       ogDescription: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
     },
     umbria: {
       title: 'Retiring in Umbria | Veni. Vidi. Vici. Region Guide',
       description: 'Discover Umbria — Italy\'s green heart between Rome and Florence. From medieval hill towns and black truffles to Sagrantino wine and affordable living, explore everything you need to retire in central Italy\'s best-kept secret.',
       keywords: ['retire in Umbria', 'Umbria cost of living', 'central Italy retirement', 'Perugia living', 'Assisi retirement', 'Rome Florence corridor', 'Italian regions guide', 'retiring in Italy', 'Umbria wine regions'],
-      ogImage: 'https://news.caesartheday.com/images/umbria-og.jpg',
+      ogImage: 'https://italy.caesartheday.com/images/umbria-og.jpg',
       ogDescription: 'Italy\'s green heart — positioned between Rome and Florence. Your guide to retiring in Umbria: medieval towns, truffles, wine, and affordable central Italian living.',
     }
   };
@@ -245,7 +245,7 @@ export default function RegionPage() {
     title: 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy',
     description: 'Region-by-region guides to retiring in Italy.',
     keywords: ['retirement in Italy', 'Italian regions guide'],
-    ogImage: 'https://news.caesartheday.com/og-veni-vidi-vici.jpg',
+    ogImage: 'https://italy.caesartheday.com/og-veni-vidi-vici.jpg',
   };
 
   const currentSEO: SEOConfig = (region && seoConfig[region as keyof typeof seoConfig]) || defaultSEO;
@@ -260,10 +260,10 @@ export default function RegionPage() {
       <SEO
         title={effectiveSeoTitle}
         description={effectiveSeoDescription}
-        canonical={`https://news.caesartheday.com/${region}`}
+        canonical={`https://italy.caesartheday.com/${region}`}
         ogTitle={effectiveSeoTitle}
         ogDescription={effectiveSeoDescription}
-        ogUrl={`https://news.caesartheday.com/${region}`}
+        ogUrl={`https://italy.caesartheday.com/${region}`}
         ogType="article"
         ogImage={effectiveOgImage}
         keywords={currentSEO.keywords}
@@ -281,8 +281,8 @@ export default function RegionPage() {
             "name": "CaesarTheDay®",
             "url": "https://www.caesartheday.com"
           },
-          "url": `https://news.caesartheday.com/${region}`,
-          "mainEntityOfPage": `https://news.caesartheday.com/${region}`
+          "url": `https://italy.caesartheday.com/${region}`,
+          "mainEntityOfPage": `https://italy.caesartheday.com/${region}`
         }}
       />
       <div className="min-h-screen bg-background">

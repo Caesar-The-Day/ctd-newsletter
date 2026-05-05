@@ -13,7 +13,7 @@ interface RegionOG {
 const DEFAULT_OG: RegionOG = {
   title: 'Veni. Vidi. Vici. | Caesar the Day',
   description: 'Your editorial guide to retiring in Italy — region by region, town by town.',
-  image_url: 'https://news.caesartheday.com/og-veni-vidi-vici-2.jpg',
+  image_url: 'https://italy.caesartheday.com/og-veni-vidi-vici-2.jpg',
 };
 
 async function fetchOGMetadata(regionSlug: string): Promise<RegionOG> {
@@ -90,7 +90,7 @@ export default async function handler(req: Request): Promise<Response> {
   // Fetch from database (or use default for homepage)
   const og = region ? await fetchOGMetadata(region) : DEFAULT_OG;
 
-  const canonical = `https://news.caesartheday.com${path}`;
+  const canonical = `https://italy.caesartheday.com${path}`;
   const html = generateHTML(og, canonical);
 
   return new Response(html, {

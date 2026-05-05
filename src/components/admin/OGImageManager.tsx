@@ -248,7 +248,7 @@ export function OGImageManager() {
                   <Button
                     size="sm"
                     variant="ghost"
-                    onClick={() => window.open(`https://developers.facebook.com/tools/debug/?q=https://news.caesartheday.com/${region.region_slug}`, '_blank')}
+                    onClick={() => window.open(`https://developers.facebook.com/tools/debug/?q=https://italy.caesartheday.com/${region.region_slug}`, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-1" />
                     FB Debug
