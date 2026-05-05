@@ -163,6 +163,11 @@ export default {
           "0%": { clipPath: "inset(100% 0 0 0)" },
           "100%": { clipPath: "inset(0% 0 0 0)" },
         },
+        "ken-burns": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "50%": { transform: "scale(1.12) translate(-1.5%, -1%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.3s ease-out",
@@ -184,6 +189,7 @@ export default {
         "svg-bounce-note": "svg-bounce-note 1.2s ease-in-out infinite",
         "svg-rise-fade": "svg-rise-fade 2s ease-out infinite",
         "svg-knight-hop": "svg-knight-hop 3s ease-in-out infinite",
+        "ken-burns": "ken-burns 24s ease-in-out infinite",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

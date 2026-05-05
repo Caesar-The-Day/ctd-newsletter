@@ -1,63 +1,71 @@
-## Calabria Pizzaz — Three New Components
+## Calabria Visual Upgrade Plan
 
-Building the three highest-impact picks for the Calabria guide. Each is a self-contained section component, slotted into `RegionPage.tsx` behind a `region === 'calabria'` check, following the Puglia/Veneto/Umbria pattern.
+Four focused upgrades to elevate the Calabria region page. All work touches **only Calabria** (active, unlocked region) — no shared component changes that would affect other regions.
 
-### 1. Two Coasts Selector (`CalabriaTwoCoastsSelector.tsx`)
+---
 
-Side-by-side comparison of the Tyrrhenian (west) and Ionian (east) coasts — Calabria's defining geographic split.
+### 1. Hero looping video (Tropea cliffs at sunset)
 
-- **Layout**: Desktop split-view (two large image cards side-by-side); mobile tab toggle.
-- **Each coast card shows**: signature image, vibe sentence, water character (clarity, temp, sand vs pebble), sunset/sunrise orientation, signature towns (Tropea, Scilla, Pizzo for Tyrrhenian; Soverato, Roccella, Capo Rizzuto for Ionian), summer crowd level, best-for persona ("lively & dramatic" vs "quiet & swimmable").
-- **Bottom comparison strip**: water temp, beach type, accessibility, August vibe — at-a-glance row.
-- Generates 2 hero images (one per coast).
+`HeroParallax.tsx` currently only renders an `<img>`. We'll extend it to optionally render a looping muted `<video>` when the region data provides `region.hero.heroVideo`.
 
-### 2. Sila & Aspromonte — The Mountain Escape (`CalabriaMountainEscape.tsx`)
+- Generate a hero still (`tropea-cliffs-sunset.jpg`) via Nano Banana Pro and use a subtle Ken-Burns CSS transform (slow zoom + pan) to simulate the cinematic feel of a video clip without needing real footage. Real MP4 generation isn't supported by our image gateway, and the existing Piemonte `vineyard-winter.mp4` isn't actually wired up in the codebase — so we'll match that *intent* with a high-quality cinematic still + Ken Burns.
+- Add prop `heroVideo?: string` to `HeroParallax` plumbing; if falsy (other regions), behavior is unchanged. Calabria gets the new still + Ken Burns layer.
+- Update Calabria's `region.hero.bannerImage` in the DB to the new sunset image.
 
-Counters the "just beaches" stereotype. Shows Calabria's two mountain ranges as a retirement asset (cool summers, pine forests, lakes, lower property prices).
+### 2. Tab background imagery for `HighlightsShowcase`
 
-- **Layout**: Two-park comparison cards (Sila National Park, Aspromonte National Park) plus a temperature-comparison visual.
-- **Each park card**: elevation range, summer high temp vs nearest coast town (e.g. Camigliatello 22°C vs Crotone 35°C in August), signature features (Sila's lakes, wolves, beech forests; Aspromonte's wild canyons, Greek-speaking villages), nearest hilltop towns, drive time to coast.
-- **Visual element**: Simple horizontal "elevation slider" graphic showing sea level → 1,900m with town pins.
-- Generates 2 hero images (Sila lake + forest, Aspromonte ridge).
+Each tab (Wine / Food / Culture) renders `data.backgroundImage` at 10% opacity behind the intro. Calabria's three values are currently empty strings.
 
-### 3. Reality Check — Southern Italy Logistics (`CalabriaRealityCheck.tsx`)
+- Generate three atmospheric tile/texture backgrounds (1600×900, faded edges):
+  - `bg-wine.jpg` — Cirò terracotta amphorae & vine shadows
+  - `bg-food.jpg` — Tropea fishing boats at dawn with chili strings
+  - `bg-culture.jpg` — Caltagirone-style majolica ceramic pattern in terracotta + sea-blue
+- Update the Calabria `region_data.highlights.{wine,food,culture}.backgroundImage` fields via SQL migration (jsonb_set).
 
-The pragmatic-honesty panel. Six honest cards addressing real retiree concerns — no postcard escapism.
+### 3. "Voices from Calabria" pull-quote section
 
-- **Card layout**: 3×2 grid on desktop, single column on mobile. Each card has icon, headline, plain-English answer, and a "what this means for you" line.
-- **Topics**:
-  1. **Healthcare reach** — drive times from major coastal towns to specialist hospitals (Catanzaro, Cosenza, Reggio).
-  2. **Flight connectivity** — Lamezia Terme (LMC) and Reggio (REG) direct routes; honest note on winter schedule cuts.
-  3. **Internet & fiber** — coverage reality by zone (coast vs interior).
-  4. **Seismic awareness** — Calabria is a seismic zone; what modern construction standards mean.
-  5. **Summer water** — which coastal towns ration, which don't.
-  6. **English & expat density** — honest assessment (lower than Puglia/Tuscany).
+A new lightweight component placed between `HighlightsShowcase` and `CollaboratorFeature` (Calabria-only, conditional like the other Calabria sections).
 
-- Tone matches the existing "retiree honesty" mandate from project memory.
+- `CalabriaVoices.tsx`: editorial pull-quote treatment with a portrait, quote in serif italic, attribution (name, town, role), warm background using the new palette. Three rotating quotes (static, no carousel state for SSR-safety) shown as a 3-up grid on desktop, stacked on mobile. Example voices: a returning emigrant in Tropea, a Sila farmer, a Reggio fishmonger.
+- Generate three editorial portrait stills (`voice-tropea.jpg`, `voice-sila.jpg`, `voice-reggio.jpg`) — character-driven, warm light, candid framing.
 
-### Placement in `RegionPage.tsx`
+### 4. Color palette pass — terracotta / sea-blue / peperoncino / bergamot
 
-Slot all three behind `{region === 'calabria' && ...}` blocks, in this order:
+The current AI-generated theme is blue-dominant (primary h:204) with a green accent (h:105) — wrong for Calabria. Replace with a hand-tuned palette:
 
-```text
-TownsGrid
-  └─ CalabriaTwoCoastsSelector       (geographic context)
-  └─ CalabriaMountainEscape          (counter-stereotype)
-HighlightsShowcase
-RecipesInteractive
-  └─ CalabriaRealityCheck            (pragmatic close, before ProsCons)
-ProsCons
-```
+| Token | HSL | Role |
+|---|---|---|
+| primary | `14 65% 48%` | Terracotta (CTAs, links) |
+| secondary | `198 55% 45%` | Sea-blue (Tyrrhenian) |
+| accent | `8 78% 52%` | Peperoncino red |
+| muted | `42 55% 88%` | Bergamot cream |
+| background | `38 45% 97%` | Warm off-white |
+| foreground | `15 30% 18%` | Deep umber |
 
-### Technical Notes
+- Update `region_data.generatedTheme` for Calabria via SQL migration. The existing injection logic in `RegionPage.tsx` (lines 116-191) will pick it up automatically — no code changes needed there.
+- Also set `gradients.hero` to a terracotta→sea-blue diagonal and `gradients.warm` to peperoncino→bergamot.
 
-- All three components are self-contained with hardcoded Calabria-specific data inside the component (matching the Puglia/Veneto pattern — not pulled from `region_data` JSON).
-- Generate 4 new images via Nano Banana Pro: `coast-tyrrhenian.jpg`, `coast-ionian.jpg`, `sila-lake.jpg`, `aspromonte-ridge.jpg` — all saved to `public/images/calabria/`.
-- Use existing semantic tokens (`text-primary`, `bg-muted`, etc.); no new color classes.
-- Use `lucide-react` icons (Waves, Mountain, Stethoscope, Plane, Wifi, Activity, Droplet, MessageSquare).
-- No DB migration needed — content lives in the components.
-- No new dependencies.
+---
 
-### Out of scope (deferred for later rounds)
+### Files / DB changes
 
-Bergamot Coast story, Heritage Mosaic, 'Nduja Heat Lab, Festival Calendar, Borgo dei Briganti map, Riviera dei Cedri citron trail, Mare-Monti day plan builder. Happy to build these in follow-up passes once the first three land.
+**New files**
+- `src/components/sections/CalabriaVoices.tsx`
+- `public/images/calabria/tropea-cliffs-sunset.jpg`
+- `public/images/calabria/bg-wine.jpg`
+- `public/images/calabria/bg-food.jpg`
+- `public/images/calabria/bg-culture.jpg`
+- `public/images/calabria/voice-tropea.jpg`
+- `public/images/calabria/voice-sila.jpg`
+- `public/images/calabria/voice-reggio.jpg`
+
+**Edited files**
+- `src/components/sections/HeroParallax.tsx` — add optional Ken-Burns layer
+- `src/pages/RegionPage.tsx` — render `<CalabriaVoices />` conditionally for `region === 'calabria'`
+
+**DB migration (Calabria row only)**
+- Replace `region_data.generatedTheme` with the new palette
+- Set `region_data.region.hero.bannerImage` to the new sunset image
+- Set `region_data.highlights.{wine,food,culture}.backgroundImage` to the new tab backgrounds
+
+No changes to locked regions, shared schemas, or other components.

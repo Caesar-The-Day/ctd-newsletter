@@ -11,6 +11,7 @@ interface HeroParallaxProps {
   brandTitle: string;
   brandSubtitle: string;
   brandByline: string;
+  cinematic?: boolean;
 }
 
 export function HeroParallax({
@@ -24,6 +25,7 @@ export function HeroParallax({
   brandTitle,
   brandSubtitle,
   brandByline,
+  cinematic = false,
 }: HeroParallaxProps) {
   const [parallaxOffset, setParallaxOffset] = useState(0);
 
@@ -59,7 +61,7 @@ export function HeroParallax({
           <img
             src={bannerImage}
             alt={`${title} - Scenic landscape showcasing the beauty and charm of retiring in this Italian region`}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover ${cinematic ? 'animate-ken-burns' : ''}`}
           />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-background/95" />
       </div>

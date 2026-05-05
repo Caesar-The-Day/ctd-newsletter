@@ -40,6 +40,7 @@ import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { CalabriaTwoCoastsSelector } from '@/components/sections/CalabriaTwoCoastsSelector';
 import { CalabriaMountainEscape } from '@/components/sections/CalabriaMountainEscape';
 import { CalabriaRealityCheck } from '@/components/sections/CalabriaRealityCheck';
+import { CalabriaVoices } from '@/components/sections/CalabriaVoices';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
@@ -335,6 +336,7 @@ export default function RegionPage() {
         brandTitle={globals.brand.heroTitle}
         brandSubtitle={globals.brand.heroSubtitle}
         brandByline={globals.brand.heroByline}
+        cinematic={region === 'calabria'}
       />
 
       <EditorialIntro
@@ -378,6 +380,8 @@ export default function RegionPage() {
       {config.show7PercentCTA && <SevenPercentCTA />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
+
+      {region === 'calabria' && <CalabriaVoices />}
 
       {region === 'veneto' && (
         <>
