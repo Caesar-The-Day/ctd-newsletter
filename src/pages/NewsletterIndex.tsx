@@ -96,7 +96,7 @@ const NewsletterIndex = () => {
           "url": "https://news.caesartheday.com/",
           "publisher": {
             "@type": "Organization",
-            "name": "CaesarTheDay™",
+            "name": "CaesarTheDay®",
             "url": "https://www.caesartheday.com"
           }
         }}
@@ -114,7 +114,7 @@ const NewsletterIndex = () => {
         {/* Logo in top-right corner */}
         <img 
           src="/images/shared/caesartheday-logo.png" 
-          alt="CaesarTheDay™ Logo" 
+          alt="CaesarTheDay® Logo" 
           className="absolute top-4 right-4 md:top-8 md:right-8 w-32 h-32 md:w-40 md:h-40 object-contain z-20"
         />
 
@@ -131,7 +131,7 @@ const NewsletterIndex = () => {
               Independent, data-rich regional guides for smart retirees who want to plan their Italian chapter with confidence.
             </p>
             <p className={`text-base md:text-lg text-white/70 mt-3 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              by CaesarTheDay™
+              by CaesarTheDay®
             </p>
             <div className={`mt-4 transition-all duration-700 delay-250 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <Button 
