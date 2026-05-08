@@ -1,44 +1,41 @@
-## Goal
+# Molise Map with Toggleable Layers
 
-Switch the canonical site domain from `news.caesartheday.com` to `italy.caesartheday.com` everywhere it's referenced, and ensure Calabria's social/OG metadata uses `https://italy.caesartheday.com/calabria`.
+Mirror the Calabria connectivity-map pattern — a Leaflet map with checkbox layer toggles — but reframe it around what makes Molise distinctive: heritage sites, wine zones, protected nature, and transit anchors.
 
-## Changes
+## What gets built
 
-### 1. Codebase domain swap (`news.caesartheday.com` → `italy.caesartheday.com`)
+A new component `src/components/sections/MoliseDiscoveryMap.tsx` rendered on the Molise page (in `src/pages/RegionPage.tsx`, gated by `region === 'molise'`, placed right after `<InteractiveMap />` so the existing town map stays as the overview).
 
-Replace every occurrence in:
+The map centers on Molise (~41.69, 14.58, zoom 8) using the same MapTiler tile setup as `CalabriaConnectivityMap`, with the same loading/error states and `cal-poi`-style div-icon markers re-themed as `mol-poi`.
 
-- `index.html` — `og:url`, `og:image`, `twitter:image`
-- `api/og.ts` — default `image_url` and `canonical` URL builder
-- `src/pages/RegionPage.tsx` — `canonical`, `ogUrl`, structured-data `url` / `mainEntityOfPage`, and per-region `ogImage` fallbacks (piemonte, lombardia, puglia, umbria, default)
-- `src/pages/NewsletterIndex.tsx` — `canonical`, `ogUrl`, `ogImage`, JSON-LD `url`
-- `src/components/admin/OGImageManager.tsx` — Facebook debug link template
-- `src/components/common/CookieConsent.tsx` — analytics `domains` array (add `italy.caesartheday.com`, keep legacy)
-- `src/utils/mergeResearchData.ts` — generated `shareUrl`
-- `supabase/functions/scaffold-region/index.ts` — generated `shareUrl`
-- `public/sitemap.xml` — all `<loc>` entries
-- `public/data/_template.json`, `public/data/piemonte.json`, `public/data/regions/italy/*.json` — `closing.shareUrl` for piemonte, lombardia, puglia, veneto (and template)
+## Layers (each with its own toggle chip)
 
-Note: `www.caesartheday.com` (the marketing site) and `italy7percent.caesartheday.com` are unrelated and stay as-is.
+1. **UNESCO & Heritage** — Saepinum (Roman city at Altilia), Pietrabbondante (Samnite theatre), Larino Roman amphitheatre, Castel San Vincenzo / San Vincenzo al Volturno abbey, Agnone bell foundry. (Molise has no inscribed UNESCO site, so the layer is honestly labelled "UNESCO Tentative & Major Heritage" — Tratturi pastoral routes are on Italy's tentative list and run through here.)
+2. **Wine Zones** — Tintilia del Molise DOC (interior hills around Campobasso/Isernia), Biferno DOC (Termoli/Larino corridor), Pentro di Isernia DOC. Rendered as soft polygons + a labelled marker per zone.
+3. **National & Regional Parks** — Parco Nazionale d'Abruzzo, Lazio e Molise (western edge), Riserva MAB Collemeluccio-Montedimezzo, Oasi WWF Guardiaregia-Campochiaro, Tremiti marine reserve (offshore from Termoli).
+4. **Tratturi (Ancient Sheep Routes)** — the Pescasseroli–Candela and Celano–Foggia tratturi as dashed polylines crossing the region (the layer that actually defines Molise's landscape).
+5. **Transport Anchors** — Termoli port (Tremiti ferries), Campobasso & Isernia rail stations, Rome–Pescara A14/A1 access points, nearest airports (Naples NAP, Pescara PSR) shown as off-map indicators with distance.
 
-### 2. OG metadata in the database (`region_og_metadata` table)
+Each layer is a `L.layerGroup` added/removed via state, exactly like Calabria's `layers` record. Toggle UI is a row of `Button` chips above the map (matches Calabria's "Modes" / "Layers" rows). Markers open Leaflet popups with name + one-line context.
 
-Update `image_url` host for all 6 region rows from `jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/og-images/...` and `news.caesartheday.com/...` → `https://italy.caesartheday.com/og-images/<slug>-og.<ext>` only **if** the new domain serves these. Since `og-images` are stored in Supabase Storage and not on the `italy.caesartheday.com` origin, the safer move is:
+## Data source
 
-- Keep `image_url` pointing at the existing public Supabase Storage URLs (they work cross-origin for OG scrapers).
-- Only the **`og:url` / canonical** changes to `https://italy.caesartheday.com/<slug>`, which is already handled by the code swap above (since `api/og.ts` builds the canonical from the request host fallback).
+Hard-coded inside the component (same approach as `CalabriaConnectivityMap`'s `HUBS`, `AIRPORTS`, etc.). Coordinates pulled from the existing Molise `where.markers` where available, plus well-known public coordinates for heritage/parks/wine zones. No DB or AI calls.
 
-So the DB only needs a sanity update for the two rows that currently hardcode `news.caesartheday.com` in `image_url`:
-- `lombardia` → `https://news.caesartheday.com/images/lombardia-og.jpg` → re-point to its Supabase Storage URL (or the new domain if image is hosted there).
+## Styling
 
-For Calabria specifically: its row already has the correct Supabase Storage `image_url`. After the code swap, social previews for `https://italy.caesartheday.com/calabria` will render with the existing title/description/image.
+Reuse the existing `cal-hub` / `cal-poi` CSS conventions by adding `mol-poi-*` classes to `src/index.css` (heritage = amber, wine = burgundy, parks = green, tratturi = ochre dashed, transport = primary). All colors via HSL semantic tokens.
 
-### 3. Vercel / hosting
+## Out of scope
 
-`vercel.json` doesn't need domain changes (it's host-agnostic). The new domain `italy.caesartheday.com` must be added as a domain in the Vercel project — that's a one-time hosting-panel action, not a code change. I'll flag this in the final message.
+- No edits to AI generation, scaffolding, or the research-region edge function.
+- No changes to other regions.
+- No new DB fields — content lives in the component.
 
-## Verification after edit
+## Technical notes
 
-- `rg "news.caesartheday.com"` returns no results.
-- Open `/admin/regions` → OG manager → Calabria row → "FB Debug" link points to `https://italy.caesartheday.com/calabria`.
-- Hitting `https://italy.caesartheday.com/calabria` with a Facebook user-agent (via the Vercel `/api/og` route) returns OG tags with `og:url=https://italy.caesartheday.com/calabria` and the existing Calabria image/description.
+- File added: `src/components/sections/MoliseDiscoveryMap.tsx`
+- File edited: `src/pages/RegionPage.tsx` (import + conditional render under Molise)
+- File edited: `src/index.css` (add `.mol-poi*` classes)
+- Reuses Leaflet + MapTiler setup already proven in `CalabriaConnectivityMap`
+- Defensive: returns an error card if `VITE_MAPTILER_KEY` is missing, same as Calabria
