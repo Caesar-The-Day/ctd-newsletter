@@ -40,7 +40,6 @@ import { PugliaCoastSelector } from '@/components/sections/PugliaCoastSelector';
 import { CalabriaTwoCoastsSelector } from '@/components/sections/CalabriaTwoCoastsSelector';
 import { CalabriaMountainEscape } from '@/components/sections/CalabriaMountainEscape';
 import { CalabriaRealityCheck } from '@/components/sections/CalabriaRealityCheck';
-import { MoliseDiscoveryMap } from '@/components/sections/MoliseDiscoveryMap';
 import { MilanProximityTool } from '@/components/sections/MilanProximityTool';
 import LombardiaDishExplorer from '@/components/sections/LombardiaDishExplorer';
 import PanettoneQuiz from '@/components/sections/PanettoneQuiz';
@@ -351,8 +350,6 @@ export default function RegionPage() {
         regionTitle={regionData.region.title.split(':')[0]} 
         whereData={regionData.where}
       />
-
-      {region === 'molise' && <MoliseDiscoveryMap />}
 
       <ClimateSnapshot />
 
