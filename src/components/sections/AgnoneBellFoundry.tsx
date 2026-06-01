@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Bell, ExternalLink, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import foundryImage from '/images/molise/agnone-foundry.jpg?url';
+
+const foundryImage = '/images/molise/agnone-foundry.jpg';
 
 type BellEntry = {
   id: string;

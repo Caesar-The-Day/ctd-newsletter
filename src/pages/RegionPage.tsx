@@ -54,6 +54,7 @@ import VenetoWinePourSelector from '@/components/sections/VenetoWinePourSelector
 import VenetoFoodPillars from '@/components/sections/VenetoFoodPillars';
 import VenetoCultureAlive from '@/components/sections/VenetoCultureAlive';
 import VeniceSerenissima from '@/components/sections/VeniceSerenissima';
+import { AgnoneBellFoundry } from '@/components/sections/AgnoneBellFoundry';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -379,6 +380,8 @@ export default function RegionPage() {
       {config.show7PercentCTA && <SevenPercentCTA region={region} />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
+
+      {region === 'molise' && <AgnoneBellFoundry />}
 
       {region === 'veneto' && (
         <>
