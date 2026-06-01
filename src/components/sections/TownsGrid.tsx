@@ -18,9 +18,10 @@ interface GridTown {
 
 interface TownsGridProps {
   towns: GridTown[];
+  note?: string;
 }
 
-export function TownsGrid({ towns }: TownsGridProps) {
+export function TownsGrid({ towns, note }: TownsGridProps) {
   const [selectedTown, setSelectedTown] = useState<GridTown | null>(null);
 
   return (
@@ -33,6 +34,11 @@ export function TownsGrid({ towns }: TownsGridProps) {
             <p className="text-lg text-muted-foreground">
               Beyond the highlights—solid options worth exploring
             </p>
+            {note && (
+              <p className="text-base text-muted-foreground max-w-3xl mx-auto mt-6 leading-relaxed">
+                {note}
+              </p>
+            )}
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
