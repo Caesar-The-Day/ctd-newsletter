@@ -361,7 +361,7 @@ export default function RegionPage() {
       
       {config.showBookCTA && <BookCTA />}
 
-      <TownsGrid towns={regionData.towns.grid} />
+      <TownsGrid towns={regionData.towns.grid} note={(regionData.towns as any).moreTownsNote} />
 
       {region === 'puglia' && <PugliaCoastSelector />}
 
