@@ -1,28 +1,59 @@
-# Consolidate Molise Layers into the Existing Map
+# Molise Highlights Upgrade + Agnone Bell Foundry Interactive
 
-You're right — `InteractiveMap` already has a full overlay/layer system (`whereData.map.overlays[]` with toggleable layer chips, polygons, lines, special markers, airports, etc.). The Molise scaffold just didn't include any overlays, so I built a parallel map instead of feeding data into the existing one. Fixing that now.
+## 1. Card imagery (12 total)
 
-## What changes
+Generate one editorial JPEG per card (food, wine, culture × 4) into `public/images/molise/highlights/` and update each card's `image` field in the `regions.region_data->'highlights'` JSON via a Supabase update.
 
-1. **Remove** `src/components/sections/MoliseDiscoveryMap.tsx`.
-2. **Remove** the `{region === 'molise' && <MoliseDiscoveryMap />}` render and its import in `src/pages/RegionPage.tsx`.
-3. **Add overlays to Molise's `where.map`** in the `regions` table (via migration update on the JSONB column). Same content as the discarded component, mapped to the existing `feature.type` values that `InteractiveMap` already renders:
-   - **UNESCO & Heritage** — `marker` features for Saepinum (Altilia), Pietrabbondante, Larino amphitheatre, San Vincenzo al Volturno, Agnone bell foundry.
-   - **Wine Zones** — `zone` polygons for Tintilia del Molise DOC, Biferno DOC, Pentro di Isernia DOC.
-   - **Parks & Nature** — `zone` polygons for PN Abruzzo-Lazio-Molise (Mainarde sector), Collemeluccio-Montedimezzo MAB, Oasi WWF Guardiaregia, Tremiti marine reserve.
-   - **Tratturi** — `historic` dashed polylines for Pescasseroli–Candela and Celano–Foggia routes.
-   - **Transport** — `airport` markers (Naples NAP, Pescara PSR), `highway` polylines (A1 via Venafro, A14 via Termoli), with Termoli port/Campobasso & Isernia rail as `marker` features.
+- **Food**: cavatelli with pork ragù, paprika-rubbed pampanella, Termoli brodetto in terra-cotta, pallotte cacio e ova in tomato sauce.
+- **Wine**: Tintilia glass against vineyard, Biferno Rosso bottle/oak, crisp Falanghina with seafood, rustic Pentro tavern pour.
+- **Culture**: Saepinum Roman ruins, 'Ndocciata fire torches at night, Samnite warrior artifact (museum-style), tombolo lace bobbins on cushion.
 
-   Each overlay gets `id`, `name`, `icon` (Landmark / Wine / Mountain / Train / Plane), `description`, and a `features[]` array — the exact shape `InteractiveMap` already consumes.
+Style: warm editorial photography, natural light, consistent palette with existing Molise hero.
 
-4. No component code changes needed — the existing toggle chips, popups, and styling will pick the new overlays up automatically.
+## 2. Expanded copy + reference links
 
-## Out of scope
-- No changes to `InteractiveMap` itself.
-- No changes to other regions.
-- No new sections on the Molise page.
+Rewrite each card's `description` to 2–3 sentences (origin, what makes it distinct, when/where to encounter it), keeping the retiree-honest editorial tone. Populate `links[]` (label + url) per card with reputable references — e.g.:
 
-## Technical notes
-- File deleted: `src/components/sections/MoliseDiscoveryMap.tsx`
-- File edited: `src/pages/RegionPage.tsx` (drop import + conditional render)
-- DB: one migration that updates `regions.region_data` for `slug='molise'` to set `region_data->'where'->'map'->'overlays'` to the new array (jsonb_set, preserving the rest of the JSON).
+- Pampanella → Slow Food / Gambero Rosso
+- Brodetto Termolese → Comune di Termoli tourism / Italia.it
+- Tintilia → Tintilia del Molise DOC consortium, Wine Enthusiast feature
+- Biferno / Falanghina → Federdoc, Quattrocalici
+- Saepinum → Parchi Archeologici (MIC), Italia.it
+- 'Ndocciata → UNESCO candidacy page, Comune di Agnone
+- Tombolo → Regione Molise artigianato page
+
+Links render via the existing `ExternalLink` affordance already supported by `HighlightsShowcase`.
+
+## 3. New interactive: "Sounds of Molise — The Agnone Bell Foundry"
+
+A new section component telling the story of **Pontificia Fonderia di Campane Marinelli** (founded c. 1000 AD, Vatican supplier, one of the oldest family businesses on earth).
+
+### UX
+- Editorial intro paragraph + small portrait/photo of the foundry.
+- A row of 5–6 **clickable bell cards**, each representing a real commissioned bell:
+  - St Peter's Basilica (Jubilee 2000)
+  - Montecassino Abbey
+  - UN Headquarters (peace bell)
+  - Expo 2015 Milano
+  - Local Agnone cathedral
+  - Mexico City Basilica of Guadalupe
+- Clicking a bell:
+  - Plays a short tone (different pitch per bell, generated client-side via WebAudio — no audio assets needed; sine + decay envelope, frequencies derived from realistic bell strike notes).
+  - Reveals an info panel: year cast, weight, commissioner, short anecdote, link to source (Marinelli site / news article).
+- "Ring all" button plays them in sequence (chord-like cascade).
+- Respects `prefers-reduced-motion` and starts muted until user interacts (browser autoplay policy).
+
+### Files
+- **Create** `src/components/sections/AgnoneBellFoundry.tsx` — fully self-contained, region-agnostic (accepts a `bells` prop, falls back to internal Molise data).
+- **Generate** 1 hero image `public/images/molise/agnone-foundry.jpg` (foundry interior, molten bronze, atmospheric).
+- **Edit** `src/pages/RegionPage.tsx` — render `<AgnoneBellFoundry />` for `slug === 'molise'`, placed between `HighlightsShowcase` and `CollaboratorFeature` so it follows the culture context.
+- **Edit** `feature-flags.json` for molise — add `agnoneBellFoundry: true` flag for visibility control.
+
+### Technical notes
+- WebAudio tones: `new AudioContext()` lazily on first click; per bell define `frequency` (e.g. 220, 261, 329, 392, 440 Hz with slight detune for bell shimmer using 2 oscillators) and a 3–4s exponential gain decay.
+- All data hard-coded inside the component (small, editorial, not worth a JSON round-trip).
+- Region-gated (Molise only) — no behaviour for other regions.
+
+## 4. Out of scope
+- No changes to other regions, schema, or shared utilities.
+- No new dependencies (uses WebAudio + existing shadcn/Tailwind).
