@@ -21,7 +21,7 @@ const REGION_COPY: Record<string, {
   molise: {
     title: "Find 7%-Eligible Towns in Molise",
     lead: "Molise is one of the regions fully covered by Italy's 7% flat-tax program for foreign retirees.",
-    emphasis: 'Nearly every Molise town qualifies — almost the entire region sits under the 20,000-resident threshold.',
+    emphasis: 'Nearly every Molise town qualifies — virtually the entire region sits under the 30,000-resident threshold (raised in 2026).',
     challenge: "The challenge isn't finding a town that qualifies — it's finding one that actually fits how you want to live.",
     detail: "plots every qualifying town in Molise on an interactive map, so you can filter by what matters: Adriatic coast vs. Apennine interior, walkability, population size, housing costs, healthcare access, climate, and airport distance.",
     compare: 'Compare coastal life around Termoli, the provincial rhythm of Campobasso and Isernia, and mountain villages like Agnone and Capracotta — then decide which trade-offs you\'re willing to make before you commit.',
