@@ -49,5 +49,15 @@
     "showRetirementBlueprintCTA": true,
     "enableAmbientAudio": true,
     "enableSeasonalParticles": true
+  },
+  "molise": {
+    "showWineQuiz": false,
+    "showBeerFeature": false,
+    "show7PercentCTA": true,
+    "showCollaborator": true,
+    "showBookCTA": true,
+    "showRetirementBlueprintCTA": true,
+    "enableAmbientAudio": true,
+    "enableSeasonalParticles": true
   }
 }
