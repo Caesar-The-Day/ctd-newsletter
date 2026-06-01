@@ -2,7 +2,38 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
 
-export function SevenPercentCTA() {
+const REGION_COPY: Record<string, {
+  title: string;
+  lead: string;
+  emphasis: string;
+  challenge: string;
+  detail: string;
+  compare: string;
+}> = {
+  calabria: {
+    title: 'Find 7%-Eligible Towns in Calabria',
+    lead: "Calabria is one of the regions fully covered by Italy's 7% flat-tax program for foreign retirees.",
+    emphasis: 'Most Calabrian towns under 30,000 residents qualify.',
+    challenge: "The challenge isn't finding a town that qualifies — it's finding one that actually fits how you want to live.",
+    detail: "plots every qualifying town in Calabria on an interactive map, so you can filter by what matters: coast vs. interior, Tyrrhenian vs. Ionian side, walkability, population size, housing costs, healthcare access, climate, and airport distance.",
+    compare: 'Compare hill towns in the Sila, beach towns on the Tyrrhenian, and Byzantine villages on the Ionian side — then decide which trade-offs you\'re willing to make before you commit.',
+  },
+  molise: {
+    title: "Find 7%-Eligible Towns in Molise",
+    lead: "Molise is one of the regions fully covered by Italy's 7% flat-tax program for foreign retirees.",
+    emphasis: 'Nearly every Molise town qualifies — almost the entire region sits under the 20,000-resident threshold.',
+    challenge: "The challenge isn't finding a town that qualifies — it's finding one that actually fits how you want to live.",
+    detail: "plots every qualifying town in Molise on an interactive map, so you can filter by what matters: Adriatic coast vs. Apennine interior, walkability, population size, housing costs, healthcare access, climate, and airport distance.",
+    compare: 'Compare coastal life around Termoli, the provincial rhythm of Campobasso and Isernia, and mountain villages like Agnone and Capracotta — then decide which trade-offs you\'re willing to make before you commit.',
+  },
+};
+
+interface SevenPercentCTAProps {
+  region?: string;
+}
+
+export function SevenPercentCTA({ region = 'calabria' }: SevenPercentCTAProps) {
+  const copy = REGION_COPY[region] ?? REGION_COPY.calabria;
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
