@@ -1,16 +1,23 @@
-## Changes for Molise
+## Replace "Italy Is Calling" CTA with Visto Facile CTA (Molise)
 
-### 1. Mark Isernia as 7% eligible
-Update the Molise region in the database: set `region_data.towns.grid[id=isernia].eligible7Percent` to `true` so the 7% badge appears on its card and dialog (same treatment Termoli/Agnone already get).
+Currently `RetirementBlueprintCTA` shows the "Italy Is Calling… Retirement Blueprint" pitch on every region except Piemonte/Puglia (which have their own variants). The Molise page falls into the generic bucket.
 
-### 2. Add a "More Towns" intro paragraph about Molise's broad 7% eligibility
-Surface a short editorial paragraph above the "More Towns to Consider" grid, only on the Molise page. Proposed copy:
+### Plan
 
-> Worth knowing: nearly every town in Molise sits under the 20,000-resident threshold, which means most of them qualify for Italy's 7% flat-tax regime for foreign retirees. It's not Tuscany or Umbria — and it doesn't pretend to be. But if you're weighing Abruzzo or Puglia and want authentic, unvarnished Italy on a tight budget, Molise quietly punches above its weight.
+1. **Bring in the Visto Facile logo as a project asset**
+   - Copy `src/assets/visto-facile-logo.png` from the *Visto Facile ERV Navigator* project into this project at `src/assets/visto-facile-logo.png`.
 
-### Technical details
-- Data: `supabase--insert` UPDATE on `regions` for `slug='molise'` to (a) flip `eligible7Percent` on Isernia and (b) add `region_data.towns.moreTownsNote` with the paragraph above.
-- `src/components/sections/TownsGrid.tsx`: add an optional `note?: string` prop; render it as a paragraph under the existing subtitle when present.
-- `src/pages/RegionPage.tsx`: pass `note={regionData.towns.moreTownsNote}` to `<TownsGrid>` (typed loosely via existing data shape).
+2. **Add a Molise variant inside `RetirementBlueprintCTA.tsx`**
+   - When `region === 'molise'`, render a different card: logo on top, new headline, ERV-focused copy, and a button linking to `https://visto-facile.lovable.app`.
+   - All other regions keep the existing "… Is Calling" variant unchanged.
 
-No other regions are affected — the note only renders if the field exists.
+### Proposed copy (Molise variant)
+
+- **Headline:** "Ready to Take the Italian Plunge?"
+- **Sub:** "If Molise (or anywhere in Italy) is on your shortlist, the Elective Residency Visa is the door you'll walk through. Visto Facile turns that intimidating application into a guided, step-by-step process — built specifically for U.S. and Canadian applicants."
+- **Bullet line:** "Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place."
+- **Italic tagline:** "The dream is yours. The paperwork doesn't have to be."
+- **Button:** "Try Visto Facile" → `https://visto-facile.lovable.app` (target=_blank, `data-analytics-event="visto_facile_cta_click"`)
+
+### Scope confirmation
+This swaps the CTA **only on the Molise page** based on the current context (you're viewing /molise and the prior turns were all Molise-scoped). If you'd like it to also replace the generic fallback on every region that isn't Piemonte/Puglia, say the word and I'll widen the condition.
