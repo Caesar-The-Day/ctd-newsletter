@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Compass } from 'lucide-react';
+import vistoFacileLogo from '@/assets/visto-facile-logo.png';
 
 interface RetirementBlueprintCTAProps {
   region?: string;
@@ -35,6 +36,57 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
+          {region === 'molise' ? (
+            <div
+              className={`relative bg-[#F5EFE7] rounded-xl shadow-soft p-8 md:p-12 text-center overflow-hidden transition-all duration-500 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              } ${isHovered ? 'shadow-2xl -translate-y-1' : ''}`}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="absolute inset-0 opacity-5 pointer-events-none">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="visto-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#visto-grid)" />
+                </svg>
+              </div>
+
+              <div className="relative z-10">
+                <img
+                  src={vistoFacileLogo}
+                  alt="Visto Facile — Italian Elective Residency Visa Navigator"
+                  className="h-20 md:h-24 w-auto mx-auto mb-6"
+                  loading="lazy"
+                />
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
+                  Ready to Take the Italian Plunge?
+                </h3>
+                <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+                  If Molise — or anywhere in Italy — is on your shortlist, the Elective Residency Visa is the door you'll walk through. Visto Facile turns that intimidating application into a guided, step-by-step process, built specifically for U.S. and Canadian applicants.
+                </p>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                  Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place, so nothing slips through the cracks.
+                </p>
+                <p className="text-xl font-semibold mb-6 text-foreground italic">
+                  The dream is yours. The paperwork doesn't have to be.
+                </p>
+                <Button size="lg" asChild className="hover-lift">
+                  <a
+                    href="https://visto-facile.lovable.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-analytics-event="visto_facile_cta_click"
+                  >
+                    Try Visto Facile
+                  </a>
+                </Button>
+              </div>
+            </div>
+          ) : (
           <div 
             className={`relative bg-[#F5EFE7] rounded-xl shadow-soft p-8 md:p-12 text-center overflow-hidden transition-all duration-500 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -105,6 +157,7 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
               </Button>
             </div>
           </div>
+          )}
         </div>
       </div>
     </section>
