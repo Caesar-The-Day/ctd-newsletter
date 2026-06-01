@@ -376,7 +376,7 @@ export default function RegionPage() {
 
       {region === 'calabria' && <SevenPercentExplainer />}
 
-      {config.show7PercentCTA && <SevenPercentCTA />}
+      {config.show7PercentCTA && <SevenPercentCTA region={region} />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
 
