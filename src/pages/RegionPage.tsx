@@ -55,6 +55,7 @@ import VenetoFoodPillars from '@/components/sections/VenetoFoodPillars';
 import VenetoCultureAlive from '@/components/sections/VenetoCultureAlive';
 import VeniceSerenissima from '@/components/sections/VeniceSerenissima';
 import { AgnoneBellFoundry } from '@/components/sections/AgnoneBellFoundry';
+import MoliseCentralItalyReach from '@/components/sections/MoliseCentralItalyReach';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -450,6 +451,8 @@ export default function RegionPage() {
           />
 
       {region === 'umbria' && <UmbriaRomeFlorenceCorridor />}
+
+      {region === 'molise' && <MoliseCentralItalyReach />}
 
       <CostCalculator 
         townPresets={regionData.costOfLiving.townPresets} 
