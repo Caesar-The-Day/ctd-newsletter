@@ -76,7 +76,7 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
                 </p>
                 <Button size="lg" asChild className="hover-lift">
                   <a
-                    href="https://visto-facile.lovable.app"
+                    href="https://vistofacile.caesartheday.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-analytics-event="visto_facile_cta_click"
