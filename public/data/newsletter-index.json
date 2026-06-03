@@ -17,6 +17,18 @@
   },
   "newsletters": [
     {
+      "slug": "molise",
+      "title": "Molise",
+      "subtitle": "Italy's Quietest Frontier",
+      "issueNumber": 13,
+      "date": "June 2026",
+      "status": "live",
+      "thumbnail": "https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/molise/hero.png",
+      "description": "Italy's second-smallest region — and its quietest retirement frontier. From Termoli's Adriatic coast to Agnone's snowy hill towns, Molise pairs €40k stone houses and the 7% retiree flat tax with Cardarelli and Gemelli Molise healthcare, Tintilia wine, white truffles, and the honest trade-off of depopulation. A clear-eyed field guide for retirees who want the real Molise, not the postcard.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/molise"
+    },
+    {
       "slug": "calabria",
       "title": "Calabria",
       "subtitle": "Where Two Seas Meet the Mountains",
