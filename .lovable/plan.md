@@ -1,56 +1,26 @@
-# Update landing hero with Molise + add Molise to web project map
+## Root cause
 
-## Current state
+`SevenPercentCTA` keeps per-region copy in a `REGION_COPY` map and **falls back to the Calabria entry** for any region not in the map. Piemonte's feature flags resolve to `"default"`, which has `show7PercentCTA: true` — so Piemonte renders the CTA using Calabria's copy. Editing Calabria therefore visibly changes Piemonte. Umbria has no flag entry either, so it also inherits `default` and shows the same Calabria-shaped CTA.
 
-- `/` (NewsletterIndex) auto-picks the newest live region as the featured card via `getNewsletterIndexData`. Molise is live (issue 13, June 2026), so it's already featured — but with fallback values because there's no Molise entry in `public/data/newsletter-index.json`:
-  - Title renders as lowercase `molise` (from `dbRow.display_name`)
-  - Thumbnail falls back to non-existent `/images/molise/molise-hero.jpg` (the card image area shows blank)
-  - Description is the generic `Explore molise — your guide to retiring in this Italian region.`
-- The Molise hero used on `/molise` lives in Supabase storage: `https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/molise/hero.png`
-- The sister project `caesartheday-web` has `public/data/italy-region-index.json` driving the Italy map. It has no Molise entry.
+Lombardia and Veneto are already safe (`show7PercentCTA: false`). Puglia, Calabria, Molise correctly show the CTA.
 
-## Changes — this project (`caesartheday-newsletter`)
+## Fix (minimal, no component changes)
 
-1. **`public/data/newsletter-index.json`** — add a Molise object inside `newsletters[]` (which the loader uses for title/thumbnail/description lookup; that also flows into the featured card):
-   ```json
-   {
-     "slug": "molise",
-     "title": "Molise",
-     "subtitle": "Italy's Quietest Frontier",
-     "issueNumber": 13,
-     "date": "June 2026",
-     "status": "live",
-     "thumbnail": "https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/molise/hero.png",
-     "description": "Italy's second-smallest region — and its quietest retirement frontier. From Termoli's Adriatic coast to Agnone's snowy hill towns, Molise pairs €40k stone houses and the 7% retiree flat tax with Cardarelli and Gemelli Molise healthcare, Tintilia wine, white truffles, and the honest trade-off of depopulation. A clear-eyed field guide for retirees who want the real Molise, not the postcard.",
-     "ctaText": "Read Newsletter",
-     "ctaLink": "/molise"
-   }
-   ```
-   This fixes the capitalization ("Molise"), the hero card image, the intro paragraph, AND the "Explore Molise" button label automatically (the merger computes `'Explore ' + title`).
+Flip the default so the 7% CTA is **opt-in per region**, and give Piemonte an explicit flag for clarity. Edit only `public/data/config/feature-flags.json`:
 
-2. **DB `regions.display_name`** — update `slug='molise'` row from `molise` → `Molise` so any other surface using `display_name` shows capitalized text. (Data update via insert tool, not migration.)
+- `default.show7PercentCTA`: `true` → `false`
+- Replace `"piemonte": "default"` with an explicit object that mirrors `default` but with `show7PercentCTA: false` (so future tweaks to `default` don't silently re-enable it on Piemonte).
+- Leave `puglia`, `calabria`, `molise` as-is (`true`).
+- Lombardia and Veneto stay `false`.
+- Umbria has no entry today → with the new default it will be `false` too. (Confirms with user intent: 7% is a Southern-Italy program; Umbria doesn't qualify.)
 
-## Changes — sister project (`caesartheday-web`)
+No code changes to `SevenPercentCTA.tsx`, `RegionPage.tsx`, or the Calabria/Molise copy. The Calabria fallback inside `REGION_COPY` stays as a safety net but will no longer be reachable from a non-7% region.
 
-3. **`public/data/italy-region-index.json`** — append a Molise entry inside `regions[]`, matching the existing schema for live regions (Calabria-style with cross-domain ctaLink):
-   ```json
-   {
-     "slug": "molise",
-     "title": "Molise",
-     "date": "June 2026",
-     "status": "live",
-     "thumbnail": "https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/molise/hero.png",
-     "description": "Italy's second-smallest region: Apennine villages, the 7% retiree flat tax, and €40k stone homes. Termoli on the Adriatic, Agnone in the snow, and a healthcare network that punches above its weight.",
-     "ctaText": "Read Newsletter",
-     "ctaLink": "https://italy.caesartheday.com/molise"
-   }
-   ```
-   Note: cross-project edits run in that project's context. After you approve, I'll need to switch projects to apply this — or you can hand it to the web project.
+## Why not the "region-agnostic" alternative
+
+Making the CTA generic would erase the region-specific lines that make it persuasive (Tyrrhenian vs Ionian for Calabria, Termoli/Agnone for Molise, "nearly every Molise town qualifies", etc.). The flag fix preserves that targeted copy and is one JSON edit.
 
 ## Out of scope
 
-- No component changes (NewsletterIndex.tsx already renders whatever data the loader returns).
-- No new image files (using the existing Supabase hero URL — CSS `background-image`, no CORS issue).
-- No changes to other regions.
-
-Approve to apply, or tell me what to tweak in the description copy first.
+- No edits to `SevenPercentCTA.tsx` copy.
+- No changes to other CTAs, locked region content, or DB.
