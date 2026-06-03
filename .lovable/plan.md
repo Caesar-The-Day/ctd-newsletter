@@ -1,23 +1,29 @@
-## Replace "Italy Is Calling" CTA with Visto Facile CTA (Molise)
+# Expand Molise Pros/Cons Section
 
-Currently `RetirementBlueprintCTA` shows the "Italy Is Calling… Retirement Blueprint" pitch on every region except Piemonte/Puglia (which have their own variants). The Molise page falls into the generic bucket.
+Current state: 2 pros + 2 cons. Goal: broaden coverage to more facets of life in Molise.
 
-### Plan
+## What to add
 
-1. **Bring in the Visto Facile logo as a project asset**
-   - Copy `src/assets/visto-facile-logo.png` from the *Visto Facile ERV Navigator* project into this project at `src/assets/visto-facile-logo.png`.
+Update `public/data/regions/italy/molise.json` (and DB `regions.region_data` for molise) — adding 3 new pros and 3 new cons. Final shape: **5 pros / 5 cons**.
 
-2. **Add a Molise variant inside `RetirementBlueprintCTA.tsx`**
-   - When `region === 'molise'`, render a different card: logo on top, new headline, ERV-focused copy, and a button linking to `https://visto-facile.lovable.app`.
-   - All other regions keep the existing "… Is Calling" variant unchanged.
+### New Pros
+1. **Nature & Outdoor Living** — Apennine national parks (Matese), pristine trasferanza trails, Adriatic coast within an hour, four real seasons, clean air rated among Italy's best.
+2. **Food & Wine Heritage** — Tintilia DOC (region-exclusive grape), Caciocavallo di Agnone, white truffles from San Pietro Avellana, olive oil culture, slow-food traditions still practiced daily.
+3. **Healthcare Access That Punches Above Its Weight** — Cardarelli hospital in Campobasso, Gemelli Molise (Rome's Gemelli network) in Campobasso, short waits compared to northern regions, SSN coverage simple to enroll.
 
-### Proposed copy (Molise variant)
+### New Cons
+1. **Climate Extremes** — Hot, humid summers in the lower valleys; snowy winters in hill towns above 700m mean chains, heating-oil costs, and occasional road closures.
+2. **Depopulation Reality** — Many villages have aging populations and shrinking services (closed schools, reduced bus routes, shuttered shops); choose your town carefully.
+3. **Airport & Long-Haul Travel** — No regional airport; nearest hubs (Naples, Rome FCO, Pescara) are 1.5–3 hours by car. Frequent transatlantic travel becomes a logistical commitment.
 
-- **Headline:** "Ready to Take the Italian Plunge?"
-- **Sub:** "If Molise (or anywhere in Italy) is on your shortlist, the Elective Residency Visa is the door you'll walk through. Visto Facile turns that intimidating application into a guided, step-by-step process — built specifically for U.S. and Canadian applicants."
-- **Bullet line:** "Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place."
-- **Italic tagline:** "The dream is yours. The paperwork doesn't have to be."
-- **Button:** "Try Visto Facile" → `https://visto-facile.lovable.app` (target=_blank, `data-analytics-event="visto_facile_cta_click"`)
+## Files to change
+- `public/data/regions/italy/molise.json` — append to `prosCons.pros[]` and `prosCons.cons[]`
+- `regions` table row for `slug='molise'` — same JSON updates via migration/insert tooling
+- Lightly refresh `prosCons.intro.tradeoff` and `finalTake.text` if needed to reflect broader scope (optional, ask first)
 
-### Scope confirmation
-This swaps the CTA **only on the Molise page** based on the current context (you're viewing /molise and the prior turns were all Molise-scoped). If you'd like it to also replace the generic fallback on every region that isn't Piemonte/Puglia, say the word and I'll widen the condition.
+## Out of scope
+- No component changes (`ProsConsInteractive.tsx` already renders any number of items)
+- No styling changes
+- Other regions unchanged
+
+Want me to proceed with these 3 new pros + 3 new cons as written, or tweak the categories/copy first?
