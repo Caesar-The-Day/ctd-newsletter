@@ -36,7 +36,7 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          {region === 'molise' ? (
+          {['molise', 'calabria', 'piemonte', 'lombardia', 'veneto', 'puglia'].includes(region ?? '') ? (
             <div
               className={`relative bg-[#F5EFE7] rounded-xl shadow-soft p-8 md:p-12 text-center overflow-hidden transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -66,7 +66,7 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
                   Ready to Take the Italian Plunge?
                 </h3>
                 <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                  If Molise — or anywhere in Italy — is on your shortlist, the Elective Residency Visa is the door you'll walk through. Visto Facile turns that intimidating application into a guided, step-by-step process, built specifically for U.S. and Canadian applicants.
+                  If Italy is on your shortlist, the Elective Residency Visa is the door you'll walk through. Visto Facile turns that intimidating application into a guided, step-by-step process, built specifically for U.S. and Canadian applicants.
                 </p>
                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                   Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place, so nothing slips through the cracks.
