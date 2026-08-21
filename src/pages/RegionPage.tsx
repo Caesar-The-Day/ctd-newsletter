@@ -370,6 +370,15 @@ export default function RegionPage() {
 
       <TownsGrid towns={regionData.towns.grid} note={(regionData.towns as any).moreTownsNote} />
 
+      {region === 'lazio' && (
+        <>
+          <RomeResidentReality />
+          <LazioThermalSprings />
+        </>
+      )}
+
+
+
       {region === 'puglia' && <PugliaCoastSelector />}
 
       {region === 'calabria' && (
