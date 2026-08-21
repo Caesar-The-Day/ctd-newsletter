@@ -12,12 +12,16 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [needsBootstrap, setNeedsBootstrap] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate('/admin/regions', { replace: true });
+    });
+    supabase.rpc('admin_exists').then(({ data, error }) => {
+      if (!error) setNeedsBootstrap(data === false);
     });
   }, [navigate]);
 
@@ -32,6 +36,27 @@ export default function Auth() {
     }
     navigate('/admin/regions', { replace: true });
   };
+
+  const handleCreateAdmin = async () => {
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: window.location.origin },
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: 'Could not create account', description: error.message, variant: 'destructive' });
+      return;
+    }
+    if (data.session) {
+      navigate('/admin/regions', { replace: true });
+    } else {
+      toast({ title: 'Account created', description: 'You can now sign in.' });
+      setNeedsBootstrap(false);
+    }
+  };
+
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-background px-4">
