@@ -1,15 +1,11 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
-
-interface LockRequest {
-  slug: string;
-  locked: boolean;
-}
+const BodySchema = z.object({
+  slug: z.string().min(1).max(64).regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens'),
+  locked: z.boolean(),
+});
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -18,50 +14,38 @@ serve(async (req) => {
   }
 
   try {
-    const { slug, locked } = await req.json() as LockRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
+
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
+    }
+    const { slug, locked } = parsed.data;
 
     console.log('[region-lock] Updating lock status:', { slug, locked });
-
-    // Validate required fields
-    if (!slug || typeof locked !== 'boolean') {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required fields: slug and locked (boolean)' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
 
     const today = new Date().toISOString().split('T')[0];
     const action = locked ? 'locked' : 'unlocked';
 
-    // Return instructions for updating the registry
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: `Region "${slug}" ${action} successfully`,
-        data: {
-          slug,
-          locked,
-          updatedAt: today,
-          registryUpdate: {
-            [slug]: {
-              locked
-            }
-          },
-          aiInstructionsUpdate: {
-            lockedRegions: locked ? 'add' : 'remove',
-            lastUpdated: today
-          }
-        }
-      }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
-
+    return jsonResponse({
+      success: true,
+      message: `Region "${slug}" ${action} successfully`,
+      data: {
+        slug,
+        locked,
+        updatedAt: today,
+        registryUpdate: {
+          [slug]: { locked },
+        },
+        aiInstructionsUpdate: {
+          lockedRegions: locked ? 'add' : 'remove',
+          lastUpdated: today,
+        },
+      },
+    });
   } catch (error) {
     console.error('[region-lock] Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+    return jsonResponse({ success: false, error: 'Unexpected server error' }, 500);
   }
 });

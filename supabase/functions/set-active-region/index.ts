@@ -1,14 +1,15 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
-
-interface SetActiveRequest {
-  slug: string | null;
-}
+const BodySchema = z.object({
+  slug: z
+    .string()
+    .min(1)
+    .max(64)
+    .regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens')
+    .nullable(),
+});
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -17,39 +18,37 @@ serve(async (req) => {
   }
 
   try {
-    const { slug } = await req.json() as SetActiveRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
+
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
+    }
+    const { slug } = parsed.data;
 
     console.log('[set-active-region] Setting active region:', slug);
 
     const today = new Date().toISOString().split('T')[0];
 
-    // Return instructions for updating AI instructions
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: slug 
-          ? `AI will now work exclusively on "${slug}"`
-          : 'No active region set',
-        data: {
+    return jsonResponse({
+      success: true,
+      message: slug
+        ? `AI will now work exclusively on "${slug}"`
+        : 'No active region set',
+      data: {
+        activeRegion: slug,
+        aiInstructionsUpdate: {
           activeRegion: slug,
-          aiInstructionsUpdate: {
-            activeRegion: slug,
-            instruction: slug 
-              ? `CRITICAL: The ACTIVE region for work is: ${slug}. Focus all content work on this region only. Do NOT modify any other region's data files.`
-              : 'No active region set. Ask user which region they want to work on.',
-            lastUpdated: today
-          }
-        }
-      }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
-
+          instruction: slug
+            ? `CRITICAL: The ACTIVE region for work is: ${slug}. Focus all content work on this region only. Do NOT modify any other region's data files.`
+            : 'No active region set. Ask user which region they want to work on.',
+          lastUpdated: today,
+        },
+      },
+    });
   } catch (error) {
     console.error('[set-active-region] Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+    return jsonResponse({ success: false, error: 'Unexpected server error' }, 500);
   }
 });
