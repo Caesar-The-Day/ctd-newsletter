@@ -47,23 +47,27 @@ serve(async (req) => {
   }
 
   try {
-    const { 
-      regionSlug, 
-      regionName, 
-      heroPrompt, 
-      seasonalPrompts = {},
-      generateTownThumbnails = false,
-      towns = []
-    } = await req.json() as ImageRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
+
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
+    }
+
+    const regionSlug = parsed.data.regionSlug;
+    const regionName = sanitizeText(parsed.data.regionName, 120);
+    const heroPrompt = sanitizeText(parsed.data.heroPrompt, 2000);
+    const seasonalPrompts: Record<string, string> = Object.fromEntries(
+      Object.entries(parsed.data.seasonalPrompts ?? {}).map(([k, v]) => [k, sanitizeText(String(v ?? ''), 2000)])
+    );
+    const generateTownThumbnails = parsed.data.generateTownThumbnails ?? false;
+    const towns = (parsed.data.towns ?? []).map((t) => ({
+      name: sanitizeText(t.name, 120),
+      prompt: t.prompt ? sanitizeText(t.prompt, 2000) : undefined,
+    }));
 
     console.log('[generate-region-images] Starting for:', { regionSlug, regionName });
-
-    if (!regionSlug || !regionName || !heroPrompt) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required fields: regionSlug, regionName, heroPrompt' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     if (!LOVABLE_API_KEY) {
