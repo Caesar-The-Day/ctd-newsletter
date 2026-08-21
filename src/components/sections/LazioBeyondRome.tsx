@@ -234,7 +234,7 @@ export default function LazioBeyondRome() {
                 <Card key={p.name} className={cn('transition-all hover:shadow-md')}>
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="font-semibold text-foreground flex items-center gap-1.5">
+                      <h3 className="text-base font-semibold text-foreground flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-primary" />
                         {p.name}
                       </h3>
