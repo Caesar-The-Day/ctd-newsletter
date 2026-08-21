@@ -41,16 +41,18 @@ serve(async (req) => {
   }
 
   try {
-    const { regionName, vibeDescription, characteristics = [] } = await req.json() as ThemeRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
 
-    console.log('[generate-region-theme] Generating theme for:', { regionName, vibeDescription, characteristics });
-
-    if (!regionName || !vibeDescription) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required fields: regionName and vibeDescription' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
     }
+    const regionName = sanitizeText(parsed.data.regionName, 120);
+    const vibeDescription = sanitizeText(parsed.data.vibeDescription, 2000);
+    const characteristics = (parsed.data.characteristics ?? []).map((c) => sanitizeText(c, 200));
+
+    console.log('[generate-region-theme] Generating theme for:', { regionName });
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     if (!LOVABLE_API_KEY) {
