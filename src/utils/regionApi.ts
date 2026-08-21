@@ -5,9 +5,7 @@
  * Uses direct fetch to Edge Functions for reliability.
  */
 
-// Get Supabase URL from env or use hardcoded value as fallback
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://jolbywwrnehhwodlgytt.supabase.co';
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvbGJ5d3dybmVoaHdvZGxneXR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMDczNTIsImV4cCI6MjA4MTU4MzM1Mn0.3UUV5PbolRzbZmo1_oCe9TgctYF1esT2xvA_izLR4SQ';
+import { supabase } from '@/integrations/supabase/client';
 
 export interface GeneratedTheme {
   primary: string;
@@ -116,27 +114,17 @@ export interface SetActiveResponse {
  * Call an edge function directly via fetch
  */
 async function callEdgeFunction<T>(functionName: string, body: object): Promise<T> {
-  const url = `${SUPABASE_URL}/functions/v1/${functionName}`;
-  
-  console.log(`[regionApi] Calling ${functionName}:`, body);
-  
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-      'apikey': SUPABASE_ANON_KEY,
-    },
-    body: JSON.stringify(body),
-  });
-
-  const data = await response.json();
-  console.log(`[regionApi] ${functionName} response:`, data);
-  
-  if (!response.ok) {
-    throw new Error(data.error || `Failed to call ${functionName}`);
+  const { data: sessionData } = await supabase.auth.getSession();
+  if (!sessionData.session) {
+    throw new Error('You must be signed in as an admin to perform this action.');
   }
-  
+
+  const { data, error } = await supabase.functions.invoke<T>(functionName, { body });
+
+  if (error) {
+    throw new Error(error.message || `Failed to call ${functionName}`);
+  }
+
   return data as T;
 }
 
