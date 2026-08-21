@@ -20,16 +20,18 @@ serve(async (req) => {
   }
 
   try {
-    const { regionName, vibeDescription = '', focusAreas = [] } = await req.json() as ResearchRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
 
-    console.log('[research-region] Researching:', { regionName, vibeDescription, focusAreas });
-
-    if (!regionName) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required field: regionName' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
     }
+    const regionName = sanitizeText(parsed.data.regionName, 120);
+    const vibeDescription = sanitizeText(parsed.data.vibeDescription ?? '', 2000);
+    const focusAreas = (parsed.data.focusAreas ?? []).map((f) => sanitizeText(f, 200));
+
+    console.log('[research-region] Researching:', { regionName });
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     if (!LOVABLE_API_KEY) {
