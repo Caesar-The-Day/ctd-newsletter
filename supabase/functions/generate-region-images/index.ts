@@ -1,9 +1,25 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin, sanitizeText } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
+const BodySchema = z.object({
+  regionSlug: z.string().min(1).max(64).regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens'),
+  regionName: z.string().min(1).max(120),
+  heroPrompt: z.string().min(1).max(2000),
+  seasonalPrompts: z
+    .object({
+      spring: z.string().max(2000).optional(),
+      summer: z.string().max(2000).optional(),
+      autumn: z.string().max(2000).optional(),
+      winter: z.string().max(2000).optional(),
+    })
+    .optional(),
+  generateTownThumbnails: z.boolean().optional(),
+  towns: z
+    .array(z.object({ name: z.string().min(1).max(120), prompt: z.string().max(2000).optional() }))
+    .max(40)
+    .optional(),
+});
 
 interface ImageRequest {
   regionSlug: string;
