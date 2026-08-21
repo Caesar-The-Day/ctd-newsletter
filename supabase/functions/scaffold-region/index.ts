@@ -1,17 +1,13 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
-
-interface ScaffoldRequest {
-  slug: string;
-  displayName: string;
-  issueNumber: number;
-  colorScheme: string;
-}
+const BodySchema = z.object({
+  slug: z.string().min(1).max(64).regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens'),
+  displayName: z.string().min(1).max(120),
+  issueNumber: z.number().int().min(1).max(10000).optional(),
+  colorScheme: z.string().max(64).optional(),
+}).passthrough();
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -19,23 +15,16 @@ serve(async (req) => {
   }
 
   try {
-    const { slug, displayName, issueNumber, colorScheme } = await req.json() as ScaffoldRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
+
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
+    }
+    const { slug, displayName, issueNumber, colorScheme } = parsed.data;
 
     console.log('[scaffold-region] Scaffolding new region:', { slug, displayName, issueNumber, colorScheme });
-
-    if (!slug || !displayName) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required fields: slug and displayName' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    if (!/^[a-z0-9-]+$/.test(slug)) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Slug must be lowercase alphanumeric with hyphens only' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
 
     const today = new Date().toISOString().split('T')[0];
     const currentMonth = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -98,11 +87,7 @@ serve(async (req) => {
 
   } catch (error) {
     console.error('[scaffold-region] Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+    return jsonResponse({ success: false, error: 'Unexpected server error' }, 500);
   }
 });
 

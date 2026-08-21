@@ -1,10 +1,12 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin, sanitizeText } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
+const BodySchema = z.object({
+  regionName: z.string().min(1).max(120),
+  vibeDescription: z.string().min(1).max(2000),
+  characteristics: z.array(z.string().max(200)).max(30).optional(),
+});
 
 interface ThemeRequest {
   regionName: string;
@@ -39,16 +41,18 @@ serve(async (req) => {
   }
 
   try {
-    const { regionName, vibeDescription, characteristics = [] } = await req.json() as ThemeRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
 
-    console.log('[generate-region-theme] Generating theme for:', { regionName, vibeDescription, characteristics });
-
-    if (!regionName || !vibeDescription) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required fields: regionName and vibeDescription' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
     }
+    const regionName = sanitizeText(parsed.data.regionName, 120);
+    const vibeDescription = sanitizeText(parsed.data.vibeDescription, 2000);
+    const characteristics = (parsed.data.characteristics ?? []).map((c) => sanitizeText(c, 200));
+
+    console.log('[generate-region-theme] Generating theme for:', { regionName });
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     if (!LOVABLE_API_KEY) {
@@ -184,10 +188,6 @@ Create a cohesive color palette that captures this region's unique character.`;
 
   } catch (error) {
     console.error('[generate-region-theme] Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+    return jsonResponse({ success: false, error: 'Unexpected server error' }, 500);
   }
 });

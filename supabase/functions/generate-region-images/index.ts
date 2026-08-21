@@ -1,9 +1,25 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin, sanitizeText } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
+const BodySchema = z.object({
+  regionSlug: z.string().min(1).max(64).regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens'),
+  regionName: z.string().min(1).max(120),
+  heroPrompt: z.string().min(1).max(2000),
+  seasonalPrompts: z
+    .object({
+      spring: z.string().max(2000).optional(),
+      summer: z.string().max(2000).optional(),
+      autumn: z.string().max(2000).optional(),
+      winter: z.string().max(2000).optional(),
+    })
+    .optional(),
+  generateTownThumbnails: z.boolean().optional(),
+  towns: z
+    .array(z.object({ name: z.string().min(1).max(120), prompt: z.string().max(2000).optional() }))
+    .max(40)
+    .optional(),
+});
 
 interface ImageRequest {
   regionSlug: string;
@@ -31,23 +47,27 @@ serve(async (req) => {
   }
 
   try {
-    const { 
-      regionSlug, 
-      regionName, 
-      heroPrompt, 
-      seasonalPrompts = {},
-      generateTownThumbnails = false,
-      towns = []
-    } = await req.json() as ImageRequest;
+    const auth = await requireAdmin(req);
+    if (auth instanceof Response) return auth;
+
+    const parsed = BodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) {
+      return jsonResponse({ success: false, error: 'Invalid request body' }, 400);
+    }
+
+    const regionSlug = parsed.data.regionSlug;
+    const regionName = sanitizeText(parsed.data.regionName, 120);
+    const heroPrompt = sanitizeText(parsed.data.heroPrompt, 2000);
+    const seasonalPrompts: Record<string, string> = Object.fromEntries(
+      Object.entries(parsed.data.seasonalPrompts ?? {}).map(([k, v]) => [k, sanitizeText(String(v ?? ''), 2000)])
+    );
+    const generateTownThumbnails = parsed.data.generateTownThumbnails ?? false;
+    const towns = (parsed.data.towns ?? []).map((t) => ({
+      name: sanitizeText(t.name, 120),
+      prompt: t.prompt ? sanitizeText(t.prompt, 2000) : undefined,
+    }));
 
     console.log('[generate-region-images] Starting for:', { regionSlug, regionName });
-
-    if (!regionSlug || !regionName || !heroPrompt) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Missing required fields: regionSlug, regionName, heroPrompt' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     if (!LOVABLE_API_KEY) {
@@ -230,10 +250,6 @@ serve(async (req) => {
 
   } catch (error) {
     console.error('[generate-region-images] Error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+    return jsonResponse({ success: false, error: 'Unexpected server error' }, 500);
   }
 });

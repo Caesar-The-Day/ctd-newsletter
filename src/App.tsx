@@ -10,6 +10,8 @@ import RegionPage from "./pages/RegionPage";
 import NotFound from "./pages/NotFound";
 import DesignSystem from "./pages/DesignSystem";
 import AdminRegions from "./pages/AdminRegions";
+import Auth from "./pages/Auth";
+import { RequireAdmin } from "@/components/admin/RequireAdmin";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +25,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/design-system" element={<DesignSystem />} />
-          <Route path="/admin/regions" element={<AdminRegions />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin/regions" element={<RequireAdmin><AdminRegions /></RequireAdmin>} />
           <Route path="/:region" element={<RegionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
