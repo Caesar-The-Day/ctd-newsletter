@@ -1,8 +1,8 @@
 export const config = { runtime: 'edge' };
 
-// Supabase connection for fetching OG metadata
-const SUPABASE_URL = 'https://jolbywwrnehhwodlgytt.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvbGJ5d3dybmVoaHdvZGxneXR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMDczNTIsImV4cCI6MjA4MTU4MzM1Mn0.3UUV5PbolRzbZmo1_oCe9TgctYF1esT2xvA_izLR4SQ';
+// Supabase connection for fetching OG metadata (read from environment, never hardcoded)
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL ?? '';
+const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? '';
 
 interface RegionOG {
   title: string;
@@ -17,6 +17,10 @@ const DEFAULT_OG: RegionOG = {
 };
 
 async function fetchOGMetadata(regionSlug: string): Promise<RegionOG> {
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    console.error('Supabase environment variables are not configured');
+    return DEFAULT_OG;
+  }
   try {
     const response = await fetch(
       `${SUPABASE_URL}/rest/v1/region_og_metadata?region_slug=eq.${encodeURIComponent(regionSlug)}&select=title,description,image_url`,
