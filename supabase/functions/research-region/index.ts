@@ -1,10 +1,12 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "npm:zod@3.23.8";
+import { corsHeaders, jsonResponse, requireAdmin, sanitizeText } from "../_shared/auth.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
-};
+const BodySchema = z.object({
+  regionName: z.string().min(1).max(120),
+  vibeDescription: z.string().max(2000).optional(),
+  focusAreas: z.array(z.string().max(200)).max(30).optional(),
+});
 
 interface ResearchRequest {
   regionName: string;
