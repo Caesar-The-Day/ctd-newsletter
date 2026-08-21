@@ -56,6 +56,9 @@ import VenetoCultureAlive from '@/components/sections/VenetoCultureAlive';
 import VeniceSerenissima from '@/components/sections/VeniceSerenissima';
 import { AgnoneBellFoundry } from '@/components/sections/AgnoneBellFoundry';
 import MoliseCentralItalyReach from '@/components/sections/MoliseCentralItalyReach';
+import LazioThermalSprings from '@/components/sections/LazioThermalSprings';
+import LazioBeyondRome from '@/components/sections/LazioBeyondRome';
+import RomeResidentReality from '@/components/sections/RomeResidentReality';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -355,6 +358,10 @@ export default function RegionPage() {
 
       <ClimateSnapshot />
 
+      {region === 'lazio' && <LazioBeyondRome />}
+
+
+
       {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} />
@@ -362,6 +369,15 @@ export default function RegionPage() {
       {config.showBookCTA && <BookCTA />}
 
       <TownsGrid towns={regionData.towns.grid} note={(regionData.towns as any).moreTownsNote} />
+
+      {region === 'lazio' && (
+        <>
+          <RomeResidentReality />
+          <LazioThermalSprings />
+        </>
+      )}
+
+
 
       {region === 'puglia' && <PugliaCoastSelector />}
 
