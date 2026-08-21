@@ -62,8 +62,12 @@ export default function Auth() {
     <main className="min-h-screen flex items-center justify-center bg-background px-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Admin sign in</CardTitle>
-          <CardDescription>Editorial administration for Caesar the Day.</CardDescription>
+          <CardTitle>{needsBootstrap ? 'Create admin account' : 'Admin sign in'}</CardTitle>
+          <CardDescription>
+            {needsBootstrap
+              ? 'No administrator exists yet. The first account you create becomes the administrator.'
+              : 'Editorial administration for Caesar the Day.'}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSignIn} className="space-y-4">
@@ -73,14 +77,22 @@ export default function Auth() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="current-password" />
+              <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete={needsBootstrap ? 'new-password' : 'current-password'} />
             </div>
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Sign in
-            </Button>
+            {needsBootstrap ? (
+              <Button type="button" className="w-full" disabled={loading || !email || password.length < 6} onClick={handleCreateAdmin}>
+                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                Create admin account
+              </Button>
+            ) : (
+              <Button type="submit" className="w-full" disabled={loading}>
+                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                Sign in
+              </Button>
+            )}
           </form>
         </CardContent>
+
       </Card>
     </main>
   );
