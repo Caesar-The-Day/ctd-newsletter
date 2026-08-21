@@ -215,7 +215,7 @@ export default function LazioThermalSprings() {
                   )}
                 >
                   <div className="flex items-start justify-between gap-2 mb-1">
-                    <h3 className="font-semibold text-foreground leading-tight">{s.name}</h3>
+                    <h3 className="text-base font-semibold text-foreground leading-tight">{s.name}</h3>
                     <Badge variant={s.access === 'free' ? 'default' : 'secondary'} className="text-xs shrink-0">
                       {s.access === 'free' ? 'Free' : 'Paid'}
                     </Badge>

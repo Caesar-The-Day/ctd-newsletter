@@ -225,7 +225,7 @@ export default function RomeResidentReality() {
               {tab.rows.map((r) => (
                 <div key={r.label} className="py-4 grid md:grid-cols-[1fr_auto] gap-1 md:gap-6 md:items-start">
                   <div>
-                    <h3 className="font-semibold text-foreground">{r.label}</h3>
+                    <h3 className="text-base font-semibold text-foreground">{r.label}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-1">{r.note}</p>
                   </div>
                   <Badge variant="secondary" className="justify-self-start md:justify-self-end whitespace-normal text-left md:text-right font-medium">
