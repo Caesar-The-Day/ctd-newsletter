@@ -56,6 +56,9 @@ import VenetoCultureAlive from '@/components/sections/VenetoCultureAlive';
 import VeniceSerenissima from '@/components/sections/VeniceSerenissima';
 import { AgnoneBellFoundry } from '@/components/sections/AgnoneBellFoundry';
 import MoliseCentralItalyReach from '@/components/sections/MoliseCentralItalyReach';
+import LazioThermalSprings from '@/components/sections/LazioThermalSprings';
+import LazioBeyondRome from '@/components/sections/LazioBeyondRome';
+import RomeResidentReality from '@/components/sections/RomeResidentReality';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
