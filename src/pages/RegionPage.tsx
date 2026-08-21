@@ -358,6 +358,10 @@ export default function RegionPage() {
 
       <ClimateSnapshot />
 
+      {region === 'lazio' && <LazioBeyondRome />}
+
+
+
       {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} />
