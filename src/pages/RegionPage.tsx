@@ -59,6 +59,7 @@ import MoliseCentralItalyReach from '@/components/sections/MoliseCentralItalyRea
 import LazioThermalSprings from '@/components/sections/LazioThermalSprings';
 import LazioBeyondRome from '@/components/sections/LazioBeyondRome';
 import RomeResidentReality from '@/components/sections/RomeResidentReality';
+import RomeMobilityExplorer from '@/components/sections/RomeMobilityExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
 
 type RegionOgOverride = {
@@ -373,6 +374,7 @@ export default function RegionPage() {
       {region === 'lazio' && (
         <>
           <RomeResidentReality />
+          <RomeMobilityExplorer />
           <LazioThermalSprings />
         </>
       )}
