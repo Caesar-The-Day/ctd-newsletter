@@ -374,6 +374,7 @@ export default function RegionPage() {
       {region === 'lazio' && (
         <>
           <RomeResidentReality />
+          <RomeMobilityExplorer />
           <LazioThermalSprings />
         </>
       )}
