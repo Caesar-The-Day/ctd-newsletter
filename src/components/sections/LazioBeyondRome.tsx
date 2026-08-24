@@ -185,7 +185,14 @@ const LANDSCAPES: Landscape[] = [
 
 export default function LazioBeyondRome() {
   const [activeId, setActiveId] = useState('lakes');
+  const [selectedPlace, setSelectedPlace] = useState<string | null>(null);
   const active = LANDSCAPES.find((l) => l.id === activeId)!;
+  const selected = active.places.find((p) => p.name === selectedPlace && p.image);
+  const displayImage = selected?.image ?? active.image;
+  const displayAlt = selected
+    ? `${selected.name}, Lazio, Italy`
+    : `${active.label} landscape in Lazio, Italy`;
+
 
   return (
     <section className="py-20 bg-background">
