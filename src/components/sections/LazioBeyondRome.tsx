@@ -220,7 +220,10 @@ export default function LazioBeyondRome() {
                 key={l.id}
                 size="sm"
                 variant={l.id === activeId ? 'default' : 'outline'}
-                onClick={() => setActiveId(l.id)}
+                onClick={() => {
+                  setActiveId(l.id);
+                  setSelectedPlace(null);
+                }}
                 className="gap-2"
               >
                 <Icon className="w-4 h-4" />
@@ -231,13 +234,19 @@ export default function LazioBeyondRome() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          <div className="rounded-xl overflow-hidden shadow-lg">
+          <div className="rounded-xl overflow-hidden shadow-lg relative">
             <img
-              src={active.image}
-              alt={`${active.label} landscape in Lazio, Italy`}
-              className="w-full h-[320px] lg:h-[420px] object-cover"
+              key={displayImage}
+              src={displayImage}
+              alt={displayAlt}
+              className="w-full h-[320px] lg:h-[420px] object-cover animate-fade-in"
               loading="lazy"
             />
+            {selected && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/70 to-transparent p-4">
+                <span className="text-sm font-medium text-background">{selected.name}</span>
+              </div>
+            )}
           </div>
 
           <div>
@@ -248,24 +257,54 @@ export default function LazioBeyondRome() {
             </div>
 
             <div className="space-y-3">
-              {active.places.map((p) => (
-                <Card key={p.name} className={cn('transition-all hover:shadow-md')}>
-                  <CardContent className="p-4">
-                    <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="text-base font-semibold text-foreground flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-primary" />
-                        {p.name}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">{p.living}</p>
-                    <Badge variant="secondary" className="text-xs font-normal">{p.data}</Badge>
-                  </CardContent>
-                </Card>
-              ))}
+              {active.places.map((p) => {
+                const isSelected = selected?.name === p.name;
+                const clickable = Boolean(p.image);
+                return (
+                  <Card
+                    key={p.name}
+                    role={clickable ? 'button' : undefined}
+                    tabIndex={clickable ? 0 : undefined}
+                    aria-pressed={clickable ? isSelected : undefined}
+                    onClick={
+                      clickable
+                        ? () => setSelectedPlace(isSelected ? null : p.name)
+                        : undefined
+                    }
+                    onKeyDown={
+                      clickable
+                        ? (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              setSelectedPlace(isSelected ? null : p.name);
+                            }
+                          }
+                        : undefined
+                    }
+                    className={cn(
+                      'transition-all',
+                      clickable && 'cursor-pointer hover:shadow-md',
+                      isSelected && 'ring-2 ring-primary shadow-md'
+                    )}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <h3 className="text-base font-semibold text-foreground flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-primary" />
+                          {p.name}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-2">{p.living}</p>
+                      <Badge variant="secondary" className="text-xs font-normal">{p.data}</Badge>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
+
 }
