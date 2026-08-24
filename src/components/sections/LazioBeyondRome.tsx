@@ -1,8 +1,17 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Mountain, Waves, Trees, Wheat, Snowflake, MapPin } from 'lucide-react';
+import {
+  Mountain,
+  Waves,
+  Trees,
+  Wheat,
+  Snowflake,
+  MapPin,
+  Camera,
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import lakesImg from '@/assets/lazio-volcanic-lakes.jpg';
 import coastImg from '@/assets/lazio-coast.jpg';
@@ -29,7 +38,6 @@ interface Landscape {
   winter: string;
   places: Place[];
 }
-
 
 const LANDSCAPES: Landscape[] = [
   {
@@ -59,7 +67,7 @@ const LANDSCAPES: Landscape[] = [
       {
         name: 'Lake Albano (Castelli Romani)',
         living:
-          'Rome\'s wine hills. Frascati, Castel Gandolfo, Nemi — expensive, green, and 40 minutes from the centre on a good day.',
+          "Rome's wine hills. Frascati, Castel Gandolfo, Nemi — expensive, green, and 40 minutes from the centre on a good day.",
         data: '293 m · ~25 km from Rome · frequent regional rail',
         image: albano.url,
       },
@@ -70,7 +78,6 @@ const LANDSCAPES: Landscape[] = [
         data: '510 m · ~65 km from Rome · car essential',
         image: vico.url,
       },
-
     ],
   },
   {
@@ -174,7 +181,7 @@ const LANDSCAPES: Landscape[] = [
         data: '~80 km from Rome · Frosinone station ~50 min to Termini',
       },
       {
-        name: 'Valle dell\'Aniene',
+        name: "Valle dell'Aniene",
         living:
           'The river corridor through Tivoli towards Subiaco: villas, waterfalls, monasteries, and a fast road to Rome.',
         data: '~35–70 km from Rome · A24 motorway',
@@ -182,6 +189,14 @@ const LANDSCAPES: Landscape[] = [
     ],
   },
 ];
+
+const photoVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const transition = { duration: 0.35, ease: 'easeInOut' as const };
 
 export default function LazioBeyondRome() {
   const [activeId, setActiveId] = useState('lakes');
@@ -192,7 +207,6 @@ export default function LazioBeyondRome() {
   const displayAlt = selected
     ? `${selected.name}, Lazio, Italy`
     : `${active.label} landscape in Lazio, Italy`;
-
 
   return (
     <section className="py-20 bg-background">
@@ -234,26 +248,44 @@ export default function LazioBeyondRome() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          <div className="rounded-xl overflow-hidden shadow-lg relative">
-            <img
-              key={displayImage}
-              src={displayImage}
-              alt={displayAlt}
-              className="w-full h-[320px] lg:h-[420px] object-cover animate-fade-in"
-              loading="lazy"
-            />
-            {selected && (
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/70 to-transparent p-4">
-                <span className="text-sm font-medium text-background">{selected.name}</span>
-              </div>
-            )}
+          <div className="rounded-xl overflow-hidden shadow-lg relative bg-muted h-[320px] lg:h-[420px]">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={displayImage}
+                src={displayImage}
+                alt={displayAlt}
+                variants={photoVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={transition}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              {selected && (
+                <motion.div
+                  key={selected.name}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={transition}
+                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/70 to-transparent p-4"
+                >
+                  <span className="text-sm font-medium text-background">{selected.name}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <div>
             <p className="text-base text-foreground leading-relaxed mb-4">{active.lead}</p>
             <div className="flex items-start gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg p-3 mb-6">
               <Snowflake className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-              <span><span className="font-medium text-foreground">Winter reality:</span> {active.winter}</span>
+              <span>
+                <span className="font-medium text-foreground">Winter reality:</span> {active.winter}
+              </span>
             </div>
 
             <div className="space-y-3">
@@ -282,9 +314,10 @@ export default function LazioBeyondRome() {
                         : undefined
                     }
                     className={cn(
-                      'transition-all',
-                      clickable && 'cursor-pointer hover:shadow-md',
-                      isSelected && 'ring-2 ring-primary shadow-md'
+                      'transition-all border',
+                      clickable &&
+                        'cursor-pointer hover:border-primary/50 hover:bg-muted/60 hover:shadow-md',
+                      isSelected && 'ring-2 ring-primary border-primary/50 shadow-md'
                     )}
                   >
                     <CardContent className="p-4">
@@ -293,9 +326,22 @@ export default function LazioBeyondRome() {
                           <MapPin className="w-3.5 h-3.5 text-primary" />
                           {p.name}
                         </h3>
+                        {clickable && (
+                          <Badge
+                            variant={isSelected ? 'default' : 'outline'}
+                            className="text-xs font-normal gap-1.5"
+                          >
+                            <Camera className="w-3 h-3" />
+                            {isSelected ? 'Showing photo' : 'View photo'}
+                          </Badge>
+                        )}
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-2">{p.living}</p>
-                      <Badge variant="secondary" className="text-xs font-normal">{p.data}</Badge>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                        {p.living}
+                      </p>
+                      <Badge variant="secondary" className="text-xs font-normal">
+                        {p.data}
+                      </Badge>
                     </CardContent>
                   </Card>
                 );
@@ -306,5 +352,4 @@ export default function LazioBeyondRome() {
       </div>
     </section>
   );
-
 }
