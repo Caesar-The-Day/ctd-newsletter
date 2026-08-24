@@ -213,6 +213,23 @@ export default function LazioBeyondRome() {
     ? `${selected.name}, Lazio, Italy`
     : `${active.label} landscape in Lazio, Italy`;
 
+  // Warm the cache for the photos of the currently open landscape so card
+  // clicks crossfade instantly instead of waiting on a fresh download.
+  useEffect(() => {
+    const wide = window.matchMedia('(min-width: 1024px)').matches;
+    const preload = active.places
+      .map((p) => p.image)
+      .filter(Boolean)
+      .map((img) => (wide ? img!.large : img!.small));
+    const timer = window.setTimeout(() => {
+      preload.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }, 300);
+    return () => window.clearTimeout(timer);
+  }, [active]);
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
