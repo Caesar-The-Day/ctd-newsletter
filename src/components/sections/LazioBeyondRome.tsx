@@ -8,11 +8,16 @@ import lakesImg from '@/assets/lazio-volcanic-lakes.jpg';
 import coastImg from '@/assets/lazio-coast.jpg';
 import mountainsImg from '@/assets/lazio-mountains.jpg';
 import countrysideImg from '@/assets/lazio-countryside.jpg';
+import bracciano from '@/assets/lazio/lake-bracciano.jpg.asset.json';
+import bolsena from '@/assets/lazio/lake-bolsena.png.asset.json';
+import albano from '@/assets/lazio/lake-albano.jpg.asset.json';
+import vico from '@/assets/lazio/lake-vico.jpg.asset.json';
 
 interface Place {
   name: string;
   living: string;
   data: string;
+  image?: string;
 }
 
 interface Landscape {
@@ -24,6 +29,7 @@ interface Landscape {
   winter: string;
   places: Place[];
 }
+
 
 const LANDSCAPES: Landscape[] = [
   {
