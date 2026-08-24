@@ -47,25 +47,30 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Commuter belt with a swimmable lake: Trevignano and Anguillara have year-round life, not just summer shutters.',
         data: '164 m altitude · ~40 km from Rome · regional train to Roma Ostiense',
+        image: bracciano.url,
       },
       {
         name: 'Lake Bolsena',
         living:
           'The biggest volcanic lake in Europe and the most affordable. Cheap houses, thin winter services, a genuinely warm summer scene.',
         data: '305 m · ~120 km from Rome · car essential',
+        image: bolsena.url,
       },
       {
         name: 'Lake Albano (Castelli Romani)',
         living:
           'Rome\'s wine hills. Frascati, Castel Gandolfo, Nemi — expensive, green, and 40 minutes from the centre on a good day.',
         data: '293 m · ~25 km from Rome · frequent regional rail',
+        image: albano.url,
       },
       {
         name: 'Lake Vico',
         living:
           'A protected nature reserve rather than a resort. Almost no lakefront building, which is exactly the appeal.',
         data: '510 m · ~65 km from Rome · car essential',
+        image: vico.url,
       },
+
     ],
   },
   {
