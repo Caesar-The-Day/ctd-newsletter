@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -273,8 +273,10 @@ export default function LazioBeyondRome() {
           <div className="rounded-xl overflow-hidden shadow-lg relative bg-muted h-[320px] lg:h-[420px]">
             <AnimatePresence mode="wait">
               <motion.img
-                key={displayImage}
-                src={displayImage}
+                key={displayImage.large}
+                src={displayImage.large}
+                srcSet={`${displayImage.small} 800w, ${displayImage.large} 1400w`}
+                sizes="(max-width: 1023px) 100vw, 50vw"
                 alt={displayAlt}
                 variants={photoVariants}
                 initial="initial"
@@ -282,7 +284,8 @@ export default function LazioBeyondRome() {
                 exit="exit"
                 transition={transition}
                 className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
             </AnimatePresence>
             <AnimatePresence mode="wait">
