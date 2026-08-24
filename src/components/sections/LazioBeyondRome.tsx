@@ -8,11 +8,16 @@ import lakesImg from '@/assets/lazio-volcanic-lakes.jpg';
 import coastImg from '@/assets/lazio-coast.jpg';
 import mountainsImg from '@/assets/lazio-mountains.jpg';
 import countrysideImg from '@/assets/lazio-countryside.jpg';
+import bracciano from '@/assets/lazio/lake-bracciano.jpg.asset.json';
+import bolsena from '@/assets/lazio/lake-bolsena.png.asset.json';
+import albano from '@/assets/lazio/lake-albano.jpg.asset.json';
+import vico from '@/assets/lazio/lake-vico.jpg.asset.json';
 
 interface Place {
   name: string;
   living: string;
   data: string;
+  image?: string;
 }
 
 interface Landscape {
@@ -24,6 +29,7 @@ interface Landscape {
   winter: string;
   places: Place[];
 }
+
 
 const LANDSCAPES: Landscape[] = [
   {
@@ -41,25 +47,30 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Commuter belt with a swimmable lake: Trevignano and Anguillara have year-round life, not just summer shutters.',
         data: '164 m altitude · ~40 km from Rome · regional train to Roma Ostiense',
+        image: bracciano.url,
       },
       {
         name: 'Lake Bolsena',
         living:
           'The biggest volcanic lake in Europe and the most affordable. Cheap houses, thin winter services, a genuinely warm summer scene.',
         data: '305 m · ~120 km from Rome · car essential',
+        image: bolsena.url,
       },
       {
         name: 'Lake Albano (Castelli Romani)',
         living:
           'Rome\'s wine hills. Frascati, Castel Gandolfo, Nemi — expensive, green, and 40 minutes from the centre on a good day.',
         data: '293 m · ~25 km from Rome · frequent regional rail',
+        image: albano.url,
       },
       {
         name: 'Lake Vico',
         living:
           'A protected nature reserve rather than a resort. Almost no lakefront building, which is exactly the appeal.',
         data: '510 m · ~65 km from Rome · car essential',
+        image: vico.url,
       },
+
     ],
   },
   {
@@ -174,7 +185,14 @@ const LANDSCAPES: Landscape[] = [
 
 export default function LazioBeyondRome() {
   const [activeId, setActiveId] = useState('lakes');
+  const [selectedPlace, setSelectedPlace] = useState<string | null>(null);
   const active = LANDSCAPES.find((l) => l.id === activeId)!;
+  const selected = active.places.find((p) => p.name === selectedPlace && p.image);
+  const displayImage = selected?.image ?? active.image;
+  const displayAlt = selected
+    ? `${selected.name}, Lazio, Italy`
+    : `${active.label} landscape in Lazio, Italy`;
+
 
   return (
     <section className="py-20 bg-background">
@@ -202,7 +220,10 @@ export default function LazioBeyondRome() {
                 key={l.id}
                 size="sm"
                 variant={l.id === activeId ? 'default' : 'outline'}
-                onClick={() => setActiveId(l.id)}
+                onClick={() => {
+                  setActiveId(l.id);
+                  setSelectedPlace(null);
+                }}
                 className="gap-2"
               >
                 <Icon className="w-4 h-4" />
@@ -213,13 +234,19 @@ export default function LazioBeyondRome() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          <div className="rounded-xl overflow-hidden shadow-lg">
+          <div className="rounded-xl overflow-hidden shadow-lg relative">
             <img
-              src={active.image}
-              alt={`${active.label} landscape in Lazio, Italy`}
-              className="w-full h-[320px] lg:h-[420px] object-cover"
+              key={displayImage}
+              src={displayImage}
+              alt={displayAlt}
+              className="w-full h-[320px] lg:h-[420px] object-cover animate-fade-in"
               loading="lazy"
             />
+            {selected && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/70 to-transparent p-4">
+                <span className="text-sm font-medium text-background">{selected.name}</span>
+              </div>
+            )}
           </div>
 
           <div>
@@ -230,24 +257,54 @@ export default function LazioBeyondRome() {
             </div>
 
             <div className="space-y-3">
-              {active.places.map((p) => (
-                <Card key={p.name} className={cn('transition-all hover:shadow-md')}>
-                  <CardContent className="p-4">
-                    <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="text-base font-semibold text-foreground flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-primary" />
-                        {p.name}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">{p.living}</p>
-                    <Badge variant="secondary" className="text-xs font-normal">{p.data}</Badge>
-                  </CardContent>
-                </Card>
-              ))}
+              {active.places.map((p) => {
+                const isSelected = selected?.name === p.name;
+                const clickable = Boolean(p.image);
+                return (
+                  <Card
+                    key={p.name}
+                    role={clickable ? 'button' : undefined}
+                    tabIndex={clickable ? 0 : undefined}
+                    aria-pressed={clickable ? isSelected : undefined}
+                    onClick={
+                      clickable
+                        ? () => setSelectedPlace(isSelected ? null : p.name)
+                        : undefined
+                    }
+                    onKeyDown={
+                      clickable
+                        ? (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              setSelectedPlace(isSelected ? null : p.name);
+                            }
+                          }
+                        : undefined
+                    }
+                    className={cn(
+                      'transition-all',
+                      clickable && 'cursor-pointer hover:shadow-md',
+                      isSelected && 'ring-2 ring-primary shadow-md'
+                    )}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <h3 className="text-base font-semibold text-foreground flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-primary" />
+                          {p.name}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-2">{p.living}</p>
+                      <Badge variant="secondary" className="text-xs font-normal">{p.data}</Badge>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
+
 }
