@@ -196,7 +196,7 @@ const photoVariants = {
   exit: { opacity: 0 },
 };
 
-const transition = { duration: 0.35, ease: 'easeInOut' };
+const transition = { duration: 0.35, ease: 'easeInOut' as const };
 
 export default function LazioBeyondRome() {
   const [activeId, setActiveId] = useState('lakes');
