@@ -25,6 +25,10 @@ import sabaudia from '@/assets/lazio/sabaudia_circeoNP.jpg.asset.json';
 import gaeta from '@/assets/lazio/gaeta.jpg.asset.json';
 import sperlonga from '@/assets/lazio/sperlonga.jpg.asset.json';
 import anzio from '@/assets/lazio/anzio.jpg.asset.json';
+import simbruini from '@/assets/lazio/monti-simbruini.jpg.asset.json';
+import ernici from '@/assets/lazio/monti-ernici.jpeg.asset.json';
+import lepini from '@/assets/lazio/monti-lepini.jpg.asset.json';
+import laga from '@/assets/lazio/monti-laga-leonessa.jpeg.asset.json';
 
 interface Place {
   name: string;
