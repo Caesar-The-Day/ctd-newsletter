@@ -13,39 +13,20 @@ import {
   Camera,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import lakesImg from '@/assets/lazio-volcanic-lakes.jpg';
-import coastImg from '@/assets/lazio-coast.jpg';
-import mountainsImg from '@/assets/lazio-mountains.jpg';
-import countrysideImg from '@/assets/lazio-countryside.jpg';
-import bracciano from '@/assets/lazio/lake-bracciano.jpg.asset.json';
-import bolsena from '@/assets/lazio/lake-bolsena.png.asset.json';
-import albano from '@/assets/lazio/lake-albano.jpg.asset.json';
-import vico from '@/assets/lazio/lake-vico.jpg.asset.json';
-import sabaudia from '@/assets/lazio/sabaudia_circeoNP.jpg.asset.json';
-import gaeta from '@/assets/lazio/gaeta.jpg.asset.json';
-import sperlonga from '@/assets/lazio/sperlonga.jpg.asset.json';
-import anzio from '@/assets/lazio/anzio.jpg.asset.json';
-import simbruini from '@/assets/lazio/monti-simbruini.jpg.asset.json';
-import ernici from '@/assets/lazio/monti-ernici.jpeg.asset.json';
-import lepini from '@/assets/lazio/monti-lepini.jpg.asset.json';
-import laga from '@/assets/lazio/monti-laga-leonessa.jpeg.asset.json';
-import tuscia from '@/assets/lazio/tuscia.webp.asset.json';
-import sabina from '@/assets/lazio/sabina.jpg.asset.json';
-import ciociaria from '@/assets/lazio/ciociaria.jpeg.asset.json';
-import aniene from '@/assets/lazio/valle-aniene.jpg.asset.json';
+import { photos, type Photo } from '@/assets/lazio/photos';
 
 interface Place {
   name: string;
   living: string;
   data: string;
-  image?: string;
+  image?: Photo;
 }
 
 interface Landscape {
   id: string;
   label: string;
   icon: typeof Waves;
-  image: string;
+  image: Photo;
   lead: string;
   winter: string;
   places: Place[];
@@ -56,7 +37,7 @@ const LANDSCAPES: Landscape[] = [
     id: 'lakes',
     label: 'Volcanic lakes',
     icon: Waves,
-    image: lakesImg,
+    image: photos.lakes,
     lead:
       'Four collapsed volcanoes filled with water sit north and south of Rome. They are the closest thing Lazio has to a secret: swimmable, uncrowded outside August, and close enough that people commute from them.',
     winter:
@@ -67,28 +48,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Commuter belt with a swimmable lake: Trevignano and Anguillara have year-round life, not just summer shutters.',
         data: '164 m altitude · ~40 km from Rome · regional train to Roma Ostiense',
-        image: bracciano.url,
+        image: photos.bracciano,
       },
       {
         name: 'Lake Bolsena',
         living:
           'The biggest volcanic lake in Europe and the most affordable. Cheap houses, thin winter services, a genuinely warm summer scene.',
         data: '305 m · ~120 km from Rome · car essential',
-        image: bolsena.url,
+        image: photos.bolsena,
       },
       {
         name: 'Lake Albano (Castelli Romani)',
         living:
           "Rome's wine hills. Frascati, Castel Gandolfo, Nemi — expensive, green, and 40 minutes from the centre on a good day.",
         data: '293 m · ~25 km from Rome · frequent regional rail',
-        image: albano.url,
+        image: photos.albano,
       },
       {
         name: 'Lake Vico',
         living:
           'A protected nature reserve rather than a resort. Almost no lakefront building, which is exactly the appeal.',
         data: '510 m · ~65 km from Rome · car essential',
-        image: vico.url,
+        image: photos.vico,
       },
     ],
   },
@@ -96,7 +77,7 @@ const LANDSCAPES: Landscape[] = [
     id: 'coast',
     label: 'Coast',
     icon: Trees,
-    image: coastImg,
+    image: photos.coast,
     lead:
       'Lazio has 360 km of coastline and Romans treat most of it as a back garden. The southern half — Circeo down to Gaeta — is where the water turns clear and the towns keep a winter population.',
     winter:
@@ -107,28 +88,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Dunes, a coastal lagoon system and a rationalist 1930s town. Strict building rules keep it from turning into a strip.',
         data: 'Circeo NP: 8,500 ha · ~100 km from Rome',
-        image: sabaudia.url,
+        image: photos.sabaudia,
       },
       {
         name: 'Gaeta',
         living:
           'A real working town with a naval base, a medieval quarter and beaches that stay open in winter. Best year-round coastal bet.',
         data: '~120 km from Rome · direct trains to Formia, then Rome in ~70 min',
-        image: gaeta.url,
+        image: photos.gaeta,
       },
       {
         name: 'Sperlonga',
         living:
           'Whitewashed and vertical, beautiful and seasonal. Wonderful for six months, very quiet for the other six.',
         data: '~130 km from Rome · car or bus from Fondi station',
-        image: sperlonga.url,
+        image: photos.sperlonga,
       },
       {
         name: 'Anzio & Nettuno',
         living:
           'The commuter coast. Cheapest sea-view property within an hour of Rome, with the traffic and the crowds that implies.',
         data: '~55 km from Rome · direct regional train ~60 min',
-        image: anzio.url,
+        image: photos.anzio,
       },
     ],
   },
@@ -136,7 +117,7 @@ const LANDSCAPES: Landscape[] = [
     id: 'mountains',
     label: 'Mountains',
     icon: Mountain,
-    image: mountainsImg,
+    image: photos.mountains,
     lead:
       'People forget that Lazio touches the high Apennines. Within two hours of the Colosseum there is beech forest, wolves, bears at the Abruzzo park border, and snow that lasts until April.',
     winter:
@@ -147,28 +128,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'The largest protected area in Lazio. Subiaco and Filettino are cheap, cold and stunning; services are thin.',
         data: '30,000 ha · summits over 2,000 m · ~70 km from Rome',
-        image: simbruini.url,
+        image: photos.simbruini,
       },
       {
         name: 'Monti Ernici & Ciociaria highlands',
         living:
           'Stone villages above Frosinone with the lowest property prices in the region and a strong local food culture.',
         data: '600–1,200 m · ~90 km from Rome',
-        image: ernici.url,
+        image: photos.ernici,
       },
       {
         name: 'Monti Lepini',
         living:
           'A limestone wall behind the Pontine plain — Sermoneta, Norma, Carpineto. Rome visible from your terrace on a clear day.',
         data: '400–1,500 m · ~60 km from Rome',
-        image: lepini.url,
+        image: photos.lepini,
       },
       {
         name: 'Monti della Laga / Leonessa',
         living:
           'The far north-east near Rieti. Snow country, seismic zone, spectacular emptiness. Only for the committed.',
         data: '~970 m (Leonessa) · ~130 km from Rome',
-        image: laga.url,
+        image: photos.laga,
       },
     ],
   },
@@ -176,7 +157,7 @@ const LANDSCAPES: Landscape[] = [
     id: 'countryside',
     label: 'Countryside',
     icon: Wheat,
-    image: countrysideImg,
+    image: photos.countryside,
     lead:
       'Between the lakes and the mountains sits farmland with three distinct characters: Etruscan tufa country in the north, olive-terraced Sabina in the middle, and the deep agricultural south of Ciociaria.',
     winter:
@@ -187,28 +168,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Tufa gorges, Etruscan necropolises, hilltop towns like Civita di Bagnoregio. Cheapest historic property in the region.',
         data: '~90 km from Rome · Viterbo rail link ~1h45',
-        image: tuscia.url,
+        image: photos.tuscia,
       },
       {
         name: 'Sabina',
         living:
           'Olive-oil hills north-east of Rome. Rustic but well connected — many Rome workers live here full time.',
         data: '~50 km from Rome · Fara Sabina station, 35 min to Tiburtina',
-        image: sabina.url,
+        image: photos.sabina,
       },
       {
         name: 'Ciociaria (Frosinone province)',
         living:
           'Underrated, unpretentious, and served by the A1 and the Rome–Naples rail line. Very low cost of living.',
         data: '~80 km from Rome · Frosinone station ~50 min to Termini',
-        image: ciociaria.url,
+        image: photos.ciociaria,
       },
       {
         name: "Valle dell'Aniene",
         living:
           'The river corridor through Tivoli towards Subiaco: villas, waterfalls, monasteries, and a fast road to Rome.',
         data: '~35–70 km from Rome · A24 motorway',
-        image: aniene.url,
+        image: photos.aniene,
       },
     ],
   },
