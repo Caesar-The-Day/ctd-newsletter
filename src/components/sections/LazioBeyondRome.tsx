@@ -25,6 +25,10 @@ import sabaudia from '@/assets/lazio/sabaudia_circeoNP.jpg.asset.json';
 import gaeta from '@/assets/lazio/gaeta.jpg.asset.json';
 import sperlonga from '@/assets/lazio/sperlonga.jpg.asset.json';
 import anzio from '@/assets/lazio/anzio.jpg.asset.json';
+import simbruini from '@/assets/lazio/monti-simbruini.jpg.asset.json';
+import ernici from '@/assets/lazio/monti-ernici.jpeg.asset.json';
+import lepini from '@/assets/lazio/monti-lepini.jpg.asset.json';
+import laga from '@/assets/lazio/monti-laga-leonessa.jpeg.asset.json';
 
 interface Place {
   name: string;
@@ -139,24 +143,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'The largest protected area in Lazio. Subiaco and Filettino are cheap, cold and stunning; services are thin.',
         data: '30,000 ha · summits over 2,000 m · ~70 km from Rome',
+        image: simbruini.url,
       },
       {
         name: 'Monti Ernici & Ciociaria highlands',
         living:
           'Stone villages above Frosinone with the lowest property prices in the region and a strong local food culture.',
         data: '600–1,200 m · ~90 km from Rome',
+        image: ernici.url,
       },
       {
         name: 'Monti Lepini',
         living:
           'A limestone wall behind the Pontine plain — Sermoneta, Norma, Carpineto. Rome visible from your terrace on a clear day.',
         data: '400–1,500 m · ~60 km from Rome',
+        image: lepini.url,
       },
       {
         name: 'Monti della Laga / Leonessa',
         living:
           'The far north-east near Rieti. Snow country, seismic zone, spectacular emptiness. Only for the committed.',
         data: '~970 m (Leonessa) · ~130 km from Rome',
+        image: laga.url,
       },
     ],
   },
