@@ -29,6 +29,10 @@ import simbruini from '@/assets/lazio/monti-simbruini.jpg.asset.json';
 import ernici from '@/assets/lazio/monti-ernici.jpeg.asset.json';
 import lepini from '@/assets/lazio/monti-lepini.jpg.asset.json';
 import laga from '@/assets/lazio/monti-laga-leonessa.jpeg.asset.json';
+import tuscia from '@/assets/lazio/tuscia.webp.asset.json';
+import sabina from '@/assets/lazio/sabina.jpg.asset.json';
+import ciociaria from '@/assets/lazio/ciociaria.jpeg.asset.json';
+import aniene from '@/assets/lazio/valle-aniene.jpg.asset.json';
 
 interface Place {
   name: string;
@@ -183,24 +187,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Tufa gorges, Etruscan necropolises, hilltop towns like Civita di Bagnoregio. Cheapest historic property in the region.',
         data: '~90 km from Rome · Viterbo rail link ~1h45',
+        image: tuscia.url,
       },
       {
         name: 'Sabina',
         living:
           'Olive-oil hills north-east of Rome. Rustic but well connected — many Rome workers live here full time.',
         data: '~50 km from Rome · Fara Sabina station, 35 min to Tiburtina',
+        image: sabina.url,
       },
       {
         name: 'Ciociaria (Frosinone province)',
         living:
           'Underrated, unpretentious, and served by the A1 and the Rome–Naples rail line. Very low cost of living.',
         data: '~80 km from Rome · Frosinone station ~50 min to Termini',
+        image: ciociaria.url,
       },
       {
         name: "Valle dell'Aniene",
         living:
           'The river corridor through Tivoli towards Subiaco: villas, waterfalls, monasteries, and a fast road to Rome.',
         data: '~35–70 km from Rome · A24 motorway',
+        image: aniene.url,
       },
     ],
   },
