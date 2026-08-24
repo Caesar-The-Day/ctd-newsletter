@@ -29,6 +29,10 @@ import simbruini from '@/assets/lazio/monti-simbruini.jpg.asset.json';
 import ernici from '@/assets/lazio/monti-ernici.jpeg.asset.json';
 import lepini from '@/assets/lazio/monti-lepini.jpg.asset.json';
 import laga from '@/assets/lazio/monti-laga-leonessa.jpeg.asset.json';
+import tuscia from '@/assets/lazio/tuscia.webp.asset.json';
+import sabina from '@/assets/lazio/sabina.jpg.asset.json';
+import ciociaria from '@/assets/lazio/ciociaria.jpeg.asset.json';
+import aniene from '@/assets/lazio/valle-aniene.jpg.asset.json';
 
 interface Place {
   name: string;
