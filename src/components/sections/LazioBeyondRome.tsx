@@ -99,24 +99,28 @@ const LANDSCAPES: Landscape[] = [
         living:
           'Dunes, a coastal lagoon system and a rationalist 1930s town. Strict building rules keep it from turning into a strip.',
         data: 'Circeo NP: 8,500 ha · ~100 km from Rome',
+        image: sabaudia.url,
       },
       {
         name: 'Gaeta',
         living:
           'A real working town with a naval base, a medieval quarter and beaches that stay open in winter. Best year-round coastal bet.',
         data: '~120 km from Rome · direct trains to Formia, then Rome in ~70 min',
+        image: gaeta.url,
       },
       {
         name: 'Sperlonga',
         living:
           'Whitewashed and vertical, beautiful and seasonal. Wonderful for six months, very quiet for the other six.',
         data: '~130 km from Rome · car or bus from Fondi station',
+        image: sperlonga.url,
       },
       {
         name: 'Anzio & Nettuno',
         living:
           'The commuter coast. Cheapest sea-view property within an hour of Rome, with the traffic and the crowds that implies.',
         data: '~55 km from Rome · direct regional train ~60 min',
+        image: anzio.url,
       },
     ],
   },
