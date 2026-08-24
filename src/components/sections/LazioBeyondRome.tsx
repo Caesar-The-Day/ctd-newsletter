@@ -21,6 +21,10 @@ import bracciano from '@/assets/lazio/lake-bracciano.jpg.asset.json';
 import bolsena from '@/assets/lazio/lake-bolsena.png.asset.json';
 import albano from '@/assets/lazio/lake-albano.jpg.asset.json';
 import vico from '@/assets/lazio/lake-vico.jpg.asset.json';
+import sabaudia from '@/assets/lazio/sabaudia_circeoNP.jpg.asset.json';
+import gaeta from '@/assets/lazio/gaeta.jpg.asset.json';
+import sperlonga from '@/assets/lazio/sperlonga.jpg.asset.json';
+import anzio from '@/assets/lazio/anzio.jpg.asset.json';
 
 interface Place {
   name: string;
