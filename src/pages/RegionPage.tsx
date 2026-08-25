@@ -61,6 +61,7 @@ import MoliseCentralItalyReach from '@/components/sections/MoliseCentralItalyRea
 import LazioThermalSprings from '@/components/sections/LazioThermalSprings';
 import LazioBeyondRome from '@/components/sections/LazioBeyondRome';
 import FriuliThreeSouls from '@/components/sections/FriuliThreeSouls';
+import FriuliSoulQuiz from '@/components/sections/FriuliSoulQuiz';
 import FriuliBoraMeter from '@/components/sections/FriuliBoraMeter';
 import FriuliCrossBorder from '@/components/sections/FriuliCrossBorder';
 import TriesteCoffeeDecoder from '@/components/sections/TriesteCoffeeDecoder';
