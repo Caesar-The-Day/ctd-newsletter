@@ -638,46 +638,80 @@ const COMPARISON = [
   { metric: 'English spoken', rome: 'Widely', town: 'Rarely', lean: 50 },
 ];
 
-function ComparisonRow({ row, index }: { row: (typeof COMPARISON)[number]; index: number }) {
+function ComparisonCard({ row, index }: { row: (typeof COMPARISON)[number]; index: number }) {
   const { isVisible, elementRef } = useStaggeredReveal();
   const romeWins = row.lean > 0;
-  const magnitude = Math.abs(row.lean);
 
   return (
     <div
       ref={elementRef as React.RefObject<HTMLDivElement>}
-      className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 md:gap-6 py-3 transition-all duration-500 ${
+      className={`transition-all duration-500 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
       }`}
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      <div className="text-right">
-        <p className={`text-sm ${romeWins ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>
-          {row.rome}
-        </p>
-      </div>
-
-      <div className="w-[38%] min-w-[110px] md:min-w-[200px] justify-self-center">
-        <p className="text-[11px] uppercase tracking-wide text-center text-muted-foreground font-semibold mb-1">
-          {row.metric}
-        </p>
-        <div className="relative h-2 rounded-full bg-muted">
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-3.5 bg-border" />
-          <motion.span
-            className={`absolute top-0 h-2 rounded-full ${romeWins ? 'bg-primary' : 'bg-accent'}`}
-            initial={{ width: 0 }}
-            whileInView={{ width: `${magnitude / 2}%` }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: index * 0.05 }}
-            style={romeWins ? { left: '50%' } : { right: '50%' }}
-          />
+      <div className="rounded-xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors">
+        <div className="text-center py-2.5 border-b border-border bg-muted/30">
+          <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            {row.metric}
+          </span>
         </div>
-      </div>
 
-      <div>
-        <p className={`text-sm ${!romeWins ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>
-          {row.town}
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Rome panel */}
+          <div
+            className={`p-4 md:p-5 ${
+              romeWins
+                ? 'bg-primary/5 border-l-4 border-primary order-1 md:order-1'
+                : 'bg-muted/20 border-l-4 border-transparent order-2 md:order-1'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Rome
+              </span>
+              {romeWins && (
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                  <Check className="w-3.5 h-3.5" /> Wins
+                </span>
+              )}
+            </div>
+            <p
+              className={`text-sm leading-relaxed ${
+                romeWins ? 'font-semibold text-foreground' : 'text-muted-foreground'
+              }`}
+            >
+              {row.rome}
+            </p>
+          </div>
+
+          {/* Hill town panel */}
+          <div
+            className={`p-4 md:p-5 ${
+              !romeWins
+                ? 'bg-accent/10 border-l-4 border-accent order-1 md:order-2'
+                : 'bg-muted/20 border-l-4 border-transparent order-1 md:order-2'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Hill town
+              </span>
+              {!romeWins && (
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent-foreground">
+                  <Check className="w-3.5 h-3.5" /> Wins
+                </span>
+              )}
+            </div>
+            <p
+              className={`text-sm leading-relaxed ${
+                !romeWins ? 'font-semibold text-foreground' : 'text-muted-foreground'
+              }`}
+            >
+              {row.town}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
