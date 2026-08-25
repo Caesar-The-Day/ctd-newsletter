@@ -111,16 +111,16 @@ export function RetirementBlueprintCTA({ region, variant = 'auto' }: RetirementB
             {/* Visual panel */}
             <div className="cta-image-panel relative min-h-[240px] md:min-h-full flex items-center justify-center p-8 md:p-12">
               {content.visual.type === 'logo' ? (
-                <div className="relative z-10 text-center">
+                <div className="relative z-10 text-center w-full max-w-[340px] md:max-w-[420px]">
                   <img
                     src={content.visual.src}
                     alt={content.visual.alt}
-                    className="h-24 md:h-32 w-auto mx-auto drop-shadow-2xl"
+                    className="h-36 md:h-48 lg:h-56 w-auto mx-auto drop-shadow-2xl"
                     loading="lazy"
-                    width={320}
-                    height={128}
+                    width={420}
+                    height={224}
                   />
-                  <p className="mt-4 text-sm md:text-base font-medium tracking-wide uppercase text-white/80">
+                  <p className="mt-5 text-sm md:text-base font-medium tracking-wide uppercase text-white/80">
                     Italian Visa Navigator
                   </p>
                 </div>
