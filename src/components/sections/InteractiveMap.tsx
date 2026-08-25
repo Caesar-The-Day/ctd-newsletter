@@ -223,7 +223,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               : '';
 
             const zoneLinkHtml = feature.link
-              ? `<a href="${feature.link}" ${feature.link.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="inline-block mt-3 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors">${feature.linkLabel || 'Read more →'}</a>`
+              ? `<a href="${feature.link}" ${feature.link.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="inline-block mt-3 px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-md transition-colors">${feature.linkLabel || 'Read more →'}</a>`
               : '';
 
             const popupContent = `
