@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 import {
   Building2,
   Bus,
+  Check,
   ChevronDown,
   Euro,
   Flame,
-  
   Plane,
   Stamp,
   Stethoscope,
