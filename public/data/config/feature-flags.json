@@ -1,6 +1,6 @@
 {
   "default": {
-    "showWineQuiz": true,
+    "showWineQuiz": false,
     "showBeerFeature": false,
     "show7PercentCTA": false,
     "showCollaborator": true,
@@ -63,6 +63,16 @@
     "showWineQuiz": false,
     "showBeerFeature": false,
     "show7PercentCTA": true,
+    "showCollaborator": true,
+    "showBookCTA": true,
+    "showRetirementBlueprintCTA": true,
+    "enableAmbientAudio": true,
+    "enableSeasonalParticles": true
+  },
+  "lazio": {
+    "showWineQuiz": false,
+    "showBeerFeature": false,
+    "show7PercentCTA": false,
     "showCollaborator": true,
     "showBookCTA": true,
     "showRetirementBlueprintCTA": true,
