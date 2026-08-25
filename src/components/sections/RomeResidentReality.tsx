@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -650,16 +650,60 @@ const TABS: { id: TabId; label: string; icon: typeof Euro; verdict: string }[] =
   },
 ];
 
+function useSectionParallax(ref: React.RefObject<HTMLElement>, distance = 60) {
+  const [progress, setProgress] = useState(0.5);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const el = ref.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = window.innerHeight + rect.height;
+      const p = (window.innerHeight - rect.top) / total;
+      setProgress(Math.min(1, Math.max(0, p)));
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, [ref]);
+
+  return {
+    translateY: (0.5 - progress) * distance * 2,
+    scale: 1 + progress * 0.06,
+  };
+}
+
 export default function RomeResidentReality() {
   const [tabId, setTabId] = useState<TabId>('cost');
   const tab = TABS.find((t) => t.id === tabId)!;
+  const sectionRef = useRef<HTMLElement>(null);
+  const { translateY, scale } = useSectionParallax(sectionRef);
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-muted/40 via-background to-muted/30">
+    <section
+      ref={sectionRef}
+      className="relative py-20 overflow-hidden bg-gradient-to-b from-muted/40 via-background to-muted/30"
+    >
       {/* Decorative Colosseum silhouette */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] dark:opacity-[0.03] bg-foreground select-none"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] dark:opacity-[0.03] bg-foreground select-none will-change-transform"
         style={{
+          transform: `translate3d(0, ${translateY}px, 0) scale(${scale})`,
+          transformOrigin: 'left bottom',
           WebkitMaskImage: 'url(/images/lazio/rome-colosseum-silhouette.svg)',
           maskImage: 'url(/images/lazio/rome-colosseum-silhouette.svg)',
           WebkitMaskSize: 'auto 55%',
