@@ -448,6 +448,9 @@ export default function RegionPage() {
 
       {region === 'lombardia' && <PanettoneQuiz />}
 
+      {region === 'lazio' ? (
+        <LazioHealthcareInfrastructure />
+      ) : (
           <HealthcareInfrastructure
             region={region}
             healthcare={{
@@ -467,6 +470,8 @@ export default function RegionPage() {
               travelTimes: regionData.healthcare.travelTimes
             }} 
           />
+      )}
+
 
       {region === 'umbria' && <UmbriaRomeFlorenceCorridor />}
 
