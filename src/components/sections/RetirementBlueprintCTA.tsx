@@ -72,11 +72,11 @@ function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['va
   };
 }
 
-export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) {
+export function RetirementBlueprintCTA({ region, variant = 'auto' }: RetirementBlueprintCTAProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const content = getCTAContent(region);
+  const content = getCTAContent(region, variant);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
