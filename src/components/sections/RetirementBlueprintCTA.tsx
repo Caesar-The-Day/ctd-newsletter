@@ -31,12 +31,12 @@ function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['va
 
   if (isVistoFacile) {
     return {
-      preheadline: 'The Door to Italy Is the Elective Residency Visa',
+      preheadline: 'Elective Residency Visa (ERV) Navigator',
       headline: region
         ? `Make Your ${region.charAt(0).toUpperCase() + region.slice(1)} Move Official`
         : 'Make Your Italian Move Official',
       subheadline:
-        'Visto Facile turns the intimidating visa application into a guided, step-by-step process — built specifically for U.S. and Canadian applicants.',
+        'Visto Facile is the step-by-step navigator for Italy’s Elective Residency Visa — built for U.S. and Canadian applicants who want a clear, organized path to residency.',
       description:
         'Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place, so nothing slips through the cracks.',
       benefits: [
@@ -48,7 +48,7 @@ function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['va
       ctaText: 'Start Your Visa Journey',
       ctaUrl: 'https://vistofacile.caesartheday.com',
       analyticsEvent: 'visto_facile_cta_click',
-      visual: { type: 'logo', src: vistoFacileLogo, alt: 'Visto Facile — Italian Elective Residency Visa Navigator' },
+      visual: { type: 'logo', src: vistoFacileLogo, alt: 'Visto Facile — Elective Residency Visa (ERV) Navigator' },
     };
   }
 
