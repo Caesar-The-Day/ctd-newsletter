@@ -45,7 +45,7 @@ export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
   ];
 
   return (
-    <section className="relative py-12 md:py-20 overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="food-wine-culture" className="relative scroll-mt-24 py-12 md:py-20 overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background">
       {/* soft ambient shapes */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -right-16 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
@@ -156,6 +156,8 @@ function CategoryPanel({ categoryKey, data }: { categoryKey: string; data: any }
           {visibleCards.map((card) => (
             <motion.div
               key={card.id}
+              id={card.id ? `highlight-${card.id}` : undefined}
+              className="scroll-mt-28"
               layout
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
