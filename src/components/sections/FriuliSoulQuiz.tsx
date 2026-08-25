@@ -214,7 +214,7 @@ export default function FriuliSoulQuiz() {
                       </div>
                       <div className="rounded-2xl border border-border bg-muted/30 p-4">
                         <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-1">Also consider</p>
-                        <p className="text-lg font-semibold">{runnerUp ? runnerUp.name : soul.name}</p>
+                        <p className="text-lg font-semibold">{runnerUp ? runnerUp.name : 'Nothing else'}</p>
                         <p className="text-xs text-muted-foreground mt-1">
                           {runnerUp ? runnerUp.subtitle : 'You were unanimous — rare, and useful.'}
                         </p>
