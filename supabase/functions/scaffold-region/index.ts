@@ -124,6 +124,16 @@ function buildRegionTemplate(slug: string, displayName: string, issueNumber: num
         center: [42.0, 12.5] as [number, number],
         zoom: 7,
         markers: [],
+        // Baseline overlay set — every region ships with these five toggleable
+        // layers. Research fills `features`; layers render off by default so
+        // they never overlap unless the reader turns one on.
+        overlays: [
+          { id: 'heritage', name: 'UNESCO & Heritage', icon: 'Landmark', description: `UNESCO World Heritage sites and major landmarks in ${displayName}.`, features: [] },
+          { id: 'wine', name: 'Wine Zones', icon: 'Wine', description: `DOC and DOCG wine areas of ${displayName}.`, features: [] },
+          { id: 'transport', name: 'Transport Hubs', icon: 'Plane', description: 'Airports, rail hubs, ports and motorway corridors.', features: [] },
+          { id: 'nature', name: 'Parks & Nature', icon: 'Mountain', description: 'National and regional parks, lakes and mountain ranges.', features: [] },
+          { id: 'towns', name: 'Towns', icon: 'MapPin', description: 'Towns featured in this guide.', features: [] }
+        ],
         externalMapUrl: `https://maps.google.com/?q=${encodeURIComponent(displayName)}+Italy`
       },
       tabs: [
@@ -133,6 +143,8 @@ function buildRegionTemplate(slug: string, displayName: string, issueNumber: num
       ]
     },
     towns: {
+      // `grid` must always end up with exactly 12 towns for grid symmetry.
+      _gridTargetCount: 12,
       featured: [],
       grid: []
     },
