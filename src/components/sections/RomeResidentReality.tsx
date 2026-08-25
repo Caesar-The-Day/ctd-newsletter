@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import {
   Building2,
   Bus,
-  Check,
   ChevronDown,
   Euro,
   Flame,
@@ -20,7 +19,6 @@ import {
   Users,
 } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
-import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 type TabId = 'cost' | 'access' | 'friction';
 
@@ -625,97 +623,6 @@ function FrictionPanel() {
   );
 }
 
-/* ------------------------------- comparison ------------------------------- */
-
-/** lean: -100 = strongly favours the hill town, +100 = strongly favours Rome */
-const COMPARISON = [
-  { metric: 'Rent, 2-bed', rome: '€1,200–1,600', town: '€450–650', lean: -70 },
-  { metric: 'Buy, per m²', rome: '€3,500–6,000', town: '€900–1,500', lean: -75 },
-  { metric: 'Car needed?', rome: 'No', town: 'Yes, always', lean: 45 },
-  { metric: 'Hospital access', rome: 'World-class, within 20 min', town: '30–60 min to a full hospital', lean: 60 },
-  { metric: 'International airport', rome: '30–40 min', town: '1h30–2h', lean: 65 },
-  { metric: 'Tourist pressure', rome: 'Constant in the core', town: 'A few weekends a year', lean: -60 },
-  { metric: 'English spoken', rome: 'Widely', town: 'Rarely', lean: 50 },
-];
-
-function ComparisonCard({ row, index }: { row: (typeof COMPARISON)[number]; index: number }) {
-  const { isVisible, elementRef } = useStaggeredReveal();
-  const romeWins = row.lean > 0;
-
-  return (
-    <div
-      ref={elementRef as React.RefObject<HTMLDivElement>}
-      className={`transition-all duration-500 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-      }`}
-      style={{ transitionDelay: `${index * 60}ms` }}
-    >
-      <div className="rounded-xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors">
-        <div className="text-center py-2.5 border-b border-border bg-muted/30">
-          <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {row.metric}
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Rome panel */}
-          <div
-            className={`p-4 md:p-5 ${
-              romeWins
-                ? 'bg-primary/5 border-l-4 border-primary order-1 md:order-1'
-                : 'bg-muted/20 border-l-4 border-transparent order-2 md:order-1'
-            }`}
-          >
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Rome
-              </span>
-              {romeWins && (
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary">
-                  <Check className="w-3.5 h-3.5" /> Wins
-                </span>
-              )}
-            </div>
-            <p
-              className={`text-sm leading-relaxed ${
-                romeWins ? 'font-semibold text-foreground' : 'text-muted-foreground'
-              }`}
-            >
-              {row.rome}
-            </p>
-          </div>
-
-          {/* Hill town panel */}
-          <div
-            className={`p-4 md:p-5 ${
-              !romeWins
-                ? 'bg-accent/10 border-l-4 border-accent order-1 md:order-2'
-                : 'bg-muted/20 border-l-4 border-transparent order-1 md:order-2'
-            }`}
-          >
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Hill town
-              </span>
-              {!romeWins && (
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent-foreground">
-                  <Check className="w-3.5 h-3.5" /> Wins
-                </span>
-              )}
-            </div>
-            <p
-              className={`text-sm leading-relaxed ${
-                !romeWins ? 'font-semibold text-foreground' : 'text-muted-foreground'
-              }`}
-            >
-              {row.town}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* --------------------------------- section -------------------------------- */
 
@@ -812,20 +719,6 @@ export default function RomeResidentReality() {
           </CardContent>
         </Card>
 
-        <div className="mt-12">
-          <h3 className="text-xl font-bold text-foreground text-center mb-1">
-            Rome vs. a Lazio hill town
-          </h3>
-          <p className="text-sm text-muted-foreground text-center mb-6">
-            Same region, same healthcare system, entirely different life.
-          </p>
-
-          <div className="space-y-4">
-            {COMPARISON.map((row, i) => (
-              <ComparisonCard key={row.metric} row={row} index={i} />
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
