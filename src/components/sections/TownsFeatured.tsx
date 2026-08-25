@@ -30,10 +30,12 @@ interface FeaturedTown {
 interface TownsFeaturedProps {
   towns: FeaturedTown[];
   region?: string;
+  featuredNote?: string;
 }
 
-export function TownsFeatured({ towns, region }: TownsFeaturedProps) {
+export function TownsFeatured({ towns, region, featuredNote }: TownsFeaturedProps) {
   const [galleryIndices, setGalleryIndices] = useState<Record<string, number>>({});
+
 
   const nextImage = (townId: string, maxIndex: number) => {
     setGalleryIndices((prev) => ({
