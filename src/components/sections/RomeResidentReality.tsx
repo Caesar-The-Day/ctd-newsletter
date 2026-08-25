@@ -8,7 +8,7 @@ import {
   ChevronDown,
   Euro,
   Flame,
-  Landmark,
+  
   Plane,
   Stamp,
   Stethoscope,
