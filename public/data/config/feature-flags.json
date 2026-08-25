@@ -72,7 +72,7 @@
   "lazio": {
     "showWineQuiz": false,
     "showBeerFeature": false,
-    "show7PercentCTA": true,
+    "show7PercentCTA": false,
     "showCollaborator": true,
     "showBookCTA": true,
     "showRetirementBlueprintCTA": true,
