@@ -365,7 +365,7 @@ export default function RegionPage() {
 
       {region === 'lombardia' && <MosquitoWarning />}
 
-      <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} />
+      <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
       
       {config.showBookCTA && <BookCTA />}
 
