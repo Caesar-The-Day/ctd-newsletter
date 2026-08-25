@@ -820,19 +820,10 @@ export default function RomeResidentReality() {
             Same region, same healthcare system, entirely different life.
           </p>
 
-          <div className="rounded-xl border border-border bg-card p-4 md:p-6">
-            <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-3 md:gap-6 pb-3 border-b border-border">
-              <p className="text-right text-sm font-bold text-foreground">Rome (semi-central)</p>
-              <p className="w-[38%] min-w-[110px] md:min-w-[200px] justify-self-center text-center text-[11px] uppercase tracking-wide text-muted-foreground">
-                Leans towards
-              </p>
-              <p className="text-sm font-bold text-foreground">Hill town (Tuscia / Ciociaria)</p>
-            </div>
-            <div className="divide-y divide-border/60">
-              {COMPARISON.map((row, i) => (
-                <ComparisonRow key={row.metric} row={row} index={i} />
-              ))}
-            </div>
+          <div className="space-y-4">
+            {COMPARISON.map((row, i) => (
+              <ComparisonCard key={row.metric} row={row} index={i} />
+            ))}
           </div>
         </div>
       </div>
