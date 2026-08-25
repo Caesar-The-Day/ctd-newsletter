@@ -30,10 +30,12 @@ interface FeaturedTown {
 interface TownsFeaturedProps {
   towns: FeaturedTown[];
   region?: string;
+  featuredNote?: string;
 }
 
-export function TownsFeatured({ towns, region }: TownsFeaturedProps) {
+export function TownsFeatured({ towns, region, featuredNote }: TownsFeaturedProps) {
   const [galleryIndices, setGalleryIndices] = useState<Record<string, number>>({});
+
 
   const nextImage = (townId: string, maxIndex: number) => {
     setGalleryIndices((prev) => ({
@@ -189,7 +191,14 @@ export function TownsFeatured({ towns, region }: TownsFeaturedProps) {
             );
           })}
         </div>
+
+        {featuredNote && (
+          <p className="max-w-3xl mx-auto mt-10 text-sm md:text-base text-muted-foreground leading-relaxed text-center">
+            {featuredNote}
+          </p>
+        )}
       </div>
     </section>
+
   );
 }
