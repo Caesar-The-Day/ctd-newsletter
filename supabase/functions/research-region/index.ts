@@ -461,11 +461,15 @@ ${focusAreas.length > 0 ? `Focus areas to emphasize: ${focusAreas.join(', ')}` :
 Provide comprehensive, ACCURATE research including:
 
 ## Towns (CRITICAL - be thorough)
-1. 3 featured towns with REAL coordinates, detailed descriptions (4-5 sentences each), highlights, and whether they qualify for Italy's 7% flat tax
-2. 10-12 grid towns with brief but useful descriptions (2-3 sentences each explaining who the town suits)
+1. 3 featured towns with REAL coordinates, detailed descriptions (4-5 sentences each) and highlights
+2. EXACTLY 12 grid towns (not 10, not 11 — 12, for grid symmetry) with brief but useful descriptions (2-3 sentences each explaining who the town suits)
+3. 7% FLAT TAX: set eligible7Percent to false for every town. Do NOT guess or infer eligibility from population, province, or region — the editor supplies the confirmed eligible list separately.
+
+## Map overlays (REQUIRED baseline)
+4. Populate all four baseline overlay groups with real, coordinate-accurate entries: heritage/UNESCO sites, wine zones, transport hubs (airports, rail, ports, motorways), and nature (parks, lakes, mountain ranges). Include official UNESCO URLs where applicable.
 
 ## Geography & Access
-3. 3 geography tabs: terrain description, how to get there, local transport - each with 2-3 real paragraphs
+5. 3 geography tabs: terrain description, how to get there, local transport - each with 2-3 real paragraphs
 
 ## Climate
 4. A rich 'climateSnapshot' block (NOT a single-city summary):
