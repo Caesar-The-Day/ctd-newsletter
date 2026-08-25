@@ -739,6 +739,7 @@ All colors MUST be HSL.
     border-radius: 9999px;
     box-shadow: 0 0 0 0 hsl(var(--cta-light) / 0.5);
     animation: cta-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    pointer-events: none;
   }
 
   @keyframes cta-pulse {
