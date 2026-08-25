@@ -430,8 +430,11 @@ Respond with ONLY valid JSON matching this EXACT structure:
     }
   },
   "mapOverlays": {
-    "suggested": ["array of overlay types: wine-regions|national-parks|unesco-sites|coastal-routes|ski-areas|thermal-spas|pilgrimage-routes|airports|rail-network"],
-    "reasoning": "Why these overlays are most relevant"
+    "heritage": [{ "name": "string - UNESCO or major heritage site", "coords": [0, 0], "description": "1-2 sentence editorial blurb", "link": "official whc.unesco.org URL when UNESCO-listed" }],
+    "wine": [{ "name": "string - DOC/DOCG zone", "coords": [0, 0], "description": "1-2 sentences on style and character" }],
+    "transport": [{ "name": "string - airport, rail hub, port or motorway corridor", "coords": [0, 0], "description": "1-2 sentences on what it connects" }],
+    "nature": [{ "name": "string - national/regional park, lake or mountain range", "coords": [0, 0], "description": "1-2 sentences" }],
+    "extras": { "suggested": ["region-specific overlay ideas beyond the baseline four, e.g. thermal-spas|pilgrimage-routes|ski-areas"], "reasoning": "Why these are relevant here" }
   },
   "specialComponents": {
     "suggested": ["array of component ideas specific to this region"],
