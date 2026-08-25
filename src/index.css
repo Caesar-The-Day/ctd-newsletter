@@ -710,8 +710,8 @@ All colors MUST be HSL.
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: hsl(var(--cta-light));
-    color: hsl(var(--cta-deep));
+    background: hsl(var(--cta-light)) !important;
+    color: hsl(var(--cta-deep)) !important;
     font-weight: 700;
     padding: 1rem 2rem;
     border-radius: 9999px;
@@ -721,12 +721,16 @@ All colors MUST be HSL.
 
   .cta-button-ocean:hover {
     transform: translateY(-2px) scale(1.02);
-    background: hsl(178 55% 62%);
+    background: hsl(178 55% 62%) !important;
     box-shadow: 0 12px 32px -6px hsl(var(--cta-light) / 0.55);
   }
 
   .cta-button-ocean:active {
     transform: translateY(0) scale(0.99);
+  }
+
+  .cta-button-ocean svg {
+    color: hsl(var(--cta-deep)) !important;
   }
 
   .cta-pulse-ring {
