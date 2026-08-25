@@ -369,7 +369,12 @@ export default function RegionPage() {
 
 
 
-      {region === 'friuli-venezia-giulia' && <FriuliThreeSouls />}
+      {region === 'friuli-venezia-giulia' && (
+        <>
+          <FriuliThreeSouls />
+          <FriuliSoulQuiz />
+        </>
+      )}
 
       {region === 'lombardia' && <MosquitoWarning />}
 
