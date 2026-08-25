@@ -29,6 +29,8 @@ import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
+import { LazioHealthcareInfrastructure } from '@/components/sections/LazioHealthcareInfrastructure';
+
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
 import { MosquitoWarning } from '@/components/sections/MosquitoWarning';
 import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
