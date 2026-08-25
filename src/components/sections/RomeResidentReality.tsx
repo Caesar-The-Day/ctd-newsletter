@@ -655,8 +655,23 @@ export default function RomeResidentReality() {
   const tab = TABS.find((t) => t.id === tabId)!;
 
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/40 via-background to-muted/30">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-muted/40 via-background to-muted/30">
+      {/* Decorative Colosseum silhouette */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] dark:opacity-[0.03] bg-foreground select-none"
+        style={{
+          WebkitMaskImage: 'url(/images/lazio/rome-colosseum-silhouette.svg)',
+          maskImage: 'url(/images/lazio/rome-colosseum-silhouette.svg)',
+          WebkitMaskSize: 'auto 55%',
+          maskSize: 'auto 55%',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'left bottom',
+          maskPosition: 'left bottom',
+        }}
+        aria-hidden="true"
+      />
+      <div className="relative z-10 container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 text-sm font-medium text-primary mb-3">
             <Building2 className="w-4 h-4" />
