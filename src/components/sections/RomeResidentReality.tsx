@@ -719,20 +719,6 @@ export default function RomeResidentReality() {
           </CardContent>
         </Card>
 
-        <div className="mt-12">
-          <h3 className="text-xl font-bold text-foreground text-center mb-1">
-            Rome vs. a Lazio hill town
-          </h3>
-          <p className="text-sm text-muted-foreground text-center mb-6">
-            Same region, same healthcare system, entirely different life.
-          </p>
-
-          <div className="space-y-4">
-            {COMPARISON.map((row, i) => (
-              <ComparisonCard key={row.metric} row={row} index={i} />
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
