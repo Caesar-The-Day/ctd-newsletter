@@ -13,6 +13,8 @@ import {
   archiveRegion
 } from '@/utils/regionManagement';
 import { mergeResearchIntoRegionData } from '@/utils/mergeResearchData';
+import { ensureRegionOg } from '@/utils/ogMetadata';
+
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -195,7 +197,29 @@ export default function AdminRegions() {
           title: 'Region Created Successfully!',
           description: `${wizardData.regionName} scaffolded with AI research, theme, and ${wizardData.enabledSections?.length || 0} sections.`,
         });
+
+        // Auto-provision social preview (OG) metadata for the new region.
+        try {
+          const og = await ensureRegionOg(insertData.slug, insertData.region_data as any, {
+            displayName: insertData.display_name,
+          });
+          toast({
+            title: og.warning ? 'Social preview partially set' : 'Social preview created',
+            description:
+              og.warning ||
+              `OG title, description${og.imageUpdated ? ', and 1200×630 image' : ''} generated for /${insertData.slug}.`,
+            variant: og.warning ? 'destructive' : undefined,
+          });
+        } catch (ogError) {
+          console.error('[AdminRegions] OG metadata failed:', ogError);
+          toast({
+            title: 'Social preview not created',
+            description: ogError instanceof Error ? ogError.message : 'Unknown error',
+            variant: 'destructive',
+          });
+        }
       }
+
 
       setWizardOpen(false);
       await loadData();
@@ -227,9 +251,36 @@ export default function AdminRegions() {
         title: 'Region Published',
         description: result.message,
       });
+
+      // Make sure the published region has a social preview before it goes out.
+      try {
+        const { data: regionRow } = await supabase
+          .from('regions')
+          .select('display_name, region_data')
+          .eq('slug', selectedRegion)
+          .maybeSingle();
+
+        const og = await ensureRegionOg(selectedRegion, regionRow?.region_data as any, {
+          displayName: regionRow?.display_name,
+        });
+
+        if (og.created || og.imageUpdated || og.warning) {
+          toast({
+            title: og.warning ? 'Social preview needs attention' : 'Social preview ready',
+            description:
+              og.warning ||
+              `OG tags${og.imageUpdated ? ' and 1200×630 image' : ''} set for /${selectedRegion}.`,
+            variant: og.warning ? 'destructive' : undefined,
+          });
+        }
+      } catch (ogError) {
+        console.error('[AdminRegions] OG check on publish failed:', ogError);
+      }
+
       setPublishDialogOpen(false);
       setSelectedRegion(null);
       await loadData();
+
     } else {
       toast({
         title: 'Error',
