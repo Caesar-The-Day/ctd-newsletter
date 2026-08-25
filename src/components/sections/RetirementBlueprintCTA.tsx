@@ -1,16 +1,79 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Compass } from 'lucide-react';
+import { CheckCircle, FileCheck, Calculator, MapPin, Clock, Plane, Compass, ArrowRight } from 'lucide-react';
 import vistoFacileLogo from '@/assets/visto-facile-logo.png';
+import italyCallingImage from '@/assets/italy-calling-cta.jpg';
 
 interface RetirementBlueprintCTAProps {
   region?: string;
+}
+
+const VISTO_FACILE_REGIONS = ['molise', 'calabria', 'piemonte', 'lombardia', 'veneto', 'puglia', 'lazio'];
+
+interface CTAContent {
+  preheadline: string;
+  headline: string;
+  subheadline: string;
+  description: string;
+  benefits: Array<{ icon: React.ReactNode; text: string }>;
+  trustLine: string;
+  ctaText: string;
+  ctaUrl: string;
+  analyticsEvent: string;
+  visual: { type: 'logo' | 'image'; src: string; alt: string };
+}
+
+function getCTAContent(region?: string): CTAContent {
+  const isVistoFacile = VISTO_FACILE_REGIONS.includes(region ?? '');
+
+  if (isVistoFacile) {
+    return {
+      preheadline: 'The Door to Italy Is the Elective Residency Visa',
+      headline: region
+        ? `Make Your ${region.charAt(0).toUpperCase() + region.slice(1)} Move Official`
+        : 'Make Your Italian Move Official',
+      subheadline:
+        'Visto Facile turns the intimidating visa application into a guided, step-by-step process — built specifically for U.S. and Canadian applicants.',
+      description:
+        'Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place, so nothing slips through the cracks.',
+      benefits: [
+        { icon: <FileCheck className="w-4 h-4" />, text: 'Document checklists' },
+        { icon: <Calculator className="w-4 h-4" />, text: 'Income calculations' },
+        { icon: <Clock className="w-4 h-4" />, text: 'Timeline tracking' },
+      ],
+      trustLine: 'Built for U.S. & Canadian applicants',
+      ctaText: 'Start Your Visa Journey',
+      ctaUrl: 'https://vistofacile.caesartheday.com',
+      analyticsEvent: 'visto_facile_cta_click',
+      visual: { type: 'logo', src: vistoFacileLogo, alt: 'Visto Facile — Italian Elective Residency Visa Navigator' },
+    };
+  }
+
+  return {
+    preheadline: "Turn 'Maybe One Day' Into a Real Timeline",
+    headline: 'Italy Is Calling — Build Your Plan',
+    subheadline:
+      'The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Italy: what it costs, how to structure your income, where to live, and how to make the move without losing your mind or your savings.',
+    description:
+      'You get a strategy that matches your timeline, your budget, and your vision — not a generic checklist.',
+    benefits: [
+      { icon: <MapPin className="w-4 h-4" />, text: 'Region & town matching' },
+      { icon: <Calculator className="w-4 h-4" />, text: 'Cost & tax structure' },
+      { icon: <Plane className="w-4 h-4" />, text: 'Visa & relocation roadmap' },
+    ],
+    trustLine: 'Personalized strategy, not a generic checklist',
+    ctaText: 'Book a Consultation',
+    ctaUrl: 'https://www.caesartheday.com/services',
+    analyticsEvent: 'blueprint_cta_click',
+    visual: { type: 'image', src: italyCallingImage, alt: 'Desk with compass, Italian passport, and notebook overlooking a sunlit hill town' },
+  };
 }
 
 export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const content = getCTAContent(region);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,134 +93,107 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
   }, []);
 
   return (
-    <section 
-      ref={sectionRef}
-      className="py-6 md:py-8 bg-muted/30"
-    >
+    <section ref={sectionRef} className="py-10 md:py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          {['molise', 'calabria', 'piemonte', 'lombardia', 'veneto', 'puglia'].includes(region ?? '') ? (
-            <div
-              className={`relative bg-[#F5EFE7] rounded-xl shadow-soft p-8 md:p-12 text-center overflow-hidden transition-all duration-500 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              } ${isHovered ? 'shadow-2xl -translate-y-1' : ''}`}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <pattern id="visto-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#visto-grid)" />
-                </svg>
+        <div
+          className={`cta-ocean-deep cta-card-ocean max-w-5xl mx-auto rounded-2xl overflow-hidden transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="cta-grid-overlay" />
+
+          <div className="relative z-10 grid md:grid-cols-2 min-h-[420px]">
+            {/* Visual panel */}
+            <div className="cta-image-panel relative min-h-[240px] md:min-h-full flex items-center justify-center p-8 md:p-12">
+              {content.visual.type === 'logo' ? (
+                <div className="relative z-10 text-center">
+                  <img
+                    src={content.visual.src}
+                    alt={content.visual.alt}
+                    className="h-24 md:h-32 w-auto mx-auto drop-shadow-2xl"
+                    loading="lazy"
+                    width={320}
+                    height={128}
+                  />
+                  <p className="mt-4 text-sm md:text-base font-medium tracking-wide uppercase text-white/80">
+                    Italian Visa Navigator
+                  </p>
+                </div>
+              ) : (
+                <img
+                  src={content.visual.src}
+                  alt={content.visual.alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                />
+              )}
+
+              {/* Decorative compass icon for image variant */}
+              {content.visual.type === 'image' && (
+                <div
+                  className="absolute bottom-6 right-6 z-10 text-white/20 transition-transform duration-700"
+                  style={{ transform: isHovered ? 'rotate(45deg)' : 'rotate(0deg)' }}
+                >
+                  <Compass className="w-16 h-16 md:w-24 md:h-24" strokeWidth={1} />
+                </div>
+              )}
+            </div>
+
+            {/* Content panel */}
+            <div className="relative z-10 p-8 md:p-12 flex flex-col justify-center">
+              <span className="inline-block text-xs md:text-sm font-semibold tracking-widest uppercase cta-accent-text mb-3">
+                {content.preheadline}
+              </span>
+
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight cta-heading-ocean mb-4">
+                {content.headline}
+              </h3>
+
+              <p className="text-lg md:text-xl leading-relaxed cta-body-ocean mb-4">
+                {content.subheadline}
+              </p>
+
+              <p className="text-base md:text-lg leading-relaxed text-white/70 mb-6">
+                {content.description}
+              </p>
+
+              {/* Benefit chips */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                {content.benefits.map((benefit, index) => (
+                  <div key={index} className="cta-benefit-chip">
+                    {benefit.icon}
+                    <span>{benefit.text}</span>
+                  </div>
+                ))}
               </div>
 
-              <div className="relative z-10">
-                <img
-                  src={vistoFacileLogo}
-                  alt="Visto Facile — Italian Elective Residency Visa Navigator"
-                  className="h-20 md:h-24 w-auto mx-auto mb-6"
-                  loading="lazy"
-                />
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                  Ready to Take the Italian Plunge?
-                </h3>
-                <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                  If Italy is on your shortlist, the Elective Residency Visa is the door you'll walk through. Visto Facile turns that intimidating application into a guided, step-by-step process, built specifically for U.S. and Canadian applicants.
-                </p>
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place, so nothing slips through the cracks.
-                </p>
-                <p className="text-xl font-semibold mb-6 text-foreground italic">
-                  The dream is yours. The paperwork doesn't have to be.
-                </p>
-                <Button size="lg" asChild className="hover-lift">
+              {/* Trust line */}
+              <p className="text-sm md:text-base cta-accent-text font-medium mb-6 flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />
+                {content.trustLine}
+              </p>
+
+              {/* CTA Button */}
+              <div className="relative inline-flex w-fit">
+                <div className="cta-pulse-ring" />
+                <Button size="lg" asChild className="cta-button-ocean text-base md:text-lg px-8 py-6 h-auto">
                   <a
-                    href="https://vistofacile.caesartheday.com"
+                    href={content.ctaUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-analytics-event="visto_facile_cta_click"
+                    data-analytics-event={content.analyticsEvent}
                   >
-                    Try Visto Facile
+                    {content.ctaText}
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
               </div>
             </div>
-          ) : (
-          <div 
-            className={`relative bg-[#F5EFE7] rounded-xl shadow-soft p-8 md:p-12 text-center overflow-hidden transition-all duration-500 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } ${isHovered ? 'shadow-2xl -translate-y-1' : ''}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {/* Decorative Compass Background */}
-            <div 
-              className="absolute top-4 right-4 opacity-5 transition-transform duration-700"
-              style={{
-                transform: isHovered ? 'rotate(45deg)' : 'rotate(0deg)'
-              }}
-            >
-              <Compass className="w-32 h-32 md:w-48 md:h-48" strokeWidth={1} />
-            </div>
-
-            {/* Architectural Line Art Motif */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="blueprint-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#blueprint-grid)" />
-              </svg>
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                {region === 'piemonte' 
-                  ? "Piemonte Is Calling. Let's Turn 'Maybe One Day' Into a Timeline."
-                  : region === 'puglia'
-                  ? "Puglia Is Calling. Let's Turn 'Maybe One Day' Into a Timeline."
-                  : "Italy Is Calling. Let's Turn 'Maybe One Day' Into a Timeline."
-                }
-              </h3>
-              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                {region === 'piemonte'
-                  ? "When a region keeps tugging at you — the vineyards, the refinement, the Alpine air — it's usually your future trying to introduce itself."
-                  : region === 'puglia'
-                  ? "When a region keeps tugging at you — the coastline, the pace, the affordability — it's usually your future trying to introduce itself."
-                  : "When a place keeps tugging at you — the culture, the pace, the lifestyle — it's usually your future trying to introduce itself."
-                }
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                {region === 'piemonte'
-                  ? "The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Piemonte: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings."
-                  : region === 'puglia'
-                  ? "The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Puglia: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings."
-                  : "The Retirement Blueprint gives you a precise, personalized roadmap to retiring in Italy: what it costs, how to structure your U.S. taxes and income, where you can live, how visas work, and exactly how to make the move without losing your mind or your savings."
-                }
-              </p>
-              <p className="text-xl font-semibold mb-6 text-foreground italic">
-                The dream is yours. The strategy is mine.
-              </p>
-              <Button size="lg" asChild className="hover-lift">
-                <a 
-                  href="https://www.caesartheday.com/services" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  data-analytics-event="blueprint_cta_click"
-                >
-                  Book a Consultation
-                </a>
-              </Button>
-            </div>
           </div>
-          )}
         </div>
       </div>
     </section>
