@@ -63,7 +63,7 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
   const target = useRef(intensity);
   const eased = useRef(intensity);
   const particles = useRef<P[]>([]);
-  const raf = useRef<number>();
+  const raf = useRef<number | undefined>(undefined);
 
   target.current = intensity;
 
