@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,7 +6,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
-import { Upload, Save, Plus, Trash2, ExternalLink } from 'lucide-react';
+import { Upload, Save, Plus, Trash2, ExternalLink, RefreshCw, AlertTriangle } from 'lucide-react';
+import {
+  ensureRegionOg,
+  renderOgImage,
+  uploadOgImage,
+  loadRegionsMissingOg,
+} from '@/utils/ogMetadata';
 
 interface RegionOGMetadata {
   id: string;
@@ -16,19 +22,24 @@ interface RegionOGMetadata {
   image_url: string | null;
 }
 
+interface MissingOgRegion {
+  slug: string;
+  displayName: string;
+  hasRow: boolean;
+  hasImage: boolean;
+}
+
 export function OGImageManager() {
   const [regions, setRegions] = useState<RegionOGMetadata[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
   const [uploading, setUploading] = useState<string | null>(null);
+  const [regenerating, setRegenerating] = useState<string | null>(null);
+  const [missing, setMissing] = useState<MissingOgRegion[]>([]);
   const [newRegion, setNewRegion] = useState({ slug: '', title: '', description: '' });
   const [showAddForm, setShowAddForm] = useState(false);
 
-  useEffect(() => {
-    fetchRegions();
-  }, []);
-
-  async function fetchRegions() {
+  const fetchRegions = useCallback(async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from('region_og_metadata')
@@ -40,80 +51,89 @@ export function OGImageManager() {
     } else {
       setRegions(data || []);
     }
+
+    try {
+      setMissing(await loadRegionsMissingOg());
+    } catch {
+      setMissing([]);
+    }
+
     setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchRegions();
+  }, [fetchRegions]);
+
+  async function regenerateFromRegion(slug: string, refreshImage: boolean, overwriteCopy: boolean) {
+    setRegenerating(slug);
+    try {
+      const { data: regionRow, error } = await supabase
+        .from('regions')
+        .select('display_name, region_data')
+        .eq('slug', slug)
+        .maybeSingle();
+
+      if (error) throw error;
+      if (!regionRow) {
+        throw new Error(`No region named "${slug}" exists in the database.`);
+      }
+
+      const result = await ensureRegionOg(slug, regionRow.region_data as any, {
+        displayName: regionRow.display_name,
+        refreshImage,
+        overwriteCopy,
+      });
+
+      toast({
+        title: result.warning ? 'Partially generated' : 'Social preview updated',
+        description:
+          result.warning ||
+          `Title, description${result.imageUpdated ? ', and 1200×630 image' : ''} regenerated for /${slug}.`,
+        variant: result.warning ? 'destructive' : undefined,
+      });
+
+      await fetchRegions();
+    } catch (err) {
+      toast({
+        title: 'Regeneration failed',
+        description: err instanceof Error ? err.message : 'Unknown error',
+        variant: 'destructive',
+      });
+    } finally {
+      setRegenerating(null);
+    }
   }
 
   async function handleImageUpload(regionSlug: string, file: File) {
     setUploading(regionSlug);
 
-    const fileExt = (file.name.split('.').pop() || 'jpg').toLowerCase();
-    const filePath = `${regionSlug}-og.${fileExt}`;
+    try {
+      const resized = await renderOgImage(file);
+      const imageUrl = await uploadOgImage(regionSlug, resized);
 
-    const uploadAttempt = await supabase.storage
-      .from('og-images')
-      .upload(filePath, file, {
-        upsert: true,
-        contentType: file.type,
-        cacheControl: '3600',
-      });
+      const { error: updateError } = await supabase
+        .from('region_og_metadata')
+        .update({ image_url: imageUrl })
+        .eq('region_slug', regionSlug);
 
-    if (uploadAttempt.error) {
-      // Some environments can return a conflict on "upload" even with upsert.
-      // Try a direct update as a fallback.
-      const isConflict =
-        (uploadAttempt.error as any)?.statusCode === 409 ||
-        /already exists/i.test(uploadAttempt.error.message);
+      if (updateError) throw updateError;
 
-      if (!isConflict) {
-        toast({
-          title: 'Upload failed',
-          description: uploadAttempt.error.message,
-          variant: 'destructive',
-        });
-        setUploading(null);
-        return;
-      }
-
-      const updateAttempt = await supabase.storage
-        .from('og-images')
-        .update(filePath, file, {
-          contentType: file.type,
-          cacheControl: '3600',
-        });
-
-      if (updateAttempt.error) {
-        toast({
-          title: 'Upload failed',
-          description: updateAttempt.error.message,
-          variant: 'destructive',
-        });
-        setUploading(null);
-        return;
-      }
-    }
-
-    const { data: urlData } = supabase.storage.from('og-images').getPublicUrl(filePath);
-    const imageUrl = urlData.publicUrl;
-
-    const { error: updateError } = await supabase
-      .from('region_og_metadata')
-      .update({ image_url: imageUrl })
-      .eq('region_slug', regionSlug);
-
-    if (updateError) {
+      toast({ title: 'Image uploaded', description: 'Resized to 1200×630 and saved.' });
+      setRegions(prev =>
+        prev.map(r => (r.region_slug === regionSlug ? { ...r, image_url: imageUrl } : r))
+      );
+      setMissing(prev => prev.filter(m => m.slug !== regionSlug));
+    } catch (err) {
       toast({
-        title: 'Failed to save image URL',
-        description: updateError.message,
+        title: 'Upload failed',
+        description: err instanceof Error ? err.message : 'Unknown error',
         variant: 'destructive',
       });
-    } else {
-      toast({ title: 'Image uploaded successfully' });
-      setRegions(prev => prev.map(r => (r.region_slug === regionSlug ? { ...r, image_url: imageUrl } : r)));
+    } finally {
+      setUploading(null);
     }
-
-    setUploading(null);
   }
-
 
   async function handleSave(region: RegionOGMetadata) {
     setSaving(region.id);
@@ -197,8 +217,41 @@ export function OGImageManager() {
       </div>
 
       <p className="text-sm text-muted-foreground">
-        Manage Open Graph images and metadata for social media sharing. Images should be at least 1200×630px for best results.
+        Social previews are generated automatically when a region is created and checked again on publish.
+        Images are resized to 1200×630 on upload.
       </p>
+
+      {missing.length > 0 && (
+        <Card className="border-destructive/40 bg-destructive/5">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-base flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4 text-destructive" />
+              {missing.length} region{missing.length > 1 ? 's' : ''} missing a social preview
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {missing.map(m => (
+              <div key={m.slug} className="flex items-center justify-between gap-4 text-sm">
+                <span>
+                  <span className="font-mono">/{m.slug}</span>{' '}
+                  <span className="text-muted-foreground">
+                    {!m.hasRow ? 'no OG tags at all' : 'no preview image'}
+                  </span>
+                </span>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={regenerating === m.slug}
+                  onClick={() => regenerateFromRegion(m.slug, true, !m.hasRow)}
+                >
+                  <RefreshCw className={`w-4 h-4 mr-1 ${regenerating === m.slug ? 'animate-spin' : ''}`} />
+                  Generate
+                </Button>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      )}
 
       {showAddForm && (
         <Card className="border-dashed">
@@ -245,6 +298,25 @@ export function OGImageManager() {
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg font-mono">/{region.region_slug}</CardTitle>
                 <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    disabled={regenerating === region.region_slug}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `Regenerate OG title, description, and image for "${region.region_slug}" from the current region content? This overwrites manual edits.`
+                        )
+                      ) {
+                        regenerateFromRegion(region.region_slug, true, true);
+                      }
+                    }}
+                  >
+                    <RefreshCw
+                      className={`w-4 h-4 mr-1 ${regenerating === region.region_slug ? 'animate-spin' : ''}`}
+                    />
+                    Regenerate from region
+                  </Button>
                   <Button
                     size="sm"
                     variant="ghost"
