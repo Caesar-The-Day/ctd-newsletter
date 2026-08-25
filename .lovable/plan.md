@@ -1,36 +1,30 @@
-# Plan: Write OG Title and Description for Lazio
+# Lazio on the home page — write-up, hero photo, and automatic promotion
 
-## Goal
-Create and insert an accurate, editorially aligned OG title and description for the Lazio region into the `region_og_metadata` table so social previews for `https://caesartheday-guides.lovable.app/lazio` are no longer using the generic fallback.
+Right now the home page already detects Lazio as the newest live issue (#14, August 2026), but it shows a placeholder: the description reads "Explore Lazio — your guide to retiring in this Italian region." and the photo is a broken image, because the site guesses a file path (`/images/lazio/lazio-hero.jpg`) that doesn't exist. The real Lazio hero lives in the backend region record.
 
-## Current state
-- `region_og_metadata` has **no row** for `region_slug = 'lazio'`.
-- Social crawlers hitting `/lazio` currently receive the generic fallback: "Veni. Vidi. Vici. | Caesar the Day" / "Your editorial guide to retiring in Italy — region by region, town by town."
-- The region's editorial voice is pragmatic, systems-oriented, and retiree-focused; it avoids postcard escapism and does not hide the realities of Rome.
+Two parts: fix Lazio now, and make the promotion automatic for every future region.
 
-## Proposed copy
+## 1. Proper Lazio entry
 
-### OG Title
-```
-Lazio, Italy: Retire in Rome, the Hills, or the Lakes — A Practical Guide
-```
+Add Lazio to the home-page index with:
+- Title: Lazio, subtitle "Rome, the Hills, and the Lakes"
+- Issue #14 • August 2026
+- Hero photo: the same image used at the top of `/lazio`
+- Editorial introduction (roughly 55-70 words) in the site's honest, retiree-oriented voice, covering: Lazio as far more than Rome, hill towns and volcanic lakes and the Tyrrhenian coast, real cost of living inside vs outside the GRA, central-Italy connectivity (Rome hubs, rail to Naples and Florence), thermal springs, and the narrow 7% eligibility limited to a handful of Rieti-province towns.
 
-### OG Description
-```
-Lazio is more than a Rome weekend. From hill towns in the Apennines to volcanic lakes and the Tyrrhenian coast, see what living here actually costs, how central-Italy connectivity works, and where the 7% tax incentive applies.
-```
+This single entry feeds all three places at once: the featured hero card, the card that appears when you click Lazio on the Italy map, and the Regional Newsletters grid.
 
-## Rationale
-- **Audience**: directly addresses prospective retirees / ERV seekers.
-- **Scope**: signals "Rome + beyond" without being touristy.
-- **Specific proof points**: mentions Apennines, volcanic lakes, Tyrrhenian coast, cost, connectivity, and the 7% tax rule — all major content pillars on the Lazio page.
-- **Honest framing**: "more than a Rome weekend" matches the editorial tone that Lazio is not just the capital.
-- **Length**: title is 64 chars; description is 238 chars — both within safe social-preview limits.
+## 2. Make it automatic on publish
 
-## Implementation
-1. Insert the new row into `region_og_metadata` for `region_slug = 'lazio'`.
-2. If an OG image is already available, reference it; otherwise leave `image_url` as `NULL` so the fallback default image is used.
-3. Verify by requesting the `/api/og?path=/lazio` endpoint with a social-user-agent header and checking the returned HTML.
+Change the home-page data loader so a newly published region is presented correctly without hand-editing anything:
+- Pull the hero image, tagline, and intro text straight from the region record in the backend when the static index has no entry for that slug, instead of guessing an image path.
+- Keep the static index as an override when it has richer copy.
+- Fall back to a neutral placeholder only when the region record has no hero image at all.
 
-## Open question
-The user has not asked to generate or assign a specific OG image for this region. Should we also produce a 1200×630 OG image for Lazio, or is the existing default image acceptable?
+Result: hitting Publish after marking a region live promotes it to the home hero, the map card, and the grid with its real photo and its own write-up.
+
+## Technical notes
+
+- `src/utils/getRegionData.ts` → `getNewsletterIndexData()`: extend the `regions` select to include `region_data`, and derive `thumbnail` from `region_data.region.hero.bannerImage` and `description` from `region_data.region.tagline` / intro paragraph before falling back to the current defaults.
+- `public/data/newsletter-index.json`: add the `lazio` newsletter object (issue 14) with the storage hero URL and the new description; leave `featured` as-is since it is computed from the newest live region.
+- No schema changes, no component changes required — `NewsletterIndex.tsx` and `ItalyMapInteractive.tsx` already consume the merged list.
