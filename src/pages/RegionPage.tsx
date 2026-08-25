@@ -446,7 +446,9 @@ export default function RegionPage() {
         />
       )}
 
-      {config.showRetirementBlueprintCTA && <RetirementBlueprintCTA region={region} />}
+      {config.showRetirementBlueprintCTA && (
+        <RetirementBlueprintCTA region={region} variant="visto-facile" />
+      )}
 
       {region === 'lombardia' && <PanettoneQuiz />}
 
