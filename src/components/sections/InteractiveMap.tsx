@@ -665,17 +665,32 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
     mapInstance.current = map;
 
     return () => {
+      // Clear refs before removing Leaflet's panes. Region data can be replaced
+      // while this component remains mounted; a toggle effect must never add a
+      // marker layer back to the previous map after its DOM panes are gone.
+      if (mapInstance.current === map) {
+        mapInstance.current = null;
+      }
+      overlayLayersRef.current = {};
       map.remove();
     };
   }, [mapData]);
 
   // Toggle overlay visibility - bring active overlays to front
   useEffect(() => {
-    if (!mapInstance.current) return;
+    const map = mapInstance.current;
+    const container = map?.getContainer();
+
+    // Leaflet's Marker._initIcon appends into markerPane. During a region-data
+    // transition the old map may already have removed that pane, so defer all
+    // layer work until the current map has a live container and panes.
+    if (!map || !container?.isConnected || !map.getPane('markerPane')) return;
 
     Object.entries(overlayLayersRef.current).forEach(([overlayId, layer]) => {
       if (activeOverlays.has(overlayId)) {
-        layer.addTo(mapInstance.current!);
+        if (!map.hasLayer(layer)) {
+          layer.addTo(map);
+        }
         // Bring each marker to front so they are clickable over town markers
         layer.eachLayer((l) => {
           if (l instanceof L.Marker) {
@@ -683,7 +698,9 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           }
         });
       } else {
-        layer.remove();
+        if (map.hasLayer(layer)) {
+          map.removeLayer(layer);
+        }
       }
     });
   }, [activeOverlays]);
