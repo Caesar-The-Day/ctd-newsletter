@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
+import escapePlan2026Asset from '@/assets/escape-plan-2026.jpg.asset.json';
 
 export function BookCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,8 +47,8 @@ export function BookCTA() {
                   }}
                 >
                 <img
-                  src="/images/escape-plan-cover.jpg" 
-                  alt="Escape Plan: How to Move from the US to Italy - Complete guide book cover showing practical advice for retiring in Italy without losing your money or mind" 
+                  src={escapePlan2026Asset.url} 
+                  alt="Escape Plan: Your Strategic Guide to Moving to Italy — 2026 Updated Edition cover" 
                   className="w-full h-auto rounded-lg"
                 />
                 </div>
@@ -58,14 +59,14 @@ export function BookCTA() {
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
               }`}>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                  Escape Plan: Your Field Guide to Italy
+                  Escape Plan: Your Strategic Guide to Moving to Italy — 2026 Edition
                 </h2>
                 <div className="space-y-4 mb-6 text-muted-foreground leading-relaxed">
                   <p>
-                    Italy isn't just a dream. It's a strategy waiting to be executed. Escape Plan shows you how to go from "someday" to "see you there"—step by step.
+                    The move to Italy doesn’t have to feel chaotic. The updated 2026 edition of Escape Plan gives you fresh visa rules, corrected financial data, revised tax guidance, and the latest lessons from Americans already living the move—so you can build your plan in an organized, calm way.
                   </p>
                   <p className="font-semibold text-foreground">
-                    Real costs. Real pitfalls. Real plan.
+                    Real costs. Real timelines. A real plan—now refreshed for the year ahead.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
