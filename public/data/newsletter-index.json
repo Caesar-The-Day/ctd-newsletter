@@ -17,6 +17,18 @@
   },
   "newsletters": [
     {
+      "slug": "lazio",
+      "title": "Lazio",
+      "subtitle": "Rome, the Hills, and the Lakes",
+      "issueNumber": 14,
+      "date": "August 2026",
+      "status": "live",
+      "thumbnail": "https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/lazio/hero.png",
+      "description": "Lazio is far more than Rome. Beyond the GRA sit Apennine hill towns, volcanic lakes at Bracciano and Bolsena, and a Tyrrhenian coast from Sperlonga to Gaeta — where rents fall by half and the traffic stops. This issue covers what living here actually costs inside and outside the city, how central-Italy rail puts Naples and Florence within a short hop, where the thermal springs are worth your weekends, and why only a handful of Rieti-province towns qualify for the 7% flat tax.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/lazio"
+    },
+    {
       "slug": "molise",
       "title": "Molise",
       "subtitle": "Italy's Quietest Frontier",
