@@ -274,19 +274,21 @@ function Dial({ minutes, label, sub, tone }: { minutes: number; label: string; s
       <div className="relative h-28 w-28 flex-shrink-0">
         <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
           <circle cx="60" cy="60" r={r} className="stroke-muted" strokeWidth="10" fill="none" />
-          <motion.circle
+          <circle
             cx="60"
             cy="60"
             r={r}
-            className={tone === 'primary' ? 'stroke-primary' : 'stroke-foreground/60'}
+            className={cn(
+              'transition-[stroke-dashoffset] duration-700 ease-out',
+              tone === 'primary' ? 'stroke-primary' : 'stroke-foreground/60'
+            )}
             strokeWidth="10"
             strokeLinecap="round"
             fill="none"
             strokeDasharray={c}
-            initial={{ strokeDashoffset: c }}
-            animate={{ strokeDashoffset: c - c * pct }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            strokeDashoffset={c - c * pct}
           />
+
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-xl font-bold tabular-nums text-foreground">{minutes}</span>
