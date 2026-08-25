@@ -29,6 +29,8 @@ import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
+import { LazioHealthcareInfrastructure } from '@/components/sections/LazioHealthcareInfrastructure';
+
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
 import { MosquitoWarning } from '@/components/sections/MosquitoWarning';
 import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
@@ -448,6 +450,9 @@ export default function RegionPage() {
 
       {region === 'lombardia' && <PanettoneQuiz />}
 
+      {region === 'lazio' ? (
+        <LazioHealthcareInfrastructure />
+      ) : (
           <HealthcareInfrastructure
             region={region}
             healthcare={{
@@ -467,6 +472,8 @@ export default function RegionPage() {
               travelTimes: regionData.healthcare.travelTimes
             }} 
           />
+      )}
+
 
       {region === 'umbria' && <UmbriaRomeFlorenceCorridor />}
 
