@@ -36,7 +36,10 @@ const STATS = [
 function StatCounter({ stat, index }: { stat: (typeof STATS)[number]; index: number }) {
   const scale = stat.decimals ? 10 : 1;
   const { count, elementRef } = useCountUp(Math.round(stat.value * scale), 1200 + index * 150);
-  const shown = (count / scale).toFixed(stat.decimals);
+  const shown = (count / scale).toLocaleString('en-GB', {
+    minimumFractionDigits: stat.decimals,
+    maximumFractionDigits: stat.decimals,
+  });
 
   return (
     <div
