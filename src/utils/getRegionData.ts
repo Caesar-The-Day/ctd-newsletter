@@ -56,7 +56,7 @@ export async function getNewsletterIndexData() {
   try {
     const { data: dbRegions, error } = await supabase
       .from('regions')
-      .select('slug, display_name, status, issue_number, published_date')
+      .select('slug, display_name, status, issue_number, published_date, region_data')
       .order('published_date', { ascending: false });
 
     if (error || !dbRegions?.length) {
@@ -71,23 +71,33 @@ export async function getNewsletterIndexData() {
     }
 
     // Build merged newsletters list from DB state
-    const newsletters = dbRegions.map((dbRow) => {
+    const newsletters = dbRegions.map((dbRow: any) => {
       const existing = staticLookup[dbRow.slug];
       const isLive = dbRow.status === 'live';
 
+      // Derive photo + copy straight from the region record so newly published
+      // regions promote themselves to the home page without manual edits.
+      const regionBlock = dbRow.region_data?.region ?? {};
+      const dbHero: string | undefined = regionBlock?.hero?.bannerImage || undefined;
+      const dbIntroParagraph: string | undefined = Array.isArray(regionBlock?.intro?.paragraphs)
+        ? regionBlock.intro.paragraphs[0]
+        : undefined;
+      const dbDescription: string | undefined = regionBlock?.tagline || dbIntroParagraph || undefined;
+
       return {
         slug: dbRow.slug,
-        title: existing?.title || dbRow.display_name,
+        title: existing?.title || regionBlock?.title || dbRow.display_name,
         issueNumber: dbRow.issue_number ?? existing?.issueNumber ?? 0,
         date: existing?.date || (dbRow.published_date ? new Date(dbRow.published_date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : ''),
         status: isLive ? 'live' as const : 'coming-soon' as const,
-        thumbnail: existing?.thumbnail || `/images/${dbRow.slug}/${dbRow.slug}-hero.jpg`,
-        description: existing?.description || `Explore ${dbRow.display_name} — your guide to retiring in this Italian region.`,
+        thumbnail: existing?.thumbnail || dbHero || '/images/shared/italy-hero-landscape.jpg',
+        description: existing?.description || dbDescription || `Explore ${dbRow.display_name} — your guide to retiring in this Italian region.`,
         ctaText: isLive ? 'Read Newsletter' : 'Coming Soon',
         ctaLink: isLive ? `/${dbRow.slug}` : undefined,
         expectedDate: !isLive ? existing?.expectedDate : undefined,
       };
     });
+
 
     // Sort by issue_number descending
     newsletters.sort((a: any, b: any) => (b.issueNumber || 0) - (a.issueNumber || 0));
