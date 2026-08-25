@@ -251,9 +251,36 @@ export default function AdminRegions() {
         title: 'Region Published',
         description: result.message,
       });
+
+      // Make sure the published region has a social preview before it goes out.
+      try {
+        const { data: regionRow } = await supabase
+          .from('regions')
+          .select('display_name, region_data')
+          .eq('slug', selectedRegion)
+          .maybeSingle();
+
+        const og = await ensureRegionOg(selectedRegion, regionRow?.region_data as any, {
+          displayName: regionRow?.display_name,
+        });
+
+        if (og.created || og.imageUpdated || og.warning) {
+          toast({
+            title: og.warning ? 'Social preview needs attention' : 'Social preview ready',
+            description:
+              og.warning ||
+              `OG tags${og.imageUpdated ? ' and 1200×630 image' : ''} set for /${selectedRegion}.`,
+            variant: og.warning ? 'destructive' : undefined,
+          });
+        }
+      } catch (ogError) {
+        console.error('[AdminRegions] OG check on publish failed:', ogError);
+      }
+
       setPublishDialogOpen(false);
       setSelectedRegion(null);
       await loadData();
+
     } else {
       toast({
         title: 'Error',
