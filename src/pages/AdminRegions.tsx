@@ -13,6 +13,8 @@ import {
   archiveRegion
 } from '@/utils/regionManagement';
 import { mergeResearchIntoRegionData } from '@/utils/mergeResearchData';
+import { ensureRegionOg } from '@/utils/ogMetadata';
+
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
