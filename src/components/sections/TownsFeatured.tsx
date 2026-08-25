@@ -191,7 +191,14 @@ export function TownsFeatured({ towns, region, featuredNote }: TownsFeaturedProp
             );
           })}
         </div>
+
+        {featuredNote && (
+          <p className="max-w-3xl mx-auto mt-10 text-sm md:text-base text-muted-foreground leading-relaxed text-center">
+            {featuredNote}
+          </p>
+        )}
       </div>
     </section>
+
   );
 }
