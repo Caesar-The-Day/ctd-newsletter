@@ -6,6 +6,7 @@ import italyCallingImage from '@/assets/italy-calling-cta.jpg';
 
 interface RetirementBlueprintCTAProps {
   region?: string;
+  variant?: 'auto' | 'visto-facile' | 'consultation';
 }
 
 const VISTO_FACILE_REGIONS = ['molise', 'calabria', 'piemonte', 'lombardia', 'veneto', 'puglia', 'lazio'];
@@ -23,8 +24,10 @@ interface CTAContent {
   visual: { type: 'logo' | 'image'; src: string; alt: string };
 }
 
-function getCTAContent(region?: string): CTAContent {
-  const isVistoFacile = VISTO_FACILE_REGIONS.includes(region ?? '');
+function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['variant'] = 'auto'): CTAContent {
+  const isVistoFacile =
+    variant === 'visto-facile' ||
+    (variant === 'auto' && VISTO_FACILE_REGIONS.includes(region ?? ''));
 
   if (isVistoFacile) {
     return {
