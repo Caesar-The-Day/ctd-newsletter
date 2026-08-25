@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import {
   Building2,
   Bus,
-  Check,
   ChevronDown,
   Euro,
   Flame,
@@ -20,7 +19,6 @@ import {
   Users,
 } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
-import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 type TabId = 'cost' | 'access' | 'friction';
 
