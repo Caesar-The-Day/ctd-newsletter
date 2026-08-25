@@ -222,11 +222,16 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
               : '';
 
+            const zoneLinkHtml = feature.link
+              ? `<a href="${feature.link}" ${feature.link.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="inline-block mt-3 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors">${feature.linkLabel || 'Read more →'}</a>`
+              : '';
+
             const popupContent = `
               <div class="zone-popup">
                 ${photoHtml}
                 <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
                 <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+                ${zoneLinkHtml}
               </div>
             `;
             
