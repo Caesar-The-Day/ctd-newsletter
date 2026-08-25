@@ -195,7 +195,29 @@ export default function AdminRegions() {
           title: 'Region Created Successfully!',
           description: `${wizardData.regionName} scaffolded with AI research, theme, and ${wizardData.enabledSections?.length || 0} sections.`,
         });
+
+        // Auto-provision social preview (OG) metadata for the new region.
+        try {
+          const og = await ensureRegionOg(insertData.slug, insertData.region_data as any, {
+            displayName: insertData.display_name,
+          });
+          toast({
+            title: og.warning ? 'Social preview partially set' : 'Social preview created',
+            description:
+              og.warning ||
+              `OG title, description${og.imageUpdated ? ', and 1200×630 image' : ''} generated for /${insertData.slug}.`,
+            variant: og.warning ? 'destructive' : undefined,
+          });
+        } catch (ogError) {
+          console.error('[AdminRegions] OG metadata failed:', ogError);
+          toast({
+            title: 'Social preview not created',
+            description: ogError instanceof Error ? ogError.message : 'Unknown error',
+            variant: 'destructive',
+          });
+        }
       }
+
 
       setWizardOpen(false);
       await loadData();
