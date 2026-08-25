@@ -667,3 +667,149 @@ All colors MUST be HSL.
     animation: sparkle-float 5s ease-in-out infinite;
   }
 }
+
+@layer components {
+  /* Ocean Deep CTA theme — used by RetirementBlueprintCTA.tsx */
+  .cta-ocean-deep {
+    --cta-deep: 210 68% 15%;
+    --cta-mid: 205 61% 26%;
+    --cta-accent: 190 55% 40%;
+    --cta-light: 178 44% 55%;
+    --cta-text: 200 30% 97%;
+    --cta-muted: 200 20% 75%;
+    --cta-glow: 178 44% 55% / 0.25;
+  }
+
+  .cta-card-ocean {
+    background: linear-gradient(135deg, hsl(var(--cta-deep)) 0%, hsl(var(--cta-mid)) 60%, hsl(var(--cta-accent)) 100%);
+    color: hsl(var(--cta-text));
+    box-shadow: 0 20px 60px -20px hsl(var(--cta-deep) / 0.45);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cta-card-ocean:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px -20px hsl(var(--cta-deep) / 0.55), 0 0 0 1px hsl(var(--cta-light) / 0.2);
+  }
+
+  .cta-heading-ocean {
+    color: hsl(var(--cta-text));
+    text-shadow: 0 2px 20px hsl(var(--cta-deep) / 0.3);
+  }
+
+  .cta-body-ocean {
+    color: hsl(var(--cta-muted));
+  }
+
+  .cta-accent-text {
+    color: hsl(var(--cta-light));
+  }
+
+  .cta-button-ocean {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: hsl(var(--cta-light)) !important;
+    color: hsl(var(--cta-deep)) !important;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, background 0.25s ease-out;
+    box-shadow: 0 8px 24px -6px hsl(var(--cta-light) / 0.4);
+  }
+
+  .cta-button-ocean:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: hsl(178 55% 62%) !important;
+    box-shadow: 0 12px 32px -6px hsl(var(--cta-light) / 0.55);
+  }
+
+  .cta-button-ocean:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .cta-button-ocean svg {
+    color: hsl(var(--cta-deep)) !important;
+  }
+
+  .cta-pulse-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 0 hsl(var(--cta-light) / 0.5);
+    animation: cta-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes cta-pulse {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--cta-light) / 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 12px hsl(var(--cta-light) / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--cta-light) / 0);
+    }
+  }
+
+  .cta-benefit-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: hsl(var(--cta-text) / 0.08);
+    border: 1px solid hsl(var(--cta-light) / 0.2);
+    color: hsl(var(--cta-text));
+    padding: 0.5rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+  }
+
+  .cta-image-panel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-image-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, hsl(var(--cta-deep) / 0.7) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .cta-grid-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    pointer-events: none;
+    background-image:
+      linear-gradient(hsl(var(--cta-light)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--cta-light)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  @media (max-width: 767px) {
+    .cta-image-panel::after {
+      background: linear-gradient(180deg, hsl(var(--cta-deep) / 0.7) 0%, transparent 40%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-card-ocean,
+    .cta-button-ocean {
+      transition: none;
+    }
+    .cta-card-ocean:hover {
+      transform: none;
+    }
+    .cta-button-ocean:hover {
+      transform: none;
+    }
+    .cta-pulse-ring {
+      animation: none;
+    }
+  }
+}
