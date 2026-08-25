@@ -6,6 +6,7 @@ import italyCallingImage from '@/assets/italy-calling-cta.jpg';
 
 interface RetirementBlueprintCTAProps {
   region?: string;
+  variant?: 'auto' | 'visto-facile' | 'consultation';
 }
 
 const VISTO_FACILE_REGIONS = ['molise', 'calabria', 'piemonte', 'lombardia', 'veneto', 'puglia', 'lazio'];
@@ -23,17 +24,19 @@ interface CTAContent {
   visual: { type: 'logo' | 'image'; src: string; alt: string };
 }
 
-function getCTAContent(region?: string): CTAContent {
-  const isVistoFacile = VISTO_FACILE_REGIONS.includes(region ?? '');
+function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['variant'] = 'auto'): CTAContent {
+  const isVistoFacile =
+    variant === 'visto-facile' ||
+    (variant === 'auto' && VISTO_FACILE_REGIONS.includes(region ?? ''));
 
   if (isVistoFacile) {
     return {
-      preheadline: 'The Door to Italy Is the Elective Residency Visa',
+      preheadline: 'Elective Residency Visa (ERV) Navigator',
       headline: region
         ? `Make Your ${region.charAt(0).toUpperCase() + region.slice(1)} Move Official`
         : 'Make Your Italian Move Official',
       subheadline:
-        'Visto Facile turns the intimidating visa application into a guided, step-by-step process — built specifically for U.S. and Canadian applicants.',
+        'Visto Facile is the step-by-step navigator for Italy’s Elective Residency Visa — built for U.S. and Canadian applicants who want a clear, organized path to residency.',
       description:
         'Document checklists, income calculations, consulate-specific quirks, and timeline tracking — all in one place, so nothing slips through the cracks.',
       benefits: [
@@ -45,7 +48,7 @@ function getCTAContent(region?: string): CTAContent {
       ctaText: 'Start Your Visa Journey',
       ctaUrl: 'https://vistofacile.caesartheday.com',
       analyticsEvent: 'visto_facile_cta_click',
-      visual: { type: 'logo', src: vistoFacileLogo, alt: 'Visto Facile — Italian Elective Residency Visa Navigator' },
+      visual: { type: 'logo', src: vistoFacileLogo, alt: 'Visto Facile — Elective Residency Visa (ERV) Navigator' },
     };
   }
 
@@ -69,11 +72,11 @@ function getCTAContent(region?: string): CTAContent {
   };
 }
 
-export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) {
+export function RetirementBlueprintCTA({ region, variant = 'auto' }: RetirementBlueprintCTAProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const content = getCTAContent(region);
+  const content = getCTAContent(region, variant);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,16 +111,16 @@ export function RetirementBlueprintCTA({ region }: RetirementBlueprintCTAProps) 
             {/* Visual panel */}
             <div className="cta-image-panel relative min-h-[240px] md:min-h-full flex items-center justify-center p-8 md:p-12">
               {content.visual.type === 'logo' ? (
-                <div className="relative z-10 text-center">
+                <div className="relative z-10 text-center w-full max-w-[340px] md:max-w-[420px]">
                   <img
                     src={content.visual.src}
                     alt={content.visual.alt}
-                    className="h-24 md:h-32 w-auto mx-auto drop-shadow-2xl"
+                    className="h-36 md:h-48 lg:h-56 w-auto mx-auto drop-shadow-2xl"
                     loading="lazy"
-                    width={320}
-                    height={128}
+                    width={420}
+                    height={224}
                   />
-                  <p className="mt-4 text-sm md:text-base font-medium tracking-wide uppercase text-white/80">
+                  <p className="mt-5 text-sm md:text-base font-medium tracking-wide uppercase text-white/80">
                     Italian Visa Navigator
                   </p>
                 </div>

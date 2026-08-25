@@ -479,6 +479,10 @@ export default function RegionPage() {
 
       {region === 'molise' && <MoliseCentralItalyReach />}
 
+      {config.showRetirementBlueprintCTA && (
+        <RetirementBlueprintCTA region={region} variant="consultation" />
+      )}
+
       <CostCalculator 
         townPresets={regionData.costOfLiving.townPresets} 
         lifestyles={regionData.costOfLiving.lifestyles}
