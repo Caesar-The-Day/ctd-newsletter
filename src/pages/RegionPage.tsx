@@ -30,6 +30,8 @@ import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
 import { LazioHealthcareInfrastructure } from '@/components/sections/LazioHealthcareInfrastructure';
+import { FriuliHealthcareInfrastructure } from '@/components/sections/FriuliHealthcareInfrastructure';
+
 
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
 import { MosquitoWarning } from '@/components/sections/MosquitoWarning';
@@ -474,7 +476,10 @@ export default function RegionPage() {
 
       {region === 'lazio' ? (
         <LazioHealthcareInfrastructure />
+      ) : region === 'friuli-venezia-giulia' ? (
+        <FriuliHealthcareInfrastructure />
       ) : (
+
           <HealthcareInfrastructure
             region={region}
             healthcare={{
