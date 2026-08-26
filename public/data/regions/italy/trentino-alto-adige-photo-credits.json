@@ -74,11 +74,11 @@
   "cavalese": {
     "town": "Cavalese",
     "file": "/images/trentino-alto-adige/cavalese.jpg",
-    "author": "Luca.favorido",
-    "licence": "CC BY-SA 4.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Cavalese_-_centro_arte_contemporanea_Cavalese_-_202109182159.jpg",
-    "sourceFile": "File:Cavalese - centro arte contemporanea Cavalese - 202109182159.jpg"
+    "author": "Sextum",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cavalese.jpg",
+    "sourceFile": "File:Cavalese.jpg"
   },
   "brunico-bruneck": {
     "town": "Brunico (Bruneck)",
@@ -119,11 +119,11 @@
   "appiano-sulla-strada-del-vino": {
     "town": "Appiano sulla Strada del Vino",
     "file": "/images/trentino-alto-adige/appiano-sulla-strada-del-vino.jpg",
-    "author": "Julian Jenny",
-    "licence": "CC BY-SA 3.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Ausblick_auf_ein_paar_der_Burger_St._Pauls_(Eppan).jpg",
-    "sourceFile": "File:Ausblick auf ein paar der Burger St. Pauls (Eppan).jpg"
+    "author": "--Rensi 23:36, 20. Apr. 2010 (CEST)",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Eppan_St._Pauls.jpg",
+    "sourceFile": "File:Eppan St. Pauls.jpg"
   },
   "mezzocorona": {
     "town": "Mezzocorona",
