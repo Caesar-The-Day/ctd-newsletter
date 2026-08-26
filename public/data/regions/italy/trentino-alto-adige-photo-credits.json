@@ -133,5 +133,131 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Mezzocorona-panorama_from_the_cableway_upper_station.jpg",
     "sourceFile": "File:Mezzocorona-panorama from the cableway upper station.jpg"
+  },
+  "nature/adamello-brenta": {
+    "town": "Adamello-Brenta Nature Park",
+    "file": "/images/trentino-alto-adige/nature/adamello-brenta.jpg",
+    "author": "Glysiak",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Crozzon_di_Brenta,_3122_m.jpg",
+    "sourceFile": "File:Crozzon di Brenta, 3122 m.jpg"
+  },
+  "nature/stelvio": {
+    "town": "Stelvio National Park",
+    "file": "/images/trentino-alto-adige/nature/stelvio.jpg",
+    "author": "Whgler",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zaybach_K%C3%B6nigspitze_Zebr%C3%B9_Ortler.jpg",
+    "sourceFile": "File:Zaybach Königspitze Zebrù Ortler.jpg"
+  },
+  "nature/paneveggio": {
+    "town": "Paneveggio - Pale di San Martino",
+    "file": "/images/trentino-alto-adige/nature/paneveggio.jpg",
+    "author": "Stefano Merler (Merlo) and Monica Dallabona.",
+    "licence": "CC BY-SA 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Pale_di_san_martino_tramonto.jpg",
+    "sourceFile": "File:Pale di san martino tramonto.jpg"
+  },
+  "nature/puez-odle": {
+    "town": "Puez-Odle Nature Park",
+    "file": "/images/trentino-alto-adige/nature/puez-odle.jpg",
+    "author": "Unknown",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Odle_di_Funes.jpg",
+    "sourceFile": "File:Odle di Funes.jpg"
+  },
+  "nature/sciliar-catinaccio": {
+    "town": "Sciliar-Catinaccio Nature Park",
+    "file": "/images/trentino-alto-adige/nature/sciliar-catinaccio.jpg",
+    "author": "Llorenzi",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Siusi_panorama.JPG",
+    "sourceFile": "File:Siusi panorama.JPG"
+  },
+  "nature/fanes-sennes-braies": {
+    "town": "Fanes-Sennes-Braies Nature Park",
+    "file": "/images/trentino-alto-adige/nature/fanes-sennes-braies.jpg",
+    "author": "STirol",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pragser_Wildsee_Seekofel_von_Bucht.jpg",
+    "sourceFile": "File:Pragser Wildsee Seekofel von Bucht.jpg"
+  },
+  "nature/monte-corno": {
+    "town": "Monte Corno Nature Park",
+    "file": "/images/trentino-alto-adige/nature/monte-corno.jpg",
+    "author": "GPR1971",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:M.Corno_0313_2160S.png",
+    "sourceFile": "File:M.Corno 0313 2160S.png"
+  },
+  "nature/tovel": {
+    "town": "Lago di Tovel, Val di Non",
+    "file": "/images/trentino-alto-adige/nature/tovel.jpg",
+    "author": "Llorenzi",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lago_di_Tovel_02.jpg",
+    "sourceFile": "File:Lago di Tovel 02.jpg"
+  },
+  "nature/alpe-di-siusi": {
+    "town": "Alpe di Siusi",
+    "file": "/images/trentino-alto-adige/nature/alpe-di-siusi.jpg",
+    "author": "This Photo was taken by Wolfgang Moroder. Feel free to use my photos, but please mention me as the author and send me a message. This image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here not appropriate. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mont_de_Seuc_Fabian_2012_017_01.JPG",
+    "sourceFile": "File:Mont de Seuc Fabian 2012 017 01.JPG"
+  },
+  "nature/val-di-sole": {
+    "town": "Val di Sole bike",
+    "file": "/images/trentino-alto-adige/nature/val-di-sole.jpg",
+    "author": "Francesco Serra",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dimaro,_Dimaro_Folgarida,_Val_di_Sole.jpg",
+    "sourceFile": "File:Dimaro, Dimaro Folgarida, Val di Sole.jpg"
+  },
+  "nature/paganella": {
+    "town": "Paganella",
+    "file": "/images/trentino-alto-adige/nature/paganella.jpg",
+    "author": "Matteo Ianeselli",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fai_della_Paganella-panorama_from_Mezzocorona.jpg",
+    "sourceFile": "File:Fai della Paganella-panorama from Mezzocorona.jpg"
+  },
+  "nature/val-venosta": {
+    "town": "Val Venosta cycleway",
+    "file": "/images/trentino-alto-adige/nature/val-venosta.jpg",
+    "author": "Kuebi",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Oberer_Vinschgau_Mals_01.jpg",
+    "sourceFile": "File:Oberer Vinschgau Mals 01.jpg"
+  },
+  "nature/alta-via": {
+    "town": "Alta Via delle Dolomiti",
+    "file": "/images/trentino-alto-adige/nature/alta-via.jpg",
+    "author": "STirol",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Pragser_Wildsee_und_Seekofel_2.jpg",
+    "sourceFile": "File:Pragser Wildsee und Seekofel 2.jpg"
+  },
+  "nature/rifugio": {
+    "town": "Rifugio in the Dolomites",
+    "file": "/images/trentino-alto-adige/nature/rifugio.jpg",
+    "author": "2015 Michael 2015",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rifugio_Tuckett,_2272_m,_2014-07-03.jpg",
+    "sourceFile": "File:Rifugio Tuckett, 2272 m, 2014-07-03.jpg"
   }
 }
