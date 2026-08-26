@@ -206,8 +206,8 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
     citiesLayer.addTo(map);
 
     // Create overlay layers
-    if (mapData.overlays) {
-      mapData.overlays.forEach(overlay => {
+    if (visibleOverlays.length) {
+      visibleOverlays.forEach(overlay => {
         const layerGroup = L.layerGroup();
         
         // Sort features so circles render largest first (smallest on top for clickability)
@@ -823,7 +823,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
                 <MapPin className="w-4 h-4" />
                 Cities & Towns
               </Button>
-              {mapData?.overlays?.map(overlay => {
+              {visibleOverlays.map(overlay => {
                 const IconComponent = iconMap[overlay.icon] || Wine;
                 return (
                   <Button
