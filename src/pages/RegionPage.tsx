@@ -497,6 +497,8 @@ export default function RegionPage() {
 
       {region === 'lombardia' && <PanettoneQuiz />}
 
+      {region === 'trentino-alto-adige' && <TrentinoMountainMobility />}
+
       {region === 'lazio' ? (
         <LazioHealthcareInfrastructure />
       ) : region === 'friuli-venezia-giulia' ? (
