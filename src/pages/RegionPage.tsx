@@ -423,6 +423,7 @@ export default function RegionPage() {
       {region === 'trentino-alto-adige' && (
         <>
           <TrentinoHousingRules />
+          <TrentinoDolomitesOutdoors />
           <TrentinoAutonomyDividend />
           <TrentinoAppleMasi />
           <TrentinoSeasonClock />
