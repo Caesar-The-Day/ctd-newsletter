@@ -873,7 +873,7 @@ export function FriuliHealthcareInfrastructure() {
                     <circle cx="0" cy="112" r="5" className="fill-primary" />
                   </motion.g>
                 </svg>
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className="absolute inset-x-0 bottom-0 bg-background/85 px-6 py-5 backdrop-blur-sm">
                   <h3 className="font-serif text-3xl text-foreground">The Adriatic is a road here</h3>
                   <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
                     Trieste is Italy's biggest port by tonnage and a free port since 1719. For residents that translates into
@@ -881,6 +881,7 @@ export function FriuliHealthcareInfrastructure() {
                   </p>
                 </div>
               </div>
+
 
               {/* ferry routes */}
               <div className="grid gap-4 md:grid-cols-2">
