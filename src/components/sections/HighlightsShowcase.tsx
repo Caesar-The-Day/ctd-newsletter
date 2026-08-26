@@ -107,13 +107,8 @@ function CategoryPanel({
   );
   const [activeEra, setActiveEra] = useState<string | null>(null);
 
-  // Food: highlight the "quartet" (region-supplied flag)
-  const hasQuartet = cards.some((c) => c.quartet);
-  const [quartetOnly, setQuartetOnly] = useState(false);
-
   const visibleCards = cards.filter((c) => {
     if (categoryKey === 'culture' && activeEra) return c.era === activeEra;
-    if (categoryKey === 'food' && quartetOnly) return !!c.quartet;
     return true;
   });
 
@@ -133,7 +128,7 @@ function CategoryPanel({
         </div>
       </div>
 
-      {(eras.length > 1 || hasQuartet) && (
+      {eras.length > 1 && (
         <div className="flex flex-wrap items-center gap-2 mb-6">
           {categoryKey === 'culture' && eras.length > 1 && (
             <>
@@ -146,17 +141,6 @@ function CategoryPanel({
                   {era}
                 </FilterChip>
               ))}
-            </>
-          )}
-          {categoryKey === 'food' && hasQuartet && (
-            <>
-              <span className="text-xs uppercase tracking-wide text-muted-foreground mr-1">Filter</span>
-              <FilterChip active={!quartetOnly} onClick={() => setQuartetOnly(false)}>
-                Everything
-              </FilterChip>
-              <FilterChip active={quartetOnly} onClick={() => setQuartetOnly(true)}>
-                The pasta quartet
-              </FilterChip>
             </>
           )}
         </div>
