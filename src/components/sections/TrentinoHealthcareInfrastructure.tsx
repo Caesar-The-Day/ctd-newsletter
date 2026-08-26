@@ -19,9 +19,9 @@ import { cn } from '@/lib/utils';
 
 const stats = [
   { value: '2', label: 'Separate provincial health services — Trento (APSS) and Alto Adige (Sabes)' },
-  { value: '#1', label: 'Alto Adige and Trentino sit at the top of Italy\u2019s LEA care-quality scoring' },
+  { value: '#1', label: 'Alto Adige and Trentino sit at the top of Italy’s LEA care-quality scoring' },
   { value: '13', label: 'Hospitals with a staffed emergency room across the two provinces' },
-  { value: '4', label: 'Rescue helicopters on permanent standby: Pelikan 1\u20133 and Aiut Alpin Dolomites' },
+  { value: '4', label: 'Rescue helicopters on permanent standby: Pelikan 1–3 and Aiut Alpin Dolomites' },
 ];
 
 type SystemId = 'trento' | 'bolzano';
@@ -39,34 +39,34 @@ const systems: Record<
   }
 > = {
   trento: {
-    label: 'Trentino \u00b7 APSS',
+    label: 'Trentino · APSS',
     subtitle: 'Provincia Autonoma di Trento',
     authority: 'Azienda Provinciale per i Servizi Sanitari',
     link: 'https://www.apss.tn.it/',
-    language: 'Italian throughout. German is useful in Val di Fassa\u2019s Ladin communes, never required.',
+    language: 'Italian throughout. German is useful in Val di Fassa’s Ladin communes, never required.',
     rows: [
       { k: 'Who runs it', v: 'The province, not Rome. Trento funds and manages its own health service out of the autonomy budget.' },
-      { k: 'Registering', v: 'Residency at the comune \u2192 APSS distretto office \u2192 tessera sanitaria and a medico di base, usually same week.' },
-      { k: 'Ticket (co-pay)', v: 'Provincial scale, exempt over a modest income threshold for pensioners. Specialist visits typically \u20ac20\u201350.' },
-      { k: 'Hub hospital', v: 'Santa Chiara, Trento \u2014 plus the new Trentino hospital network with Rovereto as second pole.' },
-      { k: 'Waiting lists', v: 'Among Italy\u2019s shortest, but valley clinics book slower than the city. Book in Trento if you can travel.' },
+      { k: 'Registering', v: 'Residency at the comune → APSS distretto office → tessera sanitaria and a medico di base, usually same week.' },
+      { k: 'Ticket (co-pay)', v: 'Provincial scale, exempt over a modest income threshold for pensioners. Specialist visits typically €20–50.' },
+      { k: 'Hub hospital', v: 'Santa Chiara, Trento — plus the new Trentino hospital network with Rovereto as second pole.' },
+      { k: 'Waiting lists', v: 'Among Italy’s shortest, but valley clinics book slower than the city. Book in Trento if you can travel.' },
     ],
     honest: 'Trentino behaves like a very well-run Italian region: familiar rules, better funding, less paperwork drama.',
   },
   bolzano: {
-    label: 'Alto Adige \u00b7 Sabes',
-    subtitle: 'Provincia Autonoma di Bolzano \u2013 S\u00fcdtirol',
-    authority: 'Azienda Sanitaria dell\u2019Alto Adige / S\u00fcdtiroler Sanit\u00e4tsbetrieb',
+    label: 'Alto Adige · Sabes',
+    subtitle: 'Provincia Autonoma di Bolzano – Südtirol',
+    authority: 'Azienda Sanitaria dell’Alto Adige / Südtiroler Sanitätsbetrieb',
     link: 'https://www.sabes.it/',
     language: 'Bilingual by law. Staff must hold the patentino; you can be treated entirely in German or entirely in Italian.',
     rows: [
       { k: 'Who runs it', v: 'A single provincial company with four health districts: Bolzano, Merano, Bressanone, Brunico.' },
-      { k: 'Registering', v: 'Same sequence, but the district office paperwork exists in both languages \u2014 bring the one you read best.' },
+      { k: 'Registering', v: 'Same sequence, but the district office paperwork exists in both languages — bring the one you read best.' },
       { k: 'Ticket (co-pay)', v: 'Provincial tariff, with broader exemptions than the national scheme. Pharmacy cover is generous.' },
-      { k: 'Hub hospital', v: 'Ospedale San Maurizio / Krankenhaus Bozen \u2014 the referral centre for the whole province.' },
+      { k: 'Hub hospital', v: 'Ospedale San Maurizio / Krankenhaus Bozen — the referral centre for the whole province.' },
       { k: 'The bilingual catch', v: 'The patentino requirement shrinks the hiring pool; some specialties run short-staffed and recruit from Austria.' },
     ],
-    honest: 'The best-resourced health system in Italy \u2014 with a language rule that occasionally leaves a rota unfilled.',
+    honest: 'The best-resourced health system in Italy — with a language rule that occasionally leaves a rota unfilled.',
   },
 };
 
@@ -217,7 +217,7 @@ const bands: Band[] = [
   {
     id: 'valley-city',
     label: 'Valley cities',
-    altitude: '200\u2013300 m',
+    altitude: '200–300 m',
     examples: 'Bolzano, Trento, Rovereto, Merano',
     gp: 5,
     er: 10,
@@ -229,7 +229,7 @@ const bands: Band[] = [
   {
     id: 'wine-belt',
     label: 'Wine belt & lake shore',
-    altitude: '200\u2013500 m',
+    altitude: '200–500 m',
     examples: 'Appiano, Termeno, Mezzocorona, Riva del Garda, Arco',
     gp: 8,
     er: 20,
@@ -241,7 +241,7 @@ const bands: Band[] = [
   {
     id: 'side-valley',
     label: 'Side valleys',
-    altitude: '500\u2013900 m',
+    altitude: '500–900 m',
     examples: 'Cavalese, Cles, Bressanone, Brunico, Borgo Valsugana',
     gp: 10,
     er: 15,
@@ -253,7 +253,7 @@ const bands: Band[] = [
   {
     id: 'high-village',
     label: 'High villages',
-    altitude: '1,000\u20131,500 m',
+    altitude: '1,000–1,500 m',
     examples: 'Ortisei, Canazei, Selva, Sesto, Madonna di Campiglio',
     gp: 15,
     er: 40,
@@ -267,7 +267,7 @@ const bands: Band[] = [
 const heliUnits = [
   {
     name: 'Pelikan 1, 2 & 3',
-    detail: 'Provincial air rescue based at Bolzano, Bressanone and Laives \u2014 crewed with an emergency doctor, flying year-round.',
+    detail: 'Provincial air rescue based at Bolzano, Bressanone and Laives — crewed with an emergency doctor, flying year-round.',
     link: 'https://www.provinz.bz.it/sicherheit-zivilschutz/zivilschutz/flugrettung.asp',
   },
   {
@@ -277,7 +277,7 @@ const heliUnits = [
   },
   {
     name: 'Trentino Emergenza 112',
-    detail: 'One number for both provinces. The dispatcher decides ambulance or helicopter \u2014 for a mountain address, often the latter.',
+    detail: 'One number for both provinces. The dispatcher decides ambulance or helicopter — for a mountain address, often the latter.',
     link: 'https://www.trentinoemergenza.it/',
   },
 ];
@@ -291,9 +291,9 @@ const enrolSteps = [
 
 const crossBorder = [
   'Innsbruck is 90 minutes from Bolzano by motorway, and the Austrian clinics there are used routinely for second opinions and specialised treatment.',
-  'Cross-border care inside the EU runs on the S1 form and the European health card \u2014 emergencies are covered, electives need prior authorisation from your province.',
+  'Cross-border care inside the EU runs on the S1 form and the European health card — emergencies are covered, electives need prior authorisation from your province.',
   'Both provinces keep formal agreements with Austrian hospitals; ask the district office for the *assistenza transfrontaliera* desk rather than arranging it yourself.',
-  'Private clinics (Villa Bianca in Trento, Bonvicini in Bolzano) exist for speed, not necessity \u2014 an MRI in days rather than weeks for a few hundred euro.',
+  'Private clinics (Villa Bianca in Trento, Bonvicini in Bolzano) exist for speed, not necessity — an MRI in days rather than weeks for a few hundred euro.',
 ];
 
 /* ------------------------------------------------------------ component */
@@ -336,7 +336,7 @@ export default function TrentinoHealthcareInfrastructure() {
           </p>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Two Health Systems, One Mountain Range</h2>
           <p className="text-lg text-muted-foreground">
-            Autonomy means Rome does not run the hospitals here \u2014 the provinces do, with their own budgets, their own
+            Autonomy means Rome does not run the hospitals here — the provinces do, with their own budgets, their own
             rules and, in Alto Adige, their own language law. The result is the best-funded care in Italy, delivered
             across terrain that decides how quickly it reaches you.
           </p>
@@ -583,7 +583,7 @@ export default function TrentinoHealthcareInfrastructure() {
                   <div>
                     <p className="font-semibold leading-snug">{h.name}</p>
                     <p className="text-sm text-muted-foreground">
-                      {h.city} \u00b7 {h.role}
+                      {h.city} · {h.role}
                     </p>
                   </div>
                   {h.emergency && (
@@ -642,7 +642,7 @@ export default function TrentinoHealthcareInfrastructure() {
             <ul className="space-y-3">
               {crossBorder.map((c) => (
                 <li key={c} className="flex gap-3 text-sm text-foreground/85 leading-relaxed">
-                  <span className="text-primary mt-1">\u2022</span>
+                  <span className="text-primary mt-1">•</span>
                   <span>{c}</span>
                 </li>
               ))}
