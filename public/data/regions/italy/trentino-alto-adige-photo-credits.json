@@ -1,0 +1,137 @@
+{
+  "bolzano-bozen-featured": {
+    "town": "Bolzano (Bozen)",
+    "file": "/images/trentino-alto-adige/bolzano-bozen-featured.jpg",
+    "author": "Livioandronico2013",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Appian_Way.jpg",
+    "sourceFile": "File:Appian Way.jpg"
+  },
+  "trento-featured": {
+    "town": "Trento",
+    "file": "/images/trentino-alto-adige/trento-featured.jpg",
+    "author": "Lungoleno",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Palazzo_Sardagna_2016_1.jpg",
+    "sourceFile": "File:Palazzo Sardagna 2016 1.jpg"
+  },
+  "merano-meran-featured": {
+    "town": "Merano (Meran)",
+    "file": "/images/trentino-alto-adige/merano-meran-featured.jpg",
+    "author": "ManfredK",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Meran_Stadttheater_2017.jpg",
+    "sourceFile": "File:Meran Stadttheater 2017.jpg"
+  },
+  "bressanone-brixen": {
+    "town": "Bressanone (Brixen)",
+    "file": "/images/trentino-alto-adige/bressanone-brixen.jpg",
+    "author": "Soluvo",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hofburg_Brixen_Bressanone_2012_b.jpg",
+    "sourceFile": "File:Hofburg Brixen Bressanone 2012 b.jpg"
+  },
+  "rovereto": {
+    "town": "Rovereto",
+    "file": "/images/trentino-alto-adige/rovereto.jpg",
+    "author": "Lungoleno",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Loreto_2_b.jpg",
+    "sourceFile": "File:Loreto 2 b.jpg"
+  },
+  "ortisei-st-ulrich": {
+    "town": "Ortisei (St. Ulrich)",
+    "file": "/images/trentino-alto-adige/ortisei-st-ulrich.jpg",
+    "author": "This Photo was taken by Wolfgang Moroder. Feel free to use my photos, but please mention me as the author and send me a message. This image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here not appropriate. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Dlieja_da_Sacun_cun_Saslonch-edit.jpg",
+    "sourceFile": "File:Dlieja da Sacun cun Saslonch-edit.jpg"
+  },
+  "riva-del-garda": {
+    "town": "Riva del Garda",
+    "file": "/images/trentino-alto-adige/riva-del-garda.jpg",
+    "author": "Otto Domes",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Riva_del_Garda_aus_Nord-West.jpg",
+    "sourceFile": "File:Riva del Garda aus Nord-West.jpg"
+  },
+  "vipiteno-sterzing": {
+    "town": "Vipiteno (Sterzing)",
+    "file": "/images/trentino-alto-adige/vipiteno-sterzing.jpg",
+    "author": "Scrossblu",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vipiteno-winter.jpg",
+    "sourceFile": "File:Vipiteno-winter.jpg"
+  },
+  "cavalese": {
+    "town": "Cavalese",
+    "file": "/images/trentino-alto-adige/cavalese.jpg",
+    "author": "Sextum",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cavalese.jpg",
+    "sourceFile": "File:Cavalese.jpg"
+  },
+  "brunico-bruneck": {
+    "town": "Brunico (Bruneck)",
+    "file": "/images/trentino-alto-adige/brunico-bruneck.jpg",
+    "author": "Wolkenkratzer",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:I-Bruneck_008.jpg",
+    "sourceFile": "File:I-Bruneck 008.jpg"
+  },
+  "arco": {
+    "town": "Arco",
+    "file": "/images/trentino-alto-adige/arco.jpg",
+    "author": "K.Weise",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ArcoFontMos%C3%A9.jpg",
+    "sourceFile": "File:ArcoFontMosé.jpg"
+  },
+  "canazei": {
+    "town": "Canazei",
+    "file": "/images/trentino-alto-adige/canazei.jpg",
+    "author": "Svíčková",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Canazei_NW.JPG",
+    "sourceFile": "File:Canazei NW.JPG"
+  },
+  "levico-terme": {
+    "town": "Levico Terme",
+    "file": "/images/trentino-alto-adige/levico-terme.jpg",
+    "author": "Llorenzi",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Levico_Terme_e_il_lago.jpg",
+    "sourceFile": "File:Levico Terme e il lago.jpg"
+  },
+  "appiano-sulla-strada-del-vino": {
+    "town": "Appiano sulla Strada del Vino",
+    "file": "/images/trentino-alto-adige/appiano-sulla-strada-del-vino.jpg",
+    "author": "Hubert Berberich (HubiB)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BhfEppanUeberetscherBahn.jpg",
+    "sourceFile": "File:BhfEppanUeberetscherBahn.jpg"
+  },
+  "mezzocorona": {
+    "town": "Mezzocorona",
+    "file": "/images/trentino-alto-adige/mezzocorona.jpg",
+    "author": "Lungoleno",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:02_Santa_Maria_Assunta_-_Mezzocorona.jpg",
+    "sourceFile": "File:02 Santa Maria Assunta - Mezzocorona.jpg"
+  }
+}
