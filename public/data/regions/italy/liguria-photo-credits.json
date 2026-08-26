@@ -277,5 +277,68 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Palazzo_Rosso_visto_dal_giardino_di_Palazzo_Bianco.jpg",
     "sourceFile": "File:Palazzo Rosso visto dal giardino di Palazzo Bianco.jpg"
+  },
+  "imperia": {
+    "town": "Imperia",
+    "file": "/images/liguria/imperia.jpg",
+    "author": "ElisabettaCastellano",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Imperia_-_Comune_di_Imperia_-_2024-09-13_16-01-33_001.JPG",
+    "sourceFile": "File:Imperia - Comune di Imperia - 2024-09-13 16-01-33 001.JPG"
+  },
+  "diano-marina": {
+    "town": "Diano Marina",
+    "file": "/images/liguria/diano-marina.jpg",
+    "author": "User Wx8",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Diano-marina-italy.jpg",
+    "sourceFile": "File:Diano-marina-italy.jpg"
+  },
+  "andora": {
+    "town": "Andora",
+    "file": "/images/liguria/andora.jpg",
+    "author": "Riky_Volpe",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Andora-panorama_(2).JPG",
+    "sourceFile": "File:Andora-panorama (2).JPG"
+  },
+  "alassio": {
+    "town": "Alassio",
+    "file": "/images/liguria/alassio.jpg",
+    "author": "Incola",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Alassio_from_Capo_Mele.jpg",
+    "sourceFile": "File:Alassio from Capo Mele.jpg"
+  },
+  "albenga-town": {
+    "town": "Albenga",
+    "file": "/images/liguria/albenga-town.jpg",
+    "author": "Radiuk",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Albenga.JPG",
+    "sourceFile": "File:Albenga.JPG"
+  },
+  "dolcedo": {
+    "town": "Dolcedo",
+    "file": "/images/liguria/dolcedo.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dolcedo-centro_storico1.jpg",
+    "sourceFile": "File:Dolcedo-centro storico1.jpg"
+  },
+  "isolabona": {
+    "town": "Isolabona",
+    "file": "/images/liguria/isolabona.jpg",
+    "author": "Luca Galli from Torino, Italy",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Isolabona-panorama_Flickr.jpg",
+    "sourceFile": "File:Isolabona-panorama Flickr.jpg"
   }
 }
