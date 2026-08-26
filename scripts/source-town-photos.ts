@@ -20,7 +20,7 @@ const UA = 'CaesarTheDayRegionalGuides/1.0 (https://caesartheday.com; editorial 
 const ALLOWED_LICENCE = /(^cc0)|(public domain)|(^cc[- ]by)|(^cc[- ]by[- ]sa)|(^pd)/i;
 const BAD_NAME = /(stemma|coat[_ ]of[_ ]arms|wappen|map|karte|mappa|locator|flag|bandiera|logo|icon|svg|\.ogg|\.webm|\.pdf|panorama[_ ]?sphere|gonfalone|scudo)/i;
 
-type Town = { name: string; slug: string; queries?: string[] };
+type Town = { name: string; slug: string; queries?: string[]; file?: string };
 type Candidate = {
   bonus?: number;
   queries?: string[];
