@@ -180,6 +180,10 @@ function CategoryPanel({
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {categoryKey === 'wine' && interactive?.orangeWineLab && <FriuliOrangeWineLab />}
+      {categoryKey === 'food' && interactive?.borderPlate && <FriuliBorderPlate />}
+      {categoryKey === 'culture' && interactive?.osmizaHunter && <FriuliOsmizaHunter />}
     </>
   );
 }
