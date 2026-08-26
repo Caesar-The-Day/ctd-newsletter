@@ -364,6 +364,8 @@ export const seasonPhases = [
     tone: 'Peak',
     body: 'Dolomiti Superski runs at full tilt. Resort valleys are full, prices peak, and roads to the passes queue on Saturdays. Valley cities carry on almost normally.',
     living: 'Book anything early. Avoid resort-valley errands on weekends.',
+    image: 'season-ski',
+    imageAlt: 'Skiers on wide Dolomiti Superski slopes with dramatic pale limestone peaks under a clear blue winter sky',
   },
   {
     id: 'mud',
@@ -372,6 +374,8 @@ export const seasonPhases = [
     tone: 'Dead',
     body: 'Lifts close, hotels shut for maintenance, and some mountain restaurants simply lock the door. The valleys bloom and empty at the same time.',
     living: 'Cheapest time to visit, worst time to need a mountain service.',
+    image: 'season-quiet',
+    imageAlt: 'Spring apple blossom in Val di Non with an empty valley road and snow-capped Dolomites in the distance',
   },
   {
     id: 'summer',
@@ -380,6 +384,8 @@ export const seasonPhases = [
     tone: 'Busy',
     body: 'German and Austrian visitors fill the high valleys; Garda fills with everyone else. Bolzano gets genuinely hot — 35°C in the valley is normal.',
     living: 'Head uphill. 700 m of altitude is worth several degrees.',
+    image: 'season-lakes',
+    imageAlt: 'Hikers beside a turquoise alpine lake reflecting pine forests and jagged Dolomite peaks on a bright summer day',
   },
   {
     id: 'autumn',
@@ -388,6 +394,8 @@ export const seasonPhases = [
     tone: 'Best',
     body: 'Harvest, new wine, chestnuts, and farm taverns opening for the season. The apples come in, the light goes gold, and the crowds go home.',
     living: 'The locals\' favourite season, and the one to plan a scouting trip around.',
+    image: 'season-torggelen',
+    imageAlt: 'A rustic farm tavern table with chestnuts, speck and new wine overlooking golden autumn vineyards',
   },
   {
     id: 'markets',
@@ -396,5 +404,7 @@ export const seasonPhases = [
     tone: 'Peak',
     body: 'Bolzano, Merano, Bressanone, Brunico and Vipiteno run the five original South Tyrolean markets. Day-trip coaches arrive by the hundred.',
     living: 'Beautiful, and a month of not being able to park in your own town centre.',
+    image: 'christmas-market',
+    imageAlt: 'A South Tyrolean Christmas market at dusk with lit wooden stalls, snow and a church tower',
   },
 ];
