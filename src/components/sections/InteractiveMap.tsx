@@ -537,11 +537,12 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               </div>
             `, { className: 'custom-popup', maxWidth: 300 });
           } else if (feature.type === 'point') {
-            // Point of interest marker (parks, natural features)
+            // Point of interest marker (parks, natural features, curiosities)
+            const dotColor = feature.color || '#22c55e';
             const pointIcon = L.divIcon({
               html: `
                 <div class="point-marker">
-                  <div class="w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-lg"></div>
+                  <div class="w-3 h-3 rounded-full border-2 border-white shadow-lg" style="background:${dotColor}"></div>
                 </div>
               `,
               className: 'custom-point-marker',
@@ -549,13 +550,23 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
               iconAnchor: [6, 6]
             });
 
+            const pointPhoto = feature.photo
+              ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
+              : '';
+            const pointLink = feature.link
+              ? `<a href="${feature.link}" ${feature.link.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="inline-block mt-3 px-4 py-2 text-sm font-medium !text-white bg-primary hover:bg-primary/90 rounded-md transition-colors">${feature.linkLabel || 'Read more →'}</a>`
+              : '';
+
             const pointMarker = L.marker(feature.coords, { icon: pointIcon }).addTo(layerGroup);
             pointMarker.bindPopup(`
               <div class="zone-popup">
-                <h3 class="font-bold text-base mb-2 text-foreground">🌲 ${feature.name}</h3>
+                ${pointPhoto}
+                <h3 class="font-bold text-base mb-2 text-foreground">${feature.emoji || '🌲'} ${feature.name}</h3>
                 <p class="text-sm text-muted-foreground leading-relaxed">${feature.description}</p>
+                ${pointLink}
               </div>
-            `, { className: 'custom-popup', maxWidth: 300 });
+            `, { className: 'custom-popup', maxWidth: 320 });
+
           } else if (feature.type === 'heritage') {
             // UNESCO Heritage site marker with gold styling
             // Offset coords slightly for visual separation from town markers (~50m north)
