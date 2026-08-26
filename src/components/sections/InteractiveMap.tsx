@@ -65,6 +65,14 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
 
   const mapData = whereData?.map;
 
+  // Overlays that should actually get a toggle button:
+  // - must have at least one feature (empty scaffold placeholders are hidden)
+  // - must not duplicate the built-in "Cities & Towns" layer
+  const REDUNDANT_OVERLAY_IDS = ['towns', 'cities', 'towns-cities', 'cities-towns', 'markers'];
+  const visibleOverlays = (mapData?.overlays ?? []).filter(
+    o => Array.isArray(o.features) && o.features.length > 0 && !REDUNDANT_OVERLAY_IDS.includes(o.id)
+  );
+
   useEffect(() => {
     if (!mapRef.current || mapInstance.current || !mapData) return;
     
