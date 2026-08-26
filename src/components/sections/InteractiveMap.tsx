@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Wine, Mountain, Globe, Anchor, Landmark, Train, Waves, Plane } from 'lucide-react';
+import { MapPin, Wine, Mountain, Globe, Anchor, Landmark, Train, Waves, Plane, Flower2, Footprints, Compass, Ship, Fish, TramFront } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
 
@@ -54,6 +54,12 @@ const iconMap: Record<string, any> = {
   Globe,
   Plane,
   MapPin,
+  Flower2,
+  Footprints,
+  Compass,
+  Ship,
+  Fish,
+  TramFront,
 };
 
 export function InteractiveMap({ regionTitle = "Piemonte", whereData }: InteractiveMapProps) {
