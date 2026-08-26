@@ -67,6 +67,13 @@ import FriuliSoulQuiz from '@/components/sections/FriuliSoulQuiz';
 import FriuliBoraMeter from '@/components/sections/FriuliBoraMeter';
 import FriuliCrossBorder from '@/components/sections/FriuliCrossBorder';
 import TriesteCoffeeDecoder from '@/components/sections/TriesteCoffeeDecoder';
+import TrentinoTwoTongues from '@/components/sections/TrentinoTwoTongues';
+import TrentinoHousingRules from '@/components/sections/TrentinoHousingRules';
+import TrentinoAltitudeLife from '@/components/sections/TrentinoAltitudeLife';
+import TrentinoAutonomyDividend from '@/components/sections/TrentinoAutonomyDividend';
+import TrentinoAppleMasi from '@/components/sections/TrentinoAppleMasi';
+import TrentinoMountainMobility from '@/components/sections/TrentinoMountainMobility';
+import TrentinoSeasonClock from '@/components/sections/TrentinoSeasonClock';
 import RomeResidentReality from '@/components/sections/RomeResidentReality';
 import RomeMobilityExplorer from '@/components/sections/RomeMobilityExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
@@ -379,6 +386,13 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'trentino-alto-adige' && (
+        <>
+          <TrentinoTwoTongues />
+          <TrentinoAltitudeLife />
+        </>
+      )}
+
       {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
@@ -402,6 +416,15 @@ export default function RegionPage() {
           <FriuliBoraMeter />
           <FriuliCrossBorder />
           <TriesteCoffeeDecoder />
+        </>
+      )}
+
+      {region === 'trentino-alto-adige' && (
+        <>
+          <TrentinoHousingRules />
+          <TrentinoAutonomyDividend />
+          <TrentinoAppleMasi />
+          <TrentinoSeasonClock />
         </>
       )}
 
@@ -473,6 +496,8 @@ export default function RegionPage() {
       )}
 
       {region === 'lombardia' && <PanettoneQuiz />}
+
+      {region === 'trentino-alto-adige' && <TrentinoMountainMobility />}
 
       {region === 'lazio' ? (
         <LazioHealthcareInfrastructure />
