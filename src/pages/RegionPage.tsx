@@ -386,6 +386,13 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'trentino-alto-adige' && (
+        <>
+          <TrentinoTwoTongues />
+          <TrentinoAltitudeLife />
+        </>
+      )}
+
       {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
