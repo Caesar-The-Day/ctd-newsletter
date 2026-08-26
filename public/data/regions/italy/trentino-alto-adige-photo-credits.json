@@ -243,13 +243,13 @@
     "sourceFile": "File:Oberer Vinschgau Mals 01.jpg"
   },
   "nature/alta-via": {
-    "town": "Alta Via delle Dolomiti",
+    "town": "Via ferrata in the Brenta Dolomites",
     "file": "/images/trentino-alto-adige/nature/alta-via.jpg",
-    "author": "STirol",
-    "licence": "CC BY-SA 3.0",
-    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "source": "https://commons.wikimedia.org/wiki/File:Pragser_Wildsee_und_Seekofel_2.jpg",
-    "sourceFile": "File:Pragser Wildsee und Seekofel 2.jpg"
+    "author": "Riccardo Pasciucco",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Via_delle_bocchette_centrali_e_alte_dolomiti_di_brenta_11.jpg",
+    "sourceFile": "File:Via delle bocchette centrali e alte dolomiti di brenta 11.jpg"
   },
   "nature/rifugio": {
     "town": "Rifugio in the Dolomites",
