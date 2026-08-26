@@ -80,7 +80,7 @@ export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
 
           {categories.map(({ key, data }) => (
             <TabsContent key={key} value={key} className="animate-fade-in">
-              <CategoryPanel categoryKey={key} data={data} />
+              <CategoryPanel categoryKey={key} data={data} interactive={highlights?.interactive} />
             </TabsContent>
           ))}
         </Tabs>
@@ -89,7 +89,15 @@ export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
   );
 }
 
-function CategoryPanel({ categoryKey, data }: { categoryKey: string; data: any }) {
+function CategoryPanel({
+  categoryKey,
+  data,
+  interactive,
+}: {
+  categoryKey: string;
+  data: any;
+  interactive?: Highlights['interactive'];
+}) {
   const cards: any[] = data?.cards ?? [];
 
   // Culture: build era filters when the data supplies them
