@@ -504,6 +504,8 @@ export default function RegionPage() {
         <LazioHealthcareInfrastructure />
       ) : region === 'friuli-venezia-giulia' ? (
         <FriuliHealthcareInfrastructure />
+      ) : region === 'trentino-alto-adige' ? (
+        <TrentinoHealthcareInfrastructure />
       ) : (
 
           <HealthcareInfrastructure
