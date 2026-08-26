@@ -622,7 +622,7 @@ export function FriuliHealthcareInfrastructure() {
               <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
                 {/* compass */}
                 <div className="relative mx-auto w-full max-w-[520px]">
-                  <svg viewBox="0 0 400 400" className="h-auto w-full" role="img" aria-label="Compass of destinations reachable from Friuli">
+                  <svg viewBox="-70 -20 540 440" className="h-auto w-full" role="img" aria-label="Compass of destinations reachable from Friuli">
                     <defs>
                       <radialGradient id="fvg-rose" cx="50%" cy="50%">
                         <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.18" />
@@ -645,7 +645,7 @@ export function FriuliHealthcareInfrastructure() {
 
                     {destinations.map((d) => {
                       const rad = ((d.angle - 90) * Math.PI) / 180;
-                      const R = 55 + d.dist * 130;
+                      const R = 55 + d.dist * 125;
                       const x = 200 + Math.cos(rad) * R;
                       const y = 200 + Math.sin(rad) * R;
                       const active = dest.id === d.id;
