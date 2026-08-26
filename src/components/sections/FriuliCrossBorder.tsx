@@ -53,7 +53,7 @@ const bases: Base[] = [
       { label: 'Croatian Istria (Buje, Umag)', time: '~1h', minutes: 60, country: 'hr' }
     ],
     airports: [
-      { code: 'TRS', label: 'Trieste Airport (Ronchi)', name: 'Trieste Airport (Ronchi)', time: '~35 min, direct rail link', minutes: 35, country: 'it' } as Airport & { name: string },
+      { code: 'TRS', label: 'Trieste Airport (Ronchi)', time: '~35 min, direct rail', minutes: 35, country: 'it' },
       { code: 'LJU', label: 'Ljubljana', time: '~1h45', minutes: 105, country: 'si' },
       { code: 'VCE', label: 'Venice Marco Polo', time: '~2h', minutes: 120, country: 'it' }
     ],
