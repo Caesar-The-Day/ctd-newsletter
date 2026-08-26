@@ -397,7 +397,7 @@ export default function FriuliCrossBorder() {
                     'absolute inset-0 transition-opacity duration-500',
                     selected
                       ? 'bg-gradient-to-t from-background via-background/40 to-transparent'
-                      : 'bg-gradient-to-t from-background/95 via-background/60 to-background/30'
+                      : 'bg-gradient-to-t from-background/90 via-background/35 to-transparent'
                   )}
                 />
                 <div className="absolute inset-x-0 bottom-0 p-4">
