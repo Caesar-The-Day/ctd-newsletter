@@ -25,6 +25,9 @@ import { Badge } from '@/components/ui/badge';
 import { FriuliOrangeWineLab } from './FriuliOrangeWineLab';
 import { FriuliOsmizaHunter } from './FriuliOsmizaHunter';
 import { FriuliBorderPlate } from './FriuliBorderPlate';
+import { TrentinoAltitudeWineLadder } from './TrentinoAltitudeWineLadder';
+import { TrentinoSpeckLine } from './TrentinoSpeckLine';
+import { TrentinoFolkCalendar } from './TrentinoFolkCalendar';
 
 interface HighlightsShowcaseProps {
   highlights: Highlights;
