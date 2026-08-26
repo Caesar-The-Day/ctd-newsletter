@@ -133,5 +133,131 @@
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Dolceacqua_(Liguria).jpg",
     "sourceFile": "File:Dolceacqua (Liguria).jpg"
+  },
+  "map-portovenere": {
+    "town": "Porto Venere",
+    "file": "/images/liguria/map-portovenere.jpg",
+    "author": "Aconcagua (talk)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Porto_Venere_from_Lerici.jpg",
+    "sourceFile": "File:Porto Venere from Lerici.jpg"
+  },
+  "map-cinque-terre": {
+    "town": "Cinque Terre",
+    "file": "/images/liguria/map-cinque-terre.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cemetery_Corniglia_Monterosso_Cinque_Terre_Sep23_A7C_06872.jpg",
+    "sourceFile": "File:Manarola NW Cemetery Corniglia Monterosso Cinque Terre Sep23 A7C 06872.jpg"
+  },
+  "map-albenga": {
+    "town": "Albenga",
+    "file": "/images/liguria/map-albenga.jpg",
+    "author": "Radiuk",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Albenga.JPG",
+    "sourceFile": "File:Albenga.JPG"
+  },
+  "map-portofino": {
+    "town": "Portofino Park",
+    "file": "/images/liguria/map-portofino.jpg",
+    "author": "Pierre-Selim Huard",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Portofino_-_2016-06-02_-_View_from_Chiesa_San_Giorgio_-_3284.jpg",
+    "sourceFile": "File:Portofino - 2016-06-02 - View from Chiesa San Giorgio - 3284.jpg"
+  },
+  "map-beigua": {
+    "town": "Beigua Geopark",
+    "file": "/images/liguria/map-beigua.jpg",
+    "author": "Sextum",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Antenne_Beigua.jpg",
+    "sourceFile": "File:Antenne Beigua.jpg"
+  },
+  "map-aveto": {
+    "town": "Parco dell'Aveto",
+    "file": "/images/liguria/map-aveto.jpg",
+    "author": "The original uploader was Vengomatto at Italian Wikipedia.",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Monte_Penna.jpg",
+    "sourceFile": "File:Monte Penna.jpg"
+  },
+  "map-antola": {
+    "town": "Parco dell'Antola",
+    "file": "/images/liguria/map-antola.jpg",
+    "author": "AleSlaves",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Verso_la_vetta_in_un_giorno_di_festa_(foto_M.Carraro).jpg",
+    "sourceFile": "File:Verso la vetta in un giorno di festa (foto M.Carraro).jpg"
+  },
+  "map-alpi-liguri": {
+    "town": "Alpi Liguri",
+    "file": "/images/liguria/map-alpi-liguri.jpg",
+    "author": "Marco Plassio",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rifugio_Piero_Garelli_Marguareis.jpg",
+    "sourceFile": "File:Rifugio Piero Garelli Marguareis.jpg"
+  },
+  "map-montemarcello": {
+    "town": "Montemarcello-Magra",
+    "file": "/images/liguria/map-montemarcello.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Montemarcello_(Ameglia)-piazza.JPG",
+    "sourceFile": "File:Montemarcello (Ameglia)-piazza.JPG"
+  },
+  "map-olive": {
+    "town": "Imperia and Taggiasca olives",
+    "file": "/images/liguria/map-olive.jpg",
+    "author": "ElisabettaCastellano",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Imperia_-_Comune_di_Imperia_-_2024-09-13_16-01-33_001.JPG",
+    "sourceFile": "File:Imperia - Comune di Imperia - 2024-09-13 16-01-33 001.JPG"
+  },
+  "map-fiori": {
+    "town": "Riviera dei Fiori flowers",
+    "file": "/images/liguria/map-fiori.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ospedaletti-panorama.jpg",
+    "sourceFile": "File:Ospedaletti-panorama.jpg"
+  },
+  "map-ventimiglia": {
+    "town": "Ventimiglia border",
+    "file": "/images/liguria/map-ventimiglia.jpg",
+    "author": "Luca Aless",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ventimiglia_panorama_01.JPG",
+    "sourceFile": "File:Ventimiglia panorama 01.JPG"
+  },
+  "map-luni": {
+    "town": "Colli di Luni",
+    "file": "/images/liguria/map-luni.jpg",
+    "author": "William Domenichini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sarzana_-_Panorama_(da_Monte_Caprione).JPG",
+    "sourceFile": "File:Sarzana - Panorama (da Monte Caprione).JPG"
+  },
+  "map-savona": {
+    "town": "Savona port",
+    "file": "/images/liguria/map-savona.jpg",
+    "author": "Roberta Salamone",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Savona_(260099167).jpeg",
+    "sourceFile": "File:Savona (260099167).jpeg"
   }
 }
