@@ -81,7 +81,13 @@ async function imageInfo(titles: string[], host: string): Promise<Candidate[]> {
 }
 
 async function candidatesFor(town: Town): Promise<Candidate[]> {
+  // Explicit override: an exact Commons file chosen by hand.
+  if (town.file) {
+    const c = await imageInfo([town.file], 'commons.wikimedia.org');
+    if (c.length) return c.map((x) => ({ ...x, bonus: 1000, queries: [''] }));
+  }
   const queries = town.queries?.length ? town.queries : [town.name.replace(/\s*\(.*\)\s*/, '').trim()];
+
   const seen = new Set<string>();
   const all: Candidate[] = [];
 
