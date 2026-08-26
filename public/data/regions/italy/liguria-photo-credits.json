@@ -268,5 +268,14 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Cervo_-_panorama_dal_parco_comunale_del_Ciap%C3%A0.jpg",
     "sourceFile": "File:Cervo - panorama dal parco comunale del Ciapà.jpg"
+  },
+  "map-rolli": {
+    "town": "Palazzi dei Rolli",
+    "file": "/images/liguria/map-rolli.jpg",
+    "author": "Chiara Saffioti",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Palazzo_Rosso_visto_dal_giardino_di_Palazzo_Bianco.jpg",
+    "sourceFile": "File:Palazzo Rosso visto dal giardino di Palazzo Bianco.jpg"
   }
 }
