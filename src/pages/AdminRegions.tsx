@@ -200,6 +200,8 @@ export default function AdminRegions() {
           variant: 'destructive',
         });
       } else {
+        setActiveRegion(enrichedData.slug);
+        localStorage.setItem('active-region', enrichedData.slug);
         setLastScaffoldResult({ ...result.data, wizardData });
         toast({
           title: 'Region Created Successfully!',
