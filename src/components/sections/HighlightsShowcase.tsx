@@ -22,6 +22,9 @@ import { Highlights } from '@/utils/getRegionData';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { FriuliOrangeWineLab } from './FriuliOrangeWineLab';
+import { FriuliOsmizaHunter } from './FriuliOsmizaHunter';
+import { FriuliBorderPlate } from './FriuliBorderPlate';
 
 interface HighlightsShowcaseProps {
   highlights: Highlights;
