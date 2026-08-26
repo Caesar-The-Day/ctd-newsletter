@@ -22,6 +22,8 @@ const BAD_NAME = /(stemma|coat[_ ]of[_ ]arms|wappen|map|karte|mappa|locator|flag
 
 type Town = { name: string; slug: string; queries?: string[] };
 type Candidate = {
+  bonus?: number;
+  queries?: string[];
   title: string;
   url: string;
   thumb: string;
