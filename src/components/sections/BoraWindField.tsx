@@ -75,6 +75,16 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // Device capability budget
+    const nav = navigator as Navigator & { deviceMemory?: number; hardwareConcurrency?: number };
+    const cores = nav.hardwareConcurrency ?? 4;
+    const mem = nav.deviceMemory ?? 4;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    const lowPower = cores <= 4 || mem <= 4;
+    // frame budget: full rate on capable devices, ~30fps on constrained ones
+    const minFrameMs = lowPower || coarse ? 33 : 0;
+
     let w = 0;
     let h = 0;
     let maxCount = 160;
@@ -86,13 +96,16 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
       canvas.width = Math.max(1, Math.floor(w * dpr));
       canvas.height = Math.max(1, Math.floor(h * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      maxCount = w < 640 ? 70 : 190;
+      const base = w < 640 ? 60 : w < 1024 ? 120 : 190;
+      const scale = (coarse ? 0.6 : 1) * (lowPower ? 0.6 : 1);
+      maxCount = Math.max(24, Math.round(base * scale));
       particles.current = Array.from({ length: maxCount }, () => makeParticle(w, h));
     };
 
     resize();
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
+
 
     if (reduced) {
       // Static tilted scatter, no animation.
@@ -115,10 +128,17 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
     }
 
     let t = 0;
-    const loop = () => {
-      t += 0.016;
+    let last = 0;
+    let running = false;
+
+    const loop = (now: number) => {
+      raf.current = requestAnimationFrame(loop);
+      if (minFrameMs && now - last < minFrameMs) return;
+      const dt = last ? Math.min(3, (now - last) / 16.67) : 1;
+      last = now;
+      t += 0.016 * dt;
       // ease toward target intensity
-      eased.current += (target.current - eased.current) * 0.06;
+      eased.current += (target.current - eased.current) * 0.06 * dt;
       const k = eased.current; // 0..1
 
       const speed = 1.2 + k * 13;
@@ -132,9 +152,9 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
         const p = particles.current[i];
         if (!p) continue;
         const drag = p.kind === 'spray' ? 1.5 : 1;
-        p.x += p.vx * speed * gust * drag;
-        p.y += p.vy * (1 + k * 2) + Math.sin(t * 2 + p.phase) * (p.wobble * 0.01) * (1 - k * 0.7);
-        p.rot += p.vrot * (0.4 + k * 3);
+        p.x += p.vx * speed * gust * drag * dt;
+        p.y += (p.vy * (1 + k * 2) + Math.sin(t * 2 + p.phase) * (p.wobble * 0.01) * (1 - k * 0.7)) * dt;
+        p.rot += p.vrot * (0.4 + k * 3) * dt;
 
         if (p.x - p.size > w) {
           Object.assign(p, makeParticle(w, h, -p.size - Math.random() * 120));
@@ -173,17 +193,46 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
         }
         ctx.restore();
       }
-
-      raf.current = requestAnimationFrame(loop);
     };
 
-    raf.current = requestAnimationFrame(loop);
+    const start = () => {
+      if (running) return;
+      running = true;
+      last = 0;
+      raf.current = requestAnimationFrame(loop);
+    };
+    const stop = () => {
+      running = false;
+      if (raf.current) cancelAnimationFrame(raf.current);
+      raf.current = undefined;
+    };
+
+    // Pause when off-screen or the tab is hidden.
+    let onScreen = false;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        if (onScreen && !document.hidden) start();
+        else stop();
+      },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
+
+    const onVisibility = () => {
+      if (document.hidden) stop();
+      else if (onScreen) start();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
       ro.disconnect();
-      if (raf.current) cancelAnimationFrame(raf.current);
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
+      stop();
     };
   }, []);
+
 
   return (
     <canvas
