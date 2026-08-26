@@ -72,6 +72,7 @@ import TrentinoHousingRules from '@/components/sections/TrentinoHousingRules';
 import TrentinoAltitudeLife from '@/components/sections/TrentinoAltitudeLife';
 import TrentinoAutonomyDividend from '@/components/sections/TrentinoAutonomyDividend';
 import TrentinoAppleMasi from '@/components/sections/TrentinoAppleMasi';
+import TrentinoDolomitesOutdoors from '@/components/sections/TrentinoDolomitesOutdoors';
 import TrentinoMountainMobility from '@/components/sections/TrentinoMountainMobility';
 import TrentinoSeasonClock from '@/components/sections/TrentinoSeasonClock';
 import TrentinoHealthcareInfrastructure from '@/components/sections/TrentinoHealthcareInfrastructure';
