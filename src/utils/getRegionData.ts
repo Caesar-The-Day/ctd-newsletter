@@ -272,6 +272,11 @@ export interface HighlightCategory {
 
 export interface Highlights {
   sectionIntro?: string;
+  interactive?: {
+    orangeWineLab?: boolean;
+    osmizaHunter?: boolean;
+    borderPlate?: boolean;
+  };
   wine: HighlightCategory;
   food: HighlightCategory;
   culture: HighlightCategory;

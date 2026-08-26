@@ -22,6 +22,9 @@ import { Highlights } from '@/utils/getRegionData';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { FriuliOrangeWineLab } from './FriuliOrangeWineLab';
+import { FriuliOsmizaHunter } from './FriuliOsmizaHunter';
+import { FriuliBorderPlate } from './FriuliBorderPlate';
 
 interface HighlightsShowcaseProps {
   highlights: Highlights;
@@ -77,7 +80,7 @@ export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
 
           {categories.map(({ key, data }) => (
             <TabsContent key={key} value={key} className="animate-fade-in">
-              <CategoryPanel categoryKey={key} data={data} />
+              <CategoryPanel categoryKey={key} data={data} interactive={highlights?.interactive} />
             </TabsContent>
           ))}
         </Tabs>
@@ -86,7 +89,15 @@ export function HighlightsShowcase({ highlights }: HighlightsShowcaseProps) {
   );
 }
 
-function CategoryPanel({ categoryKey, data }: { categoryKey: string; data: any }) {
+function CategoryPanel({
+  categoryKey,
+  data,
+  interactive,
+}: {
+  categoryKey: string;
+  data: any;
+  interactive?: Highlights['interactive'];
+}) {
   const cards: any[] = data?.cards ?? [];
 
   // Culture: build era filters when the data supplies them
@@ -169,6 +180,10 @@ function CategoryPanel({ categoryKey, data }: { categoryKey: string; data: any }
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {categoryKey === 'wine' && interactive?.orangeWineLab && <FriuliOrangeWineLab />}
+      {categoryKey === 'food' && interactive?.borderPlate && <FriuliBorderPlate />}
+      {categoryKey === 'culture' && interactive?.osmizaHunter && <FriuliOsmizaHunter />}
     </>
   );
 }
