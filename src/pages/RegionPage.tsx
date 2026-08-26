@@ -74,6 +74,7 @@ import TrentinoAutonomyDividend from '@/components/sections/TrentinoAutonomyDivi
 import TrentinoAppleMasi from '@/components/sections/TrentinoAppleMasi';
 import TrentinoMountainMobility from '@/components/sections/TrentinoMountainMobility';
 import TrentinoSeasonClock from '@/components/sections/TrentinoSeasonClock';
+import TrentinoHealthcareInfrastructure from '@/components/sections/TrentinoHealthcareInfrastructure';
 import RomeResidentReality from '@/components/sections/RomeResidentReality';
 import RomeMobilityExplorer from '@/components/sections/RomeMobilityExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
@@ -503,6 +504,8 @@ export default function RegionPage() {
         <LazioHealthcareInfrastructure />
       ) : region === 'friuli-venezia-giulia' ? (
         <FriuliHealthcareInfrastructure />
+      ) : region === 'trentino-alto-adige' ? (
+        <TrentinoHealthcareInfrastructure />
       ) : (
 
           <HealthcareInfrastructure
