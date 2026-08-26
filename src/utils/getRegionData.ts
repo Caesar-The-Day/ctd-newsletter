@@ -278,6 +278,9 @@ export interface Highlights {
     orangeWineLab?: boolean;
     osmizaHunter?: boolean;
     borderPlate?: boolean;
+    altitudeWineLadder?: boolean;
+    speckLine?: boolean;
+    folkCalendar?: boolean;
   };
   wine: HighlightCategory;
   food: HighlightCategory;

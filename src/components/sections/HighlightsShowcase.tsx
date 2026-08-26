@@ -25,6 +25,9 @@ import { Badge } from '@/components/ui/badge';
 import { FriuliOrangeWineLab } from './FriuliOrangeWineLab';
 import { FriuliOsmizaHunter } from './FriuliOsmizaHunter';
 import { FriuliBorderPlate } from './FriuliBorderPlate';
+import { TrentinoAltitudeWineLadder } from './TrentinoAltitudeWineLadder';
+import { TrentinoSpeckLine } from './TrentinoSpeckLine';
+import { TrentinoFolkCalendar } from './TrentinoFolkCalendar';
 
 interface HighlightsShowcaseProps {
   highlights: Highlights;
@@ -168,6 +171,10 @@ function CategoryPanel({
       {categoryKey === 'wine' && interactive?.orangeWineLab && <FriuliOrangeWineLab />}
       {categoryKey === 'food' && interactive?.borderPlate && <FriuliBorderPlate />}
       {categoryKey === 'culture' && interactive?.osmizaHunter && <FriuliOsmizaHunter />}
+
+      {categoryKey === 'wine' && interactive?.altitudeWineLadder && <TrentinoAltitudeWineLadder />}
+      {categoryKey === 'food' && interactive?.speckLine && <TrentinoSpeckLine />}
+      {categoryKey === 'culture' && interactive?.folkCalendar && <TrentinoFolkCalendar />}
     </>
   );
 }
