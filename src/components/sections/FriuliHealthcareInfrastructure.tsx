@@ -63,7 +63,7 @@ const careTiers = [
   }
 ];
 
-interface Hospital {
+interface HospitalItem {
   name: string;
   city: string;
   province: string;
@@ -74,7 +74,7 @@ interface Hospital {
   mapLink: string;
 }
 
-const hospitals: Hospital[] = [
+const hospitals: HospitalItem[] = [
   {
     name: 'Ospedale di Cattinara (ASUGI)',
     city: 'Trieste',
@@ -870,7 +870,6 @@ export function FriuliHealthcareInfrastructure() {
                     animate={reduce ? undefined : { x: [-80, 880] }}
                     transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
                   >
-                    <Ship className="text-primary" />
                     <circle cx="0" cy="112" r="5" className="fill-primary" />
                   </motion.g>
                 </svg>
