@@ -19,7 +19,7 @@ const orders: Order[] = [
   { id: 'capo-b', local: 'Capo in B', rest: 'Macchiato in a glass', what: 'The same capo, served in a small glass ("in bicchiere"). The most Triestino thing you can say at a counter.', glass: 'small', milk: 0.3, foam: true },
   { id: 'goccia', local: 'Goccia', rest: 'Espresso with a drop of foam', what: 'A nero with just a drop of milk foam on top. Less milk than a capo.', glass: 'small', milk: 0.1, foam: true },
   { id: 'deca', local: 'Deca', rest: 'Decaffeinated', what: 'Decaf. Combines with the rest: "deca in B" is entirely normal.', glass: 'small', milk: 0, foam: false },
-  { id: 'caffelatte', local: 'Caffelatte', rest: 'Latte', what: 'Coffee with plenty of hot milk, in a tall glass. Order a "latte" elsewhere in Italy and you get milk — here too.', glass: 'tall', milk: 0.7, foam: true }
+  { id: 'caffelatte', local: 'Caffelatte', rest: 'Caffè Latte', what: 'Coffee with plenty of hot milk, in a tall glass. "Latte" on its own means milk everywhere in Italy; ask for "caffè latte" if you want coffee with milk.', glass: 'tall', milk: 0.7, foam: true }
 ];
 
 export default function TriesteCoffeeDecoder() {
