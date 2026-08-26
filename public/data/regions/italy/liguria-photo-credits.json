@@ -1,0 +1,281 @@
+{
+  "genoa-genova": {
+    "town": "Genoa (Genova)",
+    "file": "/images/liguria/genoa-genova.jpg",
+    "author": "Julian Lupyan",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Piazza_de_Ferrari,_Genoa.jpg",
+    "sourceFile": "File:Piazza de Ferrari, Genoa.jpg"
+  },
+  "santa-margherita-ligure": {
+    "town": "Santa Margherita Ligure",
+    "file": "/images/liguria/santa-margherita-ligure.jpg",
+    "author": "Quintin Soloviev",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Santa_Margherita_Ligure,_Italy.jpg",
+    "sourceFile": "File:Santa Margherita Ligure, Italy.jpg"
+  },
+  "finalborgo": {
+    "town": "Finalborgo",
+    "file": "/images/liguria/finalborgo.jpg",
+    "author": "Mattia Cicale",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Finale_Ligure.JPG",
+    "sourceFile": "File:Finale Ligure.JPG"
+  },
+  "camogli": {
+    "town": "Camogli",
+    "file": "/images/liguria/camogli.jpg",
+    "author": "Hayden Soloviev",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seafront_of_Camogli,_Liguria,_Italy.jpg",
+    "sourceFile": "File:Seafront of Camogli, Liguria, Italy.jpg"
+  },
+  "bordighera": {
+    "town": "Bordighera",
+    "file": "/images/liguria/bordighera.jpg",
+    "author": "Al*from*Lig",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bordighera_da_dietro.jpg",
+    "sourceFile": "File:Bordighera da dietro.jpg"
+  },
+  "chiavari": {
+    "town": "Chiavari",
+    "file": "/images/liguria/chiavari.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chiavari-panorama3.jpg",
+    "sourceFile": "File:Chiavari-panorama3.jpg"
+  },
+  "triora": {
+    "town": "Triora",
+    "file": "/images/liguria/triora.jpg",
+    "author": "Moleskine",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Triora_Cabotina.jpg",
+    "sourceFile": "File:Triora Cabotina.jpg"
+  },
+  "vernazza": {
+    "town": "Vernazza",
+    "file": "/images/liguria/vernazza.jpg",
+    "author": "https://www.flickr.com/photos/150594450@N07/",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vernazza_and_the_sea,_Cinque_Terre,_Italy.jpg",
+    "sourceFile": "File:Vernazza and the sea, Cinque Terre, Italy.jpg"
+  },
+  "noli": {
+    "town": "Noli",
+    "file": "/images/liguria/noli.jpg",
+    "author": "Benjamin Smith",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Noli_-_View_from_Capo_Noli_-_1.jpg",
+    "sourceFile": "File:Noli - View from Capo Noli - 1.jpg"
+  },
+  "san-remo": {
+    "town": "San Remo",
+    "file": "/images/liguria/san-remo.jpg",
+    "author": "Olivier Cleynen",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:From_Ospedaletti_to_Sanremo.jpg",
+    "sourceFile": "File:From Ospedaletti to Sanremo.jpg"
+  },
+  "tellaro": {
+    "town": "Tellaro",
+    "file": "/images/liguria/tellaro.jpg",
+    "author": "TeKappa",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lerici_-_Castello_di_Lerici_-_2024-09-17_22-08-54_001.jpg",
+    "sourceFile": "File:Lerici - Castello di Lerici - 2024-09-17 22-08-54 001.jpg"
+  },
+  "apricale": {
+    "town": "Apricale",
+    "file": "/images/liguria/apricale.jpg",
+    "author": "Patafisik",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Piazza_Apricale_abc6.JPG",
+    "sourceFile": "File:Piazza Apricale abc6.JPG"
+  },
+  "sestri-levante": {
+    "town": "Sestri Levante",
+    "file": "/images/liguria/sestri-levante.jpg",
+    "author": "Jiuguang Wang",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sestri_Levante_and_Baia_del_Silenzio,_the_Bay_of_Silence.jpg",
+    "sourceFile": "File:Sestri Levante and Baia del Silenzio, the Bay of Silence.jpg"
+  },
+  "la-spezia": {
+    "town": "La Spezia",
+    "file": "/images/liguria/la-spezia.jpg",
+    "author": "Riottoso",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:La_Spezia_Harbor_1.JPG",
+    "sourceFile": "File:La Spezia Harbor 1.JPG"
+  },
+  "dolceacqua": {
+    "town": "Dolceacqua",
+    "file": "/images/liguria/dolceacqua.jpg",
+    "author": "Scrossblu",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dolceacqua_(Liguria).jpg",
+    "sourceFile": "File:Dolceacqua (Liguria).jpg"
+  },
+  "map-portovenere": {
+    "town": "Porto Venere",
+    "file": "/images/liguria/map-portovenere.jpg",
+    "author": "Aconcagua (talk)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Porto_Venere_from_Lerici.jpg",
+    "sourceFile": "File:Porto Venere from Lerici.jpg"
+  },
+  "map-cinque-terre": {
+    "town": "Cinque Terre",
+    "file": "/images/liguria/map-cinque-terre.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cemetery_Corniglia_Monterosso_Cinque_Terre_Sep23_A7C_06872.jpg",
+    "sourceFile": "File:Manarola NW Cemetery Corniglia Monterosso Cinque Terre Sep23 A7C 06872.jpg"
+  },
+  "map-albenga": {
+    "town": "Albenga",
+    "file": "/images/liguria/map-albenga.jpg",
+    "author": "Radiuk",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Albenga.JPG",
+    "sourceFile": "File:Albenga.JPG"
+  },
+  "map-portofino": {
+    "town": "Portofino Park",
+    "file": "/images/liguria/map-portofino.jpg",
+    "author": "Pierre-Selim Huard",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Portofino_-_2016-06-02_-_View_from_Chiesa_San_Giorgio_-_3284.jpg",
+    "sourceFile": "File:Portofino - 2016-06-02 - View from Chiesa San Giorgio - 3284.jpg"
+  },
+  "map-beigua": {
+    "town": "Beigua Geopark",
+    "file": "/images/liguria/map-beigua.jpg",
+    "author": "Sextum",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Antenne_Beigua.jpg",
+    "sourceFile": "File:Antenne Beigua.jpg"
+  },
+  "map-aveto": {
+    "town": "Parco dell'Aveto",
+    "file": "/images/liguria/map-aveto.jpg",
+    "author": "The original uploader was Vengomatto at Italian Wikipedia.",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Monte_Penna.jpg",
+    "sourceFile": "File:Monte Penna.jpg"
+  },
+  "map-antola": {
+    "town": "Parco dell'Antola",
+    "file": "/images/liguria/map-antola.jpg",
+    "author": "AleSlaves",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Verso_la_vetta_in_un_giorno_di_festa_(foto_M.Carraro).jpg",
+    "sourceFile": "File:Verso la vetta in un giorno di festa (foto M.Carraro).jpg"
+  },
+  "map-alpi-liguri": {
+    "town": "Alpi Liguri",
+    "file": "/images/liguria/map-alpi-liguri.jpg",
+    "author": "Marco Plassio",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rifugio_Piero_Garelli_Marguareis.jpg",
+    "sourceFile": "File:Rifugio Piero Garelli Marguareis.jpg"
+  },
+  "map-montemarcello": {
+    "town": "Montemarcello-Magra",
+    "file": "/images/liguria/map-montemarcello.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Montemarcello_(Ameglia)-piazza.JPG",
+    "sourceFile": "File:Montemarcello (Ameglia)-piazza.JPG"
+  },
+  "map-olive": {
+    "town": "Imperia and Taggiasca olives",
+    "file": "/images/liguria/map-olive.jpg",
+    "author": "ElisabettaCastellano",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Imperia_-_Comune_di_Imperia_-_2024-09-13_16-01-33_001.JPG",
+    "sourceFile": "File:Imperia - Comune di Imperia - 2024-09-13 16-01-33 001.JPG"
+  },
+  "map-fiori": {
+    "town": "Riviera dei Fiori flowers",
+    "file": "/images/liguria/map-fiori.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ospedaletti-panorama.jpg",
+    "sourceFile": "File:Ospedaletti-panorama.jpg"
+  },
+  "map-ventimiglia": {
+    "town": "Ventimiglia border",
+    "file": "/images/liguria/map-ventimiglia.jpg",
+    "author": "Luca Aless",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ventimiglia_panorama_01.JPG",
+    "sourceFile": "File:Ventimiglia panorama 01.JPG"
+  },
+  "map-luni": {
+    "town": "Colli di Luni",
+    "file": "/images/liguria/map-luni.jpg",
+    "author": "William Domenichini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sarzana_-_Panorama_(da_Monte_Caprione).JPG",
+    "sourceFile": "File:Sarzana - Panorama (da Monte Caprione).JPG"
+  },
+  "map-savona": {
+    "town": "Savona port",
+    "file": "/images/liguria/map-savona.jpg",
+    "author": "Roberta Salamone",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Savona_(260099167).jpeg",
+    "sourceFile": "File:Savona (260099167).jpeg"
+  },
+  "map-cervo": {
+    "town": "Cervo",
+    "file": "/images/liguria/map-cervo.jpg",
+    "author": "Annamondi18",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cervo_-_panorama_dal_parco_comunale_del_Ciap%C3%A0.jpg",
+    "sourceFile": "File:Cervo - panorama dal parco comunale del Ciapà.jpg"
+  },
+  "map-rolli": {
+    "town": "Palazzi dei Rolli",
+    "file": "/images/liguria/map-rolli.jpg",
+    "author": "Chiara Saffioti",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Palazzo_Rosso_visto_dal_giardino_di_Palazzo_Bianco.jpg",
+    "sourceFile": "File:Palazzo Rosso visto dal giardino di Palazzo Bianco.jpg"
+  }
+}
