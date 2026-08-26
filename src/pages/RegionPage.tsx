@@ -419,6 +419,15 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'trentino-alto-adige' && (
+        <>
+          <TrentinoHousingRules />
+          <TrentinoAutonomyDividend />
+          <TrentinoAppleMasi />
+          <TrentinoSeasonClock />
+        </>
+      )}
+
       {region === 'puglia' && <PugliaCoastSelector />}
 
       {region === 'calabria' && (
