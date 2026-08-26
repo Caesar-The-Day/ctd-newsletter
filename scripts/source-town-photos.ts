@@ -83,58 +83,85 @@ async function candidatesFor(town: Town): Promise<Candidate[]> {
   const seen = new Set<string>();
   const all: Candidate[] = [];
 
+  const push = (cands: Candidate[], bonus: number) => {
+    for (const c of cands) {
+      if (seen.has(c.title)) continue;
+      seen.add(c.title);
+      all.push({ ...c, bonus });
+    }
+  };
+
+  // 1. Lead image of the town's article (most reliable "this is the town" shot)
   for (const host of ['it.wikipedia.org', 'de.wikipedia.org', 'en.wikipedia.org']) {
     for (const q of queries) {
-      let search: any;
+      let title: string | undefined;
       try {
-        search = await api({ action: 'query', list: 'search', srsearch: q, srlimit: '1' }, host);
-      } catch {
-        continue;
-      }
-      const title = search?.query?.search?.[0]?.title;
+        const search = await api({ action: 'query', list: 'search', srsearch: q, srlimit: '1' }, host);
+        title = search?.query?.search?.[0]?.title;
+      } catch { /* ignore */ }
       if (!title) continue;
-
-      // lead image first
-      let leadTitle: string | undefined;
       try {
         const lead = await api({ action: 'query', titles: title, prop: 'pageimages', piprop: 'name' }, host);
         const name = lead?.query?.pages?.[0]?.pageimage;
-        if (name) leadTitle = `File:${name}`;
+        if (name && !BAD_NAME.test(name)) {
+          push(await imageInfo([`File:${name}`], 'commons.wikimedia.org'), 60);
+        }
       } catch { /* ignore */ }
+    }
+    if (all.length) break;
+  }
 
-      let imgs: any;
+  // 2. Commons category members for the town — always on-subject
+  for (const q of queries) {
+    for (const cat of [`Category:${q}`, `Category:Views of ${q}`]) {
       try {
-        imgs = await api({ action: 'query', titles: title, prop: 'images', imlimit: '60' }, host);
-      } catch {
-        continue;
-      }
-      const fileTitles: string[] = (imgs?.query?.pages?.[0]?.images ?? [])
-        .map((i: any) => i.title)
-        .filter((t: string) => /\.(jpe?g|png|webp)$/i.test(t) && !BAD_NAME.test(t));
-
-      const ordered = leadTitle ? [leadTitle, ...fileTitles.filter((t) => t !== leadTitle)] : fileTitles;
-      if (!ordered.length) continue;
-
-      const infos = await imageInfo(ordered.slice(0, 30), host);
-      for (const c of infos) {
-        if (seen.has(c.title)) continue;
-        seen.add(c.title);
-        all.push(c);
-      }
-      if (all.length) return all; // first host/query with hits wins
+        const data = await api(
+          {
+            action: 'query',
+            list: 'categorymembers',
+            cmtitle: cat,
+            cmtype: 'file',
+            cmlimit: '40',
+          },
+          'commons.wikimedia.org'
+        );
+        const files = (data?.query?.categorymembers ?? [])
+          .map((m: any) => m.title as string)
+          .filter((t: string) => /\.(jpe?g|png|webp)$/i.test(t) && !BAD_NAME.test(t));
+        if (files.length) push(await imageInfo(files.slice(0, 30), 'commons.wikimedia.org'), 10);
+      } catch { /* ignore */ }
     }
   }
-  return all;
+
+  return all.map((c) => ({ ...c, queries }));
 }
 
-function score(c: Candidate) {
+const GOOD_NAME = /(panorama|veduta|view|ansicht|aerial|luftbild|skyline|blick|dall|from|centro|altstadt|piazza|cityscape)/i;
+
+function score(c: Candidate & { bonus?: number; queries?: string[] }) {
   const ratio = c.width / c.height;
   if (ratio < 1.25) return -1;
   if (c.width < 1000) return -1;
   if (BAD_NAME.test(c.title)) return -1;
   if (!ALLOWED_LICENCE.test(c.licence) && !/public domain/i.test(c.licence)) return -1;
-  return Math.min(c.width, 4000) / 1000 + (ratio > 1.4 && ratio < 2.2 ? 2 : 0);
+
+  // must plausibly be about the town: either the article lead image, or the
+  // filename mentions the town.
+  const mentionsTown = (c.queries ?? []).some((q) =>
+    c.title.toLowerCase().includes(q.split(/[ ,(]/)[0].toLowerCase())
+  );
+  const bonus = c.bonus ?? 0;
+  if (!mentionsTown && bonus < 50) return -1;
+
+  return (
+    bonus +
+    (mentionsTown ? 8 : 0) +
+    (GOOD_NAME.test(c.title) ? 6 : 0) +
+    Math.min(c.width, 4000) / 1000 +
+    (ratio > 1.4 && ratio < 2.2 ? 2 : 0)
+  );
 }
+
 
 async function main() {
   const [regionSlug, townsFile] = process.argv.slice(2);
