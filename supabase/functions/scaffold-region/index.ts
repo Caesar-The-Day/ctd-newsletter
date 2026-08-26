@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { z } from "npm:zod@3.23.8";
 import { corsHeaders, jsonResponse, requireAdmin } from "../_shared/auth.ts";
 
@@ -54,6 +55,55 @@ serve(async (req) => {
     const regionData = buildRegionTemplate(slug, displayName, issueNumber, currentMonth);
     const climateData = buildClimateTemplate(displayName);
 
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    if (!supabaseUrl || !serviceRoleKey) {
+      console.error('[scaffold-region] Backend configuration is unavailable');
+      return jsonResponse({ success: false, error: 'Backend configuration is unavailable' }, 500);
+    }
+
+    const admin = createClient(supabaseUrl, serviceRoleKey);
+    const { data: existing } = await admin
+      .from('regions')
+      .select('slug')
+      .eq('slug', slug)
+      .maybeSingle();
+
+    if (existing) {
+      return jsonResponse({
+        success: false,
+        error: `A region with the slug "${slug}" already exists. Open that draft instead or choose a different slug.`,
+      }, 409);
+    }
+
+    const { data: savedRegion, error: insertError } = await admin
+      .from('regions')
+      .insert({
+        slug,
+        display_name: displayName,
+        status: 'draft',
+        locked: false,
+        created_date: today,
+        version: '0.1',
+        color_scheme: colorScheme || 'default',
+        issue_number: issueNumber || 1,
+        region_data: regionData,
+        climate_data: climateData,
+      })
+      .select('id, slug, display_name, status, locked, issue_number')
+      .single();
+
+    if (insertError) {
+      console.error('[scaffold-region] Failed to persist draft:', insertError);
+      const duplicate = insertError.code === '23505';
+      return jsonResponse({
+        success: false,
+        error: duplicate
+          ? 'That region slug or issue number is already in use.'
+          : 'The draft could not be saved. Please try again.',
+      }, duplicate ? 409 : 500);
+    }
+
     const aiInstructions = {
       activeRegion: slug,
       lockedRegions: ['piemonte', 'puglia'],
@@ -70,6 +120,7 @@ serve(async (req) => {
           newsletterEntry: newNewsletterEntry,
           regionData,
           climateData,
+          savedRegion,
           aiInstructions,
           filesToCreate: [
             `/data/regions/italy/${slug}.json`,

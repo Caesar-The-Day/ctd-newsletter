@@ -58,13 +58,21 @@ export interface ScaffoldResponse {
     regionData: Record<string, unknown>;
     climateData: Record<string, unknown>;
     aiInstructions: {
-      activeRegion: string;
+      activeRegion: string | null;
       lockedRegions: string[];
       instruction: string;
       lastUpdated: string;
     };
     filesToCreate: string[];
     filesToUpdate: string[];
+    savedRegion?: {
+      id: string;
+      slug: string;
+      display_name: string;
+      status: string;
+      locked: boolean;
+      issue_number: number;
+    };
   };
   error?: string;
 }

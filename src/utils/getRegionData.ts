@@ -169,6 +169,7 @@ export interface RegionRegistryEntry {
   colorScheme: string;
   slug: string;
   displayName: string;
+  issueNumber?: number;
 }
 
 export interface RegionRegistry {
@@ -184,7 +185,7 @@ export async function getRegionRegistry(): Promise<RegionRegistry | null> {
     // Fetch regions from Supabase database
     const { data: dbRegions, error } = await supabase
       .from('regions')
-      .select('slug, display_name, status, locked, created_date, published_date, version, color_scheme')
+      .select('slug, display_name, status, locked, created_date, published_date, version, color_scheme, issue_number')
       .order('created_date', { ascending: true });
 
     if (error) {
@@ -207,6 +208,7 @@ export async function getRegionRegistry(): Promise<RegionRegistry | null> {
         colorScheme: row.color_scheme,
         slug: row.slug,
         displayName: row.display_name,
+        issueNumber: row.issue_number ?? undefined,
       };
     }
 

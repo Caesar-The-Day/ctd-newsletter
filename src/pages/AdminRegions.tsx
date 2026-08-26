@@ -30,7 +30,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function AdminRegions() {
   const [registry, setRegistry] = useState<RegionRegistry | null>(null);
-  const [aiInstructions, setAiInstructions] = useState<any>(null);
+  const [activeRegion, setActiveRegion] = useState<string | null>(() => localStorage.getItem('active-region') || null);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -46,20 +46,19 @@ export default function AdminRegions() {
 
   const loadData = async () => {
     try {
-      const [reg, aiInst, newsletterIdx] = await Promise.all([
+      const [reg, newsletterIdx] = await Promise.all([
         getRegionRegistry(),
-        fetch('/data/ai-instructions.json').then(r => r.json()),
         fetch('/data/newsletter-index.json').then(r => r.json())
       ]);
       setRegistry(reg);
-      setAiInstructions(aiInst);
       
       // Calculate next issue number
       const allIssues = [
         ...(newsletterIdx.newsletters || []),
         ...(newsletterIdx.archive || [])
       ];
-      const maxIssue = Math.max(...allIssues.map((n: any) => n.issueNumber || 0), 0);
+      const databaseIssues = Object.values(reg?.regions || {}).map(region => region.issueNumber || 0);
+      const maxIssue = Math.max(...allIssues.map((n: any) => n.issueNumber || 0), ...databaseIssues, 0);
       setNextIssueNumber(maxIssue + 1);
       
       setLoading(false);
@@ -96,6 +95,8 @@ export default function AdminRegions() {
     setActionLoading(null);
     
     if (result.success) {
+      setActiveRegion(slug);
+      localStorage.setItem('active-region', slug);
       toast({
         title: currentLocked ? 'Region Unlocked' : 'Region Locked',
         description: result.message,
@@ -168,7 +169,7 @@ export default function AdminRegions() {
         };
       }
 
-      const insertData = {
+      const enrichedData = {
         slug: result.data.registryEntry.slug,
         display_name: result.data.registryEntry.displayName,
         status: result.data.registryEntry.status,
@@ -180,18 +181,27 @@ export default function AdminRegions() {
         region_data: JSON.parse(JSON.stringify(finalRegionData)),
         climate_data: JSON.parse(JSON.stringify(finalClimateData)),
       };
-      const { error: dbError } = await supabase.from('regions').insert([insertData]).select();
+      const { error: dbError } = await supabase
+        .from('regions')
+        .update({
+          region_data: enrichedData.region_data,
+          climate_data: enrichedData.climate_data,
+          color_scheme: enrichedData.color_scheme,
+        })
+        .eq('slug', enrichedData.slug);
 
       setActionLoading(null);
 
       if (dbError) {
         console.error('[AdminRegions] Failed to save region to database:', dbError);
         toast({
-          title: 'Database Error',
-          description: `Failed to save region: ${dbError.message}`,
+          title: 'Draft created; enrichment needs retrying',
+          description: `${wizardData.regionName} is saved and will appear in the list, but its generated content could not be attached: ${dbError.message}`,
           variant: 'destructive',
         });
       } else {
+        setActiveRegion(enrichedData.slug);
+        localStorage.setItem('active-region', enrichedData.slug);
         setLastScaffoldResult({ ...result.data, wizardData });
         toast({
           title: 'Region Created Successfully!',
@@ -200,14 +210,14 @@ export default function AdminRegions() {
 
         // Auto-provision social preview (OG) metadata for the new region.
         try {
-          const og = await ensureRegionOg(insertData.slug, insertData.region_data as any, {
-            displayName: insertData.display_name,
+          const og = await ensureRegionOg(enrichedData.slug, enrichedData.region_data as any, {
+            displayName: enrichedData.display_name,
           });
           toast({
             title: og.warning ? 'Social preview partially set' : 'Social preview created',
             description:
               og.warning ||
-              `OG title, description${og.imageUpdated ? ', and 1200×630 image' : ''} generated for /${insertData.slug}.`,
+              `OG title, description${og.imageUpdated ? ', and 1200×630 image' : ''} generated for /${enrichedData.slug}.`,
             variant: og.warning ? 'destructive' : undefined,
           });
         } catch (ogError) {
@@ -342,8 +352,6 @@ export default function AdminRegions() {
   }
 
   const regions = registry?.regions || {};
-  const activeRegion = aiInstructions?.activeRegion;
-
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-8 px-4">
@@ -403,7 +411,7 @@ export default function AdminRegions() {
                     </Badge>
                   )}
                   <span className="text-xs text-muted-foreground ml-2">
-                    (Active region set to: {lastScaffoldResult.aiInstructions?.activeRegion})
+                    (Saved as an independent draft)
                   </span>
                 </div>
                 <Button variant="ghost" size="sm" onClick={() => setLastScaffoldResult(null)}>
@@ -677,8 +685,8 @@ export default function AdminRegions() {
                   <div>
                     <h4 className="font-semibold mb-2">⚡ Active Region</h4>
                     <p className="text-sm text-muted-foreground">
-                      Setting a region as ACTIVE tells the AI to focus exclusively on that region.
-                      This prevents accidental modifications to other regions.
+                       You can keep multiple drafts open at once. Setting one as ACTIVE only changes the current editing focus;
+                       it does not publish, lock, hide, or remove any other draft.
                     </p>
                   </div>
                 </div>
