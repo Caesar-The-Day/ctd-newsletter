@@ -75,6 +75,16 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // Device capability budget
+    const nav = navigator as Navigator & { deviceMemory?: number; hardwareConcurrency?: number };
+    const cores = nav.hardwareConcurrency ?? 4;
+    const mem = nav.deviceMemory ?? 4;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    const lowPower = cores <= 4 || mem <= 4;
+    // frame budget: full rate on capable devices, ~30fps on constrained ones
+    const minFrameMs = lowPower || coarse ? 33 : 0;
+
     let w = 0;
     let h = 0;
     let maxCount = 160;
@@ -86,13 +96,16 @@ export default function BoraWindField({ intensity, className }: BoraWindFieldPro
       canvas.width = Math.max(1, Math.floor(w * dpr));
       canvas.height = Math.max(1, Math.floor(h * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      maxCount = w < 640 ? 70 : 190;
+      const base = w < 640 ? 60 : w < 1024 ? 120 : 190;
+      const scale = (coarse ? 0.6 : 1) * (lowPower ? 0.6 : 1);
+      maxCount = Math.max(24, Math.round(base * scale));
       particles.current = Array.from({ length: maxCount }, () => makeParticle(w, h));
     };
 
     resize();
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
+
 
     if (reduced) {
       // Static tilted scatter, no animation.
