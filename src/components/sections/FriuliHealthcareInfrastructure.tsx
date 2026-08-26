@@ -336,7 +336,7 @@ function Dial({ minutes, max, label }: { minutes: number; max: number; label: st
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="font-serif text-2xl text-foreground">{minutes}</span>
+          <span className="text-2xl font-bold text-foreground">{minutes}</span>
           <span className="text-[10px] uppercase tracking-wider text-muted-foreground">min</span>
         </div>
       </div>
@@ -378,7 +378,7 @@ export function FriuliHealthcareInfrastructure() {
       <div className="container relative mx-auto max-w-6xl px-4">
         <header className="mx-auto max-w-3xl text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">Healthcare &amp; Infrastructure</p>
-          <h2 className="font-serif text-4xl text-foreground md:text-5xl">Well cared for, and never far from a border</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">Well cared for, and never far from a border</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Friuli treats healthcare as a point of pride and geography as an advantage. Three countries, two seas of
             traffic, a working port and an airport with its own railway platform — all inside a region smaller than Wales.
@@ -395,7 +395,7 @@ export function FriuliHealthcareInfrastructure() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
               className="rounded-xl border border-border bg-card/70 p-5 text-center backdrop-blur"
             >
-              <div className="font-serif text-4xl text-primary">
+              <div className="text-4xl font-bold text-primary">
                 <CountUp to={s.value} active={statsIn} />
                 {s.suffix}
               </div>
@@ -454,7 +454,7 @@ export function FriuliHealthcareInfrastructure() {
                   </figcaption>
                 </figure>
                 <div className="space-y-4">
-                  <h3 className="font-serif text-2xl text-foreground">Four rungs, and you rarely climb past two</h3>
+                  <h3 className="text-2xl font-bold text-foreground">Four rungs, and you rarely climb past two</h3>
                   {careTiers.map((t, i) => {
                     const Icon = t.icon;
                     return (
@@ -480,7 +480,7 @@ export function FriuliHealthcareInfrastructure() {
 
               {/* hospitals */}
               <div>
-                <h3 className="mb-6 text-center font-serif text-2xl text-foreground">Where you would actually be treated</h3>
+                <h3 className="mb-6 text-center text-2xl font-bold text-foreground">Where you would actually be treated</h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {hospitals.map((h, i) => (
                     <motion.article
@@ -527,7 +527,7 @@ export function FriuliHealthcareInfrastructure() {
 
               {/* band access */}
               <div className="rounded-2xl border border-border bg-card/70 p-6 md:p-8">
-                <h3 className="text-center font-serif text-2xl text-foreground">Where you live changes your care</h3>
+                <h3 className="text-center text-2xl font-bold text-foreground">Where you live changes your care</h3>
                 <div className="mt-5 flex flex-wrap justify-center gap-2">
                   {bands.map((b) => (
                     <button
@@ -551,7 +551,7 @@ export function FriuliHealthcareInfrastructure() {
 
               {/* SSN steps */}
               <div>
-                <h3 className="mb-6 text-center font-serif text-2xl text-foreground">Getting into the system</h3>
+                <h3 className="mb-6 text-center text-2xl font-bold text-foreground">Getting into the system</h3>
                 <div className="grid gap-4 md:grid-cols-4">
                   {ssnSteps.map((s, i) => (
                     <motion.div
@@ -562,7 +562,7 @@ export function FriuliHealthcareInfrastructure() {
                       transition={{ delay: i * 0.1, duration: 0.45 }}
                       className="relative rounded-xl border border-border bg-card/70 p-5"
                     >
-                      <span className="font-serif text-3xl text-primary/40">{i + 1}</span>
+                      <span className="text-3xl font-bold text-primary/40">{i + 1}</span>
                       <p className="mt-1 font-medium text-foreground">{s.step}</p>
                       <p className="mt-1 text-sm text-muted-foreground">{s.detail}</p>
                     </motion.div>
@@ -595,7 +595,7 @@ export function FriuliHealthcareInfrastructure() {
                         ['1500', 'Health ministry line']
                       ].map(([n, l]) => (
                         <div key={n} className="rounded-lg border border-border bg-background px-4 py-3 text-center">
-                          <span className="block font-serif text-2xl text-foreground">{n}</span>
+                          <span className="block text-2xl font-bold text-foreground">{n}</span>
                           <span className="text-[11px] text-muted-foreground">{l}</span>
                         </div>
                       ))}
@@ -689,7 +689,7 @@ export function FriuliHealthcareInfrastructure() {
                     className="rounded-2xl border border-border bg-card/80 p-6"
                   >
                     <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{dest.country}</p>
-                    <h3 className="font-serif text-3xl text-foreground">{dest.name}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{dest.name}</h3>
                     <p className="mt-2 text-sm italic text-muted-foreground">{dest.why}</p>
                     <div className="mt-6 space-y-4">
                       {([
@@ -724,7 +724,7 @@ export function FriuliHealthcareInfrastructure() {
 
               {/* airports */}
               <div>
-                <h3 className="mb-6 text-center font-serif text-2xl text-foreground">Six airports, three countries</h3>
+                <h3 className="mb-6 text-center text-2xl font-bold text-foreground">Six airports, three countries</h3>
                 <div className="grid gap-4 md:grid-cols-3">
                   {airports.map((a, i) => (
                     <motion.div
@@ -749,7 +749,7 @@ export function FriuliHealthcareInfrastructure() {
 
               {/* spine */}
               <div className="rounded-2xl border border-border bg-card/70 p-6 md:p-8">
-                <h3 className="text-center font-serif text-2xl text-foreground">The spine: two motorways, two railways</h3>
+                <h3 className="text-center text-2xl font-bold text-foreground">The spine: two motorways, two railways</h3>
                 <svg viewBox="0 0 600 260" className="mx-auto mt-6 h-auto w-full max-w-3xl" role="img" aria-label="Schematic of Friuli motorways and railways">
                   {/* A4 east-west */}
                   <g onMouseEnter={() => setLine('a4')} onMouseLeave={() => setLine(null)} onClick={() => setLine('a4')} className="cursor-pointer">
@@ -874,7 +874,7 @@ export function FriuliHealthcareInfrastructure() {
                   </motion.g>
                 </svg>
                 <div className="absolute inset-x-0 bottom-0 bg-background/85 px-6 py-5 backdrop-blur-sm">
-                  <h3 className="font-serif text-3xl text-foreground">The Adriatic is a road here</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground">The Adriatic is a road here</h3>
                   <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
                     Trieste is Italy's biggest port by tonnage and a free port since 1719. For residents that translates into
                     something simpler: boats to Slovenia, Croatia and the lagoon leave from the middle of town.
