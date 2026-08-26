@@ -3,7 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Info } from 'lucide-react';
 import { seasonPhases } from './trentinoData';
-import marketPhoto from '@/assets/trentino/christmas-market.jpg';
+import seasonSki from '@/assets/trentino/season-ski.jpg';
+import seasonQuiet from '@/assets/trentino/season-quiet.jpg';
+import seasonLakes from '@/assets/trentino/season-lakes.jpg';
+import seasonTorggelen from '@/assets/trentino/season-torggelen.jpg';
+import seasonMarkets from '@/assets/trentino/christmas-market.jpg';
+
+const seasonImages: Record<string, string> = {
+  winter: seasonSki,
+  mud: seasonQuiet,
+  summer: seasonLakes,
+  autumn: seasonTorggelen,
+  markets: seasonMarkets,
+};
 
 const toneStyle: Record<string, string> = {
   Peak: 'bg-destructive/10 text-destructive border-destructive/30',
@@ -51,16 +63,23 @@ export default function TrentinoSeasonClock() {
 
           <div className="rounded-3xl overflow-hidden border border-border bg-background shadow-soft">
             <div className="grid md:grid-cols-2">
-              <div className="relative h-56 md:h-auto md:min-h-[320px]">
-                <img
-                  src={marketPhoto}
-                  alt="A South Tyrolean Christmas market at dusk with lit wooden stalls, snow and a church tower"
-                  loading="lazy"
-                  width={1600}
-                  height={900}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-foreground/70 to-transparent" />
+              <div className="relative h-56 md:h-auto md:min-h-[360px] overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={phase.id}
+                    src={seasonImages[phase.id]}
+                    alt={phase.imageAlt}
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.45, ease: 'easeOut' }}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-foreground/70 to-transparent pointer-events-none" />
               </div>
 
               <div className="p-6 md:p-8">
