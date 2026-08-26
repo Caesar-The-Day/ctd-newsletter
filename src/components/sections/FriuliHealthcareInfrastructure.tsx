@@ -495,7 +495,7 @@ export function FriuliHealthcareInfrastructure() {
                         <div>
                           <h4 className="font-medium leading-tight text-foreground">{h.name}</h4>
                           <p className="text-xs text-muted-foreground">
-                            {h.city} · {h.province}
+                            {h.city === h.province ? h.city : `${h.city} · ${h.province}`}
                           </p>
                         </div>
                         {h.emergency && (
