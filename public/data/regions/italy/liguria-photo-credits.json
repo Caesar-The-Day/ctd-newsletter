@@ -1,0 +1,137 @@
+{
+  "genoa-genova": {
+    "town": "Genoa (Genova)",
+    "file": "/images/liguria/genoa-genova.jpg",
+    "author": "Julian Lupyan",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Piazza_de_Ferrari,_Genoa.jpg",
+    "sourceFile": "File:Piazza de Ferrari, Genoa.jpg"
+  },
+  "santa-margherita-ligure": {
+    "town": "Santa Margherita Ligure",
+    "file": "/images/liguria/santa-margherita-ligure.jpg",
+    "author": "Quintin Soloviev",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Santa_Margherita_Ligure,_Italy.jpg",
+    "sourceFile": "File:Santa Margherita Ligure, Italy.jpg"
+  },
+  "finalborgo": {
+    "town": "Finalborgo",
+    "file": "/images/liguria/finalborgo.jpg",
+    "author": "Mattia Cicale",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Finale_Ligure.JPG",
+    "sourceFile": "File:Finale Ligure.JPG"
+  },
+  "camogli": {
+    "town": "Camogli",
+    "file": "/images/liguria/camogli.jpg",
+    "author": "Hayden Soloviev",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seafront_of_Camogli,_Liguria,_Italy.jpg",
+    "sourceFile": "File:Seafront of Camogli, Liguria, Italy.jpg"
+  },
+  "bordighera": {
+    "town": "Bordighera",
+    "file": "/images/liguria/bordighera.jpg",
+    "author": "Al*from*Lig",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bordighera_da_dietro.jpg",
+    "sourceFile": "File:Bordighera da dietro.jpg"
+  },
+  "chiavari": {
+    "town": "Chiavari",
+    "file": "/images/liguria/chiavari.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chiavari-panorama3.jpg",
+    "sourceFile": "File:Chiavari-panorama3.jpg"
+  },
+  "triora": {
+    "town": "Triora",
+    "file": "/images/liguria/triora.jpg",
+    "author": "Moleskine",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Triora_Cabotina.jpg",
+    "sourceFile": "File:Triora Cabotina.jpg"
+  },
+  "vernazza": {
+    "town": "Vernazza",
+    "file": "/images/liguria/vernazza.jpg",
+    "author": "https://www.flickr.com/photos/150594450@N07/",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vernazza_and_the_sea,_Cinque_Terre,_Italy.jpg",
+    "sourceFile": "File:Vernazza and the sea, Cinque Terre, Italy.jpg"
+  },
+  "noli": {
+    "town": "Noli",
+    "file": "/images/liguria/noli.jpg",
+    "author": "Benjamin Smith",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Noli_-_View_from_Capo_Noli_-_1.jpg",
+    "sourceFile": "File:Noli - View from Capo Noli - 1.jpg"
+  },
+  "san-remo": {
+    "town": "San Remo",
+    "file": "/images/liguria/san-remo.jpg",
+    "author": "Olivier Cleynen",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:From_Ospedaletti_to_Sanremo.jpg",
+    "sourceFile": "File:From Ospedaletti to Sanremo.jpg"
+  },
+  "tellaro": {
+    "town": "Tellaro",
+    "file": "/images/liguria/tellaro.jpg",
+    "author": "TeKappa",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lerici_-_Castello_di_Lerici_-_2024-09-17_22-08-54_001.jpg",
+    "sourceFile": "File:Lerici - Castello di Lerici - 2024-09-17 22-08-54 001.jpg"
+  },
+  "apricale": {
+    "town": "Apricale",
+    "file": "/images/liguria/apricale.jpg",
+    "author": "Patafisik",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Piazza_Apricale_abc6.JPG",
+    "sourceFile": "File:Piazza Apricale abc6.JPG"
+  },
+  "sestri-levante": {
+    "town": "Sestri Levante",
+    "file": "/images/liguria/sestri-levante.jpg",
+    "author": "Jiuguang Wang",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sestri_Levante_and_Baia_del_Silenzio,_the_Bay_of_Silence.jpg",
+    "sourceFile": "File:Sestri Levante and Baia del Silenzio, the Bay of Silence.jpg"
+  },
+  "la-spezia": {
+    "town": "La Spezia",
+    "file": "/images/liguria/la-spezia.jpg",
+    "author": "Riottoso",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:La_Spezia_Harbor_1.JPG",
+    "sourceFile": "File:La Spezia Harbor 1.JPG"
+  },
+  "dolceacqua": {
+    "town": "Dolceacqua",
+    "file": "/images/liguria/dolceacqua.jpg",
+    "author": "Scrossblu",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dolceacqua_(Liguria).jpg",
+    "sourceFile": "File:Dolceacqua (Liguria).jpg"
+  }
+}
