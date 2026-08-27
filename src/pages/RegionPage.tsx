@@ -79,6 +79,7 @@ import TrentinoHealthcareInfrastructure from '@/components/sections/TrentinoHeal
 import LiguriaHealthcareInfrastructure from '@/components/sections/LiguriaHealthcareInfrastructure';
 import LiguriaAfloat from '@/components/sections/LiguriaAfloat';
 import LiguriaVerticalCoast from '@/components/sections/LiguriaVerticalCoast';
+import LiguriaOnTwoWheels from '@/components/sections/LiguriaOnTwoWheels';
 import LiguriaTwoRivieras from '@/components/sections/LiguriaTwoRivieras';
 import GenoaPractically from '@/components/sections/GenoaPractically';
 import LiguriaPantry from '@/components/sections/LiguriaPantry';
