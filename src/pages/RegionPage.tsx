@@ -76,6 +76,11 @@ import TrentinoDolomitesOutdoors from '@/components/sections/TrentinoDolomitesOu
 import TrentinoMountainMobility from '@/components/sections/TrentinoMountainMobility';
 import TrentinoSeasonClock from '@/components/sections/TrentinoSeasonClock';
 import TrentinoHealthcareInfrastructure from '@/components/sections/TrentinoHealthcareInfrastructure';
+import LiguriaAfloat from '@/components/sections/LiguriaAfloat';
+import LiguriaVerticalCoast from '@/components/sections/LiguriaVerticalCoast';
+import LiguriaTwoRivieras from '@/components/sections/LiguriaTwoRivieras';
+import GenoaPractically from '@/components/sections/GenoaPractically';
+import LiguriaPantry from '@/components/sections/LiguriaPantry';
 import RomeResidentReality from '@/components/sections/RomeResidentReality';
 import RomeMobilityExplorer from '@/components/sections/RomeMobilityExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
@@ -395,6 +400,13 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'liguria' && (
+        <>
+          <LiguriaTwoRivieras />
+          <LiguriaVerticalCoast />
+        </>
+      )}
+
       {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
@@ -431,6 +443,13 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'liguria' && (
+        <>
+          <GenoaPractically />
+          <LiguriaAfloat />
+        </>
+      )}
+
       {region === 'puglia' && <PugliaCoastSelector />}
 
       {region === 'calabria' && (
@@ -449,6 +468,8 @@ export default function RegionPage() {
       {config.show7PercentCTA && <SevenPercentCTA region={region} />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
+
+      {region === 'liguria' && <LiguriaPantry />}
 
       {region === 'molise' && <AgnoneBellFoundry />}
 
