@@ -806,7 +806,7 @@ export default function LiguriaHealthcareInfrastructure() {
                 </div>
                 <div className="rounded-3xl border border-border bg-background p-6 md:p-8 shadow-soft">
                   <div className="flex items-center gap-2 mb-4">
-                    <Stethoscope />
+                    <HeartPulse className="h-5 w-5 text-primary" />
                     <h3 className="text-xl font-bold">Numbers worth memorising</h3>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-3">
@@ -818,7 +818,7 @@ export default function LiguriaHealthcareInfrastructure() {
                     ))}
                   </div>
                   <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                    Along the border strip, the operator will handle French; in Genoa\u2019s port districts, English is
+                    Along the border strip, the operator will handle French; in Genoa's port districts, English is
                     usually available on the 112 line.
                   </p>
                 </div>
@@ -1062,8 +1062,4 @@ export default function LiguriaHealthcareInfrastructure() {
       </div>
     </section>
   );
-}
-
-function Stethoscope() {
-  return <HeartPulse className="h-5 w-5 text-primary" />;
 }
