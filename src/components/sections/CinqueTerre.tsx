@@ -36,7 +36,7 @@ export function CinqueTerre() {
           <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             <Waves className="h-3.5 w-3.5 text-primary" /> The Five Lands
           </p>
-          <h2 id="cinque-terre-heading" className="font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
+          <h2 id="cinque-terre-heading" className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
             Cinque Terre, honestly
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
