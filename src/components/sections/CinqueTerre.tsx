@@ -418,7 +418,7 @@ function CoastStrip({ active, onSelect }: { active: string; onSelect: (id: strin
 
   return (
     <div className="relative mt-6 overflow-hidden rounded-2xl border border-border/60 bg-background pt-2">
-      <svg viewBox="0 0 100 46" className="h-40 w-full md:h-52" role="presentation">
+      <svg viewBox="0 0 100 46" preserveAspectRatio="none" className="h-40 w-full md:h-52" role="presentation">
         <defs>
           <linearGradient id="ct-sea" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
