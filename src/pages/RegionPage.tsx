@@ -76,6 +76,7 @@ import TrentinoDolomitesOutdoors from '@/components/sections/TrentinoDolomitesOu
 import TrentinoMountainMobility from '@/components/sections/TrentinoMountainMobility';
 import TrentinoSeasonClock from '@/components/sections/TrentinoSeasonClock';
 import TrentinoHealthcareInfrastructure from '@/components/sections/TrentinoHealthcareInfrastructure';
+import LiguriaHealthcareInfrastructure from '@/components/sections/LiguriaHealthcareInfrastructure';
 import LiguriaAfloat from '@/components/sections/LiguriaAfloat';
 import LiguriaVerticalCoast from '@/components/sections/LiguriaVerticalCoast';
 import LiguriaTwoRivieras from '@/components/sections/LiguriaTwoRivieras';
@@ -529,6 +530,8 @@ export default function RegionPage() {
         <FriuliHealthcareInfrastructure />
       ) : region === 'trentino-alto-adige' ? (
         <TrentinoHealthcareInfrastructure />
+      ) : region === 'liguria' ? (
+        <LiguriaHealthcareInfrastructure />
       ) : (
 
           <HealthcareInfrastructure
