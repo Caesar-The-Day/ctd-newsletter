@@ -405,6 +405,7 @@ export default function RegionPage() {
         <>
           <LiguriaTwoRivieras />
           <LiguriaVerticalCoast />
+          <LiguriaOnTwoWheels />
         </>
       )}
 
