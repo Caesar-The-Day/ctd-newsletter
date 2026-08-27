@@ -340,5 +340,158 @@
     "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Isolabona-panorama_Flickr.jpg",
     "sourceFile": "File:Isolabona-panorama Flickr.jpg"
+  },
+  "marina-imperia": {
+    "town": "Porto Maurizio Imperia",
+    "file": "/images/liguria/marina-imperia.jpg",
+    "author": "ElisabettaCastellano",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Imperia_-_Comune_di_Imperia_-_2024-09-13_16-01-33_001.JPG",
+    "sourceFile": "File:Imperia - Comune di Imperia - 2024-09-13 16-01-33 001.JPG"
+  },
+  "marina-aregai": {
+    "town": "Marina degli Aregai",
+    "file": "/images/liguria/marina-aregai.jpg",
+    "author": "Riky_Volpe",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Andora-panorama_(2).JPG",
+    "sourceFile": "File:Andora-panorama (2).JPG"
+  },
+  "marina-loano": {
+    "town": "Marina di Loano",
+    "file": "/images/liguria/marina-loano.jpg",
+    "author": "N.Longo",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:S%C3%A0n_Pedr%C3%ACn_(Bois%C3%A0n)_-_panor%C3%A0mma_de_L%C3%AAua.jpg",
+    "sourceFile": "File:Sàn Pedrìn (Boisàn) - panoràmma de Lêua.jpg"
+  },
+  "marina-varazze": {
+    "town": "Marina di Varazze",
+    "file": "/images/liguria/marina-varazze.jpg",
+    "author": "Pampuco",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Varazze.png",
+    "sourceFile": "File:Varazze.png"
+  },
+  "marina-genova": {
+    "town": "Genoa Porto Antico",
+    "file": "/images/liguria/marina-genova.jpg",
+    "author": "Ambroise Louis Garneray",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Genova-1810ca-acquatinta-Garneray.jpg",
+    "sourceFile": "File:Genova-1810ca-acquatinta-Garneray.jpg"
+  },
+  "marina-rapallo": {
+    "town": "Porto di Rapallo",
+    "file": "/images/liguria/marina-rapallo.jpg",
+    "author": "Parma1983",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Montallegro_(Rapallo)_-_panorama_sul_golfo_di_Rapallo_dal_santuario_di_Nostra_Signora_di_Montallegro_3_2022-06-10.jpg",
+    "sourceFile": "File:Montallegro (Rapallo) - panorama sul golfo di Rapallo dal santuario di Nostra Signora di Montallegro 3 2022-06-10.jpg"
+  },
+  "marina-lavagna": {
+    "town": "Porto di Lavagna",
+    "file": "/images/liguria/marina-lavagna.jpg",
+    "author": "Alerove",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Veduta_aerea_di_Lavagna.jpg",
+    "sourceFile": "File:Veduta aerea di Lavagna.jpg"
+  },
+  "marina-chiavari": {
+    "town": "Marina di Chiavari",
+    "file": "/images/liguria/marina-chiavari.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chiavari-panorama3.jpg",
+    "sourceFile": "File:Chiavari-panorama3.jpg"
+  },
+  "marina-laspezia": {
+    "town": "Porto Lotti La Spezia",
+    "file": "/images/liguria/marina-laspezia.jpg",
+    "author": "Riottoso",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:La_Spezia_Harbor_1.JPG",
+    "sourceFile": "File:La Spezia Harbor 1.JPG"
+  },
+  "pantry-basilico": {
+    "town": "Basil of Pra",
+    "file": "/images/liguria/pantry-basilico.jpg",
+    "author": "Ɱ",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BasilPesto.JPG",
+    "sourceFile": "File:BasilPesto.JPG"
+  },
+  "pantry-taggiasca": {
+    "town": "Taggiasca olives",
+    "file": "/images/liguria/pantry-taggiasca.jpg",
+    "author": "Mattia Cicale",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Finale_Ligure.JPG",
+    "sourceFile": "File:Finale Ligure.JPG"
+  },
+  "pantry-acciughe": {
+    "town": "Monterosso anchovies",
+    "file": "/images/liguria/pantry-acciughe.jpg",
+    "author": "Lee &amp; Chantelle McArthur from SMiths, Bermuda",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Monterosso_al_Mare-panorama-convento_dei_cappuccini2-flickr.jpg",
+    "sourceFile": "File:Monterosso al Mare-panorama-convento dei cappuccini2-flickr.jpg"
+  },
+  "coast-terrazze": {
+    "town": "Cinque Terre terraces",
+    "file": "/images/liguria/coast-terrazze.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cemetery_Corniglia_Monterosso_Cinque_Terre_Sep23_A7C_06872.jpg",
+    "sourceFile": "File:Manarola NW Cemetery Corniglia Monterosso Cinque Terre Sep23 A7C 06872.jpg"
+  },
+  "coast-altavia": {
+    "town": "Alta Via dei Monti Liguri",
+    "file": "/images/liguria/coast-altavia.jpg",
+    "author": "Vengomatto",
+    "licence": "CC BY-SA 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Monte_Maggiorasca_invernale_2006.jpg",
+    "sourceFile": "File:Monte Maggiorasca invernale 2006.jpg"
+  },
+  "genova-caruggi": {
+    "town": "Genoa caruggi",
+    "file": "/images/liguria/genova-caruggi.jpg",
+    "author": "Bbruno",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Genova_panorama_Molo_Carignano.jpg",
+    "sourceFile": "File:Genova panorama Molo Carignano.jpg"
+  },
+  "genova-funicolare": {
+    "town": "Genoa funicular",
+    "file": "/images/liguria/genova-funicolare.jpg",
+    "author": "Andrea Puggioni",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Funicolare_Zecca-Righi_-_stazione_di_San_Nicol%C3%B2.jpg",
+    "sourceFile": "File:Funicolare Zecca-Righi - stazione di San Nicolò.jpg"
+  },
+  "coast-castagneti": {
+    "town": "Chestnut woods Liguria",
+    "file": "/images/liguria/coast-castagneti.jpg",
+    "author": "Cassanma at Italian Wikipedia",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Castagneto_008.jpg",
+    "sourceFile": "File:Castagneto 008.jpg"
   }
 }
