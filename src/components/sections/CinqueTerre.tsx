@@ -32,7 +32,7 @@ export function CinqueTerre() {
 
       <div className="container relative mx-auto max-w-6xl px-4">
         {/* Header */}
-        <header className="mb-12 max-w-3xl">
+        <header className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             <Waves className="h-3.5 w-3.5 text-primary" /> The Five Lands
           </p>
