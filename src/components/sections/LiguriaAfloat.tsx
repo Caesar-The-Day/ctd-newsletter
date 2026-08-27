@@ -364,7 +364,7 @@ export default function LiguriaAfloat() {
             <div>
               <p className="text-[10px] uppercase tracking-[0.18em] text-background/55 mb-2">Home port</p>
               <div className="flex flex-col gap-2">
-                {hubs.map((h) => (
+                {homePorts.map((h) => (
                   <button
                     key={h.id}
                     onClick={() => setHub(h.id)}
