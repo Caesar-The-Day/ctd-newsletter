@@ -80,6 +80,7 @@ import LiguriaHealthcareInfrastructure from '@/components/sections/LiguriaHealth
 import LiguriaAfloat from '@/components/sections/LiguriaAfloat';
 import LiguriaVerticalCoast from '@/components/sections/LiguriaVerticalCoast';
 import LiguriaOnTwoWheels from '@/components/sections/LiguriaOnTwoWheels';
+import CinqueTerre from '@/components/sections/CinqueTerre';
 import LiguriaTwoRivieras from '@/components/sections/LiguriaTwoRivieras';
 import GenoaPractically from '@/components/sections/GenoaPractically';
 import LiguriaPantry from '@/components/sections/LiguriaPantry';
