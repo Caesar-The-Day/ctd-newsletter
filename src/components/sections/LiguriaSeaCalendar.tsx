@@ -128,7 +128,7 @@ export function LiguriaSeaCalendar() {
       <div className="mb-5">
         <h4 className="text-xl md:text-2xl font-bold text-foreground">The year on the water</h4>
         <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-          Liguria\u2019s calendar is set by the sea and the harvest, not by the tourist board. These are the dates
+          Liguria&rsquo;s calendar is set by the sea and the harvest, not by the tourist board. These are the dates
           residents actually plan around.
         </p>
       </div>
