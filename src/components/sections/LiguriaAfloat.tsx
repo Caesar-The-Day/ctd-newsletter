@@ -2,7 +2,17 @@ import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Anchor, Ship, Ruler, Waves, ExternalLink, Compass, Gauge, Clock, Info } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { marinas, seaDestinations, boatingFacts, type Marina } from './liguriaMarinaData';
+import {
+  marinas,
+  seaDestinations,
+  boatingFacts,
+  homePorts,
+  destinationGroups,
+  type Marina,
+  type HubId,
+  type DestinationGroup,
+} from './liguriaMarinaData';
+
 
 const euro = (n: number) =>
   new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(
