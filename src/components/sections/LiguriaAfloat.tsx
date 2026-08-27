@@ -204,8 +204,14 @@ export default function LiguriaAfloat() {
             })}
           </div>
           <p className="mt-3 text-center text-xs text-background/45">
-            Pins sit where each port meets the water; larger circles mean more berths. Tap one for costs and detail.
+            {marinas.length} ports from the French border to the Gulf of Poets. Pins sit where each port meets the
+            water; larger circles mean more berths. Tap one for costs and detail.
           </p>
+          <p className="mt-2 text-center text-xs text-background/40">
+            Portofino, Santa Margherita and Rapallo are effectively closed lists — berths there change hands privately
+            rather than by waiting your turn. Ventimiglia, Andora, Imperia and Loano are where space actually exists.
+          </p>
+
         </div>
 
 
