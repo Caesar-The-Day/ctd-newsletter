@@ -493,5 +493,149 @@
     "licenceUrl": "",
     "source": "https://commons.wikimedia.org/wiki/File:Castagneto_008.jpg",
     "sourceFile": "File:Castagneto 008.jpg"
+  },
+  "cycling-ciclabile-ponente": {
+    "town": "Pista ciclabile del Ponente Ligure",
+    "file": "/images/liguria/cycling-ciclabile-ponente.jpg",
+    "author": "Michael Schmalenstroer",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pista_ciclabile,_Liguria_14.jpg",
+    "sourceFile": "File:Pista ciclabile, Liguria 14.jpg"
+  },
+  "cycling-ospedaletti": {
+    "town": "Ospedaletti seafront",
+    "file": "/images/liguria/cycling-ospedaletti.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ospedaletti-panorama.jpg",
+    "sourceFile": "File:Ospedaletti-panorama.jpg"
+  },
+  "cycling-santo-stefano-al-mare": {
+    "town": "Santo Stefano al Mare",
+    "file": "/images/liguria/cycling-santo-stefano-al-mare.jpg",
+    "author": "IT1315922 Account Owner",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Santo_Stefano_al_Mare.jpg",
+    "sourceFile": "File:Santo Stefano al Mare.jpg"
+  },
+  "cycling-arma-di-taggia": {
+    "town": "Arma di Taggia",
+    "file": "/images/liguria/cycling-arma-di-taggia.jpg",
+    "author": "Alessandro Vecchi",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Taggia_Panorama.jpg",
+    "sourceFile": "File:Taggia Panorama.jpg"
+  },
+  "cycling-cipressa": {
+    "town": "Cipressa",
+    "file": "/images/liguria/cycling-cipressa.jpg",
+    "author": "The original uploader was Kweedado2 at Italian Wikipedia.",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Cipressa.jpg",
+    "sourceFile": "File:Cipressa.jpg"
+  },
+  "cycling-colle-di-nava": {
+    "town": "Colle di Nava",
+    "file": "/images/liguria/cycling-colle-di-nava.jpg",
+    "author": "F Ceragioli",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Colle_nava_lato_tanaro.jpg",
+    "sourceFile": "File:Colle nava lato tanaro.jpg"
+  },
+  "cycling-turchino": {
+    "town": "Passo del Turchino",
+    "file": "/images/liguria/cycling-turchino.jpg",
+    "author": "Sextum",
+    "licence": "CC BY-SA 2.5 it",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5/it/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Passo_del_Turchino.jpg",
+    "sourceFile": "File:Passo del Turchino.jpg"
+  },
+  "cycling-san-bartolomeo": {
+    "town": "Colle San Bartolomeo",
+    "file": "/images/liguria/cycling-san-bartolomeo.jpg",
+    "author": "Pampuco",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Colle_San_Bartolomeo_da_valle_Impero.jpg",
+    "sourceFile": "File:Colle San Bartolomeo da valle Impero.jpg"
+  },
+  "cycling-valle-argentina": {
+    "town": "Valle Argentina",
+    "file": "/images/liguria/cycling-valle-argentina.jpg",
+    "author": "Jk4u59",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Vetta_del_Saccarello.JPG",
+    "sourceFile": "File:Vetta del Saccarello.JPG"
+  },
+  "cycling-val-nervia": {
+    "town": "Val Nervia",
+    "file": "/images/liguria/cycling-val-nervia.jpg",
+    "author": "Pampuco",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nervia_a_Pigna_sfondo_Castel_Vittorio.png",
+    "sourceFile": "File:Nervia a Pigna sfondo Castel Vittorio.png"
+  },
+  "cycling-via-del-sale": {
+    "town": "Via del Sale Limone-Monesi",
+    "file": "/images/liguria/cycling-via-del-sale.jpg",
+    "author": "Andrea Levico",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Limone_Piemonte_panorama.jpg",
+    "sourceFile": "File:Limone Piemonte panorama.jpg"
+  },
+  "cycling-alta-via": {
+    "town": "Alta Via dei Monti Liguri",
+    "file": "/images/liguria/cycling-alta-via.jpg",
+    "author": "Sextum",
+    "licence": "CC BY-SA 2.5 it",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5/it/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Altavia.jpg",
+    "sourceFile": "File:Altavia.jpg"
+  },
+  "cycling-finale-trails": {
+    "town": "Finale Ligure trails",
+    "file": "/images/liguria/cycling-finale-trails.jpg",
+    "author": "Mattia Cicale",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Finale_Ligure.JPG",
+    "sourceFile": "File:Finale Ligure.JPG"
+  },
+  "cycling-beigua": {
+    "town": "Monte Beigua",
+    "file": "/images/liguria/cycling-beigua.jpg",
+    "author": "Sextum",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Antenne_Beigua.jpg",
+    "sourceFile": "File:Antenne Beigua.jpg"
+  },
+  "cycling-albenga-piana": {
+    "town": "Piana di Albenga",
+    "file": "/images/liguria/cycling-albenga-piana.jpg",
+    "author": "Radiuk",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Albenga.JPG",
+    "sourceFile": "File:Albenga.JPG"
+  },
+  "cycling-ventimiglia-menton": {
+    "town": "Ventimiglia to Menton coast",
+    "file": "/images/liguria/cycling-ventimiglia-menton.jpg",
+    "author": "Luca Aless",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ventimiglia_panorama_01.JPG",
+    "sourceFile": "File:Ventimiglia panorama 01.JPG"
   }
 }
