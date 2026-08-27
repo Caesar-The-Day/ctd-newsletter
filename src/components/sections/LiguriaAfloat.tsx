@@ -2,7 +2,17 @@ import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Anchor, Ship, Ruler, Waves, ExternalLink, Compass, Gauge, Clock, Info } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { marinas, seaDestinations, boatingFacts, type Marina } from './liguriaMarinaData';
+import {
+  marinas,
+  seaDestinations,
+  boatingFacts,
+  homePorts,
+  destinationGroups,
+  type Marina,
+  type HubId,
+  type DestinationGroup,
+} from './liguriaMarinaData';
+
 
 const euro = (n: number) =>
   new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(
@@ -27,20 +37,14 @@ const coastPoints = Array.from({ length: 101 }, (_, i) => `${i},${coastY(i).toFi
 const SPLIT_X = 45;
 
 
-type Hub = 'ponente' | 'genova' | 'levante';
-
-const hubs: { id: Hub; label: string; sub: string }[] = [
-  { id: 'ponente', label: 'Riviera di Ponente', sub: 'Sanremo · Imperia' },
-  { id: 'genova', label: 'Genoa', sub: 'Porto Antico' },
-  { id: 'levante', label: 'Riviera di Levante', sub: 'Lavagna · La Spezia' },
-];
-
 export default function LiguriaAfloat() {
   const [activeId, setActiveId] = useState<string>('imperia');
   const [length, setLength] = useState(12);
-  const [hub, setHub] = useState<Hub>('genova');
+  const [hub, setHub] = useState<HubId>('genova');
   const [speed, setSpeed] = useState(18);
   const [hours, setHours] = useState(6);
+  const [groupFilter, setGroupFilter] = useState<DestinationGroup | 'all'>('all');
+
 
   const active: Marina | undefined = useMemo(
     () => marinas.find((m) => m.id === activeId) ?? marinas[0],
@@ -200,8 +204,14 @@ export default function LiguriaAfloat() {
             })}
           </div>
           <p className="mt-3 text-center text-xs text-background/45">
-            Pins sit where each port meets the water; larger circles mean more berths. Tap one for costs and detail.
+            {marinas.length} ports from the French border to the Gulf of Poets. Pins sit where each port meets the
+            water; larger circles mean more berths. Tap one for costs and detail.
           </p>
+          <p className="mt-2 text-center text-xs text-background/40">
+            Portofino, Santa Margherita and Rapallo are effectively closed lists — berths there change hands privately
+            rather than by waiting your turn. Ventimiglia, Andora, Imperia and Loano are where space actually exists.
+          </p>
+
         </div>
 
 
@@ -360,7 +370,7 @@ export default function LiguriaAfloat() {
             <div>
               <p className="text-[10px] uppercase tracking-[0.18em] text-background/55 mb-2">Home port</p>
               <div className="flex flex-col gap-2">
-                {hubs.map((h) => (
+                {homePorts.map((h) => (
                   <button
                     key={h.id}
                     onClick={() => setHub(h.id)}
@@ -421,35 +431,81 @@ export default function LiguriaAfloat() {
               <div className="rounded-2xl bg-primary/15 ring-1 ring-primary/30 px-5 py-4 text-center">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-background/60">Round-trip reach</p>
                 <p className="text-2xl font-bold">{rangeNm} nautical miles</p>
+                <p className="text-xs text-background/70 mt-1">
+                  {reachable.length} of {seaDestinations.length} destinations inside a day out
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {seaDestinations.map((d) => {
-              const nm = d.from[hub];
-              const on = nm <= rangeNm;
-              return (
-                <motion.div
-                  key={d.id}
-                  layout
-                  animate={{ opacity: on ? 1 : 0.4 }}
+          {/* Group filters */}
+          <div className="flex flex-wrap gap-2 mb-5">
+            {[{ id: 'all' as const, label: 'Everything' }, ...destinationGroups.map((g) => ({ id: g.id, label: g.label }))].map(
+              (chip) => (
+                <button
+                  key={chip.id}
+                  onClick={() => setGroupFilter(chip.id)}
+                  aria-pressed={groupFilter === chip.id}
                   className={cn(
-                    'rounded-2xl p-4 ring-1 transition-colors',
-                    on ? 'bg-primary/20 ring-primary/40' : 'bg-background/5 ring-background/10'
+                    'rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors',
+                    groupFilter === chip.id
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-background/10 text-background/75 hover:bg-background/20'
                   )}
                 >
-                  <div className="flex items-baseline justify-between gap-2">
-                    <h4 className="font-semibold text-sm">{d.name}</h4>
-                    <span className="text-[11px] text-background/60 shrink-0">{nm} nm</span>
+                  {chip.label}
+                </button>
+              )
+            )}
+          </div>
+
+          <div className="space-y-8">
+            {destinationGroups
+              .filter((g) => groupFilter === 'all' || groupFilter === g.id)
+              .map((g) => {
+                const items = seaDestinations
+                  .filter((d) => d.group === g.id)
+                  .sort((a, b) => a.from[hub] - b.from[hub]);
+                if (!items.length) return null;
+                const inReach = items.filter((d) => d.from[hub] <= rangeNm).length;
+                return (
+                  <div key={g.id}>
+                    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+                      <div>
+                        <h4 className="text-sm font-bold uppercase tracking-[0.16em] text-background/80">{g.label}</h4>
+                        <p className="text-xs text-background/55">{g.blurb}</p>
+                      </div>
+                      <span className="text-[11px] text-background/55">{inReach}/{items.length} in reach</span>
+                    </div>
+                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                      {items.map((d) => {
+                        const nm = d.from[hub];
+                        const on = nm <= rangeNm;
+                        return (
+                          <motion.div
+                            key={d.id}
+                            layout
+                            animate={{ opacity: on ? 1 : 0.4 }}
+                            className={cn(
+                              'rounded-2xl p-4 ring-1 transition-colors',
+                              on ? 'bg-primary/20 ring-primary/40' : 'bg-background/5 ring-background/10'
+                            )}
+                          >
+                            <div className="flex items-baseline justify-between gap-2">
+                              <h5 className="font-semibold text-sm">{d.name}</h5>
+                              <span className="text-[11px] text-background/60 shrink-0">{nm} nm</span>
+                            </div>
+                            <p className="mt-1 text-xs text-background/70 leading-relaxed">{d.note}</p>
+                            {!on && (
+                              <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-background/45">Overnight it</p>
+                            )}
+                          </motion.div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <p className="mt-1 text-xs text-background/70 leading-relaxed">{d.note}</p>
-                  {!on && (
-                    <p className="mt-2 text-[10px] uppercase tracking-[0.14em] text-background/45">Overnight it</p>
-                  )}
-                </motion.div>
-              );
-            })}
+                );
+              })}
           </div>
 
           {reachable.length === 0 && justOut.length > 0 && (
@@ -457,6 +513,7 @@ export default function LiguriaAfloat() {
               Nothing in reach yet — {justOut[0].name} needs {justOut[0].from[hub]} nm. Add speed or hours.
             </p>
           )}
+
         </div>
 
         {/* Practicalities */}

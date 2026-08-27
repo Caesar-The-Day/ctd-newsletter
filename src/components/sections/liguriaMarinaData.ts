@@ -22,6 +22,44 @@ export type Marina = {
 
 export const marinas: Marina[] = [
   {
+    id: 'ventimiglia',
+    name: 'Cala del Forte',
+    town: 'Ventimiglia',
+    coast: 'ponente',
+    x: 2,
+    y: 20,
+    berths: 178,
+    maxLoa: 70,
+    depth: '3–6 m',
+    rate12: [4800, 7500],
+    summary:
+      'Owned and run by the Port of Monaco, three nautical miles from the principality and a fraction of its berth price. New basin, new pontoons, and a shuttle that treats Monaco as the neighbourhood.',
+    walkable: 'Ventimiglia old town over the bridge, the Friday market, the station for Nice in forty minutes.',
+    vibe: 'Monaco annex on Italian soil',
+    link: 'https://www.caladelforte-ventimiglia.it/',
+    linkLabel: 'caladelforte-ventimiglia.it',
+  },
+  {
+    id: 'bordighera',
+    name: 'Porto Turistico di Bordighera',
+    town: 'Bordighera',
+    coast: 'ponente',
+    x: 5,
+    y: 58,
+    berths: 300,
+    maxLoa: 25,
+    depth: '2.5–4 m',
+    rate12: [3000, 4800],
+    summary:
+      'A small, friendly basin under the palm terraces of the most English town on the Riviera. Boats here are used, not displayed — day-boats, small cruisers, and a fishing fleet that still lands.',
+    walkable: 'Lungomare Argentina, the Città Alta, the covered market and a hospital ten minutes up the hill.',
+    vibe: 'Genteel, small-boat, unhurried',
+    image: '/images/liguria/bordighera.jpg',
+    link: 'https://www.portodibordighera.it/',
+    linkLabel: 'portodibordighera.it',
+  },
+  {
+
     id: 'sanremo',
     name: 'Portosole Sanremo',
     town: 'Sanremo',
@@ -226,26 +264,253 @@ export const marinas: Marina[] = [
     link: 'https://www.portomirabello.it/',
     linkLabel: 'portomirabello.it',
   },
+  {
+    id: 'dianomarina',
+    name: 'Marina di Diano Marina',
+    town: 'Diano Marina',
+    coast: 'ponente',
+    x: 20,
+    y: 18,
+    berths: 320,
+    maxLoa: 30,
+    depth: '2.5–4 m',
+    rate12: [2800, 4400],
+    summary:
+      'A modest basin behind the longest sandy beach on the Riviera dei Fiori, and one of the cheapest places in Liguria to keep a mid-size boat all year.',
+    walkable: 'The whole flat town centre, the beach promenade and the Riviera cycle path from the quay.',
+    vibe: 'Beach town, sensible money',
+    image: '/images/liguria/diano-marina.jpg',
+  },
+  {
+    id: 'andora',
+    name: 'Marina di Andora',
+    town: 'Andora',
+    coast: 'ponente',
+    x: 23,
+    y: 55,
+    berths: 900,
+    maxLoa: 30,
+    depth: '2.5–4 m',
+    rate12: [2600, 4200],
+    summary:
+      'One of the best value-per-berth ports on the coast: big, workmanlike, with a yard and a slipway, and real availability when the glamour ports are full.',
+    walkable: 'Andora station on the pontoon side, supermarkets, and the cycle path towards Laigueglia.',
+    vibe: 'Unpretentious, plenty of room',
+    image: '/images/liguria/andora.jpg',
+    link: 'https://www.marinadiandora.it/',
+    linkLabel: 'marinadiandora.it',
+  },
+  {
+    id: 'alassio',
+    name: 'Porto Luca Ferrari',
+    town: 'Alassio',
+    coast: 'ponente',
+    x: 26,
+    y: 24,
+    berths: 400,
+    maxLoa: 30,
+    depth: '2.5–4 m',
+    rate12: [3400, 5400],
+    summary:
+      'A compact marina at the end of a four-kilometre beach, sheltered by Capo Mele. Gallinara island is a twenty-minute motor away and the anchorages start immediately.',
+    walkable: 'Budello shopping street, the muretto, cafés, hospital in Albenga eight minutes by car.',
+    vibe: 'Holiday coast with a permanent population',
+    image: '/images/liguria/alassio.jpg',
+  },
+  {
+    id: 'savona',
+    name: 'Marina di Savona / Vecchia Darsena',
+    town: 'Savona',
+    coast: 'ponente',
+    x: 36,
+    y: 62,
+    berths: 260,
+    maxLoa: 40,
+    depth: '4–7 m',
+    rate12: [3200, 5200],
+    summary:
+      'Berths inside a working city port, next to the Priamàr fortress and the cruise terminal. Deep water, all-year services, and a real hospital and rail hub on the doorstep.',
+    walkable: 'The old darsena restaurants, Savona centre, the covered market, the station for Genoa in 35 minutes.',
+    vibe: 'City port, everything open in February',
+    image: '/images/liguria/map-savona.jpg',
+  },
+  {
+    id: 'arenzano',
+    name: 'Marina di Arenzano',
+    town: 'Arenzano',
+    coast: 'ponente',
+    x: 44,
+    y: 26,
+    berths: 400,
+    maxLoa: 25,
+    depth: '2.5–4 m',
+    rate12: [3400, 5200],
+    summary:
+      'The last Ponente basin before Genoa, tucked under the Beigua park. Twenty minutes from the airport, and Genoese owners keep boats here to avoid the city traffic.',
+    walkable: 'Arenzano pine park, the seafront, the station and a good weekly market.',
+    vibe: 'Green hills behind, city in reach',
+  },
+  {
+    id: 'genova-aeroporto',
+    name: 'Marina Genova (Aeroporto)',
+    town: 'Genoa — Sestri Ponente',
+    coast: 'levante',
+    x: 47,
+    y: 14,
+    berths: 500,
+    maxLoa: 143,
+    depth: '5–9 m',
+    rate12: [4600, 7600],
+    summary:
+      'The superyacht end of Genoa, literally beside the runway: deep water, a 200-tonne travel lift and refit yards. Land at 10 and be aboard by 10.30.',
+    walkable: 'Airport terminal, Sestri Ponente shops and station; the city centre is a fifteen-minute train.',
+    vibe: 'Technical, international, plane-to-pontoon',
+    link: 'https://www.marinagenova.it/',
+    linkLabel: 'marinagenova.it',
+  },
+  {
+    id: 'portofino',
+    name: 'Marina Molo Umberto I',
+    town: 'Portofino',
+    coast: 'levante',
+    x: 59,
+    y: 34,
+    berths: 130,
+    maxLoa: 70,
+    depth: '3–8 m',
+    rate12: [18000, 40000],
+    summary:
+      'The most expensive water in Italy and the shortest list. Around 130 berths in the piazzetta bay, most on long concessions — a summer night alongside can cost more than a month elsewhere.',
+    walkable: 'The piazzetta, Castello Brown, the path to San Fruttuoso; nothing else, and that is the point.',
+    vibe: 'Trophy mooring, not a home port',
+    image: '/images/liguria/map-portofino.jpg',
+  },
+  {
+    id: 'santamargherita',
+    name: 'Porto di Santa Margherita Ligure',
+    town: 'Santa Margherita Ligure',
+    coast: 'levante',
+    x: 61,
+    y: 66,
+    berths: 390,
+    maxLoa: 45,
+    depth: '3–6 m',
+    rate12: [8000, 15000],
+    summary:
+      'Portofino prices minus a third, with a town that actually functions in winter. The practical way to keep a boat in the Golfo del Tigullio if you can get in at all.',
+    walkable: 'The seafront, the market, the basilica, the hospital and a station with Rome trains.',
+    vibe: 'Grande dame, working town underneath',
+    image: '/images/liguria/santa-margherita-ligure.jpg',
+  },
+  {
+    id: 'sestrilevante',
+    name: 'Porto di Sestri Levante',
+    town: 'Sestri Levante',
+    coast: 'levante',
+    x: 76,
+    y: 30,
+    berths: 200,
+    maxLoa: 20,
+    depth: '2–4 m',
+    rate12: [3000, 5000],
+    summary:
+      'A small-boat harbour between the Bay of Silence and the Bay of Fables, and the natural jumping-off point for the Cinque Terre without the Tigullio price tag.',
+    walkable: 'Both bays, the caruggio, the station and the Riva Trigoso yards down the coast.',
+    vibe: 'Two bays, one town, modest boats',
+    image: '/images/liguria/sestri-levante.jpg',
+  },
+];
+
+export type HubId = 'fiori' | 'palme' | 'genova' | 'tigullio' | 'poets';
+
+export const homePorts: { id: HubId; label: string; sub: string; coastNm: number }[] = [
+  { id: 'fiori', label: 'Riviera dei Fiori', sub: 'Ventimiglia · Sanremo', coastNm: 12 },
+  { id: 'palme', label: 'Riviera delle Palme', sub: 'Alassio · Loano', coastNm: 52 },
+  { id: 'genova', label: 'Genoa & Savona', sub: 'Porto Antico · Varazze', coastNm: 92 },
+  { id: 'tigullio', label: 'Golfo del Tigullio', sub: 'Rapallo · Lavagna', coastNm: 122 },
+  { id: 'poets', label: 'Gulf of Poets', sub: 'La Spezia · Porto Venere', coastNm: 177 },
+];
+
+export type DestinationGroup = 'coast' | 'anchorage' | 'france' | 'islands';
+
+export const destinationGroups: { id: DestinationGroup; label: string; blurb: string }[] = [
+  { id: 'coast', label: 'Ligurian coast hops', blurb: 'Ports and beach towns you can tie up in or land a tender at.' },
+  { id: 'anchorage', label: 'Anchorages & swim stops', blurb: 'No berth, no booking — drop the hook, eat aboard, swim.' },
+  { id: 'france', label: 'Over the border', blurb: 'The Côte d’Azur is a day out, not a holiday.' },
+  { id: 'islands', label: 'Islands & crossings', blurb: 'Open water, early starts, a weather window that matters.' },
 ];
 
 export type SeaDestination = {
   id: string;
   name: string;
   note: string;
-  /** nautical miles from each hub */
-  from: { ponente: number; genova: number; levante: number };
+  group: DestinationGroup;
+  /** nautical miles from each home port */
+  from: Record<HubId, number>;
 };
 
+/** Distances along the shoreline, measured from the French border in nautical miles. */
+const coastal = (
+  id: string,
+  name: string,
+  group: DestinationGroup,
+  coastNm: number,
+  note: string
+): SeaDestination => ({
+  id,
+  name,
+  group,
+  note,
+  from: homePorts.reduce(
+    (acc, h) => ({ ...acc, [h.id]: Math.max(2, Math.round(Math.abs(coastNm - h.coastNm))) }),
+    {} as Record<HubId, number>
+  ),
+});
+
 export const seaDestinations: SeaDestination[] = [
-  { id: 'monaco', name: 'Monaco', note: 'Lunch in the principality, home for dinner.', from: { ponente: 25, genova: 90, levante: 145 } },
-  { id: 'lerins', name: 'Îles de Lérins (Cannes)', note: 'Monastery island anchorage off the Croisette.', from: { ponente: 45, genova: 110, levante: 165 } },
-  { id: 'portofino', name: 'Portofino', note: 'The anchorage everyone else arrives at by bus.', from: { ponente: 75, genova: 18, levante: 22 } },
-  { id: 'cinqueterre', name: 'Cinque Terre', note: 'Vernazza and Monterosso from the water, no train queue.', from: { ponente: 120, genova: 55, levante: 12 } },
-  { id: 'palmaria', name: 'Palmaria & Tino', note: 'Swim stop in the Gulf of Poets.', from: { ponente: 130, genova: 62, levante: 4 } },
-  { id: 'elba', name: 'Elba', note: 'Overnight hop into the Tuscan Archipelago.', from: { ponente: 175, genova: 105, levante: 60 } },
-  { id: 'corsica', name: 'Corsica (Calvi)', note: 'The classic crossing — flat sea, early start.', from: { ponente: 110, genova: 105, levante: 95 } },
-  { id: 'gorgona', name: 'Gorgona & Capraia', note: 'Wild islands, whale corridor on the way.', from: { ponente: 150, genova: 85, levante: 45 } },
+  // Ligurian coast hops
+  coastal('bordighera', 'Bordighera', 'coast', 10, 'Palm terraces, a small friendly basin, lunch ashore.'),
+  coastal('imperia', 'Imperia & Porto Maurizio', 'coast', 32, 'The Parasio hill town seen the way it was built to be seen.'),
+  coastal('dianomarina', 'Diano Marina', 'coast', 36, 'Long sand, shallow water, easy tender landing.'),
+  coastal('gallinara', 'Isola Gallinara', 'coast', 48, 'Protected islet off Albenga — circle it, anchor outside the reserve.'),
+  coastal('alassio', 'Alassio', 'coast', 50, 'Four kilometres of beach and the muretto behind it.'),
+  coastal('noli', 'Noli & Varigotti', 'coast', 62, 'A medieval maritime republic with the best cliffs in Ponente.'),
+  coastal('savona', 'Savona', 'coast', 70, 'A working city port; berth for the night and eat in the darsena.'),
+  coastal('varazze', 'Varazze', 'coast', 76, 'Marina village on the quay, one of the easiest arrivals on the coast.'),
+  coastal('genova', 'Genoa Porto Antico', 'coast', 92, 'Step off the boat into a metropolis — aquarium, caruggi, opera.'),
+  coastal('camogli', 'Camogli', 'coast', 106, 'Tall painted houses, a pebble beach, and the Portofino park behind.'),
+  coastal('portofino', 'Portofino', 'coast', 112, 'The anchorage everyone else arrives at by bus.'),
+  coastal('sestri', 'Baia del Silenzio', 'coast', 143, 'Sestri Levante’s bay of silence, best entered under engine at dawn.'),
+  coastal('cinqueterre', 'Cinque Terre', 'coast', 163, 'Vernazza and Monterosso from the water, no train queue.'),
+  coastal('portovenere', 'Porto Venere', 'coast', 175, 'UNESCO waterfront and the gate to the Gulf of Poets.'),
+  coastal('lerici', 'Lerici & Tellaro', 'coast', 181, 'The prettiest corner of the gulf, and Shelley’s bay.'),
+
+  // Anchorages
+  coastal('saraceni', 'Baia dei Saraceni', 'anchorage', 60, 'Turquoise water under the Varigotti headland; go early.'),
+  coastal('bergeggi', 'Isola di Bergeggi', 'anchorage', 66, 'Marine reserve islet — anchor in the permitted zone, snorkel the drop.'),
+  coastal('puntachiappa', 'Punta Chiappa', 'anchorage', 104, 'Sheer rock off San Rocco, deep water right up to the shore.'),
+  coastal('sanfruttuoso', 'San Fruttuoso', 'anchorage', 110, 'Abbey in a cove reachable only by sea or on foot; buoy field in summer.'),
+  coastal('paraggi', 'Paraggi', 'anchorage', 113, 'The green bay next door to Portofino, at a tenth of the drama.'),
+  coastal('puntamanara', 'Punta Manara', 'anchorage', 145, 'Quiet lee under the Sestri headland, good for a lunch stop.'),
+  coastal('mesco', 'Punta Mesco', 'anchorage', 159, 'The Cinque Terre’s western cape — clear water, no crowd.'),
+  coastal('palmaria', 'Palmaria & Tino', 'anchorage', 176, 'Swim stop in the Gulf of Poets, lighthouse island alongside.'),
+
+  // France
+  coastal('menton', 'Menton', 'france', -4, 'Lemon town over the border; clear in, eat, come back.'),
+  coastal('monaco', 'Monaco', 'france', -9, 'Lunch in the principality, home for dinner.'),
+  coastal('villefranche', 'Villefranche-sur-Mer', 'france', -22, 'The deepest natural roadstead on the Côte d’Azur.'),
+  coastal('lerins', 'Îles de Lérins (Cannes)', 'france', -40, 'Monastery island anchorage off the Croisette.'),
+  coastal('sttropez', 'Saint-Tropez', 'france', -78, 'A long day each way, or an overnight with a reason.'),
+
+  // Islands and crossings
+  { id: 'capraia', name: 'Capraia', group: 'islands', note: 'Volcanic, almost empty, whale corridor on the way.', from: { fiori: 140, palme: 105, genova: 82, tigullio: 62, poets: 44 } },
+  { id: 'gorgona', name: 'Gorgona', group: 'islands', note: 'The smallest Tuscan island — permit needed to land, worth the pass-by.', from: { fiori: 150, palme: 116, genova: 94, tigullio: 72, poets: 46 } },
+  { id: 'elba', name: 'Elba', group: 'islands', note: 'Overnight hop into the Tuscan Archipelago.', from: { fiori: 168, palme: 132, genova: 106, tigullio: 82, poets: 60 } },
+  { id: 'giglio', name: 'Giglio', group: 'islands', note: 'Further south, clearer water, a proper passage plan.', from: { fiori: 198, palme: 162, genova: 136, tigullio: 112, poets: 92 } },
+  { id: 'calvi', name: 'Corsica — Calvi', group: 'islands', note: 'The classic crossing: flat sea, early start, citadel at dusk.', from: { fiori: 110, palme: 104, genova: 104, tigullio: 96, poets: 86 } },
+  { id: 'bastia', name: 'Corsica — Bastia', group: 'islands', note: 'The practical Corsican landfall from the Levante.', from: { fiori: 122, palme: 112, genova: 100, tigullio: 90, poets: 76 } },
 ];
+
 
 export const boatingFacts = [
   {
