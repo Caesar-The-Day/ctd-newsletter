@@ -28,6 +28,9 @@ import { FriuliBorderPlate } from './FriuliBorderPlate';
 import { TrentinoAltitudeWineLadder } from './TrentinoAltitudeWineLadder';
 import { TrentinoSpeckLine } from './TrentinoSpeckLine';
 import { TrentinoFolkCalendar } from './TrentinoFolkCalendar';
+import { LiguriaHeroicVineyard } from './LiguriaHeroicVineyard';
+import { LiguriaPestoMortar } from './LiguriaPestoMortar';
+import { LiguriaSeaCalendar } from './LiguriaSeaCalendar';
 
 interface HighlightsShowcaseProps {
   highlights: Highlights;
@@ -175,6 +178,10 @@ function CategoryPanel({
       {categoryKey === 'wine' && interactive?.altitudeWineLadder && <TrentinoAltitudeWineLadder />}
       {categoryKey === 'food' && interactive?.speckLine && <TrentinoSpeckLine />}
       {categoryKey === 'culture' && interactive?.folkCalendar && <TrentinoFolkCalendar />}
+
+      {categoryKey === 'wine' && interactive?.heroicVineyard && <LiguriaHeroicVineyard />}
+      {categoryKey === 'food' && interactive?.pestoMortar && <LiguriaPestoMortar />}
+      {categoryKey === 'culture' && interactive?.seaCalendar && <LiguriaSeaCalendar />}
     </>
   );
 }

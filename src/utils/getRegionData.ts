@@ -281,6 +281,9 @@ export interface Highlights {
     altitudeWineLadder?: boolean;
     speckLine?: boolean;
     folkCalendar?: boolean;
+    heroicVineyard?: boolean;
+    pestoMortar?: boolean;
+    seaCalendar?: boolean;
   };
   wine: HighlightCategory;
   food: HighlightCategory;
