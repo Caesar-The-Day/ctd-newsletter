@@ -436,6 +436,13 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'liguria' && (
+        <>
+          <GenoaPractically />
+          <LiguriaAfloat />
+        </>
+      )}
+
       {region === 'puglia' && <PugliaCoastSelector />}
 
       {region === 'calabria' && (
