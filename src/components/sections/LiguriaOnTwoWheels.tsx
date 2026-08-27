@@ -61,9 +61,9 @@ export default function LiguriaOnTwoWheels() {
           </header>
 
           {/* Rail-line strip */}
-          <div className="relative mb-8 overflow-x-auto pb-2">
+          <div className="relative mb-8 overflow-x-auto pb-2 pt-1">
             <div className="relative flex min-w-[640px] items-start">
-              <div className="absolute left-0 right-0 top-[13px] h-[3px] rounded-full bg-border" />
+              <div className="absolute left-0 right-0 top-[17px] h-[3px] rounded-full bg-border" />
               {coastSegments.map((s, i) => {
                 const on = i === segment;
                 return (
