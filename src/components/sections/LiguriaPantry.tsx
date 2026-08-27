@@ -65,7 +65,7 @@ const pillars: Pillar[] = [
     italian: 'Acciughe di Monterosso',
     icon: Fish,
     image: '/images/liguria/pantry-acciughe.jpg',
-    alt: 'Monterosso al Mare, home of Liguria\'s salted anchovies',
+    alt: 'Salt-cured anchovies from Monterosso layered in a jar with olive oil and lemon',
     lede:
       'Salt-cured anchovies from Monterosso are a Slow Food presidium: caught at night with lampara lamps, gutted by hand and layered in salt in the same jars families have used for generations.',
     rules: [
