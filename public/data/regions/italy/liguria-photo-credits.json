@@ -637,5 +637,104 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Ventimiglia_panorama_01.JPG",
     "sourceFile": "File:Ventimiglia panorama 01.JPG"
+  },
+  "ct-monterosso": {
+    "town": "Monterosso al Mare",
+    "file": "/images/liguria/ct-monterosso.jpg",
+    "author": "Lee &amp; Chantelle McArthur from SMiths, Bermuda",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Monterosso_al_Mare-panorama-convento_dei_cappuccini2-flickr.jpg",
+    "sourceFile": "File:Monterosso al Mare-panorama-convento dei cappuccini2-flickr.jpg"
+  },
+  "ct-vernazza": {
+    "town": "Vernazza",
+    "file": "/images/liguria/ct-vernazza.jpg",
+    "author": "https://www.flickr.com/photos/150594450@N07/",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vernazza_and_the_sea,_Cinque_Terre,_Italy.jpg",
+    "sourceFile": "File:Vernazza and the sea, Cinque Terre, Italy.jpg"
+  },
+  "ct-corniglia": {
+    "town": "Corniglia",
+    "file": "/images/liguria/ct-corniglia.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:East_Above_Corniglia_Cinque_Terre_Sep23_A7C_06797.jpg",
+    "sourceFile": "File:East Above Corniglia Cinque Terre Sep23 A7C 06797.jpg"
+  },
+  "ct-manarola": {
+    "town": "Manarola",
+    "file": "/images/liguria/ct-manarola.jpg",
+    "author": "chensiyuan",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1_manarola_evening_2012.jpg",
+    "sourceFile": "File:1 manarola evening 2012.jpg"
+  },
+  "ct-riomaggiore": {
+    "town": "Riomaggiore",
+    "file": "/images/liguria/ct-riomaggiore.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Riomaggiore_From_Ferry_Cinque_Terre_Italy_Sep23_A7C_07414.jpg",
+    "sourceFile": "File:Riomaggiore From Ferry Cinque Terre Italy Sep23 A7C 07414.jpg"
+  },
+  "ct-terraces": {
+    "town": "Cinque Terre terraces",
+    "file": "/images/liguria/ct-terraces.jpg",
+    "author": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cemetery_Corniglia_Monterosso_Cinque_Terre_Sep23_A7C_06872.jpg",
+    "sourceFile": "File:Manarola NW Cemetery Corniglia Monterosso Cinque Terre Sep23 A7C 06872.jpg"
+  },
+  "ct-sentiero": {
+    "town": "Sentiero Azzurro",
+    "file": "/images/liguria/ct-sentiero.jpg",
+    "author": "Davide Bozzo",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Via_dell%27Amore3.jpg",
+    "sourceFile": "File:Via dell'Amore3.jpg"
+  },
+  "ct-levanto": {
+    "town": "Levanto",
+    "file": "/images/liguria/ct-levanto.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Levanto-panorama_da_provinciale1.jpg",
+    "sourceFile": "File:Levanto-panorama da provinciale1.jpg"
+  },
+  "ct-bonassola": {
+    "town": "Bonassola",
+    "file": "/images/liguria/ct-bonassola.jpg",
+    "author": "Nicola Goller",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bonassola_from_above.jpg",
+    "sourceFile": "File:Bonassola from above.jpg"
+  },
+  "ct-framura": {
+    "town": "Framura",
+    "file": "/images/liguria/ct-framura.jpg",
+    "author": "Davide Papalini",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Framura-panorama_da_provinciale.jpg",
+    "sourceFile": "File:Framura-panorama da provinciale.jpg"
+  },
+  "ct-portovenere": {
+    "town": "Portovenere",
+    "file": "/images/liguria/ct-portovenere.jpg",
+    "author": "Aconcagua (talk)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Porto_Venere_from_Lerici.jpg",
+    "sourceFile": "File:Porto Venere from Lerici.jpg"
   }
 }
