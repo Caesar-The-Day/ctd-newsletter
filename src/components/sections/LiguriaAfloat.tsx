@@ -37,20 +37,14 @@ const coastPoints = Array.from({ length: 101 }, (_, i) => `${i},${coastY(i).toFi
 const SPLIT_X = 45;
 
 
-type Hub = 'ponente' | 'genova' | 'levante';
-
-const hubs: { id: Hub; label: string; sub: string }[] = [
-  { id: 'ponente', label: 'Riviera di Ponente', sub: 'Sanremo · Imperia' },
-  { id: 'genova', label: 'Genoa', sub: 'Porto Antico' },
-  { id: 'levante', label: 'Riviera di Levante', sub: 'Lavagna · La Spezia' },
-];
-
 export default function LiguriaAfloat() {
   const [activeId, setActiveId] = useState<string>('imperia');
   const [length, setLength] = useState(12);
-  const [hub, setHub] = useState<Hub>('genova');
+  const [hub, setHub] = useState<HubId>('genova');
   const [speed, setSpeed] = useState(18);
   const [hours, setHours] = useState(6);
+  const [groupFilter, setGroupFilter] = useState<DestinationGroup | 'all'>('all');
+
 
   const active: Marina | undefined = useMemo(
     () => marinas.find((m) => m.id === activeId) ?? marinas[0],
