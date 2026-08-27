@@ -179,7 +179,7 @@ export default function LiguriaTwoRivieras() {
             {rows.length}. Choose {sides[side].title} for{' '}
             {side === 'ponente'
               ? 'winter warmth, value and a boat you can afford to keep'
-              : 'the scenery, the Milan train and the Tigullio social life'}
+              : 'the scenery, the Milan train and the Tigullio social life'}{' '}
             — and visit {sides[other].title} in February before you sign anything.
           </p>
         </div>
