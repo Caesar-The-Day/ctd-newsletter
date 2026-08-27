@@ -187,9 +187,10 @@ export default function LiguriaAfloat() {
                       className={cn(
                         'absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium transition-colors',
                         lift > 0 ? 'bottom-full mb-1' : 'top-full mt-1',
-                        on ? 'text-background' : 'text-background/55 group-hover:text-background/90'
+                        on ? 'block text-background' : 'hidden text-background/55 group-hover:text-background/90 md:block'
                       )}
                     >
+
                       {m.town}
                     </span>
                   </button>
