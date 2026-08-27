@@ -455,6 +455,8 @@ export default function RegionPage() {
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
 
+      {region === 'liguria' && <LiguriaPantry />}
+
       {region === 'molise' && <AgnoneBellFoundry />}
 
       {region === 'veneto' && (
