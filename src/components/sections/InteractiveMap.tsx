@@ -457,17 +457,22 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
           } else if (feature.type === 'airport') {
             // Airport markers
             const planeIconHtml = renderToString(<Plane className="w-5 h-5 text-blue-600" />);
+            const airportCode =
+              (feature as any).code ||
+              feature.name?.match(/\(([A-Z]{3})\)/)?.[1] ||
+              '';
             const airportIcon = L.divIcon({
               html: `
                 <div class="airport-marker">
                   <div class="airport-icon">${planeIconHtml}</div>
-                  <div class="airport-code">${feature.code}</div>
+                  ${airportCode ? `<div class="airport-code">${airportCode}</div>` : ''}
                 </div>
               `,
               className: 'custom-airport-marker',
               iconSize: [40, 40],
               iconAnchor: [20, 20]
             });
+
 
             const airportMarker = L.marker(feature.coords, { icon: airportIcon }).addTo(layerGroup);
             airportMarker.bindPopup(`
