@@ -12,6 +12,21 @@ const euro = (n: number) =>
 /** Berth pricing scales faster than length — roughly with beam x length. */
 const scaleForLength = (len: number) => Math.pow(len / 12, 1.7);
 
+/**
+ * Stylised Ligurian shoreline in a 0..100 x / 0..40 y viewBox.
+ * Land sits above the line, sea below; the coast bows down to its lowest
+ * point around Genoa, the way the Gulf of Genoa actually curves.
+ */
+const COAST_TOP = 15;
+const COAST_BOW = 7;
+const coastY = (x: number) => COAST_TOP + COAST_BOW * Math.sin((Math.PI * x) / 100);
+
+const coastPoints = Array.from({ length: 101 }, (_, i) => `${i},${coastY(i).toFixed(2)}`).join(' ');
+
+/** Where Ponente becomes Levante, just west of Genoa. */
+const SPLIT_X = 45;
+
+
 type Hub = 'ponente' | 'genova' | 'levante';
 
 const hubs: { id: Hub; label: string; sub: string }[] = [
@@ -31,6 +46,22 @@ export default function LiguriaAfloat() {
     () => marinas.find((m) => m.id === activeId) ?? marinas[0],
     [activeId]
   );
+
+  /** Pins sit on the shoreline; crowded neighbours get lifted with a leader line. */
+  const placements = useMemo(() => {
+    const sorted = [...marinas].sort((a, b) => a.x - b.x);
+    let prevX = -99;
+    let prevLift = 0;
+    return sorted.map((m) => {
+      const crowded = m.x - prevX < 8;
+      const lift = crowded && prevLift === 0 ? 34 : 0;
+      prevX = m.x;
+      prevLift = lift;
+      const size = 24 + (Math.min(m.berths, 1500) / 1500) * 12;
+      return { marina: m, lift, size, top: (coastY(m.x) / 40) * 100 };
+    });
+  }, []);
+
 
   if (!marinas.length || !active) return null;
 
@@ -76,61 +107,103 @@ export default function LiguriaAfloat() {
 
         {/* Coast strip */}
         <div className="max-w-6xl mx-auto mb-10">
-          <div className="relative h-52 md:h-64 rounded-3xl bg-background/5 ring-1 ring-background/15 overflow-hidden">
+          <div className="relative h-56 md:h-72 rounded-3xl bg-background/5 ring-1 ring-background/15 overflow-hidden">
             <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden>
-              <path
-                d="M0,26 C10,20 18,24 26,21 C34,18 40,26 50,27 C60,28 66,20 74,22 C82,24 90,18 100,22 L100,40 L0,40 Z"
-                fill="hsl(var(--primary) / 0.25)"
+              {/* sea below the shoreline */}
+              <polygon
+                points={`0,40 100,40 100,${coastY(100)} ${coastPoints} 0,${coastY(0)}`}
+                fill="hsl(var(--primary) / 0.28)"
               />
-              <path
-                d="M0,26 C10,20 18,24 26,21 C34,18 40,26 50,27 C60,28 66,20 74,22 C82,24 90,18 100,22"
+              {/* shoreline */}
+              <polyline
+                points={coastPoints}
                 fill="none"
-                stroke="hsl(var(--background) / 0.5)"
+                stroke="hsl(var(--background) / 0.55)"
                 strokeWidth="0.4"
+                strokeLinecap="round"
+              />
+              {/* ponente / levante divider */}
+              <line
+                x1={SPLIT_X}
+                y1="2"
+                x2={SPLIT_X}
+                y2="38"
+                stroke="hsl(var(--background) / 0.2)"
+                strokeWidth="0.25"
+                strokeDasharray="1 1.5"
               />
             </svg>
 
-            <span className="absolute left-4 top-4 text-[10px] uppercase tracking-[0.2em] text-background/50">
+            <span className="absolute left-4 top-3 text-[10px] uppercase tracking-[0.2em] text-background/50">
               French border
             </span>
-            <span className="absolute right-4 top-4 text-[10px] uppercase tracking-[0.2em] text-background/50">
+            <span className="absolute right-4 top-3 text-[10px] uppercase tracking-[0.2em] text-background/50">
               Tuscany
             </span>
+            <span className="absolute left-1/2 top-3 hidden -translate-x-[130%] text-[10px] uppercase tracking-[0.2em] text-background/35 md:inline">
+              Ponente
+            </span>
+            <span className="absolute left-1/2 top-3 hidden translate-x-[10%] text-[10px] uppercase tracking-[0.2em] text-background/35 md:inline">
+              Levante
+            </span>
+            <span className="absolute left-[30%] top-[8%] hidden text-[10px] uppercase tracking-[0.2em] text-background/20 lg:inline">
+              Apennine hinterland
+            </span>
 
-            {marinas.map((m) => {
+
+            <span className="absolute left-4 bottom-3 text-[10px] uppercase tracking-[0.2em] text-background/30">
+              Ligurian Sea
+            </span>
+
+            {placements.map(({ marina: m, lift, size, top }) => {
               const on = m.id === activeId;
               return (
-                <button
-                  key={m.id}
-                  onClick={() => setActiveId(m.id)}
-                  aria-pressed={on}
-                  aria-label={`${m.name}, ${m.town}`}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 group"
-                  style={{ left: `${m.x}%`, top: `${25 + m.y * 0.35}%` }}
-                >
-                  <span
-                    className={cn(
-                      'flex h-8 w-8 items-center justify-center rounded-full ring-1 transition-all duration-300',
-                      on
-                        ? 'bg-primary text-primary-foreground ring-primary scale-125 shadow-lg'
-                        : 'bg-background/15 text-background ring-background/30 group-hover:bg-background/30'
-                    )}
+                <div key={m.id} className="absolute" style={{ left: `${m.x}%`, top: `${top}%` }}>
+                  {lift > 0 && (
+                    <span
+                      aria-hidden
+                      className="absolute left-0 w-px bg-background/25"
+                      style={{ height: lift, top: -lift }}
+                    />
+                  )}
+                  <button
+                    onClick={() => setActiveId(m.id)}
+                    aria-pressed={on}
+                    aria-label={`${m.name}, ${m.town} — ${m.berths} berths`}
+                    className="absolute left-0 -translate-x-1/2 -translate-y-1/2 group focus:outline-none"
+                    style={{ top: -lift }}
                   >
-                    <Anchor className="h-4 w-4" />
-                  </span>
-                  <span
-                    className={cn(
-                      'absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium transition-opacity',
-                      on ? 'text-background opacity-100' : 'text-background/60 opacity-0 group-hover:opacity-100'
-                    )}
-                  >
-                    {m.town}
-                  </span>
-                </button>
+                    <span
+                      className={cn(
+                        'flex items-center justify-center rounded-full ring-1 transition-all duration-300',
+                        on
+                          ? 'bg-primary text-primary-foreground ring-primary scale-110 shadow-lg'
+                          : 'bg-background/15 text-background ring-background/30 group-hover:bg-background/30 group-focus-visible:ring-background'
+                      )}
+                      style={{ height: size, width: size }}
+                    >
+                      <Anchor style={{ height: size * 0.45, width: size * 0.45 }} />
+                    </span>
+                    <span
+                      className={cn(
+                        'absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium transition-colors',
+                        lift > 0 ? 'bottom-full mb-1' : 'top-full mt-1',
+                        on ? 'block text-background' : 'hidden text-background/55 group-hover:text-background/90 md:block'
+                      )}
+                    >
+
+                      {m.town}
+                    </span>
+                  </button>
+                </div>
               );
             })}
           </div>
+          <p className="mt-3 text-center text-xs text-background/45">
+            Pins sit where each port meets the water; larger circles mean more berths. Tap one for costs and detail.
+          </p>
         </div>
+
 
         {/* Marina detail + calculator */}
         <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-5">
