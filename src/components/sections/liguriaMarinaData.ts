@@ -22,6 +22,44 @@ export type Marina = {
 
 export const marinas: Marina[] = [
   {
+    id: 'ventimiglia',
+    name: 'Cala del Forte',
+    town: 'Ventimiglia',
+    coast: 'ponente',
+    x: 2,
+    y: 20,
+    berths: 178,
+    maxLoa: 70,
+    depth: '3–6 m',
+    rate12: [4800, 7500],
+    summary:
+      'Owned and run by the Port of Monaco, three nautical miles from the principality and a fraction of its berth price. New basin, new pontoons, and a shuttle that treats Monaco as the neighbourhood.',
+    walkable: 'Ventimiglia old town over the bridge, the Friday market, the station for Nice in forty minutes.',
+    vibe: 'Monaco annex on Italian soil',
+    link: 'https://www.caladelforte-ventimiglia.it/',
+    linkLabel: 'caladelforte-ventimiglia.it',
+  },
+  {
+    id: 'bordighera',
+    name: 'Porto Turistico di Bordighera',
+    town: 'Bordighera',
+    coast: 'ponente',
+    x: 5,
+    y: 58,
+    berths: 300,
+    maxLoa: 25,
+    depth: '2.5–4 m',
+    rate12: [3000, 4800],
+    summary:
+      'A small, friendly basin under the palm terraces of the most English town on the Riviera. Boats here are used, not displayed — day-boats, small cruisers, and a fishing fleet that still lands.',
+    walkable: 'Lungomare Argentina, the Città Alta, the covered market and a hospital ten minutes up the hill.',
+    vibe: 'Genteel, small-boat, unhurried',
+    image: '/images/liguria/bordighera.jpg',
+    link: 'https://www.portodibordighera.it/',
+    linkLabel: 'portodibordighera.it',
+  },
+  {
+
     id: 'sanremo',
     name: 'Portosole Sanremo',
     town: 'Sanremo',
