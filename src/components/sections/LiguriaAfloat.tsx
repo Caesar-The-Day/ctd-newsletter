@@ -47,6 +47,22 @@ export default function LiguriaAfloat() {
     [activeId]
   );
 
+  /** Pins sit on the shoreline; crowded neighbours get lifted with a leader line. */
+  const placements = useMemo(() => {
+    const sorted = [...marinas].sort((a, b) => a.x - b.x);
+    let prevX = -99;
+    let prevLift = 0;
+    return sorted.map((m) => {
+      const crowded = m.x - prevX < 8;
+      const lift = crowded && prevLift === 0 ? 34 : 0;
+      prevX = m.x;
+      prevLift = lift;
+      const size = 24 + (Math.min(m.berths, 1500) / 1500) * 12;
+      return { marina: m, lift, size, top: (coastY(m.x) / 40) * 100 };
+    });
+  }, []);
+
+
   if (!marinas.length || !active) return null;
 
   const factor = scaleForLength(length);
