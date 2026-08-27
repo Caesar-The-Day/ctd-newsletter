@@ -400,6 +400,13 @@ export default function RegionPage() {
         </>
       )}
 
+      {region === 'liguria' && (
+        <>
+          <LiguriaTwoRivieras />
+          <LiguriaVerticalCoast />
+        </>
+      )}
+
       {region === 'lombardia' && <MosquitoWarning />}
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
