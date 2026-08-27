@@ -76,6 +76,11 @@ import TrentinoDolomitesOutdoors from '@/components/sections/TrentinoDolomitesOu
 import TrentinoMountainMobility from '@/components/sections/TrentinoMountainMobility';
 import TrentinoSeasonClock from '@/components/sections/TrentinoSeasonClock';
 import TrentinoHealthcareInfrastructure from '@/components/sections/TrentinoHealthcareInfrastructure';
+import LiguriaAfloat from '@/components/sections/LiguriaAfloat';
+import LiguriaVerticalCoast from '@/components/sections/LiguriaVerticalCoast';
+import LiguriaTwoRivieras from '@/components/sections/LiguriaTwoRivieras';
+import GenoaPractically from '@/components/sections/GenoaPractically';
+import LiguriaPantry from '@/components/sections/LiguriaPantry';
 import RomeResidentReality from '@/components/sections/RomeResidentReality';
 import RomeMobilityExplorer from '@/components/sections/RomeMobilityExplorer';
 import cafeLanguageImage from '@/assets/cafe-language-learning.jpg';
