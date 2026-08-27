@@ -140,15 +140,16 @@ export default function LiguriaAfloat() {
             <span className="absolute right-4 top-3 text-[10px] uppercase tracking-[0.2em] text-background/50">
               Tuscany
             </span>
-            <span className="absolute left-1/2 top-3 -translate-x-[130%] text-[10px] uppercase tracking-[0.2em] text-background/35">
+            <span className="absolute left-1/2 top-3 hidden -translate-x-[130%] text-[10px] uppercase tracking-[0.2em] text-background/35 md:inline">
               Ponente
             </span>
-            <span className="absolute left-1/2 top-3 translate-x-[10%] text-[10px] uppercase tracking-[0.2em] text-background/35">
+            <span className="absolute left-1/2 top-3 hidden translate-x-[10%] text-[10px] uppercase tracking-[0.2em] text-background/35 md:inline">
               Levante
             </span>
-            <span className="absolute left-4 top-[22%] text-[10px] uppercase tracking-[0.2em] text-background/25">
+            <span className="absolute left-4 top-[22%] hidden text-[10px] uppercase tracking-[0.2em] text-background/25 md:inline">
               Apennine hinterland
             </span>
+
             <span className="absolute left-4 bottom-3 text-[10px] uppercase tracking-[0.2em] text-background/30">
               Ligurian Sea
             </span>
