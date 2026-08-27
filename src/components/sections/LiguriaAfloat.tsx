@@ -12,6 +12,21 @@ const euro = (n: number) =>
 /** Berth pricing scales faster than length — roughly with beam x length. */
 const scaleForLength = (len: number) => Math.pow(len / 12, 1.7);
 
+/**
+ * Stylised Ligurian shoreline in a 0..100 x / 0..40 y viewBox.
+ * Land sits above the line, sea below; the coast bows down to its lowest
+ * point around Genoa, the way the Gulf of Genoa actually curves.
+ */
+const COAST_TOP = 15;
+const COAST_BOW = 7;
+const coastY = (x: number) => COAST_TOP + COAST_BOW * Math.sin((Math.PI * x) / 100);
+
+const coastPoints = Array.from({ length: 101 }, (_, i) => `${i},${coastY(i).toFixed(2)}`).join(' ');
+
+/** Where Ponente becomes Levante, just west of Genoa. */
+const SPLIT_X = 45;
+
+
 type Hub = 'ponente' | 'genova' | 'levante';
 
 const hubs: { id: Hub; label: string; sub: string }[] = [
