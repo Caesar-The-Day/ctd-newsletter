@@ -5,6 +5,7 @@ import {
   scaffoldRegionApi, 
   updateRegionLockApi, 
   setActiveRegionApi, 
+  getActiveRegionApi,
   publishRegionApi 
 } from '@/utils/regionApi';
 import { 
