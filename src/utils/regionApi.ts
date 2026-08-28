@@ -199,3 +199,28 @@ export async function setActiveRegionApi(slug: string | null): Promise<SetActive
     };
   }
 }
+
+/**
+ * Reads the currently active region slug from shared app settings.
+ * Returns null when no region is active.
+ */
+export async function getActiveRegionApi(): Promise<string | null> {
+  try {
+    const { data, error } = await supabase
+      .from('app_settings')
+      .select('value')
+      .eq('key', 'active_region')
+      .maybeSingle();
+
+    if (error) {
+      console.error('[regionApi] Get active region error:', error);
+      return null;
+    }
+
+    const value = data?.value;
+    return typeof value === 'string' && value.length > 0 ? value : null;
+  } catch (error) {
+    console.error('[regionApi] Get active region error:', error);
+    return null;
+  }
+}
