@@ -1,29 +1,15 @@
-# Improve the Friuli-Venezia Giulia OG description
+# Make the trail cards actually link
 
-## Context
+The 16 route cards in "Dolomites & Wild Trentino" show a diagonal arrow that implies a link, but nothing is clickable. Fix: give each route a real, verified external page and make the whole card a link.
 
-The active region is `friuli-venezia-giulia`. Its current OG description in `region_og_metadata` is a single thin line:
+## What changes
 
-> Where the Alps meet the Adriatic in a sophisticated blend of Latin, Slavic, and Germanic cultures.
+Each of the 16 routes (4 per difficulty level) gets a URL pointing to an official tourism-board, park or hut page for that specific route — preferring `visittrentino.info`, `suedtirol.info`, the individual valley boards (Val Gardena, Alpe di Siusi, San Martino, Madonna di Campiglio), park sites, and the official Alta Via pages. Each link will be checked to return 200 before it goes in; anything that cannot be verified gets no link, and its card renders without the arrow rather than with a dead one.
 
-Given the depth of the Friuli page — four languages, the moving border, Trieste living, the Julian Alps, the sailing culture, and the 1976 quake story — the description undersells the region and reads flat in a social share.
+Cards with a link become clickable (open in a new tab, `rel="noopener noreferrer"`, accessible label naming the route). Cards without one keep the current static look — no arrow, no hover affordance.
 
-## Proposed OG description
+## Technical notes
 
-Craft a description (under 160 characters so it never gets truncated on most platforms) that sells the "intersection of empires" identity plus the practical retiree angle. Draft:
-
-> Four tongues, a border that kept moving, and the Adriatic's finest coffee city. Trieste, wine hills, and the Julian Alps — a retiree's intersection of empires, honestly told.
-
-Length: 150 characters (safe).
-
-Alternative shorter option (if this feels too stacked):
-
-> Where the Alps meet the Adriatic — four languages, a moving border, and Italy's most underrated retirement corner, honestly told.
-
-## What to do
-
-1. Update `region_og_metadata.description` for `region_slug = 'friuli-venezia-giulia'` to the chosen line (single `UPDATE`, no code change).
-2. Leave `title` and `image_url` untouched (they are already good).
-3. Verify the share preview resolves in the OG crawler (`/api/og?path=/friuli-venezia-giulia` returns the new description). Preview stays cached until re-scraped in the Facebook debugger.
-
-This is a one-field data change only — no migration, no component edits.
+- `src/components/sections/trentinoNatureData.ts`: add `link?: string` to the `routes` entry type in `TrailLevel`, and populate it for each verified route.
+- `src/components/sections/TrentinoDolomitesOutdoors.tsx`: render the route card as an `<a>` when `route.link` exists, otherwise a plain `div`; render `ArrowUpRight` only in the linked case. Keep existing spacing, tokens and reveal animation.
+- Link verification via HTTP status checks during the build; no other sections touched.
