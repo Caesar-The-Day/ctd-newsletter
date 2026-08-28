@@ -106,8 +106,7 @@ export default function AdminRegions() {
     setActionLoading(null);
     
     if (result.success) {
-      setActiveRegion(slug);
-      localStorage.setItem('active-region', slug);
+      // Locking/unlocking must NOT hijack the active region.
       toast({
         title: currentLocked ? 'Region Unlocked' : 'Region Locked',
         description: result.message,
@@ -128,6 +127,8 @@ export default function AdminRegions() {
     setActionLoading(null);
     
     if (result.success) {
+      setActiveRegion(slug);
+      localStorage.setItem('active-region', slug);
       toast({
         title: 'Active Region Set',
         description: result.message,
@@ -141,6 +142,7 @@ export default function AdminRegions() {
       });
     }
   };
+
 
   const handleWizardComplete = async (wizardData: any) => {
     console.log('[AdminRegions] Wizard completed with data:', wizardData);
