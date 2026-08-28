@@ -241,5 +241,212 @@
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Mein_Schiff_Relax_Construction.jpg",
     "sourceFile": "File:Mein Schiff Relax Construction.jpg"
+  },
+  "lang-sauris": {
+    "town": "Sauris",
+    "file": "/images/friuli-venezia-giulia/lang-sauris.jpg",
+    "author": "Johann Jaritz",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Sauris_di_sotto_07102007_44.jpg",
+    "sourceFile": "File:Sauris di sotto 07102007 44.jpg"
+  },
+  "lang-timau": {
+    "town": "Timau",
+    "file": "/images/friuli-venezia-giulia/lang-timau.jpg",
+    "author": "Mikmaq",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Timau.jpg",
+    "sourceFile": "File:Timau.jpg"
+  },
+  "lang-resia": {
+    "town": "Resia",
+    "file": "/images/friuli-venezia-giulia/lang-resia.jpg",
+    "author": "AlbertoMadrassi",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Val_Resia.JPG",
+    "sourceFile": "File:Val Resia.JPG"
+  },
+  "lang-natisone": {
+    "town": "San Pietro al Natisone",
+    "file": "/images/friuli-venezia-giulia/lang-natisone.jpg",
+    "author": "Johann Jaritz",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:San_Pietro_al_Natisone_14.jpg",
+    "sourceFile": "File:San Pietro al Natisone 14.jpg"
+  },
+  "border-transalpina": {
+    "town": "Piazza Transalpina Gorizia",
+    "file": "/images/friuli-venezia-giulia/border-transalpina.jpg",
+    "author": "Ajznponar",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nova_Gorica-train_station-from_Via_Giuseppe_Caprin.jpg",
+    "sourceFile": "File:Nova Gorica-train station-from Via Giuseppe Caprin.jpg"
+  },
+  "war-redipuglia": {
+    "town": "Redipuglia",
+    "file": "/images/friuli-venezia-giulia/war-redipuglia.jpg",
+    "author": "Kevin1971",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sacrario_militare_di_Redipuglia_agosto_2014.JPG",
+    "sourceFile": "File:Sacrario militare di Redipuglia agosto 2014.JPG"
+  },
+  "war-san-michele": {
+    "town": "Monte San Michele",
+    "file": "/images/friuli-venezia-giulia/war-san-michele.jpg",
+    "author": "Johan Sandin",
+    "licence": "CC BY 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:050915_ISONZOFRONTEN_12.JPG",
+    "sourceFile": "File:050915 ISONZOFRONTEN 12.JPG"
+  },
+  "war-kobarid": {
+    "town": "Kobarid",
+    "file": "/images/friuli-venezia-giulia/war-kobarid.jpg",
+    "author": "Stephen Colebourne from London, UK",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kobarid_town_view.jpg",
+    "sourceFile": "File:Kobarid town view.jpg"
+  },
+  "quake-venzone": {
+    "town": "Venzone duomo",
+    "file": "/images/friuli-venezia-giulia/quake-venzone.jpg",
+    "author": "Luukas",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Venzone,_Udine_(Italy).JPG",
+    "sourceFile": "File:Venzone, Udine (Italy).JPG"
+  },
+  "quake-gemona": {
+    "town": "Gemona del Friuli",
+    "file": "/images/friuli-venezia-giulia/quake-gemona.jpg",
+    "author": "Telewiki93",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Duomo_Gemona.jpg",
+    "sourceFile": "File:Duomo Gemona.jpg"
+  },
+  "alps-fusine": {
+    "town": "Laghi di Fusine",
+    "file": "/images/friuli-venezia-giulia/alps-fusine.jpg",
+    "author": "Commonists",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lake_of_Fusine_2.jpg",
+    "sourceFile": "File:Lake of Fusine 2.jpg"
+  },
+  "alps-sella-nevea": {
+    "town": "Sella Nevea",
+    "file": "/images/friuli-venezia-giulia/alps-sella-nevea.jpg",
+    "author": "Johann Jaritz",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tarvisio_Sella_Nevea_mit_J%C3%B4f_di_Montasio_10032015_0529.jpg",
+    "sourceFile": "File:Tarvisio Sella Nevea mit Jôf di Montasio 10032015 0529.jpg"
+  },
+  "alps-sappada": {
+    "town": "Sappada",
+    "file": "/images/friuli-venezia-giulia/alps-sappada.jpg",
+    "author": "Gian77 at Italian Wikipedia",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Sappada_20040801.jpg",
+    "sourceFile": "File:Sappada 20040801.jpg"
+  },
+  "alps-zoncolan": {
+    "town": "Monte Zoncolan",
+    "file": "/images/friuli-venezia-giulia/alps-zoncolan.jpg",
+    "author": "Sebi1",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Ravasclettomunicipio.jpg",
+    "sourceFile": "File:Ravasclettomunicipio.jpg"
+  },
+  "alps-forni": {
+    "town": "Forni di Sopra",
+    "file": "/images/friuli-venezia-giulia/alps-forni.jpg",
+    "author": "Davidkape",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:PANORAMICA_FORNI_DI_SOPRA_-_DOLOMITI.jpg",
+    "sourceFile": "File:PANORAMICA FORNI DI SOPRA - DOLOMITI.jpg"
+  },
+  "alps-tolmezzo": {
+    "town": "Tolmezzo Carnia",
+    "file": "/images/friuli-venezia-giulia/alps-tolmezzo.jpg",
+    "author": "Sebi1",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:TolmezzoPanoramaConCaneva.jpg",
+    "sourceFile": "File:TolmezzoPanoramaConCaneva.jpg"
+  },
+  "year-barbana": {
+    "town": "Barbana Grado",
+    "file": "/images/friuli-venezia-giulia/year-barbana.jpg",
+    "author": "Hans Bezard",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Barbana_01.jpg",
+    "sourceFile": "File:Barbana 01.jpg"
+  },
+  "trieste-borgo-teresiano": {
+    "town": "Canal Grande Trieste",
+    "file": "/images/friuli-venezia-giulia/trieste-borgo-teresiano.jpg",
+    "author": "Luca Aless",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Trieste_-_Canal_Grande_al_tramonto.jpg",
+    "sourceFile": "File:Trieste - Canal Grande al tramonto.jpg"
+  },
+  "trieste-opicina": {
+    "town": "Tram de Opicina",
+    "file": "/images/friuli-venezia-giulia/trieste-opicina.jpg",
+    "author": "Nol Aders",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Trieste-Tram-Opicina-91.jpg",
+    "sourceFile": "File:Trieste-Tram-Opicina-91.jpg"
+  },
+  "trieste-barcola": {
+    "town": "Barcola Trieste",
+    "file": "/images/friuli-venezia-giulia/trieste-barcola.jpg",
+    "author": "Aktron",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Barcola,_Viale_Miramare.jpg",
+    "sourceFile": "File:Barcola, Viale Miramare.jpg"
+  },
+  "trieste-servola": {
+    "town": "Servola Trieste",
+    "file": "/images/friuli-venezia-giulia/trieste-servola.jpg",
+    "author": "Tiesse",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Servola_007.jpg",
+    "sourceFile": "File:Servola 007.jpg"
+  },
+  "trieste-piazza-unita": {
+    "town": "Piazza Unita Trieste",
+    "file": "/images/friuli-venezia-giulia/trieste-piazza-unita.jpg",
+    "author": "Diego Delso",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Plaza_de_la_Unidad_de_Italia,_Trieste,_Italia,_2017-04-15,_DD_11-15_HDR.jpg",
+    "sourceFile": "File:Plaza de la Unidad de Italia, Trieste, Italia, 2017-04-15, DD 11-15 HDR.jpg"
+  },
+  "alps-piancavallo": {
+    "town": "Piancavallo",
+    "file": "/images/friuli-venezia-giulia/alps-piancavallo.jpg",
+    "author": "Croberto68",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Piancavallo_d%27estate.jpg",
+    "sourceFile": "File:Piancavallo d'estate.jpg"
   }
 }
