@@ -106,7 +106,7 @@ export default function FriuliFourTongues() {
                 <div className="flex items-start gap-3 rounded-2xl bg-muted/50 p-4">
                   <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
                   <div>
-                    <p className="text-sm font-semibold mb-1">Where you\u2019ll hear it</p>
+                    <p className="text-sm font-semibold mb-1">Where you’ll hear it</p>
                     <p className="text-sm text-muted-foreground">{t.where}</p>
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {t.towns.map((town) => (
