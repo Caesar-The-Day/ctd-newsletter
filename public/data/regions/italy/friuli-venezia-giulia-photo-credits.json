@@ -137,11 +137,11 @@
   "afloat-portobuso": {
     "town": "Porto Buso",
     "file": "/images/friuli-venezia-giulia/afloat-portobuso.jpg",
-    "author": "Benetnash",
-    "licence": "CC BY-SA 4.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Banchina_Margreth_di_Porto_Nogaro.jpg",
-    "sourceFile": "File:Banchina Margreth di Porto Nogaro.jpg"
+    "author": "Unknown",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Porto_Buso.jpg",
+    "sourceFile": "File:Porto Buso.jpg"
   },
   "afloat-cona": {
     "town": "Isola della Cona",
@@ -218,11 +218,11 @@
   "afloat-pula": {
     "town": "Pula",
     "file": "/images/friuli-venezia-giulia/afloat-pula.jpg",
-    "author": "Olaf Tausch",
-    "licence": "CC BY 3.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Pula_Schirme_06.jpg",
-    "sourceFile": "File:Pula Schirme 06.jpg"
+    "author": "Carole Raddato from FRANKFURT, Germany",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_the_harbour_through_the_arena_walls,_Colonia_Pietas_Iulia_Pola_Pollentia_Herculanea,_Histria_(10439003465).jpg",
+    "sourceFile": "File:View of the harbour through the arena walls, Colonia Pietas Iulia Pola Pollentia Herculanea, Histria (10439003465).jpg"
   },
   "afloat-cres": {
     "town": "Cres and Losinj",
@@ -232,5 +232,14 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_northern_part_of_Cres_(view_from_the_south).jpg",
     "sourceFile": "File:Aerial image of the northern part of Cres (view from the south).jpg"
+  },
+  "afloat-panzano": {
+    "town": "Baia di Panzano",
+    "file": "/images/friuli-venezia-giulia/afloat-panzano.jpg",
+    "author": "Rugars2",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Marina_Nova.jpg",
+    "sourceFile": "File:Marina Nova.jpg"
   }
 }
