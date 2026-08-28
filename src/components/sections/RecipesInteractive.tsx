@@ -338,7 +338,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
 
                         {/* External Links */}
                         {recipe.links && recipe.links.length > 0 && (
-                          <div className="pt-2">
+                          <div className="pt-2 flex flex-col gap-2 items-start">
                             {recipe.links.map((link, idx) => (
                               <a
                                 key={idx}
@@ -353,6 +353,10 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
                             ))}
                           </div>
                         )}
+
+                        {/* Export & Share */}
+                        <RecipeActions recipe={recipe} regionName={regionName} />
+
                       </div>
                     </CollapsibleContent>
                   </Collapsible>
