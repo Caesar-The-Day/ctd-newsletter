@@ -254,11 +254,11 @@
   "lang-timau": {
     "town": "Timau",
     "file": "/images/friuli-venezia-giulia/lang-timau.jpg",
-    "author": "ElisaCrestani",
-    "licence": "CC BY-SA 4.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Palio_das_Cjarogiules_a_Paluzza.jpg",
-    "sourceFile": "File:Palio das Cjarogiules a Paluzza.jpg"
+    "author": "Mikmaq",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Timau.jpg",
+    "sourceFile": "File:Timau.jpg"
   },
   "lang-resia": {
     "town": "Resia",
@@ -299,11 +299,11 @@
   "war-san-michele": {
     "town": "Monte San Michele",
     "file": "/images/friuli-venezia-giulia/war-san-michele.jpg",
-    "author": "L'Ospite Inatteso",
-    "licence": "CC BY-SA 4.0",
-    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Sagrado,_Aquileia,_30_luglio-11_agosto_1992_69.jpg",
-    "sourceFile": "File:Sagrado, Aquileia, 30 luglio-11 agosto 1992 69.jpg"
+    "author": "Johan Sandin",
+    "licence": "CC BY 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:050915_ISONZOFRONTEN_12.JPG",
+    "sourceFile": "File:050915 ISONZOFRONTEN 12.JPG"
   },
   "war-kobarid": {
     "town": "Kobarid",
@@ -430,5 +430,23 @@
     "licenceUrl": "",
     "source": "https://commons.wikimedia.org/wiki/File:Servola_007.jpg",
     "sourceFile": "File:Servola 007.jpg"
+  },
+  "trieste-piazza-unita": {
+    "town": "Piazza Unita Trieste",
+    "file": "/images/friuli-venezia-giulia/trieste-piazza-unita.jpg",
+    "author": "Diego Delso",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Plaza_de_la_Unidad_de_Italia,_Trieste,_Italia,_2017-04-15,_DD_11-15_HDR.jpg",
+    "sourceFile": "File:Plaza de la Unidad de Italia, Trieste, Italia, 2017-04-15, DD 11-15 HDR.jpg"
+  },
+  "alps-piancavallo": {
+    "town": "Piancavallo",
+    "file": "/images/friuli-venezia-giulia/alps-piancavallo.jpg",
+    "author": "Croberto68",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Piancavallo_d%27estate.jpg",
+    "sourceFile": "File:Piancavallo d'estate.jpg"
   }
 }
