@@ -47,11 +47,21 @@ export default function AdminRegions() {
 
   const loadData = async () => {
     try {
-      const [reg, newsletterIdx] = await Promise.all([
+      const [reg, newsletterIdx, storedActive] = await Promise.all([
         getRegionRegistry(),
-        fetch('/data/newsletter-index.json').then(r => r.json())
+        fetch('/data/newsletter-index.json').then(r => r.json()),
+        getActiveRegionApi()
       ]);
       setRegistry(reg);
+
+      // Shared app settings are the source of truth for the active region
+      setActiveRegion(storedActive);
+      if (storedActive) {
+        localStorage.setItem('active-region', storedActive);
+      } else {
+        localStorage.removeItem('active-region');
+      }
+
       
       // Calculate next issue number
       const allIssues = [
