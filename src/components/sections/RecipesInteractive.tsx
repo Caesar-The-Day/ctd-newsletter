@@ -1,13 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
-import { ChefHat, ExternalLink, Wine } from 'lucide-react';
+import { ChefHat, ExternalLink, Wine, Download, Share2, Printer, Link2, Check } from 'lucide-react';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useImageReveal } from '@/hooks/use-image-reveal';
+import {
+  downloadRecipeJson,
+  downloadRecipeText,
+  recipeAnchorId,
+  recipeUrl,
+  shareTargets,
+  toPlainText,
+  toSchemaRecipe,
+} from '@/utils/recipeExport';
+
 
 interface Recipe {
   id: string;
@@ -53,9 +72,10 @@ interface RecipesInteractiveProps {
   originStory?: OriginStory;
   recipes: Recipe[];
   modes: string[];
+  regionName?: string;
 }
 
-export function RecipesInteractive({ header, originStory, recipes, modes }: RecipesInteractiveProps) {
+export function RecipesInteractive({ header, originStory, recipes, modes, regionName }: RecipesInteractiveProps) {
   const [expandedRecipes, setExpandedRecipes] = useState<string[]>([]);
 
   const toggleRecipe = (id: string) => {
@@ -64,6 +84,20 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
     );
   };
 
+  // Deep links like #recipe-canederli open and scroll to that recipe
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hash = window.location.hash.replace('#', '');
+    if (!hash.startsWith('recipe-')) return;
+    const id = hash.slice('recipe-'.length);
+    if (!recipes?.some((r) => r.id === id)) return;
+    setExpandedRecipes((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    const t = window.setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+    return () => window.clearTimeout(t);
+  }, [recipes]);
+
   const validModes = modes && modes.length > 0 ? modes : ['Rustic', 'Refined'];
 
   if (!recipes || recipes.length === 0) {
@@ -71,7 +105,14 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
   }
 
   return (
+    <>
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(recipes.map((r) => toSchemaRecipe(r, regionName)))}
+      </script>
+    </Helmet>
     <section className="py-12 md:py-16 bg-background">
+
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -200,8 +241,10 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
                     {filteredRecipes.map((recipe) => (
               <div
                 key={recipe.id}
-                className="rounded-lg border bg-card shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
+                id={recipeAnchorId(recipe)}
+                className="rounded-lg border bg-card shadow-sm hover:shadow-lg transition-shadow overflow-hidden scroll-mt-24"
               >
+
                 <RecipeImage src={recipe.image} alt={recipe.title} />
                 
                 <div className="p-6">
@@ -303,7 +346,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
 
                         {/* External Links */}
                         {recipe.links && recipe.links.length > 0 && (
-                          <div className="pt-2">
+                          <div className="pt-2 flex flex-col gap-2 items-start">
                             {recipe.links.map((link, idx) => (
                               <a
                                 key={idx}
@@ -318,6 +361,10 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
                             ))}
                           </div>
                         )}
+
+                        {/* Export & Share */}
+                        <RecipeActions recipe={recipe} regionName={regionName} />
+
                       </div>
                     </CollapsibleContent>
                   </Collapsible>
@@ -332,8 +379,129 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
         </div>
       </div>
     </section>
+    </>
   );
 }
+
+function RecipeActions({
+  recipe,
+  regionName,
+}: {
+  recipe: Recipe;
+  regionName?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const hasContent =
+    !!recipe.title && ((recipe.ingredients?.length ?? 0) > 0 || (recipe.steps?.length ?? 0) > 0);
+  if (!hasContent) return null;
+
+  const targets = shareTargets(recipe, regionName);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(recipeUrl(recipe));
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
+
+  const handleNativeShare = async () => {
+    if (!navigator.share) return false;
+    try {
+      await navigator.share({
+        title: recipe.title,
+        text: `${recipe.title}${regionName ? ` — a ${regionName} recipe` : ''}`,
+        url: recipeUrl(recipe),
+      });
+      return true;
+    } catch {
+      return true;
+    }
+  };
+
+  const handlePrint = () => {
+    const win = window.open('', '_blank', 'width=820,height=900');
+    if (!win) return;
+    const body = toPlainText(recipe, regionName)
+      .split('\n')
+      .map((line) => (line ? `<p>${line.replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c] as string))}</p>` : '<br/>'))
+      .join('');
+    win.document.write(
+      `<!doctype html><html><head><meta charset="utf-8"><title>${recipe.title}</title>` +
+        `<style>body{font-family:Georgia,serif;max-width:38em;margin:2.5em auto;line-height:1.5;color:#1f2937}p{margin:.2em 0}</style>` +
+        `</head><body>${body}</body></html>`,
+    );
+    win.document.close();
+    win.focus();
+    win.print();
+  };
+
+  return (
+    <div className="pt-4 border-t flex flex-wrap gap-2">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="secondary" size="sm" className="gap-2">
+            <Download className="h-4 w-4" />
+            Export
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-popover z-50">
+          <DropdownMenuLabel>Save this recipe</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onSelect={() => downloadRecipeJson(recipe, regionName)}>
+            Recipe file (.json) — Paprika, Mela, AnyList
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => downloadRecipeText(recipe, regionName)}>
+            Plain text (.txt)
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={handlePrint}>
+            <Printer className="h-4 w-4 mr-2" />
+            Print / Save as PDF
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="secondary"
+            size="sm"
+            className="gap-2"
+            onClick={(e) => {
+              if (typeof navigator !== 'undefined' && navigator.share) {
+                e.preventDefault();
+                void handleNativeShare();
+              }
+            }}
+          >
+            <Share2 className="h-4 w-4" />
+            Share
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-popover z-50">
+          <DropdownMenuLabel>Share this recipe</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          {targets.map((t) => (
+            <DropdownMenuItem key={t.label} asChild>
+              <a href={t.href} target="_blank" rel="noopener noreferrer">
+                {t.label}
+              </a>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <Button variant="ghost" size="sm" className="gap-2" onClick={handleCopy}>
+        {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
+        {copied ? 'Link copied' : 'Copy link'}
+      </Button>
+    </div>
+  );
+}
+
 
 function RecipeImage({ src, alt }: { src: string; alt: string }) {
   const { imageRef, isVisible } = useImageReveal();
