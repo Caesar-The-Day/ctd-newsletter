@@ -236,10 +236,10 @@
   "afloat-panzano": {
     "town": "Baia di Panzano",
     "file": "/images/friuli-venezia-giulia/afloat-panzano.jpg",
-    "author": "Rugars2",
-    "licence": "CC0",
-    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "source": "https://commons.wikimedia.org/wiki/File:Marina_Nova.jpg",
-    "sourceFile": "File:Marina Nova.jpg"
+    "author": "lappino",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mein_Schiff_Relax_Construction.jpg",
+    "sourceFile": "File:Mein Schiff Relax Construction.jpg"
   }
 }
