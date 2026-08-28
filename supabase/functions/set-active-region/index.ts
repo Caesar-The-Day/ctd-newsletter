@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { z } from "npm:zod@3.23.8";
 import { corsHeaders, jsonResponse, requireAdmin } from "../_shared/auth.ts";
 
@@ -29,10 +30,28 @@ serve(async (req) => {
 
     console.log('[set-active-region] Setting active region:', slug);
 
+    const admin = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    );
+
+    const { error: upsertError } = await admin
+      .from('app_settings')
+      .upsert(
+        { key: 'active_region', value: slug, updated_at: new Date().toISOString() },
+        { onConflict: 'key' }
+      );
+
+    if (upsertError) {
+      console.error('[set-active-region] Persist error:', upsertError);
+      return jsonResponse({ success: false, error: 'Failed to persist active region' }, 500);
+    }
+
     const today = new Date().toISOString().split('T')[0];
 
     return jsonResponse({
       success: true,
+      slug,
       message: slug
         ? `AI will now work exclusively on "${slug}"`
         : 'No active region set',
