@@ -72,9 +72,10 @@ interface RecipesInteractiveProps {
   originStory?: OriginStory;
   recipes: Recipe[];
   modes: string[];
+  regionName?: string;
 }
 
-export function RecipesInteractive({ header, originStory, recipes, modes }: RecipesInteractiveProps) {
+export function RecipesInteractive({ header, originStory, recipes, modes, regionName }: RecipesInteractiveProps) {
   const [expandedRecipes, setExpandedRecipes] = useState<string[]>([]);
 
   const toggleRecipe = (id: string) => {
@@ -83,6 +84,20 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
     );
   };
 
+  // Deep links like #recipe-canederli open and scroll to that recipe
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hash = window.location.hash.replace('#', '');
+    if (!hash.startsWith('recipe-')) return;
+    const id = hash.slice('recipe-'.length);
+    if (!recipes?.some((r) => r.id === id)) return;
+    setExpandedRecipes((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    const t = window.setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+    return () => window.clearTimeout(t);
+  }, [recipes]);
+
   const validModes = modes && modes.length > 0 ? modes : ['Rustic', 'Refined'];
 
   if (!recipes || recipes.length === 0) {
@@ -90,6 +105,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes }: Reci
   }
 
   return (
+
     <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
