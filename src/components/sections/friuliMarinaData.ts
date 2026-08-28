@@ -304,16 +304,26 @@ export const seaDestinations: SeaDestination[] = [
   along('casoni', 'Casoni di Marano', 'lagoon', 10, 'Reed-thatched fishermen’s huts on stilts; anchor off, row in, eat what was caught.', {
     image: '/images/friuli-venezia-giulia/afloat-marano-lagunare.jpg',
   }),
-  along('stella', 'Foci dello Stella', 'lagoon', 12, 'A spring-fed river mouth reserve — the quietest water in the region, herons and no engines.'),
+  along('stella', 'Foci dello Stella', 'lagoon', 12, 'A spring-fed river mouth reserve — the quietest water in the region, herons and no engines.', {
+    image: '/images/friuli-venezia-giulia/afloat-stella.jpg',
+  }),
   along('barbana', 'Isola di Barbana', 'lagoon', 16, 'Island sanctuary in the Grado lagoon, reached by the pilgrim channel; tie up at the pontoon.', {
     image: '/images/friuli-venezia-giulia/afloat-grado-lagoon.jpg',
   }),
-  along('portobuso', 'Porto Buso', 'lagoon', 13, 'The lagoon’s sea gate between the sandbars — the entry everyone learns first.'),
-  along('cona', 'Isola della Cona', 'lagoon', 25, 'Isonzo mouth reserve: white Camargue horses, 320 bird species, a tender landing.'),
-  along('grado-pineta', 'Grado Pineta & Primero', 'lagoon', 17, 'Sheltered swim water behind the pines, five minutes from the town quay.'),
+  along('portobuso', 'Porto Buso', 'lagoon', 13, 'The lagoon’s sea gate between the sandbars — the entry everyone learns first.', {
+    image: '/images/friuli-venezia-giulia/afloat-portobuso.jpg',
+  }),
+  along('cona', 'Isola della Cona', 'lagoon', 25, 'Isonzo mouth reserve: white Camargue horses, 320 bird species, a tender landing.', {
+    image: '/images/friuli-venezia-giulia/afloat-cona.jpg',
+  }),
+  along('grado-pineta', 'Grado Pineta & Primero', 'lagoon', 17, 'Sheltered swim water behind the pines, five minutes from the town quay.', {
+    image: '/images/friuli-venezia-giulia/afloat-grado-pineta.jpg',
+  }),
 
   // Gulf of Trieste
-  along('panzano', 'Baia di Panzano', 'gulf', 27, 'Cruise ships under construction on one side, mussel farms on the other.'),
+  along('panzano', 'Baia di Panzano', 'gulf', 27, 'Cruise ships under construction on one side, mussel farms on the other.', {
+    image: '/images/friuli-venezia-giulia/afloat-panzano.jpg',
+  }),
   along('sistiana-bay', 'Sistiana bay', 'gulf', 36, 'Anchor in the old quarry bay under the Rilke path and swim off the boat.', {
     image: '/images/friuli-venezia-giulia/afloat-sistiana.jpg',
   }),
@@ -332,17 +342,29 @@ export const seaDestinations: SeaDestination[] = [
   }),
 
   // Slovenia
-  along('koper', 'Koper', 'slovenia', 52, 'A container port with a Venetian old town hidden behind it; marina inside the breakwater.'),
-  along('izola', 'Izola', 'slovenia', 58, 'Fishing town turned marina, the friendliest clear-in-free lunch stop over the border.'),
+  along('koper', 'Koper', 'slovenia', 52, 'A container port with a Venetian old town hidden behind it; marina inside the breakwater.', {
+    image: '/images/friuli-venezia-giulia/afloat-koper.jpg',
+  }),
+  along('izola', 'Izola', 'slovenia', 58, 'Fishing town turned marina, the friendliest clear-in-free lunch stop over the border.', {
+    image: '/images/friuli-venezia-giulia/afloat-izola.jpg',
+  }),
   along('piran', 'Piran', 'slovenia', 62, 'The set-piece of the Slovenian coast: Tartini’s square, walls above, 100 berths below.', {
     image: '/images/friuli-venezia-giulia/afloat-piran.jpg',
   }),
-  along('portoroz', 'Portorož & Sečovlje salt pans', 'slovenia', 64, 'Big marina, and a salt-pan reserve you can reach by tender up the Dragonja.'),
+  along('portoroz', 'Portorož & Sečovlje salt pans', 'slovenia', 64, 'Big marina, and a salt-pan reserve you can reach by tender up the Dragonja.', {
+    image: '/images/friuli-venezia-giulia/afloat-portoroz.jpg',
+  }),
 
   // Croatia / Istria
-  along('umag', 'Umag', 'istria', 70, 'First Croatian entry port going south — clear in here and the day is still yours.'),
-  along('novigrad', 'Novigrad (Cittanova)', 'istria', 79, 'Walled Venetian harbour, a good marina and the Mirna river behind it.'),
-  along('porec', 'Poreč', 'istria', 90, 'The Euphrasian basilica mosaics are UNESCO; anchor off the islet and tender in.'),
+  along('umag', 'Umag', 'istria', 70, 'First Croatian entry port going south — clear in here and the day is still yours.', {
+    image: '/images/friuli-venezia-giulia/afloat-umag.jpg',
+  }),
+  along('novigrad', 'Novigrad (Cittanova)', 'istria', 79, 'Walled Venetian harbour, a good marina and the Mirna river behind it.', {
+    image: '/images/friuli-venezia-giulia/afloat-novigrad.jpg',
+  }),
+  along('porec', 'Poreč', 'istria', 90, 'The Euphrasian basilica mosaics are UNESCO; anchor off the islet and tender in.', {
+    image: '/images/friuli-venezia-giulia/afloat-porec.jpg',
+  }),
   along('rovinj', 'Rovinj', 'istria', 108, 'The single best arrival in the northern Adriatic — the campanile on the point, islands to anchor behind.', {
     image: '/images/friuli-venezia-giulia/afloat-rovinj.jpg',
   }),
@@ -350,8 +372,12 @@ export const seaDestinations: SeaDestination[] = [
     image: '/images/friuli-venezia-giulia/afloat-brijuni.jpg',
     link: 'https://www.np-brijuni.hr/en',
   }),
-  along('pula', 'Pula', 'istria', 133, 'Amphitheatre over the harbour and the biggest chandlery choice south of Trieste.'),
-  along('cres', 'Cres & Lošinj', 'istria', 165, 'Kvarner proper — an overnight, dolphins on the way, and a different price level ashore.'),
+  along('pula', 'Pula', 'istria', 133, 'Amphitheatre over the harbour and the biggest chandlery choice south of Trieste.', {
+    image: '/images/friuli-venezia-giulia/afloat-pula.jpg',
+  }),
+  along('cres', 'Cres & Lošinj', 'istria', 165, 'Kvarner proper — an overnight, dolphins on the way, and a different price level ashore.', {
+    image: '/images/friuli-venezia-giulia/afloat-cres.jpg',
+  }),
 ];
 
 export const boatingFacts = [
