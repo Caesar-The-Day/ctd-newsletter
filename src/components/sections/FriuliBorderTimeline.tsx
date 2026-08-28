@@ -40,6 +40,7 @@ export default function FriuliBorderTimeline() {
                 transition={{ type: 'spring', stiffness: 90, damping: 18 }}
                 x="4"
                 y="18"
+                width={stop.border * 0.92}
                 height="16"
                 rx="2"
                 className="fill-primary/15"
