@@ -50,8 +50,8 @@ export function toSchemaRecipe(recipe: ExportableRecipe, regionName?: string) {
           })),
         }
       : {}),
-    ...(recipe.winePairing ? { suitableForDiet: undefined, recipeCategory: 'Main', comment: undefined } : {}),
     ...(recipe.winePairing ? { about: `Wine pairing: ${recipe.winePairing}` } : {}),
+
     ...(recipeUrl(recipe) ? { url: recipeUrl(recipe) } : {}),
   };
 }
