@@ -105,8 +105,14 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
   }
 
   return (
-
+    <>
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(recipes.map((r) => toSchemaRecipe(r, regionName)))}
+      </script>
+    </Helmet>
     <section className="py-12 md:py-16 bg-background">
+
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
