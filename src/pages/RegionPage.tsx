@@ -435,10 +435,16 @@ export default function RegionPage() {
         <>
           <FriuliBoraMeter />
           <FriuliCrossBorder />
-          <FriuliAfloat />
+          <FriuliBorderTimeline />
+          <TriestePractically />
           <TriesteCoffeeDecoder />
+          <FriuliAlpsUnbooked />
+          <FriuliRebuilt />
+          <FriuliAfloat />
+          <FriuliYear />
         </>
       )}
+
 
       {region === 'trentino-alto-adige' && (
         <>
