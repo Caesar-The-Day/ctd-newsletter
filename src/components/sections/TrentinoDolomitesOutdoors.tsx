@@ -234,22 +234,36 @@ export default function TrentinoDolomitesOutdoors() {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  {level.routes.map((r) => (
-                    <div
-                      key={r.name}
-                      className="rounded-2xl border border-border bg-muted/30 p-5 hover:border-primary/40 transition-colors"
-                    >
-                      <div className="flex items-start justify-between gap-3 mb-1">
-                        <h4 className="font-bold">{r.name}</h4>
-                        <ArrowUpRight className="w-4 h-4 text-primary shrink-0 mt-1" />
-                      </div>
-                      <p className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
-                        {r.where} · {r.stats}
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{r.note}</p>
-                    </div>
-                  ))}
+                  {level.routes.map((r) => {
+                    const Wrapper = r.link ? 'a' : 'div';
+                    return (
+                      <Wrapper
+                        key={r.name}
+                        {...(r.link
+                          ? {
+                              href: r.link,
+                              target: '_blank',
+                              rel: 'noopener noreferrer',
+                              'aria-label': `${r.name} — route details (opens in a new tab)`,
+                            }
+                          : {})}
+                        className={`block rounded-2xl border border-border bg-muted/30 p-5 transition-colors ${
+                          r.link ? 'hover:border-primary/40 hover:bg-muted/50' : ''
+                        }`}
+                      >
+                        <div className="flex items-start justify-between gap-3 mb-1">
+                          <h4 className="font-bold">{r.name}</h4>
+                          {r.link && <ArrowUpRight className="w-4 h-4 text-primary shrink-0 mt-1" />}
+                        </div>
+                        <p className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+                          {r.where} · {r.stats}
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{r.note}</p>
+                      </Wrapper>
+                    );
+                  })}
                 </div>
+
               </motion.div>
 
               <div className="mt-6 rounded-2xl border border-border overflow-hidden">

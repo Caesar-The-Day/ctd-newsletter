@@ -180,7 +180,7 @@ export interface TrailLevel {
   effort: string;
   summary: string;
   gear: string;
-  routes: { name: string; where: string; stats: string; note: string }[];
+  routes: { name: string; where: string; stats: string; note: string; link?: string }[];
 }
 
 export const trailLevels: TrailLevel[] = [
@@ -191,10 +191,10 @@ export const trailLevels: TrailLevel[] = [
     summary: 'Flat, waymarked, open most of the year and doable after lunch without planning.',
     gear: 'Trainers. Water. That is the whole list.',
     routes: [
-      { name: 'Lago di Braies shore loop', where: 'Fanes-Sennes-Braies', stats: '3.5 km · 40 m · 1 h', note: 'Book the access slot or arrive before 9 in July–August.' },
-      { name: 'Lago di Tovel circuit', where: 'Val di Non', stats: '4 km · 60 m · 1 h', note: 'Shuttle from Tuenno when the road cap is in force.' },
-      { name: 'Renon high plateau path', where: 'Above Bolzano', stats: '6 km · 120 m · 1 h 45', note: 'Cable car from Bolzano, then walk to the earth pyramids.' },
-      { name: 'Sentiero della Pace, Val di Fiemme', where: 'Fiemme', stats: '5 km · 100 m · 1 h 30', note: 'WWI front line, interpretive boards in three languages.' },
+      { name: 'Lago di Braies shore loop', where: 'Fanes-Sennes-Braies', stats: '3.5 km · 40 m · 1 h', note: 'Book the access slot or arrive before 9 in July–August.', link: 'https://www.dolomiti.it/en/itineraries/hiking-1/tour-of-the-braies-lake' },
+      { name: 'Lago di Tovel circuit', where: 'Val di Non', stats: '4 km · 60 m · 1 h', note: 'Shuttle from Tuenno when the road cap is in force.', link: 'https://www.visittrentino.info/en/guide/tour/tour-of-lake-tovel_tour_2808342' },
+      { name: 'Renon high plateau path', where: 'Above Bolzano', stats: '6 km · 120 m · 1 h 45', note: 'Cable car from Bolzano, then walk to the earth pyramids.', link: 'https://www.ritten.com/en/1201-earth-pyramids' },
+      { name: 'Sentiero della Pace, Val di Fiemme', where: 'Fiemme', stats: '5 km · 100 m · 1 h 30', note: 'WWI front line, interpretive boards in three languages.', link: 'https://www.visittrentino.info/en/articles/trekking-and-hiking/path-of-peace-trentino' },
     ],
   },
   {
@@ -204,10 +204,10 @@ export const trailLevels: TrailLevel[] = [
     summary: 'A proper climb, a hut lunch, and back down before the afternoon storms.',
     gear: 'Boots, rain shell, 1.5 l water, and a look at the 13:00 thunderstorm forecast.',
     routes: [
-      { name: 'Seceda to Rifugio Firenze', where: 'Puez-Odle', stats: '8 km · 500 m · 3 h 30', note: 'Lift up, walk down — the classic Odle profile the whole way.' },
-      { name: 'Alpe di Siusi to Rifugio Bolzano', where: 'Sciliar', stats: '11 km · 700 m · 4 h 30', note: 'The oldest hut in the Dolomites, 1885.' },
-      { name: 'Malga Ritorto loop', where: 'Brenta', stats: '9 km · 550 m · 4 h', note: 'Five lakes below the Brenta towers, from Madonna di Campiglio.' },
-      { name: 'Rifugio Rosetta from San Martino', where: 'Pale di San Martino', stats: '6 km · 450 m · 3 h', note: 'Or take the cable car and walk out onto the limestone plateau.' },
+      { name: 'Seceda to Rifugio Firenze', where: 'Puez-Odle', stats: '8 km · 500 m · 3 h 30', note: 'Lift up, walk down — the classic Odle profile the whole way.', link: 'https://www.valgardena.it/en/outdoor/base/outdoor/seceda-ridge-line-from-s-cristina-via-col-raiser-valley-station-rifugio-firenze/808744765/' },
+      { name: 'Alpe di Siusi to Rifugio Bolzano', where: 'Sciliar', stats: '11 km · 700 m · 4 h 30', note: 'The oldest hut in the Dolomites, 1885.', link: 'https://www.seiseralm.it/en/active/summer/hiking/huts/DE39DD50811E6CE67F6F2B87CC51FC85-rifugio-bolzano-schlernhaus.html' },
+      { name: 'Malga Ritorto loop', where: 'Brenta', stats: '9 km · 550 m · 4 h', note: 'Five lakes below the Brenta towers, from Madonna di Campiglio.', link: 'https://www.trentino.com/en/leisure-activities/mountains-and-hiking/alpine-tours/five-lakes--tour-near-madonna-di-campiglio/' },
+      { name: 'Rifugio Rosetta from San Martino', where: 'Pale di San Martino', stats: '6 km · 450 m · 3 h', note: 'Or take the cable car and walk out onto the limestone plateau.', link: 'https://www.sanmartino.com/en/accommodation-facilities/rifugio-alpino-rosetta-giovanni-pedrotti' },
     ],
   },
   {
@@ -217,10 +217,10 @@ export const trailLevels: TrailLevel[] = [
     summary: 'Multi-day traverses sleeping in rifugi. The best thing this region offers, and the most planning.',
     gear: 'Sleeping-bag liner, cash, headtorch, booked beds. Huts fill by March for August.',
     routes: [
-      { name: 'Alta Via 1', where: 'Braies to Belluno', stats: '120 km · 8–11 days', note: 'Starts at Braies, no ferrata required, the classic first traverse.' },
-      { name: 'Alta Via 2', where: 'Bressanone to Feltre', stats: '160 km · 12 days', note: 'Harder, higher, several protected sections; the "high road of legends".' },
-      { name: 'Brenta hut circuit', where: 'Adamello-Brenta', stats: '4–5 days', note: 'Tuckett, Brentei, Alimonta — glorious and often bookable later than Alta Via huts.' },
-      { name: 'Puez-Odle traverse', where: 'Val Gardena to Val Badia', stats: '2 days', note: 'A short, achievable taste of the format.' },
+      { name: 'Alta Via 1', where: 'Braies to Belluno', stats: '120 km · 8–11 days', note: 'Starts at Braies, no ferrata required, the classic first traverse.', link: 'https://www.dolomitipark.it/en/visiting-the-park/itineraries/on-foot/selected-itineraries/alta-via-n-1/' },
+      { name: 'Alta Via 2', where: 'Bressanone to Feltre', stats: '160 km · 12 days', note: 'Harder, higher, several protected sections; the "high road of legends".', link: 'https://www.dolomiti.it/en/itineraries/alpine-paths-of-the-dolomites/alpine-path-of-the-dolomites-no-2' },
+      { name: 'Brenta hut circuit', where: 'Adamello-Brenta', stats: '4–5 days', note: 'Tuckett, Brentei, Alimonta — glorious and often bookable later than Alta Via huts.', link: 'https://www.dolomitibrentatrek.it/en/dolomiti-brenta-trek' },
+      { name: 'Puez-Odle traverse', where: 'Val Gardena to Val Badia', stats: '2 days', note: 'A short, achievable taste of the format.', link: 'https://www.altabadia.org/en/dolomites/hiking-alta-badia/detail/oa/hike-from-the-gardena-pass-to-the-puez-odle-nature-park-in-colfosco' },
     ],
   },
   {
@@ -230,10 +230,10 @@ export const trailLevels: TrailLevel[] = [
     summary: 'Steel cable, ladders, and long drops. Trentino invented the format and still keeps the hardest of it.',
     gear: 'Certified ferrata set, helmet, harness, gloves. Rent in any valley town. Do not improvise.',
     routes: [
-      { name: 'Sentiero delle Bocchette Centrali', where: 'Brenta', stats: 'Full day · very exposed', note: 'The most famous ferrata in the Alps. Ledges cut across vertical faces.' },
-      { name: 'Via ferrata Santner', where: 'Catinaccio', stats: '4–5 h · difficult', note: 'Straight up into the Rosengarten from Vigo di Fassa.' },
-      { name: 'Ferrata delle Trincee', where: 'Marmolada area', stats: '5 h · hard', note: 'WWI tunnels and trenches along a black volcanic ridge.' },
-      { name: 'Ferrata Rio Sallagoni', where: 'Near Arco', stats: '2 h · beginner', note: 'Low altitude gorge route, good first ferrata, open most of the year.' },
+      { name: 'Sentiero delle Bocchette Centrali', where: 'Brenta', stats: 'Full day · very exposed', note: 'The most famous ferrata in the Alps. Ledges cut across vertical faces.', link: 'https://www.dolomiti.it/en/itineraries/vie-ferrate/via-ferrata-bocchette-centrali' },
+      { name: 'Via ferrata Santner', where: 'Catinaccio', stats: '4–5 h · difficult', note: 'Straight up into the Rosengarten from Vigo di Fassa.', link: 'https://www.dolomiti.it/en/itineraries/vie-ferrate/via-ferrata-passo-santner' },
+      { name: 'Ferrata delle Trincee', where: 'Marmolada area', stats: '5 h · hard', note: 'WWI tunnels and trenches along a black volcanic ridge.', link: 'https://www.visitmarmolada.com/en/activities/via-ferrata-routes/via-ferrata-delle-trincee/' },
+      { name: 'Ferrata Rio Sallagoni', where: 'Near Arco', stats: '2 h · beginner', note: 'Low altitude gorge route, good first ferrata, open most of the year.', link: 'https://www.visittrentino.info/en/guide/tour/via-ferrata-rio-sallagoni_tour_10449288' },
     ],
   },
 ];
