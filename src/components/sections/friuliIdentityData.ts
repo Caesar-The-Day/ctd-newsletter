@@ -268,7 +268,7 @@ export const warRoute: WarSite[] = [
     visit: 'Free, always open, quietly overwhelming. The museum and the trenches of Colle Sant\u2019Elia sit at the foot.',
     image: img('war-redipuglia'),
     imageAlt: 'The vast stepped war memorial of Redipuglia',
-    link: 'https://www.turismofvg.it/en/localita/redipuglia'
+    link: 'https://www.explorefriuli.com/guided-tour-redipuglia'
   },
   {
     name: 'Monte San Michele',
@@ -381,7 +381,7 @@ export const yearEvents: YearEvent[] = [
     place: 'Across the Friulian plain; the biggest at Tarcento',
     what: 'On 5 January every village burns a bonfire and reads the smoke: drifting east means a good year, west means a poor one. Pre-Christian, entirely serious, and followed by mulled wine.',
     season: 'winter',
-    link: 'https://www.turismofvg.it/en'
+    link: 'https://protarcentoud.com/storia-epifania-tarcentina/'
   },
   {
     month: 'February',
@@ -435,7 +435,7 @@ export const yearEvents: YearEvent[] = [
     place: 'Grado lagoon',
     what: 'The first Sunday in July: a procession of decorated boats carries a Madonna across the lagoon to the island sanctuary of Barbana. Unbroken since 1237.',
     season: 'summer',
-    link: 'https://www.santuariobarbana.it/',
+    link: 'https://grado.it/en/events-and-tours/special-events/sabo-grando-and-perdon-di-barbana',
     image: img('year-barbana'),
     imageAlt: 'The island sanctuary of Barbana in the Grado lagoon'
   },
