@@ -75,7 +75,7 @@ export const parks: NaturePark[] = [
     publicTransport: 'Buses from Trento via Fiemme; Rosetta cable car from San Martino',
     bikes: 'Good gravel and forest-road network; the plateau is walking only',
     dogs: 'On lead, welcome on most trails',
-    link: { label: 'Parco Paneveggio', url: 'https://www.parcopan.org/' },
+    link: { label: 'Parco Paneveggio', url: 'https://parcopan.org' },
   },
   {
     id: 'puez-odle',
@@ -94,7 +94,7 @@ export const parks: NaturePark[] = [
     publicTransport: 'Very good: Val Gardena buses plus Seceda, Col Raiser and Dantercepies lifts',
     bikes: 'Lift-assisted MTB in Gardena; core park zones closed to bikes',
     dogs: 'On lead, and expect grazing cattle with guardian instincts',
-    link: { label: 'Puez-Odle Nature Park', url: 'https://www.provinz.bz.it/natur-umwelt/natur-raum/naturparks/naturpark-puez-geisler.asp' },
+    link: { label: 'Puez-Odle Nature Park', url: 'https://www.odlesdolomites.com/en/region/puez-odle-nature-park/' },
   },
   {
     id: 'sciliar',
@@ -113,7 +113,7 @@ export const parks: NaturePark[] = [
     publicTransport: 'Excellent: bus from Bolzano plus the Siusi–Alpe cable car (car access restricted 9–17)',
     bikes: 'Meadow tracks open to bikes with time restrictions; check local signage',
     dogs: 'On lead; large working dogs guard the herds in summer',
-    link: { label: 'Sciliar-Catinaccio Park', url: 'https://www.provinz.bz.it/natur-umwelt/natur-raum/naturparks/naturpark-schlern-rosengarten.asp' },
+    link: { label: 'Sciliar-Catinaccio Park', url: 'https://www.seiser-alm.it/en/highlights/nature-and-landscape/sciliarcatinaccio-nature-park/' },
   },
   {
     id: 'fanes',
@@ -132,7 +132,7 @@ export const parks: NaturePark[] = [
     publicTransport: 'Pusteria rail line to Villabassa then park buses; Braies shuttle in high season',
     bikes: 'Long gravel climbs into Fanes are a classic; lake shore path is walking only',
     dogs: 'On lead; not allowed in the Braies lake boats',
-    link: { label: 'Fanes-Sennes-Braies Park', url: 'https://www.provinz.bz.it/natur-umwelt/natur-raum/naturparks/naturpark-fanes-senes-prags.asp' },
+    link: { label: 'Fanes-Sennes-Braies Park', url: 'https://www.suedtirolerland.it/en/highlights/nature-and-landscape/nature-parks-in-south-tyrol/fanes-senes-braies/' },
   },
   {
     id: 'monte-corno',
@@ -151,7 +151,7 @@ export const parks: NaturePark[] = [
     publicTransport: 'Brennero rail line to Egna/Ora, then local buses',
     bikes: 'Forest roads open; gentle enough for e-bike day loops',
     dogs: 'On lead, easy terrain, no high pastures',
-    link: { label: 'Monte Corno Park', url: 'https://www.provinz.bz.it/natur-umwelt/natur-raum/naturparks/naturpark-trudner-horn.asp' },
+    link: { label: 'Monte Corno Park', url: 'https://www.suedtirolerland.it/en/highlights/nature-and-landscape/nature-parks-in-south-tyrol/monte-corno/' },
   },
   {
     id: 'tovel',
@@ -170,7 +170,7 @@ export const parks: NaturePark[] = [
     publicTransport: 'Trento–Malè rail to Cles, then summer shuttle bus',
     bikes: 'Road climb from Tuenno; lake loop is on foot',
     dogs: 'On lead, welcome on the loop',
-    link: { label: 'Lago di Tovel', url: 'https://www.pnab.it/luoghi/lago-di-tovel/' },
+    link: { label: 'Lago di Tovel', url: 'https://www.trentino.com/en/highlights/nature-and-landscape/lakes/lake-tovel/' },
   },
 ];
 
