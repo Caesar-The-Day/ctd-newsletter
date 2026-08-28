@@ -124,5 +124,122 @@
     "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
     "source": "https://commons.wikimedia.org/wiki/File:Castello_di_Duino-DSCF1405.JPG",
     "sourceFile": "File:Castello di Duino-DSCF1405.JPG"
+  },
+  "afloat-stella": {
+    "town": "Foci dello Stella",
+    "file": "/images/friuli-venezia-giulia/afloat-stella.jpg",
+    "author": "Simone Marchi",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiume_Stella.JPG",
+    "sourceFile": "File:Fiume Stella.JPG"
+  },
+  "afloat-portobuso": {
+    "town": "Porto Buso",
+    "file": "/images/friuli-venezia-giulia/afloat-portobuso.jpg",
+    "author": "Unknown",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Porto_Buso.jpg",
+    "sourceFile": "File:Porto Buso.jpg"
+  },
+  "afloat-cona": {
+    "town": "Isola della Cona",
+    "file": "/images/friuli-venezia-giulia/afloat-cona.jpg",
+    "author": "Alecobbe",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Riserva_naturale_della_Foce_dell%27Isonzo.JPG",
+    "sourceFile": "File:Riserva naturale della Foce dell'Isonzo.JPG"
+  },
+  "afloat-grado-pineta": {
+    "town": "Grado Pineta",
+    "file": "/images/friuli-venezia-giulia/afloat-grado-pineta.jpg",
+    "author": "Carsten Steger",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Grado_(view_from_the_west).jpg",
+    "sourceFile": "File:Aerial image of Grado (view from the west).jpg"
+  },
+  "afloat-koper": {
+    "town": "Koper",
+    "file": "/images/friuli-venezia-giulia/afloat-koper.jpg",
+    "author": "TICKoper",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Koper,_mesto.jpg",
+    "sourceFile": "File:Koper, mesto.jpg"
+  },
+  "afloat-izola": {
+    "town": "Izola",
+    "file": "/images/friuli-venezia-giulia/afloat-izola.jpg",
+    "author": "Bryan Pocius from New York, USA",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Izola_-_panorama.jpg",
+    "sourceFile": "File:Izola - panorama.jpg"
+  },
+  "afloat-portoroz": {
+    "town": "Portoroz",
+    "file": "/images/friuli-venezia-giulia/afloat-portoroz.jpg",
+    "author": "Žiga",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Palace-Portoroz2.JPG",
+    "sourceFile": "File:Palace-Portoroz2.JPG"
+  },
+  "afloat-umag": {
+    "town": "Umag",
+    "file": "/images/friuli-venezia-giulia/afloat-umag.jpg",
+    "author": "Michal Klajban",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Panorama_of_Umag,_Istria,_Croatia.jpg",
+    "sourceFile": "File:Panorama of Umag, Istria, Croatia.jpg"
+  },
+  "afloat-novigrad": {
+    "town": "Novigrad Istria",
+    "file": "/images/friuli-venezia-giulia/afloat-novigrad.jpg",
+    "author": "Petar Milošević",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Novigrad_(Istria).jpg",
+    "sourceFile": "File:Novigrad (Istria).jpg"
+  },
+  "afloat-porec": {
+    "town": "Porec",
+    "file": "/images/friuli-venezia-giulia/afloat-porec.jpg",
+    "author": "Hobe / Holger Behr",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:HR_-Porec2.JPG",
+    "sourceFile": "File:HR -Porec2.JPG"
+  },
+  "afloat-pula": {
+    "town": "Pula",
+    "file": "/images/friuli-venezia-giulia/afloat-pula.jpg",
+    "author": "Carole Raddato from FRANKFURT, Germany",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_the_harbour_through_the_arena_walls,_Colonia_Pietas_Iulia_Pola_Pollentia_Herculanea,_Histria_(10439003465).jpg",
+    "sourceFile": "File:View of the harbour through the arena walls, Colonia Pietas Iulia Pola Pollentia Herculanea, Histria (10439003465).jpg"
+  },
+  "afloat-cres": {
+    "town": "Cres and Losinj",
+    "file": "/images/friuli-venezia-giulia/afloat-cres.jpg",
+    "author": "Carsten Steger",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_northern_part_of_Cres_(view_from_the_south).jpg",
+    "sourceFile": "File:Aerial image of the northern part of Cres (view from the south).jpg"
+  },
+  "afloat-panzano": {
+    "town": "Baia di Panzano",
+    "file": "/images/friuli-venezia-giulia/afloat-panzano.jpg",
+    "author": "lappino",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mein_Schiff_Relax_Construction.jpg",
+    "sourceFile": "File:Mein Schiff Relax Construction.jpg"
   }
 }
