@@ -517,6 +517,8 @@ export default function RegionPage() {
           originStory={regionData.recipes.originStory}
           recipes={regionData.recipes.cards} 
           modes={regionData.recipes.modes} 
+          regionName={regionData.region.title.split(':')[0].trim()}
+
         />
       )}
 
