@@ -215,6 +215,7 @@ export default function AdminRegions() {
       } else {
         setActiveRegion(enrichedData.slug);
         localStorage.setItem('active-region', enrichedData.slug);
+        await setActiveRegionApi(enrichedData.slug);
         setLastScaffoldResult({ ...result.data, wizardData });
         toast({
           title: 'Region Created Successfully!',
