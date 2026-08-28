@@ -400,6 +400,7 @@ export default function RegionPage() {
         <>
           <FriuliThreeSouls />
           <FriuliSoulQuiz />
+          <FriuliFourTongues />
         </>
       )}
 
