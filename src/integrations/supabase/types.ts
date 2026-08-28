@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      app_settings: {
+        Row: {
+          key: string
+          updated_at: string
+          value: Json | null
+        }
+        Insert: {
+          key: string
+          updated_at?: string
+          value?: Json | null
+        }
+        Update: {
+          key?: string
+          updated_at?: string
+          value?: Json | null
+        }
+        Relationships: []
+      }
       region_og_metadata: {
         Row: {
           created_at: string

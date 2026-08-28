@@ -5,6 +5,7 @@ import {
   scaffoldRegionApi, 
   updateRegionLockApi, 
   setActiveRegionApi, 
+  getActiveRegionApi,
   publishRegionApi 
 } from '@/utils/regionApi';
 import { 
@@ -46,11 +47,21 @@ export default function AdminRegions() {
 
   const loadData = async () => {
     try {
-      const [reg, newsletterIdx] = await Promise.all([
+      const [reg, newsletterIdx, storedActive] = await Promise.all([
         getRegionRegistry(),
-        fetch('/data/newsletter-index.json').then(r => r.json())
+        fetch('/data/newsletter-index.json').then(r => r.json()),
+        getActiveRegionApi()
       ]);
       setRegistry(reg);
+
+      // Shared app settings are the source of truth for the active region
+      setActiveRegion(storedActive);
+      if (storedActive) {
+        localStorage.setItem('active-region', storedActive);
+      } else {
+        localStorage.removeItem('active-region');
+      }
+
       
       // Calculate next issue number
       const allIssues = [
@@ -95,8 +106,7 @@ export default function AdminRegions() {
     setActionLoading(null);
     
     if (result.success) {
-      setActiveRegion(slug);
-      localStorage.setItem('active-region', slug);
+      // Locking/unlocking must NOT hijack the active region.
       toast({
         title: currentLocked ? 'Region Unlocked' : 'Region Locked',
         description: result.message,
@@ -117,6 +127,8 @@ export default function AdminRegions() {
     setActionLoading(null);
     
     if (result.success) {
+      setActiveRegion(slug);
+      localStorage.setItem('active-region', slug);
       toast({
         title: 'Active Region Set',
         description: result.message,
@@ -130,6 +142,7 @@ export default function AdminRegions() {
       });
     }
   };
+
 
   const handleWizardComplete = async (wizardData: any) => {
     console.log('[AdminRegions] Wizard completed with data:', wizardData);
@@ -202,6 +215,7 @@ export default function AdminRegions() {
       } else {
         setActiveRegion(enrichedData.slug);
         localStorage.setItem('active-region', enrichedData.slug);
+        await setActiveRegionApi(enrichedData.slug);
         setLastScaffoldResult({ ...result.data, wizardData });
         toast({
           title: 'Region Created Successfully!',
