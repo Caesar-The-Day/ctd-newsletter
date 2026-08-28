@@ -1,13 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
-import { ChefHat, ExternalLink, Wine } from 'lucide-react';
+import { ChefHat, ExternalLink, Wine, Download, Share2, Printer, Link2, Check } from 'lucide-react';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useImageReveal } from '@/hooks/use-image-reveal';
+import {
+  downloadRecipeJson,
+  downloadRecipeText,
+  recipeAnchorId,
+  recipeUrl,
+  shareTargets,
+  toPlainText,
+  toSchemaRecipe,
+} from '@/utils/recipeExport';
+
 
 interface Recipe {
   id: string;
