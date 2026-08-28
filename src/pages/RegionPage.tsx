@@ -66,6 +66,7 @@ import FriuliThreeSouls from '@/components/sections/FriuliThreeSouls';
 import FriuliSoulQuiz from '@/components/sections/FriuliSoulQuiz';
 import FriuliBoraMeter from '@/components/sections/FriuliBoraMeter';
 import FriuliCrossBorder from '@/components/sections/FriuliCrossBorder';
+import FriuliAfloat from '@/components/sections/FriuliAfloat';
 import TriesteCoffeeDecoder from '@/components/sections/TriesteCoffeeDecoder';
 import TrentinoTwoTongues from '@/components/sections/TrentinoTwoTongues';
 import TrentinoHousingRules from '@/components/sections/TrentinoHousingRules';
@@ -434,6 +435,7 @@ export default function RegionPage() {
         <>
           <FriuliBoraMeter />
           <FriuliCrossBorder />
+          <FriuliAfloat />
           <TriesteCoffeeDecoder />
         </>
       )}
