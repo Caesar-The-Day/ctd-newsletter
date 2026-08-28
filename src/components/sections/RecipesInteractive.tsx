@@ -235,8 +235,10 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
                     {filteredRecipes.map((recipe) => (
               <div
                 key={recipe.id}
-                className="rounded-lg border bg-card shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
+                id={recipeAnchorId(recipe)}
+                className="rounded-lg border bg-card shadow-sm hover:shadow-lg transition-shadow overflow-hidden scroll-mt-24"
               >
+
                 <RecipeImage src={recipe.image} alt={recipe.title} />
                 
                 <div className="p-6">
