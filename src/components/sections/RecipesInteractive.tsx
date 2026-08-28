@@ -379,8 +379,129 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
         </div>
       </div>
     </section>
+    </>
   );
 }
+
+function RecipeActions({
+  recipe,
+  regionName,
+}: {
+  recipe: Recipe;
+  regionName?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const hasContent =
+    !!recipe.title && ((recipe.ingredients?.length ?? 0) > 0 || (recipe.steps?.length ?? 0) > 0);
+  if (!hasContent) return null;
+
+  const targets = shareTargets(recipe, regionName);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(recipeUrl(recipe));
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
+
+  const handleNativeShare = async () => {
+    if (!navigator.share) return false;
+    try {
+      await navigator.share({
+        title: recipe.title,
+        text: `${recipe.title}${regionName ? ` — a ${regionName} recipe` : ''}`,
+        url: recipeUrl(recipe),
+      });
+      return true;
+    } catch {
+      return true;
+    }
+  };
+
+  const handlePrint = () => {
+    const win = window.open('', '_blank', 'width=820,height=900');
+    if (!win) return;
+    const body = toPlainText(recipe, regionName)
+      .split('\n')
+      .map((line) => (line ? `<p>${line.replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c] as string))}</p>` : '<br/>'))
+      .join('');
+    win.document.write(
+      `<!doctype html><html><head><meta charset="utf-8"><title>${recipe.title}</title>` +
+        `<style>body{font-family:Georgia,serif;max-width:38em;margin:2.5em auto;line-height:1.5;color:#1f2937}p{margin:.2em 0}</style>` +
+        `</head><body>${body}</body></html>`,
+    );
+    win.document.close();
+    win.focus();
+    win.print();
+  };
+
+  return (
+    <div className="pt-4 border-t flex flex-wrap gap-2">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="secondary" size="sm" className="gap-2">
+            <Download className="h-4 w-4" />
+            Export
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-popover z-50">
+          <DropdownMenuLabel>Save this recipe</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onSelect={() => downloadRecipeJson(recipe, regionName)}>
+            Recipe file (.json) — Paprika, Mela, AnyList
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => downloadRecipeText(recipe, regionName)}>
+            Plain text (.txt)
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={handlePrint}>
+            <Printer className="h-4 w-4 mr-2" />
+            Print / Save as PDF
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="secondary"
+            size="sm"
+            className="gap-2"
+            onClick={(e) => {
+              if (typeof navigator !== 'undefined' && navigator.share) {
+                e.preventDefault();
+                void handleNativeShare();
+              }
+            }}
+          >
+            <Share2 className="h-4 w-4" />
+            Share
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-popover z-50">
+          <DropdownMenuLabel>Share this recipe</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          {targets.map((t) => (
+            <DropdownMenuItem key={t.label} asChild>
+              <a href={t.href} target="_blank" rel="noopener noreferrer">
+                {t.label}
+              </a>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <Button variant="ghost" size="sm" className="gap-2" onClick={handleCopy}>
+        {copied ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}
+        {copied ? 'Link copied' : 'Copy link'}
+      </Button>
+    </div>
+  );
+}
+
 
 function RecipeImage({ src, alt }: { src: string; alt: string }) {
   const { imageRef, isVisible } = useImageReveal();
