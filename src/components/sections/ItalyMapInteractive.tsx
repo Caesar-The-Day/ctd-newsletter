@@ -68,8 +68,10 @@ const ItalyMapInteractive = ({ newsletters, archive }: ItalyMapInteractiveProps)
     const nameMap: Record<string, string> = {
       'Piemonte': 'piemonte',
       'Valle d\'Aosta': 'valle-d-aosta',
+      "Valle d'Aosta/Vallée d'Aoste": 'valle-d-aosta',
       'Lombardia': 'lombardia',
       'Trentino-Alto Adige': 'trentino-alto-adige',
+      'Trentino-Alto Adige/Südtirol': 'trentino-alto-adige',
       'Veneto': 'veneto',
       'Friuli-Venezia Giulia': 'friuli-venezia-giulia',
       'Liguria': 'liguria',
