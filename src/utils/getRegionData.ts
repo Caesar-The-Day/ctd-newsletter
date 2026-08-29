@@ -104,6 +104,7 @@ export async function getNewsletterIndexData() {
 
       return {
         slug: dbRow.slug,
+        displayName: dbRow.display_name,
         title: existing?.title || regionBlock?.title || dbRow.display_name,
         issueNumber: dbRow.issue_number ?? existing?.issueNumber ?? 0,
         date: existing?.date || (dbRow.published_date ? new Date(dbRow.published_date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : ''),
