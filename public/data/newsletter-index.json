@@ -17,6 +17,18 @@
   },
   "newsletters": [
     {
+      "slug": "trentino-alto-adige",
+      "title": "Trentino-Alto Adige",
+      "subtitle": "The Alpine Symphony",
+      "issueNumber": 16,
+      "date": "August 2026",
+      "status": "live",
+      "thumbnail": "https://jolbywwrnehhwodlgytt.supabase.co/storage/v1/object/public/region-images/trentino-alto-adige/hero.png",
+      "description": "Italy's northernmost region runs on two languages, two autonomous provinces, and a quality of life that tops every national ranking. Bolzano and Trento anchor a valley network of apple orchards, cable-car commutes, and Dolomite trailheads — with healthcare that functions like Switzerland's at Italian prices. This issue maps the property rules foreigners actually face, compares eleven towns on real budgets, and explains the autonomy dividend that keeps taxes local and services exceptional.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/trentino-alto-adige"
+    },
+    {
       "slug": "lazio",
       "title": "Lazio",
       "subtitle": "Rome, the Hills, and the Lakes",
