@@ -132,7 +132,7 @@ export async function getNewsletterIndexData() {
           date: newestLive.date,
           description: newestLive.description,
           heroImage: newestLive.thumbnail,
-          ctaText: 'Explore ' + newestLive.title,
+          ctaText: 'Explore ' + (newestLive.displayName || newestLive.title),
           ctaLink: `/${newestLive.slug}`,
         }
       : staticData.featured;
