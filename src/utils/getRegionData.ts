@@ -75,14 +75,19 @@ export async function getNewsletterIndexData() {
       const existing = staticLookup[dbRow.slug];
       const isLive = dbRow.status === 'live';
 
-      // Derive photo + copy straight from the region record so newly published
+// Derive photo + copy straight from the region record so newly published
       // regions promote themselves to the home page without manual edits.
       const regionBlock = dbRow.region_data?.region ?? {};
       const dbHero: string | undefined = regionBlock?.hero?.bannerImage || undefined;
+      // Prefer a proper descriptive paragraph over the short tagline so the home
+      // card reads as a real write-up, not a one-liner. Intro paragraphs are
+      // editorial and often long, so excerpt them to a card-appropriate length.
       const dbIntroParagraph: string | undefined = Array.isArray(regionBlock?.intro?.paragraphs)
         ? regionBlock.intro.paragraphs[0]
         : undefined;
-      const dbDescription: string | undefined = regionBlock?.tagline || dbIntroParagraph || undefined;
+      const dbDescription: string | undefined = excerpt(
+        dbIntroParagraph || regionBlock?.tagline || ''
+      );
 
       return {
         slug: dbRow.slug,
