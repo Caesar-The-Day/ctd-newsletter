@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
-import escapePlan2026Asset from '@/assets/escape-plan-2026.jpg.asset.json';
 
 export function BookCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,7 +46,7 @@ export function BookCTA() {
                   }}
                 >
                 <img
-                  src={escapePlan2026Asset.url} 
+                  src="/images/shared/escape-plan-2026.jpg" 
                   alt="Escape Plan: Your Strategic Guide to Moving to Italy — 2026 Updated Edition cover" 
                   className="w-full h-auto rounded-lg"
                 />
