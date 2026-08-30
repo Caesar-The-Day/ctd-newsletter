@@ -87,7 +87,17 @@ function checkLocalPath(raw: string, source: string) {
   if (!existsSync(path.join(PUBLIC_DIR, clean))) add('MISSING', clean, source);
 }
 
+/** Sources that legitimately hold external URLs that are never rendered as <img>. */
+const ATTRIBUTION_SOURCE = /-photo-credits\.json$/;
+
 function checkAbsolute(url: string, source: string) {
+  // Attribution manifests record the Commons source page, not a rendered image.
+  if (ATTRIBUTION_SOURCE.test(source)) return;
+  // Tile-server URL templates are map layers, not images.
+  if (url.includes('{')) return;
+  // Links to a Commons/Wikipedia description page are references, not images.
+  if (/(commons\.wikimedia\.org|\.wikipedia\.org)\/wiki\//.test(url)) return;
+
   let host: string;
   try {
     host = new URL(url).hostname;
