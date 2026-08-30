@@ -55,7 +55,7 @@ const specialties: Specialty[] = [
     season: 'November – March (peak: Dec–Feb)',
     funFact: 'Truffle dogs are so valuable they\'re often insured for €10,000+. Pigs were banned in the 1980s because they ate the truffles.',
     pairings: ['Fresh pasta', 'Scrambled eggs', 'Risotto'],
-    image: 'https://chefsmandala.com/wp-content/uploads/2018/03/Black-Truffle.jpg'
+    image: '/images/umbria/truffle-nero-pregiato.jpg'
   },
   {
     id: 'summer-truffle',
@@ -66,7 +66,7 @@ const specialties: Specialty[] = [
     season: 'May – September',
     funFact: 'At €200–400/kg (vs €2,000+ for winter black), this is how locals actually eat truffle regularly.',
     pairings: ['Grilled steak', 'Bruschetta', 'Fresh pasta'],
-    image: 'https://matteo-truffles.com/cdn/shop/products/tuberaestivum_4032x.jpg?v=1639082876'
+    image: '/images/umbria/truffle-scorzone.jpg'
   },
   {
     id: 'lenticchie',

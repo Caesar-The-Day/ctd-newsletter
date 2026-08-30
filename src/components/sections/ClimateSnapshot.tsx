@@ -140,13 +140,6 @@ const seasonalImagesPiemonte = {
   autumn: "/images/piemonte/seasonal-backgrounds/autumn-landscape.jpg",
 };
 
-const seasonalImagesUmbria = {
-  winter: "/images/umbria/seasonal-backgrounds/winter-landscape.jpg",
-  spring: "/images/umbria/seasonal-backgrounds/spring-landscape.jpg",
-  summer: "/images/umbria/seasonal-backgrounds/summer-landscape.jpg",
-  autumn: "/images/umbria/seasonal-backgrounds/autumn-landscape.jpg",
-};
-
 // Neutral default gradient palette used when a region doesn't ship custom backgrounds.
 const seasonalBackgroundsDefault = {
   winter: "from-slate-200/30 via-blue-100/20 to-slate-100/30 dark:from-slate-900/30 dark:via-blue-950/20 dark:to-slate-800/30",
@@ -269,7 +262,6 @@ export function ClimateSnapshot() {
   const getSeasonalImages = () => {
     if (region === "piemonte") return seasonalImagesPiemonte;
     if (region === "puglia") return seasonalImagesPuglia;
-    if (region === "umbria") return seasonalImagesUmbria;
     // Convention: image-generation pipeline writes to this path. If a file
     // doesn't exist, the <div> simply shows no background image (the gradient
     // overlay still renders, so the section never falls back to Piemonte art).

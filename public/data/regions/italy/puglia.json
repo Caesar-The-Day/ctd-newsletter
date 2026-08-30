@@ -7,7 +7,6 @@
     "tagline": "Where the heel of Italy meets the sea",
     "hero": {
       "bannerImage": "/images/puglia/puglia-hero.jpg",
-      "ambientAudio": "/images/piemonte/ambient.mp3",
       "credit": "Photo: Langhe Vineyards © CaesarTheDay"
     },
     "intro": {
@@ -26,34 +25,49 @@
   },
   "where": {
     "map": {
-      "center": [40.8, 17.3],
+      "center": [
+        40.8,
+        17.3
+      ],
       "zoom": 7,
       "markers": [
         {
           "id": "bari",
           "name": "Bari",
-          "coords": [41.1171, 16.8719],
+          "coords": [
+            41.1171,
+            16.8719
+          ],
           "photo": "/images/puglia/bari.jpg",
           "blurb": "Pragmatic capital and coastal hub — port city, university town, and gateway to the south."
         },
         {
           "id": "lecce",
           "name": "Lecce",
-          "coords": [40.3515, 18.1719],
+          "coords": [
+            40.3515,
+            18.1719
+          ],
           "photo": "/images/puglia/lecce.jpg",
           "blurb": "Honey-colored Baroque splendor anchoring the region's far south with art and soul."
         },
         {
           "id": "ostuni",
           "name": "Ostuni",
-          "coords": [40.7314, 17.5769],
+          "coords": [
+            40.7314,
+            17.5769
+          ],
           "photo": "/images/puglia/ostuni.jpg",
           "blurb": "The White City — gleaming limestone charm in the heart of the Valle d'Itria."
         },
         {
           "id": "alberobello",
           "name": "Alberobello",
-          "coords": [40.7812, 17.2378],
+          "coords": [
+            40.7812,
+            17.2378
+          ],
           "photo": "/images/puglia/alberobello-trulli.jpg",
           "blurb": "UNESCO fairytale town famous for its conical trulli houses and red soil vineyards."
         }
@@ -70,28 +84,112 @@
               "name": "Primitivo di Manduria DOP",
               "description": "Bold, sun-soaked reds with notes of blackberry and Mediterranean herbs. Pairs perfectly with orecchiette with meat ragù.",
               "color": "#722f37",
-              "coords": [[40.3, 17.3], [40.3, 17.5], [40.5, 17.5], [40.5, 17.3], [40.3, 17.3]]
+              "coords": [
+                [
+                  40.3,
+                  17.3
+                ],
+                [
+                  40.3,
+                  17.5
+                ],
+                [
+                  40.5,
+                  17.5
+                ],
+                [
+                  40.5,
+                  17.3
+                ],
+                [
+                  40.3,
+                  17.3
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Castel del Monte DOCG",
               "description": "Elegant wines from hillside vineyards. Nero di Troia creates structured reds with aging potential.",
               "color": "#8b4789",
-              "coords": [[41.0, 16.2], [41.0, 16.5], [41.2, 16.5], [41.2, 16.2], [41.0, 16.2]]
+              "coords": [
+                [
+                  41.0,
+                  16.2
+                ],
+                [
+                  41.0,
+                  16.5
+                ],
+                [
+                  41.2,
+                  16.5
+                ],
+                [
+                  41.2,
+                  16.2
+                ],
+                [
+                  41.0,
+                  16.2
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Terra di Bari DOP Olive Oil",
               "description": "Grassy, peppery olive oil from ancient groves. Best drizzled on grilled vegetables and fresh bread.",
               "color": "#8b7e34",
-              "coords": [[40.8, 16.5], [40.8, 17.2], [41.3, 17.2], [41.3, 16.5], [40.8, 16.5]]
+              "coords": [
+                [
+                  40.8,
+                  16.5
+                ],
+                [
+                  40.8,
+                  17.2
+                ],
+                [
+                  41.3,
+                  17.2
+                ],
+                [
+                  41.3,
+                  16.5
+                ],
+                [
+                  40.8,
+                  16.5
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Salento IGT (Wine & Olive Overlap)",
               "description": "Where wine and olive oil cultures merge. Negroamaro wines pair with local DOP oils in traditional Salentine cuisine.",
               "color": "#9b6b3d",
-              "coords": [[39.9, 17.8], [39.9, 18.5], [40.4, 18.5], [40.4, 17.8], [39.9, 17.8]]
+              "coords": [
+                [
+                  39.9,
+                  17.8
+                ],
+                [
+                  39.9,
+                  18.5
+                ],
+                [
+                  40.4,
+                  18.5
+                ],
+                [
+                  40.4,
+                  17.8
+                ],
+                [
+                  39.9,
+                  17.8
+                ]
+              ]
             }
           ]
         },
@@ -105,7 +203,10 @@
               "type": "marker",
               "name": "Masseria Moroseta",
               "timeCapsule": "Architectural gem near Ostuni. Modern minimalist design meets centuries-old olive groves.",
-              "coords": [40.7342, 17.5789],
+              "coords": [
+                40.7342,
+                17.5789
+              ],
               "photo": "/images/puglia/masseria-moroseta.jpg",
               "website": "https://www.masseriamoroseta.it"
             },
@@ -113,7 +214,10 @@
               "type": "marker",
               "name": "Masseria Torre Maizza",
               "timeCapsule": "16th-century fortress turned luxury retreat. Rosewood property in Savelletri.",
-              "coords": [40.8591, 17.3873],
+              "coords": [
+                40.8591,
+                17.3873
+              ],
               "photo": "/images/puglia/masseria-torre-maizza.jpg",
               "website": "https://www.roccofortehotels.com"
             },
@@ -121,7 +225,10 @@
               "type": "marker",
               "name": "Masseria Le Carrube",
               "timeCapsule": "Organic farm near Ostuni. Olive oil tastings and hands-on cheese-making classes.",
-              "coords": [40.7189, 17.6012],
+              "coords": [
+                40.7189,
+                17.6012
+              ],
               "photo": "/images/puglia/masseria-le-carrube.jpg",
               "website": "https://www.masserialecarrubeostuni.it"
             },
@@ -129,7 +236,10 @@
               "type": "marker",
               "name": "Masseria Chiancone Torricella",
               "timeCapsule": "Working farm in Valle d'Itria. Stay in trulli, harvest vegetables, make burrata.",
-              "coords": [40.7634, 17.4123],
+              "coords": [
+                40.7634,
+                17.4123
+              ],
               "photo": "/images/puglia/masseria-chiancone-torricella.jpg",
               "website": "https://www.masseriachiancone.it"
             },
@@ -137,7 +247,10 @@
               "type": "marker",
               "name": "Masseria Il Frantoio",
               "timeCapsule": "17th-century farm estate. Olive oil museum, cooking classes, farm breakfast.",
-              "coords": [40.7823, 17.5567],
+              "coords": [
+                40.7823,
+                17.5567
+              ],
               "photo": "/images/puglia/masseria-il-frantoio.jpg",
               "website": "https://www.masseriailfrantoio.it"
             },
@@ -145,7 +258,10 @@
               "type": "marker",
               "name": "Borgo Egnazia",
               "timeCapsule": "Puglia's most famous resort. Village-style luxury with traditional masseria architecture.",
-              "coords": [40.8747, 17.3981],
+              "coords": [
+                40.8747,
+                17.3981
+              ],
               "photo": "/images/puglia/borgo-egnazia.jpg",
               "website": "https://www.borgoegnazia.com"
             },
@@ -153,7 +269,10 @@
               "type": "marker",
               "name": "Masseria Torre Coccaro",
               "timeCapsule": "Medieval watchtower transformed. Private beach access, spa, and 3 restaurants.",
-              "coords": [40.8580, 17.3850],
+              "coords": [
+                40.858,
+                17.385
+              ],
               "photo": "/images/puglia/masseria-torre-coccaro.jpg",
               "website": "https://www.masseriatorrecoccaro.com"
             },
@@ -161,7 +280,10 @@
               "type": "marker",
               "name": "Masseria Salamina",
               "timeCapsule": "19th-century rural retreat near Fasano. Olive groves, farm animals, traditional recipes.",
-              "coords": [40.8234, 17.3567],
+              "coords": [
+                40.8234,
+                17.3567
+              ],
               "photo": "/images/puglia/masseria-salamina.jpg",
               "website": "https://www.masseriasalamina.it"
             },
@@ -169,7 +291,10 @@
               "type": "marker",
               "name": "Masseria Cervarolo",
               "timeCapsule": "Budget-friendly agriturismo near Ostuni. Rustic rooms, pool, and home-cooked dinners.",
-              "coords": [40.6987, 17.5912],
+              "coords": [
+                40.6987,
+                17.5912
+              ],
               "photo": "/images/puglia/masseria-cervarolo.jpg",
               "website": "https://www.masseriacervarolo.it"
             },
@@ -177,7 +302,10 @@
               "type": "marker",
               "name": "Masseria Spina Resort",
               "timeCapsule": "Working farm in Manduria wine country. Stay among vineyards, taste Primitivo.",
-              "coords": [40.3945, 17.6234],
+              "coords": [
+                40.3945,
+                17.6234
+              ],
               "photo": "/images/puglia/masseria-spina-resort.jpg",
               "website": "https://www.masseriaspinaresort.com"
             },
@@ -185,7 +313,10 @@
               "type": "marker",
               "name": "Masseria degli Ulivi",
               "timeCapsule": "Sea-view estate near Polignano. Infinity pool overlooking olive terraces.",
-              "coords": [40.9834, 17.2145],
+              "coords": [
+                40.9834,
+                17.2145
+              ],
               "photo": "/images/puglia/masseria-degli-ulivi.jpg",
               "website": "https://www.masseriadegliulivi.com"
             },
@@ -193,7 +324,10 @@
               "type": "marker",
               "name": "Masseria San Domenico",
               "timeCapsule": "5-star golf resort near Savelletri. 18-hole championship course, thalassotherapy spa.",
-              "coords": [40.8600, 17.3900],
+              "coords": [
+                40.86,
+                17.39
+              ],
               "photo": "/images/puglia/masseria-san-domenico.jpg",
               "website": "https://www.masseriasandomenico.com"
             },
@@ -201,7 +335,10 @@
               "type": "marker",
               "name": "Casale del Murgese",
               "timeCapsule": "Family-run agriturismo near Alberobello. Trulli accommodations, horseback riding.",
-              "coords": [40.7945, 17.2689],
+              "coords": [
+                40.7945,
+                17.2689
+              ],
               "photo": "/images/puglia/casale-del-murgese.jpg",
               "website": "https://www.casaledelmurgese.net"
             },
@@ -209,7 +346,10 @@
               "type": "marker",
               "name": "Masseria Trapanà",
               "timeCapsule": "Organic farm near Cisternino. Vegetable gardens, farm-to-table lunches, yoga retreats.",
-              "coords": [40.7312, 17.4289],
+              "coords": [
+                40.7312,
+                17.4289
+              ],
               "photo": "/images/puglia/masseria-trapana.jpg",
               "website": "https://www.trapana.com"
             },
@@ -217,7 +357,10 @@
               "type": "marker",
               "name": "Masseria Montenapoleone",
               "timeCapsule": "Olive oil estate near Pezze di Greco. Award-winning extra virgin, tastings, and tours.",
-              "coords": [40.7689, 17.5845],
+              "coords": [
+                40.7689,
+                17.5845
+              ],
               "photo": "/images/puglia/masseria-montenapoleone.jpg",
               "website": "https://www.masseriamontenapoleone.it"
             },
@@ -225,7 +368,10 @@
               "type": "marker",
               "name": "La Sommità Relais",
               "timeCapsule": "Boutique hotel in Ostuni's old town. Masseria-inspired design with rooftop views.",
-              "coords": [40.7314, 17.5789],
+              "coords": [
+                40.7314,
+                17.5789
+              ],
               "website": "https://www.lasommita.it",
               "photo": "/images/puglia/la-sommita-relais.jpg"
             },
@@ -233,7 +379,10 @@
               "type": "marker",
               "name": "Masseria Spina Resort",
               "timeCapsule": "Countryside retreat near Monopoli. Trulli suites, infinity pool, Michelin-starred dining.",
-              "coords": [40.9123, 17.2978],
+              "coords": [
+                40.9123,
+                17.2978
+              ],
               "photo": "/images/puglia/masseria-spina-resort.jpg"
             }
           ]
@@ -248,56 +397,145 @@
               "type": "ferry",
               "name": "Bari → Durrës, Albania",
               "description": "9 hours overnight",
-              "coords": [[41.1171, 16.8719], [41.3275, 19.4500]]
+              "coords": [
+                [
+                  41.1171,
+                  16.8719
+                ],
+                [
+                  41.3275,
+                  19.45
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Brindisi → Corfu, Greece",
               "description": "7 hours",
-              "coords": [[40.6384, 17.9463], [39.6243, 19.9217]]
+              "coords": [
+                [
+                  40.6384,
+                  17.9463
+                ],
+                [
+                  39.6243,
+                  19.9217
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Bari → Dubrovnik, Croatia",
               "description": "10 hours overnight",
-              "coords": [[41.1171, 16.8719], [42.6507, 18.0944]]
+              "coords": [
+                [
+                  41.1171,
+                  16.8719
+                ],
+                [
+                  42.6507,
+                  18.0944
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Bari → Igoumenitsa, Greece",
               "description": "12 hours to Epirus",
-              "coords": [[41.1171, 16.8719], [39.5029, 20.2654]]
+              "coords": [
+                [
+                  41.1171,
+                  16.8719
+                ],
+                [
+                  39.5029,
+                  20.2654
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Bari → Bar, Montenegro",
               "description": "9 hours to Montenegro",
-              "coords": [[41.1171, 16.8719], [42.0947, 19.0883]]
+              "coords": [
+                [
+                  41.1171,
+                  16.8719
+                ],
+                [
+                  42.0947,
+                  19.0883
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Brindisi → Igoumenitsa, Greece",
               "description": "8 hours to northwestern Greece",
-              "coords": [[40.6384, 17.9463], [39.5029, 20.2654]]
+              "coords": [
+                [
+                  40.6384,
+                  17.9463
+                ],
+                [
+                  39.5029,
+                  20.2654
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Brindisi → Patras, Greece",
               "description": "15 hours to Peloponnese",
-              "coords": [[40.6384, 17.9463], [38.2466, 21.7346]]
+              "coords": [
+                [
+                  40.6384,
+                  17.9463
+                ],
+                [
+                  38.2466,
+                  21.7346
+                ]
+              ]
             },
             {
               "type": "ferry",
               "name": "Otranto → Vlore, Albania",
               "description": "2.5 hours to Albanian Riviera",
-              "coords": [[40.1437, 18.4917], [40.4656, 19.4914]]
+              "coords": [
+                [
+                  40.1437,
+                  18.4917
+                ],
+                [
+                  40.4656,
+                  19.4914
+                ]
+              ]
             },
             {
               "type": "historic",
               "name": "Via Traiana (Roman Road)",
               "description": "Ancient spine road built by Emperor Trajan in 109 AD. Runs from Benevento through Puglia to Brindisi.",
               "color": "#8b6f47",
-              "coords": [[40.6384, 17.9463], [40.8, 17.5], [41.0, 17.0], [41.1, 16.8]]
+              "coords": [
+                [
+                  40.6384,
+                  17.9463
+                ],
+                [
+                  40.8,
+                  17.5
+                ],
+                [
+                  41.0,
+                  17.0
+                ],
+                [
+                  41.1,
+                  16.8
+                ]
+              ]
             }
           ]
         },
@@ -311,28 +549,40 @@
               "type": "marker",
               "name": "Alberobello",
               "timeCapsule": "Trulli — tax-dodging architecture from the 1500s that became iconic.",
-              "coords": [40.7812, 17.2378],
+              "coords": [
+                40.7812,
+                17.2378
+              ],
               "photo": "/images/puglia/alberobello-unesco.jpg"
             },
             {
               "type": "marker",
               "name": "Castel del Monte",
               "timeCapsule": "Octagonal fortress with no kitchen, no moat, no explanation.",
-              "coords": [41.0839, 16.2711],
+              "coords": [
+                41.0839,
+                16.2711
+              ],
               "photo": "/images/puglia/castel-del-monte-unesco.jpg"
             },
             {
               "type": "marker",
               "name": "Lecce Baroque District",
               "timeCapsule": "Baroque carved from butter-soft stone by sculptors who couldn't stop.",
-              "coords": [40.3515, 18.1719],
+              "coords": [
+                40.3515,
+                18.1719
+              ],
               "photo": "/images/puglia/lecce-unesco.jpg"
             },
             {
               "type": "marker",
               "name": "Matera (Basilicata border)",
               "timeCapsule": "Cave city inhabited for 9,000 years. Easy weekend escape from Puglia.",
-              "coords": [40.6664, 16.6043],
+              "coords": [
+                40.6664,
+                16.6043
+              ],
               "photo": "/images/puglia/matera-unesco.jpg"
             }
           ]
@@ -347,28 +597,40 @@
               "type": "marker",
               "name": "Gravina Underground",
               "timeCapsule": "Cave churches and rock-cut dwellings honeycombed into canyon walls.",
-              "coords": [40.8183, 16.4196],
+              "coords": [
+                40.8183,
+                16.4196
+              ],
               "photo": "/images/puglia/gravina-underground.jpg"
             },
             {
               "type": "marker",
               "name": "Massafra Ravine Crypts",
               "timeCapsule": "Byzantine frescoes hidden in limestone ravines. Spiritual refuge from the 9th century.",
-              "coords": [40.5847, 17.1119],
+              "coords": [
+                40.5847,
+                17.1119
+              ],
               "photo": "/images/puglia/massafra-ravine-crypts.jpg"
             },
             {
               "type": "marker",
               "name": "Locorotondo Hypogeum",
               "timeCapsule": "Subterranean olive oil mill with ancient presses still intact.",
-              "coords": [40.7541, 17.3272],
+              "coords": [
+                40.7541,
+                17.3272
+              ],
               "photo": "/images/puglia/locorotondo-hypogeum.jpg"
             },
             {
               "type": "marker",
               "name": "Castellana Caves",
               "timeCapsule": "3km underground wonderland. Stalactites and alabaster formations.",
-              "coords": [40.8833, 17.1667],
+              "coords": [
+                40.8833,
+                17.1667
+              ],
               "photo": "/images/puglia/castellana-caves.jpg"
             }
           ]
@@ -449,11 +711,22 @@
         "summary": "Baroque jewel of the south. Elegant sandstone palaces, golden piazzas glowing at sunset, and a food scene that treats vegetables like religion. Walkable, cultured, university-driven, and alive year-round. Close to both Adriatic and Ionian coasts. Southern warmth without southern chaos. Perfect home base for retirees who want beauty, rhythm, and accessibility.",
         "fullDescription": "Lecce is the kind of beauty that doesn't demand your attention but gets it anyway. Carved almost entirely from pietra leccese — that honey-colored stone that captures light the way Florence captures tourists — the city feels like it was built by sculptors first and administrators second. It's baroque, but not in the showy \"look at me\" way of Rome; this is a softer, southern baroque, softened further by sea air and olive groves.\n\nThe rhythm here is different. Streets unwind slowly. The old town feels like a curated maze. In the morning, nuns glide between churches while university students spill out of bars at midnight. Lecce has this balance — intellectual but not pretentious, historic but not frozen, relaxed but never dull.\n\nCulturally, Lecce overdelivers. Concerts, open-air theater, a thriving art scene, and food so good it should come with a warning label. This is the land of ciceri e tria, rustico leccese, and pasticciotto — dishes born from poverty but perfected through pride. Want the sea? Pick a direction. Drive twenty minutes east and hit the Adriatic; twenty-five west and you're on the Ionian. Retirees call this \"the two-beach lifestyle,\" and they're not wrong.\n\nFor long-stayers, Lecce is one of southern Italy's most livable urban centers. Healthcare access is solid, the university ecosystem brings constant life, and the cost of living is forgiving compared to the north. The summers get hot — this is Puglia, after all — but evenings are for strolling, gelato, and watching the city glow warm gold.\n\nLecce's character is subtle confidence. Locals love their city with a quiet loyalty. It's a place where time slows, not because nothing happens, but because the important things are allowed to breathe. If Turin is espresso and engineering, Lecce is sunlight and stone — built to be lived in, not rushed through.",
         "mapUrl": "https://www.google.com/maps/place/Lecce,+Italy",
-        "gallery": ["/images/puglia/lecce-unesco.jpg"],
+        "gallery": [
+          "/images/puglia/lecce-unesco.jpg"
+        ],
         "links": [
-          { "label": "Official Municipality Site", "href": "https://www.comune.lecce.it" },
-          { "label": "Local Guide to Lecce", "href": "https://goaskalocal.com/blog/local-guide-to-lecce" },
-          { "label": "Italia.it Lecce", "href": "https://www.italia.it/en/puglia/lecce" }
+          {
+            "label": "Official Municipality Site",
+            "href": "https://www.comune.lecce.it"
+          },
+          {
+            "label": "Local Guide to Lecce",
+            "href": "https://goaskalocal.com/blog/local-guide-to-lecce"
+          },
+          {
+            "label": "Italia.it Lecce",
+            "href": "https://www.italia.it/en/puglia/lecce"
+          }
         ]
       },
       {
@@ -464,11 +737,22 @@
         "summary": "Hilltop white city with Greek-island vibes and Italian soul. Maze-like lanes, iconic views, and easy access to the Itria Valley. Tourist energy in summer, calm beauty the rest of the year. Ideal for those who want charm and vistas without sacrificing real-town practicality.",
         "fullDescription": "Ostuni makes an entrance. Approach from the road and the city rises like a white crown above the olive fields — a dazzling hilltop citadel that looks more Aegean than Apulian. The effect is theatrical, and Ostuni knows it. Every corner, every staircase, every sunlit terrace feels like it was arranged by someone with a flair for drama.\n\nInside the whitewashed labyrinth, the town is equal parts chaos and perfection. Lanes twist, widen, narrow, and surprise you with sudden views across the plains to the Adriatic. Residents paint their doors in jewel tones, add pots of bougainvillea, and sweep their steps every morning. It's the kind of place where even your daily walk to buy milk feels like a postcard moment.\n\nCulturally, Ostuni punches above its population. Summer brings festivals, concerts, open-air cinema, and a lively restaurant scene that has grown up around international tourism — but the off-season belongs to the locals. Shopkeepers chat, old men argue in dialect on benches, and the whole town exhales.\n\nFor retirees, the appeal is obvious: slower lifestyle, small-but-adequate services, a deeply social rhythm, and proximity to the Itria Valley's all-stars — Cisternino, Locorotondo, and Martina Franca. Healthcare is available in nearby Fasano or Brindisi, and the coast is fifteen minutes away when you need salt air.\n\nOstuni's vibe is Mediterranean ease with an Italian heart. It's quieter than you'd expect, brighter than you remember, and more layered than the Instagram photos that made it famous. If you want a town that feels like Italy but looks like nowhere else, Ostuni is the white city that sets the tone.",
         "mapUrl": "https://www.google.com/maps/place/Ostuni,+BR,+Italy",
-        "gallery": ["/images/puglia/ostuni-whitecity.jpg"],
+        "gallery": [
+          "/images/puglia/ostuni-whitecity.jpg"
+        ],
         "links": [
-          { "label": "Official Municipality Site", "href": "https://www.comune.ostuni.br.it" },
-          { "label": "Beautiful Puglia Guide", "href": "https://www.beautifulpuglia.com/ostuni" },
-          { "label": "Bon Traveler Guide", "href": "https://www.bontraveler.com/ostuni-italy" }
+          {
+            "label": "Official Municipality Site",
+            "href": "https://www.comune.ostuni.br.it"
+          },
+          {
+            "label": "Beautiful Puglia Guide",
+            "href": "https://www.beautifulpuglia.com/ostuni"
+          },
+          {
+            "label": "Bon Traveler Guide",
+            "href": "https://www.bontraveler.com/ostuni-italy"
+          }
         ]
       },
       {
@@ -479,11 +763,22 @@
         "summary": "Cliffside stunner hanging above turquoise water. Dramatic views, walkable center, and quick access to Bari. More touristy than other towns, but unmatched for coastal living. Perfect for readers who want sea, sun, and a lively social scene.",
         "fullDescription": "Polignano doesn't whisper; it performs. Built on limestone cliffs carved by centuries of waves, the town perches over the Adriatic like it's daring gravity to disagree. Wander through the historic center and you'll find balconies hanging above the sea, staircases etched with poetry, and that unforgettable cove — Lama Monachile — where turquoise water slices into the rock like a blade.\n\nThe town is compact, photogenic, and buzzing. In summer, every table is full, every gelato melts too fast, and cliff divers hurl themselves into the sea as if auditioning for a myth. In winter, the energy softens. Locals reclaim the piazzas. Restaurants stay open. The sea keeps roaring, but the town exhales.\n\nPolignano's cultural vibe is part seaside holiday, part working fishing town. You feel both. Fishermen still unload their catch at dawn. Yet the town also hosts concerts, exhibitions, food festivals, and that famous cliff-diving world competition that turns the coastline into a stadium.\n\nFrom a practical standpoint, Polignano offers something rare in Puglia: a direct train line to Bari. That makes airport access simple, healthcare access better than many coastal towns, and everyday logistics smoother. Retirees who want coastal living without isolation gravitate here for a reason.\n\nThe people of Polignano are warm, expressive, and endlessly proud of their cliffs, their cuisine, and their Domenico Modugno statue — \"Volare, oh-oh!\" is practically a municipal greeting. The atmosphere is cheerful, bold, and unapologetically coastal.\n\nLiving here means living with the sea — its drama, its calm, its vastness. If Lecce is elegance and Ostuni is purity, Polignano is adrenaline. A place where the view becomes part of your daily metabolism.",
         "mapUrl": "https://www.google.com/maps/place/Polignano+a+Mare,+BA,+Italy",
-        "gallery": ["/images/puglia/polignano-cliffs.jpg"],
+        "gallery": [
+          "/images/puglia/polignano-cliffs.jpg"
+        ],
         "links": [
-          { "label": "Official Tourism Site", "href": "https://polignanoamare.com/en" },
-          { "label": "Polignano Guide", "href": "https://www.polignanoamare.eu" },
-          { "label": "Info Point Details", "href": "https://mobile.viaggiareinpuglia.it/en/dettaglio-infopoint/info-point-polignano-mare" }
+          {
+            "label": "Official Tourism Site",
+            "href": "https://polignanoamare.com/en"
+          },
+          {
+            "label": "Polignano Guide",
+            "href": "https://www.polignanoamare.eu"
+          },
+          {
+            "label": "Info Point Details",
+            "href": "https://mobile.viaggiareinpuglia.it/en/dettaglio-infopoint/info-point-polignano-mare"
+          }
         ],
         "eligible7Percent": true
       }
@@ -614,224 +909,224 @@
   "highlights": {
     "sectionIntro": "Anyone who spends more than twelve minutes in Puglia figures out that the region doesn't separate its pleasures: food, wine, and culture are the same organism. They breathe together. A plate of orecchiette isn't just lunch; it's the way a grandmother teaches history. A glass of Primitivo isn't just a drink; it's the geography of the land poured into something you can hold. And culture, in Puglia, is not a museum concept—it's what happens when the town piazza fills up on a Tuesday night because someone's cousin is frying anchovies and the band showed up early. If you want to understand why so many people fall head-over-heels for this place, start here: the region where meals are stories, harvests are holidays, and the rhythm of life is measured in festivals, not deadlines.",
     "wine": {
-        "title": "Wine - Sunlight Turned Into Red",
-        "intro": "If food is the body of Puglia's lifestyle, wine is the pulse. The region has shed its old image as simply \"bulk winemaking\" and is now quietly punching above its weight in quality and identity. The reds — especially from grapes like Primitivo and Negroamaro — carry the story of sun, soil, and salt-laden breezes. For someone thinking \"move abroad, live here, belong here\", wine isn't just an indulgence; it's a way to connect: with growers, with region, with lifestyle.",
-        "backgroundImage": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg",
-        "cards": [
-          {
-            "id": "primitivo-rise",
-            "title": "Primitivo & its Rise",
-            "subtitle": "explore how Puglia turned this grape into a symbol",
-            "image": "/images/puglia/primitivo-grapes.jpg",
-            "description": "Once dismissed as a rustic table wine, Primitivo has become the bold red heart of Puglia, shaped by sun-soaked vineyards and centuries of local tradition. Its rise mirrors the region's own evolution from humble farmland to one of Italy's most expressive wine territories.",
-            "links": [
-              {
-                "label": "Primitivo: An Introduction",
-                "href": "https://cellartours.com/blog/italy/primitivo-wine-an-introduction-to-puglias-mythical-grape"
-              }
-            ]
-          },
-          {
-            "id": "wine-regions",
-            "title": "Puglia Wine Regions & Grape Varieties",
-            "subtitle": "overview of region, DOCs, IGTs",
-            "image": "/images/puglia/seasonal-backgrounds/summer-landscape.jpg",
-            "description": "From the deep reds of Manduria to the limestone-kissed Nero di Troia of northern Puglia, the region's DOCs and IGTs reflect a landscape split between sea, stone, and centuries of cultivation. Each grape carries a different accent of the territory, making Puglia one of Italy's most diverse wine regions.",
-            "links": [
-              {
-                "label": "Puglia Wine Regions Guide",
-                "href": "https://italianwinecentral.com/region-province/puglia/"
-              }
-            ]
-          },
-          {
-            "id": "wine-tasting-masserie",
-            "title": "Wine-Tasting Off Tourist Track",
-            "subtitle": "family masserie, cooperatives, small cellars",
-            "image": "/images/puglia/masseria-moroseta.jpg",
-            "description": "Some of Puglia's best experiences happen far from the polished tasting rooms, in masserie and cooperative cantine where winemakers pour from barrels and tell you about the land firsthand. These hidden spots offer the intimacy and authenticity your readers crave — the kind of tasting that feels like being welcomed into a family.",
-            "links": [
-              {
-                "label": "View Masserie on Map",
-                "href": "#map"
-              }
-            ]
-          },
-          {
-            "id": "sustainable-wine-oil",
-            "title": "Sustainable & Olive-Oil-Wine Intersections",
-            "subtitle": "Puglia grows both olives and grapes; two sides of the terroir coin",
-            "image": "/images/puglia/seasonal-backgrounds/spring-landscape.jpg",
-            "description": "In Puglia, vines and olive trees grow side by side, sharing the same rocky soil and sea-winds that shape their flavors. This natural overlap has pushed many producers toward sustainable farming, creating a regional identity built equally on wine, oil, and respect for the land.",
-            "links": [
-              {
-                "label": "Puglian Cuisine & Terroir",
-                "href": "https://www.cellartours.com/blog/italy/puglian-cuisine"
-              }
-            ]
-          },
-          {
-            "id": "wine-festivals",
-            "title": "Wine Festivals & Harvest Events",
-            "subtitle": "timing, what a visiting-resigner should mark on calendar",
-            "image": "/images/puglia/wine-harvest-festival.jpg",
-            "description": "Autumn transforms Puglia into a rolling calendar of vendemmia celebrations, with towns filling their piazzas for tastings, music, and harvest rituals. These festivals are more than events — they're an invitation to witness how deeply wine is woven into everyday life here.",
-            "links": [
-              {
-                "label": "Puglia's Wine Culture",
-                "href": "https://www.theguardian.com/food/article/2024/may/26/puglias-wines-pack-a-punch"
-              }
-            ]
-          }
-        ]
-      },
-      "food": {
-        "title": "Food",
-        "intro": "Puglia doesn't cook the way other regions cook. It cooks the way the land demands. Wheat fields, olive groves, blistering summers, and a double coastline have shaped a cucina that's deceptively simple and endlessly soulful. You taste it in the bitterness of wild chicory, in the chew of orecchiette rolled by a Bari nonna, in the golden crackle of Altamura bread pulled from a wood-fired oven. It's a cuisine born from scarcity yet rich in character, and for anyone dreaming of a life here, understanding the food is understanding the culture itself.",
-        "header": "Food — Where the Land Teaches the Table",
-        "backgroundImage": "/images/puglia/orecchiette-cime-di-rapa.jpg",
-        "cards": [
-          {
-            "id": "orecchiette",
-            "title": "Orecchiette & Cime di Rapa",
-            "subtitle": "The pasta that defines Puglia",
-            "image": "/images/puglia/orecchiette-cime-di-rapa.jpg",
-            "description": "The dish that defines Puglia: handmade orecchiette gripping bitter greens, anchovy, garlic and oil — a perfect expression of the region's cucina povera roots. Walk through Bari Vecchia and you'll see it being shaped right on the street.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://italysegreta.com/20-foods-you-must-eat-in-puglia/"
-              }
-            ]
-          },
-          {
-            "id": "altamura-bread",
-            "title": "Pane di Altamura & the Bread Culture",
-            "subtitle": "PDO bread with ancient roots",
-            "image": "/images/puglia/pane-altamura.jpg",
-            "description": "Altamura's PDO bread has a thick crust and a soft, yellow, almost custardy interior thanks to local durum wheat. It isn't just something to eat — it's an agricultural tradition, a communal oven culture, and a daily ritual.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://www.lacucinaitaliana.com/trip-to-italy/southern-italy/foods-you-must-eat-in-puglia"
-              }
-            ]
-          },
-          {
-            "id": "crudo-di-mare",
-            "title": "Seafood & Crudo di Mare",
-            "subtitle": "Raw from the Adriatic",
-            "image": "/images/puglia/crudo-di-mare.jpg",
-            "description": "Along the Adriatic, seafood isn't a luxury; it's morning routine. Raw mussels, sea urchins, and prawns (\"crudo di mare\") are a testament to waters so clean and cold that locals eat straight from the shell.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://www.pugliaguys.com/2025/08/31/20-of-puglias-best-dishes/"
-              }
-            ]
-          },
-          {
-            "id": "cucina-povera",
-            "title": "Cucina Povera & Seasonal Simplicity",
-            "subtitle": "Humble ingredients, extraordinary flavors",
-            "image": "/images/puglia/cucina-povera-ingredients.jpg",
-            "description": "Puglia's most iconic flavors come from humble ingredients: fava beans, wild chicory, tomatoes sun-warmed on the vine, and olive oil that tastes alive. It's a cuisine that follows the seasons, not the supermarkets.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://thevespatrip.com/en/puglia-food-guide/"
-              }
-            ]
-          },
-          {
-            "id": "sagre-festivals",
-            "title": "Sagre & Local Food Festivals",
-            "subtitle": "Where towns celebrate their dishes",
-            "image": "/images/puglia/sagra-food-festival.jpg",
-            "description": "Every town has its own festival — panzerotti nights, orecchiette feasts, fig celebrations, grilled octopus weekends. These sagre are where you see the real Puglia: long tables, loud laughter, and recipes that never make it into cookbooks.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://theitalianontour.com/a-guide-to-puglias-most-famous-food-and-wine/"
-              }
-            ]
-          }
-        ]
-      },
-      "culture": {
-        "title": "Culture",
-        "intro": "Culture in Puglia isn't something you step into; it's something you're surrounded by. It's the dry-stacked stones of a trullo holding the heat of a thousand summers. It's Lecce's creamy Baroque facades glowing at dusk, and a piazza filling without warning because the band decided to start early. It's the rhythm of pizzica echoing through a summer night, the solemnity of Holy Week processions, and the pride every town carries for its sagre, saints, and stories. For someone imagining a future life here, Puglia's culture offers something priceless: a sense of belonging that comes not from spectacle, but from continuity.",
-        "header": "Culture — Stories Written in Stone and Celebration",
-        "backgroundImage": "/images/puglia/ostuni-whitecity.jpg",
-        "cards": [
-          {
-            "id": "pizzica-tarantismo",
-            "title": "Pizzica & Tarantismo",
-            "subtitle": "The hypnotic dance of healing",
-            "image": "/images/puglia/pizzica-dance.jpg",
-            "description": "A hypnotic, fast-footed dance born from ancient healing rituals, the pizzica is the heartbeat of Salento. Whether performed at a village festa or an impromptu gathering, it's one of the most visceral ways Puglia tells its story.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://pugliaparadise.com/the-real-secret-of-pizzica-an-apulian-dance/"
-              }
-            ]
-          },
-          {
-            "id": "notte-taranta",
-            "title": "La Notte della Taranta",
-            "subtitle": "Puglia's cultural lightning strike",
-            "image": "/images/puglia/notte-della-taranta.jpg",
-            "description": "This is Puglia's cultural lightning strike — an enormous open-air concert celebrating pizzica, folk traditions, and community. Held across multiple towns and culminating in Melpignano, it's both ancient ritual and modern music festival.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://en.wikipedia.org/wiki/Notte_della_Taranta"
-              }
-            ]
-          },
-          {
-            "id": "trulli-architecture",
-            "title": "Trulli, Town Centers & the Architecture of Slow Life",
-            "subtitle": "Living history in stone",
-            "image": "/images/puglia/alberobello-trulli.jpg",
-            "description": "From the fairytale cones of Alberobello to the whitewashed labyrinths of Ostuni and Locorotondo, Puglia's architecture tells centuries of agricultural, pastoral, and maritime history. These towns aren't postcards — they're living, breathing spaces shaped for human scale.",
-            "links": [
-              {
-                "label": "UNESCO World Heritage Site",
-                "href": "https://whc.unesco.org/en/list/787/"
-              }
-            ]
-          },
-          {
-            "id": "sagre-patron-saints",
-            "title": "Sagre, Patron Saints & Local Feasts",
-            "subtitle": "Community memory made visible",
-            "image": "/images/puglia/lecce.jpg",
-            "description": "Every town has its own calendar of celebrations: fireworks for San Nicola, bonfires for San Giuseppe, processions winding through stone alleys. These aren't performances — they're the community's memory and identity made visible.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://travelpuglia.com/puglias-festivals-and-events-a-calendar-of-cultural-celebrations/"
-              }
-            ]
-          },
-          {
-            "id": "piazza-life",
-            "title": "The Everyday Culture: Piazza Life & the Passeggiata",
-            "subtitle": "Culture in the ordinary",
-            "image": "/images/puglia/piazza-passeggiata.jpg",
-            "description": "Evening strolls, gossip shared over espresso, children playing freely in the piazza — this is the social fabric newcomers fall in love with. It's culture expressed in the ordinary, and it's the part that sticks with you long after the festivals end.",
-            "links": [
-              {
-                "label": "Read More",
-                "href": "https://puglianpleasures.com/2024/11/22/the-art-of-the-passeggiata-a-puglian-masterpiece/#:~:text=For%20those%20unfamiliar%2C%20the%20passeggiata,in%20Puglia%E2%80%94an%20absolute%20must."
-              }
-            ]
-          }
-        ]
-      }
+      "title": "Wine - Sunlight Turned Into Red",
+      "intro": "If food is the body of Puglia's lifestyle, wine is the pulse. The region has shed its old image as simply \"bulk winemaking\" and is now quietly punching above its weight in quality and identity. The reds — especially from grapes like Primitivo and Negroamaro — carry the story of sun, soil, and salt-laden breezes. For someone thinking \"move abroad, live here, belong here\", wine isn't just an indulgence; it's a way to connect: with growers, with region, with lifestyle.",
+      "backgroundImage": "/images/puglia/seasonal-backgrounds/autumn-landscape.jpg",
+      "cards": [
+        {
+          "id": "primitivo-rise",
+          "title": "Primitivo & its Rise",
+          "subtitle": "explore how Puglia turned this grape into a symbol",
+          "image": "/images/puglia/primitivo-grapes.jpg",
+          "description": "Once dismissed as a rustic table wine, Primitivo has become the bold red heart of Puglia, shaped by sun-soaked vineyards and centuries of local tradition. Its rise mirrors the region's own evolution from humble farmland to one of Italy's most expressive wine territories.",
+          "links": [
+            {
+              "label": "Primitivo: An Introduction",
+              "href": "https://cellartours.com/blog/italy/primitivo-wine-an-introduction-to-puglias-mythical-grape"
+            }
+          ]
+        },
+        {
+          "id": "wine-regions",
+          "title": "Puglia Wine Regions & Grape Varieties",
+          "subtitle": "overview of region, DOCs, IGTs",
+          "image": "/images/puglia/seasonal-backgrounds/summer-landscape.jpg",
+          "description": "From the deep reds of Manduria to the limestone-kissed Nero di Troia of northern Puglia, the region's DOCs and IGTs reflect a landscape split between sea, stone, and centuries of cultivation. Each grape carries a different accent of the territory, making Puglia one of Italy's most diverse wine regions.",
+          "links": [
+            {
+              "label": "Puglia Wine Regions Guide",
+              "href": "https://italianwinecentral.com/region-province/puglia/"
+            }
+          ]
+        },
+        {
+          "id": "wine-tasting-masserie",
+          "title": "Wine-Tasting Off Tourist Track",
+          "subtitle": "family masserie, cooperatives, small cellars",
+          "image": "/images/puglia/masseria-moroseta.jpg",
+          "description": "Some of Puglia's best experiences happen far from the polished tasting rooms, in masserie and cooperative cantine where winemakers pour from barrels and tell you about the land firsthand. These hidden spots offer the intimacy and authenticity your readers crave — the kind of tasting that feels like being welcomed into a family.",
+          "links": [
+            {
+              "label": "View Masserie on Map",
+              "href": "#map"
+            }
+          ]
+        },
+        {
+          "id": "sustainable-wine-oil",
+          "title": "Sustainable & Olive-Oil-Wine Intersections",
+          "subtitle": "Puglia grows both olives and grapes; two sides of the terroir coin",
+          "image": "/images/puglia/seasonal-backgrounds/spring-landscape.jpg",
+          "description": "In Puglia, vines and olive trees grow side by side, sharing the same rocky soil and sea-winds that shape their flavors. This natural overlap has pushed many producers toward sustainable farming, creating a regional identity built equally on wine, oil, and respect for the land.",
+          "links": [
+            {
+              "label": "Puglian Cuisine & Terroir",
+              "href": "https://www.cellartours.com/blog/italy/puglian-cuisine"
+            }
+          ]
+        },
+        {
+          "id": "wine-festivals",
+          "title": "Wine Festivals & Harvest Events",
+          "subtitle": "timing, what a visiting-resigner should mark on calendar",
+          "image": "/images/puglia/wine-harvest-festival.jpg",
+          "description": "Autumn transforms Puglia into a rolling calendar of vendemmia celebrations, with towns filling their piazzas for tastings, music, and harvest rituals. These festivals are more than events — they're an invitation to witness how deeply wine is woven into everyday life here.",
+          "links": [
+            {
+              "label": "Puglia's Wine Culture",
+              "href": "https://www.theguardian.com/food/article/2024/may/26/puglias-wines-pack-a-punch"
+            }
+          ]
+        }
+      ]
     },
+    "food": {
+      "title": "Food",
+      "intro": "Puglia doesn't cook the way other regions cook. It cooks the way the land demands. Wheat fields, olive groves, blistering summers, and a double coastline have shaped a cucina that's deceptively simple and endlessly soulful. You taste it in the bitterness of wild chicory, in the chew of orecchiette rolled by a Bari nonna, in the golden crackle of Altamura bread pulled from a wood-fired oven. It's a cuisine born from scarcity yet rich in character, and for anyone dreaming of a life here, understanding the food is understanding the culture itself.",
+      "header": "Food — Where the Land Teaches the Table",
+      "backgroundImage": "/images/puglia/orecchiette-cime-di-rapa.jpg",
+      "cards": [
+        {
+          "id": "orecchiette",
+          "title": "Orecchiette & Cime di Rapa",
+          "subtitle": "The pasta that defines Puglia",
+          "image": "/images/puglia/orecchiette-cime-di-rapa.jpg",
+          "description": "The dish that defines Puglia: handmade orecchiette gripping bitter greens, anchovy, garlic and oil — a perfect expression of the region's cucina povera roots. Walk through Bari Vecchia and you'll see it being shaped right on the street.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://italysegreta.com/20-foods-you-must-eat-in-puglia/"
+            }
+          ]
+        },
+        {
+          "id": "altamura-bread",
+          "title": "Pane di Altamura & the Bread Culture",
+          "subtitle": "PDO bread with ancient roots",
+          "image": "/images/puglia/pane-altamura.jpg",
+          "description": "Altamura's PDO bread has a thick crust and a soft, yellow, almost custardy interior thanks to local durum wheat. It isn't just something to eat — it's an agricultural tradition, a communal oven culture, and a daily ritual.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://www.lacucinaitaliana.com/trip-to-italy/southern-italy/foods-you-must-eat-in-puglia"
+            }
+          ]
+        },
+        {
+          "id": "crudo-di-mare",
+          "title": "Seafood & Crudo di Mare",
+          "subtitle": "Raw from the Adriatic",
+          "image": "/images/puglia/crudo-di-mare.jpg",
+          "description": "Along the Adriatic, seafood isn't a luxury; it's morning routine. Raw mussels, sea urchins, and prawns (\"crudo di mare\") are a testament to waters so clean and cold that locals eat straight from the shell.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://www.pugliaguys.com/2025/08/31/20-of-puglias-best-dishes/"
+            }
+          ]
+        },
+        {
+          "id": "cucina-povera",
+          "title": "Cucina Povera & Seasonal Simplicity",
+          "subtitle": "Humble ingredients, extraordinary flavors",
+          "image": "/images/puglia/cucina-povera-ingredients.jpg",
+          "description": "Puglia's most iconic flavors come from humble ingredients: fava beans, wild chicory, tomatoes sun-warmed on the vine, and olive oil that tastes alive. It's a cuisine that follows the seasons, not the supermarkets.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://thevespatrip.com/en/puglia-food-guide/"
+            }
+          ]
+        },
+        {
+          "id": "sagre-festivals",
+          "title": "Sagre & Local Food Festivals",
+          "subtitle": "Where towns celebrate their dishes",
+          "image": "/images/puglia/sagra-food-festival.jpg",
+          "description": "Every town has its own festival — panzerotti nights, orecchiette feasts, fig celebrations, grilled octopus weekends. These sagre are where you see the real Puglia: long tables, loud laughter, and recipes that never make it into cookbooks.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://theitalianontour.com/a-guide-to-puglias-most-famous-food-and-wine/"
+            }
+          ]
+        }
+      ]
+    },
+    "culture": {
+      "title": "Culture",
+      "intro": "Culture in Puglia isn't something you step into; it's something you're surrounded by. It's the dry-stacked stones of a trullo holding the heat of a thousand summers. It's Lecce's creamy Baroque facades glowing at dusk, and a piazza filling without warning because the band decided to start early. It's the rhythm of pizzica echoing through a summer night, the solemnity of Holy Week processions, and the pride every town carries for its sagre, saints, and stories. For someone imagining a future life here, Puglia's culture offers something priceless: a sense of belonging that comes not from spectacle, but from continuity.",
+      "header": "Culture — Stories Written in Stone and Celebration",
+      "backgroundImage": "/images/puglia/ostuni-whitecity.jpg",
+      "cards": [
+        {
+          "id": "pizzica-tarantismo",
+          "title": "Pizzica & Tarantismo",
+          "subtitle": "The hypnotic dance of healing",
+          "image": "/images/puglia/pizzica-dance.jpg",
+          "description": "A hypnotic, fast-footed dance born from ancient healing rituals, the pizzica is the heartbeat of Salento. Whether performed at a village festa or an impromptu gathering, it's one of the most visceral ways Puglia tells its story.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://pugliaparadise.com/the-real-secret-of-pizzica-an-apulian-dance/"
+            }
+          ]
+        },
+        {
+          "id": "notte-taranta",
+          "title": "La Notte della Taranta",
+          "subtitle": "Puglia's cultural lightning strike",
+          "image": "/images/puglia/notte-della-taranta.jpg",
+          "description": "This is Puglia's cultural lightning strike — an enormous open-air concert celebrating pizzica, folk traditions, and community. Held across multiple towns and culminating in Melpignano, it's both ancient ritual and modern music festival.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://en.wikipedia.org/wiki/Notte_della_Taranta"
+            }
+          ]
+        },
+        {
+          "id": "trulli-architecture",
+          "title": "Trulli, Town Centers & the Architecture of Slow Life",
+          "subtitle": "Living history in stone",
+          "image": "/images/puglia/alberobello-trulli.jpg",
+          "description": "From the fairytale cones of Alberobello to the whitewashed labyrinths of Ostuni and Locorotondo, Puglia's architecture tells centuries of agricultural, pastoral, and maritime history. These towns aren't postcards — they're living, breathing spaces shaped for human scale.",
+          "links": [
+            {
+              "label": "UNESCO World Heritage Site",
+              "href": "https://whc.unesco.org/en/list/787/"
+            }
+          ]
+        },
+        {
+          "id": "sagre-patron-saints",
+          "title": "Sagre, Patron Saints & Local Feasts",
+          "subtitle": "Community memory made visible",
+          "image": "/images/puglia/lecce.jpg",
+          "description": "Every town has its own calendar of celebrations: fireworks for San Nicola, bonfires for San Giuseppe, processions winding through stone alleys. These aren't performances — they're the community's memory and identity made visible.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://travelpuglia.com/puglias-festivals-and-events-a-calendar-of-cultural-celebrations/"
+            }
+          ]
+        },
+        {
+          "id": "piazza-life",
+          "title": "The Everyday Culture: Piazza Life & the Passeggiata",
+          "subtitle": "Culture in the ordinary",
+          "image": "/images/puglia/piazza-passeggiata.jpg",
+          "description": "Evening strolls, gossip shared over espresso, children playing freely in the piazza — this is the social fabric newcomers fall in love with. It's culture expressed in the ordinary, and it's the part that sticks with you long after the festivals end.",
+          "links": [
+            {
+              "label": "Read More",
+              "href": "https://puglianpleasures.com/2024/11/22/the-art-of-the-passeggiata-a-puglian-masterpiece/#:~:text=For%20those%20unfamiliar%2C%20the%20passeggiata,in%20Puglia%E2%80%94an%20absolute%20must."
+            }
+          ]
+        }
+      ]
+    }
+  },
   "collaborator": {
     "heading": "Speak Italian Like You Belong",
     "paragraphs": [
@@ -843,7 +1138,7 @@
     ],
     "ctaText": "Try a Free Lesson with Luca",
     "ctaLink": "https://italiando.aqulas.me/?fbclid=PAb21jcANYu8xleHRuA2FlbQIxMQABp-AAQrUNhnXXhrBTY_8w8RMtjDouyRS2egmduL1HHvyjvdskKaEOICPWdDrW_aem_Xi-i2ozen-XC30YQMhECJw",
-    "backgroundImage": "/images/piemonte/cafe-language.jpg"
+    "backgroundImage": "/images/cafe-table-sepia.jpg"
   },
   "wine": {
     "quiz": {
@@ -1230,7 +1525,10 @@
         "winePairing": "Primitivo di Manduria — bold, warm, perfect with lamb."
       }
     ],
-    "modes": ["Rustic", "Refined"]
+    "modes": [
+      "Rustic",
+      "Refined"
+    ]
   },
   "healthcare": {
     "intro": "Puglia isn't the kind of region where infrastructure feels abstract or distant — it's woven into the rhythm of daily life. Healthcare is regional but accessible, airports are small but well connected, and the roads link whitewashed hilltowns, olive groves, and two coastlines with surprising ease. This isn't a place built for speed; it's built for livability. Understanding how Puglia is organized — medically, geographically, and logistically — helps you picture what your days would actually look like here, not just your vacations.",
@@ -1240,7 +1538,12 @@
         "location": "Bari",
         "link": "https://www.sanita.puglia.it/web/policlinico-di-bari-ospedale-giovanni-xxiii/-/azienda-ospedaliero-universitaria-consorziale-policlinico",
         "mapLink": "https://maps.app.goo.gl/nBkejC71XsZvRVVW7",
-        "specialties": ["Cardiology", "Oncology", "Neurology", "Emergency"],
+        "specialties": [
+          "Cardiology",
+          "Oncology",
+          "Neurology",
+          "Emergency"
+        ],
         "emergency": true
       },
       {
@@ -1248,7 +1551,11 @@
         "location": "Lecce",
         "link": "https://www.sanita.puglia.it/web/asl-lecce/-/ospedale-vito-fazzi-",
         "mapLink": "https://maps.app.goo.gl/q9VcDzTf1c2z7vYZ6",
-        "specialties": ["General Medicine", "Surgery", "Emergency"],
+        "specialties": [
+          "General Medicine",
+          "Surgery",
+          "Emergency"
+        ],
         "emergency": true
       },
       {
@@ -1256,7 +1563,11 @@
         "location": "Tricase (Lecce province)",
         "link": "https://www.piafondazionepanico.it/azienda",
         "mapLink": "https://maps.app.goo.gl/f2SDxnfgJLFv15YG8",
-        "specialties": ["Cardiology", "Orthopedics", "Rehabilitation"],
+        "specialties": [
+          "Cardiology",
+          "Orthopedics",
+          "Rehabilitation"
+        ],
         "emergency": true
       },
       {
@@ -1264,7 +1575,11 @@
         "location": "Foggia",
         "link": "https://bollinirosa.it/ospedale/azienda-ospedaliero-universitaria-di-foggia-ospedali-riuniti/",
         "mapLink": "https://maps.app.goo.gl/KSQ5WHPUFhg8hkDx7",
-        "specialties": ["Emergency", "Trauma", "Intensive Care"],
+        "specialties": [
+          "Emergency",
+          "Trauma",
+          "Intensive Care"
+        ],
         "emergency": true
       },
       {
@@ -1272,7 +1587,10 @@
         "location": "Gallipoli",
         "link": "https://www.sanita.puglia.it/web/asl-lecce/-/ospedale-sacro-cuore-di-gesu-",
         "mapLink": "https://maps.app.goo.gl/LtQTQdFzGiUpdq1L6",
-        "specialties": ["General Medicine", "Surgery"],
+        "specialties": [
+          "General Medicine",
+          "Surgery"
+        ],
         "emergency": true
       }
     ],
@@ -1595,7 +1913,11 @@
         }
       }
     ],
-    "lifestyles": ["Modest", "Average", "High-End"],
+    "lifestyles": [
+      "Modest",
+      "Average",
+      "High-End"
+    ],
     "notes": {
       "reference": "Costs represent approximate monthly expenses for two people (1-2 bedroom rental).",
       "sources": [
