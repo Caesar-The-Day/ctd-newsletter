@@ -7,5 +7,23 @@
     "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Panorama_su_terni_e_sulle_acciaierie_visto_dall%27alto,_10.jpg",
     "sourceFile": "File:Panorama su terni e sulle acciaierie visto dall'alto, 10.jpg"
+  },
+  "truffle-nero-pregiato": {
+    "town": "Black winter truffle",
+    "file": "/images/umbria/truffle-nero-pregiato.jpg",
+    "author": "moi-même",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Tuber_brumale_-_Vue_sur_la_tranche_coup%C3%A9e.jpg",
+    "sourceFile": "File:Tuber brumale - Vue sur la tranche coupée.jpg"
+  },
+  "truffle-scorzone": {
+    "town": "Summer truffle",
+    "file": "/images/umbria/truffle-scorzone.jpg",
+    "author": "Emil Doerstling",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Pilze_d._Heimat,_T._45b_-_Tuber_aestivum.jpg",
+    "sourceFile": "File:Pilze d. Heimat, T. 45b - Tuber aestivum.jpg"
   }
 }
