@@ -109,7 +109,7 @@ function checkAbsolute(url: string, source: string) {
   add('EXTERNAL', url, source);
 }
 
-const LOCAL_RE = /\/images\/[A-Za-z0-9._/%()'-]*/g;
+const LOCAL_RE = /\/images\/[A-Za-z0-9._/%-]*/g;
 const CDN_RE = /\/__l5e\/[A-Za-z0-9._/%-]*/g;
 const ABS_RE = /https?:\/\/[^\s"'`)\\]+\.(?:jpg|jpeg|png|webp|avif|gif|svg|mp3|mp4|webm)(?:\?[^\s"'`)\\]*)?/gi;
 
