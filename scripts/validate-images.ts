@@ -32,6 +32,7 @@ const ALLOWED_HOSTS = [
   'caesartheday.com',
   'www.caesartheday.com',
   'italy.caesartheday.com',
+  'news.caesartheday.com',
   'vistofacile.caesartheday.com',
   'api.maptiler.com',
   'tile.openstreetmap.org',
