@@ -17,6 +17,18 @@
   },
   "newsletters": [
     {
+      "slug": "liguria",
+      "title": "Liguria",
+      "subtitle": "The Vertical Riviera",
+      "issueNumber": 17,
+      "date": "September 2026",
+      "status": "live",
+      "thumbnail": "/images/liguria/hero-riviera-ponente.jpg",
+      "description": "Italy's narrowest region is a 350-kilometre crescent pressed between the Maritime Alps and the sea — and its two coasts could hardly be more different. East of Genoa, the Levante trades in postcards: Portofino, the Cinque Terre, and prices to match. West, the Ponente unfurls toward France through Sanremo, Imperia, and Alassio — the same mild winters, the same Vermentino and pesto, at roughly half the cost. This issue maps both coasts town by town, weighs the Levante premium against the Ponente value, and explains why the inland stone villages hold Liguria's best retirement affordability — and why no town here qualifies for the 7% flat tax.",
+      "ctaText": "Read Newsletter",
+      "ctaLink": "/liguria"
+    },
+    {
       "slug": "trentino-alto-adige",
       "title": "Trentino-Alto Adige",
       "subtitle": "The Alpine Symphony",
