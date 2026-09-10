@@ -25,9 +25,10 @@ interface RegionOG {
 }
 
 const DEFAULT_OG: RegionOG = {
-  title: 'Veni. Vidi. Vici. | Caesar the Day',
-  description: 'Your editorial guide to retiring in Italy — region by region, town by town.',
-  image_url: 'https://italy.caesartheday.com/og-veni-vidi-vici-2.jpg',
+  title: 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy',
+  description:
+    'Immersive regional guides for retiring in Italy, with cost-of-living insights, livable towns, cultural secrets, and interactive tools to turn daydreams into plans.',
+  image_url: 'https://italy.caesartheday.com/og-veni-vidi-vici.jpg',
 };
 
 interface FetchResult {
