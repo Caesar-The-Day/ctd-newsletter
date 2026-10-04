@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowRight, Download, MoveRight } from 'lucide-react';
+import { ArrowDown, ArrowRight, MoveRight } from 'lucide-react';
 import { getNewsletterIndexData, getGlobals, type GlobalsData } from '@/utils/getRegionData';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
