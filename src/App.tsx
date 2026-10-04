@@ -11,7 +11,15 @@ import NotFound from "./pages/NotFound";
 import DesignSystem from "./pages/DesignSystem";
 import AdminRegions from "./pages/AdminRegions";
 import Auth from "./pages/Auth";
+import { Helmet } from "react-helmet-async";
 import { RequireAdmin } from "@/components/admin/RequireAdmin";
+
+const NoIndex = ({ children }: { children: React.ReactNode }) => (
+  <>
+    <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+    {children}
+  </>
+);
 
 const queryClient = new QueryClient();
 
@@ -24,9 +32,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/design-system" element={<DesignSystem />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/admin/regions" element={<RequireAdmin><AdminRegions /></RequireAdmin>} />
+          <Route path="/design-system" element={<NoIndex><DesignSystem /></NoIndex>} />
+          <Route path="/auth" element={<NoIndex><Auth /></NoIndex>} />
+          <Route path="/admin/regions" element={<NoIndex><RequireAdmin><AdminRegions /></RequireAdmin></NoIndex>} />
           <Route path="/:region" element={<RegionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

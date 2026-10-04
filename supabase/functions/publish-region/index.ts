@@ -51,6 +51,25 @@ serve(async (req) => {
 
     console.log('[publish-region] Successfully published:', data);
 
+    // Tell search engines (Bing, Yandex, etc.) via IndexNow. Failures never block publishing.
+    try {
+      const host = 'italy.caesartheday.com';
+      const key = 'dfab2605fe183309716ae5e2833665ca';
+      const res = await fetch('https://api.indexnow.org/indexnow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({
+          host,
+          key,
+          keyLocation: `https://${host}/${key}.txt`,
+          urlList: [`https://${host}/${slug}`, `https://${host}/`],
+        }),
+      });
+      console.log('[publish-region] IndexNow status:', res.status);
+    } catch (e) {
+      console.warn('[publish-region] IndexNow ping failed:', e);
+    }
+
     return new Response(
       JSON.stringify({
         success: true,

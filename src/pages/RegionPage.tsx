@@ -6,6 +6,7 @@ import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
 import { supabase } from '@/integrations/supabase/client';
+import NotFound from './NotFound';
 
 import { 
   Breadcrumb, 
@@ -109,6 +110,13 @@ export default function RegionPage() {
   const [registryEntry, setRegistryEntry] = useState<RegionRegistryEntry | null>(null);
   const [ogOverride, setOgOverride] = useState<RegionOgOverride>(null);
   const [error, setError] = useState(false);
+  const [access, setAccess] = useState<'checking' | 'allowed' | 'denied'>('checking');
+  const [regionMeta, setRegionMeta] = useState<{
+    status: string;
+    published_date: string | null;
+    updated_at: string;
+    display_name: string;
+  } | null>(null);
 
   useEffect(() => {
     console.log('[RegionPage] Loading region:', region);
@@ -150,6 +158,42 @@ export default function RegionPage() {
         }
         setOgOverride(data);
       });
+  }, [region]);
+
+  // Drafts are only visible to admins; everyone else gets the 404 page.
+  useEffect(() => {
+    if (!region) return;
+    let active = true;
+    setAccess('checking');
+    (async () => {
+      const { data: row } = await supabase
+        .from('regions')
+        .select('status,published_date,updated_at,display_name')
+        .eq('slug', region)
+        .maybeSingle();
+      if (!active) return;
+      setRegionMeta(row ?? null);
+      if (!row || row.status === 'live') {
+        setAccess('allowed');
+        return;
+      }
+      const { data: sessionData } = await supabase.auth.getSession();
+      const uid = sessionData.session?.user.id;
+      if (!uid) {
+        if (active) setAccess('denied');
+        return;
+      }
+      const { data: role } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', uid)
+        .eq('role', 'admin')
+        .maybeSingle();
+      if (active) setAccess(role ? 'allowed' : 'denied');
+    })();
+    return () => {
+      active = false;
+    };
   }, [region]);
 
   // Apply region-specific theme (AI-generated or legacy CSS classes)
@@ -230,7 +274,8 @@ export default function RegionPage() {
   }, [region, regionData]);
 
   if (error) return <Navigate to="/404" />;
-  if (!globals || !regionData || !config) {
+  if (access === 'denied') return <NotFound />;
+  if (!globals || !regionData || !config || access === 'checking') {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -241,57 +286,18 @@ export default function RegionPage() {
     );
   }
 
-  const seoConfig = {
-    piemonte: {
-      title: 'Retiring in Piemonte | Veni. Vidi. Vici. Region Guide',
-      description: 'Discover Piemonte through an immersive, data-rich regional guide for smart retirees: best towns to live in, cost of living, healthcare access, wine culture, infrastructure, and interactive tools to plan your Italian chapter with confidence.',
-      keywords: ['retire in Piemonte', 'best towns in Piemonte', 'Northern Italy retirement', 'Piemonte cost of living', 'Piemonte wine regions', 'retiring in Italy', 'Italian regions guide'],
-      ogImage: 'https://italy.caesartheday.com/images/piemonte-og.jpg',
-      ogDescription: 'Explore Piemonte like a local — from walkable towns and cost-of-living insights to healthcare, wine culture, and interactive planning tools. A smart retiree\'s guide to Northern Italy.',
-    },
-    lombardia: {
-      title: 'Retiring in Lombardia | Veni. Vidi. Vici. Region Guide',
-      description: 'Discover Lombardia — Northern sophistication with mountain soul. From the lakes of Como and Iseo to Milan\'s cultural riches, explore cost of living, best towns, healthcare, and everything you need to retire in Italy\'s most dynamic region.',
-      keywords: ['retire in Lombardia', 'Lake Como retirement', 'Milan region living', 'Lombardy cost of living', 'Northern Italy retirement', 'retiring in Italy', 'Italian regions guide', 'Lake Iseo', 'Bergamo'],
-      ogImage: 'https://italy.caesartheday.com/images/lombardia-og.jpg',
-      ogDescription: 'Northern sophistication with mountain soul. Your guide to retiring in Lombardia — lakes, culture, cost of living, and the best towns to call home.',
-    },
-    puglia: {
-      title: 'Retiring in Puglia | Veni. Vidi. Vici. Region Guide',
-      description: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
-      keywords: ['retire in Puglia', 'coastal towns in Puglia', 'Puglia cost of living', 'healthcare in Puglia', 'Southern Italy retirement', 'retiring in Italy', 'Italian regions guide'],
-      ogImage: 'https://italy.caesartheday.com/puglia-og-2.jpg',
-      ogDescription: 'Discover Puglia like a local — towns worth living in, cost of living, food, wine, healthcare, and everything that makes this region one of Italy\'s best choices for retirement. An interactive guide that goes far beyond travel blogs.',
-    },
-    umbria: {
-      title: 'Retiring in Umbria | Veni. Vidi. Vici. Region Guide',
-      description: 'Discover Umbria — Italy\'s green heart between Rome and Florence. From medieval hill towns and black truffles to Sagrantino wine and affordable living, explore everything you need to retire in central Italy\'s best-kept secret.',
-      keywords: ['retire in Umbria', 'Umbria cost of living', 'central Italy retirement', 'Perugia living', 'Assisi retirement', 'Rome Florence corridor', 'Italian regions guide', 'retiring in Italy', 'Umbria wine regions'],
-      ogImage: 'https://italy.caesartheday.com/images/umbria-og.jpg',
-      ogDescription: 'Italy\'s green heart — positioned between Rome and Florence. Your guide to retiring in Umbria: medieval towns, truffles, wine, and affordable central Italian living.',
-    }
-  };
-
-  type SEOConfig = {
-    title: string;
-    description: string;
-    keywords: string[];
-    ogImage: string;
-    ogDescription?: string;
-  };
-
-  const defaultSEO: SEOConfig = {
-    title: 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy',
-    description: 'Region-by-region guides to retiring in Italy.',
-    keywords: ['retirement in Italy', 'Italian regions guide'],
-    ogImage: 'https://italy.caesartheday.com/og-veni-vidi-vici.jpg',
-  };
-
-  const currentSEO: SEOConfig = (region && seoConfig[region as keyof typeof seoConfig]) || defaultSEO;
-
-  const effectiveSeoTitle = ogOverride?.title || currentSEO.title;
-  const effectiveSeoDescription = ogOverride?.description || currentSEO.description;
-  const effectiveOgImage = ogOverride?.image_url || currentSEO.ogImage;
+  const canonicalUrl = `https://italy.caesartheday.com/${region}`;
+  const regionTitle: string = regionData.region?.title || regionMeta?.display_name || region || '';
+  const regionName: string = regionMeta?.display_name || regionTitle;
+  const effectiveSeoTitle = ogOverride?.title || `${regionTitle} | Veni. Vidi. Vici.`;
+  const effectiveSeoDescription =
+    ogOverride?.description || (regionData.region as any)?.tagline || 'Region-by-region guides to retiring in Italy.';
+  const heroImage: string | undefined = (regionData.region as any)?.hero?.bannerImage;
+  const effectiveOgImage =
+    ogOverride?.image_url ||
+    (heroImage ? (heroImage.startsWith('http') ? heroImage : `https://italy.caesartheday.com${heroImage}`) : undefined) ||
+    'https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg';
+  const isLive = regionMeta ? regionMeta.status === 'live' : true;
 
   return (
     <>
@@ -299,30 +305,47 @@ export default function RegionPage() {
       <SEO
         title={effectiveSeoTitle}
         description={effectiveSeoDescription}
-        canonical={`https://italy.caesartheday.com/${region}`}
+        canonical={canonicalUrl}
         ogTitle={effectiveSeoTitle}
         ogDescription={effectiveSeoDescription}
-        ogUrl={`https://italy.caesartheday.com/${region}`}
+        ogUrl={canonicalUrl}
         ogType="article"
         ogImage={effectiveOgImage}
-        keywords={currentSEO.keywords}
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": `Veni. Vidi. Vici. ${regionData.region.title} – Retiring in ${regionData.region.title}, Italy`,
-          "description": effectiveSeoDescription,
-          "author": {
-            "@type": "Person",
-            "name": "Caesar Sedek"
+        noindex={!isLive}
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": regionTitle,
+            "description": effectiveSeoDescription,
+            "image": effectiveOgImage,
+            ...(regionMeta?.published_date ? { "datePublished": regionMeta.published_date } : {}),
+            ...(regionMeta?.updated_at ? { "dateModified": regionMeta.updated_at } : {}),
+            "author": { "@type": "Person", "name": "Caesar Sedek", "url": "https://www.caesartheday.com" },
+            "publisher": {
+              "@type": "Organization",
+              "name": "CaesarTheDay®",
+              "url": "https://www.caesartheday.com",
+              "logo": { "@type": "ImageObject", "url": "https://italy.caesartheday.com/images/shared/caesartheday-logo.png" }
+            },
+            "inLanguage": "en",
+            "url": canonicalUrl,
+            "mainEntityOfPage": canonicalUrl,
+            "about": {
+              "@type": "AdministrativeArea",
+              "name": regionName,
+              "containedInPlace": { "@type": "Country", "name": "Italy" }
+            }
           },
-          "publisher": {
-            "@type": "Organization",
-            "name": "CaesarTheDay®",
-            "url": "https://www.caesartheday.com"
-          },
-          "url": `https://italy.caesartheday.com/${region}`,
-          "mainEntityOfPage": `https://italy.caesartheday.com/${region}`
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://italy.caesartheday.com/" },
+              { "@type": "ListItem", "position": 2, "name": regionName, "item": canonicalUrl }
+            ]
+          }
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Header globals={globals} />

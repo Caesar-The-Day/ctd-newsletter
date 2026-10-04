@@ -4,15 +4,23 @@
   "outputDirectory": "dist",
   "routes": [
     {
-      "src": "^/([a-z][a-z0-9-]+)(?:/)?$",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|slackbot|telegrambot|pinterest|discordbot).*"
-        }
-      ],
-      "dest": "/api/og?path=/$1"
+      "src": "^/(.*)$",
+      "has": [{ "type": "host", "value": "news.caesartheday.com" }],
+      "status": 301,
+      "headers": { "Location": "https://italy.caesartheday.com/$1" }
+    },
+    {
+      "src": "^/sitemap\\.xml$",
+      "dest": "/api/sitemap"
+    },
+    {
+      "src": "^/llms\\.txt$",
+      "dest": "/api/llms"
+    },
+    {
+      "src": "^/(admin|auth|design-system)(/.*)?$",
+      "headers": { "X-Robots-Tag": "noindex, nofollow" },
+      "continue": true
     },
     {
       "src": "^/$",
@@ -20,17 +28,27 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|slackbot|telegrambot|pinterest|discordbot).*"
+          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|slackbot|telegrambot|pinterest|discordbot|bingbot|duckduckbot|applebot|gptbot|oai-searchbot|chatgpt-user|claudebot|claude-user|claude-searchbot|perplexitybot|perplexity-user|ccbot|amazonbot|meta-externalagent).*"
         }
       ],
-      "dest": "/api/og?path=/"
+      "dest": "/api/render?path=/"
     },
     {
-      "src": "^/sitemap\\.xml$",
-      "dest": "/sitemap.xml"
+      "src": "^/(?!admin(?:/|$)|auth/?$|design-system/?$)([a-z][a-z0-9-]+)/?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|slackbot|telegrambot|pinterest|discordbot|bingbot|duckduckbot|applebot|gptbot|oai-searchbot|chatgpt-user|claudebot|claude-user|claude-searchbot|perplexitybot|perplexity-user|ccbot|amazonbot|meta-externalagent).*"
+        }
+      ],
+      "dest": "/api/render?path=/$1"
     },
     {
-      "src": "/((?!newsletters/|data/|images/|assets/|sitemap\\.xml|.*\\.).*)",
+      "handle": "filesystem"
+    },
+    {
+      "src": "/((?!newsletters/|data/|images/|assets/|api/|.*\\.).*)",
       "dest": "/index.html"
     }
   ]
