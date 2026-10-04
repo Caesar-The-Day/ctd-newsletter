@@ -82,6 +82,14 @@ export async function getNewsletterIndexData() {
     for (const nl of staticData.newsletters || []) {
       staticLookup[nl.slug] = nl;
     }
+    // The featured block carries richer metadata (summary, facts); merge it into
+    // the lookup so a DB-merged featured region keeps that copy.
+    if (staticData.featured?.slug) {
+      staticLookup[staticData.featured.slug] = {
+        ...(staticLookup[staticData.featured.slug] || {}),
+        ...staticData.featured,
+      };
+    }
 
     // Build merged newsletters list from DB state
     const newsletters = dbRegions.map((dbRow: any) => {

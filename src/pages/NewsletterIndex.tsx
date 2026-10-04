@@ -82,6 +82,10 @@ const ALL_REGIONS: Array<{ slug: string; title: string; area: string }> = [
   { slug: 'basilicata', title: 'Basilicata', area: 'south' },
   { slug: 'sicilia', title: 'Sicilia', area: 'islands' },
   { slug: 'sardegna', title: 'Sardegna', area: 'islands' },
+  { slug: 'toscana', title: 'Toscana', area: 'centre' },
+  { slug: 'emilia-romagna', title: 'Emilia-Romagna', area: 'north' },
+  { slug: 'campania', title: 'Campania', area: 'south' },
+  { slug: 'valle-d-aosta', title: "Valle d'Aosta", area: 'north' },
 ];
 
 const GROUPS = [
