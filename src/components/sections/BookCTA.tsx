@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
+import { withUtm } from '@/lib/utm';
 
-export function BookCTA() {
+export function BookCTA({ region }: { region?: string }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -71,7 +72,7 @@ export function BookCTA() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" asChild className="hover-lift">
                     <a 
-                      href="https://www.caesartheday.com/books" 
+                      href={withUtm('https://www.caesartheday.com/books', region)} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       data-analytics-event="book_purchase_website"

@@ -24,7 +24,7 @@
       "date": "September 2026",
       "status": "live",
       "thumbnail": "/images/liguria/hero-riviera-ponente.jpg",
-"description": "Italy's narrowest region is a 350-kilometre crescent pressed between the Maritime Alps and the sea — and its two coasts could hardly be more different. East of Genoa, the Levante trades in postcards: Portofino, the Cinque Terre, and prices to match. West, the Ponente unfurls toward France through Sanremo, Imperia, and Alassio — the same mild winters, the same Vermentino and pesto, at roughly half the cost. This issue maps both coasts town by town, weighs the Levante premium against the Ponente value, and shows where the inland stone villages offer Liguria's best retirement affordability.",
+      "description": "Italy's narrowest region is a 350-kilometre crescent pressed between the Maritime Alps and the sea — and its two coasts could hardly be more different. East of Genoa, the Levante trades in postcards: Portofino, the Cinque Terre, and prices to match. West, the Ponente unfurls toward France through Sanremo, Imperia, and Alassio — the same mild winters, the same Vermentino and pesto, at roughly half the cost. This issue maps both coasts town by town, weighs the Levante premium against the Ponente value, and shows where the inland stone villages offer Liguria's best retirement affordability.",
       "ctaText": "Read Newsletter",
       "ctaLink": "/liguria"
     },
@@ -142,7 +142,7 @@
       "thumbnail": "/images/archive/abruzzo-thumbnail.jpg",
       "downloadUrl": "/newsletters/abruzzo-september-2025.pdf",
       "fileSize": "2.8 MB",
-      "description": "Mountain villages meet Adriatic coast. Retirement in Italy's hidden gem with medieval hilltop towns and affordable mountain living."
+      "description": "Mountain villages and Adriatic coast: medieval hill towns, affordable mountain living, and the tradeoffs of winter at altitude."
     },
     {
       "title": "Sardegna",
@@ -152,7 +152,7 @@
       "thumbnail": "/images/archive/sardegna-thumbnail.jpg",
       "downloadUrl": "/newsletters/sardegna-august-2025.pdf",
       "fileSize": "3.2 MB",
-      "description": "Island retirement paradise: turquoise waters, ancient culture, and the secrets of Sardinia's Blue Zone longevity."
+      "description": "Island retirement: turquoise water, ancient culture, and what daily life costs once the ferries thin out in winter."
     },
     {
       "title": "Sicilia",
@@ -173,16 +173,6 @@
       "downloadUrl": "/newsletters/basilicata-june-2025.pdf",
       "fileSize": "2.6 MB",
       "description": "Matera's ancient sassi and beyond: retiring in Italy's most undiscovered region with medieval cave dwellings and dramatic landscapes."
-    },
-    {
-      "title": "Liguria",
-      "issueNumber": 1,
-      "date": "April 2025",
-      "format": "PDF",
-      "thumbnail": "/images/archive/liguria-thumbnail.jpg",
-      "downloadUrl": "/newsletters/liguria-april-2025.pdf",
-      "fileSize": "3.0 MB",
-      "description": "Italian Riviera retirement: Cinque Terre's colorful villages, mild climate, and navigating property prices on the Ligurian coast."
     },
     {
       "title": "Le Marche",

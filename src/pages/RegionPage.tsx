@@ -7,6 +7,7 @@ import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
 import { supabase } from '@/integrations/supabase/client';
 import NotFound from './NotFound';
+import { NewsletterSignup } from '@/components/sections/NewsletterSignup';
 
 import { 
   Breadcrumb, 
@@ -26,7 +27,6 @@ import { TownsFeatured } from '@/components/sections/TownsFeatured';
 import { TownsGrid } from '@/components/sections/TownsGrid';
 import { RecipesInteractive } from '@/components/sections/RecipesInteractive';
 import { ProsConsInteractive } from '@/components/sections/ProsConsInteractive';
-import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
@@ -288,7 +288,7 @@ export default function RegionPage() {
 
   const canonicalUrl = `https://italy.caesartheday.com/${region}`;
   const regionTitle: string = regionData.region?.title || regionMeta?.display_name || region || '';
-  const regionName: string = regionMeta?.display_name || regionTitle;
+  const regionName: string = regionMeta?.display_name || registryEntry?.displayName || regionTitle.split(':')[0].trim();
   const effectiveSeoTitle = ogOverride?.title || `${regionTitle} | Veni. Vidi. Vici.`;
   const effectiveSeoDescription =
     ogOverride?.description || (regionData.region as any)?.tagline || 'Region-by-region guides to retiring in Italy.';
@@ -408,6 +408,8 @@ export default function RegionPage() {
         signature={regionData.region.intro.signature}
       />
 
+      <NewsletterSignup campaign={region || 'home'} />
+
       <InteractiveMap 
         regionTitle={regionData.region.title.split(':')[0]} 
         whereData={regionData.where}
@@ -447,7 +449,7 @@ export default function RegionPage() {
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
       
-      {config.showBookCTA && <BookCTA />}
+      {config.showBookCTA && <BookCTA region={region} />}
 
       <TownsGrid towns={regionData.towns.grid} note={(regionData.towns as any).moreTownsNote} />
 
@@ -506,9 +508,9 @@ export default function RegionPage() {
 
       {region === 'veneto' && <VeniceSerenissima />}
 
-      {region === 'calabria' && <SevenPercentExplainer />}
+      {region === 'calabria' && <SevenPercentExplainer region={region} />}
 
-      {config.show7PercentCTA && <SevenPercentCTA region={region} />}
+      {config.show7PercentCTA && <SevenPercentCTA region={region} displayName={regionName} />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
 
@@ -561,7 +563,7 @@ export default function RegionPage() {
       )}
 
       {config.showRetirementBlueprintCTA && (
-        <RetirementBlueprintCTA region={region} variant="visto-facile" />
+        <RetirementBlueprintCTA region={region} displayName={regionName} variant="visto-facile" />
       )}
 
       {region === 'lombardia' && <PanettoneQuiz />}
@@ -605,7 +607,7 @@ export default function RegionPage() {
       {region === 'molise' && <MoliseCentralItalyReach />}
 
       {config.showRetirementBlueprintCTA && (
-        <RetirementBlueprintCTA region={region} variant="consultation" />
+        <RetirementBlueprintCTA region={region} displayName={regionName} variant="consultation" />
       )}
 
       <CostCalculator 
@@ -619,6 +621,7 @@ export default function RegionPage() {
 
       {region === 'calabria' && <CalabriaRealityCheck />}
 
+      <NewsletterSignup campaign={region || 'home'} />
       <ClosingShare
         message={regionData.closing.message}
         header={regionData.closing.header}

@@ -7,6 +7,8 @@ import { ArrowRight, Download, FileText, ArrowDown } from 'lucide-react';
 import { getNewsletterIndexData, getGlobals, type GlobalsData } from '@/utils/getRegionData';
 import { Footer } from '@/components/common/Footer';
 import { SEO } from '@/components/common/SEO';
+import { withUtm } from '@/lib/utm';
+import { NewsletterSignup } from '@/components/sections/NewsletterSignup';
 import ItalyMapInteractive from '@/components/sections/ItalyMapInteractive';
 
 interface NewsletterIndexData {
@@ -152,7 +154,7 @@ const NewsletterIndex = () => {
                 asChild
                 className="bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white/50"
               >
-                <a href="https://www.caesartheday.com" target="_blank" rel="noopener noreferrer">
+                <a href={withUtm('https://www.caesartheday.com', 'home')} target="_blank" rel="noopener noreferrer">
                   Visit CaesarTheDay.com
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
@@ -191,6 +193,8 @@ const NewsletterIndex = () => {
               </div>
             </Card>
           </div>
+
+          <NewsletterSignup campaign="home" />
 
           {/* Browse All Regions CTA */}
           <div className={`text-center mt-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -286,6 +290,9 @@ const NewsletterIndex = () => {
                 <p className="text-xl text-muted-foreground">
                   Past editions available as PDFs
                 </p>
+                <p className="text-base text-muted-foreground mt-2">
+                  Liguria now has a full web guide.
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -314,6 +321,9 @@ const NewsletterIndex = () => {
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="pb-3">
+                      <p className="text-xs font-medium text-primary mb-2">
+                        2025 edition. Some figures are out of date; web edition coming.
+                      </p>
                       <p className="text-sm text-foreground/70">{item.description}</p>
                     </CardContent>
                     <CardFooter>
