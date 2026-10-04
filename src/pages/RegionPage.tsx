@@ -7,6 +7,7 @@ import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
 import { supabase } from '@/integrations/supabase/client';
 import NotFound from './NotFound';
+import { NewsletterSignup } from '@/components/sections/NewsletterSignup';
 
 import { 
   Breadcrumb, 
@@ -446,7 +447,7 @@ export default function RegionPage() {
 
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
       
-      {config.showBookCTA && <BookCTA />}
+      {config.showBookCTA && <BookCTA region={region} />}
 
       <TownsGrid towns={regionData.towns.grid} note={(regionData.towns as any).moreTownsNote} />
 
@@ -505,9 +506,9 @@ export default function RegionPage() {
 
       {region === 'veneto' && <VeniceSerenissima />}
 
-      {region === 'calabria' && <SevenPercentExplainer />}
+      {region === 'calabria' && <SevenPercentExplainer region={region} />}
 
-      {config.show7PercentCTA && <SevenPercentCTA region={region} />}
+      {config.show7PercentCTA && <SevenPercentCTA region={region} displayName={regionName} />}
 
       {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
 
@@ -560,7 +561,7 @@ export default function RegionPage() {
       )}
 
       {config.showRetirementBlueprintCTA && (
-        <RetirementBlueprintCTA region={region} variant="visto-facile" />
+        <RetirementBlueprintCTA region={region} displayName={regionName} variant="visto-facile" />
       )}
 
       {region === 'lombardia' && <PanettoneQuiz />}
@@ -604,7 +605,7 @@ export default function RegionPage() {
       {region === 'molise' && <MoliseCentralItalyReach />}
 
       {config.showRetirementBlueprintCTA && (
-        <RetirementBlueprintCTA region={region} variant="consultation" />
+        <RetirementBlueprintCTA region={region} displayName={regionName} variant="consultation" />
       )}
 
       <CostCalculator 
@@ -618,6 +619,7 @@ export default function RegionPage() {
 
       {region === 'calabria' && <CalabriaRealityCheck />}
 
+      <NewsletterSignup campaign={region || 'home'} />
       <ClosingShare
         message={regionData.closing.message}
         header={regionData.closing.header}

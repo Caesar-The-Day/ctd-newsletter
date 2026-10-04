@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle, FileCheck, Calculator, MapPin, Clock, Plane, Compass, ArrowRight } from 'lucide-react';
 import vistoFacileLogo from '@/assets/visto-facile-logo.png';
 import italyCallingImage from '@/assets/italy-calling-cta.jpg';
+import { withUtm } from '@/lib/utm';
 
 interface RetirementBlueprintCTAProps {
   region?: string;
+  displayName?: string;
   variant?: 'auto' | 'visto-facile' | 'consultation';
 }
 
@@ -24,7 +26,7 @@ interface CTAContent {
   visual: { type: 'logo' | 'image'; src: string; alt: string };
 }
 
-function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['variant'] = 'auto'): CTAContent {
+function getCTAContent(region?: string, displayName?: string, variant: RetirementBlueprintCTAProps['variant'] = 'auto'): CTAContent {
   const isVistoFacile =
     variant === 'visto-facile' ||
     (variant === 'auto' && VISTO_FACILE_REGIONS.includes(region ?? ''));
@@ -32,8 +34,8 @@ function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['va
   if (isVistoFacile) {
     return {
       preheadline: 'Elective Residency Visa (ERV) Navigator',
-      headline: region
-        ? `Make Your ${region.charAt(0).toUpperCase() + region.slice(1)} Move Official`
+      headline: displayName || region
+        ? `Make Your ${displayName || region!.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('-')} Move Official`
         : 'Make Your Italian Move Official',
       subheadline:
         'Visto Facile is the step-by-step navigator for Italy’s Elective Residency Visa — built for U.S. and Canadian applicants who want a clear, organized path to residency.',
@@ -72,11 +74,11 @@ function getCTAContent(region?: string, variant: RetirementBlueprintCTAProps['va
   };
 }
 
-export function RetirementBlueprintCTA({ region, variant = 'auto' }: RetirementBlueprintCTAProps) {
+export function RetirementBlueprintCTA({ region, displayName, variant = 'auto' }: RetirementBlueprintCTAProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const content = getCTAContent(region, variant);
+  const content = getCTAContent(region, displayName, variant);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -185,7 +187,7 @@ export function RetirementBlueprintCTA({ region, variant = 'auto' }: RetirementB
                 <div className="cta-pulse-ring" />
                 <Button size="lg" asChild className="cta-button-ocean text-base md:text-lg px-8 py-6 h-auto">
                   <a
-                    href={content.ctaUrl}
+                    href={withUtm(content.ctaUrl, region)}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-analytics-event={content.analyticsEvent}

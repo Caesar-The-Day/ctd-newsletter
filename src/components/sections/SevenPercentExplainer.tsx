@@ -1,8 +1,9 @@
  import { Button } from '@/components/ui/button';
  import { Card, CardContent } from '@/components/ui/card';
  import { BookOpen, ExternalLink, CheckCircle2 } from 'lucide-react';
+ import { withUtm } from '@/lib/utm';
  
- export function SevenPercentExplainer() {
+ export function SevenPercentExplainer({ region }: { region?: string }) {
    return (
      <section className="py-12 md:py-16 bg-background">
        <div className="container mx-auto px-4 max-w-4xl">
@@ -38,7 +39,7 @@
  
              <Button asChild size="lg" className="w-full sm:w-auto">
                <a
-                 href="https://www.caesartheday.com/blog/italy-7-percent-flat-tax-for-retirees"
+                 href={withUtm('https://www.caesartheday.com/blog/italy-7-percent-flat-tax-for-retirees', region)}
                  target="_blank"
                  rel="noopener noreferrer"
                >

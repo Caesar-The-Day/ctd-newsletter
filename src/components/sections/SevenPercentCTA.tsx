@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
+import { withUtm } from '@/lib/utm';
 
 const REGION_COPY: Record<string, {
   title: string;
@@ -18,6 +19,14 @@ const REGION_COPY: Record<string, {
     detail: "plots every qualifying town in Calabria on an interactive map, so you can filter by what matters: coast vs. interior, Tyrrhenian vs. Ionian side, walkability, population size, housing costs, healthcare access, climate, and airport distance.",
     compare: 'Compare hill towns in the Sila, beach towns on the Tyrrhenian, and Byzantine villages on the Ionian side — then decide which trade-offs you\'re willing to make before you commit.',
   },
+  puglia: {
+    title: 'Find 7%-Eligible Towns in Puglia',
+    lead: "Puglia is one of the southern regions covered by Italy's 7% flat tax for foreign pensioners.",
+    emphasis: 'Towns under 30,000 residents qualify. The cap rose from 20,000 in April 2026, adding 18 Puglian towns. Bari, Lecce, Taranto, Foggia and Brindisi are too large.',
+    challenge: "The challenge isn't finding a town that qualifies — it's finding one that actually fits how you want to live.",
+    detail: "plots every qualifying town in Puglia on an interactive map, so you can filter by what matters: Adriatic vs. Ionian coast, walkability, population size, housing costs, healthcare access, climate, and airport distance.",
+    compare: 'Compare whitewashed towns in the Valle d\'Itria, fishing ports on the Adriatic, and quiet Salento villages — then decide which trade-offs you\'re willing to make before you commit.',
+  },
   molise: {
     title: "Find 7%-Eligible Towns in Molise",
     lead: "Molise is one of the regions fully covered by Italy's 7% flat-tax program for foreign retirees.",
@@ -30,10 +39,23 @@ const REGION_COPY: Record<string, {
 
 interface SevenPercentCTAProps {
   region?: string;
+  displayName?: string;
 }
 
-export function SevenPercentCTA({ region = 'calabria' }: SevenPercentCTAProps) {
-  const copy = REGION_COPY[region] ?? REGION_COPY.calabria;
+function genericCopy(name: string) {
+  return {
+    title: `Find 7%-Eligible Towns in ${name}`,
+    lead: `Parts of ${name} may be covered by Italy's 7% flat tax for foreign pensioners.`,
+    emphasis: 'Eligible towns have fewer than 30,000 residents and sit in a qualifying southern region or quake-affected area.',
+    challenge: "The challenge isn't finding a town that qualifies — it's finding one that actually fits how you want to live.",
+    detail: 'plots every qualifying town in Italy on an interactive map, so you can filter by what matters: coast vs. interior, walkability, population size, housing costs, healthcare access, climate, and airport distance.',
+    compare: "Compare your options side by side — then decide which trade-offs you're willing to make before you commit.",
+  };
+}
+
+export function SevenPercentCTA({ region, displayName }: SevenPercentCTAProps) {
+  const name = displayName || (region ? region.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ') : 'Italy');
+  const copy = (region && REGION_COPY[region]) || genericCopy(name);
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -155,7 +177,7 @@ export function SevenPercentCTA({ region = 'calabria' }: SevenPercentCTAProps) {
             </div>
             <Button size="lg" asChild className="hover-lift shadow-xl">
               <a 
-                href="https://italy7percent.caesartheday.com" 
+                href={withUtm('https://italy7percent.caesartheday.com', region)} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 data-analytics-event="escape_map_click"
