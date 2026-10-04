@@ -87,6 +87,9 @@ export async function getNewsletterIndexData() {
     const newsletters = dbRegions.map((dbRow: any) => {
       const existing = staticLookup[dbRow.slug];
       const isLive = dbRow.status === 'live';
+      // Drafts without a homepage entry (thumbnail, description, area) stay hidden
+      // until they are published or added to newsletter-index.json.
+      if (!isLive && !existing) return null;
 
 // Derive photo + copy straight from the region record so newly published
       // regions promote themselves to the home page without manual edits.
@@ -109,13 +112,15 @@ export async function getNewsletterIndexData() {
         issueNumber: dbRow.issue_number ?? existing?.issueNumber ?? 0,
         date: existing?.date || (dbRow.published_date ? new Date(dbRow.published_date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : ''),
         status: isLive ? 'live' as const : 'coming-soon' as const,
+        area: existing?.area || undefined,
+        shortDescription: existing?.shortDescription || undefined,
         thumbnail: existing?.thumbnail || dbHero || '/images/shared/italy-hero-landscape.jpg',
         description: existing?.description || dbDescription || `Explore ${dbRow.display_name} — your guide to retiring in this Italian region.`,
-        ctaText: isLive ? 'Read Newsletter' : 'Coming Soon',
+        ctaText: isLive ? 'Read guide' : 'Coming Soon',
         ctaLink: isLive ? `/${dbRow.slug}` : undefined,
         expectedDate: !isLive ? existing?.expectedDate : undefined,
       };
-    });
+    }).filter(Boolean);
 
 
     // Sort by issue_number descending
@@ -131,8 +136,10 @@ export async function getNewsletterIndexData() {
           issueNumber: newestLive.issueNumber,
           date: newestLive.date,
           description: newestLive.description,
+          summary: staticLookup[newestLive.slug]?.summary || undefined,
+          facts: staticLookup[newestLive.slug]?.facts || undefined,
           heroImage: newestLive.thumbnail,
-          ctaText: 'Explore ' + (newestLive.displayName || newestLive.title),
+          ctaText: 'Read the ' + (newestLive.displayName || newestLive.title) + ' guide',
           ctaLink: `/${newestLive.slug}`,
         }
       : staticData.featured;
