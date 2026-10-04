@@ -3,14 +3,14 @@ import { Helmet } from 'react-helmet-async';
 interface SEOProps {
   title: string;
   description: string;
-  canonical: string;
+  canonical?: string;
   ogTitle?: string;
   ogDescription?: string;
   ogUrl?: string;
   ogType?: string;
   ogImage?: string;
-  structuredData?: object;
-  keywords?: string[];
+  structuredData?: object | object[];
+  noindex?: boolean;
 }
 
 export function SEO({
@@ -23,26 +23,25 @@ export function SEO({
   ogType = 'website',
   ogImage,
   structuredData,
-  keywords = [],
+  noindex = false,
 }: SEOProps) {
+  const blocks = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonical} />
-      <meta name="robots" content="index, follow" />
-      
-      {keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
-      )}
+      {canonical && <link rel="canonical" href={canonical} />}
+      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
 
       {/* Open Graph */}
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
-      <meta property="og:url" content={ogUrl || canonical} />
+      {(ogUrl || canonical) && <meta property="og:url" content={ogUrl || canonical} />}
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="Caesar the Day" />
+      <meta property="og:site_name" content="CaesarTheDay" />
       {ogImage && <meta property="og:image" content={ogImage} />}
+      {ogImage && <meta property="og:image:width" content="1200" />}
+      {ogImage && <meta property="og:image:height" content="630" />}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -52,11 +51,11 @@ export function SEO({
       {ogImage && <meta name="twitter:image" content={ogImage} />}
 
       {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+      {blocks.map((block, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(block)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 }
