@@ -14,7 +14,7 @@ export const SITE = 'https://italy.caesartheday.com';
 export const SITE_NAME = 'CaesarTheDay';
 export const DEFAULT_TITLE = 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy';
 export const DEFAULT_DESCRIPTION =
-  'Immersive regional guides for retiring in Italy, with cost-of-living insights, livable towns, cultural secrets, and interactive tools to turn daydreams into plans.';
+  'Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs.';
 export const DEFAULT_IMAGE = `${SITE}/og-veni-vidi-vici-sep2026.jpg`;
 export const LOGO = `${SITE}/images/shared/caesartheday-logo.png`;
 export const SEVEN_PERCENT_REGIONS = ['puglia', 'calabria', 'molise'];
@@ -79,3 +79,27 @@ export const isoDate = (d: string | null | undefined) => (d ? new Date(d).toISOS
 
 /** Strip the editorial "Region: subtitle" pattern down to a clean name. */
 export const regionName = (r: RegionRow) => r.display_name || r.slug;
+
+const isEmptyData = (d: AnyRecord | null | undefined) => !d || (!d.region && !d.towns);
+
+/** Older regions keep their content in static files instead of the database. */
+export async function loadStaticRegion(slug: string): Promise<AnyRecord | null> {
+  for (const path of [`/data/regions/italy/${slug}.json`, `/data/${slug}.json`]) {
+    try {
+      const res = await fetch(`${SITE}${path}`);
+      if (!res.ok) continue;
+      if (!(res.headers.get('content-type') || '').includes('json')) continue;
+      const data = await res.json();
+      if (data && typeof data === 'object' && !isEmptyData(data)) return data;
+    } catch {
+      /* try next */
+    }
+  }
+  return null;
+}
+
+export async function withRegionData<T extends { slug: string; region_data?: AnyRecord | null }>(row: T): Promise<T> {
+  if (!isEmptyData(row.region_data)) return row;
+  const data = await loadStaticRegion(row.slug);
+  return data ? { ...row, region_data: data } : row;
+}
