@@ -110,7 +110,7 @@ const ItalyMapInteractive = ({ entries, featuredSlug, titles }: ItalyMapInteract
     }
   };
 
-  const featuredTitle = featuredSlug ? (titles[featuredSlug] || featuredSlug) : '';
+  const featuredTitle = featuredSlug ? (safeTitles[featuredSlug] || featuredSlug) : '';
   const geoUrl = '/data/italy-regions.topojson';
 
   return (
@@ -217,7 +217,7 @@ const ItalyMapInteractive = ({ entries, featuredSlug, titles }: ItalyMapInteract
           }}
         >
           <div className="font-display text-base font-semibold leading-tight">
-            {titles[hovered.slug] || hovered.slug}
+            {safeTitles[hovered.slug] || hovered.slug}
           </div>
           <div className="text-xs text-muted-foreground mt-0.5">{statusLabel(statusOf(hovered.slug))}</div>
           {(() => {
