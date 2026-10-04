@@ -1,19 +1,25 @@
-# Plan: Tag Veni Vidi Vici email signups
+# Add the Veni Vidi Vici seal beside the homepage hero title
 
-## Goal
-Every "Send me the next region" button on italy.caesartheday.com passes the tag `VVV Signup` to the newsletter page on caesartheday.com, so those subscribers are identifiable as Veni Vidi Vici readers.
+## What the user wants
 
-## Change
-- In `src/components/sections/NewsletterSignup.tsx`, append `tag=VVV%20Signup` to the signup URL alongside the existing UTM parameters.
-- Resulting link: `https://www.caesartheday.com/newsletter?utm_source=veni-vidi-vici&utm_medium=referral&utm_campaign={region-slug|home}&tag=VVV%20Signup`
-- This covers all placements automatically: the block after the intro and the one before the closing on every region page, plus the homepage block — they all share this one component.
+The uploaded circular seal (green field, gold laurel and aqueduct, "VENI · VIDI · VICI / REGIONAL GUIDES / BY CAESARTHEDAY®", 1200×1200, transparent background) should sit to the right of the vertically stacked "Veni. / Vidi. / Vici." headline in the homepage hero — filling the empty space between the title and the map column. Homepage only; region pages untouched.
 
-## Verified current state
-- `NewsletterSignup.tsx` builds the link via `withUtm('https://www.caesartheday.com/newsletter', campaign)` and is the only place newsletter signup links are generated.
-- The crawler-rendered pages (`api/render.ts`) do not output newsletter signup links, so no change is needed there.
+## Changes
 
-## Note
-The tag only takes effect if the newsletter page on caesartheday.com (or your email provider behind it) reads the `tag` URL parameter. If it expects a different parameter name, tell me and I'll adjust.
+1. **Asset (local, per project rule — no CDN pointers)**
+   - Copy the upload from `/mnt/user-uploads/` to `public/images/shared/veni-vidi-vici-seal.png`, resized to 600×600 (2× the largest display size, keeps retina crisp at ~120 KB instead of 1 MB).
+   - Keep the original untouched in uploads.
 
-## Verification
-- Load a region page and the homepage in the preview, click/inspect the signup button, confirm the URL contains `tag=VVV%20Signup` and the UTM parameters.
+2. **Hero layout — `src/pages/NewsletterIndex.tsx`**
+   - Wrap the headline block in a flex row: stacked `h1` on the left, the seal `<img>` on the right, vertically centered against the three-line headline (`items-center`, generous gap so the seal reads as a badge next to the type, not touching it).
+   - Size the seal ~280px on desktop (`clamp(180px, 22vw, 280px)`), so on mobile it drops below the headline at a comfortable size or hides when the viewport is very narrow — whichever keeps the hero balanced.
+   - Alt text: "Veni. Vidi. Vici. Regional Guides seal".
+   - Nothing else in the hero (eyebrow, lead, buttons, stats) changes; the map column stays put.
+
+3. **Validation**
+   - Run `bun run validate:images` (new local path keeps it green) and the typecheck.
+   - Playwright screenshot of the hero at desktop and mobile widths to confirm the seal fills the space without crowding the map or causing horizontal scroll.
+
+## Not in scope
+
+- Header logo, favicon, OG images, region pages — all unchanged.
