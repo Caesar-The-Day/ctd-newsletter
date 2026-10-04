@@ -326,13 +326,22 @@ const NewsletterIndex = () => {
             <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-terracotta-deep">
               An independent guide to retiring in Italy
             </p>
-            <h1 className="font-display text-[clamp(4rem,9vw,6rem)] font-semibold leading-[0.95]">
-              Veni.
-              <br />
-              Vidi.
-              <br />
-              <span className="italic text-terracotta-deep">Vici.</span>
-            </h1>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <h1 className="font-display text-[clamp(4rem,9vw,6rem)] font-semibold leading-[0.95]">
+                Veni.
+                <br />
+                Vidi.
+                <br />
+                <span className="italic text-terracotta-deep">Vici.</span>
+              </h1>
+              <img
+                src="/images/shared/veni-vidi-vici-seal.png"
+                alt="Veni. Vidi. Vici. Regional Guides seal"
+                width={600}
+                height={600}
+                className="w-[clamp(150px,20vw,280px)] shrink-0"
+              />
+            </div>
             <p className="mt-8 text-[22px] leading-snug">
               Your field guide to conquering retirement in Italy — one region at a time.
             </p>
