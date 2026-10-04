@@ -83,7 +83,7 @@ const NewsletterIndex = () => {
         description="Veni. Vidi. Vici. is your region-by-region guide to conquering retirement in Italy, with deep dives on cost of living, towns worth living in, regional secrets, and interactive tools like maps, quizzes, and recipes."
         canonical="https://italy.caesartheday.com/"
         ogTitle="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
-        ogDescription="Immersive regional guides for retiring in Italy, with cost-of-living insights, livable towns, cultural secrets, and interactive tools to turn daydreams into plans."
+        ogDescription="Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs."
         ogUrl="https://italy.caesartheday.com/"
         ogType="website"
         ogImage="https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg"
@@ -91,7 +91,7 @@ const NewsletterIndex = () => {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Veni. Vidi. Vici. – Your Guide to Conquering Retirement in Italy",
-          "description": "Region-by-region guides to retiring in Italy, including cost of living, livable towns, cultural insights, and interactive tools like maps, quizzes, and recipes.",
+          "description": "Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs.",
           "url": "https://italy.caesartheday.com/",
           "publisher": {
             "@type": "Organization",

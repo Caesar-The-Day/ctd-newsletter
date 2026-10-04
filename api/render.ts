@@ -3,7 +3,7 @@
 import newsletterIndex from '../public/data/newsletter-index.json';
 import {
   SITE, SITE_NAME, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE, LOGO, SEVEN_PERCENT_REGIONS,
-  getLiveRegions, getRegion, getOgRows, esc, absUrl, isoDate, regionName,
+  getLiveRegions, getRegion, withRegionData, getOgRows, esc, absUrl, isoDate, regionName,
   type RegionRow, type OgRow,
 } from './_lib/site';
 
@@ -93,7 +93,7 @@ function ctaLinks(slug: string) {
   ];
   if (SEVEN_PERCENT_REGIONS.includes(slug)) links.push(['7% flat-tax towns explorer', 'https://italy7percent.caesartheday.com']);
   return `<section><h2>Plan your move</h2><ul>${links
-    .map(([l, u]) => `<li><a href="${u}">${esc(l)}</a></li>`)
+    .map(([l, u]) => `<li><a href="${esc(`${u}${u.includes('?') ? '&' : '?'}utm_source=veni-vidi-vici&utm_medium=referral&utm_campaign=${slug || 'home'}`)}">${esc(l)}</a></li>`)
     .join('')}</ul></section>`;
 }
 
@@ -171,8 +171,9 @@ ${pc.finalTake ? `<h3>${esc(pc.finalTake.headline || 'Verdict')}</h3><p>${esc(pc
 }
 
 async function renderRegion(slug: string): Promise<Response> {
-  const [region, live, ogRows] = await Promise.all([getRegion(slug), getLiveRegions(), getOgRows().catch(() => [] as OgRow[])]);
-  if (!region || region.status !== 'live') return notFound(`/${slug}`);
+  const [rawRegion, live, ogRows] = await Promise.all([getRegion(slug), getLiveRegions(), getOgRows().catch(() => [] as OgRow[])]);
+  if (!rawRegion || rawRegion.status !== 'live') return notFound(`/${slug}`);
+  const region = await withRegionData(rawRegion);
 
   const d = (region.region_data || {}) as AnyRecord;
   const reg = d.region || {};
@@ -221,7 +222,8 @@ async function renderRegion(slug: string): Promise<Response> {
 }
 
 async function renderHome(): Promise<Response> {
-  const [live, ogRows] = await Promise.all([getLiveRegions(true), getOgRows().catch(() => [] as OgRow[])]);
+  const [liveRaw, ogRows] = await Promise.all([getLiveRegions(true), getOgRows().catch(() => [] as OgRow[])]);
+  const live = await Promise.all(liveRaw.map(withRegionData));
   const idx = newsletterIndex as AnyRecord;
   const staticBySlug = new Map<string, AnyRecord>(list(idx.newsletters).map((n: AnyRecord) => [n.slug, n]));
 
