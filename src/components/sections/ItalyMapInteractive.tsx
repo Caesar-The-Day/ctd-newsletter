@@ -33,11 +33,15 @@ const INK = 'hsl(206 57% 8%)';
 type MapStatus = 'live' | 'pdf' | 'coming-soon' | 'none';
 
 const ItalyMapInteractive = ({ entries, featuredSlug, titles }: ItalyMapInteractiveProps) => {
+  // Render defensively: during HMR or partial data loads these props can be
+  // undefined — an empty map beats a blank screen.
+  const safeEntries = Array.isArray(entries) ? entries : [];
+  const safeTitles: Record<string, string> = titles || {};
   const navigate = useNavigate();
   const [hovered, setHovered] = useState<{ slug: string; x: number; y: number } | null>(null);
 
   const entryMap = new Map<string, MapEntry>();
-  entries.forEach((e) => entryMap.set(e.slug, e));
+  safeEntries.forEach((e) => entryMap.set(e.slug, e));
 
   const normalizeRegionName = (name: string): string => {
     const nameMap: Record<string, string> = {
