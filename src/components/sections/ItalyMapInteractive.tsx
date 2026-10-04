@@ -131,7 +131,7 @@ const ItalyMapInteractive = ({ entries, featuredSlug, titles }: ItalyMapInteract
       {featuredSlug && featuredTitle && (
         <a
           href="#latest"
-          className="absolute left-[40%] top-[28%] z-20 inline-flex flex-col rounded-lg bg-primary px-3 py-2 text-primary-foreground shadow-medium transition-transform hover:scale-105"
+          className="absolute left-[16%] top-[24%] z-20 inline-flex flex-col rounded-lg bg-primary px-3 py-2 text-primary-foreground shadow-medium transition-transform hover:scale-105"
           aria-label={`New this month: ${featuredTitle}`}
         >
           <span className="text-[10px] font-semibold uppercase tracking-[0.15em] opacity-80">
