@@ -9,8 +9,6 @@
 Build it from the display name ("Make Your Trentino-Alto Adige Move Official"), not the capitalised slug.
 
 ## 3. Puglia guide text (in the static Puglia file, which the page reads from)
-- Intro paragraph 4: "...nobody's in a hurry, and you won't be either."
-- Intro paragraph 5: replace the "la dolce vita..." sentence with "This month we're heading south: two coasts, a lot of olive oil, and the questions that matter before you sign a lease."
 - Cost reality check: swap the first sentence for your new one. "Algargo" becomes "Algarve" in the same paragraph.
 - Hero credit: "Photo: Puglia © CaesarTheDay" (currently it reads "Langhe Vineyards").
 - Facebook share message: "sun-soaked secret" becomes "two-coast region".
