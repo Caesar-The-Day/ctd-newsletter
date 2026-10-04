@@ -288,7 +288,7 @@ export default function RegionPage() {
 
   const canonicalUrl = `https://italy.caesartheday.com/${region}`;
   const regionTitle: string = regionData.region?.title || regionMeta?.display_name || region || '';
-  const regionName: string = regionMeta?.display_name || regionTitle;
+  const regionName: string = regionMeta?.display_name || registryEntry?.displayName || regionTitle.split(':')[0].trim();
   const effectiveSeoTitle = ogOverride?.title || `${regionTitle} | Veni. Vidi. Vici.`;
   const effectiveSeoDescription =
     ogOverride?.description || (regionData.region as any)?.tagline || 'Region-by-region guides to retiring in Italy.';
@@ -407,6 +407,8 @@ export default function RegionPage() {
         portrait={regionData.region.intro.portrait}
         signature={regionData.region.intro.signature}
       />
+
+      <NewsletterSignup campaign={region || 'home'} />
 
       <InteractiveMap 
         regionTitle={regionData.region.title.split(':')[0]} 
