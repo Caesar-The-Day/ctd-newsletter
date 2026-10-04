@@ -87,7 +87,6 @@ const NewsletterIndex = () => {
         ogUrl="https://italy.caesartheday.com/"
         ogType="website"
         ogImage="https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg"
-        keywords={['retirement in Italy', 'Italian regions guide', 'cost of living in Italy', 'interactive retirement tools', 'Veni. Vidi. Vici. guides']}
         structuredData={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
@@ -97,7 +96,20 @@ const NewsletterIndex = () => {
           "publisher": {
             "@type": "Organization",
             "name": "CaesarTheDay®",
-            "url": "https://www.caesartheday.com"
+            "url": "https://www.caesartheday.com",
+            "logo": { "@type": "ImageObject", "url": "https://italy.caesartheday.com/images/shared/caesartheday-logo.png" }
+          },
+          "inLanguage": "en",
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": data.newsletters
+              .filter((n: any) => !n.status || n.status === 'live')
+              .map((n: any, i: number) => ({
+                "@type": "ListItem",
+                "position": i + 1,
+                "name": n.subtitle ? `${n.title}: ${n.subtitle}` : n.title,
+                "url": `https://italy.caesartheday.com/${n.slug}`
+              }))
           }
         }}
       />
