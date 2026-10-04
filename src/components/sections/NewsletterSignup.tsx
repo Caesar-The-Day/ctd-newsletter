@@ -7,7 +7,7 @@ interface NewsletterSignupProps {
 }
 
 export function NewsletterSignup({ campaign }: NewsletterSignupProps) {
-  const href = withUtm('https://www.caesartheday.com/newsletter', campaign);
+  const href = withUtm('https://www.caesartheday.com/newsletter', campaign) + '&tag=VVV%20Signup';
   return (
     <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
