@@ -535,8 +535,8 @@ const NewsletterIndex = () => {
       <section id="about" className="scroll-mt-24 py-16 md:py-24">
         <div className="container mx-auto grid max-w-4xl items-center gap-10 px-4 md:grid-cols-[220px_1fr]">
           <img
-            src="/images/cesare-portrait.jpg"
-            alt="Cesare, founder of CaesarTheDay"
+            src="/images/caesar-smiling.jpg"
+            alt="Caesar, founder of CaesarTheDay"
             className="h-[220px] w-[220px] rounded-full object-cover shadow-medium"
           />
           <div>
