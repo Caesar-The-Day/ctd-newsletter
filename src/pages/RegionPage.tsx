@@ -26,7 +26,6 @@ import { TownsFeatured } from '@/components/sections/TownsFeatured';
 import { TownsGrid } from '@/components/sections/TownsGrid';
 import { RecipesInteractive } from '@/components/sections/RecipesInteractive';
 import { ProsConsInteractive } from '@/components/sections/ProsConsInteractive';
-import { InlineCTA } from '@/components/sections/InlineCTA';
 import { ClosingShare } from '@/components/sections/ClosingShare';
 import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
