@@ -10,7 +10,7 @@ const SUPABASE_URL = env.VITE_SUPABASE_URL || env.SUPABASE_URL || FALLBACK_SUPAB
 const SUPABASE_KEY =
   env.VITE_SUPABASE_PUBLISHABLE_KEY || env.SUPABASE_ANON_KEY || FALLBACK_SUPABASE_ANON_KEY;
 
-export const SITE = 'https://italy.caesartheday.com';
+export const SITE = 'https://www.caesartheday.com/regions';
 export const SITE_NAME = 'CaesarTheDay';
 export const DEFAULT_TITLE = 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy';
 export const DEFAULT_DESCRIPTION =

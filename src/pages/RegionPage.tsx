@@ -286,7 +286,7 @@ export default function RegionPage() {
     );
   }
 
-  const canonicalUrl = `https://italy.caesartheday.com/${region}`;
+  const canonicalUrl = `https://www.caesartheday.com/regions/${region}`;
   const regionTitle: string = regionData.region?.title || regionMeta?.display_name || region || '';
   const regionName: string = regionMeta?.display_name || registryEntry?.displayName || regionTitle.split(':')[0].trim();
   const effectiveSeoTitle = ogOverride?.title || `${regionTitle} | Veni. Vidi. Vici.`;
@@ -295,8 +295,8 @@ export default function RegionPage() {
   const heroImage: string | undefined = (regionData.region as any)?.hero?.bannerImage;
   const effectiveOgImage =
     ogOverride?.image_url ||
-    (heroImage ? (heroImage.startsWith('http') ? heroImage : `https://italy.caesartheday.com${heroImage}`) : undefined) ||
-    'https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg';
+    (heroImage ? (heroImage.startsWith('http') ? heroImage : `https://www.caesartheday.com/regions${heroImage}`) : undefined) ||
+    'https://www.caesartheday.com/regions/og-veni-vidi-vici-sep2026.jpg';
   const isLive = regionMeta ? regionMeta.status === 'live' : true;
 
   return (
@@ -326,7 +326,7 @@ export default function RegionPage() {
               "@type": "Organization",
               "name": "CaesarTheDay®",
               "url": "https://www.caesartheday.com",
-              "logo": { "@type": "ImageObject", "url": "https://italy.caesartheday.com/images/shared/caesartheday-logo.png" }
+              "logo": { "@type": "ImageObject", "url": "https://www.caesartheday.com/regions/images/shared/caesartheday-logo.png" }
             },
             "inLanguage": "en",
             "url": canonicalUrl,
@@ -341,7 +341,7 @@ export default function RegionPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://italy.caesartheday.com/" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.caesartheday.com/regions/" },
               { "@type": "ListItem", "position": 2, "name": regionName, "item": canonicalUrl }
             ]
           }

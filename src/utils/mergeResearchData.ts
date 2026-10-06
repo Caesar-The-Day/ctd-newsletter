@@ -423,7 +423,7 @@ function buildClosingSection(r: any, slug: string, regionName: string) {
     header: `Until Next Time from ${regionName}`,
     subtitle: 'Share this newsletter with fellow Italy dreamers',
     message: closing.message || `That's a wrap on ${regionName}. Until next time — Cesare`,
-    shareUrl: `https://italy.caesartheday.com/${slug}`,
+    shareUrl: `https://www.caesartheday.com/regions/${slug}`,
     socialMessages: {
       facebook: social.facebook || `Discover ${regionName} with Caesar the Day!`,
       threads: social.threads || `Exploring ${regionName} for retirement — great insights here.`,
