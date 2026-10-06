@@ -29,7 +29,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <CookieConsent />
-      <BrowserRouter>
+      <BrowserRouter basename="/regions">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/design-system" element={<NoIndex><DesignSystem /></NoIndex>} />

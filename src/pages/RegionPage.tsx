@@ -358,10 +358,10 @@ export default function RegionPage() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to="/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                    <a href="https://www.caesartheday.com/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
                       <Home className="h-4 w-4" />
                       <span>Home</span>
-                    </Link>
+                    </a>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
