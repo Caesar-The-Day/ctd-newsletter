@@ -17,7 +17,7 @@ import {
   BreadcrumbPage, 
   BreadcrumbSeparator 
 } from '@/components/ui/breadcrumb';
-import { Home } from 'lucide-react';
+import { Map } from 'lucide-react';
 import { HeroParallax } from '@/components/sections/HeroParallax';
 import { EditorialIntro } from '@/components/sections/EditorialIntro';
 import { InteractiveMap } from '@/components/sections/InteractiveMap';
