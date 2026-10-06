@@ -43,11 +43,26 @@ if (BASE && typeof window !== 'undefined') {
   patchProp(HTMLMediaElement.prototype, 'src', withBase);
   patchProp(HTMLSourceElement.prototype, 'src', withBase);
   patchProp(HTMLAnchorElement.prototype, 'href', withBase);
-  for (const p of ['backgroundImage', 'background']) {
-    let proto: any = Object.getPrototypeOf(document.documentElement.style);
-    while (proto && !Object.getOwnPropertyDescriptor(proto, p)) proto = Object.getPrototypeOf(proto);
-    if (proto) patchProp(proto, p, fixCssUrls);
-  }
+  // Inline background images set through style objects bypass setAttribute;
+  // watch style changes and rewrite their url(...) paths.
+  const fixEl = (el: Element) => {
+    const st = (el as HTMLElement).style;
+    const bg = st && st.backgroundImage;
+    if (bg && bg.includes('url(')) {
+      const fixed = fixCssUrls(bg.replace(/url\("([^"]+)"\)/g, 'url($1)'));
+      if (fixed !== bg.replace(/url\("([^"]+)"\)/g, 'url($1)')) st.backgroundImage = fixed;
+    }
+  };
+  new MutationObserver(muts => {
+    for (const m of muts) {
+      if (m.type === 'attributes') fixEl(m.target as Element);
+      else m.addedNodes.forEach(n => {
+        if (n.nodeType !== 1) return;
+        fixEl(n as Element);
+        (n as Element).querySelectorAll('[style]').forEach(fixEl);
+      });
+    }
+  }).observe(document.documentElement, { subtree: true, childList: true, attributes: true, attributeFilter: ['style'] });
   const origSetProp = CSSStyleDeclaration.prototype.setProperty;
   CSSStyleDeclaration.prototype.setProperty = function (p: string, v: string | null, pr?: string) {
     return origSetProp.call(this, p, v == null ? v : fixCssUrls(v), pr);
