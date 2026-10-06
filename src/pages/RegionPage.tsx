@@ -17,7 +17,7 @@ import {
   BreadcrumbPage, 
   BreadcrumbSeparator 
 } from '@/components/ui/breadcrumb';
-import { Home } from 'lucide-react';
+import { Map } from 'lucide-react';
 import { HeroParallax } from '@/components/sections/HeroParallax';
 import { EditorialIntro } from '@/components/sections/EditorialIntro';
 import { InteractiveMap } from '@/components/sections/InteractiveMap';
@@ -341,7 +341,7 @@ export default function RegionPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.caesartheday.com/regions/" },
+              { "@type": "ListItem", "position": 1, "name": "Regions", "item": "https://www.caesartheday.com/regions/" },
               { "@type": "ListItem", "position": 2, "name": regionName, "item": canonicalUrl }
             ]
           }
@@ -358,10 +358,10 @@ export default function RegionPage() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <a href="https://www.caesartheday.com/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
-                      <Home className="h-4 w-4" />
-                      <span>Home</span>
-                    </a>
+                    <Link to="/" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                      <Map className="h-4 w-4" />
+                      <span>Regions</span>
+                    </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
