@@ -43,7 +43,11 @@ if (BASE && typeof window !== 'undefined') {
   patchProp(HTMLMediaElement.prototype, 'src', withBase);
   patchProp(HTMLSourceElement.prototype, 'src', withBase);
   patchProp(HTMLAnchorElement.prototype, 'href', withBase);
-  for (const p of ['backgroundImage', 'background']) patchProp(CSSStyleDeclaration.prototype, p, fixCssUrls);
+  for (const p of ['backgroundImage', 'background']) {
+    let proto: any = Object.getPrototypeOf(document.documentElement.style);
+    while (proto && !Object.getOwnPropertyDescriptor(proto, p)) proto = Object.getPrototypeOf(proto);
+    if (proto) patchProp(proto, p, fixCssUrls);
+  }
   const origSetProp = CSSStyleDeclaration.prototype.setProperty;
   CSSStyleDeclaration.prototype.setProperty = function (p: string, v: string | null, pr?: string) {
     return origSetProp.call(this, p, v == null ? v : fixCssUrls(v), pr);
