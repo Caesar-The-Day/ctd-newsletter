@@ -7,7 +7,7 @@ import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
 import { supabase } from '@/integrations/supabase/client';
 import NotFound from './NotFound';
-import { NewsletterSignup } from '@/components/sections/NewsletterSignup';
+import { EmailCapture } from '@/components/sections/EmailCapture';
 
 import { 
   Breadcrumb, 
@@ -408,7 +408,7 @@ export default function RegionPage() {
         signature={regionData.region.intro.signature}
       />
 
-      <NewsletterSignup campaign={region || 'home'} />
+      <EmailCapture campaign={region || 'home'} />
 
       <InteractiveMap 
         regionTitle={regionData.region.title.split(':')[0]} 
@@ -621,7 +621,7 @@ export default function RegionPage() {
 
       {region === 'calabria' && <CalabriaRealityCheck />}
 
-      <NewsletterSignup campaign={region || 'home'} />
+      <EmailCapture id="signup" campaign={region || 'home'} />
       <ClosingShare
         message={regionData.closing.message}
         header={regionData.closing.header}
