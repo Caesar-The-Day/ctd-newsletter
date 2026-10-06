@@ -7,6 +7,7 @@ import { SEO } from '@/components/common/SEO';
 import { withUtm } from '@/lib/utm';
 import ItalyMapInteractive from '@/components/sections/ItalyMapInteractive';
 import HomeHeader from '@/components/home/HomeHeader';
+import { EmailCapture } from '@/components/sections/EmailCapture';
 
 interface FeaturedData {
   slug: string;
@@ -110,7 +111,6 @@ const textLinkClass =
 const NewsletterIndex = () => {
   const [data, setData] = useState<NewsletterIndexData | null>(null);
   const [globals, setGlobals] = useState<GlobalsData | null>(null);
-  const [email, setEmail] = useState('');
 
   useEffect(() => {
     Promise.all([getNewsletterIndexData(), getGlobals()])
@@ -266,15 +266,6 @@ const NewsletterIndex = () => {
         {inner}
       </Link>
     );
-  };
-
-  const handleSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    let url = withUtm('https://www.caesartheday.com/newsletter', 'home') + '&tag=VVV%20Signup';
-    if (email.trim()) {
-      url += '&email=' + encodeURIComponent(email.trim());
-    }
-    window.location.href = url;
   };
 
   return (
@@ -489,47 +480,7 @@ const NewsletterIndex = () => {
         </div>
       </section>
 
-      {/* Signup band */}
-      <section id="signup" className="scroll-mt-24 border-y border-border" style={{ backgroundColor: 'hsl(20 55% 92%)' }}>
-        <div className="container mx-auto grid items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-20">
-          <div>
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">
-              One new region a month.
-            </h2>
-            <p className="mt-4 max-w-xl text-[17px] text-muted-foreground">
-              Towns, real costs, healthcare and the honest downsides — straight to your
-              inbox. Plus the free{' '}
-              <strong className="font-semibold text-foreground">
-                Ultimate Italy Moving Checklist
-              </strong>
-              .
-            </p>
-          </div>
-          <div>
-            <form onSubmit={handleSignup} className="max-w-md md:ml-auto">
-              <label htmlFor="home-signup-email" className="mb-2 block text-sm font-medium">
-                Your email
-              </label>
-              <input
-                id="home-signup-email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="w-full rounded-lg border border-input bg-card px-4 py-3 text-[17px] outline-none transition-shadow focus:ring-2 focus:ring-ring"
-              />
-              <button type="submit" className={primaryBtnClass + ' mt-3 w-full'}>
-                Send me the next region
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Free. Unsubscribe anytime.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
+      <EmailCapture id="signup" campaign="home" />
 
       {/* About Caesar */}
       <section id="about" className="scroll-mt-24 py-16 md:py-24">
