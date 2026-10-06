@@ -173,18 +173,18 @@ interface BestMonthsData {
   description: string;
 }
 
-export function ClimateSnapshot() {
+export function ClimateSnapshot({ region }: { region?: string }) {
   const [climateData, setClimateData] = useState<ClimateData | null>(null);
   const [currentMonth, setCurrentMonth] = useState(0);
   const [selectedRegion, setSelectedRegion] = useState<RegionKey>("alba");
   const [animationKey, setAnimationKey] = useState(0);
   const [bestMonthsView, setBestMonthsView] = useState<BestMonthsView>("off");
 
-  // Get region from URL
-  const region = window.location.pathname.slice(1) || "piemonte";
 
   useEffect(() => {
     let cancelled = false;
+    setClimateData(null);
+    if (!region) return;
 
     const applyData = (data: any) => {
       if (cancelled || !isRichClimatePayload(data)) return false;
@@ -197,22 +197,20 @@ export function ClimateSnapshot() {
     const loadFromStaticFiles = async () => {
       try {
         const res = await fetch(`/data/regions/italy/${region}-climate.json`);
-        if (res.ok) {
+        if (res.ok && (res.headers.get("content-type") || "").includes("json")) {
           const data = await res.json();
           if (applyData(data)) return;
         }
       } catch {
         // ignore — fall through to last-ditch fallback
       }
-      // Last-ditch fallback: Piemonte (preserves prior behavior).
       try {
-        const res = await fetch("/data/piemonte-climate.json");
-        if (res.ok) {
-          const data = await res.json();
-          applyData(data);
+        const res = await fetch(`/data/${region}-climate.json`);
+        if (res.ok && (res.headers.get("content-type") || "").includes("json")) {
+          applyData(await res.json());
         }
       } catch {
-        // give up silently — section will render null
+        // give up silently — section will render null rather than show another region
       }
     };
 

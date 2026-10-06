@@ -415,7 +415,7 @@ export default function RegionPage() {
         whereData={regionData.where}
       />
 
-      <ClimateSnapshot />
+      <ClimateSnapshot key={region} region={region} />
 
       {region === 'lazio' && <LazioBeyondRome />}
 
