@@ -1,6 +1,6 @@
 // The app is served under a sub-path (Vite `base`, e.g. "/regions/").
 // Content (JSON files, database rows, components) refers to public files as
-// root-relative paths like "/images/x.jpg". This shim prefixes those paths
+// root-relative paths like "/images/<file>". This shim prefixes those paths
 // with the base at the browser level so every image, video, fetch and link resolves.
 export const BASE = import.meta.env.BASE_URL.replace(/\/$/, ''); // "/regions" or ""
 
