@@ -35,6 +35,7 @@ const App = () => (
           <Route path="/design-system" element={<NoIndex><DesignSystem /></NoIndex>} />
           <Route path="/auth" element={<NoIndex><Auth /></NoIndex>} />
           <Route path="/admin/regions" element={<NoIndex><RequireAdmin><AdminRegions /></RequireAdmin></NoIndex>} />
+          <Route path="/404" element={<NotFound />} />
           <Route path="/:region" element={<RegionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
