@@ -12,11 +12,13 @@ function nestUnderBase() {
     apply: "build" as const,
     closeBundle() {
       const out = path.resolve(__dirname, "dist");
-      const tmp = path.resolve(__dirname, "dist-tmp-regions");
-      fs.rmSync(tmp, { recursive: true, force: true });
-      fs.renameSync(out, tmp);
-      fs.mkdirSync(out);
-      fs.renameSync(tmp, path.join(out, "regions"));
+      const nested = path.join(out, "regions");
+      fs.mkdirSync(nested, { recursive: true });
+      for (const entry of fs.readdirSync(out)) {
+        if (entry === "regions") continue;
+        fs.cpSync(path.join(out, entry), path.join(nested, entry), { recursive: true });
+        fs.rmSync(path.join(out, entry), { recursive: true, force: true });
+      }
       fs.copyFileSync(path.join(out, "regions", "index.html"), path.join(out, "index.html"));
     },
   };
