@@ -22,7 +22,7 @@
 - [ ] After publish: test crawler pages on a Vercel preview; add news.caesartheday.com to the Vercel project for the 301
 
 ## Current
-- [ ] Correct Friuli tax, healthcare, and Trieste rent copy
-- [ ] Make the regional title the hero H1
-- [ ] Standardize canonical and social URLs on italy.caesartheday.com
-- [ ] Keep More Towns cards visible after jump navigation
+- [x] Correct Friuli tax, healthcare, and Trieste rent copy
+- [x] Make the regional title the hero H1
+- [x] Standardize canonical and social URLs on italy.caesartheday.com
+- [x] Keep More Towns cards visible after jump navigation
