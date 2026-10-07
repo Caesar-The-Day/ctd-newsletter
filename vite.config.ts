@@ -24,6 +24,25 @@ function nestUnderBase() {
   };
 }
 
+// Dev only: page visits without the /regions prefix (e.g. /admin/regions) are
+// redirected to /regions/... instead of Vite's "did you mean" error page.
+function redirectToBase() {
+  return {
+    name: "redirect-to-base",
+    apply: "serve" as const,
+    configureServer(server: any) {
+      server.middlewares.stack.unshift({ route: "", handle: (req: any, res: any, next: any) => {
+        const url: string = req.url || "/";
+        const accept: string = req.headers?.accept || "";
+        if (url.startsWith("/regions") || !accept.includes("text/html")) return next();
+        res.statusCode = 302;
+        res.setHeader("Location", "/regions" + (url === "/" ? "/" : url));
+        res.end();
+      }});
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: "/regions/",
@@ -40,7 +59,7 @@ export default defineConfig(({ mode }) => ({
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvbGJ5d3dybmVoaHdvZGxneXR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwMDczNTIsImV4cCI6MjA4MTU4MzM1Mn0.3UUV5PbolRzbZmo1_oCe9TgctYF1esT2xvA_izLR4SQ'
     ),
   },
-  plugins: [react(), mode === "development" && componentTagger(), nestUnderBase()].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger(), nestUnderBase(), redirectToBase()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
