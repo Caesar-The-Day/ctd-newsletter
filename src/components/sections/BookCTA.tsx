@@ -47,7 +47,7 @@ export function BookCTA({ region }: { region?: string }) {
                   }}
                 >
                 <img
-                  src="/images/shared/escape-plan-2026.jpg" 
+                  src="/images/shared/escape-plan-2026-v4.jpg" 
                   alt="Escape Plan: Your Strategic Guide to Moving to Italy — 2026 Updated Edition cover" 
                   className="w-full h-auto rounded-lg"
                 />
