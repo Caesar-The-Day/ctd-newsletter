@@ -42,6 +42,10 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
 
   const finished = status === 'done' || status === 'already';
 
+  // The homepage's brand theme uses Playfair Display for headings; on region
+  // pages the heading font must match whatever that region's page uses.
+  const displayFont = campaign === 'home' ? 'font-display' : '';
+
   return (
     <section
       id={id}
@@ -50,7 +54,7 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
     >
       <div className="container mx-auto grid items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-20">
         <div>
-          <h2 className="font-display text-4xl font-semibold md:text-5xl">One new region a month.</h2>
+          <h2 className={`${displayFont} text-4xl font-semibold md:text-5xl`}>One new region a month.</h2>
           <p className="mt-4 max-w-xl text-[17px] text-muted-foreground">
             Towns, real costs, healthcare and the honest downsides — straight to your inbox. Plus the free{' '}
             <strong className="font-semibold text-foreground">Ultimate Italy Moving Checklist</strong>.
@@ -62,7 +66,7 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground">
                 <Check className="h-5 w-5" />
               </div>
-              <p className="font-display text-2xl font-semibold">
+              <p className={`${displayFont} text-2xl font-semibold`}>
                 {status === 'already' ? "You're already on the list." : "You're in."}
               </p>
               <p className="mt-2 text-muted-foreground">
