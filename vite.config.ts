@@ -24,6 +24,25 @@ function nestUnderBase() {
   };
 }
 
+// Dev only: page visits without the /regions prefix (e.g. /admin/regions) are
+// redirected to /regions/... instead of Vite's "did you mean" error page.
+function redirectToBase() {
+  return {
+    name: "redirect-to-base",
+    apply: "serve" as const,
+    configureServer(server: any) {
+      server.middlewares.use((req: any, res: any, next: any) => {
+        const url: string = req.url || "/";
+        const accept: string = req.headers?.accept || "";
+        if (url.startsWith("/regions") || !accept.includes("text/html")) return next();
+        res.statusCode = 302;
+        res.setHeader("Location", "/regions" + (url === "/" ? "/" : url));
+        res.end();
+      });
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: "/regions/",
