@@ -552,11 +552,6 @@ export function FriuliHealthcareInfrastructure() {
               {/* SSN steps */}
               <div>
                 <h3 className="mb-6 text-center text-2xl font-bold text-foreground">Getting into the system</h3>
-                <div className="mx-auto mb-6 max-w-3xl rounded-xl border border-primary/30 bg-primary/5 p-5 text-center">
-                  <p className="text-sm leading-relaxed text-foreground">
-                    Most Elective Residency Visa holders who enrol voluntarily in Italy’s national health service pay at least about €2,000 per year.
-                  </p>
-                </div>
                 <div className="grid gap-4 md:grid-cols-4">
                   {ssnSteps.map((s, i) => (
                     <motion.div

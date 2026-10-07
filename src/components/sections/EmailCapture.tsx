@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { Button } from '@/components/ui/button';
 
 interface EmailCaptureProps {
   /** Region slug or "home" — becomes the "VVV <campaign>" tag. */
@@ -54,7 +55,7 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
       className={`${isHome ? 'brand-ctd' : ''} scroll-mt-24 border-y border-border text-foreground`}
       style={isHome ? { backgroundColor: 'hsl(20 55% 92%)' } : undefined}
     >
-      <div className="container mx-auto grid items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-20">
+      <div className="container mx-auto grid max-w-5xl items-center gap-8 px-4 py-16 md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.8fr)] md:py-20 lg:gap-12">
         <div>
           <h2 className={`${displayFont} text-4xl font-semibold md:text-5xl`}>One new region a month.</h2>
           <p className="mt-4 max-w-xl text-[17px] text-muted-foreground">
@@ -62,7 +63,7 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
             <strong className="font-semibold text-foreground">Ultimate Italy Moving Checklist</strong>.
           </p>
         </div>
-        <div className="w-full max-w-md md:ml-auto" aria-live="polite">
+        <div className="w-full max-w-md" aria-live="polite">
           {finished ? (
             <div className="rounded-lg border border-border bg-card p-6">
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground">
@@ -87,13 +88,13 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
                 onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className={inputClass} />
               <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website}
                 onChange={(e) => setWebsite(e.target.value)} className="absolute -left-[9999px] h-0 w-0 opacity-0" name="website" />
-              <button type="submit" disabled={status === 'sending'}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-[17px] font-semibold text-accent-foreground shadow-sm transition-all hover:bg-accent/90 disabled:opacity-70"
+              <Button type="submit" disabled={status === 'sending'}
+                className="mt-4 h-auto w-full rounded-lg bg-accent px-6 py-3 text-[17px] font-semibold text-accent-foreground shadow-sm transition-all hover:bg-accent/90"
                 data-analytics-event="newsletter_signup_click">
                 {status === 'sending' ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                 Send me the next region
                 {status !== 'sending' && <ArrowRight className="h-4 w-4" />}
-              </button>
+              </Button>
               {status === 'error' && <p className="mt-3 text-sm font-medium text-destructive">{error}</p>}
               <p className="mt-3 text-sm text-muted-foreground">Free. Unsubscribe anytime.</p>
             </form>
