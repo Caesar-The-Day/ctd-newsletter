@@ -1,3 +1,4 @@
+import { ROUTER_BASE } from "@/lib/basePath";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -29,7 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <CookieConsent />
-      <BrowserRouter basename="/regions">
+      <BrowserRouter basename={ROUTER_BASE}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/design-system" element={<NoIndex><DesignSystem /></NoIndex>} />
