@@ -30,7 +30,7 @@ function redirectToBase() {
   return {
     name: "redirect-to-base",
     apply: "serve" as const,
-    configureServer(server: any) {
+    configureServer(server: any) { console.log("[redirect-to-base] active");
       server.middlewares.stack.unshift({ route: "", handle: (req: any, res: any, next: any) => {
         const url: string = req.url || "/";
         const accept: string = req.headers?.accept || "";
