@@ -42,15 +42,17 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
 
   const finished = status === 'done' || status === 'already';
 
-  // The homepage's brand theme uses Playfair Display for headings; on region
-  // pages the heading font must match whatever that region's page uses.
-  const displayFont = campaign === 'home' ? 'font-display' : '';
+  // The homepage's brand theme (Playfair headings, cream + blush palette) is
+  // scoped to the homepage. On region pages the sign-up must inherit that
+  // region's own theme so it blends into the page instead of standing out.
+  const isHome = campaign === 'home';
+  const displayFont = isHome ? 'font-display' : '';
 
   return (
     <section
       id={id}
-      className="brand-ctd scroll-mt-24 border-y border-border text-foreground"
-      style={{ backgroundColor: 'hsl(20 55% 92%)' }}
+      className={`${isHome ? 'brand-ctd' : ''} scroll-mt-24 border-y border-border text-foreground`}
+      style={isHome ? { backgroundColor: 'hsl(20 55% 92%)' } : undefined}
     >
       <div className="container mx-auto grid items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-20">
         <div>
@@ -86,7 +88,7 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
               <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website}
                 onChange={(e) => setWebsite(e.target.value)} className="absolute -left-[9999px] h-0 w-0 opacity-0" name="website" />
               <button type="submit" disabled={status === 'sending'}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 font-semibold text-accent-foreground shadow-sm transition-colors hover:bg-terracotta-deep disabled:opacity-70"
+                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-[17px] font-semibold text-accent-foreground shadow-sm transition-all hover:bg-accent/90 disabled:opacity-70"
                 data-analytics-event="newsletter_signup_click">
                 {status === 'sending' ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                 Send me the next region
