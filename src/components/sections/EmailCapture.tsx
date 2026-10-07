@@ -42,6 +42,10 @@ export function EmailCapture({ campaign, id }: EmailCaptureProps) {
 
   const finished = status === 'done' || status === 'already';
 
+  // The homepage's brand theme uses Playfair Display for headings; on region
+  // pages the heading font must match whatever that region's page uses.
+  const displayFont = campaign === 'home' ? 'font-display' : '';
+
   return (
     <section
       id={id}
