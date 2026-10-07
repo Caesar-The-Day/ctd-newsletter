@@ -26,3 +26,5 @@
 - [x] Make the regional title the hero H1
 - [x] Standardize canonical and social URLs on italy.caesartheday.com
 - [x] Keep More Towns cards visible after jump navigation
+- [ ] Audit every published guide for tax eligibility, health enrollment cost, rent consistency, and data year
+- [ ] Tighten the global email signup composition while preserving homepage and regional themes
