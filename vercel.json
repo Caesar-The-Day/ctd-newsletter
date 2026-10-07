@@ -4,6 +4,11 @@
   "outputDirectory": "dist",
   "routes": [
     {
+      "src": "^/regions/friuli-venezia-giulia/?$",
+      "status": 301,
+      "headers": { "Location": "https://italy.caesartheday.com/friuli-venezia-giulia" }
+    },
+    {
       "src": "^/(.*)$",
       "has": [{ "type": "host", "value": "news.caesartheday.com" }],
       "status": 301,
