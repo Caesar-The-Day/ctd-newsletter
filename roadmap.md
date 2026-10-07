@@ -28,3 +28,5 @@
 - [x] Keep More Towns cards visible after jump navigation
 - [x] Audit every published guide for tax eligibility, health enrollment cost, rent consistency, and data year
 - [x] Tighten the global email signup composition while preserving homepage and regional themes
+- [x] Redirect the legacy Friuli `/regions/` URL to its italy.caesartheday.com canonical
+- [x] Replace Friuli’s editorial opening with the supplied six-paragraph version
