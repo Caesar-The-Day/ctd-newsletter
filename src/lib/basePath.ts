@@ -1,13 +1,23 @@
-// The app is served under a sub-path (Vite `base`, e.g. "/regions/").
-// Content (JSON files, database rows, components) refers to public files as
-// root-relative paths like "/images/<file>". This shim prefixes those paths
-// with the base at the browser level so every image, video, fetch and link resolves.
-export const BASE = import.meta.env.BASE_URL.replace(/\/$/, ''); // "/regions" or ""
+// Built files (scripts, images, data) always live under the Vite base "/regions/".
+// Page addresses depend on the host: italy.caesartheday.com serves pages at the
+// root (/liguria); www.caesartheday.com proxies them under /regions/liguria.
+// Content refers to public files as "/images/<file>"; this shim prefixes only
+// file paths (never page links) with the asset base.
+export const BASE = import.meta.env.BASE_URL.replace(/\/$/, ''); // asset base, "/regions"
+
+const onBasePath = typeof window !== 'undefined' && BASE &&
+  (window.location.pathname === BASE || window.location.pathname.startsWith(BASE + '/'));
+const isLocalDev = typeof window !== 'undefined' && import.meta.env.DEV;
+// Router basename: "/regions" when the visitor is under it (or in local dev), otherwise "".
+export const ROUTER_BASE = onBasePath || isLocalDev ? BASE : '';
+
+const ASSET_RE = /^\/(images|data|newsletters|assets|audio|videos)\/|^\/[^?#]*\.[a-z0-9]{2,5}(?:[?#]|$)/i;
 
 export function withBase(url: string): string {
   if (!BASE || typeof url !== 'string') return url;
   if (!url.startsWith('/') || url.startsWith('//')) return url;
-  if (url === BASE || url.startsWith(BASE + '/') || url.startsWith('/@') || url.startsWith('/node_modules/') || url.startsWith('/src/')) return url;
+  if (url === BASE || url.startsWith(BASE + '/') || url.startsWith('/@') || url.startsWith('/node_modules/') || url.startsWith('/src/') || url.startsWith('/api/')) return url;
+  if (!ASSET_RE.test(url)) return url;
   return BASE + url;
 }
 
@@ -15,10 +25,11 @@ const fixCssUrls = (v: string) =>
   typeof v === 'string' ? v.replace(/url\((['"]?)(\/[^'")]+)\1\)/g, (_m, q, p) => `url(${q}${withBase(p)}${q})`) : v;
 
 if (BASE && typeof window !== 'undefined') {
-  // If someone lands on a path without the base, move them under it.
-  if (window.location.pathname !== BASE && !window.location.pathname.startsWith(BASE + '/')) {
+  // Local dev only: the dev server serves pages under the base, so move bare paths there.
+  if (isLocalDev && !onBasePath) {
     window.location.replace(BASE + window.location.pathname + window.location.search + window.location.hash);
   }
+
 
   const origFetch = window.fetch.bind(window);
   window.fetch = (input: RequestInfo | URL, init?: RequestInit) =>

@@ -4,15 +4,24 @@
   "outputDirectory": "dist",
   "routes": [
     {
-      "src": "^/regions/friuli-venezia-giulia/?$",
+      "src": "^/regions/(?!assets/|images/|data/|newsletters/)([^.]*)$",
       "status": 301,
-      "headers": { "Location": "https://italy.caesartheday.com/friuli-venezia-giulia" }
+      "headers": {
+        "Location": "https://italy.caesartheday.com/$1"
+      }
     },
     {
       "src": "^/(.*)$",
-      "has": [{ "type": "host", "value": "news.caesartheday.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "news.caesartheday.com"
+        }
+      ],
       "status": 301,
-      "headers": { "Location": "https://italy.caesartheday.com/$1" }
+      "headers": {
+        "Location": "https://italy.caesartheday.com/$1"
+      }
     },
     {
       "src": "^/sitemap\\.xml$",
@@ -24,7 +33,9 @@
     },
     {
       "src": "^/(admin|auth|design-system)(/.*)?$",
-      "headers": { "X-Robots-Tag": "noindex, nofollow" },
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow"
+      },
       "continue": true
     },
     {
