@@ -26,7 +26,7 @@ export const rioni: Rione[] = [
     tag: 'The Habsburg grid, on the flat',
     image: img('trieste-borgo-teresiano'),
     imageAlt: 'The Canal Grande in Trieste\u2019s Borgo Teresiano at dusk',
-    rent: '€600–850 / month for a two-bed',
+    rent: '€750–1,050 / month for a two-bed',
     buy: '€1,900–2,600 / m²',
     bora: 3,
     lift: 'Flat as a table — no steps, no funicular, no car needed.',

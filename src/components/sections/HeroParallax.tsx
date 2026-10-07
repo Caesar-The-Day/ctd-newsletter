@@ -69,11 +69,11 @@ export function HeroParallax({
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-end pb-16 md:pb-24 px-4">
         <div className="text-center max-w-4xl animate-fade-in-up">
-          {/* Brand Title */}
+          {/* Brand masthead — the regional guide title below is the page H1. */}
           <div className="mb-8 opacity-0 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {brandTitle}
-            </h1>
+            </div>
             <p className="text-xl md:text-2xl text-white/95 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {brandSubtitle}
             </p>
@@ -86,9 +86,9 @@ export function HeroParallax({
           <div className="text-sm md:text-base text-white font-semibold mb-4 opacity-0 animate-fade-in-up animate-stagger-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Issue #{issueNumber} • {date}
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-white opacity-0 animate-fade-in-up animate-stagger-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <h1 className="mx-auto max-w-5xl text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-white opacity-0 animate-fade-in-up animate-stagger-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {title}
-          </h2>
+          </h1>
           <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto mb-6 opacity-0 animate-fade-in-up animate-stagger-3 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {tagline}
           </p>
