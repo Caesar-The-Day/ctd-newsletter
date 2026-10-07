@@ -34,7 +34,14 @@ function redirectToBase() {
       server.middlewares.stack.unshift({ route: "", handle: (req: any, res: any, next: any) => {
         const url: string = req.url || "/";
         const accept: string = req.headers?.accept || "";
-        if (url.startsWith("/regions") || !accept.includes("text/html")) return next();
+        // "/regions" without the trailing slash also triggers Vite's error page.
+        if (url === "/regions" || url.startsWith("/regions?") || url.startsWith("/regions#")) {
+          res.statusCode = 302;
+          res.setHeader("Location", "/regions/" + url.slice("/regions".length));
+          res.end();
+          return;
+        }
+        if (url.startsWith("/regions/") || !accept.includes("text/html")) return next();
         res.statusCode = 302;
         res.setHeader("Location", "/regions" + (url === "/" ? "/" : url));
         res.end();
