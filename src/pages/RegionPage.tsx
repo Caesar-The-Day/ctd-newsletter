@@ -32,6 +32,7 @@ import { HighlightsShowcase } from '@/components/sections/HighlightsShowcase';
 import { HealthcareInfrastructure } from '@/components/sections/HealthcareInfrastructure';
 import { LazioHealthcareInfrastructure } from '@/components/sections/LazioHealthcareInfrastructure';
 import { FriuliHealthcareInfrastructure } from '@/components/sections/FriuliHealthcareInfrastructure';
+import { HealthEnrollmentNote } from '@/components/sections/HealthEnrollmentNote';
 
 
 import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
@@ -569,6 +570,8 @@ export default function RegionPage() {
       {region === 'lombardia' && <PanettoneQuiz />}
 
       {region === 'trentino-alto-adige' && <TrentinoMountainMobility />}
+
+      <HealthEnrollmentNote />
 
       {region === 'lazio' ? (
         <LazioHealthcareInfrastructure />
