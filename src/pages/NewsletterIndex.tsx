@@ -273,26 +273,26 @@ const NewsletterIndex = () => {
       <SEO
         title="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
         description="Veni. Vidi. Vici. is your region-by-region guide to conquering retirement in Italy, with deep dives on cost of living, towns worth living in, regional secrets, and interactive tools like maps, quizzes, and recipes."
-        canonical="https://www.caesartheday.com/regions/"
+        canonical="https://italy.caesartheday.com/"
         ogTitle="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
         ogDescription="Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs."
-        ogUrl="https://www.caesartheday.com/regions/"
+        ogUrl="https://italy.caesartheday.com/"
         ogType="website"
-        ogImage="https://www.caesartheday.com/regions/og-veni-vidi-vici-sep2026.jpg"
+        ogImage="https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg"
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
           name: 'Veni. Vidi. Vici. – Your Guide to Conquering Retirement in Italy',
           description:
             'Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs.',
-          url: 'https://www.caesartheday.com/regions/',
+          url: 'https://italy.caesartheday.com/',
           publisher: {
             '@type': 'Organization',
             name: 'CaesarTheDay®',
             url: 'https://www.caesartheday.com',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.caesartheday.com/regions/images/shared/caesartheday-logo.png',
+              url: 'https://italy.caesartheday.com/images/shared/caesartheday-logo.png',
             },
           },
           inLanguage: 'en',
@@ -302,7 +302,7 @@ const NewsletterIndex = () => {
               '@type': 'ListItem',
               position: i + 1,
               name: n.title,
-              url: `https://www.caesartheday.com/regions/${n.slug}`,
+              url: `https://italy.caesartheday.com/${n.slug}`,
             })),
           },
         }}

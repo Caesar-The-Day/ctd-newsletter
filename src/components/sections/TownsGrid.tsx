@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { MapPin, Map } from 'lucide-react';
-import { useStaggeredReveal } from '@/hooks/use-staggered-reveal';
 
 interface GridTown {
   id: string;
@@ -81,15 +80,10 @@ function TownCard({
   index: number; 
   onSelect: (town: GridTown) => void;
 }) {
-  const { isVisible, elementRef } = useStaggeredReveal();
-
   return (
     <Card 
-      ref={elementRef as any}
-      className={`overflow-hidden hover-lift shadow-soft transition-all duration-500 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}
-      style={{ transitionDelay: `${index * 50}ms` }}
+      className="overflow-hidden opacity-100 translate-y-0 hover-lift shadow-soft transition-all duration-500 motion-safe:animate-fade-in-up"
+      style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'both' }}
     >
       <div className="relative h-48">
         <img

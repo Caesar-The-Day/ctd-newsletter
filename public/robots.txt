@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /auth
 Disallow: /design-system
 
-Sitemap: https://www.caesartheday.com/regions/sitemap.xml
+Sitemap: https://italy.caesartheday.com/sitemap.xml
