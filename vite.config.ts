@@ -31,14 +31,14 @@ function redirectToBase() {
     name: "redirect-to-base",
     apply: "serve" as const,
     configureServer(server: any) {
-      server.middlewares.use((req: any, res: any, next: any) => {
+      server.middlewares.stack.unshift({ route: "", handle: (req: any, res: any, next: any) => {
         const url: string = req.url || "/";
         const accept: string = req.headers?.accept || "";
         if (url.startsWith("/regions") || !accept.includes("text/html")) return next();
         res.statusCode = 302;
         res.setHeader("Location", "/regions" + (url === "/" ? "/" : url));
         res.end();
-      });
+      }});
     },
   };
 }
