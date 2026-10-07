@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import { ArrowRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 interface MapEntry {
   slug: string;
@@ -135,15 +135,15 @@ const ItalyMapInteractive = ({ entries, featuredSlug, titles }: ItalyMapInteract
       {featuredSlug && featuredTitle && (
         <a
           href="#latest"
-          className="absolute right-[4%] top-[14%] z-20 inline-flex flex-col items-start rounded-lg bg-primary px-3 py-2 text-primary-foreground shadow-medium transition-transform hover:scale-105"
+          className="absolute left-[59%] top-[10%] z-20 inline-flex flex-col items-start rounded-lg bg-primary px-3 py-2 text-primary-foreground shadow-medium transition-transform hover:scale-105"
           aria-label={`New this month: ${featuredTitle}`}
         >
           <span className="text-[10px] font-semibold uppercase tracking-[0.15em] opacity-80">
             New this month
           </span>
           <span className="inline-flex items-center gap-1 text-sm font-semibold leading-tight">
+            <ArrowLeft className="h-3 w-3" />
             {featuredTitle}
-            <ArrowRight className="h-3 w-3" />
           </span>
         </a>
       )}
