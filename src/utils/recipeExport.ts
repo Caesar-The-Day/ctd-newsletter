@@ -27,6 +27,27 @@ function absoluteImage(image?: string): string | undefined {
 }
 
 /** schema.org/Recipe — the shape recipe managers (Paprika, Mela, AnyList, Copy Me That) import. */
+function isoDuration(v: unknown): string | undefined {
+  if (v == null) return undefined;
+  if (typeof v === 'number') return `PT${Math.round(v)}M`;
+  const t = String(v).trim();
+  if (/^P/i.test(t)) return t.toUpperCase();
+  const h = t.match(/(\d+)\s*h/i), m = t.match(/(\d+)\s*m/i);
+  if (!h && !m) return /^\d+$/.test(t) ? `PT${t}M` : undefined;
+  return `PT${h ? h[1] + 'H' : ''}${m ? m[1] + 'M' : ''}`;
+}
+
+function timeFields(r: Record<string, any>) {
+  const prep = isoDuration(r.prepTime), cook = isoDuration(r.cookTime), total = isoDuration(r.totalTime);
+  const y = r.recipeYield ?? r.servings ?? r.serves ?? r.yield;
+  return {
+    ...(prep ? { prepTime: prep } : {}),
+    ...(cook ? { cookTime: cook } : {}),
+    ...(total ? { totalTime: total } : {}),
+    ...(y ? { recipeYield: String(y) } : {}),
+  };
+}
+
 export function toSchemaRecipe(recipe: ExportableRecipe, regionName?: string) {
   const description = [recipe.story, recipe.servingSuggestion].filter(Boolean).join(' ');
 
@@ -36,10 +57,11 @@ export function toSchemaRecipe(recipe: ExportableRecipe, regionName?: string) {
     name: recipe.title,
     ...(description ? { description } : {}),
     ...(absoluteImage(recipe.image) ? { image: [absoluteImage(recipe.image)] } : {}),
-    ...(regionName
-      ? { recipeCuisine: `Italian — ${regionName}`, keywords: `${regionName}, Italian, regional` }
-      : { recipeCuisine: 'Italian' }),
-    author: { '@type': 'Organization', name: 'CaesarTheDay' },
+    recipeCuisine: 'Italian',
+    ...((recipe as any).mode ? { recipeCategory: `${(recipe as any).mode} main course` } : {}),
+    keywords: [regionName, 'Italian', (recipe as any).mode, 'regional recipe'].filter(Boolean).join(', '),
+    author: { '@type': 'Person', name: 'Caesar Sedek', url: 'https://www.caesartheday.com' },
+    ...timeFields(recipe as any),
     ...(recipe.ingredients?.length ? { recipeIngredient: recipe.ingredients } : {}),
     ...(recipe.steps?.length
       ? {
