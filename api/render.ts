@@ -180,8 +180,10 @@ async function renderRegion(slug: string): Promise<Response> {
   const og = ogRows.find(o => o.region_slug === slug);
   const name = regionName(region);
   const canonical = `${SITE}/${slug}`;
-  const title = og?.title || `${reg.title || name} | Veni. Vidi. Vici.`;
-  const description = og?.description || reg.tagline || DEFAULT_DESCRIPTION;
+  const tag = String(reg.title || '').includes(':') ? String(reg.title).split(':').slice(1).join(':').trim() : '';
+  const pat = tag && `Retiring in ${name}: ${tag} | Veni. Vidi. Vici.`.length <= 60 ? `Retiring in ${name}: ${tag} | Veni. Vidi. Vici.` : `Retiring in ${name} | Veni. Vidi. Vici.`;
+  const title = reg.seoTitle || og?.title || pat;
+  const description = reg.seoDescription || og?.description || reg.tagline || DEFAULT_DESCRIPTION;
   const image = absUrl(og?.image_url) || absUrl(reg.hero?.bannerImage) || DEFAULT_IMAGE;
 
   const jsonLd = [

@@ -21,60 +21,85 @@
       ],
       "portrait": "/images/shared/cesare-boat.jpg",
       "signature": "/images/shared/cesare-signature.png"
-    }
+    },
+    "seoTitle": "Retiring in Veneto | Veni. Vidi. Vici.",
+    "seoDescription": "Retiring in Veneto beyond Venice: Padova, Vicenza, Treviso and Verona compared on monthly costs, rent, top hospitals and Italy's best-connected rail."
   },
-
   "where": {
     "map": {
-      "center": [45.6, 11.8],
+      "center": [
+        45.6,
+        11.8
+      ],
       "zoom": 8,
       "markers": [
         {
           "id": "venezia",
           "name": "Venezia",
-          "coords": [45.4408, 12.3155],
+          "coords": [
+            45.4408,
+            12.3155
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "The world's most improbable city. Cultural capital, tourism magnet, and gateway to the lagoon — but rarely where retirees actually live."
         },
         {
           "id": "verona",
           "name": "Verona",
-          "coords": [45.4384, 10.9916],
+          "coords": [
+            45.4384,
+            10.9916
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "Roman arena, Shakespearean romance, and a thriving wine culture. Lake Garda influence keeps the climate mild."
         },
         {
           "id": "padova",
           "name": "Padova",
-          "coords": [45.4064, 11.8768],
+          "coords": [
+            45.4064,
+            11.8768
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "University city with one of Europe's oldest botanical gardens. The intellectual heart of the Veneto, with excellent healthcare."
         },
         {
           "id": "vicenza",
           "name": "Vicenza",
-          "coords": [45.5455, 11.5354],
+          "coords": [
+            45.5455,
+            11.5354
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "Palladio's city. UNESCO World Heritage architecture and a quiet, refined lifestyle that rewards the discerning."
         },
         {
           "id": "treviso",
           "name": "Treviso",
-          "coords": [45.6669, 12.2430],
+          "coords": [
+            45.6669,
+            12.243
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "Prosecco capital with medieval canals. Often called 'Little Venice' but with none of the crowds and all of the charm."
         },
         {
           "id": "bassano",
           "name": "Bassano del Grappa",
-          "coords": [45.7660, 11.7356],
+          "coords": [
+            45.766,
+            11.7356
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "Alpine foothills town famous for grappa, its covered bridge, and a pace of life that makes you forget your watch."
         },
         {
           "id": "cortina",
           "name": "Cortina d'Ampezzo",
-          "coords": [46.5369, 12.1356],
+          "coords": [
+            46.5369,
+            12.1356
+          ],
           "photo": "/images/veneto/hero.jpg",
           "blurb": "Queen of the Dolomites. Premium Alpine destination and Milano-Cortina 2026 Olympic host."
         }
@@ -90,37 +115,55 @@
               "type": "marker",
               "name": "Venice and its Lagoon",
               "timeCapsule": "1,000 years of maritime republic, built on water, preserved in stone.",
-              "coords": [45.4408, 12.3155]
+              "coords": [
+                45.4408,
+                12.3155
+              ]
             },
             {
               "type": "marker",
               "name": "Verona — City of Romeo and Juliet",
               "timeCapsule": "Roman arena, medieval towers, and the world's most famous balcony.",
-              "coords": [45.4384, 10.9916]
+              "coords": [
+                45.4384,
+                10.9916
+              ]
             },
             {
               "type": "marker",
               "name": "Vicenza — City of Palladio",
               "timeCapsule": "Andrea Palladio's architectural masterworks dot the city and surrounding villas.",
-              "coords": [45.5455, 11.5354]
+              "coords": [
+                45.5455,
+                11.5354
+              ]
             },
             {
               "type": "marker",
               "name": "Dolomites",
               "timeCapsule": "Dramatic Alpine peaks — shared with Trentino and South Tyrol.",
-              "coords": [46.41, 11.84]
+              "coords": [
+                46.41,
+                11.84
+              ]
             },
             {
               "type": "marker",
               "name": "Prosecco Hills of Conegliano and Valdobbiadene",
               "timeCapsule": "Steep vineyard terraces producing the world's favorite sparkling wine.",
-              "coords": [45.92, 12.07]
+              "coords": [
+                45.92,
+                12.07
+              ]
             },
             {
               "type": "marker",
               "name": "Padua's Botanical Garden",
               "timeCapsule": "The world's oldest academic botanical garden, founded in 1545.",
-              "coords": [45.3990, 11.8803]
+              "coords": [
+                45.399,
+                11.8803
+              ]
             }
           ]
         },
@@ -135,35 +178,140 @@
               "name": "Valpolicella (Amarone)",
               "description": "Home of Amarone and Ripasso. Rich, dried-grape reds from hillside vineyards northwest of Verona.",
               "color": "#722f37",
-              "coords": [[45.45, 10.80], [45.45, 11.10], [45.60, 11.10], [45.60, 10.80], [45.45, 10.80]]
+              "coords": [
+                [
+                  45.45,
+                  10.8
+                ],
+                [
+                  45.45,
+                  11.1
+                ],
+                [
+                  45.6,
+                  11.1
+                ],
+                [
+                  45.6,
+                  10.8
+                ],
+                [
+                  45.45,
+                  10.8
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Prosecco DOCG (Conegliano-Valdobbiadene)",
               "description": "UNESCO-listed steep hills producing the finest Prosecco. Glera grapes on dramatic terraces.",
               "color": "#d4a843",
-              "coords": [[45.85, 11.85], [45.85, 12.15], [46.00, 12.15], [46.00, 11.85], [45.85, 11.85]]
+              "coords": [
+                [
+                  45.85,
+                  11.85
+                ],
+                [
+                  45.85,
+                  12.15
+                ],
+                [
+                  46.0,
+                  12.15
+                ],
+                [
+                  46.0,
+                  11.85
+                ],
+                [
+                  45.85,
+                  11.85
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Soave DOC",
               "description": "Elegant Garganega-based whites from volcanic soils east of Verona. Mineral, fresh, underrated.",
               "color": "#c9b458",
-              "coords": [[45.35, 11.15], [45.35, 11.35], [45.50, 11.35], [45.50, 11.15], [45.35, 11.15]]
+              "coords": [
+                [
+                  45.35,
+                  11.15
+                ],
+                [
+                  45.35,
+                  11.35
+                ],
+                [
+                  45.5,
+                  11.35
+                ],
+                [
+                  45.5,
+                  11.15
+                ],
+                [
+                  45.35,
+                  11.15
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Bardolino & Custoza (Lake Garda)",
               "description": "Light reds and crisp whites from the Veronese shore of Lake Garda. Perfect aperitivo wines.",
               "color": "#e88a8a",
-              "coords": [[45.40, 10.60], [45.40, 10.80], [45.55, 10.80], [45.55, 10.60], [45.40, 10.60]]
+              "coords": [
+                [
+                  45.4,
+                  10.6
+                ],
+                [
+                  45.4,
+                  10.8
+                ],
+                [
+                  45.55,
+                  10.8
+                ],
+                [
+                  45.55,
+                  10.6
+                ],
+                [
+                  45.4,
+                  10.6
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Colli Euganei DOC",
               "description": "Volcanic terroir south of Padua producing distinctive reds and whites. Ancient viticultural tradition with thermal spa culture.",
               "color": "#9f1239",
-              "coords": [[45.35, 11.60], [45.35, 11.82], [45.22, 11.82], [45.22, 11.60], [45.35, 11.60]]
+              "coords": [
+                [
+                  45.35,
+                  11.6
+                ],
+                [
+                  45.35,
+                  11.82
+                ],
+                [
+                  45.22,
+                  11.82
+                ],
+                [
+                  45.22,
+                  11.6
+                ],
+                [
+                  45.35,
+                  11.6
+                ]
+              ]
             }
           ]
         },
@@ -176,42 +324,78 @@
             {
               "type": "airport",
               "name": "Venice Marco Polo (VCE)",
-              "coords": [45.5053, 12.3519],
+              "coords": [
+                45.5053,
+                12.3519
+              ],
               "code": "VCE",
               "description": "Primary international hub. Intercontinental and European connections."
             },
             {
               "type": "airport",
               "name": "Treviso Canova (TSF)",
-              "coords": [45.6484, 12.1944],
+              "coords": [
+                45.6484,
+                12.1944
+              ],
               "code": "TSF",
               "description": "Budget carrier hub. Ryanair and low-cost European routes."
             },
             {
               "type": "airport",
               "name": "Verona Catullo (VRN)",
-              "coords": [45.3957, 10.8885],
+              "coords": [
+                45.3957,
+                10.8885
+              ],
               "code": "VRN",
               "description": "Western Veneto gateway. European routes and Lake Garda access."
             },
             {
               "type": "rail-hs",
               "name": "Venice ↔ Milan (2.5 hrs)",
-              "coords": [[45.44, 12.32], [45.46, 9.19]],
+              "coords": [
+                [
+                  45.44,
+                  12.32
+                ],
+                [
+                  45.46,
+                  9.19
+                ]
+              ],
               "color": "#ef4444",
               "description": "High-speed Frecciarossa via Verona and Padova."
             },
             {
               "type": "rail-hs",
               "name": "Venice ↔ Rome (3.5 hrs)",
-              "coords": [[45.44, 12.32], [41.90, 12.50]],
+              "coords": [
+                [
+                  45.44,
+                  12.32
+                ],
+                [
+                  41.9,
+                  12.5
+                ]
+              ],
               "color": "#ef4444",
               "description": "High-speed connection via Bologna and Florence."
             },
             {
               "type": "rail-hs",
               "name": "Verona ↔ Brenner Pass (Austria)",
-              "coords": [[45.44, 10.99], [47.00, 11.51]],
+              "coords": [
+                [
+                  45.44,
+                  10.99
+                ],
+                [
+                  47.0,
+                  11.51
+                ]
+              ],
               "color": "#f97316",
               "description": "Direct rail to Innsbruck and Munich. Alpine gateway to Central Europe."
             }
@@ -228,28 +412,112 @@
               "name": "Parco Nazionale Dolomiti Bellunesi",
               "description": "Dramatic Alpine peaks, hiking, skiing. Italy's most spectacular mountain scenery.",
               "color": "#166534",
-              "coords": [[46.35, 11.80], [46.35, 12.30], [46.10, 12.30], [46.10, 11.80], [46.35, 11.80]]
+              "coords": [
+                [
+                  46.35,
+                  11.8
+                ],
+                [
+                  46.35,
+                  12.3
+                ],
+                [
+                  46.1,
+                  12.3
+                ],
+                [
+                  46.1,
+                  11.8
+                ],
+                [
+                  46.35,
+                  11.8
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Parco Regionale del Delta del Po",
               "description": "Wetland paradise for birdwatching. Where the Po River meets the Adriatic.",
               "color": "#0d9488",
-              "coords": [[45.05, 12.05], [45.05, 12.55], [44.85, 12.55], [44.85, 12.05], [45.05, 12.05]]
+              "coords": [
+                [
+                  45.05,
+                  12.05
+                ],
+                [
+                  45.05,
+                  12.55
+                ],
+                [
+                  44.85,
+                  12.55
+                ],
+                [
+                  44.85,
+                  12.05
+                ],
+                [
+                  45.05,
+                  12.05
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Colli Euganei Regional Park",
               "description": "Volcanic hills south of Padua. Thermal spas, hiking, and wine.",
               "color": "#4d7c0f",
-              "coords": [[45.35, 11.60], [45.35, 11.82], [45.22, 11.82], [45.22, 11.60], [45.35, 11.60]]
+              "coords": [
+                [
+                  45.35,
+                  11.6
+                ],
+                [
+                  45.35,
+                  11.82
+                ],
+                [
+                  45.22,
+                  11.82
+                ],
+                [
+                  45.22,
+                  11.6
+                ],
+                [
+                  45.35,
+                  11.6
+                ]
+              ]
             },
             {
               "type": "zone",
               "name": "Lessinia Regional Park",
               "description": "Pre-Alpine plateau north of Verona. Truffle country and gentle hiking.",
               "color": "#65a30d",
-              "coords": [[45.72, 10.90], [45.72, 11.20], [45.55, 11.20], [45.55, 10.90], [45.72, 10.90]]
+              "coords": [
+                [
+                  45.72,
+                  10.9
+                ],
+                [
+                  45.72,
+                  11.2
+                ],
+                [
+                  45.55,
+                  11.2
+                ],
+                [
+                  45.55,
+                  10.9
+                ],
+                [
+                  45.72,
+                  10.9
+                ]
+              ]
             }
           ]
         },
@@ -263,25 +531,37 @@
               "type": "marker",
               "name": "Bassano del Grappa",
               "timeCapsule": "Alpine foothills charm. Famous covered bridge, grappa tradition, and a walkable historic center.",
-              "coords": [45.7660, 11.7356]
+              "coords": [
+                45.766,
+                11.7356
+              ]
             },
             {
               "type": "marker",
               "name": "Asolo",
               "timeCapsule": "\"City of a Hundred Horizons.\" Hill town with panoramic views and refined cultural life.",
-              "coords": [45.7990, 11.9130]
+              "coords": [
+                45.799,
+                11.913
+              ]
             },
             {
               "type": "marker",
               "name": "Chioggia",
               "timeCapsule": "\"Little Venice\" on the southern lagoon. Working fishing port with authentic character.",
-              "coords": [45.2190, 12.2780]
+              "coords": [
+                45.219,
+                12.278
+              ]
             },
             {
               "type": "marker",
               "name": "Conegliano",
               "timeCapsule": "Gateway to Prosecco hills. Wine school, castle views, and genuine small-town life.",
-              "coords": [45.8870, 12.2970]
+              "coords": [
+                45.887,
+                12.297
+              ]
             }
           ]
         },
@@ -294,7 +574,10 @@
             {
               "type": "circle",
               "name": "3-Hour Reach from Padua",
-              "center": [45.4064, 11.8768],
+              "center": [
+                45.4064,
+                11.8768
+              ],
               "radius": 200000,
               "color": "#a855f7",
               "opacity": 0.08,
@@ -303,7 +586,10 @@
             {
               "type": "circle",
               "name": "2-Hour Reach from Padua",
-              "center": [45.4064, 11.8768],
+              "center": [
+                45.4064,
+                11.8768
+              ],
               "radius": 120000,
               "color": "#8b5cf6",
               "opacity": 0.12,
@@ -312,7 +598,10 @@
             {
               "type": "circle",
               "name": "1-Hour Reach from Padua",
-              "center": [45.4064, 11.8768],
+              "center": [
+                45.4064,
+                11.8768
+              ],
               "radius": 80000,
               "color": "#3b82f6",
               "opacity": 0.18,
@@ -351,7 +640,6 @@
       }
     ]
   },
-
   "character": {
     "slides": [
       {
@@ -371,7 +659,6 @@
       }
     ]
   },
-
   "climate": {
     "modes": [
       {
@@ -404,35 +691,34 @@
       }
     ]
   },
-
   "towns": {
     "subtitle": "Three Cities That Define Veneto",
     "featured": [
-       {
-         "id": "padova",
-         "name": "Padova",
-         "bestFor": "The Grown-Up Choice",
-         "photo": "/images/veneto/padova-featured.jpg",
+      {
+        "id": "padova",
+        "name": "Padova",
+        "bestFor": "The Grown-Up Choice",
+        "photo": "/images/veneto/padova-featured.jpg",
         "summary": "One of Italy's oldest university cities — intellectual depth, hospitals that function, and steady young energy. The historic center is walkable, arcades protect you from weather, real neighborhoods outside the core.",
         "fullDescription": "Padua is the grown-up choice.\n\nIt doesn't scream for attention. It doesn't need to. This is one of Italy's oldest university cities, which means it has intellectual depth, hospitals that actually function, and a steady stream of young energy that keeps it from fossilizing.\n\nThe historic center is dense and walkable. Arcades protect you from rain and summer sun. Cafés spill into piazzas that feel lived in, not staged. Outside the medieval core, you'll find real neighborhoods — residential blocks, supermarkets, pharmacies, hardware stores. Not souvenir shops.\n\nWhat works:\n\nOne of the strongest healthcare systems in northern Italy\nMajor hospital hub (University of Padua medical complex)\nHigh-speed rail stop between Milan and Venice\nFlat terrain — good for aging knees\nVenice airport within easy reach\n\nThe vibe:\nPractical elegance. Educated. Efficient. Not flashy.\n\nThe realities:\nPo Valley humidity in summer. Fog in winter. This is real northern Italy weather, not cinematic Tuscany. And while it's cheaper than Venice, prices reflect its quality.\n\nPadua makes sense if you want culture and infrastructure, not just scenery.",
         "mapUrl": "https://maps.google.com/?q=Padua+Italy",
         "gallery": []
       },
-       {
-         "id": "vicenza",
-         "name": "Vicenza",
-         "bestFor": "Palladio & Proportion",
-         "photo": "/images/veneto/vicenza-featured.jpg",
+      {
+        "id": "vicenza",
+        "name": "Vicenza",
+        "bestFor": "Palladio & Proportion",
+        "photo": "/images/veneto/vicenza-featured.jpg",
         "summary": "Curated but not artificial. Palladio's architecture defines a prosperous, wealthy city with maintained streets, strong services, and refined understatement. Walkable, direct rail connections, strong local economy.",
         "fullDescription": "Vicenza feels curated, but not artificial.\n\nThis is Palladio country. Symmetry, proportion, restraint. The architecture is almost unnervingly beautiful, yet daily life continues underneath it without drama.\n\nIt's wealthy. That matters. Wealth means maintained streets, active commerce, and strong services. It also means you're not moving into a fading town hoping revival will arrive someday.\n\nWhat works:\n\nCompact historic center — very walkable\nDirect rail to Milan, Venice, and Verona\nStrong local economy (manufacturing, design, export industries)\nGood hospital access\nManageable size without feeling small\n\nThe vibe:\nRefined. Understated. Confident.\n\nThe realities:\nHousing in the center isn't cheap. It's not buzzing with nightlife — this isn't Bologna. Social integration requires effort. Venetians are cordial but reserved.\n\nVicenza works if you appreciate structure, proportion, and a town that takes itself seriously.",
         "mapUrl": "https://maps.google.com/?q=Vicenza+Italy",
         "gallery": []
       },
-       {
-         "id": "treviso",
-         "name": "Treviso",
-         "bestFor": "Prosecco & Authenticity",
-         "photo": "/images/veneto/treviso-featured.jpg",
+      {
+        "id": "treviso",
+        "name": "Treviso",
+        "bestFor": "Prosecco & Authenticity",
+        "photo": "/images/veneto/treviso-featured.jpg",
         "summary": "Venice's authentic sister. Medieval canals, brick arcades at dusk, aperitivo culture without crowds. 30 minutes to Venice by train, close to airport, flat and walkable with strong middle-class economy.",
         "fullDescription": "Treviso is what people imagine Venice might be — before cruise ships and bachelor parties.\n\nCanals run through a compact historic center. Brick arcades glow at dusk. Aperitivo culture feels effortless rather than performative. And unlike Venice, this is a functioning residential city.\n\nWhat works:\n\n30 minutes by train to Venice\nClose to Treviso Airport\nFlat, extremely walkable\nStrong middle-class economic base\nProsecco hills on your doorstep\n\nThe vibe:\nStylish but grounded. Social. Clean. Slightly polished.\n\nThe realities:\nMore expensive than smaller Veneto towns. Some suburban sprawl outside the historic core. Summers are humid.\n\nTreviso makes sense if you want beauty, proximity to Venice, and a city that still belongs to its residents.",
         "mapUrl": "https://maps.google.com/?q=Treviso+Italy",
@@ -440,117 +726,116 @@
       }
     ],
     "grid": [
-       {
-         "id": "bassano-del-grappa",
-         "name": "Bassano del Grappa",
-         "bestFor": "Alpine foothills, grappa, covered bridge",
-         "photo": "/images/veneto/bassano-del-grappa.jpg",
+      {
+        "id": "bassano-del-grappa",
+        "name": "Bassano del Grappa",
+        "bestFor": "Alpine foothills, grappa, covered bridge",
+        "photo": "/images/veneto/bassano-del-grappa.jpg",
         "mapUrl": "https://maps.google.com/?q=Bassano+del+Grappa+Italy",
         "blurb": "At the edge of the foothills where the Alps begin — visually striking with the Ponte degli Alpini and Brenta River, but a functioning economic center with year-round life.",
         "fullDescription": "Bassano sits at the edge of the foothills where the Alps begin to rise. It's visually striking — the Ponte degli Alpini, the Brenta River, the mountains hovering in the background — but it isn't a resort town pretending to be real. It's a functioning economic center with industry, schools, and year-round life.\n\nWhat makes Bassano compelling for retirees is its balance. You get access to hiking and mountain air without committing to alpine isolation. Winters are cooler than the Po Valley but not brutal. Summers are warm but often breezier than Padua.\n\nHealthcare access is solid, and Vicenza is close for expanded services. The train network connects you south and west. This is a good fit for active retirees who want scenery, culture, and infrastructure without tourist overload.\n\nIt feels grounded. Lived in. Independent."
       },
-       {
-         "id": "conegliano",
-         "name": "Conegliano",
-         "bestFor": "Prosecco gateway, rail access",
-         "photo": "/images/veneto/conegliano.jpg",
+      {
+        "id": "conegliano",
+        "name": "Conegliano",
+        "bestFor": "Prosecco gateway, rail access",
+        "photo": "/images/veneto/conegliano.jpg",
         "mapUrl": "https://maps.google.com/?q=Conegliano+Italy",
         "blurb": "The quieter half of the Prosecco hills story — rail access, real services, and an economy rooted in wine and education, not just weekend tastings.",
         "fullDescription": "Conegliano is the quieter half of the Prosecco hills story. It has rail access, real services, and an economy rooted in wine and education — not just weekend tastings.\n\nThe historic center climbs gently uphill with views toward Valdobbiadene. Outside the center, you'll find practical neighborhoods and daily-life infrastructure. This isn't a postcard village that empties out in winter.\n\nThe appeal here is understated prosperity. You live in wine country, but you're not trapped in a rural bubble. Venice and Treviso are accessible. Healthcare in the broader Treviso network is strong.\n\nConegliano makes sense if you want vineyard views with train access and a community that functions year-round."
       },
-       {
-         "id": "montebelluna",
-         "name": "Montebelluna",
-         "bestFor": "Industrial stability, affordability",
-         "photo": "/images/veneto/montebelluna.jpg",
+      {
+        "id": "montebelluna",
+        "name": "Montebelluna",
+        "bestFor": "Industrial stability, affordability",
+        "photo": "/images/veneto/montebelluna.jpg",
         "mapUrl": "https://maps.google.com/?q=Montebelluna+Italy",
         "blurb": "One of Italy's industrial success stories — money circulates, streets are maintained, commerce is steady. Not romantic, but stable.",
         "fullDescription": "Montebelluna rarely makes relocation lists. That's precisely why it deserves attention.\n\nThis is one of Italy's industrial success stories, especially in technical sportswear and alpine equipment manufacturing. Translation: money circulates here. Streets are maintained. Commerce is steady. It's not romantic — it's stable.\n\nYou're near the Prosecco hills and within reach of Treviso and Venice, but you're not paying vineyard-premium prices. The town itself is clean, orderly, and middle-class.\n\nFor retirees who value functionality over fantasy, Montebelluna offers a quiet, affluent base with excellent regional access."
       },
-       {
-         "id": "cittadella",
-         "name": "Cittadella",
-         "bestFor": "Medieval walls, strategic location",
-         "photo": "/images/veneto/cittadella.jpg",
+      {
+        "id": "cittadella",
+        "name": "Cittadella",
+        "bestFor": "Medieval walls, strategic location",
+        "photo": "/images/veneto/cittadella.jpg",
         "mapUrl": "https://maps.google.com/?q=Cittadella+Italy",
         "blurb": "Wrapped in fully intact medieval walls you can walk along — yet inside, life moves normally with markets, cafés, and services.",
         "fullDescription": "Cittadella is wrapped in fully intact medieval walls you can walk along. It looks theatrical — but it's not frozen in time.\n\nInside those walls, life moves normally. Markets. Cafés. Schools. Services. Outside the walls, residential zones expand in practical fashion.\n\nIt sits between Padua, Vicenza, and Treviso with rail links that make mobility simple. That's the strategic advantage here. You can live in a small, beautiful historic center while plugging into larger cities for hospitals or specialized services.\n\nCittadella is ideal if you want charm at a human scale — without giving up access."
       },
-       {
-         "id": "castelfranco-veneto",
-         "name": "Castelfranco Veneto",
-         "bestFor": "Rail hub, car-free living",
-         "photo": "/images/veneto/castelfranco-veneto.jpg",
+      {
+        "id": "castelfranco-veneto",
+        "name": "Castelfranco Veneto",
+        "bestFor": "Rail hub, car-free living",
+        "photo": "/images/veneto/castelfranco-veneto.jpg",
         "mapUrl": "https://maps.google.com/?q=Castelfranco+Veneto+Italy",
         "blurb": "A rail hub disguised as a small city — connect to Padua, Vicenza, Treviso, and Venice without friction. Strategic, not flashy.",
         "fullDescription": "Castelfranco is a rail hub disguised as a small city.\n\nFrom here, you connect to Padua, Vicenza, Treviso, and Venice without friction. That matters more than people realize — especially if you plan to live car-light or car-free.\n\nThe historic core is compact and attractive. The surrounding neighborhoods are residential and functional. Prices are generally more moderate than Treviso or Padua.\n\nCastelfranco appeals to the retiree who thinks in terms of logistics. It's not flashy. It's strategic."
       },
-       {
-         "id": "este",
-         "name": "Este",
-         "bestFor": "Colli Euganei, thermal springs",
-         "photo": "/images/veneto/este.webp",
+      {
+        "id": "este",
+        "name": "Este",
+        "bestFor": "Colli Euganei, thermal springs",
+        "photo": "/images/veneto/este.webp",
         "mapUrl": "https://maps.google.com/?q=Este+Italy",
         "blurb": "At the base of the Colli Euganei — gentle hills, thermal waters, vineyards, and olive groves. Closer to countryside rhythms without being cut off.",
         "fullDescription": "Este sits at the base of the Colli Euganei, one of Veneto's quiet treasures. Gentle hills. Thermal waters nearby. Vineyards. Olive groves.\n\nThe pace here slows slightly compared to Padua. There's still infrastructure — supermarkets, services, bus connections — but you feel closer to countryside rhythms.\n\nAbano Terme and Montegrotto Terme are nearby for spa culture and medical facilities. Padua's hospital network is within reach.\n\nEste works for those who want green hills, local markets, and a softer lifestyle without being cut off."
       },
-       {
-         "id": "chioggia",
-         "name": "Chioggia",
-         "bestFor": "Working fishing port, lagoon life",
-         "photo": "/images/veneto/chioggia.webp",
+      {
+        "id": "chioggia",
+        "name": "Chioggia",
+        "bestFor": "Working fishing port, lagoon life",
+        "photo": "/images/veneto/chioggia.webp",
         "mapUrl": "https://maps.google.com/?q=Chioggia+Italy",
         "blurb": "A working fishing town with grit and character — boats unload fresh catch in the morning, markets buzz. Not manicured for tourism.",
         "fullDescription": "Chioggia is often called \"Little Venice,\" which misses the point.\n\nThis is a working fishing town with grit and character. Boats unload fresh catch in the morning. Markets buzz. The lagoon shapes daily life. It's not manicured for tourism the way Venice is.\n\nPrices are more approachable than Venice. The salt air is real. The sea is accessible. Summers can be lively, but winter brings authenticity.\n\nFor retirees who want water without spectacle — and who appreciate a bit of roughness around the edges — Chioggia delivers."
       },
-       {
-         "id": "arzignano",
-         "name": "Arzignano",
-         "bestFor": "Affordable, industrial stability",
-         "photo": "/images/veneto/arzignano.webp",
+      {
+        "id": "arzignano",
+        "name": "Arzignano",
+        "bestFor": "Affordable, industrial stability",
+        "photo": "/images/veneto/arzignano.webp",
         "mapUrl": "https://maps.google.com/?q=Arzignano+Italy",
         "blurb": "Unapologetically industrial — economically powerful with consistent employment and maintained infrastructure. Near Vicenza without Vicenza prices.",
         "fullDescription": "Arzignano is unapologetically industrial. It's known for leather production and manufacturing.\n\nThat might not sound romantic. It is, however, economically powerful. The town benefits from consistent employment and maintained infrastructure. It sits near Vicenza, giving you access to larger-city services without paying Vicenza prices.\n\nYou won't move here for Renaissance views. You move here for stability, affordability, and proximity.\n\nFor retirees focused on budget discipline and practicality, Arzignano is a serious option."
       },
-       {
-         "id": "schio",
-         "name": "Schio",
-         "bestFor": "Mountain proximity, modernizing",
-         "photo": "/images/veneto/schio.jpg",
+      {
+        "id": "schio",
+        "name": "Schio",
+        "bestFor": "Mountain proximity, modernizing",
+        "photo": "/images/veneto/schio.jpg",
         "mapUrl": "https://maps.google.com/?q=Schio+Italy",
         "blurb": "North of Vicenza at the base of the mountains — historically industrial, now reinventing itself with cultural initiatives and green spaces.",
         "fullDescription": "Schio sits north of Vicenza at the base of the mountains. Historically industrial, it has reinvented itself with cultural initiatives and green spaces.\n\nThe foothill position means cooler evenings in summer and quick access to hiking trails. It's well connected by road and rail to Vicenza's hospitals and services.\n\nIt feels industrious but evolving. Not glamorous, but increasingly livable.\n\nSchio is well suited for retirees who want proximity to mountains and a town that's quietly modernizing."
       },
-       {
-         "id": "feltre",
-         "name": "Feltre",
-         "bestFor": "Pre-Dolomite, alpine atmosphere",
-         "photo": "/images/veneto/feltre.jpg",
+      {
+        "id": "feltre",
+        "name": "Feltre",
+        "bestFor": "Pre-Dolomite, alpine atmosphere",
+        "photo": "/images/veneto/feltre.jpg",
         "mapUrl": "https://maps.google.com/?q=Feltre+Italy",
         "blurb": "Edges into the pre-Dolomite landscape — beautiful, cooler in summer, distinctly alpine. Mountain culture without Cortina pricing.",
         "fullDescription": "Feltre edges into the pre-Dolomite landscape. It's beautiful, cooler in summer, and distinctly alpine in atmosphere.\n\nThis is not suburban Veneto. Winters are real. Snow happens. Life slows.\n\nBut for those who want mountain culture without Cortina pricing, Feltre is compelling. There are schools, healthcare facilities, and daily services. You are not isolated — just elevated.\n\nFeltre is best for retirees who value altitude, quiet, and dramatic scenery over constant urban stimulation."
       },
-       {
-         "id": "abano-terme",
-         "name": "Abano Terme",
-         "bestFor": "Thermal wellness, healthcare access",
-         "photo": "/images/veneto/abano-terme.webp",
+      {
+        "id": "abano-terme",
+        "name": "Abano Terme",
+        "bestFor": "Thermal wellness, healthcare access",
+        "photo": "/images/veneto/abano-terme.webp",
         "mapUrl": "https://maps.google.com/?q=Abano+Terme+Italy",
         "blurb": "Built around thermal water — spa hotels, wellness centers, rehabilitation clinics. Minutes from Padua's medical network. Healthcare is baked into the town's identity.",
         "fullDescription": "Abano Terme is built around thermal water. Spa hotels, wellness centers, rehabilitation clinics — health is baked into the town's identity.\n\nIt sits minutes from Padua, which means you're tied into one of northern Italy's strongest medical networks. The terrain is flat. Walkable. Manageable.\n\nThe demographic skews older. That's not a flaw — it's part of the ecosystem.\n\nAbano Terme makes sense if you want healthcare access, spa culture, and proximity to a university city without living in its center."
       },
-       {
-         "id": "soave",
-         "name": "Soave",
-         "bestFor": "Walled wine town, vineyard views",
-         "photo": "/images/veneto/soave.jpg",
+      {
+        "id": "soave",
+        "name": "Soave",
+        "bestFor": "Walled wine town, vineyard views",
+        "photo": "/images/veneto/soave.jpg",
         "mapUrl": "https://maps.google.com/?q=Soave+Italy",
         "blurb": "Small, walled, and visually striking — vineyards stretch beyond the medieval gates. Globally recognized wine. Romantic in a controlled way.",
         "fullDescription": "Soave is small, walled, and visually striking. Vineyards stretch beyond the medieval gates. The wine is globally recognized.\n\nBut let's be honest: this is not a large city. Services are present but limited. Verona is the gravity center nearby for expanded healthcare and transport.\n\nSoave works for retirees comfortable in a smaller community, ideally with a car. It's scenic. It's contained. It's romantic in a controlled way.\n\nIf you want daily vineyard views and are comfortable supplementing locally with nearby Verona, Soave can be a deeply satisfying choice."
       }
     ]
   },
-
   "highlights": {
     "sectionIntro": "Veneto doesn't separate wine, food, and culture into neat categories. They bleed into each other — a glass of Amarone is architecture, a plate of baccalà is history, and Carnevale is philosophy wearing a mask. Here's what that actually looks like.",
     "wine": {
@@ -565,7 +850,10 @@
           "image": "/images/veneto/amarone-wine.jpg",
           "description": "Amarone is not a casual wine. It's made from grapes dried for months on wooden racks (appassimento), concentrating everything — sugar, tannin, complexity — into something that demands your full attention. Dark cherry, leather, chocolate, warm spice. Full-bodied with a finish that lingers for minutes.\n\nIt comes from the hills northwest of Verona, in Valpolicella — a landscape of terraced vineyards and stone farmhouses where the pace rewards patience. A single bottle can age for decades. The best vintages appreciate in value.\n\nThe town vibe it pairs with: Verona. Deep, patient, layered. Roman ruins under Renaissance palazzi under modern life. A city that doesn't rush because it knows what it has.\n\nIf you choose Amarone, you're not looking for excitement. You're looking for substance.",
           "links": [
-            { "label": "Consorzio Valpolicella", "href": "https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/" }
+            {
+              "label": "Consorzio Valpolicella",
+              "href": "https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/"
+            }
           ]
         },
         {
@@ -575,7 +863,10 @@
           "image": "/images/veneto/prosecco-wine.jpg",
           "description": "Forget the supermarket version. Real Prosecco comes from the steep, UNESCO-listed hills between Conegliano and Valdobbiadene — terraces so vertical that harvesting is done by hand, often with ropes. The Glera grape grown here produces something entirely different: fine persistent bubbles, green apple, white peach, acacia flowers, and a mineral backbone you won't find in a mass-produced bottle.\n\nThe distinction matters. Prosecco DOC (lowercase, from the plains) is industrial. Prosecco DOCG Superiore (uppercase, from these hills) is artisanal. The terroir is dramatic — hills that rise sharply from the Piave River plain, catching morning fog and afternoon sun.\n\nThe town vibe it pairs with: Treviso. Social, stylish, effervescent. Medieval canals, aperitivo culture, and a community that celebrates the ordinary Tuesday as much as the festival Saturday.\n\nIf you choose Prosecco Superiore, you believe the best things in life are shared.",
           "links": [
-            { "label": "Prosecco DOCG Consortium", "href": "https://www.prosecco.it/en/" }
+            {
+              "label": "Prosecco DOCG Consortium",
+              "href": "https://www.prosecco.it/en/"
+            }
           ]
         },
         {
@@ -585,7 +876,10 @@
           "image": "/images/veneto/soave-wine.jpg",
           "description": "Soave is Italy's most underrated great white wine. Made primarily from Garganega grapes grown on ancient volcanic soils east of Verona, the best examples are mineral, precise, and quietly captivating. Citrus, almond, chamomile, and a volcanic edge that speaks of deep geological time.\n\nThe volcanic terroir is key. These soils — remnants of eruptions 40 million years ago — give Soave a mineral complexity that sets it apart from any other Italian white. It's not showy. It doesn't announce itself. It reveals itself slowly, rewarding attention.\n\nThe town vibe it pairs with: Vicenza. Understated refinement. Palladian proportion. A city that doesn't need to prove anything because Palladio already did.\n\nIf you choose Soave, you value precision over performance.",
           "links": [
-            { "label": "Consorzio Soave", "href": "https://www.ilsoave.com/en/" }
+            {
+              "label": "Consorzio Soave",
+              "href": "https://www.ilsoave.com/en/"
+            }
           ]
         },
         {
@@ -595,7 +889,10 @@
           "image": "/images/veneto/bardolino-wine.jpg",
           "description": "Bardolino is the wine you drink without overthinking it. Light, fresh, cherry-forward — a red that behaves almost like a white, best served slightly chilled on a warm evening by Lake Garda. Made from the same Corvina and Rondinella grapes as Amarone, but treated gently, without the drama of dried grapes or extended aging.\n\nIt comes from the eastern shore of Lake Garda, where the microclimate is almost Mediterranean — olive trees, lemon groves, mild winters. The wine reflects the landscape: relaxed, unpretentious, built for pleasure rather than prestige.\n\nThe town vibe it pairs with: the Garda lakeside towns. Lazise, Bardolino, Peschiera. Aperitivo on the waterfront. Sunset over the lake. A pace of life that believes tomorrow will take care of itself.\n\nIf you choose Bardolino, you've already figured out what matters.",
           "links": [
-            { "label": "Consorzio Bardolino", "href": "https://consorziobardolino.it/en/homepage/" }
+            {
+              "label": "Consorzio Bardolino",
+              "href": "https://consorziobardolino.it/en/homepage/"
+            }
           ]
         }
       ]
@@ -643,7 +940,10 @@
           "image": "/images/veneto/hero.jpg",
           "description": "The Arena di Verona is the world's largest open-air opera venue — a Roman amphitheater built in the 1st century AD that seats 22,000 people and still hosts a full summer opera season. No microphones. No amplification. Just human voices filling a space designed for exactly this purpose two millennia ago.\n\nThe experience is elemental. You sit on stone steps that Roman citizens sat on. The stage is the size of a football pitch. When Aida enters with elephants and the sun sets behind Verona's rooftops, the line between spectacle and transcendence blurs completely.\n\nWhat residents know: bring a cushion. The stone is brutal on your back after three hours. Buy the unreserved stone seats (gradinata) — they're cheap, and the acoustic is actually better higher up. Arrive early for the ritual of lighting candles at dusk.",
           "links": [
-            { "label": "Arena di Verona", "href": "https://www.arena.it/en" }
+            {
+              "label": "Arena di Verona",
+              "href": "https://www.arena.it/en"
+            }
           ]
         },
         {
@@ -653,7 +953,10 @@
           "image": "/images/veneto/hero.jpg",
           "description": "In 1305, Giotto painted the interior of a small chapel in Padua and accidentally invented modern art. Before these frescoes, painting was flat, symbolic, Byzantine. After them, figures had weight, emotion, and three-dimensional space. Art historians mark the Scrovegni Chapel as the moment the Renaissance became inevitable.\n\nThe chapel is tiny. Visits are limited to 25 people for 15 minutes, after a dehumidification chamber adjusts your body's moisture to protect the paint. It sounds clinical. It's actually the most intimate encounter with genius you'll ever have.\n\nThe narrative cycle tells the life of Christ and the Virgin, but what you notice is the humanity — the tenderness of the kiss of Judas, the grief in the Lamentation, the quiet joy of the Meeting at the Golden Gate. Seven hundred years later, it still works.",
           "links": [
-            { "label": "Cappella degli Scrovegni", "href": "https://www.cappelladegliscrovegni.it/index.php/en/" }
+            {
+              "label": "Cappella degli Scrovegni",
+              "href": "https://www.cappelladegliscrovegni.it/index.php/en/"
+            }
           ]
         },
         {
@@ -679,7 +982,10 @@
           "image": "/images/veneto/hero.jpg",
           "description": "Venice didn't just produce Vivaldi — it produced the system that made Vivaldi possible. The Ospedali were charitable institutions for orphaned and abandoned girls, and four of them became Europe's most prestigious music conservatories. The Ospedale della Pietà, where Vivaldi taught for decades, trained female musicians who performed behind iron grilles to audiences that included kings and emperors.\n\nThese women — anonymous by design, extraordinary by talent — played concertos, sang operas, and composed works that rivaled anything in Europe. They were celebrities without faces. The Ospedali concerts were Venice's hottest tickets for over a century.\n\nThat tradition flows into Teatro La Fenice — Venice's legendary opera house, burned and rebuilt twice (like the phoenix it's named after). The current incarnation, restored in 2003, hosts year-round programming from opera to symphonic concerts. The New Year's Concert from La Fenice is broadcast across Europe.\n\nWhat residents know: La Fenice offers heavily discounted last-minute tickets. Show up an hour before curtain.",
           "links": [
-            { "label": "La Fenice", "href": "https://www.teatrolafenice.it/" }
+            {
+              "label": "La Fenice",
+              "href": "https://www.teatrolafenice.it/"
+            }
           ]
         },
         {
@@ -693,7 +999,6 @@
       ]
     }
   },
-
   "collaborator": {
     "heading": "Speak Italian Like You Belong",
     "paragraphs": [
@@ -707,7 +1012,6 @@
     "ctaLink": "https://italiando.aqulas.me/?fbclid=PAb21jcANYu8xleHRuA2FlbQIxMQABp-AAQrUNhnXXhrBTY_8w8RMtjDouyRS2egmduL1HHvyjvdskKaEOICPWdDrW_aem_Xi-i2ozen-XC30YQMhECJw",
     "backgroundImage": "/images/shared/cafe-table-sepia.jpg"
   },
-
   "wine": {
     "quiz": {
       "title": "Which Veneto Wine Are You?",
@@ -717,50 +1021,110 @@
           "id": "q1",
           "text": "Your perfect afternoon in Veneto looks like:",
           "answers": [
-            { "text": "Wandering Verona's backstreets with no plan.", "wine": "amarone" },
-            { "text": "A long lunch in a Prosecco hill trattoria.", "wine": "prosecco" },
-            { "text": "Cycling along the Brenta Canal.", "wine": "soave" },
-            { "text": "Browsing cicchetti bars in Venice.", "wine": "ripasso" }
+            {
+              "text": "Wandering Verona's backstreets with no plan.",
+              "wine": "amarone"
+            },
+            {
+              "text": "A long lunch in a Prosecco hill trattoria.",
+              "wine": "prosecco"
+            },
+            {
+              "text": "Cycling along the Brenta Canal.",
+              "wine": "soave"
+            },
+            {
+              "text": "Browsing cicchetti bars in Venice.",
+              "wine": "ripasso"
+            }
           ]
         },
         {
           "id": "q2",
           "text": "When someone cancels plans, you:",
           "answers": [
-            { "text": "Celebrate the unexpected free time.", "wine": "amarone" },
-            { "text": "Call someone else — the night is young.", "wine": "prosecco" },
-            { "text": "Enjoy the quiet evening at home.", "wine": "soave" },
-            { "text": "Shrug and pour yourself a glass.", "wine": "ripasso" }
+            {
+              "text": "Celebrate the unexpected free time.",
+              "wine": "amarone"
+            },
+            {
+              "text": "Call someone else — the night is young.",
+              "wine": "prosecco"
+            },
+            {
+              "text": "Enjoy the quiet evening at home.",
+              "wine": "soave"
+            },
+            {
+              "text": "Shrug and pour yourself a glass.",
+              "wine": "ripasso"
+            }
           ]
         },
         {
           "id": "q3",
           "text": "Pick a Veneto home base:",
           "answers": [
-            { "text": "A stone house in Valpolicella.", "wine": "amarone" },
-            { "text": "A hilltop villa near Asolo.", "wine": "prosecco" },
-            { "text": "A quiet apartment in Padua.", "wine": "soave" },
-            { "text": "A canal-side flat in Treviso.", "wine": "ripasso" }
+            {
+              "text": "A stone house in Valpolicella.",
+              "wine": "amarone"
+            },
+            {
+              "text": "A hilltop villa near Asolo.",
+              "wine": "prosecco"
+            },
+            {
+              "text": "A quiet apartment in Padua.",
+              "wine": "soave"
+            },
+            {
+              "text": "A canal-side flat in Treviso.",
+              "wine": "ripasso"
+            }
           ]
         },
         {
           "id": "q4",
           "text": "What's your relationship with food?",
           "answers": [
-            { "text": "Rich, complex, worth the wait.", "wine": "amarone" },
-            { "text": "Light, celebratory, shared with friends.", "wine": "prosecco" },
-            { "text": "Simple, seasonal, perfectly balanced.", "wine": "soave" },
-            { "text": "Familiar but never boring.", "wine": "ripasso" }
+            {
+              "text": "Rich, complex, worth the wait.",
+              "wine": "amarone"
+            },
+            {
+              "text": "Light, celebratory, shared with friends.",
+              "wine": "prosecco"
+            },
+            {
+              "text": "Simple, seasonal, perfectly balanced.",
+              "wine": "soave"
+            },
+            {
+              "text": "Familiar but never boring.",
+              "wine": "ripasso"
+            }
           ]
         },
         {
           "id": "q5",
           "text": "Choose a soundtrack for your trip:",
           "answers": [
-            { "text": "Something deep and cinematic.", "wine": "amarone" },
-            { "text": "Upbeat and effervescent.", "wine": "prosecco" },
-            { "text": "Acoustic and understated.", "wine": "soave" },
-            { "text": "Jazz — familiar melodies, new interpretations.", "wine": "ripasso" }
+            {
+              "text": "Something deep and cinematic.",
+              "wine": "amarone"
+            },
+            {
+              "text": "Upbeat and effervescent.",
+              "wine": "prosecco"
+            },
+            {
+              "text": "Acoustic and understated.",
+              "wine": "soave"
+            },
+            {
+              "text": "Jazz — familiar melodies, new interpretations.",
+              "wine": "ripasso"
+            }
           ]
         }
       ],
@@ -800,7 +1164,6 @@
       ]
     }
   },
-
   "recipes": {
     "header": {
       "title": "Veneto Recipes — From Lagoon to Mountain",
@@ -924,9 +1287,11 @@
         "winePairing": "Soave Classico — spring peas and mineral white wine are a natural match."
       }
     ],
-    "modes": ["Rustic", "Refined"]
+    "modes": [
+      "Rustic",
+      "Refined"
+    ]
   },
-
   "healthcare": {
     "sectionTitle": "Healthcare & Infrastructure",
     "sectionSubtitle": "Where competence is the default, not the exception",
@@ -1066,21 +1431,30 @@
     "airports": [
       {
         "name": "Venice Marco Polo (VCE)",
-        "coords": [45.5053, 12.3519],
+        "coords": [
+          45.5053,
+          12.3519
+        ],
         "description": "Primary international hub",
         "link": "https://www.veneziaairport.it/en/",
         "mapUrl": "https://maps.google.com/?q=Venice+Marco+Polo+Airport"
       },
       {
         "name": "Treviso Canova (TSF)",
-        "coords": [45.6484, 12.1944],
+        "coords": [
+          45.6484,
+          12.1944
+        ],
         "description": "Budget carrier hub",
         "link": "https://www.trevisoairport.it/en_us/",
         "mapUrl": "https://maps.google.com/?q=Treviso+Airport"
       },
       {
         "name": "Verona Catullo (VRN)",
-        "coords": [45.3957, 10.8885],
+        "coords": [
+          45.3957,
+          10.8885
+        ],
         "description": "Western Veneto gateway",
         "link": "https://www.aeroportoverona.it/en/",
         "mapUrl": "https://maps.google.com/?q=Verona+Airport"
@@ -1113,14 +1487,20 @@
     "parks": [
       {
         "name": "Parco Nazionale Dolomiti Bellunesi",
-        "coords": [46.20, 12.05],
+        "coords": [
+          46.2,
+          12.05
+        ],
         "description": "Dramatic Alpine peaks, hiking, and skiing.",
         "link": "https://www.dolomitipark.it/",
         "mapUrl": "https://maps.google.com/?q=Parco+Nazionale+Dolomiti+Bellunesi"
       },
       {
         "name": "Parco Regionale Delta del Po",
-        "coords": [44.96, 12.33],
+        "coords": [
+          44.96,
+          12.33
+        ],
         "description": "Wetland paradise for birdwatching.",
         "link": "https://www.parcodeltapo.org/",
         "mapUrl": "https://maps.google.com/?q=Parco+Delta+del+Po+Veneto"
@@ -1130,12 +1510,30 @@
       {
         "from": "Padova",
         "to": [
-          { "destination": "Venezia", "time": "25 min" },
-          { "destination": "Verona", "time": "50 min" },
-          { "destination": "Vicenza", "time": "20 min" },
-          { "destination": "Treviso", "time": "30 min" },
-          { "destination": "Bologna", "time": "1 hr 15 min" },
-          { "destination": "Milano", "time": "2 hr 15 min" }
+          {
+            "destination": "Venezia",
+            "time": "25 min"
+          },
+          {
+            "destination": "Verona",
+            "time": "50 min"
+          },
+          {
+            "destination": "Vicenza",
+            "time": "20 min"
+          },
+          {
+            "destination": "Treviso",
+            "time": "30 min"
+          },
+          {
+            "destination": "Bologna",
+            "time": "1 hr 15 min"
+          },
+          {
+            "destination": "Milano",
+            "time": "2 hr 15 min"
+          }
         ],
         "nearestAirport": {
           "name": "Venice Marco Polo",
@@ -1149,11 +1547,26 @@
       {
         "from": "Verona",
         "to": [
-          { "destination": "Padova", "time": "50 min" },
-          { "destination": "Venezia", "time": "1 hr 10 min" },
-          { "destination": "Milano", "time": "1 hr" },
-          { "destination": "Innsbruck", "time": "2 hr" },
-          { "destination": "Bologna", "time": "1 hr" }
+          {
+            "destination": "Padova",
+            "time": "50 min"
+          },
+          {
+            "destination": "Venezia",
+            "time": "1 hr 10 min"
+          },
+          {
+            "destination": "Milano",
+            "time": "1 hr"
+          },
+          {
+            "destination": "Innsbruck",
+            "time": "2 hr"
+          },
+          {
+            "destination": "Bologna",
+            "time": "1 hr"
+          }
         ],
         "nearestAirport": {
           "name": "Verona Catullo",
@@ -1166,7 +1579,10 @@
       }
     ],
     "quickInfo": {
-      "emergencyNumbers": ["112 (General Emergency)", "118 (Medical Emergency)"],
+      "emergencyNumbers": [
+        "112 (General Emergency)",
+        "118 (Medical Emergency)"
+      ],
       "healthcare": {
         "title": "Healthcare System",
         "description": "Veneto's SSN (Servizio Sanitario Nazionale) is among Italy's best-performing regional systems.",
@@ -1180,7 +1596,6 @@
     },
     "closing": "Veneto's infrastructure doesn't just exist — it connects. And for retirees, that connectivity is the difference between living somewhere beautiful and living somewhere that actually works."
   },
-
   "costOfLiving": {
     "intro": {
       "headline": "Cost of Living — The Veneto Value Equation",
@@ -1192,33 +1607,109 @@
       {
         "id": "venezia",
         "label": "Venezia (Historic Center)",
-        "modest": { "rent": 1100, "utilities": 160, "groceries": 420, "dining": 250, "transport": 80 },
-        "normal": { "rent": 1700, "utilities": 200, "groceries": 520, "dining": 400, "transport": 100 },
-        "highEnd": { "rent": 2800, "utilities": 280, "groceries": 700, "dining": 600, "transport": 150 }
+        "modest": {
+          "rent": 1100,
+          "utilities": 160,
+          "groceries": 420,
+          "dining": 250,
+          "transport": 80
+        },
+        "normal": {
+          "rent": 1700,
+          "utilities": 200,
+          "groceries": 520,
+          "dining": 400,
+          "transport": 100
+        },
+        "highEnd": {
+          "rent": 2800,
+          "utilities": 280,
+          "groceries": 700,
+          "dining": 600,
+          "transport": 150
+        }
       },
       {
         "id": "padova",
         "label": "Padova (Best Value)",
-        "modest": { "rent": 600, "utilities": 120, "groceries": 320, "dining": 180, "transport": 40 },
-        "normal": { "rent": 900, "utilities": 150, "groceries": 400, "dining": 280, "transport": 60 },
-        "highEnd": { "rent": 1400, "utilities": 200, "groceries": 550, "dining": 420, "transport": 90 }
+        "modest": {
+          "rent": 600,
+          "utilities": 120,
+          "groceries": 320,
+          "dining": 180,
+          "transport": 40
+        },
+        "normal": {
+          "rent": 900,
+          "utilities": 150,
+          "groceries": 400,
+          "dining": 280,
+          "transport": 60
+        },
+        "highEnd": {
+          "rent": 1400,
+          "utilities": 200,
+          "groceries": 550,
+          "dining": 420,
+          "transport": 90
+        }
       },
       {
         "id": "verona",
         "label": "Verona (Cultural Hub)",
-        "modest": { "rent": 650, "utilities": 125, "groceries": 330, "dining": 190, "transport": 45 },
-        "normal": { "rent": 1000, "utilities": 155, "groceries": 420, "dining": 300, "transport": 70 },
-        "highEnd": { "rent": 1600, "utilities": 210, "groceries": 580, "dining": 450, "transport": 100 }
+        "modest": {
+          "rent": 650,
+          "utilities": 125,
+          "groceries": 330,
+          "dining": 190,
+          "transport": 45
+        },
+        "normal": {
+          "rent": 1000,
+          "utilities": 155,
+          "groceries": 420,
+          "dining": 300,
+          "transport": 70
+        },
+        "highEnd": {
+          "rent": 1600,
+          "utilities": 210,
+          "groceries": 580,
+          "dining": 450,
+          "transport": 100
+        }
       },
       {
         "id": "treviso",
         "label": "Treviso (Prosecco Country)",
-        "modest": { "rent": 550, "utilities": 115, "groceries": 310, "dining": 170, "transport": 40 },
-        "normal": { "rent": 850, "utilities": 145, "groceries": 390, "dining": 260, "transport": 60 },
-        "highEnd": { "rent": 1300, "utilities": 190, "groceries": 530, "dining": 400, "transport": 90 }
+        "modest": {
+          "rent": 550,
+          "utilities": 115,
+          "groceries": 310,
+          "dining": 170,
+          "transport": 40
+        },
+        "normal": {
+          "rent": 850,
+          "utilities": 145,
+          "groceries": 390,
+          "dining": 260,
+          "transport": 60
+        },
+        "highEnd": {
+          "rent": 1300,
+          "utilities": 190,
+          "groceries": 530,
+          "dining": 400,
+          "transport": 90
+        }
       }
     ],
-    "lifestyles": ["Modest", "Average", "High-End"],
+    "lifestyles": [
+      "Modest",
+      "Average",
+      "High-End"
+    ],
     "notes": {
       "reference": "Estimates reviewed in 2026 for two people in a 1–2 bedroom rental; verify current listings before deciding.",
       "sources": [
@@ -1232,7 +1723,6 @@
       }
     }
   },
-
   "prosCons": {
     "intro": {
       "headline": "Pros & Cons: Veneto Without the Tourist Goggles",
@@ -1321,9 +1811,10 @@
       "conclusion": "If you want Italy that delivers on every metric — culture, healthcare, connectivity, wine, food, nature — without requiring you to choose between them, Veneto might be the smartest move you make. Just pack a fog-resistant attitude for November."
     }
   },
-
-  "ctas": ["book", "retirement-blueprint"],
-
+  "ctas": [
+    "book",
+    "retirement-blueprint"
+  ],
   "closing": {
     "header": "Share This Guide",
     "subtitle": "Know someone dreaming of Italian retirement?",
