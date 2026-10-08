@@ -272,7 +272,7 @@ const NewsletterIndex = () => {
     <div className="brand-ctd min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
       <SEO
         title="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
-        description="Veni. Vidi. Vici. is your region-by-region guide to conquering retirement in Italy, with deep dives on cost of living, towns worth living in, regional secrets, and interactive tools like maps, quizzes, and recipes."
+        description="Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs."
         canonical="https://italy.caesartheday.com/"
         ogTitle="Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy"
         ogDescription="Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs."
