@@ -290,9 +290,16 @@ export default function RegionPage() {
   const canonicalUrl = `https://italy.caesartheday.com/${region}`;
   const regionTitle: string = regionData.region?.title || regionMeta?.display_name || region || '';
   const regionName: string = regionMeta?.display_name || registryEntry?.displayName || regionTitle.split(':')[0].trim();
-  const effectiveSeoTitle = ogOverride?.title || `${regionTitle} | Veni. Vidi. Vici.`;
+  const seoRegion: any = regionData.region || {};
+  const tagline = regionTitle.includes(':') ? regionTitle.split(':').slice(1).join(':').trim() : '';
+  const patternTitle = (() => {
+    const t = tagline ? `Retiring in ${regionName}: ${tagline} | Veni. Vidi. Vici.` : '';
+    return t && t.length <= 60 ? t : `Retiring in ${regionName} | Veni. Vidi. Vici.`;
+  })();
+  const effectiveSeoTitle = seoRegion.seoTitle || ogOverride?.title || patternTitle;
   const effectiveSeoDescription =
-    ogOverride?.description || (regionData.region as any)?.tagline || 'Region-by-region guides to retiring in Italy.';
+    seoRegion.seoDescription || ogOverride?.description ||
+    (() => { const p = String(seoRegion.intro?.paragraphs?.[0] || seoRegion.tagline || ''); return p ? (p.length > 158 ? p.slice(0, 155).replace(/\s+\S*$/, '') + '…' : p) : `Retiring in ${regionName}: towns, monthly costs, healthcare access and honest tradeoffs.`; })();
   const heroImage: string | undefined = (regionData.region as any)?.hero?.bannerImage;
   const effectiveOgImage =
     ogOverride?.image_url ||

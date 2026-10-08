@@ -11,6 +11,7 @@ interface SEOProps {
   ogImage?: string;
   structuredData?: object | object[];
   noindex?: boolean;
+  robots?: string;
 }
 
 export function SEO({
@@ -24,6 +25,7 @@ export function SEO({
   ogImage,
   structuredData,
   noindex = false,
+  robots,
 }: SEOProps) {
   const blocks = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
   return (
@@ -31,14 +33,14 @@ export function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       {canonical && <link rel="canonical" href={canonical} />}
-      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+      <meta name="robots" content={robots || (noindex ? 'noindex, nofollow' : 'index, follow')} />
 
       {/* Open Graph */}
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
       {(ogUrl || canonical) && <meta property="og:url" content={ogUrl || canonical} />}
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="CaesarTheDay" />
+      <meta property="og:site_name" content="Veni. Vidi. Vici." />
       {ogImage && <meta property="og:image" content={ogImage} />}
       {ogImage && <meta property="og:image:width" content="1200" />}
       {ogImage && <meta property="og:image:height" content="630" />}
