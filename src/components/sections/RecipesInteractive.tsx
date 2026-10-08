@@ -178,7 +178,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
                                 <ChefHat className="h-4 w-4" />
                               </Button>
                             </CollapsibleTrigger>
-                            <CollapsibleContent>
+                            <CollapsibleContent forceMount>
                               <div className="mt-3 p-4 bg-muted/30 rounded-lg space-y-4">
                                 <p className="text-sm text-foreground/80">{recipe.description}</p>
                                 
@@ -277,7 +277,7 @@ export function RecipesInteractive({ header, originStory, recipes, modes, region
                       </Button>
                     </CollapsibleTrigger>
 
-                    <CollapsibleContent>
+                    <CollapsibleContent forceMount>
                       <div className="space-y-6 pt-2">
                         {/* Ingredients */}
                         {recipe.ingredients && recipe.ingredients.length > 0 && (
