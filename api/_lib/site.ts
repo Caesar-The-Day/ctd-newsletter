@@ -11,7 +11,7 @@ const SUPABASE_KEY =
   env.VITE_SUPABASE_PUBLISHABLE_KEY || env.SUPABASE_ANON_KEY || FALLBACK_SUPABASE_ANON_KEY;
 
 export const SITE = 'https://italy.caesartheday.com';
-export const SITE_NAME = 'CaesarTheDay';
+export const SITE_NAME = 'Veni. Vidi. Vici.';
 export const DEFAULT_TITLE = 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy';
 export const DEFAULT_DESCRIPTION =
   'Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs.';
