@@ -4,6 +4,13 @@
   "outputDirectory": "dist",
   "routes": [
     {
+      "src": "^/newsletters/(.+\\.pdf)$",
+      "status": 301,
+      "headers": {
+        "Location": "/regions/newsletters/$1"
+      }
+    },
+    {
       "src": "^/regions/(?!assets/|images/|data/|newsletters/)([^.]*)$",
       "status": 301,
       "headers": {

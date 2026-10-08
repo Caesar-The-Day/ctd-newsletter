@@ -6,3 +6,4 @@
 - SEO canonicals, social URLs, sitemaps, and crawler links use `https://italy.caesartheday.com` with region slugs at the domain root. Why: this is the independently fetchable production host for every regional guide.
 
 - Every regional healthcare section is preceded by the shared ERV voluntary-SSN enrollment-cost note. Why: the national minimum applies across regions and must stay consistent.
+- Newsletter PDFs live in public/newsletters/ (published only at /regions/newsletters/); vercel.json 301s bare /newsletters/*.pdf there. Why: one indexable address per PDF.
