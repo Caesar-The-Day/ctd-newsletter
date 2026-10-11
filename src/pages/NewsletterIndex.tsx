@@ -278,7 +278,7 @@ const NewsletterIndex = () => {
         ogDescription="Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs."
         ogUrl="https://italy.caesartheday.com/"
         ogType="website"
-        ogImage="https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg"
+        ogImage="https://italy.caesartheday.com/regions/og-veni-vidi-vici-oct2026.jpg"
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
