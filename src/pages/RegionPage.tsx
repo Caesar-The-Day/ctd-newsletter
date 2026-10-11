@@ -304,7 +304,7 @@ export default function RegionPage() {
   const effectiveOgImage =
     ogOverride?.image_url ||
     (heroImage ? (heroImage.startsWith('http') ? heroImage : `https://italy.caesartheday.com${heroImage}`) : undefined) ||
-    'https://italy.caesartheday.com/og-veni-vidi-vici-sep2026.jpg';
+    'https://italy.caesartheday.com/regions/og-veni-vidi-vici-oct2026.jpg';
   const isLive = regionMeta ? regionMeta.status === 'live' : true;
 
   return (

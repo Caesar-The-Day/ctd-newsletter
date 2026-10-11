@@ -15,7 +15,7 @@ export const SITE_NAME = 'Veni. Vidi. Vici.';
 export const DEFAULT_TITLE = 'Veni. Vidi. Vici. | Your Guide to Conquering Retirement in Italy';
 export const DEFAULT_DESCRIPTION =
   'Region-by-region guides to retiring in Italy: towns worth living in, real monthly costs, healthcare access and honest tradeoffs.';
-export const DEFAULT_IMAGE = `${SITE}/og-veni-vidi-vici-sep2026.jpg`;
+export const DEFAULT_IMAGE = `${SITE}/regions/og-veni-vidi-vici-oct2026.jpg`;
 export const LOGO = `${SITE}/images/shared/caesartheday-logo.png`;
 export const SEVEN_PERCENT_REGIONS = ['puglia', 'calabria', 'molise'];
 
