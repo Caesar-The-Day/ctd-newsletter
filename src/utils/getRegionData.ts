@@ -170,6 +170,7 @@ export interface FeatureFlags {
   show7PercentCTA: boolean;
   showCollaborator: boolean;
   showBookCTA: boolean;
+  showItalianBookCTA?: boolean;
   showRetirementBlueprintCTA: boolean;
   enableAmbientAudio: boolean;
   enableSeasonalParticles: boolean;
