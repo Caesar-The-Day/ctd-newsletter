@@ -18,7 +18,7 @@ export default function AostaAutonomy() {
           <p className="text-xs uppercase tracking-widest text-muted-foreground">of taxes raised here stay in the region</p>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5 items-start">
         {autonomy.map((a, k) => {
           const Icon = ICONS[k % ICONS.length];
           const isOpen = open === k;
