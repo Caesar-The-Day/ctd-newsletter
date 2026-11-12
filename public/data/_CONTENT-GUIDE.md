@@ -197,7 +197,7 @@ These sections can be included or omitted based on regional relevance:
   │   ├── cesare-portrait.jpg
   │   ├── cesare-signature.png
   │   ├── cesare-boat.jpg
-  │   ├── escape-plan-cover.jpg
+  │   ├── escape-plan-2026-boarding-pass.jpg
   │   ├── 7-percent-icon.png
   │   └── cafe-table-sepia.jpg
   └── {country}-{region}/              (Region-specific images)

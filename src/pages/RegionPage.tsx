@@ -39,6 +39,7 @@ import { ClimateSnapshot } from '@/components/sections/ClimateSnapshot';
 import { MosquitoWarning } from '@/components/sections/MosquitoWarning';
 import { CollaboratorFeature } from '@/components/sections/CollaboratorFeature';
 import { BookCTA } from '@/components/sections/BookCTA';
+import { ItalianBookCTA } from '@/components/sections/ItalianBookCTA';
 import { RetirementBlueprintCTA } from '@/components/sections/RetirementBlueprintCTA';
 import { SevenPercentCTA } from '@/components/sections/SevenPercentCTA';
 import { SevenPercentExplainer } from '@/components/sections/SevenPercentExplainer';
@@ -626,6 +627,8 @@ export default function RegionPage() {
         intro={regionData.costOfLiving.intro}
         notes={regionData.costOfLiving.notes}
       />
+
+      {config.showItalianBookCTA !== false && <ItalianBookCTA region={region} displayName={regionName} />}
 
       <ProsConsInteractive prosCons={regionData.prosCons} />
 
