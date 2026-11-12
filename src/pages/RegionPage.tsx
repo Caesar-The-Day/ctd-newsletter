@@ -7,6 +7,14 @@ import { SEO } from '@/components/common/SEO';
 import { ScrollProgress } from '@/components/common/ScrollProgress';
 import { supabase } from '@/integrations/supabase/client';
 import NotFound from './NotFound';
+import AostaSunFinder from '@/components/sections/aosta/AostaSunFinder';
+import AostaAltitudeSlider from '@/components/sections/aosta/AostaAltitudeSlider';
+import AostaBilingual from '@/components/sections/aosta/AostaBilingual';
+import AostaAutonomy from '@/components/sections/aosta/AostaAutonomy';
+import AostaAlpage from '@/components/sections/aosta/AostaAlpage';
+import AostaSeasonClock from '@/components/sections/aosta/AostaSeasonClock';
+import AostaDoorstep from '@/components/sections/aosta/AostaDoorstep';
+import AostaHealthcare from '@/components/sections/aosta/AostaHealthcare';
 import { EmailCapture } from '@/components/sections/EmailCapture';
 
 import { 
@@ -448,6 +456,14 @@ export default function RegionPage() {
 
       {region === 'lombardia' && <MosquitoWarning />}
 
+      {region === 'valle-daosta' && (
+        <>
+          <AostaSunFinder />
+          <AostaAltitudeSlider />
+          <AostaBilingual />
+        </>
+      )}
+
       <TownsFeatured towns={regionData.towns.featured} region={regionData.region.title} featuredNote={(regionData.towns as { featuredNote?: string }).featuredNote} />
       
       {config.showBookCTA && <BookCTA region={region} />}
@@ -493,6 +509,15 @@ export default function RegionPage() {
         <>
           <GenoaPractically />
           <LiguriaAfloat />
+        </>
+      )}
+
+      {region === 'valle-daosta' && (
+        <>
+          <AostaDoorstep />
+          <AostaAutonomy />
+          <AostaAlpage />
+          <AostaSeasonClock />
         </>
       )}
 
@@ -581,6 +606,8 @@ export default function RegionPage() {
         <TrentinoHealthcareInfrastructure />
       ) : region === 'liguria' ? (
         <LiguriaHealthcareInfrastructure />
+      ) : region === 'valle-daosta' ? (
+        <AostaHealthcare />
       ) : (
 
           <HealthcareInfrastructure
