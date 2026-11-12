@@ -7,3 +7,4 @@
 
 - Every regional healthcare section is preceded by the shared ERV voluntary-SSN enrollment-cost note. Why: the national minimum applies across regions and must stay consistent.
 - Newsletter PDFs live in public/newsletters/ (published only at /regions/newsletters/); vercel.json 301s bare /newsletters/*.pdf there. Why: one indexable address per PDF.
+- Region pages do not render the editorial intro (EditorialIntro.tsx kept unused); intro data stays stored for SEO fallbacks. Why: the owner removed the personal opening from all guides.

@@ -151,7 +151,6 @@ const FOCUS_AREAS = [
 
 const ALL_SECTIONS = [
   { id: 'hero', label: 'Hero', description: 'Main hero with parallax effect', default: true },
-  { id: 'editorialIntro', label: 'Editorial Intro', description: 'Personal welcome from Cesare', default: true },
   { id: 'map', label: 'Interactive Map', description: 'Geographic visualization', default: true },
   { id: 'climate', label: 'Climate Snapshot', description: 'Weather data charts', default: true },
   { id: 'townsFeatured', label: 'Featured Towns', description: 'Top town highlights', default: true },
