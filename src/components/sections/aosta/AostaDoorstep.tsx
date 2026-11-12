@@ -28,7 +28,7 @@ export default function AostaDoorstep() {
             <path d="M0 150 L60 90 L100 125 L150 60 L200 115 L250 70 L300 120 L350 55 L400 110 L440 80 L480 130 L520 100 L620 160 L620 0 L0 0Z" fill="hsl(var(--muted-foreground) / 0.08)" />
             <path d="M150 60 L135 78 L165 78Z M350 55 L335 74 L366 74Z M250 70 L238 85 L262 85Z" fill="hsl(var(--background))" opacity="0.9" />
             <text x="40" y="20" className="fill-muted-foreground" fontSize="11" letterSpacing="2">SWITZERLAND · FRANCE</text>
-            <text x="470" y="330" className="fill-muted-foreground" fontSize="11" letterSpacing="2">ITALY</text>
+            <text x="40" y="330" className="fill-muted-foreground" fontSize="11" letterSpacing="2">ITALY</text>
             {doorstep.map((r, k) => {
               const p = POS[r.place]; if (!p) return null;
               const active = k === i;
