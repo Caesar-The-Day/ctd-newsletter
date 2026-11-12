@@ -69,8 +69,8 @@ function buildRegionSection(existing: any, r: any, wizardData: WizardData) {
     tagline: r.region?.tagline || existing.tagline,
     intro: {
       ...(existing.intro || {}),
-      headline: r.editorialIntro?.headline || existing.intro?.headline,
-      paragraphs: r.editorialIntro?.paragraphs || existing.intro?.paragraphs,
+      headline: existing.intro?.headline,
+      paragraphs: existing.intro?.paragraphs,
     },
     hero: {
       ...(existing.hero || {}),

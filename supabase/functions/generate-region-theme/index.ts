@@ -80,7 +80,7 @@ You must respond with ONLY valid JSON matching this exact structure:
     "autumn": "description of ideal autumn background imagery",
     "winter": "description of ideal winter background imagery"
   },
-  "suggestedSections": ["array of section slugs from: hero, editorialIntro, map, climate, townsFeatured, bookCTA, townsGrid, highlights, collaborator, quiz, recipes, retirementBlueprintCTA, healthcare, costCalculator, sevenPercentCTA, prosCons, closing"],
+  "suggestedSections": ["array of section slugs from: hero, map, climate, townsFeatured, bookCTA, townsGrid, highlights, collaborator, quiz, recipes, retirementBlueprintCTA, healthcare, costCalculator, sevenPercentCTA, prosCons, closing"],
   "themeReasoning": "Brief explanation of color choices and why they fit the region"
 }
 

@@ -19,7 +19,6 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Map } from 'lucide-react';
 import { HeroParallax } from '@/components/sections/HeroParallax';
-import { EditorialIntro } from '@/components/sections/EditorialIntro';
 import { InteractiveMap } from '@/components/sections/InteractiveMap';
 import { WineQuiz } from '@/components/sections/WineQuiz';
 import { CostCalculator } from '@/components/sections/CostCalculator';
@@ -409,13 +408,6 @@ export default function RegionPage() {
         cinematic={region === 'calabria'}
       />
 
-      <EditorialIntro
-        headline={regionData.region.intro.headline}
-        byline={regionData.region.intro.byline}
-        paragraphs={regionData.region.intro.paragraphs}
-        portrait={regionData.region.intro.portrait}
-        signature={regionData.region.intro.signature}
-      />
 
       <EmailCapture campaign={region || 'home'} />
 

@@ -173,16 +173,6 @@ Respond with ONLY valid JSON matching this EXACT structure:
     "comparisons": ["array like 'Similar to Tuscany but more affordable'"],
     "uniqueSelling": "string - what makes this region stand out"
   },
-  "editorialIntro": {
-    "headline": "Bentornati or similar greeting",
-    "paragraphs": [
-      "First paragraph - set the scene, arrival description (3-4 sentences)",
-      "Second paragraph - sensory details, sounds, smells, textures (3-4 sentences)",
-      "Third paragraph - character and culture, what makes people here different (3-4 sentences)",
-      "Fourth paragraph - practical benefits for retirees, cost, healthcare, pace of life (3-4 sentences)",
-      "Fifth paragraph - invitation to explore, what follows in the guide (2-3 sentences)"
-    ]
-  },
   "geographyTabs": [
     {
       "id": "geography",

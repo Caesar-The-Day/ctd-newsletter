@@ -105,11 +105,6 @@ function regionBody(r: RegionRow, d: AnyRecord, all: RegionRow[]) {
 ${reg.tagline ? `<p>${esc(reg.tagline)}</p>` : ''}
 <p>Issue ${esc(r.issue_number ?? reg.issueNumber ?? '')} · Published <time datetime="${isoDate(r.published_date)}">${esc(isoDate(r.published_date))}</time> · Last updated <time datetime="${isoDate(r.updated_at)}">${esc(isoDate(r.updated_at))}</time> · By Caesar Sedek</p></header>`);
 
-  const intro = reg.intro || d.editorialIntro || {};
-  if (list(intro.paragraphs).length) {
-    parts.push(`<section><h2>${esc(intro.headline || 'Introduction')}</h2>${list(intro.paragraphs)
-      .map(p => `<p>${esc(p)}</p>`).join('')}</section>`);
-  }
 
   const tabs = list(d.where?.tabs);
   if (tabs.length) {
