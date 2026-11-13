@@ -80,7 +80,7 @@ export default function AostaSeasonClock() {
             <circle cx={C} cy={C} r={6} fill="hsl(var(--primary))" />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <div key={i} className="flex flex-col items-center animate-fade-in pt-16">
+            <div key={i} className="flex flex-col items-center animate-fade-in pt-24">
               <Icon className="h-7 w-7 text-primary" />
               <span className="text-2xl font-bold mt-1">{m.m}</span>
             </div>
