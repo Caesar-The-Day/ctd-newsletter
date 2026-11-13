@@ -18,7 +18,7 @@ export default function AostaSunFinder() {
   const [i, setI] = useState(0);
   const [hour, setHour] = useState(12);
   const [playing, setPlaying] = useState(false);
-  const raf = useRef<number>();
+  const raf = useRef<number | undefined>(undefined);
   useEffect(() => {
     if (!playing) return;
     let last = performance.now();
