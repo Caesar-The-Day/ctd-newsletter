@@ -50,7 +50,7 @@ export default function AostaHealthcare() {
 
       <div className="grid lg:grid-cols-[1.3fr_1fr] gap-6 mb-6">
         <div className="rounded-3xl border border-border bg-background p-6 shadow-soft">
-          <h3 className="font-bold mb-4 flex items-center gap-2"><Hospital className="h-5 w-5 text-primary" /> Drive to Aosta hospital</h3>
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><Hospital className="h-5 w-5 text-primary" /> Drive to Aosta hospital</h3>
           <div className="space-y-3">{hospitalTimes.map((h, i) => (
             <div key={h.from}><div className="flex justify-between text-sm mb-1"><span>{h.from}</span><span className="font-semibold">{h.mins} min</span></div>
               <div className="h-2 rounded-full bg-muted overflow-hidden"><motion.div className="h-full rounded-full bg-primary" initial={{ width: 0 }} whileInView={{ width: `${(h.mins / max) * 100}%` }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.8 }} /></div></div>
@@ -58,8 +58,8 @@ export default function AostaHealthcare() {
           <p className="text-xs text-muted-foreground mt-4">Estimates in good weather. Add time in snow.</p>
         </div>
         <div className="space-y-4">
-          <div className="rounded-3xl border border-border bg-background p-6"><Plane className="h-5 w-5 text-primary mb-2" /><h3 className="font-bold mb-1">Helicopter rescue</h3><p className="text-sm text-muted-foreground">The emergency helicopter is based in Aosta and reaches most side valleys in minutes, day and night, weather permitting.</p></div>
-          <div className="rounded-3xl border border-border bg-background p-6"><Globe2 className="h-5 w-5 text-primary mb-2" /><h3 className="font-bold mb-1">Specialist care</h3><p className="text-sm text-muted-foreground">For complex care, patients are usually sent to Turin (about 1h15). Lower-valley residents also use Ivrea. Treatment in Switzerland is private unless pre-authorised.</p></div>
+          <div className="rounded-3xl border border-border bg-background p-6"><Plane className="h-5 w-5 text-primary mb-2" /><h3 className="text-lg font-bold mb-1">Helicopter rescue</h3><p className="text-sm text-muted-foreground">The emergency helicopter is based in Aosta and reaches most side valleys in minutes, day and night, weather permitting.</p></div>
+          <div className="rounded-3xl border border-border bg-background p-6"><Globe2 className="h-5 w-5 text-primary mb-2" /><h3 className="text-lg font-bold mb-1">Specialist care</h3><p className="text-sm text-muted-foreground">For complex care, patients are usually sent to Turin (about 1h15). Lower-valley residents also use Ivrea. Treatment in Switzerland is private unless pre-authorised.</p></div>
         </div>
       </div>
 
