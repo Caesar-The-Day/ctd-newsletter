@@ -15,6 +15,8 @@ import AostaAlpage from '@/components/sections/aosta/AostaAlpage';
 import AostaSeasonClock from '@/components/sections/aosta/AostaSeasonClock';
 import AostaDoorstep from '@/components/sections/aosta/AostaDoorstep';
 import AostaHealthcare from '@/components/sections/aosta/AostaHealthcare';
+import AostaCostEstimator from '@/components/sections/aosta/AostaCostEstimator';
+import AostaProsCons from '@/components/sections/aosta/AostaProsCons';
 import AostaTable from '@/components/sections/aosta/AostaTable';
 import { EmailCapture } from '@/components/sections/EmailCapture';
 
@@ -641,16 +643,16 @@ export default function RegionPage() {
         <RetirementBlueprintCTA region={region} displayName={regionName} variant="consultation" />
       )}
 
-      <CostCalculator 
+      {region === 'valle-daosta' ? <AostaCostEstimator /> : <CostCalculator 
         townPresets={regionData.costOfLiving.townPresets} 
         lifestyles={regionData.costOfLiving.lifestyles}
         intro={regionData.costOfLiving.intro}
         notes={regionData.costOfLiving.notes}
-      />
+      />}
 
       {config.showItalianBookCTA !== false && <ItalianBookCTA region={region} displayName={regionName} />}
 
-      <ProsConsInteractive prosCons={regionData.prosCons} />
+      {region === 'valle-daosta' ? <AostaProsCons finalTake={regionData.prosCons?.finalTake} /> : <ProsConsInteractive prosCons={regionData.prosCons} />}
 
       {region === 'calabria' && <CalabriaRealityCheck />}
 
