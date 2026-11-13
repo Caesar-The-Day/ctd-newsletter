@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { UtensilsCrossed, Wine, Landmark, Pause, Play, Mountain, CalendarDays } from 'lucide-react';
-import { assetPath } from '@/lib/basePath';
+import { withBase as assetPath } from '@/lib/basePath';
 
 type Card = { id: string; title: string; subtitle?: string; description: string };
 type Cat = { title?: string; intro?: string; cards?: Card[] };
