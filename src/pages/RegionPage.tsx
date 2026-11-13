@@ -15,6 +15,7 @@ import AostaAlpage from '@/components/sections/aosta/AostaAlpage';
 import AostaSeasonClock from '@/components/sections/aosta/AostaSeasonClock';
 import AostaDoorstep from '@/components/sections/aosta/AostaDoorstep';
 import AostaHealthcare from '@/components/sections/aosta/AostaHealthcare';
+import AostaTable from '@/components/sections/aosta/AostaTable';
 import { EmailCapture } from '@/components/sections/EmailCapture';
 
 import { 
@@ -538,7 +539,7 @@ export default function RegionPage() {
 
       {config.show7PercentCTA && <SevenPercentCTA region={region} displayName={regionName} />}
 
-      {region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
+      {region === 'valle-daosta' ? <AostaTable highlights={regionData.highlights as any} /> : region !== 'umbria' && region !== 'veneto' && <HighlightsShowcase highlights={regionData.highlights} />}
 
       {region === 'liguria' && <LiguriaPantry />}
 
