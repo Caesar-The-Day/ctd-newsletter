@@ -37,7 +37,7 @@ export default function AostaAltitudeSlider() {
             <svg viewBox="0 0 700 340" className="w-full h-auto block" role="img" aria-label={`${s.town}, ${s.altitude} metres`}>
               <defs>
                 <linearGradient id="vdaAltSky" x1="0" y1="0" x2="0" y2="1">
-                  <motion.stop offset="0" animate={{ stopColor: `hsl(var(--foreground) / ${0.08 + i * 0.05})` }} />
+                  <motion.stop offset="0" animate={{ stopColor: `hsl(var(--primary) / ${0.06 + i * 0.03})` }} />
                   <stop offset="1" stopColor="hsl(var(--background))" />
                 </linearGradient>
                 <clipPath id="vdaMtn"><path d={PROFILE} /></clipPath>
@@ -48,7 +48,7 @@ export default function AostaAltitudeSlider() {
                 <motion.circle key={`${i}-${k}`} r={1.5 + (k % 3)} fill="hsl(var(--muted-foreground) / 0.5)" cx={(k * 97) % 700}
                   initial={{ cy: -10 }} animate={{ cy: 340 }} transition={{ duration: 5 + (k % 4), repeat: Infinity, delay: (k % 7) * 0.6, ease: 'linear' }} />
               ))}
-              <path d={PROFILE} fill="hsl(var(--primary) / 0.18)" />
+              <path d={PROFILE} fill="hsl(var(--primary) / 0.45)" />
               {/* vineyard rows at the foot */}
               {Array.from({ length: 7 }).map((_, k) => <path key={k} d={`M${10 + k * 26} ${332 - k * 2} q8 -6 16 0`} stroke="hsl(var(--primary) / 0.6)" strokeWidth="2" fill="none" />)}
               {/* forest band */}
