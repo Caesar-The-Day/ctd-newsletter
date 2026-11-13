@@ -88,6 +88,7 @@ function TownCard({
       <div className="relative h-48">
         <img
           src={town.photo}
+          title={(town as { photoCredit?: string }).photoCredit}
           alt={`${town.name} - ${town.blurb.substring(0, 80)} - Town worth living in for retirees`}
           className="w-full h-full object-cover"
         />

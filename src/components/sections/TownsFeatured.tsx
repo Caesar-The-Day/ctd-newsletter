@@ -74,6 +74,7 @@ export function TownsFeatured({ towns, region, featuredNote }: TownsFeaturedProp
                 <div className="relative h-64 group">
                     <img
                       src={currentImage}
+                      title={(town as { photoCredit?: string }).photoCredit}
                       alt={`${town.name} - Image ${currentIndex + 1} showcasing ${town.bestFor} - the charm of this Italian town for retirees`}
                       className="w-full h-full object-cover"
                     />
