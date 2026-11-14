@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapPin, Wine, Mountain, Globe, Anchor, Landmark, Train, Waves, Plane, Flower2, Footprints, Compass, MountainSnow, Ship, Fish, TramFront } from 'lucide-react';
 import { renderToString } from 'react-dom/server';
 import { Button } from '@/components/ui/button';
+import { withBase } from '@/lib/basePath';
 
 interface MapMarker {
   id: string;
@@ -192,7 +193,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
 
       const popupContent = `
         <div class="city-popup">
-          <img src="${marker.photo}" alt="${marker.name}" class="popup-image" />
+          <img src="${withBase(marker.photo)}" alt="${marker.name}" class="popup-image" />
           <div class="popup-content">
             <h3 class="font-bold text-base mb-2 text-foreground">${marker.name}</h3>
             <p class="text-sm text-muted-foreground leading-relaxed">${marker.blurb}</p>
@@ -234,7 +235,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             }).addTo(layerGroup);
 
             const photoHtml = feature.photo 
-              ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
+              ? `<img src="${withBase(feature.photo)}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
               : '';
 
             const zoneLinkHtml = feature.link
@@ -351,7 +352,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
 
             const popupContent = `
               <div class="zone-popup special-site-popup">
-                ${feature.photo ? `<img src="${feature.photo}" alt="${feature.name}" class="popup-image" />` : ''}
+                ${feature.photo ? `<img src="${withBase(feature.photo)}" alt="${feature.name}" class="popup-image" />` : ''}
                 <div class="popup-content">
                   <h3 class="font-bold text-base mb-2 text-foreground">${feature.name}</h3>
                   <p class="text-sm italic text-muted-foreground leading-relaxed">${feature.timeCapsule}</p>
@@ -563,7 +564,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             });
 
             const pointPhoto = feature.photo
-              ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
+              ? `<img src="${withBase(feature.photo)}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
               : '';
             const pointLink = feature.link
               ? `<a href="${feature.link}" ${feature.link.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="inline-block mt-3 px-4 py-2 text-sm font-medium !text-white bg-primary hover:bg-primary/90 rounded-md transition-colors">${feature.linkLabel || 'Read more →'}</a>`
@@ -600,7 +601,7 @@ export function InteractiveMap({ regionTitle = "Piemonte", whereData }: Interact
             });
 
             const photoHtml = feature.photo 
-              ? `<img src="${feature.photo}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
+              ? `<img src="${withBase(feature.photo)}" alt="${feature.name}" class="zone-popup-image" loading="lazy" />`
               : '';
 
             const heritageMarker = L.marker(offsetCoords, { 
